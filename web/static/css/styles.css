@@ -41,9 +41,490 @@ body{
   border-bottom: 1px solid var(--border);
 }
 
-.hero{ padding:5.5rem 0 3rem; }
-.section{ padding:4rem 0; }
+/* ============================================
+   HERO BACKGROUND — Circuit Board CSS
+   ============================================ */
+
+.hero{
+  padding:5.5rem 0 3rem;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Contenedor del fondo */
+.hero-bg{
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  z-index:1;
+}
+
+/* Grilla tipo circuito */
+.hero-grid{
+  position:absolute;
+  inset:0;
+  background-image:
+    linear-gradient(rgba(165,180,252,.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(165,180,252,.06) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 75%);
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 40%, black 20%, transparent 75%);
+}
+
+/* Glows radiales (simula luz de componentes) */
+.hero-glow{
+  position:absolute;
+  border-radius:50%;
+  filter:blur(80px);
+  opacity:.45;
+}
+.hero-glow--1{
+  width:500px;height:400px;
+  top:-80px;left:5%;
+  background:radial-gradient(circle,rgba(99,102,241,.2),transparent 70%);
+  animation:hero-float 8s ease-in-out infinite;
+}
+.hero-glow--2{
+  width:400px;height:350px;
+  bottom:10%;right:8%;
+  background:radial-gradient(circle,rgba(34,197,94,.15),transparent 70%);
+  animation:hero-float 10s ease-in-out infinite reverse;
+}
+.hero-glow--3{
+  width:300px;height:300px;
+  top:30%;left:45%;
+  background:radial-gradient(circle,rgba(147,197,253,.1),transparent 70%);
+  animation:hero-float 12s ease-in-out infinite 2s;
+}
+
+/* Nodos (puntos de circuito que parpadean) */
+.hero-node{
+  position:absolute;
+  width:6px;height:6px;
+  border-radius:50%;
+  background:rgba(165,180,252,.4);
+  box-shadow:0 0 12px rgba(165,180,252,.3), 0 0 4px rgba(165,180,252,.6);
+}
+.hero-node::after{
+  content:'';
+  position:absolute;
+  inset:-4px;
+  border-radius:50%;
+  border:1px solid rgba(165,180,252,.15);
+  animation:hero-ping 3s cubic-bezier(0,0,.2,1) infinite;
+}
+.hero-node--1{ top:15%; left:12%; animation:hero-pulse 4s ease-in-out infinite; }
+.hero-node--2{ top:25%; left:72%; animation:hero-pulse 5s ease-in-out infinite .8s; background:rgba(134,239,172,.4); box-shadow:0 0 12px rgba(134,239,172,.3); }
+.hero-node--2::after{ border-color:rgba(134,239,172,.15); }
+.hero-node--3{ top:65%; left:18%; animation:hero-pulse 4.5s ease-in-out infinite 1.5s; }
+.hero-node--4{ top:78%; left:55%; animation:hero-pulse 5.5s ease-in-out infinite .3s; background:rgba(147,197,253,.4); box-shadow:0 0 12px rgba(147,197,253,.3); }
+.hero-node--4::after{ border-color:rgba(147,197,253,.15); }
+.hero-node--5{ top:40%; left:88%; animation:hero-pulse 4s ease-in-out infinite 2s; background:rgba(249,168,212,.35); box-shadow:0 0 12px rgba(249,168,212,.25); }
+.hero-node--5::after{ border-color:rgba(249,168,212,.12); }
+.hero-node--6{ top:10%; left:50%; animation:hero-pulse 6s ease-in-out infinite 1s; }
+.hero-node--7{ top:85%; left:82%; animation:hero-pulse 4.2s ease-in-out infinite 2.5s; background:rgba(134,239,172,.35); box-shadow:0 0 12px rgba(134,239,172,.25); }
+.hero-node--7::after{ border-color:rgba(134,239,172,.12); }
+
+/* Líneas de circuito (horizontales y verticales) */
+.hero-line{
+  position:absolute;
+  background:linear-gradient(90deg,transparent,rgba(165,180,252,.12),transparent);
+}
+.hero-line--h1{ top:18%; left:12%; width:200px; height:1px; animation:hero-trace 6s ease-in-out infinite; }
+.hero-line--h2{ top:65%; left:5%; width:280px; height:1px; background:linear-gradient(90deg,transparent,rgba(134,239,172,.1),transparent); animation:hero-trace 8s ease-in-out infinite 1s; }
+.hero-line--h3{ top:45%; right:5%; width:180px; height:1px; animation:hero-trace 7s ease-in-out infinite 2s; }
+.hero-line--v1{ top:15%; left:12%; width:1px; height:160px; background:linear-gradient(180deg,rgba(165,180,252,.12),transparent); }
+.hero-line--v2{ top:25%; left:72%; width:1px; height:120px; background:linear-gradient(180deg,rgba(134,239,172,.1),transparent); }
+.hero-line--v3{ top:40%; right:12%; width:1px; height:200px; background:linear-gradient(180deg,rgba(147,197,253,.08),transparent); }
+
+/* Símbolos flotantes de código */
+.hero-bracket{
+  position:absolute;
+  font-family:'Courier New', monospace;
+  font-weight:700;
+  opacity:.06;
+  user-select:none;
+}
+.hero-bracket--1{
+  font-size:5rem;
+  top:8%;right:15%;
+  color:var(--accent-1);
+  animation:hero-float 9s ease-in-out infinite;
+}
+.hero-bracket--2{
+  font-size:4rem;
+  bottom:12%;left:8%;
+  color:var(--accent-2);
+  animation:hero-float 11s ease-in-out infinite 1.5s;
+}
+.hero-bracket--3{
+  font-size:6rem;
+  top:50%;right:5%;
+  color:var(--accent-3);
+  animation:hero-float 13s ease-in-out infinite 3s;
+}
+
+/* Animaciones */
+@keyframes hero-float{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-18px); }
+}
+@keyframes hero-pulse{
+  0%,100%{ opacity:.3; transform:scale(1); }
+  50%{ opacity:.8; transform:scale(1.4); }
+}
+@keyframes hero-ping{
+  0%{ transform:scale(1); opacity:.6; }
+  75%,100%{ transform:scale(2.5); opacity:0; }
+}
+@keyframes hero-trace{
+  0%,100%{ opacity:.15; }
+  50%{ opacity:.5; }
+}
+
+/* Light theme adjustments */
+body.theme-light .hero-grid{
+  background-image:
+    linear-gradient(rgba(99,102,241,.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99,102,241,.08) 1px, transparent 1px);
+}
+body.theme-light .hero-node{
+  background:rgba(99,102,241,.3);
+  box-shadow:0 0 10px rgba(99,102,241,.2);
+}
+body.theme-light .hero-bracket{ opacity:.04; }
+
+/* ============================================
+   SECTION BASE + FONDOS POR SECCIÓN
+   ============================================ */
+
+.section{
+  padding:4rem 0;
+  position:relative;
+  overflow:hidden;
+}
+.section > .container{
+  position:relative;
+  z-index:2;
+}
+.section::before,
+.section::after{
+  z-index:0;
+}
 .section-title{ letter-spacing:-.02em; }
+
+/* ── 1. Desarrollo Web: Código binario cascada + glow cyan ── */
+#desarrollo-web{
+  background:
+    radial-gradient(800px 500px at 90% 20%,rgba(103,232,249,.10),transparent 60%),
+    radial-gradient(600px 400px at 10% 80%,rgba(99,102,241,.08),transparent 60%);
+}
+#desarrollo-web::before{
+  content:'010110100011010101 001101 01101000 1101010 10011010 10110100 01101010 100110 10101100 11010101';
+  position:absolute;inset:0;
+  font-family:'Courier New',monospace;font-size:1.2rem;
+  line-height:2.4;letter-spacing:1rem;word-break:break-all;
+  color:rgba(103,232,249,.07);
+  pointer-events:none;overflow:hidden;
+  mask-image:radial-gradient(ellipse 70% 60% at 85% 30%,black,transparent 65%);
+  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 85% 30%,black,transparent 65%);
+}
+#desarrollo-web::after{
+  content:'';position:absolute;
+  width:600px;height:600px;top:-150px;right:-100px;
+  background:radial-gradient(circle,rgba(103,232,249,.12),transparent 55%);
+  border-radius:50%;pointer-events:none;
+  animation:hero-float 10s ease-in-out infinite;
+}
+
+/* ── 2. Portafolio Web: Mosaico browser + gradiente violeta ── */
+#portafolio-web{
+  background:
+    radial-gradient(700px 500px at 15% 50%,rgba(165,180,252,.10),transparent 55%),
+    radial-gradient(500px 400px at 85% 70%,rgba(196,181,253,.08),transparent 55%);
+}
+#portafolio-web::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(90deg,rgba(165,180,252,.06) 0px,rgba(165,180,252,.06) 2px,transparent 2px,transparent 140px),
+    repeating-linear-gradient(0deg,rgba(165,180,252,.05) 0px,rgba(165,180,252,.05) 2px,transparent 2px,transparent 100px);
+  mask-image:linear-gradient(180deg,transparent 5%,rgba(0,0,0,.7) 25%,rgba(0,0,0,.7) 75%,transparent 95%);
+  -webkit-mask-image:linear-gradient(180deg,transparent 5%,rgba(0,0,0,.7) 25%,rgba(0,0,0,.7) 75%,transparent 95%);
+  pointer-events:none;
+}
+
+/* ── 3. Software a Medida: Engranajes giratorios ── */
+#software-medida{
+  background:radial-gradient(800px 500px at 50% 0%,rgba(196,181,253,.09),transparent 55%);
+}
+#software-medida::before{
+  content:'';position:absolute;
+  width:400px;height:400px;top:-120px;right:-80px;
+  border-radius:50%;
+  border:50px solid rgba(196,181,253,.07);
+  pointer-events:none;
+  animation:sec-rotate 25s linear infinite;
+}
+#software-medida::after{
+  content:'';position:absolute;
+  width:300px;height:300px;bottom:-80px;left:5%;
+  border-radius:50%;
+  border:35px solid rgba(134,239,172,.06);
+  pointer-events:none;
+  animation:sec-rotate 20s linear infinite reverse;
+}
+
+/* ── 4. APIs: Constelación de nodos conectados ── */
+#apis{
+  background:
+    radial-gradient(600px 500px at 25% 40%,rgba(94,234,212,.10),transparent 55%),
+    radial-gradient(500px 400px at 80% 70%,rgba(165,180,252,.08),transparent 55%);
+}
+#apis::before{
+  content:'';position:absolute;inset:0;
+  background-image:radial-gradient(circle 3px,rgba(94,234,212,.14) 100%,transparent 100%);
+  background-size:50px 50px;
+  mask-image:radial-gradient(ellipse 65% 70% at 30% 50%,black 10%,transparent 65%);
+  -webkit-mask-image:radial-gradient(ellipse 65% 70% at 30% 50%,black 10%,transparent 65%);
+  pointer-events:none;
+}
+#apis::after{
+  content:'';position:absolute;
+  width:500px;height:500px;top:50%;right:-180px;transform:translateY(-50%);
+  background:
+    radial-gradient(circle 150px at 30% 40%,rgba(94,234,212,.10),transparent),
+    radial-gradient(circle 100px at 70% 60%,rgba(165,180,252,.08),transparent);
+  pointer-events:none;animation:hero-float 9s ease-in-out infinite;
+}
+
+/* ── 5. AWS: Nubes flotantes naranjas ── */
+#aws{
+  background:
+    radial-gradient(700px 400px at 70% 20%,rgba(253,186,116,.10),transparent 55%),
+    radial-gradient(500px 400px at 20% 80%,rgba(252,211,77,.06),transparent 55%);
+}
+#aws::before{
+  content:'';position:absolute;
+  width:320px;height:140px;top:10%;right:5%;
+  background:rgba(253,186,116,.06);border-radius:140px;
+  box-shadow:
+    -200px 100px 0 70px rgba(253,186,116,.05),
+    150px 140px 0 50px rgba(253,186,116,.04),
+    -80px 200px 0 90px rgba(253,186,116,.03);
+  pointer-events:none;animation:hero-float 14s ease-in-out infinite;
+}
+#aws::after{
+  content:'';position:absolute;
+  width:300px;height:300px;bottom:-80px;left:3%;
+  background:radial-gradient(circle,rgba(253,186,116,.10),transparent 60%);
+  border-radius:50%;pointer-events:none;
+  animation:hero-float 11s ease-in-out infinite 2s;
+}
+
+/* ── 6. n8n: Diagrama de flujo / workflow ── */
+#n8n{
+  background:
+    radial-gradient(600px 500px at 80% 30%,rgba(165,180,252,.09),transparent 55%),
+    radial-gradient(500px 400px at 15% 70%,rgba(134,239,172,.08),transparent 55%);
+}
+#n8n::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(90deg,transparent 49%,rgba(165,180,252,.07) 49%,rgba(165,180,252,.07) 51%,transparent 51%),
+    linear-gradient(0deg,transparent 49%,rgba(134,239,172,.06) 49%,rgba(134,239,172,.06) 51%,transparent 51%);
+  background-size:90px 90px;
+  mask-image:radial-gradient(ellipse 55% 70% at 20% 45%,black 10%,transparent 65%);
+  -webkit-mask-image:radial-gradient(ellipse 55% 70% at 20% 45%,black 10%,transparent 65%);
+  pointer-events:none;
+}
+#n8n::after{
+  content:'';position:absolute;
+  width:500px;height:500px;top:-120px;left:-120px;
+  background:radial-gradient(circle,rgba(165,180,252,.10),transparent 55%);
+  border-radius:50%;pointer-events:none;
+  animation:hero-float 13s ease-in-out infinite;
+}
+
+/* ── 7. Sobre Mí: Partículas de confianza ── */
+#sobre-mi{
+  background:
+    radial-gradient(600px 500px at 85% 30%,rgba(134,239,172,.09),transparent 55%),
+    radial-gradient(500px 400px at 10% 70%,rgba(99,102,241,.07),transparent 55%);
+}
+#sobre-mi::before{
+  content:'';position:absolute;
+  right:0;top:0;bottom:0;width:50%;
+  background-image:
+    radial-gradient(circle 5px at 50% 10%,rgba(134,239,172,.14),transparent),
+    radial-gradient(circle 4px at 25% 25%,rgba(165,180,252,.12),transparent),
+    radial-gradient(circle 5px at 75% 40%,rgba(134,239,172,.14),transparent),
+    radial-gradient(circle 4px at 35% 55%,rgba(165,180,252,.12),transparent),
+    radial-gradient(circle 5px at 65% 70%,rgba(134,239,172,.14),transparent),
+    radial-gradient(circle 4px at 30% 85%,rgba(165,180,252,.12),transparent),
+    radial-gradient(circle 3px at 80% 15%,rgba(253,186,116,.10),transparent),
+    radial-gradient(circle 3px at 55% 90%,rgba(253,186,116,.10),transparent);
+  pointer-events:none;
+  animation:hero-float 16s ease-in-out infinite;
+}
+
+/* ── 8. Tecnologías: Grilla hexagonal ── */
+#tecnologias{
+  background:radial-gradient(700px 500px at 50% 50%,rgba(99,102,241,.08),transparent 55%);
+}
+#tecnologias::before{
+  content:'';position:absolute;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50 0 16 28 0 56 16 56 50z' fill='none' stroke='rgba(165,180,252,0.07)' stroke-width='1'/%3E%3Cpath d='M28 100L0 84 0 50 28 34 56 50 56 84z' fill='none' stroke='rgba(134,239,172,0.06)' stroke-width='1'/%3E%3C/svg%3E");
+  background-size:56px 100px;
+  mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 10%,transparent 65%);
+  -webkit-mask-image:radial-gradient(ellipse 85% 85% at 50% 50%,black 10%,transparent 65%);
+  pointer-events:none;
+}
+
+/* ── 9. Certificaciones: Cielo de estrellas doradas ── */
+#certificaciones{
+  background:
+    radial-gradient(600px 400px at 50% 30%,rgba(252,211,77,.08),transparent 55%),
+    radial-gradient(500px 400px at 80% 80%,rgba(253,186,116,.06),transparent 55%);
+}
+#certificaciones::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    radial-gradient(circle 2px,rgba(252,211,77,.20) 100%,transparent 100%),
+    radial-gradient(circle 1.5px,rgba(252,211,77,.15) 100%,transparent 100%),
+    radial-gradient(circle 3px,rgba(252,211,77,.10) 100%,transparent 100%);
+  background-size:180px 140px, 100px 120px, 220px 180px;
+  background-position:10px 20px, 50px 50px, 100px 10px;
+  mask-image:linear-gradient(180deg,transparent 5%,rgba(0,0,0,.6) 25%,rgba(0,0,0,.6) 75%,transparent 95%);
+  -webkit-mask-image:linear-gradient(180deg,transparent 5%,rgba(0,0,0,.6) 25%,rgba(0,0,0,.6) 75%,transparent 95%);
+  pointer-events:none;
+}
+#certificaciones::after{
+  content:'';position:absolute;
+  width:400px;height:400px;top:15%;left:50%;transform:translateX(-50%);
+  background:radial-gradient(circle,rgba(252,211,77,.08),transparent 55%);
+  border-radius:50%;pointer-events:none;
+  animation:hero-float 10s ease-in-out infinite 1.5s;
+}
+
+/* ── 10. Clientes / Testimonios: Comilla gigante + glow rosa ── */
+#clientes{
+  background:
+    radial-gradient(600px 400px at 20% 30%,rgba(249,168,212,.08),transparent 55%),
+    radial-gradient(500px 400px at 80% 70%,rgba(165,180,252,.07),transparent 55%);
+}
+#clientes::before{
+  content:'\201C';position:absolute;
+  font-size:35rem;line-height:.8;font-family:Georgia,serif;
+  color:rgba(165,180,252,.05);
+  top:-40px;left:3%;pointer-events:none;
+}
+#clientes::after{
+  content:'\201D';position:absolute;
+  font-size:25rem;line-height:.8;font-family:Georgia,serif;
+  color:rgba(249,168,212,.04);
+  bottom:-30px;right:5%;pointer-events:none;
+}
+
+/* ── 11. Proyectos: Terminal / comandos ── */
+#proyectos{
+  background:
+    radial-gradient(700px 500px at 85% 25%,rgba(134,239,172,.10),transparent 55%),
+    radial-gradient(500px 400px at 10% 80%,rgba(99,102,241,.07),transparent 55%);
+}
+#proyectos::before{
+  content:'$ deploy --prod  ✓ 24 passed  $ git push origin main  $ docker compose up -d  $ pytest --cov=.  $ aws s3 sync ./dist  $ nginx -t  ok  $ python manage.py migrate';
+  position:absolute;inset:0;
+  font-family:'Courier New',monospace;font-size:.9rem;
+  line-height:3.2;letter-spacing:.4rem;word-spacing:2.5rem;word-break:break-all;
+  color:rgba(134,239,172,.06);
+  pointer-events:none;overflow:hidden;
+  mask-image:radial-gradient(ellipse 55% 65% at 90% 35%,black,transparent 60%);
+  -webkit-mask-image:radial-gradient(ellipse 55% 65% at 90% 35%,black,transparent 60%);
+}
+#proyectos::after{
+  content:'';position:absolute;
+  width:500px;height:500px;top:-100px;right:-100px;
+  background:radial-gradient(circle,rgba(134,239,172,.10),transparent 55%);
+  border-radius:50%;pointer-events:none;
+  animation:hero-float 9s ease-in-out infinite;
+}
+
+/* ── 12. Aprendizaje: Renglones de cuaderno + glow púrpura ── */
+#aprendizaje{
+  background:
+    radial-gradient(600px 400px at 15% 40%,rgba(196,181,253,.10),transparent 55%),
+    radial-gradient(500px 400px at 85% 80%,rgba(99,102,241,.07),transparent 55%);
+}
+#aprendizaje::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    repeating-linear-gradient(0deg,transparent,transparent 36px,rgba(165,180,252,.05) 36px,rgba(165,180,252,.05) 37px);
+  mask-image:radial-gradient(ellipse 45% 75% at 12% 50%,black 10%,transparent 65%);
+  -webkit-mask-image:radial-gradient(ellipse 45% 75% at 12% 50%,black 10%,transparent 65%);
+  pointer-events:none;
+}
+#aprendizaje::after{
+  content:'';position:absolute;
+  width:400px;height:400px;bottom:-100px;left:-80px;
+  background:radial-gradient(circle,rgba(196,181,253,.10),transparent 55%);
+  border-radius:50%;pointer-events:none;
+  animation:hero-float 12s ease-in-out infinite 3s;
+}
+
+/* ── 13. CTA Final / Contacto: Pulso de energía concéntrico ── */
+#contacto{
+  background:radial-gradient(600px 400px at 50% 50%,rgba(99,102,241,.10),transparent 55%);
+}
+#contacto::before{
+  content:'';position:absolute;
+  width:700px;height:700px;top:50%;left:50%;
+  transform:translate(-50%,-50%);border-radius:50%;
+  background:radial-gradient(circle,rgba(99,102,241,.12),transparent 45%);
+  pointer-events:none;
+  animation:sec-pulse 4s ease-in-out infinite;
+}
+#contacto::after{
+  content:'';position:absolute;
+  width:500px;height:500px;top:50%;left:50%;
+  transform:translate(-50%,-50%);border-radius:50%;
+  border:2px solid rgba(99,102,241,.08);
+  pointer-events:none;
+  animation:sec-pulse 4s ease-in-out infinite .6s;
+}
+
+/* ── Animaciones de secciones ── */
+@keyframes sec-rotate{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+@keyframes sec-pulse{
+  0%,100%{transform:translate(-50%,-50%) scale(.9);opacity:.4}
+  50%{transform:translate(-50%,-50%) scale(1.2);opacity:1}
+}
+
+/* ── Light theme: adaptar fondos ── */
+body.theme-light .section{
+  background:none;
+}
+body.theme-light #desarrollo-web{
+  background:radial-gradient(800px 500px at 90% 20%,rgba(99,102,241,.06),transparent 60%);
+}
+body.theme-light #desarrollo-web::before{ color:rgba(99,102,241,.05); }
+body.theme-light #portafolio-web{
+  background:radial-gradient(700px 500px at 15% 50%,rgba(99,102,241,.06),transparent 55%);
+}
+body.theme-light #apis{
+  background:radial-gradient(600px 500px at 25% 40%,rgba(16,185,129,.06),transparent 55%);
+}
+body.theme-light #aws{
+  background:radial-gradient(700px 400px at 70% 20%,rgba(245,158,11,.06),transparent 55%);
+}
+body.theme-light #clientes::before,
+body.theme-light #clientes::after{ color:rgba(99,102,241,.035); }
+body.theme-light #proyectos::before{ color:rgba(16,185,129,.04); }
+body.theme-light #contacto{
+  background:radial-gradient(600px 400px at 50% 50%,rgba(99,102,241,.06),transparent 55%);
+}
 
 .badge-soft{
   background: rgba(255,255,255,.10);
@@ -72,11 +553,48 @@ body{
 .card-hover{ transition:.2s; }
 .card-hover:hover{ transform: translateY(-4px); }
 
+/* Botón principal del sitio (accent violeta/índigo) */
 .btn-primary{
   border-radius:12px;
   font-weight:800;
   padding:.8rem 1.1rem;
+  background:linear-gradient(135deg,#6366f1,#818cf8) !important;
+  border:none !important;
+  color:#fff !important;
+  box-shadow:0 4px 20px rgba(99,102,241,.3);
+  transition:all .25s ease;
 }
+.btn-primary:hover,.btn-primary:focus{
+  background:linear-gradient(135deg,#818cf8,#a5b4fc) !important;
+  box-shadow:0 6px 28px rgba(99,102,241,.45);
+  transform:translateY(-2px);
+  color:#fff !important;
+}
+
+/* Botón WhatsApp (verde WhatsApp) */
+.btn-wa{
+  border-radius:12px;
+  font-weight:800;
+  padding:.8rem 1.1rem;
+  background:linear-gradient(135deg,#25d366,#20bd5a) !important;
+  border:none !important;
+  color:#fff !important;
+  box-shadow:0 4px 20px rgba(37,211,102,.3);
+  transition:all .25s ease;
+  display:inline-flex;
+  align-items:center;
+  gap:.5rem;
+  text-decoration:none;
+}
+.btn-wa:hover,.btn-wa:focus{
+  background:linear-gradient(135deg,#20bd5a,#1da851) !important;
+  box-shadow:0 6px 28px rgba(37,211,102,.45);
+  transform:translateY(-2px);
+  color:#fff !important;
+}
+.btn-wa.btn-sm{ padding:.55rem .9rem; font-size:.85rem; }
+.btn-wa.btn-lg{ padding:.95rem 1.4rem; font-size:1.05rem; }
+.btn-wa.w-100{ width:100%; justify-content:center; }
 
 .btn-outline-light{
   border-radius:12px;

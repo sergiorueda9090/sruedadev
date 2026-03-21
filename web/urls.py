@@ -5,6 +5,8 @@ app_name = 'web'
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('portafolio/<slug:slug>/', views.portafolio_demo, name='portafolio_demo'),
+    path('portafolio/<slug:slug>/raw/', views.portafolio_raw, name='portafolio_raw'),
     path('learning/', views.learning, name='learning'),
     path('learning/testing-django/', views.testing_temario, name='testing_temario'),
     path('learning/testing-django/dia-1/', views.testing_dia1, name='testing_dia1'),

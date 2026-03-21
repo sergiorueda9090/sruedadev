@@ -713,6 +713,66 @@ body.theme-light .carousel-control-next-icon{ filter: invert(0); }
   color: var(--accent-1);
 }
 
+/* ============================================
+   PORTAFOLIO WEB
+   ============================================ */
+
+.portafolio-card{
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all .3s ease;
+}
+.portafolio-card:hover{
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,.35);
+}
+.portafolio-card-header{
+  padding: 1.5rem 1.5rem 1rem;
+}
+.portafolio-icon{
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.15rem;
+  flex-shrink: 0;
+}
+.portafolio-category{
+  font-size: .72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+}
+.portafolio-title{
+  font-size: .95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: .5rem;
+  line-height: 1.35;
+}
+.portafolio-desc{
+  font-size: .82rem;
+  color: var(--muted);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+.portafolio-card-footer{
+  padding: .85rem 1.5rem;
+  border-top: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.portafolio-view{
+  font-size: .78rem;
+  font-weight: 600;
+  color: var(--muted);
+  display: flex; align-items: center;
+  transition: color .2s;
+}
+.portafolio-card:hover .portafolio-view{
+  color: var(--text);
+}
+
 /* Vision Statement */
 .vision-statement {
   background: linear-gradient(135deg, rgba(0, 242, 254, 0.05), rgba(79, 172, 254, 0.05));

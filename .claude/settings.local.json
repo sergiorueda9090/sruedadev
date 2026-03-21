@@ -5,7 +5,13 @@
       "Bash(python:*)",
       "Bash(cp:*)",
       "Bash(cd:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(for f:*)",
+      "Bash(do cp:*)",
+      "Bash(done)",
+      "Read(//c/proyectos/templates/**)",
+      "Bash(taskkill //F //IM python.exe)",
+      "Bash(echo \"OK: $f\")"
     ]
   }
 }

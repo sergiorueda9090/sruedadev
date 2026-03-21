@@ -1,0 +1,2312 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="IRONFORGE GYM — El gimnasio más completo de la ciudad. Musculación, CrossFit, Boxing, Spinning y más. Únete hoy y transforma tu cuerpo."/>
+  <meta name="keywords" content="gimnasio, gym, musculación, crossfit, spinning, boxing, entrenamiento, fitness"/>
+  <title>IRONFORGE GYM | Forja Tu Mejor Versión</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Oswald:wght@300;400;500;600;700&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ============================================
+       VARIABLES
+    ============================================ */
+    :root {
+      --black:       #050608;
+      --dark:        #0d0f14;
+      --dark2:       #141720;
+      --surface:     #1a1e28;
+      --border:      #252a38;
+      --gray:        #6b7490;
+      --light:       #b8c0d8;
+      --white:       #f0f2f8;
+      --red:         #d42b2b;
+      --red2:        #ff3b3b;
+      --red-glow:    rgba(212,43,43,0.25);
+      --red-subtle:  rgba(212,43,43,0.08);
+      --font-impact: 'Black Ops One', cursive;
+      --font-display:'Oswald', sans-serif;
+      --font-body:   'Rajdhani', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--light);
+      font-family: var(--font-body);
+      font-weight: 400;
+      overflow-x: hidden;
+      cursor: default;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--dark); }
+    ::-webkit-scrollbar-thumb { background: var(--red); border-radius: 2px; }
+
+    /* ============================================
+       NOISE TEXTURE OVERLAY
+    ============================================ */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ============================================
+       NAVBAR
+    ============================================ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 1.1rem 0;
+      transition: all 0.35s ease;
+      background: transparent;
+    }
+    #navbar.scrolled {
+      background: rgba(5,6,8,0.97);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 0.7rem 0;
+    }
+    .nav-brand {
+      font-family: var(--font-impact);
+      font-size: 1.7rem;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 2px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-brand span { color: var(--red); }
+    .nav-brand .brand-bar {
+      width: 4px; height: 24px;
+      background: var(--red);
+      border-radius: 2px;
+    }
+    .nav-link-item {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--gray) !important;
+      padding: 0.35rem 0.9rem !important;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-link-item:hover { color: var(--white) !important; }
+    .btn-nav {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 0.5rem 1.4rem;
+      clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-block;
+    }
+    .btn-nav:hover {
+      background: var(--red2);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+    .mobile-toggle {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--light);
+      padding: 0.4rem 0.7rem;
+      border-radius: 2px;
+    }
+    #mobileMenu {
+      background: rgba(5,6,8,0.98);
+      border-top: 1px solid var(--border);
+      padding: 1rem 0;
+    }
+
+    /* ============================================
+       HERO
+    ============================================ */
+    #hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    /* Animated bg grid */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: var(--black);
+    }
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(212,43,43,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,43,43,0.06) 1px, transparent 1px);
+      background-size: 60px 60px;
+      animation: gridMove 20s linear infinite;
+    }
+    @keyframes gridMove {
+      from { background-position: 0 0; }
+      to   { background-position: 60px 60px; }
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(212,43,43,0.12) 0%, transparent 55%),
+        radial-gradient(ellipse at 70% 80%, rgba(212,43,43,0.06) 0%, transparent 45%),
+        linear-gradient(to bottom, transparent 60%, var(--black));
+    }
+
+    /* Giant diagonal text bg */
+    .hero-bg-text {
+      position: absolute;
+      bottom: -10px; right: -5%;
+      font-family: var(--font-impact);
+      font-size: clamp(120px, 22vw, 300px);
+      color: rgba(255,255,255,0.02);
+      line-height: 1;
+      user-select: none;
+      pointer-events: none;
+      letter-spacing: -5px;
+      transform: rotate(-8deg);
+    }
+
+    /* Red vertical accent */
+    .hero-red-line {
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 5px;
+      background: linear-gradient(180deg, transparent 0%, var(--red) 30%, var(--red) 70%, transparent 100%);
+    }
+
+    /* Animated scan line */
+    .scan-line {
+      position: absolute;
+      left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--red), transparent);
+      opacity: 0.3;
+      animation: scan 6s ease-in-out infinite;
+    }
+    @keyframes scan {
+      0%   { top: 0%; opacity: 0; }
+      10%  { opacity: 0.4; }
+      90%  { opacity: 0.4; }
+      100% { top: 100%; opacity: 0; }
+    }
+
+    .hero-content { position: relative; z-index: 1; padding-top: 100px; }
+
+    .hero-eyebrow {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 6px;
+      color: var(--red);
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 36px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    .hero-title {
+      font-family: var(--font-impact);
+      font-size: clamp(3.2rem, 10vw, 9rem);
+      line-height: 0.9;
+      color: var(--white);
+      letter-spacing: 3px;
+      margin-bottom: 1.5rem;
+    }
+    .hero-title .red-word { color: var(--red); display: block; }
+    .hero-title .outline-word {
+      -webkit-text-stroke: 2px rgba(255,255,255,0.18);
+      color: transparent;
+      display: block;
+    }
+
+    .hero-sub {
+      font-family: var(--font-body);
+      font-size: 1.15rem;
+      font-weight: 400;
+      color: var(--gray);
+      max-width: 460px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+      letter-spacing: 0.3px;
+    }
+
+    .hero-stats-row {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .h-stat .h-num {
+      font-family: var(--font-impact);
+      font-size: 2.5rem;
+      color: var(--white);
+      line-height: 1;
+    }
+    .h-stat .h-num span { color: var(--red); }
+    .h-stat .h-lbl {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-top: 2px;
+    }
+
+    .btn-primary-gym {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 1rem 2.5rem;
+      clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary-gym::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.12), transparent);
+      transform: translateX(-100%);
+      transition: transform 0.4s;
+    }
+    .btn-primary-gym:hover { background: var(--red2); color: var(--white); transform: translateY(-2px); box-shadow: 0 8px 30px var(--red-glow); }
+    .btn-primary-gym:hover::before { transform: translateX(100%); }
+
+    .btn-ghost-gym {
+      font-family: var(--font-display);
+      font-size: 0.88rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: transparent;
+      color: var(--light);
+      border: 1px solid var(--border);
+      padding: 1rem 2.5rem;
+      clip-path: polygon(12px 0%, 100% 0%, calc(100% - 12px) 100%, 0% 100%);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      transition: all 0.25s;
+    }
+    .btn-ghost-gym:hover { border-color: var(--red); color: var(--red); transform: translateY(-2px); }
+
+    /* Hero right side panel */
+    .hero-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-top: 3px solid var(--red);
+      border-radius: 4px;
+      padding: 2rem;
+      position: relative;
+    }
+    .hero-panel-tag {
+      position: absolute;
+      top: -1px; right: 24px;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 0.62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.25rem 0.8rem;
+    }
+    .panel-img {
+      width: 100%;
+      aspect-ratio: 16/10;
+      background: linear-gradient(135deg, #141720, #0d0f14);
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--border);
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
+    .panel-feature {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--border);
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      font-weight: 500;
+      color: var(--light);
+    }
+    .panel-feature:last-child { border-bottom: none; }
+    .panel-feature i { color: var(--red); width: 18px; }
+    .panel-feature span { margin-left: auto; color: var(--gray); font-size: 0.72rem; }
+
+    /* ============================================
+       MARQUEE
+    ============================================ */
+    .marquee-wrap {
+      background: var(--red);
+      padding: 0.7rem 0;
+      overflow: hidden;
+    }
+    .marquee-inner {
+      display: inline-block;
+      white-space: nowrap;
+      animation: marqueeLeft 18s linear infinite;
+    }
+    .marquee-inner span {
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: rgba(255,255,255,0.85);
+      margin: 0 2rem;
+    }
+    .marquee-inner span::before { content: '✦ '; }
+    @keyframes marqueeLeft {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ============================================
+       SECTION COMMONS
+    ============================================ */
+    section { position: relative; }
+
+    .s-label {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      letter-spacing: 5px;
+      color: var(--red);
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 0.6rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .s-label::before {
+      content: '';
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--red);
+    }
+    .s-title {
+      font-family: var(--font-impact);
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      color: var(--white);
+      letter-spacing: 2px;
+      line-height: 1;
+    }
+    .s-title span { color: var(--red); }
+    .s-sub {
+      color: var(--gray);
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+    .red-bar {
+      width: 50px;
+      height: 3px;
+      background: var(--red);
+      margin: 1rem 0 1.5rem;
+    }
+
+    /* Animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.show { opacity: 1; transform: none; }
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal-left.show { opacity: 1; transform: none; }
+    .d1 { transition-delay: 0.1s; }
+    .d2 { transition-delay: 0.2s; }
+    .d3 { transition-delay: 0.3s; }
+    .d4 { transition-delay: 0.4s; }
+
+    /* ============================================
+       QUIENES SOMOS
+    ============================================ */
+    #nosotros { padding: 6rem 0; background: var(--dark); }
+
+    .nosotros-img-wrap { position: relative; }
+    .nosotros-main-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(160deg, #1a1e28, #0d0f14);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      color: var(--border);
+      overflow: hidden;
+      position: relative;
+    }
+    .nosotros-main-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5,6,8,0.7) 0%, transparent 50%);
+    }
+    .nosotros-badge {
+      position: absolute;
+      bottom: 1.5rem;
+      right: -1.5rem;
+      background: var(--red);
+      color: var(--white);
+      border-radius: 4px;
+      padding: 1.2rem 1.5rem;
+      text-align: center;
+      box-shadow: 0 10px 40px var(--red-glow);
+    }
+    .badge-num {
+      font-family: var(--font-impact);
+      font-size: 2.5rem;
+      line-height: 1;
+    }
+    .badge-txt {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-top: 2px;
+    }
+    .value-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--red-subtle);
+      border: 1px solid rgba(212,43,43,0.2);
+      border-radius: 2px;
+      padding: 0.5rem 1rem;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+      color: var(--light);
+      text-transform: uppercase;
+      margin: 0.3rem;
+    }
+    .value-pill i { color: var(--red); }
+
+    /* ============================================
+       CLASES / DISCIPLINAS
+    ============================================ */
+    #clases { padding: 6rem 0; background: var(--black); }
+
+    .clase-card {
+      position: relative;
+      border-radius: 4px;
+      overflow: hidden;
+      height: 280px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+    .clase-card:hover { transform: translateY(-6px); }
+    .clase-bg {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+    /* Each class gets a distinct gradient */
+    .clase-musculacion .clase-bg { background: linear-gradient(145deg, #1a0000, #2d0606); }
+    .clase-crossfit    .clase-bg { background: linear-gradient(145deg, #0d0a00, #1a1400); }
+    .clase-boxing      .clase-bg { background: linear-gradient(145deg, #0a0010, #140a20); }
+    .clase-spinning    .clase-bg { background: linear-gradient(145deg, #001a10, #001a08); }
+    .clase-yoga        .clase-bg { background: linear-gradient(145deg, #00101a, #001220); }
+    .clase-funcional   .clase-bg { background: linear-gradient(145deg, #1a0a00, #201000); }
+
+    .clase-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5,6,8,0.95) 0%, rgba(5,6,8,0.3) 60%, transparent 100%);
+      transition: background 0.3s;
+    }
+    .clase-card:hover .clase-overlay {
+      background: linear-gradient(to top, rgba(212,43,43,0.9) 0%, rgba(5,6,8,0.2) 70%, transparent 100%);
+    }
+    .clase-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 1.5rem;
+      z-index: 2;
+    }
+    .clase-icon-wrap {
+      position: absolute;
+      top: 1rem; right: 1rem;
+      width: 42px; height: 42px;
+      background: var(--red);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      z-index: 2;
+      transition: background 0.2s;
+    }
+    .clase-card:hover .clase-icon-wrap { background: var(--white); color: var(--red); }
+    .clase-name {
+      font-family: var(--font-impact);
+      font-size: 1.5rem;
+      color: var(--white);
+      letter-spacing: 2px;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+    }
+    .clase-desc {
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.5;
+    }
+    .clase-tag {
+      display: inline-block;
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--red);
+      border: 1px solid var(--red);
+      padding: 0.15rem 0.6rem;
+      border-radius: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    /* ============================================
+       ENTRENADORES
+    ============================================ */
+    #entrenadores { padding: 6rem 0; background: var(--dark); }
+
+    .trainer-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      transition: all 0.3s;
+      height: 100%;
+    }
+    .trainer-card:hover {
+      border-color: var(--red);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.4), 0 0 0 1px rgba(212,43,43,0.2);
+    }
+    .trainer-img {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: linear-gradient(160deg, #1a1e28, #0d0f14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4.5rem;
+      color: var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    .trainer-img::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(5,6,8,0.85) 0%, transparent 50%);
+    }
+    .trainer-spec {
+      position: absolute;
+      bottom: 12px; left: 12px;
+      z-index: 2;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.2rem 0.7rem;
+      border-radius: 1px;
+    }
+    .trainer-body { padding: 1.4rem; }
+    .trainer-name {
+      font-family: var(--font-impact);
+      font-size: 1.4rem;
+      color: var(--white);
+      letter-spacing: 1px;
+      margin-bottom: 0.2rem;
+    }
+    .trainer-role {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--red);
+      font-weight: 500;
+      margin-bottom: 0.8rem;
+    }
+    .trainer-bio {
+      font-size: 0.88rem;
+      color: var(--gray);
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .trainer-stats {
+      display: flex;
+      gap: 1rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+    .t-stat-num {
+      font-family: var(--font-impact);
+      font-size: 1.4rem;
+      color: var(--red);
+      line-height: 1;
+    }
+    .t-stat-lbl {
+      font-family: var(--font-display);
+      font-size: 0.6rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+
+    /* ============================================
+       PLANES / PRECIOS
+    ============================================ */
+    #planes { padding: 6rem 0; background: var(--black); }
+
+    .plan-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    .plan-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--border);
+      transition: background 0.3s;
+    }
+    .plan-card.featured {
+      border-color: var(--red);
+      background: linear-gradient(160deg, #1a1420, #1a1e28);
+    }
+    .plan-card.featured::before { background: var(--red); }
+    .plan-card:hover { border-color: var(--red); transform: translateY(-5px); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+    .plan-card:hover::before { background: var(--red); }
+
+    .plan-badge {
+      position: absolute;
+      top: 1.2rem; right: 1.2rem;
+      background: var(--red);
+      color: var(--white);
+      font-family: var(--font-display);
+      font-size: 0.58rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.2rem 0.7rem;
+      border-radius: 1px;
+    }
+    .plan-name {
+      font-family: var(--font-impact);
+      font-size: 1.6rem;
+      color: var(--white);
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+    .plan-price {
+      font-family: var(--font-impact);
+      font-size: 3rem;
+      color: var(--red);
+      line-height: 1;
+      margin: 1rem 0 0.3rem;
+    }
+    .plan-price sup {
+      font-size: 1.2rem;
+      vertical-align: super;
+    }
+    .plan-period {
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 2px;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+    .plan-divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 1.5rem;
+    }
+    .plan-features { list-style: none; padding: 0; margin: 0 0 1.8rem; }
+    .plan-features li {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      color: var(--light);
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .plan-features li:last-child { border-bottom: none; }
+    .plan-features li i { color: var(--red); font-size: 0.8rem; width: 16px; }
+    .plan-features li.off { color: var(--gray); text-decoration: line-through; }
+    .plan-features li.off i { color: var(--border); }
+
+    .btn-plan {
+      font-family: var(--font-display);
+      font-size: 0.82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0.85rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-plan-outline {
+      border: 1px solid var(--red);
+      color: var(--red);
+      background: transparent;
+    }
+    .btn-plan-outline:hover {
+      background: var(--red);
+      color: var(--white);
+    }
+    .btn-plan-solid {
+      background: var(--red);
+      color: var(--white);
+      border: 1px solid var(--red);
+      box-shadow: 0 6px 24px var(--red-glow);
+    }
+    .btn-plan-solid:hover {
+      background: var(--red2);
+      color: var(--white);
+      transform: translateY(-1px);
+    }
+
+    /* ============================================
+       GALERIA
+    ============================================ */
+    #galeria { padding: 6rem 0; background: var(--dark); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 12px;
+    }
+    .g-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      color: var(--border);
+      transition: all 0.3s;
+      cursor: pointer;
+    }
+    .g-item:hover { border-color: var(--red); transform: scale(1.02); }
+    .g-item:hover .g-overlay { opacity: 1; }
+
+    .g-item:nth-child(1) { grid-column: 1/7; grid-row: 1/3; min-height: 300px; }
+    .g-item:nth-child(2) { grid-column: 7/10; grid-row: 1/2; min-height: 145px; }
+    .g-item:nth-child(3) { grid-column: 10/13; grid-row: 1/2; min-height: 145px; }
+    .g-item:nth-child(4) { grid-column: 7/10; grid-row: 2/3; min-height: 145px; }
+    .g-item:nth-child(5) { grid-column: 10/13; grid-row: 2/3; min-height: 145px; }
+    .g-item:nth-child(6) { grid-column: 1/5; grid-row: 3/4; min-height: 180px; }
+    .g-item:nth-child(7) { grid-column: 5/9; grid-row: 3/4; min-height: 180px; }
+    .g-item:nth-child(8) { grid-column: 9/13; grid-row: 3/4; min-height: 180px; }
+
+    .g-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(212,43,43,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .g-overlay i { font-size: 2rem; color: white; }
+    .g-label {
+      position: absolute;
+      bottom: 10px; left: 10px;
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--white);
+      background: rgba(0,0,0,0.6);
+      padding: 0.2rem 0.6rem;
+      border-radius: 1px;
+    }
+
+    /* ============================================
+       HORARIO
+    ============================================ */
+    #horario { padding: 5rem 0; background: var(--black); }
+
+    .schedule-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+    }
+    .schedule-table th {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: var(--gray);
+      padding: 0.75rem 1rem;
+      background: var(--dark);
+      border-bottom: 2px solid var(--red);
+      text-align: left;
+    }
+    .schedule-table td {
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      letter-spacing: 0.5px;
+      color: var(--light);
+      padding: 0.7rem 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .schedule-table tr:last-child td { border-bottom: none; }
+    .schedule-table tr:hover td { background: var(--red-subtle); }
+    .sch-pill {
+      display: inline-block;
+      font-size: 0.62rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 0.15rem 0.6rem;
+      border-radius: 1px;
+    }
+    .sch-open  { background: rgba(37,211,102,0.15); color: #25d366; border: 1px solid rgba(37,211,102,0.3); }
+    .sch-busy  { background: var(--red-subtle); color: var(--red); border: 1px solid rgba(212,43,43,0.3); }
+    .sch-close { background: var(--surface); color: var(--gray); border: 1px solid var(--border); }
+
+    /* ============================================
+       TESTIMONIOS
+    ============================================ */
+    #testimonios { padding: 6rem 0; background: var(--dark); }
+
+    .testi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 1.8rem;
+      height: 100%;
+      position: relative;
+      transition: border-color 0.3s;
+    }
+    .testi-card:hover { border-color: rgba(212,43,43,0.4); }
+    .testi-quote {
+      font-family: var(--font-impact);
+      font-size: 4rem;
+      color: var(--red);
+      opacity: 0.3;
+      line-height: 0.8;
+      margin-bottom: 0.8rem;
+    }
+    .testi-text {
+      font-size: 0.95rem;
+      color: var(--light);
+      line-height: 1.75;
+      font-style: italic;
+      margin-bottom: 1.2rem;
+    }
+    .testi-stars { color: var(--red); font-size: 0.8rem; margin-bottom: 1rem; }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      border-top: 1px solid var(--border);
+      padding-top: 1rem;
+    }
+    .testi-avatar {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--red), #7a0000);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-impact);
+      font-size: 1rem;
+      color: var(--white);
+    }
+    .testi-name {
+      font-family: var(--font-display);
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+    .testi-role { font-size: 0.78rem; color: var(--gray); }
+
+    /* ============================================
+       UBICACION
+    ============================================ */
+    #ubicacion { padding: 6rem 0; background: var(--black); }
+
+    .map-frame {
+      width: 100%;
+      height: 380px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+    }
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(1) invert(0.9) contrast(0.85);
+      opacity: 0.85;
+    }
+    .map-placeholder {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(160deg, #141720, #0d0f14);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      color: var(--border);
+    }
+    .map-placeholder i { font-size: 4rem; color: var(--red); opacity: 0.4; }
+    .map-placeholder p {
+      font-family: var(--font-display);
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+    }
+    .location-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      padding: 2rem;
+      height: 100%;
+    }
+    .loc-item {
+      display: flex;
+      gap: 1rem;
+      align-items: flex-start;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .loc-item:last-child { border-bottom: none; }
+    .loc-icon {
+      width: 42px; height: 42px;
+      min-width: 42px;
+      background: var(--red-subtle);
+      border: 1px solid rgba(212,43,43,0.2);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--red);
+      font-size: 1.1rem;
+    }
+    .loc-label {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+    }
+    .loc-val {
+      font-family: var(--font-body);
+      font-size: 0.95rem;
+      color: var(--light);
+    }
+
+    /* ============================================
+       CTA FINAL
+    ============================================ */
+    #cta-final {
+      padding: 6rem 0;
+      background: var(--dark);
+      position: relative;
+      overflow: hidden;
+    }
+    #cta-final::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 100%, rgba(212,43,43,0.12) 0%, transparent 60%),
+        linear-gradient(to bottom, transparent, rgba(212,43,43,0.04));
+    }
+    .cta-big-text {
+      font-family: var(--font-impact);
+      font-size: clamp(2.5rem, 6vw, 5rem);
+      color: var(--white);
+      letter-spacing: 3px;
+      line-height: 1.05;
+      margin-bottom: 1.2rem;
+    }
+    .cta-big-text span { color: var(--red); }
+
+    /* ============================================
+       WHATSAPP FLOAT
+    ============================================ */
+    .wa-btn {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 58px; height: 58px;
+      background: #25d366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.7rem;
+      color: white;
+      text-decoration: none;
+      z-index: 998;
+      box-shadow: 0 4px 20px rgba(37,211,102,0.45);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wa-btn:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.65); color: white; }
+    .wa-pulse-ring {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: rgba(37,211,102,0.35);
+      animation: waPulse 2.2s ease-out infinite;
+    }
+    @keyframes waPulse {
+      0%   { transform: scale(1); opacity: 0.8; }
+      100% { transform: scale(1.75); opacity: 0; }
+    }
+    .wa-label {
+      position: absolute;
+      right: 70px;
+      background: var(--dark);
+      color: var(--light);
+      font-family: var(--font-display);
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      padding: 0.4rem 0.9rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      opacity: 0;
+      transform: translateX(10px);
+      transition: all 0.3s;
+      pointer-events: none;
+    }
+    .wa-btn:hover .wa-label { opacity: 1; transform: translateX(0); }
+
+    /* ============================================
+       FOOTER
+    ============================================ */
+    footer {
+      background: var(--black);
+      border-top: 1px solid var(--border);
+      padding: 3.5rem 0 1.5rem;
+    }
+    .footer-logo {
+      font-family: var(--font-impact);
+      font-size: 2rem;
+      letter-spacing: 3px;
+      color: var(--white);
+    }
+    .footer-logo span { color: var(--red); }
+    .footer-tagline {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 4px;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-top: 0.2rem;
+    }
+    .footer-col-title {
+      font-family: var(--font-display);
+      font-size: 0.65rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gray);
+      font-weight: 700;
+      margin-bottom: 1.2rem;
+    }
+    .footer-link {
+      display: block;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      color: var(--gray);
+      text-decoration: none;
+      margin-bottom: 0.5rem;
+      transition: color 0.2s;
+    }
+    .footer-link:hover { color: var(--red); }
+    .footer-bottom {
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+    .footer-copy { font-size: 0.8rem; color: var(--border); font-family: var(--font-display); }
+    .social-icon {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      text-decoration: none;
+      font-size: 0.9rem;
+      margin-left: 0.4rem;
+      transition: all 0.2s;
+    }
+    .social-icon:hover { border-color: var(--red); color: var(--red); }
+
+    /* ============================================
+       RESPONSIVE
+    ============================================ */
+    @media (max-width: 991px) {
+      .gallery-grid {
+        grid-template-columns: repeat(6, 1fr);
+      }
+      .g-item:nth-child(1) { grid-column: 1/7; grid-row: 1/2; min-height: 220px; }
+      .g-item:nth-child(2) { grid-column: 1/4; grid-row: 2/3; min-height: 150px; }
+      .g-item:nth-child(3) { grid-column: 4/7; grid-row: 2/3; min-height: 150px; }
+      .g-item:nth-child(4) { grid-column: 1/4; grid-row: 3/4; min-height: 150px; }
+      .g-item:nth-child(5) { grid-column: 4/7; grid-row: 3/4; min-height: 150px; }
+      .g-item:nth-child(6) { grid-column: 1/3; grid-row: 4/5; min-height: 130px; }
+      .g-item:nth-child(7) { grid-column: 3/5; grid-row: 4/5; min-height: 130px; }
+      .g-item:nth-child(8) { grid-column: 5/7; grid-row: 4/5; min-height: 130px; }
+      .nosotros-badge { right: 0; }
+    }
+    @media (max-width: 767px) {
+      #hero { padding-top: 80px; }
+      .hero-bg-text { display: none; }
+      .hero-stats-row { gap: 1.2rem; }
+      .plan-card { margin-bottom: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ================================================
+     NAVBAR
+================================================ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+
+      <a href="#hero" class="nav-brand">
+        <div class="brand-bar"></div>
+        IRON<span>FORGE</span>
+        <span style="font-family:var(--font-display);font-size:0.85rem;letter-spacing:1px;color:var(--gray);font-weight:400;align-self:flex-end;padding-bottom:2px;">GYM</span>
+      </a>
+
+      <!-- Desktop -->
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a href="#nosotros"     class="nav-link-item">Nosotros</a>
+        <a href="#clases"       class="nav-link-item">Clases</a>
+        <a href="#entrenadores" class="nav-link-item">Entrenadores</a>
+        <a href="#planes"       class="nav-link-item">Planes</a>
+        <a href="#galeria"      class="nav-link-item">Galería</a>
+        <a href="#ubicacion"    class="nav-link-item">Ubicación</a>
+        <a href="https://wa.me/573000000000" target="_blank" class="btn-nav ms-3">
+          <i class="bi bi-whatsapp me-1"></i> Inscribirme
+        </a>
+      </div>
+
+      <!-- Mobile -->
+      <button class="mobile-toggle d-lg-none" id="navToggle" aria-label="Menú">
+        <i class="bi bi-list fs-4"></i>
+      </button>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobileMenu" style="display:none;">
+      <a href="#nosotros"     class="nav-link-item d-block py-2 border-bottom border-dark">Nosotros</a>
+      <a href="#clases"       class="nav-link-item d-block py-2 border-bottom border-dark">Clases</a>
+      <a href="#entrenadores" class="nav-link-item d-block py-2 border-bottom border-dark">Entrenadores</a>
+      <a href="#planes"       class="nav-link-item d-block py-2 border-bottom border-dark">Planes</a>
+      <a href="#galeria"      class="nav-link-item d-block py-2 border-bottom border-dark">Galería</a>
+      <a href="#ubicacion"    class="nav-link-item d-block py-2 border-bottom border-dark">Ubicación</a>
+      <a href="https://wa.me/573000000000" target="_blank" class="btn-nav d-inline-block mt-2">
+        <i class="bi bi-whatsapp me-1"></i> Inscribirme ya
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ================================================
+     HERO
+================================================ -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-red-line"></div>
+  <div class="scan-line"></div>
+  <div class="hero-bg-text">FIT</div>
+
+  <div class="container hero-content py-5">
+    <div class="row align-items-center g-5">
+
+      <!-- LEFT -->
+      <div class="col-lg-6">
+        <div class="hero-eyebrow">Bienvenido al siguiente nivel</div>
+        <h1 class="hero-title">
+          FORJA
+          <span class="red-word">TU MEJOR</span>
+          <span class="outline-word">VERSIÓN</span>
+        </h1>
+        <p class="hero-sub">
+          No es solo un gimnasio. Es el lugar donde los límites se rompen,
+          los cuerpos se transforman y la mentalidad cambia para siempre.
+          <strong style="color:var(--light);">¿Estás listo?</strong>
+        </p>
+
+        <div class="hero-stats-row">
+          <div class="h-stat">
+            <div class="h-num">8<span>+</span></div>
+            <div class="h-lbl">Disciplinas</div>
+          </div>
+          <div class="h-stat">
+            <div class="h-num">12<span>+</span></div>
+            <div class="h-lbl">Entrenadores</div>
+          </div>
+          <div class="h-stat">
+            <div class="h-num">1K<span>+</span></div>
+            <div class="h-lbl">Miembros activos</div>
+          </div>
+          <div class="h-stat">
+            <div class="h-num">24<span>/7</span></div>
+            <div class="h-lbl">Acceso</div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#planes" class="btn-primary-gym">
+            Ver planes <i class="bi bi-arrow-right"></i>
+          </a>
+          <a href="#clases" class="btn-ghost-gym">
+            Nuestras clases <i class="bi bi-play-circle"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- RIGHT panel -->
+      <div class="col-lg-6">
+        <div class="hero-panel">
+          <div class="hero-panel-tag">¡Inscríbete hoy!</div>
+          <div class="panel-img">
+            <i class="bi bi-person-arms-up"></i>
+          </div>
+          <div class="panel-feature">
+            <i class="bi bi-check-circle-fill"></i>
+            Primera semana gratis
+            <span>Oferta limitada</span>
+          </div>
+          <div class="panel-feature">
+            <i class="bi bi-check-circle-fill"></i>
+            Evaluación física sin costo
+            <span>Incluida</span>
+          </div>
+          <div class="panel-feature">
+            <i class="bi bi-check-circle-fill"></i>
+            Sin permanencia obligatoria
+            <span>Flexibilidad total</span>
+          </div>
+          <div class="panel-feature">
+            <i class="bi bi-check-circle-fill"></i>
+            Acceso a todas las clases
+            <span>Plan premium</span>
+          </div>
+          <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20inscribirme%20al%20gym."
+             target="_blank" class="btn-primary-gym mt-3 d-flex justify-content-center">
+            <i class="bi bi-whatsapp me-2"></i> Inscribirme por WhatsApp
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================
+     MARQUEE
+================================================ -->
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee-inner">
+    <span>Musculación</span><span>CrossFit</span><span>Boxing</span>
+    <span>Spinning</span><span>Yoga</span><span>Funcional</span>
+    <span>Cardio</span><span>Nutrición</span><span>Fuerza</span>
+    <span>Resistencia</span><span>Musculación</span><span>CrossFit</span>
+    <span>Boxing</span><span>Spinning</span><span>Yoga</span>
+    <span>Funcional</span><span>Cardio</span><span>Nutrición</span>
+  </div>
+</div>
+
+
+<!-- ================================================
+     QUIENES SOMOS
+================================================ -->
+<section id="nosotros">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Imagen -->
+      <div class="col-lg-5 reveal-left">
+        <div class="nosotros-img-wrap">
+          <div class="nosotros-main-img">
+            <i class="bi bi-lightning-charge"></i>
+          </div>
+          <div class="nosotros-badge">
+            <div class="badge-num">10+</div>
+            <div class="badge-txt">Años transformando vidas</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="col-lg-7">
+        <div class="s-label reveal">Quiénes somos</div>
+        <h2 class="s-title reveal">MÁS QUE UN<br><span>GIMNASIO</span></h2>
+        <div class="red-bar reveal"></div>
+        <p class="s-sub reveal d1" style="margin-bottom:1.2rem;">
+          En <strong style="color:var(--white);">IRONFORGE GYM</strong> creemos que el entrenamiento
+          va más allá de lo físico. Somos una comunidad de personas apasionadas por superarse cada día,
+          respaldadas por entrenadores certificados, equipos de última generación y un ambiente
+          que te impulsa a dar el 100%.
+        </p>
+        <p class="s-sub reveal d2" style="margin-bottom:2rem;">
+          Desde atletas de alto rendimiento hasta personas que dan sus primeros pasos en el fitness,
+          tenemos el programa ideal para cada nivel y cada objetivo.
+        </p>
+
+        <!-- Pills -->
+        <div class="reveal d3">
+          <div class="value-pill"><i class="bi bi-trophy"></i> Excelencia</div>
+          <div class="value-pill"><i class="bi bi-people"></i> Comunidad</div>
+          <div class="value-pill"><i class="bi bi-heart-pulse"></i> Salud integral</div>
+          <div class="value-pill"><i class="bi bi-lightning"></i> Alta intensidad</div>
+          <div class="value-pill"><i class="bi bi-star"></i> Resultados reales</div>
+          <div class="value-pill"><i class="bi bi-shield-check"></i> Entrenadores certificados</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================
+     CLASES / DISCIPLINAS
+================================================ -->
+<section id="clases">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="s-label reveal">Disciplinas</div>
+        <h2 class="s-title reveal">NUESTRAS<br><span>CLASES</span></h2>
+        <div class="red-bar reveal"></div>
+      </div>
+      <div class="col-lg-6">
+        <p class="s-sub reveal">
+          Contamos con una amplia variedad de clases para todos los niveles.
+          Cada sesión es guiada por instructores especializados que garantizan
+          resultados seguros y efectivos.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Musculación -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="clase-card clase-musculacion">
+          <div class="clase-bg"><i class="bi bi-person-arms-up"></i></div>
+          <div class="clase-overlay"></div>
+          <div class="clase-icon-wrap"><i class="bi bi-lightning-fill"></i></div>
+          <div class="clase-content">
+            <div class="clase-tag">Todos los niveles</div>
+            <div class="clase-name">MUSCULACIÓN</div>
+            <div class="clase-desc">Sala equipada con pesas libres y máquinas. Desarrolla fuerza, masa muscular y definición.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CrossFit -->
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="clase-card clase-crossfit">
+          <div class="clase-bg"><i class="bi bi-fire"></i></div>
+          <div class="clase-overlay"></div>
+          <div class="clase-icon-wrap"><i class="bi bi-fire"></i></div>
+          <div class="clase-content">
+            <div class="clase-tag">Alta intensidad</div>
+            <div class="clase-name">CROSSFIT</div>
+            <div class="clase-desc">Entrena funcional de alta intensidad. Quema grasa, gana fuerza y resistencia al límite.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boxing -->
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="clase-card clase-boxing">
+          <div class="clase-bg"><i class="bi bi-hand-index-thumb"></i></div>
+          <div class="clase-overlay"></div>
+          <div class="clase-icon-wrap"><i class="bi bi-shield-fill"></i></div>
+          <div class="clase-content">
+            <div class="clase-tag">Técnica & cardio</div>
+            <div class="clase-name">BOXING</div>
+            <div class="clase-desc">Cardio explosivo con técnica real de boxeo. Mejora coordinación, reflejos y quema calorías.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Spinning -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="clase-card clase-spinning">
+          <div class="clase-bg"><i class="bi bi-bicycle"></i></div>
+          <div class="clase-overlay"></div>
+          <div class="clase-icon-wrap"><i class="bi bi-bicycle"></i></div>
+          <div class="clase-content">
+            <div class="clase-tag">Cardio</div>
+            <div class="clase-name">SPINNING</div>
+            <div class="clase-desc">Sesiones de ciclismo indoor con música que te llevan al límite. Ideal para quemar grasa.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Yoga -->
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="clase-card clase-yoga">
+          <div class="clase-bg"><i class="bi bi-peace"></i></div>
+          <div class="clase-overlay"></div>
+          <div class="clase-icon-wrap"><i class="bi bi-peace"></i></div>
+          <div class="clase-content">
+            <div class="clase-tag">Flexibilidad & mente</div>
+            <div class="clase-name">YOGA</div>
+            <div class="clase-desc">Conecta cuerpo y mente. Mejora flexibilidad, postura, concentración y manejo del estrés.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Funcional -->
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="clase-card clase-funcional">
+          <div class="clase-bg"><i class="bi bi-activity"></i></div>
+          <div class="clase-overlay"></div>
+          <div class="clase-icon-wrap"><i class="bi bi-activity"></i></div>
+          <div class="clase-content">
+            <div class="clase-tag">Fuerza & movilidad</div>
+            <div class="clase-name">FUNCIONAL</div>
+            <div class="clase-desc">Movimientos naturales del cuerpo para mejorar fuerza, equilibrio y movilidad en la vida real.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-5 reveal">
+      <p class="s-sub mb-3">¿Tienes dudas sobre qué clase es ideal para ti?</p>
+      <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20saber%20qué%20clase%20es%20ideal%20para%20mí." target="_blank" class="btn-primary-gym">
+        <i class="bi bi-whatsapp me-2"></i> Asesoría gratuita
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================
+     ENTRENADORES
+================================================ -->
+<section id="entrenadores">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="s-label justify-content-center reveal">El equipo</div>
+      <h2 class="s-title reveal">NUESTROS<br><span>ENTRENADORES</span></h2>
+      <div class="red-bar mx-auto reveal"></div>
+      <p class="s-sub mx-auto reveal" style="max-width:520px;">
+        Profesionales certificados apasionados por transformar vidas y acompañarte en cada paso de tu proceso.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="trainer-card">
+          <div class="trainer-img">
+            <i class="bi bi-person-circle"></i>
+            <span class="trainer-spec">Musculación</span>
+          </div>
+          <div class="trainer-body">
+            <div class="trainer-name">CARLOS RUIZ</div>
+            <div class="trainer-role">Head Coach · Fuerza</div>
+            <div class="trainer-bio">Especialista en hipertrofia y powerlifting. 10 años llevando atletas al siguiente nivel.</div>
+            <div class="trainer-stats">
+              <div>
+                <div class="t-stat-num">10+</div>
+                <div class="t-stat-lbl">Años exp.</div>
+              </div>
+              <div>
+                <div class="t-stat-num">300+</div>
+                <div class="t-stat-lbl">Clientes</div>
+              </div>
+              <div>
+                <div class="t-stat-num">5★</div>
+                <div class="t-stat-lbl">Rating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d1">
+        <div class="trainer-card">
+          <div class="trainer-img">
+            <i class="bi bi-person-circle"></i>
+            <span class="trainer-spec">CrossFit</span>
+          </div>
+          <div class="trainer-body">
+            <div class="trainer-name">ANA TORRES</div>
+            <div class="trainer-role">CrossFit L2 · HIIT</div>
+            <div class="trainer-bio">CrossFit Level 2 certificada. Campeona regional. Especialista en transformación corporal.</div>
+            <div class="trainer-stats">
+              <div>
+                <div class="t-stat-num">7+</div>
+                <div class="t-stat-lbl">Años exp.</div>
+              </div>
+              <div>
+                <div class="t-stat-num">250+</div>
+                <div class="t-stat-lbl">Clientes</div>
+              </div>
+              <div>
+                <div class="t-stat-num">5★</div>
+                <div class="t-stat-lbl">Rating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d2">
+        <div class="trainer-card">
+          <div class="trainer-img">
+            <i class="bi bi-person-circle"></i>
+            <span class="trainer-spec">Boxing</span>
+          </div>
+          <div class="trainer-body">
+            <div class="trainer-name">MIGUEL SOTO</div>
+            <div class="trainer-role">Boxing · Artes Marciales</div>
+            <div class="trainer-bio">Ex-boxeador profesional. Formado en Tailandia y México. Técnica real con cardio brutal.</div>
+            <div class="trainer-stats">
+              <div>
+                <div class="t-stat-num">12+</div>
+                <div class="t-stat-lbl">Años exp.</div>
+              </div>
+              <div>
+                <div class="t-stat-num">180+</div>
+                <div class="t-stat-lbl">Clientes</div>
+              </div>
+              <div>
+                <div class="t-stat-num">5★</div>
+                <div class="t-stat-lbl">Rating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d3">
+        <div class="trainer-card">
+          <div class="trainer-img">
+            <i class="bi bi-person-circle"></i>
+            <span class="trainer-spec">Yoga · Funcional</span>
+          </div>
+          <div class="trainer-body">
+            <div class="trainer-name">LAURA VEGA</div>
+            <div class="trainer-role">Yoga · Movilidad</div>
+            <div class="trainer-bio">Instructora certificada de Yoga y entrenamiento funcional. Especialista en recuperación.</div>
+            <div class="trainer-stats">
+              <div>
+                <div class="t-stat-num">8+</div>
+                <div class="t-stat-lbl">Años exp.</div>
+              </div>
+              <div>
+                <div class="t-stat-num">220+</div>
+                <div class="t-stat-lbl">Clientes</div>
+              </div>
+              <div>
+                <div class="t-stat-num">5★</div>
+                <div class="t-stat-lbl">Rating</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================
+     PLANES / PRECIOS
+================================================ -->
+<section id="planes">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="s-label justify-content-center reveal">Membresías</div>
+      <h2 class="s-title reveal">PLANES Y<br><span>PRECIOS</span></h2>
+      <div class="red-bar mx-auto reveal"></div>
+      <p class="s-sub mx-auto reveal" style="max-width:480px;">
+        Elige el plan que se adapte a tu ritmo y objetivo. Sin letras pequeñas, sin sorpresas.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- BÁSICO -->
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="plan-card">
+          <div class="plan-name">BÁSICO</div>
+          <div class="plan-price"><sup>$</sup>49.900</div>
+          <div class="plan-period">/ mes</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><i class="bi bi-check-lg"></i> Acceso sala de musculación</li>
+            <li><i class="bi bi-check-lg"></i> Horario completo</li>
+            <li><i class="bi bi-check-lg"></i> Vestuarios y duchas</li>
+            <li><i class="bi bi-check-lg"></i> 2 clases grupales/mes</li>
+            <li class="off"><i class="bi bi-x-lg"></i> Clases ilimitadas</li>
+            <li class="off"><i class="bi bi-x-lg"></i> Plan nutricional</li>
+            <li class="off"><i class="bi bi-x-lg"></i> Entrenador personal</li>
+          </ul>
+          <a href="https://wa.me/573000000000?text=Quiero%20el%20plan%20Básico" target="_blank" class="btn-plan btn-plan-outline">
+            Elegir plan
+          </a>
+        </div>
+      </div>
+
+      <!-- PRO (featured) -->
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="plan-card featured">
+          <div class="plan-badge">⚡ Más popular</div>
+          <div class="plan-name">PRO</div>
+          <div class="plan-price"><sup>$</sup>89.900</div>
+          <div class="plan-period">/ mes</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><i class="bi bi-check-lg"></i> Acceso sala de musculación</li>
+            <li><i class="bi bi-check-lg"></i> Clases grupales ilimitadas</li>
+            <li><i class="bi bi-check-lg"></i> Vestuarios y duchas</li>
+            <li><i class="bi bi-check-lg"></i> Plan nutricional básico</li>
+            <li><i class="bi bi-check-lg"></i> Evaluación física mensual</li>
+            <li><i class="bi bi-check-lg"></i> Acceso 24/7</li>
+            <li class="off"><i class="bi bi-x-lg"></i> Entrenador personal</li>
+          </ul>
+          <a href="https://wa.me/573000000000?text=Quiero%20el%20plan%20Pro" target="_blank" class="btn-plan btn-plan-solid">
+            Elegir plan
+          </a>
+        </div>
+      </div>
+
+      <!-- ELITE -->
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="plan-card">
+          <div class="plan-name">ELITE</div>
+          <div class="plan-price"><sup>$</sup>149.900</div>
+          <div class="plan-period">/ mes</div>
+          <div class="plan-divider"></div>
+          <ul class="plan-features">
+            <li><i class="bi bi-check-lg"></i> Acceso sala de musculación</li>
+            <li><i class="bi bi-check-lg"></i> Clases grupales ilimitadas</li>
+            <li><i class="bi bi-check-lg"></i> Vestuarios y duchas</li>
+            <li><i class="bi bi-check-lg"></i> Plan nutricional personalizado</li>
+            <li><i class="bi bi-check-lg"></i> Evaluación física semanal</li>
+            <li><i class="bi bi-check-lg"></i> Acceso 24/7</li>
+            <li><i class="bi bi-check-lg"></i> 8 sesiones entrenador/mes</li>
+          </ul>
+          <a href="https://wa.me/573000000000?text=Quiero%20el%20plan%20Elite" target="_blank" class="btn-plan btn-plan-outline">
+            Elegir plan
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="text-center mt-4 reveal" style="font-size:0.85rem; color:var(--gray);">
+      <i class="bi bi-info-circle me-1" style="color:var(--red);"></i>
+      Precios en COP. Planes sin permanencia. Primera semana gratis para nuevos miembros.
+      <a href="https://wa.me/573000000000" target="_blank" style="color:var(--red); text-decoration:none;"> ¿Tienes dudas? Escríbenos.</a>
+    </p>
+  </div>
+</section>
+
+
+<!-- ================================================
+     GALERÍA
+================================================ -->
+<section id="galeria">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="s-label reveal">Instalaciones</div>
+        <h2 class="s-title reveal">NUESTRA<br><span>GALERÍA</span></h2>
+        <div class="red-bar reveal"></div>
+      </div>
+      <div class="col-lg-6">
+        <p class="s-sub reveal">
+          Equipos de última generación, espacios amplios y un ambiente diseñado
+          para que superes tus límites cada día.
+        </p>
+      </div>
+    </div>
+
+    <div class="gallery-grid reveal">
+      <div class="g-item">
+        <i class="bi bi-person-arms-up"></i>
+        <div class="g-label">Sala principal</div>
+        <div class="g-overlay"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="g-item">
+        <i class="bi bi-fire"></i>
+        <div class="g-label">CrossFit box</div>
+        <div class="g-overlay"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="g-item">
+        <i class="bi bi-bicycle"></i>
+        <div class="g-label">Sala spinning</div>
+        <div class="g-overlay"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="g-item">
+        <i class="bi bi-hand-index-thumb"></i>
+        <div class="g-label">Área boxing</div>
+        <div class="g-overlay"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="g-item">
+        <i class="bi bi-peace"></i>
+        <div class="g-label">Sala yoga</div>
+        <div class="g-overlay"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="g-item">
+        <i class="bi bi-droplet"></i>
+        <div class="g-label">Vestuarios</div>
+        <div class="g-overlay"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="g-item">
+        <i class="bi bi-cup-hot"></i>
+        <div class="g-label">Área de descanso</div>
+        <div class="g-overlay"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="g-item">
+        <i class="bi bi-graph-up-arrow"></i>
+        <div class="g-label">Zona funcional</div>
+        <div class="g-overlay"><i class="bi bi-zoom-in"></i></div>
+      </div>
+    </div>
+
+    <p class="text-center mt-4 reveal" style="font-size:0.85rem; color:var(--gray);">
+      Reemplaza estos bloques con tus fotos reales del gimnasio · Resolución recomendada: 1200×800px
+    </p>
+  </div>
+</section>
+
+
+<!-- ================================================
+     HORARIO
+================================================ -->
+<section id="horario">
+  <div class="container">
+    <div class="row align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="s-label reveal">Planifica tu semana</div>
+        <h2 class="s-title reveal">HORARIO DE<br><span>CLASES</span></h2>
+        <div class="red-bar reveal"></div>
+      </div>
+      <div class="col-lg-6">
+        <p class="s-sub reveal">
+          Sesiones disponibles de lunes a sábado. Cada clase tiene cupo limitado para garantizar
+          la atención de nuestros instructores.
+        </p>
+      </div>
+    </div>
+
+    <div class="reveal" style="overflow-x:auto; border:1px solid var(--border); border-radius:4px;">
+      <table class="schedule-table">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Lunes – Miércoles – Viernes</th>
+            <th>Martes – Jueves</th>
+            <th>Sábado</th>
+            <th>Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong style="color:var(--white);">6:00 AM</strong></td>
+            <td>CrossFit Matutino</td>
+            <td>Funcional Intenso</td>
+            <td>CrossFit Open</td>
+            <td><span class="sch-pill sch-open">Disponible</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--white);">8:00 AM</strong></td>
+            <td>Musculación libre</td>
+            <td>Yoga Flow</td>
+            <td>Yoga & Relax</td>
+            <td><span class="sch-pill sch-open">Disponible</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--white);">10:00 AM</strong></td>
+            <td>Spinning</td>
+            <td>Boxing Técnico</td>
+            <td>Spinning</td>
+            <td><span class="sch-pill sch-busy">Lleno</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--white);">12:00 PM</strong></td>
+            <td>Funcional Express</td>
+            <td>Musculación libre</td>
+            <td>Funcional</td>
+            <td><span class="sch-pill sch-open">Disponible</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--white);">5:00 PM</strong></td>
+            <td>Boxing</td>
+            <td>CrossFit WOD</td>
+            <td>—</td>
+            <td><span class="sch-pill sch-open">Disponible</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--white);">7:00 PM</strong></td>
+            <td>CrossFit Nocturno</td>
+            <td>Spinning</td>
+            <td>—</td>
+            <td><span class="sch-pill sch-busy">Lleno</span></td>
+          </tr>
+          <tr>
+            <td><strong style="color:var(--white);">Domingo</strong></td>
+            <td colspan="3" style="color:var(--gray); text-align:center; font-style:italic;">Acceso libre a sala de musculación · Sin clases grupales</td>
+            <td><span class="sch-pill sch-open">Disponible</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================
+     TESTIMONIOS
+================================================ -->
+<section id="testimonios">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="s-label justify-content-center reveal">Resultados reales</div>
+      <h2 class="s-title reveal">LO QUE DICEN<br><span>NUESTROS MIEMBROS</span></h2>
+      <div class="red-bar mx-auto reveal"></div>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <div class="testi-text">
+            Llevo 8 meses en IRONFORGE y bajé 18 kilos. Los entrenadores son increíbles,
+            siempre te motivan sin presionarte. Es el mejor ambiente que he encontrado en un gym.
+          </div>
+          <div class="testi-author">
+            <div class="testi-avatar">SM</div>
+            <div>
+              <div class="testi-name">Santiago M.</div>
+              <div class="testi-role">Miembro · Plan Pro · 8 meses</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <div class="testi-text">
+            Empecé de cero con el CrossFit y en 6 meses hice mi primer Spartan Race. Nunca pensé
+            que podría lograrlo. El equipo aquí realmente cree en ti. ¡100% recomendado!
+          </div>
+          <div class="testi-author">
+            <div class="testi-avatar">VR</div>
+            <div>
+              <div class="testi-name">Valentina R.</div>
+              <div class="testi-role">Miembro · CrossFit · 6 meses</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <div class="testi-text">
+            Las instalaciones son de primer nivel y Miguel en Boxing es un maestro. Aprendí
+            técnica real, mejoré mi cardio y la confianza en mí mismo. El gym que siempre buscaba.
+          </div>
+          <div class="testi-author">
+            <div class="testi-avatar">JP</div>
+            <div>
+              <div class="testi-name">Juan Pablo C.</div>
+              <div class="testi-role">Miembro · Boxing · 1 año</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================
+     CTA INTERMEDIO
+================================================ -->
+<section id="cta-final">
+  <div class="container text-center" style="position:relative;z-index:1;">
+    <div class="s-label justify-content-center reveal">Empieza hoy</div>
+    <h2 class="cta-big-text reveal">
+      LA PRIMERA SEMANA<br>ES <span>GRATIS</span>
+    </h2>
+    <p class="s-sub mx-auto reveal d1" style="max-width:500px; margin-bottom:2rem;">
+      Sin compromisos, sin excusas. Ven, entrena y siente la diferencia.
+      Luego decides. Tenemos la certeza de que te vas a quedar.
+    </p>
+    <div class="d-flex flex-wrap gap-3 justify-content-center reveal d2">
+      <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20mi%20semana%20gratis%20en%20IRONFORGE." target="_blank" class="btn-primary-gym">
+        <i class="bi bi-whatsapp me-2"></i> Reclamar semana gratis
+      </a>
+      <a href="#planes" class="btn-ghost-gym">
+        Ver planes <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================
+     UBICACIÓN
+================================================ -->
+<section id="ubicacion">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="s-label justify-content-center reveal">Encuéntranos</div>
+      <h2 class="s-title reveal">NUESTRA<br><span>UBICACIÓN</span></h2>
+      <div class="red-bar mx-auto reveal"></div>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+
+      <!-- Map -->
+      <div class="col-lg-8 reveal">
+        <div class="map-frame">
+          <!-- 
+            Para activar el mapa real:
+            1. Ve a Google Maps, busca tu dirección.
+            2. Clic en "Compartir" → "Insertar mapa" → copia el iframe.
+            3. Reemplaza el div.map-placeholder por el iframe de Google.
+          -->
+          <div class="map-placeholder">
+            <i class="bi bi-geo-alt-fill"></i>
+            <p>Reemplaza con iframe de Google Maps</p>
+            <p style="font-size:0.65rem; opacity:0.5;">Maps → Compartir → Insertar mapa</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="col-lg-4 reveal d1">
+        <div class="location-card">
+
+          <div class="loc-item">
+            <div class="loc-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <div class="loc-label">Dirección</div>
+              <div class="loc-val">Cra 15 # 80-42, Tu ciudad<br>Colombia</div>
+            </div>
+          </div>
+
+          <div class="loc-item">
+            <div class="loc-icon"><i class="bi bi-clock-fill"></i></div>
+            <div>
+              <div class="loc-label">Horario</div>
+              <div class="loc-val">
+                Lun – Vie: 5:00am – 10:00pm<br>
+                Sáb: 6:00am – 8:00pm<br>
+                Dom: 8:00am – 2:00pm
+              </div>
+            </div>
+          </div>
+
+          <div class="loc-item">
+            <div class="loc-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <div class="loc-label">Teléfono</div>
+              <div class="loc-val">+57 300 000 0000</div>
+            </div>
+          </div>
+
+          <div class="loc-item">
+            <div class="loc-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <div class="loc-label">Email</div>
+              <div class="loc-val">info@ironforge.com</div>
+            </div>
+          </div>
+
+          <div class="loc-item" style="border:none;">
+            <div class="loc-icon"><i class="bi bi-car-front-fill"></i></div>
+            <div>
+              <div class="loc-label">Parqueadero</div>
+              <div class="loc-val">Disponible · Gratis para miembros</div>
+            </div>
+          </div>
+
+          <a href="https://wa.me/573000000000" target="_blank" class="btn-primary-gym mt-3 d-flex justify-content-center" style="font-size:0.8rem;">
+            <i class="bi bi-whatsapp me-2"></i> Escríbenos ahora
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ================================================
+     FOOTER
+================================================ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+
+      <div class="col-lg-4">
+        <div class="footer-logo">IRON<span>FORGE</span> GYM</div>
+        <div class="footer-tagline">Forja tu mejor versión · Est. 2014</div>
+        <p style="font-size:0.88rem; color:var(--gray); font-family:var(--font-body); line-height:1.7; margin-top:1rem;">
+          El gimnasio donde los límites no existen. Ven a entrenar con los mejores
+          y únete a una comunidad que te impulsa cada día.
+        </p>
+      </div>
+
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-col-title">Navegación</div>
+        <a href="#nosotros"     class="footer-link">Nosotros</a>
+        <a href="#clases"       class="footer-link">Clases</a>
+        <a href="#entrenadores" class="footer-link">Entrenadores</a>
+        <a href="#planes"       class="footer-link">Planes</a>
+        <a href="#ubicacion"    class="footer-link">Ubicación</a>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Disciplinas</div>
+        <a href="#clases" class="footer-link">Musculación</a>
+        <a href="#clases" class="footer-link">CrossFit</a>
+        <a href="#clases" class="footer-link">Boxing</a>
+        <a href="#clases" class="footer-link">Spinning</a>
+        <a href="#clases" class="footer-link">Yoga</a>
+      </div>
+
+      <div class="col-lg-3">
+        <div class="footer-col-title">Contacto</div>
+        <a href="https://wa.me/573000000000" target="_blank" class="footer-link">
+          <i class="bi bi-whatsapp me-2" style="color:#25d366;"></i>+57 300 000 0000
+        </a>
+        <a href="mailto:info@ironforge.com" class="footer-link">
+          <i class="bi bi-envelope me-2" style="color:var(--red);"></i>info@ironforge.com
+        </a>
+        <span class="footer-link" style="cursor:default;">
+          <i class="bi bi-geo-alt me-2" style="color:var(--red);"></i>Tu ciudad, Colombia
+        </span>
+
+        <!-- Horario rápido -->
+        <div style="margin-top:1rem; padding:1rem; background:var(--surface); border:1px solid var(--border); border-left:3px solid var(--red); border-radius:2px;">
+          <div style="font-family:var(--font-display);font-size:0.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:0.5rem;">Horario de atención</div>
+          <div style="font-size:0.85rem;color:var(--light);font-family:var(--font-body);">
+            L–V: 5am – 10pm<br>Sáb: 6am – 8pm<br>Dom: 8am – 2pm
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 IRONFORGE GYM. Todos los derechos reservados.</div>
+      <div>
+        <a href="#" class="social-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="social-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="social-icon" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        <a href="https://wa.me/573000000000" class="social-icon" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573000000000?text=Hola!%20Vi%20su%20página%20y%20quiero%20información%20del%20gym." target="_blank" class="wa-btn" aria-label="WhatsApp">
+  <div class="wa-pulse-ring"></div>
+  <i class="bi bi-whatsapp"></i>
+  <div class="wa-label">¿Listo para entrenar? 💪</div>
+</a>
+
+
+<!-- ================================================
+     Bootstrap JS + Scripts
+================================================ -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* --- NAVBAR scroll --- */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  /* --- Mobile toggle --- */
+  const navToggle  = document.getElementById('navToggle');
+  const mobileMenu = document.getElementById('mobileMenu');
+  navToggle.addEventListener('click', () => {
+    const open = mobileMenu.style.display === 'block';
+    mobileMenu.style.display = open ? 'none' : 'block';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => mobileMenu.style.display = 'none')
+  );
+
+  /* --- Intersection Observer (reveal animations) --- */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('show');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal, .reveal-left').forEach(el => io.observe(el));
+
+  /* --- Smooth scroll --- */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const target = document.querySelector(a.getAttribute('href'));
+      if (target) {
+        e.preventDefault();
+        window.scrollTo({
+          top: target.getBoundingClientRect().top + window.scrollY - 75,
+          behavior: 'smooth'
+        });
+      }
+    });
+  });
+</script>
+</body>
+</html>

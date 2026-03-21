@@ -1,0 +1,2095 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="COLOMBIA VIVA — Agencia de viajes nacionales. Descubre el país más hermoso del mundo. Cartagena, San Andrés, Amazonas, Eje Cafetero, Medellín y más."/>
+  <meta name="keywords" content="agencia viajes colombia, paquetes nacionales, cartagena, san andres, amazonas, eje cafetero, turismo colombia"/>
+  <title>COLOMBIA VIVA | Descubre Tu País · Turismo Nacional</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ═══════════════════════════════════
+       COLORES BANDERA COLOMBIA + TROPICALES
+    ═══════════════════════════════════ */
+    :root {
+      /* Bandera */
+      --amarillo:      #f5c518;
+      --amarillo2:     #ffd740;
+      --amarillo-pale: #fff8d6;
+      --amarillo-sub:  rgba(245,197,24,.1);
+      --amarillo-bdr:  rgba(245,197,24,.3);
+      --azul:          #003893;
+      --azul2:         #1a52b8;
+      --azul-pale:     #dde8ff;
+      --azul-sub:      rgba(0,56,147,.08);
+      --rojo:          #ce1126;
+      --rojo2:         #e82438;
+      --rojo-pale:     #ffe5e8;
+      --rojo-sub:      rgba(206,17,38,.08);
+      /* Tropicales complementarios */
+      --selva:         #1b4332;
+      --selva2:        #2d6a4f;
+      --menta:         #52b788;
+      --tierra:        #7c4a1e;
+      --arena:         #f5e6c8;
+      --coral:         #e76f51;
+      --turquesa:      #0096a8;
+      --crema:         #fffdf5;
+      --off-white:     #fafaf5;
+      --blanco:        #ffffff;
+      --gris:          #6b7280;
+      --gris2:         #9ca3af;
+      --oscuro:        #0d1a0f;
+      --border:        rgba(0,56,147,.1);
+      --shadow:        rgba(13,26,15,.1);
+      --font-display:  'Unbounded', sans-serif;
+      --font-body:     'Plus Jakarta Sans', sans-serif;
+      --font-serif:    'Lora', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--crema);
+      color:var(--oscuro);
+      font-family:var(--font-body);
+      font-weight:400;
+      overflow-x:hidden;
+    }
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:var(--arena); }
+    ::-webkit-scrollbar-thumb { background:var(--amarillo); border-radius:2px; }
+
+    .img-f { width:100%; height:100%; object-fit:cover; object-position:center; display:block; opacity:0; transition:opacity .7s; }
+    .img-f.on { opacity:1; }
+
+    /* ═══════════════════════════════════
+       BANDERA STRIP TOP
+    ═══════════════════════════════════ */
+    .bandera-strip {
+      display:flex; height:6px;
+    }
+    .bs-amarillo { flex:2; background:var(--amarillo); }
+    .bs-azul     { flex:1; background:var(--azul); }
+    .bs-rojo     { flex:1; background:var(--rojo); }
+
+    /* ═══════════════════════════════════
+       TOPBAR
+    ═══════════════════════════════════ */
+    .topbar { background:var(--selva); padding:.48rem 0; }
+    .tb-inner { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem; }
+    .tb-i { font-family:var(--font-body); font-size:.72rem; color:rgba(255,255,255,.6); display:flex; align-items:center; gap:5px; }
+    .tb-i i { color:var(--amarillo); }
+    .tb-i a { color:rgba(255,255,255,.6); text-decoration:none; transition:color .2s; }
+    .tb-i a:hover { color:var(--amarillo); }
+    .tb-iata {
+      font-family:var(--font-display); font-size:.55rem;
+      letter-spacing:2px; background:var(--amarillo); color:var(--selva);
+      padding:.15rem .6rem; font-weight:700; border-radius:2px;
+    }
+
+    /* ═══════════════════════════════════
+       NAVBAR
+    ═══════════════════════════════════ */
+    #nav {
+      position:sticky; top:0; z-index:1000;
+      background:rgba(255,253,245,.97);
+      backdrop-filter:blur(20px);
+      border-bottom:3px solid var(--amarillo);
+      padding:.85rem 0;
+      box-shadow:0 2px 20px var(--shadow);
+      transition:all .3s;
+    }
+    .brand-cv {
+      font-family:var(--font-display);
+      font-size:1.2rem; font-weight:900;
+      color:var(--oscuro); text-decoration:none;
+      display:flex; align-items:center; gap:10px;
+      letter-spacing:-0.5px;
+    }
+    .brand-flag {
+      width:40px; height:28px; border-radius:4px;
+      overflow:hidden; display:flex; flex-direction:column;
+      box-shadow:0 2px 8px rgba(0,0,0,.2);
+    }
+    .bf-y { flex:2; background:var(--amarillo); }
+    .bf-b { flex:1; background:var(--azul); }
+    .bf-r { flex:1; background:var(--rojo); }
+    .brand-cv span { color:var(--rojo); }
+    .brand-sub-cv { font-family:var(--font-body); font-size:.5rem; letter-spacing:2.5px; color:var(--gris2); display:block; text-transform:uppercase; margin-top:1px; }
+    .nav-l-cv { font-family:var(--font-body); font-size:.78rem; font-weight:500; color:var(--gris) !important; text-decoration:none; padding:.35rem .85rem !important; transition:color .2s; }
+    .nav-l-cv:hover { color:var(--azul) !important; }
+    .btn-cotizar-cv {
+      font-family:var(--font-display); font-size:.65rem;
+      letter-spacing:1px; font-weight:700;
+      background:var(--rojo); color:var(--blanco);
+      border:none; padding:.58rem 1.4rem; border-radius:30px;
+      text-decoration:none; transition:all .25s;
+      display:inline-flex; align-items:center; gap:6px;
+      box-shadow:0 4px 14px rgba(206,17,38,.3);
+    }
+    .btn-cotizar-cv:hover { background:var(--rojo2); color:var(--blanco); transform:translateY(-1px); }
+    #mob-cv { background:var(--crema); border-top:1px solid var(--border); padding:1rem 0; display:none; }
+
+    /* ═══════════════════════════════════
+       HERO
+    ═══════════════════════════════════ */
+    #hero {
+      min-height:100vh; position:relative;
+      overflow:hidden; display:flex; align-items:center;
+    }
+    .hero-bg-cv { position:absolute; inset:0; }
+    .hero-bg-cv img { width:100%; height:100%; object-fit:cover; object-position:center 35%; opacity:0; transition:opacity 1s; }
+    .hero-bg-cv img.on { opacity:1; }
+    .hero-ov-cv {
+      position:absolute; inset:0;
+      background:
+        linear-gradient(to right,rgba(13,26,15,.92) 30%,rgba(13,26,15,.65) 60%,rgba(13,26,15,.2) 100%),
+        linear-gradient(to top,rgba(13,26,15,.7) 0%,transparent 35%);
+    }
+
+    /* Bandera decorativa vertical derecha */
+    .hero-flag-deco {
+      position:absolute; right:0; top:0; bottom:0;
+      width:8px; display:flex; flex-direction:column;
+    }
+    .hfd-y { flex:2; background:rgba(245,197,24,.6); }
+    .hfd-b { flex:1; background:rgba(0,56,147,.6); }
+    .hfd-r { flex:1; background:rgba(206,17,38,.6); }
+
+    /* Animated tropical leaves */
+    .hero-leaves { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+    .leaf-deco {
+      position:absolute; font-size:2rem; opacity:.06;
+      animation:leafSway 8s ease-in-out infinite;
+    }
+    .leaf-deco:nth-child(1){ top:15%; right:12%; animation-delay:0s; font-size:3rem; }
+    .leaf-deco:nth-child(2){ top:60%; right:5%;  animation-delay:2s; font-size:2rem; }
+    .leaf-deco:nth-child(3){ top:30%; right:25%; animation-delay:4s; font-size:1.5rem; }
+    .leaf-deco:nth-child(4){ top:75%; right:20%; animation-delay:6s; font-size:2.5rem; }
+    @keyframes leafSway { 0%,100%{transform:rotate(-5deg);opacity:.06;} 50%{transform:rotate(5deg);opacity:.12;} }
+
+    .hero-content { position:relative; z-index:2; padding-bottom:60px; }
+
+    .hero-co-tag {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(245,197,24,.15); border:1px solid rgba(245,197,24,.35);
+      padding:.38rem 1rem; border-radius:30px;
+      font-family:var(--font-body); font-size:.7rem;
+      letter-spacing:1.5px; text-transform:uppercase;
+      font-weight:600; color:var(--amarillo2); margin-bottom:1.5rem;
+    }
+
+    .hero-h1 {
+      font-family:var(--font-display);
+      font-size:clamp(2.5rem,7.5vw,7rem);
+      font-weight:900; color:var(--blanco);
+      line-height:.92; letter-spacing:-2px; margin-bottom:1.2rem;
+    }
+    .hero-h1 .ama { color:var(--amarillo); display:block; }
+    .hero-h1 .azu { color:#6ba3ff; display:block; }
+    .hero-h1 .roj { color:#ff7a8a; display:block; font-style:italic; font-family:var(--font-serif); font-weight:400; font-size:.55em; letter-spacing:0; }
+
+    .hero-desc {
+      font-size:1rem; color:rgba(255,255,255,.65);
+      line-height:1.85; max-width:460px; margin-bottom:2rem; font-weight:300;
+    }
+
+    /* Buscador de destinos */
+    .hero-search-cv {
+      background:rgba(255,253,245,.08);
+      backdrop-filter:blur(16px);
+      border:1px solid rgba(245,197,24,.2);
+      border-top:3px solid var(--amarillo);
+      padding:1.4rem; max-width:560px; border-radius:0 0 12px 12px;
+      margin-bottom:2rem;
+    }
+    .hs-head { font-family:var(--font-display); font-size:.58rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.45); margin-bottom:1rem; }
+    .hs-lbl  { font-family:var(--font-body); font-size:.6rem; letter-spacing:1px; text-transform:uppercase; color:rgba(255,255,255,.4); display:block; margin-bottom:.3rem; font-weight:500; }
+    .hs-inp  {
+      background:rgba(255,255,255,.09); border:1px solid rgba(255,255,255,.12);
+      color:var(--blanco); font-family:var(--font-body); font-size:.88rem;
+      padding:.65rem 1rem; width:100%; outline:none;
+      transition:border-color .2s; border-radius:8px;
+    }
+    .hs-inp:focus { border-color:var(--amarillo); }
+    .hs-inp::placeholder { color:rgba(255,255,255,.3); }
+    .hs-inp option { background:var(--selva); color:var(--blanco); }
+    .btn-buscar-cv {
+      font-family:var(--font-display); font-size:.72rem;
+      letter-spacing:1.5px; font-weight:700;
+      background:linear-gradient(90deg,var(--amarillo),var(--amarillo2));
+      color:var(--selva); border:none; padding:.85rem;
+      width:100%; border-radius:8px; cursor:pointer;
+      transition:all .2s; display:flex; align-items:center; justify-content:center; gap:8px;
+    }
+    .btn-buscar-cv:hover { transform:translateY(-1px); box-shadow:0 8px 20px rgba(245,197,24,.4); }
+
+    /* Regiones quick pills */
+    .hero-regiones {
+      display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:2rem;
+    }
+    .hreg {
+      font-family:var(--font-body); font-size:.7rem; font-weight:500;
+      color:rgba(255,255,255,.7); background:rgba(255,255,255,.08);
+      border:1px solid rgba(255,255,255,.15); border-radius:30px;
+      padding:.3rem .85rem; cursor:pointer; transition:all .2s;
+    }
+    .hreg:hover { background:var(--amarillo); color:var(--selva); border-color:var(--amarillo); }
+
+    /* Estadísticas */
+    .hero-stats-cv {
+      display:flex; gap:0; flex-wrap:wrap;
+      border:1px solid rgba(255,255,255,.1); border-radius:12px;
+      overflow:hidden; max-width:480px; backdrop-filter:blur(8px);
+      background:rgba(255,255,255,.04);
+    }
+    .hsc { flex:1; min-width:90px; padding:.85rem 1.1rem; border-right:1px solid rgba(255,255,255,.08); }
+    .hsc:last-child { border:none; }
+    .hsc-n { font-family:var(--font-display); font-size:1.6rem; font-weight:900; color:var(--amarillo2); line-height:1; }
+    .hsc-n sup { font-size:.85rem; }
+    .hsc-l { font-family:var(--font-body); font-size:.6rem; color:rgba(255,255,255,.4); font-weight:500; text-transform:uppercase; letter-spacing:.5px; margin-top:2px; }
+
+    /* Scroll indicator */
+    .scroll-cv {
+      position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+      z-index:2; display:flex; flex-direction:column; align-items:center; gap:.4rem;
+    }
+    .scroll-cv span { font-family:var(--font-body); font-size:.58rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.35); }
+    .scroll-line { width:1px; height:40px; background:linear-gradient(to bottom,rgba(245,197,24,.5),transparent); animation:scrl 2s ease-in-out infinite; }
+    @keyframes scrl { 0%,100%{opacity:.4;} 50%{opacity:1;} }
+
+    /* ═══════════════════════════════════
+       COMMONS
+    ═══════════════════════════════════ */
+    section { position:relative; }
+    .tag-cv {
+      font-family:var(--font-body); font-size:.65rem;
+      letter-spacing:3px; text-transform:uppercase;
+      font-weight:700; color:var(--rojo);
+      display:flex; align-items:center; gap:8px; margin-bottom:.7rem;
+    }
+    .tag-cv::before { content:''; display:block; width:20px; height:2px; background:linear-gradient(90deg,var(--amarillo),var(--rojo)); border-radius:1px; }
+    .title-cv {
+      font-family:var(--font-display); font-size:clamp(1.9rem,3.5vw,3rem);
+      font-weight:900; color:var(--oscuro); line-height:1.1; letter-spacing:-1px;
+    }
+    .title-cv em { color:var(--azul); font-style:italic; font-family:var(--font-serif); font-weight:400; }
+    .title-cv-light { color:var(--blanco); }
+    .title-cv-light em { color:var(--amarillo2); font-style:italic; font-family:var(--font-serif); }
+    .sub-cv { font-size:.92rem; color:var(--gris); line-height:1.8; font-weight:300; }
+    .col-rule {
+      width:50px; height:4px; border-radius:2px;
+      background:linear-gradient(90deg,var(--amarillo) 40%,var(--azul) 40%,var(--azul) 70%,var(--rojo) 70%);
+      margin:1rem 0 1.8rem;
+    }
+    .col-rule-c { margin:1rem auto 1.8rem; }
+
+    .btn-primary-cv {
+      font-family:var(--font-display); font-size:.72rem;
+      letter-spacing:1px; font-weight:700;
+      background:var(--rojo); color:var(--blanco);
+      border:none; padding:.95rem 2.2rem; border-radius:30px;
+      text-decoration:none; display:inline-flex; align-items:center; gap:9px;
+      transition:all .3s; box-shadow:0 6px 20px rgba(206,17,38,.3);
+    }
+    .btn-primary-cv:hover { background:var(--rojo2); color:var(--blanco); transform:translateY(-2px); box-shadow:0 12px 30px rgba(206,17,38,.4); }
+
+    .btn-secondary-cv {
+      font-family:var(--font-display); font-size:.72rem;
+      letter-spacing:1px; font-weight:700;
+      background:var(--amarillo); color:var(--selva);
+      border:none; padding:.95rem 2.2rem; border-radius:30px;
+      text-decoration:none; display:inline-flex; align-items:center; gap:9px;
+      transition:all .3s; box-shadow:0 6px 20px rgba(245,197,24,.3);
+    }
+    .btn-secondary-cv:hover { background:var(--amarillo2); color:var(--selva); transform:translateY(-2px); }
+
+    .btn-outline-cv {
+      font-family:var(--font-display); font-size:.72rem;
+      letter-spacing:1px; font-weight:700;
+      background:transparent; color:var(--azul);
+      border:2px solid rgba(0,56,147,.2); padding:.95rem 2.2rem; border-radius:30px;
+      text-decoration:none; display:inline-flex; align-items:center; gap:9px; transition:all .3s;
+    }
+    .btn-outline-cv:hover { border-color:var(--azul); background:var(--azul); color:var(--blanco); transform:translateY(-2px); }
+
+    .reveal  { opacity:0; transform:translateY(22px); transition:opacity .65s,transform .65s; }
+    .reveal.on  { opacity:1; transform:none; }
+    .rl { opacity:0; transform:translateX(-22px); transition:opacity .65s,transform .65s; }
+    .rl.on { opacity:1; transform:none; }
+    .rr { opacity:0; transform:translateX(22px); transition:opacity .65s,transform .65s; }
+    .rr.on { opacity:1; transform:none; }
+    .d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.3s;} .d4{transition-delay:.4s;}
+
+    /* ═══════════════════════════════════
+       REGIONES DE COLOMBIA
+    ═══════════════════════════════════ */
+    #regiones { padding:6rem 0; background:var(--crema); }
+
+    .region-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      grid-template-rows:auto auto;
+      gap:12px;
+    }
+    .region-card {
+      border-radius:20px; overflow:hidden;
+      position:relative; cursor:pointer; transition:transform .35s;
+      min-height:220px;
+    }
+    .region-card:nth-child(1) { grid-column:1/3; min-height:320px; }
+    .region-card:hover { transform:translateY(-6px) scale(1.01); }
+    .region-card img { width:100%;height:100%;object-fit:cover;transition:transform .6s; }
+    .region-card:hover img { transform:scale(1.07); }
+    .reg-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top,rgba(13,26,15,.88) 0%,rgba(13,26,15,.2) 55%,transparent 100%);
+      transition:background .3s;
+    }
+    .region-card:hover .reg-overlay { background:linear-gradient(to top,rgba(13,26,15,.92) 0%,rgba(13,26,15,.4) 60%,transparent 100%); }
+    .reg-content { position:absolute; bottom:0; left:0; right:0; padding:1.4rem; z-index:2; }
+    .reg-emoji  { font-size:1.5rem; margin-bottom:.3rem; display:block; }
+    .reg-name   { font-family:var(--font-display); font-size:1.2rem; font-weight:900; color:var(--blanco); line-height:1; margin-bottom:.2rem; }
+    .region-card:nth-child(1) .reg-name { font-size:1.8rem; }
+    .reg-dests  { font-family:var(--font-body); font-size:.72rem; color:rgba(255,255,255,.65); }
+    .reg-badge  {
+      position:absolute; top:12px; right:12px; z-index:3;
+      background:var(--amarillo); color:var(--selva);
+      font-family:var(--font-display); font-size:.55rem; letter-spacing:1px;
+      font-weight:700; padding:.2rem .65rem; border-radius:20px;
+    }
+
+    /* ═══════════════════════════════════
+       DESTINOS DESTACADOS
+    ═══════════════════════════════════ */
+    #destinos { padding:6rem 0; background:var(--off-white); }
+
+    .dest-cv-card {
+      border-radius:18px; overflow:hidden;
+      position:relative; cursor:pointer;
+      transition:all .35s; height:100%;
+      background:var(--blanco);
+      border:1.5px solid var(--border);
+      box-shadow:0 2px 15px var(--shadow);
+    }
+    .dest-cv-card:hover { transform:translateY(-8px); box-shadow:0 20px 50px var(--shadow); border-color:var(--amarillo); }
+    .dest-img-cv { width:100%; aspect-ratio:4/3; overflow:hidden; position:relative; }
+    .dest-img-cv img { width:100%;height:100%;object-fit:cover;transition:transform .5s; }
+    .dest-cv-card:hover .dest-img-cv img { transform:scale(1.07); }
+    .dest-img-cv::after { content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,26,15,.7) 0%,transparent 55%); }
+
+    /* Bandera Colombia mini badge */
+    .dest-flag-badge {
+      position:absolute; top:12px; left:12px; z-index:3;
+      width:30px; height:20px; border-radius:4px;
+      overflow:hidden; display:flex; flex-direction:column;
+      box-shadow:0 2px 8px rgba(0,0,0,.3);
+    }
+    .dfb-y { flex:2; background:var(--amarillo); }
+    .dfb-b { flex:1; background:var(--azul); }
+    .dfb-r { flex:1; background:var(--rojo); }
+
+    .dest-tipo {
+      position:absolute; top:12px; right:12px; z-index:3;
+      font-family:var(--font-display); font-size:.55rem;
+      letter-spacing:1.5px; font-weight:700;
+      padding:.2rem .65rem; border-radius:20px;
+    }
+    .dt-caribe  { background:var(--turquesa); color:var(--blanco); }
+    .dt-andino  { background:var(--selva2); color:var(--blanco); }
+    .dt-amazonia{ background:var(--selva); color:var(--amarillo); }
+    .dt-pacifico{ background:var(--azul); color:var(--blanco); }
+    .dt-cafe    { background:var(--tierra); color:var(--blanco); }
+    .dt-llanos  { background:var(--coral); color:var(--blanco); }
+
+    .dest-rating {
+      position:absolute; bottom:12px; right:12px; z-index:3;
+      background:rgba(245,197,24,.9); color:var(--selva);
+      font-family:var(--font-display); font-size:.58rem; font-weight:700;
+      padding:.2rem .6rem; border-radius:20px;
+      display:flex; align-items:center; gap:4px;
+    }
+    .dest-body-cv { padding:1.3rem; }
+    .dest-region-cv { font-family:var(--font-body); font-size:.62rem; letter-spacing:2px; text-transform:uppercase; color:var(--azul); font-weight:600; margin-bottom:.25rem; }
+    .dest-name-cv { font-family:var(--font-display); font-size:1.1rem; font-weight:900; color:var(--oscuro); margin-bottom:.4rem; letter-spacing:-.3px; }
+    .dest-desc-cv { font-size:.82rem; color:var(--gris); line-height:1.6; margin-bottom:.9rem; font-weight:300; }
+    .dest-footer-cv {
+      display:flex; justify-content:space-between; align-items:center;
+      border-top:1px solid var(--border); padding-top:.85rem;
+    }
+    .dest-precio-cv .dp-desde { font-size:.6rem; color:var(--gris2); text-transform:uppercase; letter-spacing:1px; }
+    .dest-precio-cv .dp-val   { font-family:var(--font-display); font-size:1.3rem; font-weight:900; color:var(--rojo); line-height:1; }
+    .dest-precio-cv .dp-pp    { font-size:.65rem; color:var(--gris2); }
+    .btn-dest-cv {
+      font-family:var(--font-display); font-size:.62rem; letter-spacing:1px;
+      font-weight:700; background:var(--amarillo); color:var(--selva);
+      border:none; padding:.42rem 1.1rem; border-radius:20px;
+      text-decoration:none; transition:all .2s;
+    }
+    .btn-dest-cv:hover { background:var(--amarillo2); color:var(--selva); transform:translateY(-1px); }
+
+    /* ═══════════════════════════════════
+       NOSOTROS
+    ═══════════════════════════════════ */
+    #nosotros { padding:6rem 0; background:var(--azul); overflow:hidden; position:relative; }
+    #nosotros::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse at 90% 20%,rgba(245,197,24,.1) 0%,transparent 45%),
+        radial-gradient(ellipse at 10% 80%,rgba(206,17,38,.08) 0%,transparent 40%);
+    }
+
+    .nos-img-cv {
+      border-radius:20px; overflow:hidden;
+      aspect-ratio:4/5; position:relative;
+      box-shadow:0 30px 80px rgba(0,0,0,.4);
+      border:4px solid rgba(245,197,24,.3);
+    }
+    .nos-badge-cv {
+      position:absolute; bottom:1.5rem; left:-1rem; z-index:2;
+      background:var(--amarillo); color:var(--selva);
+      border-radius:14px; padding:1rem 1.4rem;
+      box-shadow:0 10px 30px rgba(245,197,24,.4);
+    }
+    .nbc-n { font-family:var(--font-display); font-size:2rem; font-weight:900; line-height:1; }
+    .nbc-l { font-family:var(--font-body); font-size:.62rem; letter-spacing:1.5px; text-transform:uppercase; font-weight:600; margin-top:2px; }
+
+    .nos-val-cv {
+      display:flex; gap:1rem; align-items:flex-start;
+      padding:1.1rem 0; border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    .nos-val-cv:last-child { border:none; }
+    .nvi { width:44px; height:44px; min-width:44px; border-radius:12px; background:rgba(245,197,24,.15); border:1px solid rgba(245,197,24,.25); display:flex; align-items:center; justify-content:center; font-size:1.2rem; }
+    .nvt { font-family:var(--font-display); font-size:.88rem; font-weight:700; color:var(--blanco); margin-bottom:.2rem; letter-spacing:-.2px; }
+    .nvd { font-size:.83rem; color:rgba(255,255,255,.55); line-height:1.65; }
+
+    /* ═══════════════════════════════════
+       PAQUETES
+    ═══════════════════════════════════ */
+    #paquetes { padding:6rem 0; background:var(--crema); }
+
+    .paq-filter-cv { display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:2.5rem; }
+    .pfc {
+      font-family:var(--font-display); font-size:.65rem;
+      letter-spacing:1px; font-weight:700;
+      padding:.42rem 1.2rem; background:transparent;
+      color:var(--gris); border:1.5px solid var(--border);
+      border-radius:30px; cursor:pointer; transition:all .2s;
+    }
+    .pfc.active, .pfc:hover { background:var(--azul); color:var(--blanco); border-color:var(--azul); }
+
+    .paq-cv-card {
+      background:var(--blanco); border:1.5px solid var(--border);
+      border-radius:20px; overflow:hidden;
+      transition:all .35s; height:100%;
+      box-shadow:0 2px 15px var(--shadow);
+    }
+    .paq-cv-card:hover { transform:translateY(-8px); box-shadow:0 25px 60px var(--shadow); border-color:var(--amarillo); }
+    .paq-img-cv { width:100%; aspect-ratio:4/3; overflow:hidden; position:relative; }
+    .paq-img-cv img { width:100%;height:100%;object-fit:cover;transition:transform .5s; }
+    .paq-cv-card:hover .paq-img-cv img { transform:scale(1.07); }
+    .paq-img-cv::after { content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(13,26,15,.6) 0%,transparent 55%); }
+    .paq-label-cv {
+      position:absolute; top:12px; left:12px; z-index:2;
+      font-family:var(--font-display); font-size:.55rem;
+      letter-spacing:1.5px; font-weight:700;
+      padding:.2rem .7rem; border-radius:20px;
+    }
+    .pl-oferta { background:var(--rojo); color:var(--blanco); }
+    .pl-nuevo  { background:var(--amarillo); color:var(--selva); }
+    .pl-top    { background:var(--azul); color:var(--blanco); }
+    .paq-dias-cv {
+      position:absolute; bottom:12px; right:12px; z-index:2;
+      background:rgba(13,26,15,.8); color:var(--amarillo2);
+      font-family:var(--font-display); font-size:.6rem; letter-spacing:1px;
+      font-weight:700; padding:.2rem .7rem; border-radius:20px;
+    }
+    .paq-body-cv { padding:1.4rem; }
+    .paq-region-cv { font-family:var(--font-body); font-size:.6rem; letter-spacing:2px; text-transform:uppercase; color:var(--azul); font-weight:600; margin-bottom:.25rem; }
+    .paq-name-cv { font-family:var(--font-display); font-size:1.05rem; font-weight:900; color:var(--oscuro); margin-bottom:.5rem; letter-spacing:-.3px; line-height:1.2; }
+    .paq-incl-cv { display:flex; gap:.7rem; flex-wrap:wrap; margin-bottom:1rem; }
+    .pi-cv { font-size:.7rem; color:var(--gris); display:flex; align-items:center; gap:4px; }
+    .pi-cv i { color:var(--selva2); font-size:.72rem; }
+    .paq-footer-cv {
+      display:flex; justify-content:space-between; align-items:flex-end;
+      border-top:1px solid var(--border); padding-top:.9rem;
+    }
+    .paq-desde-cv { font-size:.6rem; color:var(--gris2); text-transform:uppercase; letter-spacing:1px; }
+    .paq-precio-cv { font-family:var(--font-display); font-size:1.4rem; font-weight:900; color:var(--rojo); line-height:1; }
+    .paq-precio-cv span { font-size:.65rem; color:var(--gris2); font-family:var(--font-body); font-weight:300; }
+    .btn-paq-cv {
+      font-family:var(--font-display); font-size:.62rem; letter-spacing:1px;
+      font-weight:700; background:var(--rojo); color:var(--blanco);
+      border:none; padding:.42rem 1.1rem; border-radius:20px;
+      text-decoration:none; transition:all .2s;
+    }
+    .btn-paq-cv:hover { background:var(--rojo2); color:var(--blanco); }
+
+    /* ═══════════════════════════════════
+       TOURS
+    ═══════════════════════════════════ */
+    #tours { padding:6rem 0; background:var(--off-white); }
+
+    .tour-cv {
+      background:var(--blanco); border:1.5px solid var(--border);
+      border-radius:18px; padding:1.5rem;
+      height:100%; transition:all .3s; display:flex; flex-direction:column;
+      box-shadow:0 2px 12px var(--shadow);
+    }
+    .tour-cv:hover { border-color:var(--azul); transform:translateY(-5px); box-shadow:0 15px 40px var(--shadow); }
+    .tour-cv-emoji { font-size:2rem; margin-bottom:.8rem; display:block; }
+    .tour-cv-region {
+      font-family:var(--font-body); font-size:.6rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:700; margin-bottom:.3rem;
+      display:flex; align-items:center; gap:5px;
+    }
+    .tr-caribe  { color:var(--turquesa); }
+    .tr-andino  { color:var(--selva2); }
+    .tr-amazonia{ color:var(--selva); }
+    .tr-pacifico{ color:var(--azul); }
+    .tr-cafe    { color:var(--tierra); }
+    .tour-cv-name { font-family:var(--font-serif); font-size:1.1rem; font-weight:600; color:var(--oscuro); margin-bottom:.5rem; line-height:1.3; }
+    .tour-cv-desc { font-size:.84rem; color:var(--gris); line-height:1.7; font-weight:300; margin-bottom:1rem; flex:1; }
+    .tour-cv-info { display:flex; gap:.9rem; flex-wrap:wrap; border-top:1px solid var(--border); padding-top:.8rem; margin-bottom:1rem; }
+    .tci { font-size:.7rem; color:var(--gris); display:flex; align-items:center; gap:4px; }
+    .tci i { color:var(--azul); font-size:.72rem; }
+    .btn-tour-cv {
+      font-family:var(--font-display); font-size:.65rem; letter-spacing:1px;
+      font-weight:700; border:1.5px solid var(--azul); color:var(--azul);
+      background:transparent; padding:.5rem 1.2rem; border-radius:20px;
+      text-decoration:none; transition:all .2s; display:inline-flex; align-items:center; gap:5px;
+    }
+    .btn-tour-cv:hover { background:var(--azul); color:var(--blanco); }
+
+    /* ═══════════════════════════════════
+       CIFRAS
+    ═══════════════════════════════════ */
+    #cifras { padding:5rem 0; background:var(--rojo); position:relative; overflow:hidden; }
+    #cifras::before {
+      content:''; position:absolute; inset:0;
+      background:repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(255,255,255,.04) 20px,rgba(255,255,255,.04) 21px);
+    }
+    .cif-cv { text-align:center; position:relative; z-index:1; }
+    .cif-cv::after { content:'';position:absolute;right:0;top:20%;bottom:20%;width:1px;background:rgba(255,255,255,.2); }
+    .cif-cv:last-child::after { display:none; }
+    .cif-n-cv { font-family:var(--font-display); font-size:clamp(2.5rem,5vw,4rem); font-weight:900; color:var(--blanco); line-height:1; }
+    .cif-n-cv sup { font-size:1.2rem; color:var(--amarillo2); vertical-align:super; }
+    .cif-bar-cv { width:28px; height:3px; background:rgba(255,255,255,.25); margin:.6rem auto; }
+    .cif-l-cv { font-family:var(--font-body); font-size:.65rem; letter-spacing:1.5px; text-transform:uppercase; color:rgba(255,255,255,.65); }
+
+    /* ═══════════════════════════════════
+       GALERÍA
+    ═══════════════════════════════════ */
+    #galeria { padding:6rem 0; background:var(--crema); }
+
+    .gal-cv {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      grid-template-rows:220px 220px;
+      gap:10px;
+    }
+    .gi { border-radius:16px; overflow:hidden; position:relative; cursor:pointer; }
+    .gi:nth-child(1) { grid-column:1/3; }
+    .gi:nth-child(5) { grid-column:3/5; }
+    .gi img { width:100%;height:100%;object-fit:cover;transition:transform .5s; }
+    .gi:hover img { transform:scale(1.07); }
+    .gi-ov { position:absolute;inset:0;background:rgba(13,26,15,0);display:flex;align-items:center;justify-content:center;transition:background .3s; }
+    .gi:hover .gi-ov { background:rgba(13,26,15,.45); }
+    .gi-ov i { font-size:1.8rem;color:var(--blanco);opacity:0;transition:opacity .3s; }
+    .gi:hover .gi-ov i { opacity:1; }
+    .gi-label { position:absolute;bottom:10px;left:12px;font-family:var(--font-display);font-size:.58rem;letter-spacing:1.5px;font-weight:700;color:var(--blanco);background:rgba(13,26,15,.7);padding:.2rem .65rem;border-radius:20px;backdrop-filter:blur(4px); }
+    .gi-flag { position:absolute;top:10px;right:10px;z-index:2; }
+
+    /* ═══════════════════════════════════
+       TESTIMONIOS
+    ═══════════════════════════════════ */
+    #testimonios { padding:6rem 0; background:var(--selva); overflow:hidden; position:relative; }
+    #testimonios::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at 50% 50%,rgba(245,197,24,.06) 0%,transparent 60%);
+    }
+
+    .test-cv {
+      background:rgba(255,253,245,.06); border:1px solid rgba(255,255,255,.1);
+      border-radius:20px; padding:2rem; height:100%; transition:all .3s;
+    }
+    .test-cv:hover { background:rgba(255,253,245,.1); border-color:rgba(245,197,24,.3); }
+    .test-stars-cv { font-size:.85rem; color:var(--amarillo2); margin-bottom:.8rem; }
+    .test-text-cv { font-family:var(--font-serif); font-size:.98rem; color:rgba(255,253,245,.85); line-height:1.8; font-style:italic; margin-bottom:1.2rem; font-weight:400; }
+    .test-dest-cv {
+      display:inline-flex; align-items:center; gap:6px;
+      font-family:var(--font-body); font-size:.62rem; letter-spacing:2px;
+      text-transform:uppercase; color:var(--amarillo2); font-weight:600; margin-bottom:1rem;
+    }
+    .test-auth-cv {
+      display:flex; align-items:center; gap:.8rem;
+      border-top:1px solid rgba(255,255,255,.08); padding-top:1rem;
+    }
+    .tav-cv {
+      width:42px; height:42px; border-radius:50%;
+      background:linear-gradient(135deg,var(--amarillo),var(--rojo));
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-display); font-size:.95rem; font-weight:900; color:var(--blanco);
+      overflow:hidden;
+    }
+    .tav-cv img { width:100%;height:100%;object-fit:cover; }
+    .tav-name-cv { font-family:var(--font-display); font-size:.88rem; font-weight:700; color:var(--blanco); letter-spacing:-.2px; }
+    .tav-sub-cv  { font-size:.72rem; color:rgba(255,255,255,.4); }
+
+    /* ═══════════════════════════════════
+       BLOG
+    ═══════════════════════════════════ */
+    #blog { padding:6rem 0; background:var(--off-white); }
+
+    .blog-cv {
+      background:var(--blanco); border:1.5px solid var(--border);
+      border-radius:20px; overflow:hidden; transition:all .35s; height:100%;
+      box-shadow:0 2px 12px var(--shadow);
+    }
+    .blog-cv:hover { border-color:var(--amarillo); transform:translateY(-5px); box-shadow:0 20px 50px var(--shadow); }
+    .blog-img-cv { width:100%; aspect-ratio:16/9; overflow:hidden; position:relative; }
+    .blog-img-cv img { width:100%;height:100%;object-fit:cover;transition:transform .5s; }
+    .blog-cv:hover .blog-img-cv img { transform:scale(1.06); }
+    .blog-cat-cv {
+      position:absolute; top:12px; left:12px; z-index:2;
+      font-family:var(--font-display); font-size:.55rem;
+      letter-spacing:2px; font-weight:700;
+      padding:.2rem .7rem; border-radius:20px;
+    }
+    .bc-colombia { background:var(--rojo); color:var(--blanco); }
+    .bc-tips     { background:var(--azul); color:var(--blanco); }
+    .bc-gastr    { background:var(--tierra); color:var(--blanco); }
+    .bc-cultura  { background:var(--selva2); color:var(--blanco); }
+    .blog-body-cv { padding:1.4rem; }
+    .blog-meta-cv { display:flex; gap:.8rem; margin-bottom:.7rem; font-size:.62rem; color:var(--gris2); }
+    .blog-meta-cv i { color:var(--amarillo); }
+    .blog-title-cv { font-family:var(--font-serif); font-size:1.1rem; font-weight:600; color:var(--oscuro); line-height:1.35; margin-bottom:.6rem; }
+    .blog-excerpt-cv { font-size:.83rem; color:var(--gris); line-height:1.7; font-weight:300; margin-bottom:1rem; }
+    .btn-blog-cv { font-family:var(--font-display); font-size:.63rem; letter-spacing:1px; font-weight:700; color:var(--azul); text-decoration:none; display:inline-flex; align-items:center; gap:5px; transition:gap .2s; }
+    .btn-blog-cv:hover { gap:10px; color:var(--rojo); }
+
+    /* ═══════════════════════════════════
+       COTIZACIÓN
+    ═══════════════════════════════════ */
+    #cotizacion { padding:6rem 0; background:var(--crema); }
+
+    .cotiz-visual-cv {
+      background:linear-gradient(145deg,var(--amarillo),var(--rojo));
+      border-radius:24px; padding:3rem; height:100%;
+      position:relative; overflow:hidden;
+    }
+    .cotiz-visual-cv::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at 80% 20%,rgba(255,255,255,.15) 0%,transparent 50%);
+    }
+    /* Mini bandera decorativa */
+    .cotiz-bandera {
+      display:flex; height:8px; border-radius:4px; overflow:hidden;
+      margin-bottom:1.5rem; box-shadow:0 2px 10px rgba(0,0,0,.2);
+      position:relative; z-index:1;
+    }
+    .cb-y { flex:2; background:var(--amarillo); }
+    .cb-b { flex:1; background:var(--azul); }
+    .cb-r { flex:1; background:var(--rojo); }
+    .cotiz-img-strip-cv {
+      display:grid; grid-template-columns:1fr 1fr; gap:8px;
+      margin-bottom:1.5rem; border-radius:12px; overflow:hidden;
+    }
+    .cisc { aspect-ratio:1/1; overflow:hidden; border-radius:8px; }
+    .cotiz-quote-cv {
+      font-family:var(--font-serif); font-size:1.1rem;
+      color:rgba(255,255,255,.92); line-height:1.8;
+      font-style:italic; position:relative; z-index:1; margin-bottom:1.5rem;
+    }
+    .cotiz-perks-cv { position:relative; z-index:1; }
+    .cp-cv { display:flex; gap:.8rem; align-items:center; padding:.65rem 0; border-bottom:1px solid rgba(255,255,255,.15); font-size:.85rem; color:rgba(255,255,255,.85); }
+    .cp-cv:last-child { border:none; }
+    .cp-cv i { color:rgba(255,255,255,.9); font-size:1rem; min-width:20px; }
+
+    .cotiz-form-cv {
+      background:var(--blanco); border:1.5px solid var(--border);
+      border-radius:24px; padding:2.5rem; height:100%;
+      box-shadow:0 8px 30px var(--shadow);
+    }
+    .flbl-cv { font-family:var(--font-body); font-size:.65rem; letter-spacing:1px; text-transform:uppercase; color:var(--gris); display:block; margin-bottom:.35rem; font-weight:600; }
+    .fctrl-cv {
+      background:var(--off-white); border:1.5px solid var(--border);
+      border-radius:10px; color:var(--oscuro);
+      font-family:var(--font-body); font-size:.9rem; font-weight:300;
+      padding:.7rem 1rem; width:100%; outline:none;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    .fctrl-cv:focus { border-color:var(--azul); box-shadow:0 0 0 3px rgba(0,56,147,.1); }
+    .fctrl-cv::placeholder { color:var(--gris2); }
+    .fctrl-cv option { background:var(--blanco); }
+    .btn-cotiz-cv {
+      font-family:var(--font-display); font-size:.78rem; letter-spacing:1px;
+      font-weight:900; background:linear-gradient(90deg,var(--amarillo),var(--amarillo2));
+      color:var(--selva); border:none; padding:1rem; width:100%;
+      border-radius:30px; cursor:pointer; transition:all .25s;
+      box-shadow:0 6px 20px rgba(245,197,24,.35);
+    }
+    .btn-cotiz-cv:hover { transform:translateY(-1px); box-shadow:0 10px 30px rgba(245,197,24,.5); }
+
+    /* ═══════════════════════════════════
+       CTA FINAL
+    ═══════════════════════════════════ */
+    #cta { padding:7rem 0; background:var(--off-white); }
+    .cta-cv {
+      background:var(--selva); border-radius:28px;
+      padding:5rem 4rem; text-align:center; position:relative; overflow:hidden;
+    }
+    .cta-cv::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at 50% 100%,rgba(245,197,24,.12) 0%,transparent 55%),
+                 radial-gradient(ellipse at 80% 10%,rgba(206,17,38,.08) 0%,transparent 40%);
+    }
+    /* Bandera decorativa top del CTA */
+    .cta-flag-strip {
+      position:absolute; top:0; left:0; right:0;
+      height:5px; display:flex;
+    }
+    .cfs-y { flex:2; background:var(--amarillo); }
+    .cfs-b { flex:1; background:var(--azul); }
+    .cfs-r { flex:1; background:var(--rojo); }
+    .cta-cv-title {
+      font-family:var(--font-display); font-size:clamp(2rem,4.5vw,4rem);
+      font-weight:900; color:var(--blanco); line-height:1.1; margin-bottom:1rem;
+      position:relative; z-index:1; letter-spacing:-1px;
+    }
+    .cta-cv-title em { color:var(--amarillo2); font-style:italic; font-family:var(--font-serif); font-weight:400; }
+
+    /* ═══════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════ */
+    footer {
+      background:var(--oscuro);
+      border-top:0;
+      padding:4rem 0 2rem;
+    }
+    /* Bandera en el footer */
+    .footer-bandera { display:flex; height:4px; }
+    .fba-y { flex:2; background:var(--amarillo); }
+    .fba-b { flex:1; background:var(--azul); }
+    .fba-r { flex:1; background:var(--rojo); }
+    .footer-brand-cv { font-family:var(--font-display); font-size:1.5rem; font-weight:900; color:var(--blanco); letter-spacing:-.5px; margin-top:2rem; }
+    .footer-brand-cv em { color:var(--amarillo2); font-style:italic; font-family:var(--font-serif); font-weight:400; }
+    .footer-tag-cv { font-family:var(--font-body); font-size:.55rem; letter-spacing:3px; color:rgba(255,255,255,.3); text-transform:uppercase; margin-top:.3rem; }
+    .footer-col-h-cv { font-family:var(--font-display); font-size:.62rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3); font-weight:700; margin-bottom:1.2rem; }
+    .footer-lnk-cv   { display:block; font-size:.86rem; color:rgba(255,255,255,.35); text-decoration:none; margin-bottom:.5rem; transition:color .2s; font-weight:300; }
+    .footer-lnk-cv:hover { color:var(--amarillo2); }
+    .footer-btm-cv    { border-top:1px solid rgba(255,255,255,.06); margin-top:3rem; padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.8rem; }
+    .footer-copy-cv   { font-size:.72rem; color:rgba(255,255,255,.15); font-family:var(--font-body); }
+    .soc-cv { width:34px;height:34px;border:1px solid rgba(255,255,255,.1);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);text-decoration:none;font-size:.85rem;margin-left:.4rem;transition:all .2s; }
+    .soc-cv:hover { border-color:var(--amarillo); color:var(--amarillo); }
+
+    /* WA float */
+    .wa-cv { position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:white;text-decoration:none;z-index:997;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s; }
+    .wa-cv:hover{transform:scale(1.1);color:white;}
+    .wa-ring-cv{position:absolute;inset:0;border-radius:50%;background:rgba(37,211,102,.3);animation:waRcv 2.2s ease-out infinite;}
+    @keyframes waRcv{0%{transform:scale(1);opacity:.8;}100%{transform:scale(1.75);opacity:0;}}
+    .wa-label-cv{position:absolute;right:66px;background:var(--blanco);color:var(--selva);font-family:var(--font-display);font-size:.68rem;letter-spacing:.5px;white-space:nowrap;padding:.4rem .9rem;border-radius:20px;box-shadow:0 4px 15px rgba(0,0,0,.12);opacity:0;transform:translateX(10px);transition:all .3s;pointer-events:none;font-weight:700;}
+    .wa-cv:hover .wa-label-cv{opacity:1;transform:translateX(0);}
+
+    /* RESPONSIVE */
+    @media(max-width:991px){
+      .region-grid { grid-template-columns:1fr 1fr; }
+      .region-card:nth-child(1) { grid-column:1/3; }
+      .gal-cv { grid-template-columns:1fr 1fr; grid-template-rows:repeat(3,180px); }
+      .gi:nth-child(1) { grid-column:1/3; }
+      .gi:nth-child(5) { grid-column:1/3; }
+      .cta-cv { padding:3rem 1.5rem; }
+    }
+    @media(max-width:767px){
+      .topbar { display:none; }
+      .hero-search-cv { max-width:100%; }
+      .cotiz-img-strip-cv { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Bandera top -->
+<div class="bandera-strip">
+  <div class="bs-amarillo"></div>
+  <div class="bs-azul"></div>
+  <div class="bs-rojo"></div>
+</div>
+
+<!-- ══ TOPBAR ══ -->
+<div class="topbar">
+  <div class="container">
+    <div class="tb-inner">
+      <div class="d-flex gap-3 flex-wrap">
+        <span class="tb-i"><i class="bi bi-telephone-fill"></i><a href="tel:+573000000000">+57 300 000 0000</a></span>
+        <span class="tb-i"><i class="bi bi-envelope-fill"></i><a href="mailto:info@colombiaviva.co">info@colombiaviva.co</a></span>
+        <span class="tb-i"><i class="bi bi-geo-alt-fill"></i>Tu ciudad, Colombia</span>
+      </div>
+      <div class="d-flex gap-3 flex-wrap align-items-center">
+        <span class="tb-i"><i class="bi bi-clock-fill"></i>Lun–Sáb 8am – 6pm</span>
+        <span class="tb-iata">RNT Certificada</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="nav">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="#hero" class="brand-cv">
+        <div class="brand-flag">
+          <div class="bf-y"></div>
+          <div class="bf-b"></div>
+          <div class="bf-r"></div>
+        </div>
+        <div>
+          COLOMBIA <span>VIVA</span>
+          <span class="brand-sub-cv">Turismo Nacional · Descubre tu País</span>
+        </div>
+      </a>
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a href="#regiones"   class="nav-l-cv">Regiones</a>
+        <a href="#destinos"   class="nav-l-cv">Destinos</a>
+        <a href="#paquetes"   class="nav-l-cv">Paquetes</a>
+        <a href="#tours"      class="nav-l-cv">Tours</a>
+        <a href="#galeria"    class="nav-l-cv">Galería</a>
+        <a href="#blog"       class="nav-l-cv">Blog</a>
+        <a href="#cotizacion" class="btn-cotizar-cv ms-3">
+          <i class="bi bi-send-fill"></i> Cotizar viaje
+        </a>
+      </div>
+      <button id="navToggle" class="btn d-lg-none" style="border:1.5px solid var(--border);color:var(--azul);border-radius:10px;padding:.4rem .9rem;">
+        <i class="bi bi-list fs-5"></i>
+      </button>
+    </div>
+    <div id="mob-cv">
+      <a href="#regiones"   class="nav-l-cv d-block py-2">Regiones</a>
+      <a href="#destinos"   class="nav-l-cv d-block py-2">Destinos</a>
+      <a href="#paquetes"   class="nav-l-cv d-block py-2">Paquetes</a>
+      <a href="#tours"      class="nav-l-cv d-block py-2">Tours</a>
+      <a href="#galeria"    class="nav-l-cv d-block py-2">Galería</a>
+      <a href="#blog"       class="nav-l-cv d-block py-2">Blog</a>
+      <a href="#cotizacion" class="btn-cotizar-cv d-inline-flex mt-2">
+        <i class="bi bi-send-fill"></i> Cotizar viaje
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-bg-cv">
+    <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=1800&q=90&fit=crop&crop=center"
+         alt="Colombia hermosa" id="heroImg" loading="eager"/>
+  </div>
+  <div class="hero-ov-cv"></div>
+  <div class="hero-leaves">
+    <span class="leaf-deco">🌿</span>
+    <span class="leaf-deco">🍃</span>
+    <span class="leaf-deco">🌺</span>
+    <span class="leaf-deco">🦋</span>
+  </div>
+  <div class="hero-flag-deco">
+    <div class="hfd-y"></div>
+    <div class="hfd-b"></div>
+    <div class="hfd-r"></div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="hero-co-tag">🇨🇴 El país más hermoso del mundo te espera</div>
+        <h1 class="hero-h1">
+          <span class="ama">COLOMBIA</span>
+          <span class="azu">TE ENAMORA</span>
+          <span class="roj">Descubre cada rincón de tu país</span>
+        </h1>
+        <p class="hero-desc">
+          Del Caribe a la Amazonia, de los Andes al Pacífico. Colombia tiene más de 1.100 municipios llenos de naturaleza, cultura, gastronomía y aventura. Diseñamos tu viaje perfecto por el país más biodiverso de la Tierra.
+        </p>
+
+        <!-- Buscador -->
+        <div class="hero-search-cv">
+          <div class="hs-head">🧭 ¿A dónde quieres ir en Colombia?</div>
+          <div class="row g-2">
+            <div class="col-md-5">
+              <label class="hs-lbl">Destino colombiano</label>
+              <select class="hs-inp">
+                <option disabled selected>Selecciona...</option>
+                <optgroup label="🏖 Caribe">
+                  <option>Cartagena</option>
+                  <option>San Andrés</option>
+                  <option>Santa Marta</option>
+                  <option>Barranquilla</option>
+                </optgroup>
+                <optgroup label="🏔 Andina">
+                  <option>Medellín</option>
+                  <option>Bogotá</option>
+                  <option>Villa de Leyva</option>
+                  <option>Barichara</option>
+                </optgroup>
+                <optgroup label="☕ Eje Cafetero">
+                  <option>Salento</option>
+                  <option>Manizales</option>
+                  <option>Pereira</option>
+                </optgroup>
+                <optgroup label="🌿 Amazonia">
+                  <option>Leticia</option>
+                  <option>Puerto Nariño</option>
+                </optgroup>
+                <optgroup label="🌊 Pacífico">
+                  <option>Bahía Solano</option>
+                  <option>Nuquí</option>
+                </optgroup>
+              </select>
+            </div>
+            <div class="col-md-3">
+              <label class="hs-lbl">¿Cuántas personas?</label>
+              <select class="hs-inp">
+                <option>Solo</option>
+                <option>Pareja</option>
+                <option>3–4 personas</option>
+                <option>Familia 5+</option>
+                <option>Grupo 10+</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="hs-lbl">¿Cuándo viajas?</label>
+              <input type="month" class="hs-inp"/>
+            </div>
+            <div class="col-12">
+              <button class="btn-buscar-cv" onclick="goCotizacion()">
+                <i class="bi bi-search"></i> Buscar disponibilidad
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Regiones rápidas -->
+        <div class="hero-regiones">
+          <span class="hreg">🏖 Caribe</span>
+          <span class="hreg">🏔 Andina</span>
+          <span class="hreg">☕ Eje Cafetero</span>
+          <span class="hreg">🌿 Amazonia</span>
+          <span class="hreg">🌊 Pacífico</span>
+          <span class="hreg">🦅 Llanos</span>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats-cv">
+          <div class="hsc"><div class="hsc-n">10<sup>+</sup></div><div class="hsc-l">Años</div></div>
+          <div class="hsc"><div class="hsc-n">300<sup>+</sup></div><div class="hsc-l">Paquetes</div></div>
+          <div class="hsc"><div class="hsc-n">32<sup>+</sup></div><div class="hsc-l">Destinos</div></div>
+          <div class="hsc"><div class="hsc-n">98<sup>%</sup></div><div class="hsc-l">Satisfacción</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-cv">
+    <span>Explorar Colombia</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+
+<!-- ══ REGIONES ══ -->
+<section id="regiones">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="tag-cv reveal">6 regiones únicas</div>
+        <h2 class="title-cv reveal">Un país,<br><em>infinitas maravillas</em></h2>
+        <div class="col-rule reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="sub-cv reveal">Colombia es el único país del mundo que tiene acceso al Océano Pacífico y al Mar Caribe, la Amazonia, los Andes, los Llanos y el Caribe. Todo en un solo territorio.</p>
+      </div>
+    </div>
+
+    <div class="region-grid reveal">
+
+      <div class="region-card">
+        <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=900&q=80&fit=crop" alt="Caribe" loading="lazy" class="img-f"/>
+        <span class="reg-badge">🏖 Más visitada</span>
+        <div class="reg-overlay"></div>
+        <div class="reg-content">
+          <span class="reg-emoji">🌊</span>
+          <div class="reg-name">REGIÓN CARIBE</div>
+          <div class="reg-dests">Cartagena · San Andrés · Santa Marta · Barranquilla · La Guajira</div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <img src="https://images.unsplash.com/photo-1598024055266-e772a4a21e64?w=600&q=80&fit=crop" alt="Eje Cafetero" loading="lazy" class="img-f"/>
+        <div class="reg-overlay"></div>
+        <div class="reg-content">
+          <span class="reg-emoji">☕</span>
+          <div class="reg-name">EJE CAFETERO</div>
+          <div class="reg-dests">Salento · Manizales · Armenia · Pereira</div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <img src="https://images.unsplash.com/photo-1565117100025-7c4edfc5c3b7?w=600&q=80&fit=crop" alt="Andina" loading="lazy" class="img-f"/>
+        <div class="reg-overlay"></div>
+        <div class="reg-content">
+          <span class="reg-emoji">🏔</span>
+          <div class="reg-name">REGIÓN ANDINA</div>
+          <div class="reg-dests">Bogotá · Medellín · Villa de Leyva · Barichara</div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=600&q=80&fit=crop" alt="Amazonia" loading="lazy" class="img-f"/>
+        <div class="reg-overlay"></div>
+        <div class="reg-content">
+          <span class="reg-emoji">🌿</span>
+          <div class="reg-name">AMAZONIA</div>
+          <div class="reg-dests">Leticia · Puerto Nariño · Río Amazonas</div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <img src="https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=600&q=80&fit=crop" alt="Pacífico" loading="lazy" class="img-f"/>
+        <div class="reg-overlay"></div>
+        <div class="reg-content">
+          <span class="reg-emoji">🐋</span>
+          <div class="reg-name">PACÍFICO</div>
+          <div class="reg-dests">Bahía Solano · Nuquí · Buenaventura · Chocó</div>
+        </div>
+      </div>
+
+      <div class="region-card">
+        <img src="https://images.unsplash.com/photo-1416169607655-0c2b3ce2e1cc?w=600&q=80&fit=crop" alt="Llanos" loading="lazy" class="img-f"/>
+        <div class="reg-overlay"></div>
+        <div class="reg-content">
+          <span class="reg-emoji">🦅</span>
+          <div class="reg-name">LLANOS</div>
+          <div class="reg-dests">Casanare · Meta · Arauca · Tuparro</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ NOSOTROS ══ -->
+<section id="nosotros">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 rl">
+        <div class="nos-img-cv">
+          <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=800&q=85&fit=crop" alt="Viajeros en Colombia" class="img-f" loading="lazy"/>
+          <div class="nos-badge-cv">
+            <div class="nbc-n">10+</div>
+            <div class="nbc-l">Años descubriendo Colombia</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="tag-cv reveal" style="color:rgba(255,255,255,.4);">Quiénes somos</div>
+        <h2 class="title-cv title-cv-light reveal">Somos colombianos<br>apasionados por <em>Colombia</em></h2>
+        <div class="col-rule reveal"></div>
+        <p class="sub-cv reveal d1" style="color:rgba(255,255,255,.55);margin-bottom:1.5rem;">
+          <strong style="color:rgba(255,255,255,.85);font-weight:600;">COLOMBIA VIVA</strong> nació del amor por nuestro país. Somos colombianos que creemos que no hay nada más maravilloso que descubrir Colombia — sus paisajes, su gente, su cultura y su biodiversidad sin igual en el mundo.
+        </p>
+        <div class="nos-val-cv reveal d1">
+          <div class="nvi">🗺️</div>
+          <div><div class="nvt">Expertos en destinos nacionales</div><div class="nvd">Conocemos Colombia de norte a sur. Hemos visitado cada destino que ofrecemos y trabajamos con los mejores aliados locales.</div></div>
+        </div>
+        <div class="nos-val-cv reveal d2">
+          <div class="nvi">🤝</div>
+          <div><div class="nvt">Turismo responsable</div><div class="nvd">Apoyamos el turismo sostenible y el emprendimiento local. Cada viaje que vendes beneficia a las comunidades de los destinos.</div></div>
+        </div>
+        <div class="nos-val-cv reveal d3">
+          <div class="nvi">💛</div>
+          <div><div class="nvt">Precio justo, siempre</div><div class="nvd">Nada de sorpresas. Precios transparentes, paquetes claros y el mejor servicio antes, durante y después de tu viaje.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ DESTINOS ══ -->
+<section id="destinos">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-cv justify-content-center reveal">Destinos estrella</div>
+      <h2 class="title-cv reveal">Los lugares que te harán<br><em>enamorarte de Colombia</em></h2>
+      <div class="col-rule col-rule-c reveal"></div>
+      <p class="sub-cv mx-auto reveal" style="max-width:520px;">Desde las murallas de Cartagena hasta las selvas del Amazonas. Colombia tiene un destino para cada tipo de viajero.</p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="dest-cv-card">
+          <div class="dest-img-cv">
+            <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=700&q=80&fit=crop" alt="Cartagena" loading="lazy" class="img-f"/>
+            <div class="dest-flag-badge"><div class="dfb-y"></div><div class="dfb-b"></div><div class="dfb-r"></div></div>
+            <span class="dest-tipo dt-caribe">Caribe</span>
+            <div class="dest-rating"><i class="bi bi-star-fill"></i>4.9</div>
+          </div>
+          <div class="dest-body-cv">
+            <div class="dest-region-cv">Bolívar · Costa Caribe</div>
+            <div class="dest-name-cv">Cartagena de Indias</div>
+            <div class="dest-desc-cv">Ciudad Heroína y Patrimonio de la Humanidad. Murallas coloniales, playas turquesas, gastronomía caribeña y una vida nocturna incomparable.</div>
+            <div class="dest-footer-cv">
+              <div class="dest-precio-cv"><div class="dp-desde">Desde</div><div class="dp-val">$890.000</div><div class="dp-pp">/ por persona</div></div>
+              <a href="#cotizacion" class="btn-dest-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="dest-cv-card">
+          <div class="dest-img-cv">
+            <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=700&q=80&fit=crop" alt="San Andrés" loading="lazy" class="img-f"/>
+            <div class="dest-flag-badge"><div class="dfb-y"></div><div class="dfb-b"></div><div class="dfb-r"></div></div>
+            <span class="dest-tipo dt-caribe">Caribe</span>
+            <div class="dest-rating"><i class="bi bi-star-fill"></i>4.9</div>
+          </div>
+          <div class="dest-body-cv">
+            <div class="dest-region-cv">San Andrés · Mar Caribe</div>
+            <div class="dest-name-cv">San Andrés Islas</div>
+            <div class="dest-desc-cv">El mar de 7 colores. Arrecifes de coral, aguas cristalinas, snorkel, buceo y el relajante ritmo caribeño colombiano.</div>
+            <div class="dest-footer-cv">
+              <div class="dest-precio-cv"><div class="dp-desde">Desde</div><div class="dp-val">$1.200.000</div><div class="dp-pp">/ por persona</div></div>
+              <a href="#cotizacion" class="btn-dest-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="dest-cv-card">
+          <div class="dest-img-cv">
+            <img src="https://images.unsplash.com/photo-1598024055266-e772a4a21e64?w=700&q=80&fit=crop" alt="Eje Cafetero" loading="lazy" class="img-f"/>
+            <div class="dest-flag-badge"><div class="dfb-y"></div><div class="dfb-b"></div><div class="dfb-r"></div></div>
+            <span class="dest-tipo dt-cafe">Cafetero</span>
+            <div class="dest-rating"><i class="bi bi-star-fill"></i>4.8</div>
+          </div>
+          <div class="dest-body-cv">
+            <div class="dest-region-cv">Quindío · Risaralda · Caldas</div>
+            <div class="dest-name-cv">Eje Cafetero</div>
+            <div class="dest-desc-cv">Haciendas, palmas de cera, Salento, termales y el mejor café del mundo. El corazón verde de Colombia.</div>
+            <div class="dest-footer-cv">
+              <div class="dest-precio-cv"><div class="dp-desde">Desde</div><div class="dp-val">$650.000</div><div class="dp-pp">/ por persona</div></div>
+              <a href="#cotizacion" class="btn-dest-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="dest-cv-card">
+          <div class="dest-img-cv">
+            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=700&q=80&fit=crop" alt="Amazonas" loading="lazy" class="img-f"/>
+            <div class="dest-flag-badge"><div class="dfb-y"></div><div class="dfb-b"></div><div class="dfb-r"></div></div>
+            <span class="dest-tipo dt-amazonia">Amazonia</span>
+            <div class="dest-rating"><i class="bi bi-star-fill"></i>4.9</div>
+          </div>
+          <div class="dest-body-cv">
+            <div class="dest-region-cv">Amazonas · Sur de Colombia</div>
+            <div class="dest-name-cv">Leticia & Amazonas</div>
+            <div class="dest-desc-cv">El pulmón del mundo. Delfines rosados, comunidades indígenas, fauna exótica y la majestuosidad del río Amazonas.</div>
+            <div class="dest-footer-cv">
+              <div class="dest-precio-cv"><div class="dp-desde">Desde</div><div class="dp-val">$1.800.000</div><div class="dp-pp">/ por persona</div></div>
+              <a href="#cotizacion" class="btn-dest-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="dest-cv-card">
+          <div class="dest-img-cv">
+            <img src="https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=700&q=80&fit=crop" alt="Nuquí Pacífico" loading="lazy" class="img-f"/>
+            <div class="dest-flag-badge"><div class="dfb-y"></div><div class="dfb-b"></div><div class="dfb-r"></div></div>
+            <span class="dest-tipo dt-pacifico">Pacífico</span>
+            <div class="dest-rating"><i class="bi bi-star-fill"></i>4.8</div>
+          </div>
+          <div class="dest-body-cv">
+            <div class="dest-region-cv">Chocó · Océano Pacífico</div>
+            <div class="dest-name-cv">Nuquí & Bahía Solano</div>
+            <div class="dest-desc-cv">El Pacífico salvaje y biodiverso. Avistamiento de ballenas, surf, playas vírgenes y selva desbordante de vida.</div>
+            <div class="dest-footer-cv">
+              <div class="dest-precio-cv"><div class="dp-desde">Desde</div><div class="dp-val">$1.500.000</div><div class="dp-pp">/ por persona</div></div>
+              <a href="#cotizacion" class="btn-dest-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="dest-cv-card">
+          <div class="dest-img-cv">
+            <img src="https://images.unsplash.com/photo-1565117100025-7c4edfc5c3b7?w=700&q=80&fit=crop" alt="Villa de Leyva" loading="lazy" class="img-f"/>
+            <div class="dest-flag-badge"><div class="dfb-y"></div><div class="dfb-b"></div><div class="dfb-r"></div></div>
+            <span class="dest-tipo dt-andino">Andino</span>
+            <div class="dest-rating"><i class="bi bi-star-fill"></i>4.7</div>
+          </div>
+          <div class="dest-body-cv">
+            <div class="dest-region-cv">Boyacá · Región Andina</div>
+            <div class="dest-name-cv">Villa de Leyva</div>
+            <div class="dest-desc-cv">Arquitectura colonial perfectamente conservada, fósiles de dinosaurios, desierto de arena blanca y gastronomía boyacense.</div>
+            <div class="dest-footer-cv">
+              <div class="dest-precio-cv"><div class="dp-desde">Desde</div><div class="dp-val">$480.000</div><div class="dp-pp">/ por persona</div></div>
+              <a href="#cotizacion" class="btn-dest-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-4 reveal">
+      <p class="sub-cv mb-3">Tenemos más de 32 destinos colombianos disponibles</p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center">
+        <a href="#cotizacion" class="btn-primary-cv"><i class="bi bi-send-fill"></i> Cotizar mi viaje</a>
+        <a href="#paquetes"   class="btn-outline-cv"><i class="bi bi-grid"></i> Ver paquetes</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PAQUETES ══ -->
+<section id="paquetes">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-cv justify-content-center reveal">Todo incluido</div>
+      <h2 class="title-cv reveal">Paquetes <em>listos para vivir</em></h2>
+      <div class="col-rule col-rule-c reveal"></div>
+    </div>
+
+    <div class="paq-filter-cv reveal" id="paqFilter">
+      <button class="pfc active" data-pf="all">Todos</button>
+      <button class="pfc" data-pf="caribe">Caribe</button>
+      <button class="pfc" data-pf="andino">Andino</button>
+      <button class="pfc" data-pf="cafe">Cafetero</button>
+      <button class="pfc" data-pf="amazonia">Amazonia</button>
+      <button class="pfc" data-pf="pacifico">Pacífico</button>
+    </div>
+
+    <div class="row g-4" id="paqGrid">
+
+      <div class="col-md-6 col-lg-4 reveal paqItem" data-pt="caribe">
+        <div class="paq-cv-card">
+          <div class="paq-img-cv">
+            <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=700&q=80&fit=crop" alt="Cartagena" loading="lazy" class="img-f"/>
+            <span class="paq-label-cv pl-top">⭐ Top ventas</span>
+            <span class="paq-dias-cv">☀️ 5 días / 4 noches</span>
+          </div>
+          <div class="paq-body-cv">
+            <div class="paq-region-cv">🏖 Caribe · Bolívar</div>
+            <div class="paq-name-cv">Cartagena + Islas del Rosario</div>
+            <div class="paq-incl-cv">
+              <div class="pi-cv"><i class="bi bi-airplane-fill"></i>Vuelo</div>
+              <div class="pi-cv"><i class="bi bi-building"></i>Hotel 4★</div>
+              <div class="pi-cv"><i class="bi bi-cup-hot-fill"></i>Desayunos</div>
+              <div class="pi-cv"><i class="bi bi-water"></i>Snorkel</div>
+            </div>
+            <div class="paq-footer-cv">
+              <div><div class="paq-desde-cv">Desde</div><div class="paq-precio-cv">$890.000 <span>/persona</span></div></div>
+              <a href="#cotizacion" class="btn-paq-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1 paqItem" data-pt="caribe">
+        <div class="paq-cv-card">
+          <div class="paq-img-cv">
+            <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=700&q=80&fit=crop" alt="San Andrés" loading="lazy" class="img-f"/>
+            <span class="paq-label-cv pl-oferta">🔥 Oferta</span>
+            <span class="paq-dias-cv">🌊 4 días / 3 noches</span>
+          </div>
+          <div class="paq-body-cv">
+            <div class="paq-region-cv">🏝 Caribe · San Andrés</div>
+            <div class="paq-name-cv">San Andrés Mar de 7 Colores</div>
+            <div class="paq-incl-cv">
+              <div class="pi-cv"><i class="bi bi-airplane-fill"></i>Vuelo</div>
+              <div class="pi-cv"><i class="bi bi-building"></i>Hotel</div>
+              <div class="pi-cv"><i class="bi bi-cup-hot-fill"></i>Desayunos</div>
+              <div class="pi-cv"><i class="bi bi-water"></i>Tour</div>
+            </div>
+            <div class="paq-footer-cv">
+              <div><div class="paq-desde-cv">Desde</div><div class="paq-precio-cv">$1.200.000 <span>/persona</span></div></div>
+              <a href="#cotizacion" class="btn-paq-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2 paqItem" data-pt="cafe">
+        <div class="paq-cv-card">
+          <div class="paq-img-cv">
+            <img src="https://images.unsplash.com/photo-1598024055266-e772a4a21e64?w=700&q=80&fit=crop" alt="Eje Cafetero" loading="lazy" class="img-f"/>
+            <span class="paq-label-cv pl-nuevo">✨ Nuevo</span>
+            <span class="paq-dias-cv">☕ 4 días / 3 noches</span>
+          </div>
+          <div class="paq-body-cv">
+            <div class="paq-region-cv">☕ Eje Cafetero · Quindío</div>
+            <div class="paq-name-cv">Ruta del Café: Salento y más</div>
+            <div class="paq-incl-cv">
+              <div class="pi-cv"><i class="bi bi-bus-front-fill"></i>Transporte</div>
+              <div class="pi-cv"><i class="bi bi-house-fill"></i>Finca</div>
+              <div class="pi-cv"><i class="bi bi-cup-hot-fill"></i>Pensión completa</div>
+              <div class="pi-cv"><i class="bi bi-camera-fill"></i>Guía</div>
+            </div>
+            <div class="paq-footer-cv">
+              <div><div class="paq-desde-cv">Desde</div><div class="paq-precio-cv">$650.000 <span>/persona</span></div></div>
+              <a href="#cotizacion" class="btn-paq-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal paqItem" data-pt="amazonia">
+        <div class="paq-cv-card">
+          <div class="paq-img-cv">
+            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=700&q=80&fit=crop" alt="Amazonas" loading="lazy" class="img-f"/>
+            <span class="paq-label-cv pl-top">🌿 Ecoturismo</span>
+            <span class="paq-dias-cv">🦜 5 días / 4 noches</span>
+          </div>
+          <div class="paq-body-cv">
+            <div class="paq-region-cv">🌿 Amazonia · Leticia</div>
+            <div class="paq-name-cv">Expedición Amazónica</div>
+            <div class="paq-incl-cv">
+              <div class="pi-cv"><i class="bi bi-airplane-fill"></i>Vuelo</div>
+              <div class="pi-cv"><i class="bi bi-house-fill"></i>Lodge</div>
+              <div class="pi-cv"><i class="bi bi-cup-hot-fill"></i>Todas comidas</div>
+              <div class="pi-cv"><i class="bi bi-binoculars-fill"></i>Excursiones</div>
+            </div>
+            <div class="paq-footer-cv">
+              <div><div class="paq-desde-cv">Desde</div><div class="paq-precio-cv">$1.800.000 <span>/persona</span></div></div>
+              <a href="#cotizacion" class="btn-paq-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1 paqItem" data-pt="pacifico">
+        <div class="paq-cv-card">
+          <div class="paq-img-cv">
+            <img src="https://images.unsplash.com/photo-1559494007-9f5847c49d94?w=700&q=80&fit=crop" alt="Pacífico" loading="lazy" class="img-f"/>
+            <span class="paq-label-cv pl-nuevo">🐋 Temporada</span>
+            <span class="paq-dias-cv">🌊 4 días / 3 noches</span>
+          </div>
+          <div class="paq-body-cv">
+            <div class="paq-region-cv">🌊 Pacífico · Chocó</div>
+            <div class="paq-name-cv">Avistamiento Ballenas Jorobadas</div>
+            <div class="paq-incl-cv">
+              <div class="pi-cv"><i class="bi bi-airplane-fill"></i>Vuelo</div>
+              <div class="pi-cv"><i class="bi bi-house-fill"></i>Eco-lodge</div>
+              <div class="pi-cv"><i class="bi bi-cup-hot-fill"></i>Pensión</div>
+              <div class="pi-cv"><i class="bi bi-water"></i>Tour ballenas</div>
+            </div>
+            <div class="paq-footer-cv">
+              <div><div class="paq-desde-cv">Desde</div><div class="paq-precio-cv">$1.500.000 <span>/persona</span></div></div>
+              <a href="#cotizacion" class="btn-paq-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2 paqItem" data-pt="andino">
+        <div class="paq-cv-card">
+          <div class="paq-img-cv">
+            <img src="https://images.unsplash.com/photo-1565117100025-7c4edfc5c3b7?w=700&q=80&fit=crop" alt="Boyacá" loading="lazy" class="img-f"/>
+            <span class="paq-label-cv pl-oferta">💛 Favorito</span>
+            <span class="paq-dias-cv">🏔 3 días / 2 noches</span>
+          </div>
+          <div class="paq-body-cv">
+            <div class="paq-region-cv">🏔 Andino · Boyacá</div>
+            <div class="paq-name-cv">Boyacá Colonial: Villa de Leyva + Ráquira</div>
+            <div class="paq-incl-cv">
+              <div class="pi-cv"><i class="bi bi-bus-front-fill"></i>Transporte</div>
+              <div class="pi-cv"><i class="bi bi-house-fill"></i>Hospedaje</div>
+              <div class="pi-cv"><i class="bi bi-cup-hot-fill"></i>Desayunos</div>
+              <div class="pi-cv"><i class="bi bi-person-fill"></i>Guía</div>
+            </div>
+            <div class="paq-footer-cv">
+              <div><div class="paq-desde-cv">Desde</div><div class="paq-precio-cv">$480.000 <span>/persona</span></div></div>
+              <a href="#cotizacion" class="btn-paq-cv">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TOURS ══ -->
+<section id="tours">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-cv justify-content-center reveal">Experiencias únicas</div>
+      <h2 class="title-cv reveal">Tours y <em>aventuras</em> en Colombia</h2>
+      <div class="col-rule col-rule-c reveal"></div>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="tour-cv">
+          <span class="tour-cv-emoji">🏔</span>
+          <div class="tour-cv-region tr-andino">🏔 Región Andina · Boyacá</div>
+          <div class="tour-cv-name">Trekking Ciudad Perdida (Sierra Nevada)</div>
+          <div class="tour-cv-desc">Una de las caminatas más épicas de Colombia y del mundo. 5–6 días a través de la selva hacia la ciudad precolombina de Teyuna.</div>
+          <div class="tour-cv-info">
+            <div class="tci"><i class="bi bi-clock-fill"></i>5–6 días</div>
+            <div class="tci"><i class="bi bi-people-fill"></i>Grupos pequeños</div>
+            <div class="tci"><i class="bi bi-shield-fill"></i>Guía certificado</div>
+          </div>
+          <a href="#cotizacion" class="btn-tour-cv">Reservar <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="tour-cv">
+          <span class="tour-cv-emoji">🦜</span>
+          <div class="tour-cv-region tr-amazonia">🌿 Amazonia · Leticia</div>
+          <div class="tour-cv-name">Expedición Nocturna por el Amazonas</div>
+          <div class="tour-cv-desc">Navega el río Amazonas de noche. Observa caimanes, escucha la selva despertar y conecta con uno de los ecosistemas más vivos del planeta.</div>
+          <div class="tour-cv-info">
+            <div class="tci"><i class="bi bi-clock-fill"></i>1 día</div>
+            <div class="tci"><i class="bi bi-people-fill"></i>Máx. 10 personas</div>
+            <div class="tci"><i class="bi bi-tree-fill"></i>Guía amazónico</div>
+          </div>
+          <a href="#cotizacion" class="btn-tour-cv">Reservar <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="tour-cv">
+          <span class="tour-cv-emoji">☕</span>
+          <div class="tour-cv-region tr-cafe">☕ Eje Cafetero · Quindío</div>
+          <div class="tour-cv-name">Hacienda Cafetera: Del Grano a la Taza</div>
+          <div class="tour-cv-desc">Visita una hacienda cafetera, aprende el proceso de cultivo y beneficio del café, recoge granos y prepara tu propia taza con maestros cafeteros.</div>
+          <div class="tour-cv-info">
+            <div class="tci"><i class="bi bi-clock-fill"></i>Medio día</div>
+            <div class="tci"><i class="bi bi-people-fill"></i>Todas las edades</div>
+            <div class="tci"><i class="bi bi-cup-hot-fill"></i>Degustación</div>
+          </div>
+          <a href="#cotizacion" class="btn-tour-cv">Reservar <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="tour-cv">
+          <span class="tour-cv-emoji">🐋</span>
+          <div class="tour-cv-region tr-pacifico">🌊 Pacífico · Chocó</div>
+          <div class="tour-cv-name">Avistamiento Ballenas Jorobadas</div>
+          <div class="tour-cv-desc">Jul–Nov, el Pacífico colombiano se convierte en uno de los mejores lugares del mundo para ver ballenas. Un espectáculo que te cambia la vida.</div>
+          <div class="tour-cv-info">
+            <div class="tci"><i class="bi bi-clock-fill"></i>1 día</div>
+            <div class="tci"><i class="bi bi-people-fill"></i>Máx. 12 personas</div>
+            <div class="tci"><i class="bi bi-camera-fill"></i>Foto garantizada</div>
+          </div>
+          <a href="#cotizacion" class="btn-tour-cv">Reservar <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="tour-cv">
+          <span class="tour-cv-emoji">🌺</span>
+          <div class="tour-cv-region tr-andino">🌸 Caribe · Cartagena</div>
+          <div class="tour-cv-name">Tour Nocturno Amurallado de Cartagena</div>
+          <div class="tour-cv-desc">Recorre las murallas y el centro histórico de Cartagena de noche. Historia, leyendas, gastronomía y el romance del Caribe colombiano.</div>
+          <div class="tour-cv-info">
+            <div class="tci"><i class="bi bi-clock-fill"></i>3 horas</div>
+            <div class="tci"><i class="bi bi-people-fill"></i>Grupos hasta 20</div>
+            <div class="tci"><i class="bi bi-moon-stars-fill"></i>Nocturno</div>
+          </div>
+          <a href="#cotizacion" class="btn-tour-cv">Reservar <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="tour-cv">
+          <span class="tour-cv-emoji">🎨</span>
+          <div class="tour-cv-region tr-andino">🏔 Andino · Antioquia</div>
+          <div class="tour-cv-name">Medellín: Transformación y Arte Urbano</div>
+          <div class="tour-cv-desc">Metro Cable, Parque Explora, graffiti tour por las comunas, Botero y gastronomía paisa. La ciudad más innovadora de América Latina.</div>
+          <div class="tour-cv-info">
+            <div class="tci"><i class="bi bi-clock-fill"></i>1 día completo</div>
+            <div class="tci"><i class="bi bi-people-fill"></i>Máx. 15 personas</div>
+            <div class="tci"><i class="bi bi-camera-fill"></i>Fotos incluidas</div>
+          </div>
+          <a href="#cotizacion" class="btn-tour-cv">Reservar <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CIFRAS ══ -->
+<section id="cifras">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="row g-0">
+      <div class="col-6 col-lg-3"><div class="cif-cv reveal"><div class="cif-n-cv">10<sup>+</sup></div><div class="cif-bar-cv"></div><div class="cif-l-cv">Años viajando por Colombia</div></div></div>
+      <div class="col-6 col-lg-3"><div class="cif-cv reveal d1"><div class="cif-n-cv">32<sup>+</sup></div><div class="cif-bar-cv"></div><div class="cif-l-cv">Destinos nacionales</div></div></div>
+      <div class="col-6 col-lg-3"><div class="cif-cv reveal d2"><div class="cif-n-cv">500<sup>+</sup></div><div class="cif-bar-cv"></div><div class="cif-l-cv">Paquetes realizados</div></div></div>
+      <div class="col-6 col-lg-3"><div class="cif-cv reveal d3"><div class="cif-n-cv">98<sup>%</sup></div><div class="cif-bar-cv"></div><div class="cif-l-cv">Viajeros satisfechos</div></div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ GALERÍA ══ -->
+<section id="galeria">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="tag-cv reveal">Colombia en imágenes</div>
+        <h2 class="title-cv reveal">Así se ve <em>lo más hermoso</em><br>de Colombia</h2>
+        <div class="col-rule reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="sub-cv reveal">Fotos tomadas en destinos reales por nuestros viajeros. Colombia tiene paisajes que no necesitan filtros.</p>
+      </div>
+    </div>
+
+    <div class="gal-cv reveal">
+
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=900&q=85&fit=crop" alt="Cartagena" loading="lazy"/>
+        <div class="gi-label">🏖 Cartagena · Caribe</div>
+        <div class="gi-ov"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1598024055266-e772a4a21e64?w=500&q=80&fit=crop" alt="Eje Cafetero" loading="lazy"/>
+        <div class="gi-label">☕ Eje Cafetero</div>
+        <div class="gi-ov"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1565117100025-7c4edfc5c3b7?w=500&q=80&fit=crop" alt="Andina" loading="lazy"/>
+        <div class="gi-label">🏔 Región Andina</div>
+        <div class="gi-ov"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=500&q=80&fit=crop" alt="Amazonas" loading="lazy"/>
+        <div class="gi-label">🌿 Amazonia</div>
+        <div class="gi-ov"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?w=900&q=80&fit=crop" alt="San Andrés" loading="lazy"/>
+        <div class="gi-label">🌊 San Andrés · Mar de 7 colores</div>
+        <div class="gi-ov"><i class="bi bi-zoom-in"></i></div>
+      </div>
+      <div class="gi">
+        <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?w=500&q=80&fit=crop" alt="Aventura" loading="lazy"/>
+        <div class="gi-label">🦅 Llanos Orientales</div>
+        <div class="gi-ov"><i class="bi bi-zoom-in"></i></div>
+      </div>
+
+    </div>
+
+    <div class="text-center mt-4 reveal">
+      <p class="sub-cv">Síguenos en Instagram <a href="#" style="color:var(--rojo);text-decoration:none;font-weight:700;">@colombiaviva.co</a> y comparte tu viaje con #ColombiaViva 🇨🇴</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TESTIMONIOS ══ -->
+<section id="testimonios">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="text-center mb-5">
+      <div class="tag-cv justify-content-center reveal" style="color:rgba(255,255,255,.4);">Viajeros reales</div>
+      <h2 class="title-cv title-cv-light reveal">Lo que dicen quienes<br><em>ya descubrieron Colombia</em></h2>
+      <div class="col-rule col-rule-c reveal"></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="test-cv">
+          <div class="test-stars-cv"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="test-dest-cv">🏖 Cartagena + Islas del Rosario</div>
+          <div class="test-text-cv">"Llevaba años queriendo conocer Cartagena y Colombia Viva hizo que todo fuera perfecto. El hotel, los traslados, la tour en lancha a las Islas... TODO impecable. Ya quiero volver."</div>
+          <div class="test-auth-cv">
+            <div class="tav-cv"><img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80&fit=crop&crop=face" alt=""/></div>
+            <div><div class="tav-name-cv">Marcela T.</div><div class="tav-sub-cv">Bogotá · Cartagena 5 días</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="test-cv">
+          <div class="test-stars-cv"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="test-dest-cv">🌿 Amazonia · Leticia</div>
+          <div class="test-text-cv">"Ver delfines rosados y delfines grises en el Amazonas es algo que no olvidaré nunca. La logística de Colombia Viva fue perfecta, los guías amazónicos espectaculares."</div>
+          <div class="test-auth-cv">
+            <div class="tav-cv">JS</div>
+            <div><div class="tav-name-cv">Juan & Sara</div><div class="tav-sub-cv">Medellín · Expedición Amazónica</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="test-cv">
+          <div class="test-stars-cv"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="test-dest-cv">☕ Eje Cafetero · Salento</div>
+          <div class="test-text-cv">"El Eje Cafetero me cambió la percepción de Colombia. Los paisajes, la gente, el café... y el paquete de Colombia Viva incluía todo, sin estrés. ¡La experiencia colombiana perfecta!"</div>
+          <div class="test-auth-cv">
+            <div class="tav-cv"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80&fit=crop&crop=face" alt=""/></div>
+            <div><div class="tav-name-cv">Felipe A.</div><div class="tav-sub-cv">Cali · Ruta del Café 4 días</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4 reveal" style="position:relative;z-index:1;">
+      <div style="font-family:var(--font-serif);font-size:1.1rem;color:rgba(255,255,255,.45);font-style:italic;">
+        ⭐ 4.9 / 5 · Más de 400 reseñas de colombianos que viajaron con nosotros
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ BLOG ══ -->
+<section id="blog">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="tag-cv reveal">Descubre más</div>
+        <h2 class="title-cv reveal">Blog: <em>conoce Colombia</em><br>antes de viajar</h2>
+        <div class="col-rule reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="sub-cv reveal">Guías de destinos, tips de viaje, mejores épocas para visitar cada región y todo lo que necesitas saber para explorar Colombia como un experto.</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="blog-cv">
+          <div class="blog-img-cv">
+            <img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=700&q=80&fit=crop" alt="Cartagena" loading="lazy" class="img-f"/>
+            <span class="blog-cat-cv bc-colombia">Caribe</span>
+          </div>
+          <div class="blog-body-cv">
+            <div class="blog-meta-cv"><span><i class="bi bi-calendar3"></i>10 Mar 2025</span><span><i class="bi bi-clock"></i>6 min</span></div>
+            <div class="blog-title-cv">Cartagena más allá del turismo: los rincones que no conocías</div>
+            <div class="blog-excerpt-cv">Más allá de las murallas y el casco histórico, Cartagena tiene barrios, playas y sabores que los turistas nunca descubren. Te los revelamos todos...</div>
+            <a href="#" class="btn-blog-cv">Leer artículo <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="blog-cv">
+          <div class="blog-img-cv">
+            <img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=700&q=80&fit=crop" alt="Amazonia" loading="lazy" class="img-f"/>
+            <span class="blog-cat-cv bc-cultura">Amazonia</span>
+          </div>
+          <div class="blog-body-cv">
+            <div class="blog-meta-cv"><span><i class="bi bi-calendar3"></i>3 Mar 2025</span><span><i class="bi bi-clock"></i>8 min</span></div>
+            <div class="blog-title-cv">Guía completa para viajar al Amazonas colombiano</div>
+            <div class="blog-excerpt-cv">Cuándo ir, qué llevar, cómo llegar, qué actividades hacer y cómo respetar a las comunidades indígenas. Todo lo que necesitas saber antes de ir al Amazonas...</div>
+            <a href="#" class="btn-blog-cv">Leer artículo <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="blog-cv">
+          <div class="blog-img-cv">
+            <img src="https://images.unsplash.com/photo-1598024055266-e772a4a21e64?w=700&q=80&fit=crop" alt="Café" loading="lazy" class="img-f"/>
+            <span class="blog-cat-cv bc-tips">Tips</span>
+          </div>
+          <div class="blog-body-cv">
+            <div class="blog-meta-cv"><span><i class="bi bi-calendar3"></i>24 Feb 2025</span><span><i class="bi bi-clock"></i>5 min</span></div>
+            <div class="blog-title-cv">¿Cuál es la mejor época para visitar el Eje Cafetero?</div>
+            <div class="blog-excerpt-cv">Los meses de cosecha, los festivales de café, cuándo evitar lluvias y cómo aprovechar al máximo cada temporada en el corazón cafetero de Colombia...</div>
+            <a href="#" class="btn-blog-cv">Leer artículo <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ COTIZACIÓN ══ -->
+<section id="cotizacion">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-cv justify-content-center reveal">Tu aventura colombiana</div>
+      <h2 class="title-cv reveal">Cotiza tu viaje<br><em>por Colombia</em></h2>
+      <div class="col-rule col-rule-c reveal"></div>
+      <p class="sub-cv mx-auto reveal" style="max-width:500px;">Cuéntanos qué región o destino te llama y en menos de 2 horas hábiles tendrás tu cotización personalizada.</p>
+    </div>
+
+    <div class="row g-5 align-items-stretch">
+      <div class="col-lg-5">
+        <div class="cotiz-visual-cv">
+          <div class="cotiz-bandera"><div class="cb-y"></div><div class="cb-b"></div><div class="cb-r"></div></div>
+          <div class="cotiz-img-strip-cv">
+            <div class="cisc"><img src="https://images.unsplash.com/photo-1533587851505-d119e13fa0d7?w=400&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/></div>
+            <div class="cisc"><img src="https://images.unsplash.com/photo-1552465011-b4e21bf6e79a?w=400&q=80&fit=crop" style="width:100%;height:100%;object-fit:cover;" loading="lazy"/></div>
+          </div>
+          <div class="cotiz-quote-cv" style="position:relative;z-index:1;">
+            "Colombia es tan bella que un viaje nunca es suficiente. Cada región te revela un país completamente diferente."
+          </div>
+          <div class="cotiz-perks-cv">
+            <div class="cp-cv"><i class="bi bi-lightning-fill"></i>Respuesta en menos de 2 horas hábiles</div>
+            <div class="cp-cv"><i class="bi bi-shield-check-fill"></i>Sin costo, sin compromiso</div>
+            <div class="cp-cv"><i class="bi bi-person-hearts"></i>Asesor colombiano experto</div>
+            <div class="cp-cv"><i class="bi bi-currency-dollar"></i>Precio justo garantizado</div>
+            <div class="cp-cv"><i class="bi bi-headset"></i>Soporte antes y durante el viaje</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="cotiz-form-cv reveal">
+          <h4 style="font-family:var(--font-display);font-size:1.2rem;font-weight:900;color:var(--oscuro);margin-bottom:1.5rem;letter-spacing:-.5px;">
+            🇨🇴 ¿A qué rincón de Colombia quieres ir?
+          </h4>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="flbl-cv">Tu nombre *</label>
+              <input type="text" class="fctrl-cv" placeholder="¿Cómo te llamamos?"/>
+            </div>
+            <div class="col-md-6">
+              <label class="flbl-cv">WhatsApp *</label>
+              <input type="tel" class="fctrl-cv" placeholder="+57 300 000 0000"/>
+            </div>
+            <div class="col-md-6">
+              <label class="flbl-cv">Ciudad de origen</label>
+              <select class="fctrl-cv">
+                <option disabled selected>¿Desde dónde viajas?</option>
+                <option>Bogotá</option>
+                <option>Medellín</option>
+                <option>Cali</option>
+                <option>Barranquilla</option>
+                <option>Cartagena</option>
+                <option>Bucaramanga</option>
+                <option>Otra ciudad</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="flbl-cv">Destino en Colombia</label>
+              <select class="fctrl-cv">
+                <option disabled selected>¿A dónde quieres ir?</option>
+                <optgroup label="Caribe">
+                  <option>Cartagena</option>
+                  <option>San Andrés</option>
+                  <option>Santa Marta</option>
+                  <option>La Guajira</option>
+                </optgroup>
+                <optgroup label="Andina">
+                  <option>Villa de Leyva</option>
+                  <option>Barichara</option>
+                  <option>Medellín</option>
+                  <option>Bogotá</option>
+                </optgroup>
+                <optgroup label="Eje Cafetero">
+                  <option>Salento</option>
+                  <option>Manizales</option>
+                  <option>Pereira</option>
+                </optgroup>
+                <optgroup label="Amazonia">
+                  <option>Leticia</option>
+                </optgroup>
+                <optgroup label="Pacífico">
+                  <option>Nuquí</option>
+                  <option>Bahía Solano</option>
+                </optgroup>
+                <option>Aún no sé — ¡Sorpréndanme!</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="flbl-cv">¿Cuántas personas?</label>
+              <select class="fctrl-cv">
+                <option disabled selected>Personas...</option>
+                <option>Solo (1)</option>
+                <option>Pareja (2)</option>
+                <option>3 personas</option>
+                <option>4 personas</option>
+                <option>Familia 5+</option>
+                <option>Grupo 10+</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="flbl-cv">¿Cuándo viajas?</label>
+              <input type="month" class="fctrl-cv"/>
+            </div>
+            <div class="col-md-4">
+              <label class="flbl-cv">Días disponibles</label>
+              <select class="fctrl-cv">
+                <option disabled selected>Duración...</option>
+                <option>2–3 días</option>
+                <option>4–5 días</option>
+                <option>6–8 días</option>
+                <option>Más de 8 días</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="flbl-cv">Tipo de experiencia</label>
+              <select class="fctrl-cv">
+                <option disabled selected>¿Qué buscas?</option>
+                <option>Playa y relax</option>
+                <option>Aventura y naturaleza</option>
+                <option>Cultura e historia</option>
+                <option>Gastronomía colombiana</option>
+                <option>Ecoturismo</option>
+                <option>Familiar con niños</option>
+                <option>Romántico / pareja</option>
+                <option>De todo un poco</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="flbl-cv">Presupuesto por persona</label>
+              <select class="fctrl-cv">
+                <option disabled selected>Rango...</option>
+                <option>Hasta $500.000</option>
+                <option>$500K – $1M</option>
+                <option>$1M – $2M</option>
+                <option>$2M – $4M</option>
+                <option>Más de $4M</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="flbl-cv">Cuéntanos más sobre tu sueño colombiano</label>
+              <textarea class="fctrl-cv" rows="3" placeholder="¿Hay algo especial que quieras vivir? ¿Alguna actividad, destino o experiencia que no pueda faltar? ¡Cuéntanos todo!"></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn-cotiz-cv" onclick="submitCotiz(this)">
+                🇨🇴 Solicitar cotización gratuita
+              </button>
+            </div>
+            <div id="cotizOk" style="display:none;">
+              <div style="background:rgba(0,56,147,.06);border:1.5px solid rgba(0,56,147,.15);border-radius:14px;padding:1.2rem;text-align:center;">
+                <span style="font-size:1.8rem;">🇨🇴</span>
+                <p style="font-family:var(--font-display);font-size:.9rem;color:var(--azul);margin-top:.5rem;font-weight:700;letter-spacing:-.3px;">
+                  ¡Cotización recibida! Te contactamos en menos de 2 horas hábiles.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align:center;margin:1.2rem 0;font-size:.75rem;color:var(--gris2);">— o escríbenos directamente —</div>
+          <a href="https://wa.me/573000000000?text=Hola%20Colombia%20Viva!%20Quiero%20cotizar%20un%20viaje%20nacional."
+             target="_blank"
+             style="display:flex;align-items:center;gap:1rem;background:rgba(37,211,102,.08);border:1.5px solid rgba(37,211,102,.2);border-radius:14px;padding:1rem 1.2rem;text-decoration:none;transition:all .2s;"
+             onmouseover="this.style.background='rgba(37,211,102,.14)'"
+             onmouseout="this.style.background='rgba(37,211,102,.08)'">
+            <div style="width:42px;height:42px;min-width:42px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:white;"><i class="bi bi-whatsapp"></i></div>
+            <div>
+              <div style="font-family:var(--font-display);font-size:.82rem;font-weight:700;color:var(--oscuro);letter-spacing:-.2px;">Cotizar por WhatsApp</div>
+              <div style="font-size:.72rem;color:var(--gris);">Respuesta inmediata · +57 300 000 0000</div>
+            </div>
+            <i class="bi bi-arrow-right ms-auto" style="color:var(--gris2);"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CTA FINAL ══ -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-cv reveal">
+      <div class="cta-flag-strip"><div class="cfs-y"></div><div class="cfs-b"></div><div class="cfs-r"></div></div>
+      <div style="position:relative;z-index:1;margin-bottom:1rem;">
+        <span style="font-size:3rem;">🇨🇴</span>
+      </div>
+      <h2 class="cta-cv-title">
+        Colombia te está<br>esperando, <em>¿y tú?</em>
+      </h2>
+      <p style="font-size:1rem;color:rgba(255,255,255,.6);max-width:500px;margin:0 auto 2.5rem;line-height:1.8;position:relative;z-index:1;">
+        El país más biodiverso del mundo, con más de 1.100 destinos, 6 regiones completamente distintas y una gente que te recibirá siempre con los brazos abiertos. No hay razón para no viajar.
+      </p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center" style="position:relative;z-index:1;">
+        <a href="#cotizacion" class="btn-secondary-cv">
+          🇨🇴 Cotizar mi viaje gratis
+        </a>
+        <a href="https://wa.me/573000000000?text=Hola%20Colombia%20Viva!%20Quiero%20planear%20mi%20viaje."
+           target="_blank"
+           style="font-family:var(--font-display);font-size:.78rem;letter-spacing:.5px;font-weight:700;background:rgba(255,255,255,.1);color:rgba(255,255,255,.85);border:1.5px solid rgba(255,255,255,.2);padding:1rem 2rem;border-radius:30px;text-decoration:none;display:inline-flex;align-items:center;gap:10px;transition:all .3s;"
+           onmouseover="this.style.background='rgba(255,255,255,.18)'"
+           onmouseout="this.style.background='rgba(255,255,255,.1)'">
+          <i class="bi bi-whatsapp"></i> Chatear ahora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="footer-bandera"><div class="fba-y"></div><div class="fba-b"></div><div class="fba-r"></div></div>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand-cv">Colombia <em>Viva</em></div>
+        <div class="footer-tag-cv">Turismo Nacional · Descubre tu País · Est. 2014</div>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.25);font-family:var(--font-body);line-height:1.8;margin-top:1rem;font-weight:300;">
+          Somos colombianos apasionados por Colombia. Llevamos más de 10 años ayudando a los colombianos a descubrir las maravillas de su propio país.
+        </p>
+        <div style="margin-top:1rem;display:flex;gap:.4rem;flex-wrap:wrap;">
+          <span style="font-family:var(--font-body);font-size:.58rem;letter-spacing:1px;color:rgba(245,197,24,.5);border:1px solid rgba(245,197,24,.15);padding:.15rem .5rem;border-radius:20px;">RNT Certificada</span>
+          <span style="font-family:var(--font-body);font-size:.58rem;letter-spacing:1px;color:rgba(245,197,24,.5);border:1px solid rgba(245,197,24,.15);padding:.15rem .5rem;border-radius:20px;">MinComercio</span>
+          <span style="font-family:var(--font-body);font-size:.58rem;letter-spacing:1px;color:rgba(245,197,24,.5);border:1px solid rgba(245,197,24,.15);padding:.15rem .5rem;border-radius:20px;">🇨🇴 Hecho con orgullo</span>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-col-h-cv">Navegación</div>
+        <a href="#regiones"   class="footer-lnk-cv">Regiones</a>
+        <a href="#destinos"   class="footer-lnk-cv">Destinos</a>
+        <a href="#paquetes"   class="footer-lnk-cv">Paquetes</a>
+        <a href="#tours"      class="footer-lnk-cv">Tours</a>
+        <a href="#galeria"    class="footer-lnk-cv">Galería</a>
+        <a href="#blog"       class="footer-lnk-cv">Blog</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-h-cv">Destinos</div>
+        <a href="#destinos" class="footer-lnk-cv">🏖 Cartagena</a>
+        <a href="#destinos" class="footer-lnk-cv">🌊 San Andrés</a>
+        <a href="#destinos" class="footer-lnk-cv">☕ Eje Cafetero</a>
+        <a href="#destinos" class="footer-lnk-cv">🌿 Amazonia</a>
+        <a href="#destinos" class="footer-lnk-cv">🐋 Pacífico</a>
+        <a href="#destinos" class="footer-lnk-cv">🏔 Boyacá</a>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-col-h-cv">Contacto</div>
+        <a href="https://wa.me/573000000000" target="_blank" class="footer-lnk-cv"><i class="bi bi-whatsapp me-2" style="color:#25d366;"></i>+57 300 000 0000</a>
+        <a href="tel:+5710000000" class="footer-lnk-cv"><i class="bi bi-telephone me-2" style="color:var(--amarillo2);"></i>+57 (1) 000 0000</a>
+        <a href="mailto:info@colombiaviva.co" class="footer-lnk-cv"><i class="bi bi-envelope me-2" style="color:var(--amarillo2);"></i>info@colombiaviva.co</a>
+        <span class="footer-lnk-cv" style="cursor:default;"><i class="bi bi-geo-alt me-2" style="color:var(--rojo);"></i>Tu ciudad, Colombia</span>
+        <div style="margin-top:1rem;padding:.8rem;border:1px solid rgba(245,197,24,.12);border-left:2px solid var(--amarillo);">
+          <div style="font-family:var(--font-body);font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:.3rem;">Horario</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.3);">Lun–Sáb: 8am – 6pm<br>WhatsApp: 24/7</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-btm-cv">
+      <div class="footer-copy-cv">© 2025 Colombia Viva Agencia de Viajes. Todos los derechos reservados. · Imágenes: Unsplash</div>
+      <div>
+        <a href="#" class="soc-cv" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="soc-cv" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="soc-cv" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        <a href="https://wa.me/573000000000" class="soc-cv" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573000000000?text=Hola%20Colombia%20Viva!%20Quiero%20info%20sobre%20paquetes%20nacionales."
+   target="_blank" class="wa-cv" aria-label="WhatsApp">
+  <div class="wa-ring-cv"></div>
+  <i class="bi bi-whatsapp"></i>
+  <div class="wa-label-cv">🇨🇴 ¡Descubre Colombia!</div>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* ── Mobile nav ── */
+  document.getElementById('navToggle').addEventListener('click',()=>{
+    const m=document.getElementById('mob-cv');
+    m.style.display=m.style.display==='block'?'none':'block';
+  });
+  document.getElementById('mob-cv').querySelectorAll('a').forEach(a=>
+    a.addEventListener('click',()=>document.getElementById('mob-cv').style.display='none')
+  );
+
+  /* ── Images ── */
+  const hi=document.getElementById('heroImg');
+  if(hi){if(hi.complete)hi.classList.add('on');else hi.addEventListener('load',()=>hi.classList.add('on'));}
+  document.querySelectorAll('.img-f').forEach(img=>{
+    if(img.complete)img.classList.add('on');
+    else{img.addEventListener('load',()=>img.classList.add('on'));img.addEventListener('error',()=>{});}
+  });
+
+  /* ── Reveal ── */
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal,.rl,.rr').forEach(el=>io.observe(el));
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-75,behavior:'smooth'});}
+    });
+  });
+
+  /* ── Paquetes filter ── */
+  document.getElementById('paqFilter').addEventListener('click',e=>{
+    if(!e.target.classList.contains('pfc'))return;
+    document.querySelectorAll('.pfc').forEach(b=>b.classList.remove('active'));
+    e.target.classList.add('active');
+    const f=e.target.dataset.pf;
+    document.querySelectorAll('.paqItem').forEach(item=>{
+      const pt=item.dataset.pt||'';
+      item.style.display=(f==='all'||pt.includes(f))?'':'none';
+    });
+  });
+
+  /* ── Hero region pills ── */
+  document.querySelectorAll('.hreg').forEach(pill=>{
+    pill.addEventListener('click',()=>goCotizacion());
+  });
+
+  /* ── Form ── */
+  function submitCotiz(btn){
+    btn.innerHTML='⏳ Enviando...';
+    btn.disabled=true;
+    setTimeout(()=>{
+      document.getElementById('cotizOk').style.display='block';
+      btn.innerHTML='🇨🇴 ¡Cotización enviada!';
+      btn.style.background='linear-gradient(90deg,var(--azul),var(--azul2))';
+      btn.style.color='white';
+    },1400);
+  }
+
+  /* ── Go cotización ── */
+  function goCotizacion(){
+    const t=document.getElementById('cotizacion');
+    if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-75,behavior:'smooth'});
+  }
+
+  /* ── Counter animation ── */
+  const cObs=new IntersectionObserver(entries=>{
+    if(!entries[0].isIntersecting)return;
+    document.querySelectorAll('.cif-n-cv').forEach(el=>{
+      const txt=el.innerHTML;
+      const num=parseFloat(txt);
+      if(isNaN(num))return;
+      const suffix=txt.replace(/[\d.]/g,'');
+      let cur=0;const dur=1800;const step=16;
+      const inc=num/(dur/step);
+      const timer=setInterval(()=>{
+        cur+=inc;
+        if(cur>=num){cur=num;clearInterval(timer);}
+        el.innerHTML=Math.floor(cur)+suffix;
+      },step);
+    });
+    cObs.disconnect();
+  },{threshold:.3});
+  const cifrasS=document.getElementById('cifras');
+  if(cifrasS)cObs.observe(cifrasS);
+</script>
+</body>
+</html>

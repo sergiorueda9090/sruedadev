@@ -1,0 +1,270 @@
+============================================================
+BRIEFING PARA CAMPAÑAS DE PUBLICIDAD
+Página web: sergiorueda.dev
+Fecha: Marzo 2026
+============================================================
+
+QUIÉN ES SERGIO RUEDA
+---------------------
+Desarrollador fullstack con más de 11 años de experiencia,
+ubicado en Bucaramanga, Colombia. Trabaja remoto para todo
+el mundo. Especializado en desarrollo web, software a medida,
+automatización inteligente con n8n e inteligencia artificial
+con AWS Bedrock y LangChain.
+
+Su misión: ayudar a empresas a digitalizar operaciones,
+automatizar tareas manuales y escalar con tecnología.
+
+
+DATOS DE CONTACTO
+-----------------
+- WhatsApp: +57 350 624 0534
+- Email: contacto@sergiorueda.dev
+- Instagram: @sergiodevsolutions
+- Facebook: sergiodevsolutions
+- Ubicación: Bucaramanga, Colombia
+- Horario: Lunes a viernes, 9:00 AM - 6:00 PM (COT)
+- Trabaja remoto para todo el mundo
+
+
+LOS 6 SERVICIOS QUE OFRECE
+---------------------------
+
+1. DESARROLLO WEB PROFESIONAL
+   - Páginas corporativas (presencia profesional para empresas)
+   - Portafolios personales (para profesionales y creativos)
+   - E-commerce / tiendas online (con pasarelas de pago, inventario, panel admin)
+   - Todas optimizadas para SEO, velocidad, mobile-first, conversión y SSL
+
+2. SOFTWARE A LA MEDIDA
+   - Sistemas de gestión (CRM, ERP, inventarios)
+   - Plataformas internas para empleados, clientes o proveedores
+   - Dashboards y reportes en tiempo real
+   - Herramientas de productividad y automatización
+   - Sistemas de tickets y soporte
+   - Apps multi-usuario con roles y permisos
+
+3. INTEGRACIÓN DE APIs
+   - Email marketing (Mailchimp, SendGrid, ActiveCampaign)
+   - Pasarelas de pago (Stripe, PayU, MercadoPago, PayPal)
+   - CRM (HubSpot, Zoho, Salesforce, Pipedrive)
+   - Mensajería (WhatsApp Business, Telegram, Slack)
+   - Google Services (Sheets, Calendar, Drive, Maps)
+   - Envíos (Coordinadora, Servientrega, FedEx)
+   - Calendarios (Google Calendar, Calendly, Cal.com)
+   - APIs REST personalizadas
+
+4. ARQUITECTURA CLOUD AWS
+   - Diseño de infraestructura escalable
+   - Bases de datos gestionadas (RDS, DynamoDB)
+   - Funciones serverless (Lambda)
+   - Almacenamiento S3 y CDN (CloudFront)
+   - Inteligencia artificial con AWS Bedrock
+   - Seguridad y compliance
+   - CI/CD y DevOps
+
+5. AUTOMATIZACIÓN CON n8n
+   - Flujos automáticos que conectan CRM, WhatsApp, email, bases de datos
+   - Cotizaciones automáticas: formulario → PDF → email + WhatsApp + CRM
+   - Gestión de leads desde WhatsApp con clasificación por IA
+   - Reportes diarios automáticos enviados por Slack/email
+   - Sincronización entre sistemas (Shopify → HubSpot → Google Sheets → Slack)
+   - Ahorro de 20+ horas mensuales en tareas manuales
+
+6. INTELIGENCIA ARTIFICIAL
+   - Chatbots y asistentes virtuales
+   - Procesamiento y clasificación de documentos
+   - Respuestas inteligentes con AWS Bedrock y LangChain
+   - RAG (Retrieval Augmented Generation)
+   - NLP (Procesamiento de Lenguaje Natural)
+
+
+A QUIÉN LE VENDE (PÚBLICO OBJETIVO)
+------------------------------------
+- Dueños de empresas que necesitan página web o tienda online
+- Empresas con procesos manuales que quieren automatizar
+- Negocios que usan varios sistemas que no se comunican entre sí
+- Startups y empresas en crecimiento que necesitan software propio
+- Empresas que quieren presencia digital profesional
+- Cualquier negocio en Colombia y Latinoamérica que necesite
+  tecnología para crecer
+
+
+POR QUÉ ELEGIR A SERGIO (DIFERENCIADORES)
+------------------------------------------
+- 11+ años de experiencia comprobada
+- 50+ proyectos entregados
+- 30+ clientes satisfechos
+- 98% tasa de éxito
+- Código limpio y mantenible
+- Comunicación clara en español, sin jerga técnica
+- Entrega resultados desde la primera semana
+- Soporte post-entrega incluido
+- Diagnóstico gratuito de 15 minutos
+- Metodología de 5 pasos:
+  1. Diagnóstico gratuito
+  2. Propuesta clara (alcance, cronograma, presupuesto)
+  3. Desarrollo por fases con entregas semanales
+  4. Testing y ajustes juntos
+  5. Lanzamiento + soporte continuo
+
+
+TESTIMONIOS REALES (CON RESULTADOS)
+------------------------------------
+
+1. CARLOS MENDOZA — Gerente Comercial, Distribuidora El Mayorista
+   Servicio: WhatsApp Business API
+   "Sergio nos integró la API de WhatsApp Business con nuestro CRM
+   y ahora respondemos a los clientes en segundos con mensajes
+   automáticos. Antes perdíamos ventas por demora en responder.
+   Hoy cerramos un 40% más de cotizaciones."
+   → RESULTADO: +40% cotizaciones cerradas
+
+2. LAURA PINEDA — Dueña, Tienda Lumière Botánica
+   Servicio: E-commerce
+   "Necesitábamos una tienda online que conectara con nuestro
+   inventario real. Sergio nos construyó un e-commerce con pasarela
+   de pagos, control de stock automático y panel de administración.
+   En 3 meses duplicamos las ventas online."
+   → RESULTADO: Ventas online duplicadas en 3 meses
+
+3. DRA. ANDREA RAMÍREZ — Directora, Clínica Dental Sonrisa
+   Servicio: Página web corporativa + SEO
+   "Teníamos una página vieja que no aparecía en Google. Sergio nos
+   hizo un sitio corporativo profesional, optimizado para SEO. En
+   dos meses pasamos de cero a aparecer en las primeras búsquedas
+   de 'clínica dental Bucaramanga'."
+   → RESULTADO: Primera página de Google en 2 meses
+
+4. MIGUEL VARGAS — Director de Operaciones, Logística Express
+   Servicio: Integración de APIs
+   "Teníamos 4 sistemas que no se hablaban entre sí: el CRM, la
+   facturación, el inventario y los envíos. Sergio conectó todo con
+   APIs y ahora la información fluye automáticamente. Nos ahorramos
+   15 horas semanales de trabajo manual."
+   → RESULTADO: 15 horas/semana ahorradas
+
+5. ROBERTO PATIÑO — Gerente General, Capital Orión S.A.S
+   Servicio: Software a medida
+   "Gastamos mucho dinero en un software genérico que no se adaptaba
+   a nuestro negocio. Sergio nos construyó un sistema de gestión de
+   préstamos 100% personalizado con reportes, alertas automáticas y
+   dashboard. La mejor inversión que hemos hecho."
+   → RESULTADO: Reemplazo exitoso de software genérico costoso
+
+6. JULIANA TORRES — Fundadora, Academia Digital Plus
+   Servicio: Automatización con n8n
+   "Sergio automatizó todo nuestro proceso de onboarding de alumnos:
+   inscripción, pago, acceso a la plataforma y emails de bienvenida.
+   Lo que antes nos tomaba todo un día, ahora sucede solo."
+   → RESULTADO: Proceso de un día completo automatizado al 100%
+
+
+CLIENTES
+--------
+Distribuidora El Mayorista · Lumière Botánica · Clínica Dental
+Sonrisa · Logística Express · Capital Orión S.A.S · Academia
+Digital Plus · Retail Pro Colombia · Inmobiliaria Horizonte ·
+Servicios Técnicos 360 · Constructora Structura
+
+
+PORTAFOLIO DE DEMOS (16 PÁGINAS WEB EN VIVO)
+---------------------------------------------
+La página tiene 16 demos interactivas de sitios web que ha
+diseñado para distintos tipos de negocio. El visitante puede
+hacer clic y ver la página funcionando en vivo:
+
+ 1. Bufete de abogados (Ramírez & Asociados)
+ 2. Constructora residencial (Altavista)
+ 3. Clínica dental (DentalSmile)
+ 4. Empresa de software (DevCraft)
+ 5. Gimnasio (IronForge Gym)
+ 6. Cosmética natural / e-commerce (Lumière Botánica)
+ 7. Consultorio psicológico (Mente Plena)
+ 8. Plataforma de seguros (Seguros.com)
+ 9. Spa y bienestar (Bella Spa)
+10. Constructora industrial (Structura)
+11. Escuela de conducción (Vialidad)
+12. Agencia de viajes nacionales (Colombia Viva)
+13. Restaurante de comida rápida (BrasakFire)
+14. Empresa de mudanzas (Muvit)
+15. Clínica veterinaria (Patitas Vet)
+16. Agencia de viajes y aventura (Wanderlust)
+
+
+PROYECTOS EN PRODUCCIÓN (12)
+-----------------------------
+ 1. Sistema de gestión de préstamos
+ 2. Portal de proveedores
+ 3. Integración WhatsApp Business API
+ 4. Chat center multicanal
+ 5. Agentes inteligentes con IA
+ 6. Chatbots empresariales 24/7
+ 7. Sitio web para clínica dental
+ 8. Infraestructura cloud en AWS
+ 9. Bot de notificaciones automáticas
+10. Automatización RPA
+11. Procesamiento de documentos con IA
+12. Asistente virtual corporativo
+
+
+TECNOLOGÍAS QUE MANEJA
+----------------------
+Python · Django · FastAPI · Flask · PHP · React · Docker ·
+Kubernetes · AWS · MySQL · PostgreSQL · Nginx · Apache · Linux ·
+n8n · LangChain · OpenAI · Selenium · GitHub Actions
+
+
+MENSAJES CLAVE PARA CAMPAÑAS
+-----------------------------
+- "Transformo procesos manuales en sistemas automáticos"
+- "Diagnóstico gratuito de 15 minutos"
+- "Páginas web que generan resultados, no solo bonitas"
+- "Ahorra hasta 20 horas semanales con automatización"
+- "Software a medida que se adapta a tu negocio, no al revés"
+- "11+ años de experiencia, 50+ proyectos entregados"
+- "E-commerce que vende 24/7"
+- "Conecto todos tus sistemas para que la información fluya sola"
+- "Desde Bucaramanga para todo el mundo"
+- "+40% cotizaciones cerradas con WhatsApp Business API"
+- "Duplica tus ventas online en 3 meses"
+
+
+FLUJO DE CONVERSIÓN
+-------------------
+El visitante llega → Ve los servicios → Explora demos del
+portafolio en vivo → Lee testimonios con resultados reales →
+Revisa proyectos entregados → Contacta por WhatsApp con
+mensaje pre-escrito según el servicio que le interesa.
+
+Todos los caminos llevan a WhatsApp (+57 350 624 0534).
+Cada botón de WhatsApp tiene un mensaje pre-escrito
+específico al servicio (ej: "Hola Sergio, quiero cotizar
+una página web").
+
+
+SECCIONES DE LA PÁGINA WEB
+---------------------------
+ 1. Hero (propuesta de valor principal)
+ 2. Desarrollo Web (3 tipos de páginas)
+ 3. Portafolio Web (16 demos en vivo)
+ 4. Software a Medida
+ 5. Integración de APIs
+ 6. Arquitectura Cloud AWS
+ 7. Automatización con n8n
+ 8. Sobre Mí / Por qué trabajar conmigo
+ 9. Tecnologías
+10. Testimonios y clientes
+11. Proyectos en producción
+12. Tutoriales / Aprendizaje
+13. CTA final (agendar diagnóstico gratuito)
+
+También tiene una plataforma educativa con tutoriales de
+Django, Docker, Nginx, Testing y DevOps (68 tutoriales).
+
+
+NOTA IMPORTANTE
+---------------
+El número de WhatsApp es +57 350 624 0534.
+Las redes sociales son @sergiodevsolutions en Instagram y Facebook.
+El dominio de la página es sergiorueda.dev.

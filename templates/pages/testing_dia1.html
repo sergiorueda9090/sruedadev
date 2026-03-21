@@ -1,0 +1,558 @@
+{% extends "pages/learning_base.html" %}
+{% load static %}
+
+<!-- ============================================================
+     DIA 1 — ¿Que son los tests y por que usarlos?
+     Fragmento embebible — srueda.dev
+     Requiere: Bootstrap 5, Font Awesome 6, JetBrains Mono, Space Grotesk
+     ============================================================ -->
+
+{% block title %}Día 1 — ¿Qué son los tests y por qué usarlos?{% endblock %}
+{% block meta_description %}Día 1 del curso de Testing en Django: conceptos fundamentales, pirámide de testing y tu primer test con assertEqual. Tutorial práctico por Sergio Rueda.{% endblock %}
+{% block canonical %}https://sergiorueda.dev/learning/testing-django/dia-1/{% endblock %}
+{% block og_title %}Día 1 — ¿Qué son los tests y por qué usarlos? | Testing en Django{% endblock %}
+{% block og_description %}Aprende los conceptos fundamentales del testing en Django: pirámide de testing y tu primer test con assertEqual.{% endblock %}
+{% block og_url %}https://sergiorueda.dev/learning/testing-django/dia-1/{% endblock %}
+{% block twitter_title %}Día 1 — ¿Qué son los tests? | Testing en Django{% endblock %}
+{% block twitter_description %}Conceptos fundamentales del testing en Django: pirámide de testing y tu primer assertEqual.{% endblock %}
+
+{% block content %}
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="lesson-hero">
+  <div class="lesson-hero-grid"></div>
+  <div class="lesson-hero-glow"></div>
+  <div class="container position-relative">
+    <div class="lesson-breadcrumb">
+      <a href="{% url 'web:learning' %}"><i class="fa-solid fa-house" style="font-size:0.65rem"></i> Inicio</a>
+      <span class="sep">/</span>
+      <a href="{% url 'web:testing_temario' %}">Testing en Django</a>
+      <span class="sep">/</span>
+      <span style="color:var(--accent)">Día 1</span>
+    </div>
+    <div class="lesson-day-badge"><i class="fa-solid fa-calendar-day"></i> DÍA 01 — NIVEL BÁSICO</div>
+    <h1 class="lesson-title">¿Qué son los tests<br>y <span class="hl">por qué usarlos</span>?</h1>
+    <p class="lesson-subtitle">Aprende desde cero qué es el testing, cómo funciona internamente en Django, y escribe tu primer test funcional con asserts reales.</p>
+    <div class="lesson-meta">
+      <div class="lesson-meta-item"><i class="fa-solid fa-clock"></i><span>30 min de lectura</span></div>
+      <div class="lesson-meta-item"><i class="fa-solid fa-code"></i><span>3 retos prácticos</span></div>
+      <div class="lesson-meta-item"><i class="fa-solid fa-vial"></i><span>1 caso real</span></div>
+      <span class="level-badge level-basico">Básico</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ LAYOUT PRINCIPAL ═══════════════════ -->
+<div class="container">
+  <div class="lesson-layout">
+
+    <!-- ══════════ CONTENIDO ══════════ -->
+    <main class="lesson-content">
+
+      <!-- ── SECCIÓN 1: TEORÍA ── -->
+      <section class="content-section fade-up" id="d1-teoria">
+        <div class="section-header">
+          <div class="section-icon icon-blue"><i class="fa-solid fa-book"></i></div>
+          <div class="section-header-text">
+            <h2>Teoría del Día</h2>
+            <p>// conceptos fundamentales</p>
+          </div>
+        </div>
+
+        <div class="prose">
+          <h3>¿Qué es un test?</h3>
+          <p>Un test es <strong>código que verifica que tu código funciona correctamente</strong>. Es como un inspector de calidad automático que trabaja 24/7 sin cansarse.</p>
+          <p>Imagina que tienes una tienda online. Cada vez que agregas una nueva función — descuentos, cupones, pagos — ¿cómo sabes que no rompiste algo que ya funcionaba? <strong>Los tests te lo dicen en segundos.</strong></p>
+          <h3>¿Por qué son importantes?</h3>
+        </div>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th>❌ Sin tests</th><th>✅ Con tests</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="bad">"Funciona en mi máquina"</td><td class="good">Funciona en todos los entornos</td></tr>
+            <tr><td class="bad">Miedo a cambiar código existente</td><td class="good">Refactorizas con total confianza</td></tr>
+            <tr><td class="bad">Bugs descubiertos en producción</td><td class="good">Bugs detectados antes del deploy</td></tr>
+            <tr><td class="bad">Horas depurando errores misteriosos</td><td class="good">El test te dice exactamente qué falló</td></tr>
+            <tr><td class="bad">"Creo que esto funciona..."</td><td class="good">"SÉ que esto funciona"</td></tr>
+          </tbody>
+        </table>
+
+        <div class="prose"><h3>La Pirámide de Testing</h3></div>
+        <div class="pyramid-wrap">
+          <div class="pyramid-level">
+            <div class="pyramid-bar p-e2e"><i class="fa-solid fa-globe"></i> E2E Tests — Selenium, navegador real</div>
+            <div class="pyramid-desc">Pocos · Lentos · Costosos</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="pyramid-level">
+            <div class="pyramid-bar p-int"><i class="fa-solid fa-link"></i> Integration Tests — Vistas, APIs, BD</div>
+            <div class="pyramid-desc">Medianos · Velocidad moderada</div>
+          </div>
+          <div style="height:8px"></div>
+          <div class="pyramid-level">
+            <div class="pyramid-bar p-unit"><i class="fa-solid fa-cube"></i> Unit Tests — Modelos, funciones, lógica</div>
+            <div class="pyramid-desc">Muchos · Rápidos · Baratos ← Empezamos aquí</div>
+          </div>
+        </div>
+
+        <div class="callout info">
+          <span class="callout-icon"><i class="fa-solid fa-circle-info"></i></span>
+          <div class="callout-content">
+            <strong>¿Tu BD real está a salvo?</strong>
+            Django crea una <strong>base de datos temporal</strong> solo para tests. Al terminar, la destruye completamente. Tu BD de desarrollo o producción <strong>nunca se toca</strong>.
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">flujo-interno.txt</span>
+            </div>
+            <span class="code-lang">DIAGRAMA</span>
+          </div>
+          <div class="code-body"><pre><span class="cm"># El flujo completo de Django testing:</span>
+<span class="cm"># 1. Django lee tus clases de test</span>
+<span class="cm"># 2. Crea una BD temporal (test_nombrebd)</span>
+<span class="cm"># 3. Ejecuta cada test de forma AISLADA</span>
+<span class="cm"># 4. Muestra resultados: ✅ ok / ❌ FAIL</span>
+<span class="cm"># 5. Destruye la BD temporal</span>
+
+Tu código test → TestRunner → BD temporal → Resultado → BD eliminada</pre></div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 2: DEMO ── -->
+      <section class="content-section fade-up" id="d1-demo">
+        <div class="section-header">
+          <div class="section-icon icon-green"><i class="fa-solid fa-terminal"></i></div>
+          <div class="section-header-text">
+            <h2>Demostración en Vivo</h2>
+            <p>// código completo y funcional</p>
+          </div>
+        </div>
+
+        <div class="prose">
+          <h3>Tu primer test en Django</h3>
+          <p>Cada test vive en <code>tests.py</code> dentro de tu app. La estructura es siempre la misma:</p>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">productos/tests.py</span>
+            </div>
+            <span class="code-lang">Python</span>
+          </div>
+          <div class="code-body"><pre><span class="kw">from</span> <span class="nm">django.test</span> <span class="kw">import</span> <span class="cl">TestCase</span>
+<span class="cm"># ↑ Clase base de Django — nos da BD temporal + métodos de verificación</span>
+
+
+<span class="kw">class</span> <span class="cl">MiPrimerTest</span>(<span class="cl">TestCase</span>):
+    <span class="cm"># ↑ SIEMPRE hereda de TestCase</span>
+    <span class="cm"># ↑ Agrupa tests relacionados en una misma clase</span>
+
+    <span class="kw">def</span> <span class="fn">test_suma_basica</span>(<span class="nm">self</span>):
+        <span class="cm"># ↑ Prefijo "test_" es OBLIGATORIO — sin él Django lo ignora</span>
+        resultado = <span class="nu">2</span> + <span class="nu">2</span>
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(resultado, <span class="nu">4</span>)
+        <span class="cm"># ↑ Si son iguales → ✅ PASA</span>
+        <span class="cm"># ↑ Si son distintos → ❌ FALLA con mensaje exacto</span>
+
+    <span class="kw">def</span> <span class="fn">test_falla_a_proposito</span>(<span class="nm">self</span>):
+        <span class="cm"># Para ver cómo luce un fallo en el output</span>
+        resultado = <span class="nu">2</span> + <span class="nu">2</span>
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(resultado, <span class="nu">5</span>)
+        <span class="cm"># ↑ 4 != 5 → veremos el error en consola</span></pre></div>
+        </div>
+
+        <div class="prose"><h3>Los asserts más usados</h3></div>
+
+        <div class="assert-grid">
+          <div class="assert-card">
+            <div class="assert-name">assertEqual(a, b)</div>
+            <div class="assert-desc">Verifica que dos valores son exactamente iguales.</div>
+            <div class="assert-example">self.assertEqual(2 + 2, 4) ✅</div>
+          </div>
+          <div class="assert-card">
+            <div class="assert-name">assertTrue(x)</div>
+            <div class="assert-desc">Verifica que la expresión es verdadera.</div>
+            <div class="assert-example">self.assertTrue(5 > 3) ✅</div>
+          </div>
+          <div class="assert-card">
+            <div class="assert-name">assertFalse(x)</div>
+            <div class="assert-desc">Verifica que la expresión es falsa.</div>
+            <div class="assert-example">self.assertFalse(5 < 3) ✅</div>
+          </div>
+          <div class="assert-card">
+            <div class="assert-name">assertIn(a, b)</div>
+            <div class="assert-desc">Verifica que el elemento está en la colección.</div>
+            <div class="assert-example">self.assertIn('pera', lista) ✅</div>
+          </div>
+          <div class="assert-card">
+            <div class="assert-name">assertIsNone(x)</div>
+            <div class="assert-desc">Verifica que el valor es exactamente None.</div>
+            <div class="assert-example">self.assertIsNone(None) ✅</div>
+          </div>
+          <div class="assert-card">
+            <div class="assert-name">assertRaises(Error)</div>
+            <div class="assert-desc">Verifica que se lanza una excepción específica.</div>
+            <div class="assert-example">with self.assertRaises(ValueError): ...</div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">terminal</span>
+            </div>
+            <span class="code-lang">BASH</span>
+          </div>
+          <div class="code-body"><pre><span class="cm"># Todos los tests del proyecto</span>
+python manage.py test
+
+<span class="cm"># Solo una app</span>
+python manage.py test productos
+
+<span class="cm"># Una clase específica</span>
+python manage.py test productos.tests.MiPrimerTest
+
+<span class="cm"># Un test específico</span>
+python manage.py test productos.tests.MiPrimerTest.test_suma_basica
+
+<span class="cm"># Con más detalle</span>
+python manage.py test --verbosity=2</pre></div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">output — resultado</span>
+            </div>
+            <span class="code-lang">OUTPUT</span>
+          </div>
+          <div class="code-body"><pre><span class="cm"># ✅ Cuando TODO pasa</span>
+Creating test database for alias 'default'...
+<span class="ok">test_suma_basica (productos.tests.MiPrimerTest) ... ok</span>
+Ran 1 test in 0.003s
+<span class="ok">OK</span>
+Destroying test database for alias 'default'...
+
+<span class="cm"># ❌ Cuando algo FALLA</span>
+<span class="er">FAIL: test_falla_a_proposito (productos.tests.MiPrimerTest)</span>
+<span class="er">AssertionError: 4 != 5</span>
+<span class="cm"># ↑ Te dice exactamente qué esperabas vs qué obtuviste</span></pre></div>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+          <div class="callout-content">
+            <strong>3 errores del Día 1 a evitar</strong>
+            Olvidar heredar de <code>TestCase</code> · Nombrar métodos sin prefijo <code>test_</code> · Poner múltiples asserts en un solo test. Cada test debe verificar <strong>una sola cosa</strong>.
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 3: RETOS ── -->
+      <section class="content-section fade-up" id="d1-retos">
+        <div class="section-header">
+          <div class="section-icon icon-orange"><i class="fa-solid fa-dumbbell"></i></div>
+          <div class="section-header-text">
+            <h2>Retos del Día</h2>
+            <p>// practica lo aprendido</p>
+          </div>
+        </div>
+
+        <!-- Reto 1 -->
+        <div class="reto-card">
+          <div class="reto-header">
+            <span class="reto-num"><i class="fa-solid fa-hashtag" style="font-size:0.6rem"></i> RETO 01</span>
+            <span class="reto-stars">★☆☆</span>
+          </div>
+          <div class="reto-body">
+            <div class="reto-title">Tu primera clase de tests</div>
+            <div class="reto-objetivo">Crear una clase con 4 tests básicos que todos pasen en verde.</div>
+            <ul class="reto-steps">
+              <li><span class="step-num">1</span><span>Crea <code>CalculadoraTest(TestCase)</code> en <code>tests.py</code></span></li>
+              <li><span class="step-num">2</span><span><code>test_suma</code>: verifica que <code>15 + 27 == 42</code></span></li>
+              <li><span class="step-num">3</span><span><code>test_resta</code>: verifica que <code>100 - 35 == 65</code></span></li>
+              <li><span class="step-num">4</span><span><code>test_multiplicacion</code>: verifica que <code>6 * 7 == 42</code></span></li>
+              <li><span class="step-num">5</span><span><code>test_division</code>: verifica que <code>100 / 4 == 25.0</code></span></li>
+              <li><span class="step-num">6</span><span>Ejecuta y confirma que el output dice <strong>OK</strong></span></li>
+            </ul>
+            <div class="reto-pista"><i class="fa-solid fa-lightbulb"></i><span><strong style="color:var(--accent-orange)">Pista:</strong> Usa <code>self.assertEqual()</code> en cada test. El resultado de <code>100/4</code> es float: <code>25.0</code></span></div>
+          </div>
+        </div>
+
+        <!-- Reto 2 -->
+        <div class="reto-card">
+          <div class="reto-header">
+            <span class="reto-num"><i class="fa-solid fa-hashtag" style="font-size:0.6rem"></i> RETO 02</span>
+            <span class="reto-stars">★★☆</span>
+          </div>
+          <div class="reto-body">
+            <div class="reto-title">Validando lógica de negocio</div>
+            <div class="reto-objetivo">Testear una función real de e-commerce — cálculo de descuentos.</div>
+            <ul class="reto-steps">
+              <li><span class="step-num">1</span><span>Crea: <code>def calcular_descuento(precio, pct): return precio - (precio * pct / 100)</code></span></li>
+              <li><span class="step-num">2</span><span><code>test_descuento_10_porciento</code>: precio=100, pct=10 → 90.0</span></li>
+              <li><span class="step-num">3</span><span><code>test_descuento_50_porciento</code>: precio=200, pct=50 → 100.0</span></li>
+              <li><span class="step-num">4</span><span><code>test_sin_descuento</code>: precio=150, pct=0 → 150.0</span></li>
+            </ul>
+            <div class="reto-pista"><i class="fa-solid fa-lightbulb"></i><span><strong style="color:var(--accent-orange)">Pista:</strong> Llama la función dentro de cada test y verifica el resultado con <code>assertEqual</code></span></div>
+          </div>
+        </div>
+
+        <!-- Reto 3 -->
+        <div class="reto-card">
+          <div class="reto-header">
+            <span class="reto-num"><i class="fa-solid fa-hashtag" style="font-size:0.6rem"></i> RETO 03</span>
+            <span class="reto-stars">★★★</span>
+          </div>
+          <div class="reto-body">
+            <div class="reto-title">Detectando errores con assertRaises</div>
+            <div class="reto-objetivo">Verificar que tu código falla correctamente cuando debe fallar.</div>
+            <ul class="reto-steps">
+              <li><span class="step-num">1</span><span>Crea <code>dividir(a, b)</code> que lanza <code>ValueError("No se puede dividir entre cero")</code> si <code>b == 0</code></span></li>
+              <li><span class="step-num">2</span><span><code>test_division_normal</code>: <code>dividir(10, 2) == 5.0</code></span></li>
+              <li><span class="step-num">3</span><span><code>test_division_entre_cero</code>: lanza <code>ValueError</code> al llamar <code>dividir(10, 0)</code></span></li>
+              <li><span class="step-num">4</span><span><code>test_mensaje_error</code>: el mensaje del error contiene la palabra <code>"cero"</code></span></li>
+            </ul>
+            <div class="reto-pista"><i class="fa-solid fa-lightbulb"></i><span><strong style="color:var(--accent-orange)">Pista:</strong> <code>with self.assertRaises(ValueError) as ctx: dividir(10,0)</code> → luego <code>self.assertIn("cero", str(ctx.exception))</code></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 4: CASO REAL ── -->
+      <section class="content-section fade-up" id="d1-caso">
+        <div class="section-header">
+          <div class="section-icon icon-purple"><i class="fa-solid fa-building"></i></div>
+          <div class="section-header-text">
+            <h2>Caso Práctico Real</h2>
+            <p>// aplicando lo aprendido en el mundo real</p>
+          </div>
+        </div>
+
+        <div class="caso-card">
+          <div class="caso-header">
+            <div class="caso-icon"><i class="fa-solid fa-rocket"></i></div>
+            <div>
+              <h3>Startup RapidoYa — Bug en producción</h3>
+              <p>// delivery · precios · descuentos</p>
+            </div>
+          </div>
+          <div class="caso-body">
+            <div class="caso-row">
+              <div class="caso-label"><i class="fa-solid fa-briefcase" style="margin-right:6px"></i>Contexto</div>
+              <div class="caso-text">Trabajas en <strong>RapidoYa</strong>, una startup de delivery. El equipo descubrió un bug en producción: los precios con descuento salen negativos cuando el porcentaje supera el 100%. El CTO pide que <strong>nunca más llegue un bug así a producción</strong>.</div>
+            </div>
+            <div class="caso-row">
+              <div class="caso-label"><i class="fa-solid fa-clipboard-list" style="margin-right:6px"></i>Requerimiento</div>
+              <div class="caso-text">El sistema debe garantizar que el <strong>precio final nunca sea negativo</strong> y que los descuentos mayores al 100% sean explícitamente rechazados con un error descriptivo.</div>
+            </div>
+            <div class="caso-row">
+              <div class="caso-label"><i class="fa-solid fa-list-check" style="margin-right:6px"></i>Tu Tarea</div>
+              <div class="caso-text">Escribe tests que validen: ① un descuento válido calcula bien el precio · ② un descuento del 100% da precio = 0 · ③ descuento &gt; 100% lanza ValueError · ④ descuento negativo lanza ValueError.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">productos/tests.py — Solución guiada</span>
+            </div>
+            <span class="code-lang">Python</span>
+          </div>
+          <div class="code-body"><pre><span class="kw">from</span> <span class="nm">django.test</span> <span class="kw">import</span> <span class="cl">TestCase</span>
+
+
+<span class="kw">def</span> <span class="fn">calcular_precio_final</span>(<span class="nm">precio_original</span>, <span class="nm">descuento_pct</span>):
+    <span class="st">"""Calcula precio con descuento. Rango válido: 0-100."""</span>
+    <span class="kw">if</span> descuento_pct &lt; <span class="nu">0</span> <span class="kw">or</span> descuento_pct &gt; <span class="nu">100</span>:
+        <span class="kw">raise</span> <span class="cl">ValueError</span>(
+            <span class="st">f"Descuento inválido: </span><span class="kw">{</span>descuento_pct<span class="kw">}</span><span class="st">. Debe ser 0-100."</span>
+        )
+    <span class="kw">return</span> precio_original * (<span class="nu">1</span> - descuento_pct / <span class="nu">100</span>)
+
+
+<span class="kw">class</span> <span class="cl">PrecioFinalRapidoYaTest</span>(<span class="cl">TestCase</span>):
+
+    <span class="kw">def</span> <span class="fn">test_descuento_valido_calcula_correctamente</span>(<span class="nm">self</span>):
+        <span class="cm"># $500 con 20% de descuento → $400</span>
+        precio = <span class="fn">calcular_precio_final</span>(<span class="nu">500</span>, <span class="nu">20</span>)
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(precio, <span class="nu">400.0</span>)
+
+    <span class="kw">def</span> <span class="fn">test_descuento_100_da_precio_cero</span>(<span class="nm">self</span>):
+        precio = <span class="fn">calcular_precio_final</span>(<span class="nu">300</span>, <span class="nu">100</span>)
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(precio, <span class="nu">0.0</span>)
+
+    <span class="kw">def</span> <span class="fn">test_sin_descuento_precio_no_cambia</span>(<span class="nm">self</span>):
+        precio = <span class="fn">calcular_precio_final</span>(<span class="nu">250</span>, <span class="nu">0</span>)
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(precio, <span class="nu">250.0</span>)
+
+    <span class="kw">def</span> <span class="fn">test_descuento_mayor_100_lanza_error</span>(<span class="nm">self</span>):
+        <span class="cm"># ← el bug que llegó a producción</span>
+        <span class="kw">with</span> <span class="nm">self</span>.<span class="fn">assertRaises</span>(<span class="cl">ValueError</span>):
+            <span class="fn">calcular_precio_final</span>(<span class="nu">100</span>, <span class="nu">150</span>)
+
+    <span class="kw">def</span> <span class="fn">test_descuento_negativo_lanza_error</span>(<span class="nm">self</span>):
+        <span class="kw">with</span> <span class="nm">self</span>.<span class="fn">assertRaises</span>(<span class="cl">ValueError</span>):
+            <span class="fn">calcular_precio_final</span>(<span class="nu">100</span>, <span class="nu">-10</span>)
+
+    <span class="kw">def</span> <span class="fn">test_mensaje_error_contiene_valor_recibido</span>(<span class="nm">self</span>):
+        <span class="kw">with</span> <span class="nm">self</span>.<span class="fn">assertRaises</span>(<span class="cl">ValueError</span>) <span class="kw">as</span> <span class="nm">ctx</span>:
+            <span class="fn">calcular_precio_final</span>(<span class="nu">100</span>, <span class="nu">200</span>)
+        <span class="nm">self</span>.<span class="fn">assertIn</span>(<span class="st">"200"</span>, <span class="fn">str</span>(ctx.exception))</pre></div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">terminal — resultado final</span>
+            </div>
+            <span class="code-lang">OUTPUT</span>
+          </div>
+          <div class="code-body"><pre>$ python manage.py test productos --verbosity=2
+
+<span class="ok">test_descuento_100_da_precio_cero ............ ok</span>
+<span class="ok">test_descuento_mayor_100_lanza_error ......... ok</span>
+<span class="ok">test_descuento_negativo_lanza_error .......... ok</span>
+<span class="ok">test_descuento_valido_calcula_correctamente .. ok</span>
+<span class="ok">test_mensaje_error_contiene_valor_recibido ... ok</span>
+<span class="ok">test_sin_descuento_precio_no_cambia .......... ok</span>
+
+Ran 6 tests in 0.001s
+<span class="ok">OK 🎉 — Bug de producción eliminado</span></pre></div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 5: CHECKLIST ── -->
+      <section class="content-section fade-up" id="d1-checklist">
+        <div class="section-header">
+          <div class="section-icon icon-green"><i class="fa-solid fa-circle-check"></i></div>
+          <div class="section-header-text">
+            <h2>Checklist de Aprendizaje</h2>
+            <p>// marca lo que ya dominas</p>
+          </div>
+        </div>
+        <div class="callout info" style="margin-bottom:20px">
+          <span class="callout-icon"><i class="fa-solid fa-hand-pointer"></i></span>
+          <div class="callout-content">Haz clic en cada casilla para marcarla. Tu progreso se guarda automáticamente.</div>
+        </div>
+        <ul class="checklist">
+          <li><div class="check-box" onclick="toggleCheck(this,'d1',0)"></div><span>Explicar qué es un test y por qué es necesario escribirlos</span></li>
+          <li><div class="check-box" onclick="toggleCheck(this,'d1',1)"></div><span>Conocer la pirámide de testing: unit, integration y e2e</span></li>
+          <li><div class="check-box" onclick="toggleCheck(this,'d1',2)"></div><span>Crear una clase de test heredando correctamente de <code>TestCase</code></span></li>
+          <li><div class="check-box" onclick="toggleCheck(this,'d1',3)"></div><span>Nombrar métodos con prefijo <code>test_</code> y entender por qué importa</span></li>
+          <li><div class="check-box" onclick="toggleCheck(this,'d1',4)"></div><span>Usar <code>assertEqual</code>, <code>assertTrue</code> y <code>assertFalse</code></span></li>
+          <li><div class="check-box" onclick="toggleCheck(this,'d1',5)"></div><span>Usar <code>assertIn</code>, <code>assertIsNone</code> y <code>assertRaises</code></span></li>
+          <li><div class="check-box" onclick="toggleCheck(this,'d1',6)"></div><span>Ejecutar tests con <code>python manage.py test</code> y sus variantes</span></li>
+          <li><div class="check-box" onclick="toggleCheck(this,'d1',7)"></div><span>Leer e interpretar el output de tests (verde y rojo)</span></li>
+          <li><div class="check-box" onclick="toggleCheck(this,'d1',8)"></div><span>Entender que Django usa una BD temporal — tu BD real nunca se toca</span></li>
+        </ul>
+      </section>
+
+    </main>
+
+    <!-- ══════════ SIDEBAR ══════════ -->
+    <aside class="lesson-sidebar">
+
+      <div class="sidebar-card fade-up">
+        <div class="sidebar-title"><i class="fa-solid fa-chart-line" style="margin-right:6px;color:var(--accent-green)"></i>Tu Progreso</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Días completados</span><span>1 / 21</span></div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:4.7%"></div></div>
+        </div>
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-top:10px">
+          <i class="fa-solid fa-fire" style="color:var(--accent-orange);margin-right:4px"></i>
+          Día <strong style="color:var(--text-primary)">1</strong> de 21 — ¡Buen comienzo!
+        </div>
+      </div>
+
+      <div class="sidebar-card fade-up" style="transition-delay:0.05s">
+        <div class="sidebar-title"><i class="fa-solid fa-list" style="margin-right:6px;color:var(--accent)"></i>Contenido</div>
+        <ul class="toc-list">
+          <li><a href="#d1-teoria"><i class="fa-solid fa-book"></i> Teoría del Día</a></li>
+          <li><a href="#d1-demo"><i class="fa-solid fa-terminal"></i> Demostración en Vivo</a></li>
+          <li><a href="#d1-retos"><i class="fa-solid fa-dumbbell"></i> Retos del Día</a></li>
+          <li><a href="#d1-caso"><i class="fa-solid fa-building"></i> Caso Práctico Real</a></li>
+          <li><a href="#d1-checklist"><i class="fa-solid fa-circle-check"></i> Checklist</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card fade-up" style="transition-delay:0.1s">
+        <div class="sidebar-title"><i class="fa-solid fa-calendar" style="margin-right:6px;color:var(--accent-orange)"></i>Nivel Básico — Días 1–7</div>
+        <ul class="days-list">
+          <li><div class="day-num-badge day-current">01</div><span class="day-text current">¿Qué son los tests?</span></li>
+          <li><div class="day-num-badge day-pending">02</div><span class="day-text">Configuración del entorno</span></li>
+          <li><div class="day-num-badge day-pending">03</div><span class="day-text">Tests de modelos</span></li>
+          <li><div class="day-num-badge day-pending">04</div><span class="day-text">Tests de formularios</span></li>
+          <li><div class="day-num-badge day-pending">05</div><span class="day-text">Tests de vistas</span></li>
+          <li><div class="day-num-badge day-pending">06</div><span class="day-text">TestCase y fixtures</span></li>
+          <li><div class="day-num-badge day-pending">07</div><span class="day-text">Proyecto integrador</span></li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- ═══════════════════ NAVEGACIÓN ENTRE DÍAS ═══════════════════ -->
+<div class="lesson-nav-bar">
+  <div class="container">
+    <div class="d-flex align-items-center gap-3">
+      <a href="#" class="nav-btn disabled">
+        <span class="nav-arrow"><i class="fa-solid fa-arrow-left"></i></span>
+        <div><div class="nav-label">Anterior</div><div class="nav-day">—</div></div>
+      </a>
+      <a href="{% url 'web:testing_dia2' %}" class="nav-btn next">
+        <div style="text-align:right">
+          <div class="nav-label">Siguiente</div>
+          <div class="nav-day">Día 2 — Configuración del entorno</div>
+        </div>
+        <span class="nav-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- ═══════════════════ SCRIPTS ═══════════════════ -->
+<script>
+(function() {
+  // Fade up al hacer scroll
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // Checklist persistente
+  function toggleCheck(el, day, idx) {
+    el.classList.toggle('checked');
+    const key = 'checklist-' + day;
+    const all = document.querySelectorAll('[onclick*="' + day + '"] .check-box, .check-box[onclick*="' + day + '"]');
+    // Guardar estado
+    const boxes = document.querySelectorAll('#d1-checklist .check-box');
+    const states = [...boxes].map(b => b.classList.contains('checked'));
+    localStorage.setItem('checklist-d1', JSON.stringify(states));
+  }
+
+  // Restaurar checklist al cargar
+  const saved = localStorage.getItem('checklist-d1');
+  if (saved) {
+    const states = JSON.parse(saved);
+    const boxes = document.querySelectorAll('#d1-checklist .check-box');
+    boxes.forEach((box, i) => { if (states[i]) box.classList.add('checked'); });
+  }
+})();
+</script>
+{% endblock %}

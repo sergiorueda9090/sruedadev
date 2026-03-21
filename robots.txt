@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /static/admin/
+
+Sitemap: https://sergiorueda.dev/sitemap.xml

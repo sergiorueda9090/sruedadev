@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block title %}Sergio Rueda | Desarrollo Web y Software a Medida en Colombia{% endblock %}
+{% block meta_description %}Desarrollador fullstack con +11 años en Bucaramanga. Páginas web, e-commerce, software a medida, automatización n8n y arquitectura cloud AWS. Diagnóstico gratuito.{% endblock %}
+{% block canonical %}https://sergiorueda.dev/{% endblock %}
+{% block og_title %}Sergio Rueda | Desarrollo Web y Software a Medida en Colombia{% endblock %}
+{% block og_description %}Transformo procesos manuales en sistemas automáticos. Páginas web, e-commerce, software a medida y arquitectura cloud con AWS.{% endblock %}
+{% block og_url %}https://sergiorueda.dev/{% endblock %}
+{% block twitter_title %}Sergio Rueda | Desarrollo Web y Software en Colombia{% endblock %}
+{% block twitter_description %}+11 años creando páginas web, software a medida y automatización para empresas. Diagnóstico gratuito.{% endblock %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://sergiorueda.dev/"
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+  {# ===== HERO ===== #}
+  {% include "sections/_hero.html" %}
+
+  {# ===== DESARROLLO WEB ===== #}
+  {% include "sections/_desarrollo_web.html" %}
+
+  {# ===== SOFTWARE A LA MEDIDA ===== #}
+  {% include "sections/_software_medida.html" %}
+
+  {# ===== INTEGRACIÓN CON APIs ===== #}
+  {% include "sections/_apis.html" %}
+
+  {# ===== AWS ===== #}
+  {% include "sections/_aws.html" %}
+
+  {# ===== AUTOMATIZACIÓN n8n ===== #}
+  {% include "sections/_n8n.html" %}
+
+  {# ===== SOBRE MÍ ===== #}
+  {% include "sections/_sobre_mi.html" %}
+
+  {# ===== TECNOLOGÍAS ===== #}
+  {% include "sections/_tecnologias.html" %}
+
+  {# ===== CERTIFICACIONES ===== #}
+  {% include "sections/_certificaciones.html" %}
+
+  {# ===== CLIENTES ===== #}
+  {% include "sections/_clientes.html" %}
+
+  {# ===== PROYECTOS ===== #}
+  {% include "sections/_proyectos.html" %}
+
+  {# ===== APRENDIZAJE / TUTORIALES ===== #}
+  {% include "sections/_aprendizaje.html" %}
+
+  {# ===== CTA FINAL ===== #}
+  {% include "sections/_cta_final.html" %}
+
+{% endblock %}

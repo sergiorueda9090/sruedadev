@@ -1,0 +1,654 @@
+{% extends "pages/learning_base.html" %}
+{% load static %}
+
+<!-- ============================================================
+     DIA 2 — Configuracion del entorno de testing en Django
+     Fragmento embebible — srueda.dev
+     ============================================================ -->
+
+{% block title %}Día 2 — Configuración del entorno de testing{% endblock %}
+{% block meta_description %}Día 2 del curso de Testing en Django: settings separados, base de datos en memoria, setUp/tearDown y configuración de pytest. Tutorial práctico.{% endblock %}
+{% block canonical %}https://sergiorueda.dev/learning/testing-django/dia-2/{% endblock %}
+{% block og_title %}Día 2 — Configuración del entorno de testing | Testing en Django{% endblock %}
+{% block og_description %}Configura tu entorno de testing en Django: settings separados, BD en memoria, setUp/tearDown y pytest.ini.{% endblock %}
+{% block og_url %}https://sergiorueda.dev/learning/testing-django/dia-2/{% endblock %}
+{% block twitter_title %}Día 2 — Configuración del entorno | Testing en Django{% endblock %}
+{% block twitter_description %}Configura tu entorno de testing en Django: settings separados, BD en memoria y pytest.{% endblock %}
+
+{% block content %}
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="lesson-hero">
+  <div class="lesson-hero-grid"></div>
+  <div class="lesson-hero-glow"></div>
+  <div class="container position-relative">
+    <div class="lesson-breadcrumb">
+      <a href="{% url 'web:learning' %}"><i class="fa-solid fa-house" style="font-size:0.65rem"></i> Inicio</a>
+      <span class="sep">/</span>
+      <a href="{% url 'web:testing_temario' %}">Testing en Django</a>
+      <span class="sep">/</span>
+      <span style="color:var(--accent)">Día 2</span>
+    </div>
+    <div class="lesson-day-badge"><i class="fa-solid fa-calendar-day"></i> DÍA 02 — NIVEL BÁSICO</div>
+    <h1 class="lesson-title">Configuración del<br><span class="hl">entorno de testing</span></h1>
+    <p class="lesson-subtitle">Configura un entorno profesional con settings separados, base de datos en memoria, emails capturados y estructura de carpetas lista para equipos.</p>
+    <div class="lesson-meta">
+      <div class="lesson-meta-item"><i class="fa-solid fa-clock"></i><span>35 min de lectura</span></div>
+      <div class="lesson-meta-item"><i class="fa-solid fa-code"></i><span>3 retos prácticos</span></div>
+      <div class="lesson-meta-item"><i class="fa-solid fa-vial"></i><span>1 caso real</span></div>
+      <span class="level-badge level-basico">Básico</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ RESUMEN DÍA ANTERIOR ═══════════════════ -->
+<div class="container">
+  <div style="padding: 28px 0 0;">
+    <div class="callout success fade-up">
+      <span class="callout-icon"><i class="fa-solid fa-rotate-left"></i></span>
+      <div class="callout-content">
+        <strong>Resumen del Día 1</strong>
+        Un test es código que verifica tu código · Django usa una BD temporal (tu BD real nunca se toca) · Todo método con prefijo <code>test_</code> se ejecuta automáticamente · Usamos <code>TestCase</code> como clase base · Asserts principales: <code>assertEqual</code>, <code>assertTrue</code>, <code>assertRaises</code>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ LAYOUT PRINCIPAL ═══════════════════ -->
+<div class="container">
+  <div class="lesson-layout">
+    <main class="lesson-content">
+
+      <!-- ── SECCIÓN 1: TEORÍA ── -->
+      <section class="content-section fade-up" id="d2-teoria">
+        <div class="section-header">
+          <div class="section-icon icon-blue"><i class="fa-solid fa-book"></i></div>
+          <div class="section-header-text">
+            <h2>Teoría del Día</h2>
+            <p>// por qué necesitamos configuración especial</p>
+          </div>
+        </div>
+
+        <div class="prose">
+          <h3>¿Por qué necesitamos settings separados?</h3>
+        </div>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th>❌ Sin configuración especial</th><th>✅ Con settings_test.py</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="bad">Tests lentos — usan PostgreSQL real en disco</td><td class="good">SQLite en memoria — 10x más rápido</td></tr>
+            <tr><td class="bad">Emails reales se envían a clientes</td><td class="good">Emails capturados en memoria, nunca enviados</td></tr>
+            <tr><td class="bad">APIs externas de pago se llaman en cada test</td><td class="good">APIs simuladas con mock</td></tr>
+            <tr><td class="bad">Logs llenan la consola innecesariamente</td><td class="good">Logs silenciados durante los tests</td></tr>
+            <tr><td class="bad">El equipo tiene configuraciones distintas</td><td class="good">Mismo entorno para todo el equipo</td></tr>
+          </tbody>
+        </table>
+
+        <div class="prose">
+          <h3>Estructura de archivos que crearemos</h3>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">estructura del proyecto</span>
+            </div>
+            <span class="code-lang">ÁRBOL</span>
+          </div>
+          <div class="code-body"><pre><span class="nm">mi_tienda/</span>
+├── manage.py
+├── <span class="nm">mi_tienda/</span>
+│   ├── settings.py           <span class="cm">← ya existe (desarrollo)</span>
+│   ├── <span class="ok">settings_test.py</span>      <span class="cm">← ✨ NUEVO: solo para tests</span>
+│   ├── urls.py
+│   └── wsgi.py
+├── <span class="nm">productos/</span>
+│   ├── models.py
+│   └── <span class="ok">tests/</span>                <span class="cm">← ✨ NUEVO: carpeta organizada</span>
+│       ├── <span class="ok">__init__.py</span>       <span class="cm">← ✨ vacío (hace la carpeta importable)</span>
+│       ├── <span class="ok">test_models.py</span>
+│       └── <span class="ok">test_views.py</span>
+└── <span class="ok">pytest.ini</span>                <span class="cm">← ✨ NUEVO: configuración de pytest</span></pre></div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 2: DEMO ── -->
+      <section class="content-section fade-up" id="d2-demo">
+        <div class="section-header">
+          <div class="section-icon icon-green"><i class="fa-solid fa-terminal"></i></div>
+          <div class="section-header-text">
+            <h2>Demostración en Vivo</h2>
+            <p>// código completo paso a paso</p>
+          </div>
+        </div>
+
+        <!-- PASO 1 -->
+        <div class="prose"><h3>PASO 1 — Crear settings_test.py</h3></div>
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">mi_tienda/settings_test.py</span>
+            </div>
+            <span class="code-lang">Python</span>
+          </div>
+          <div class="code-body"><pre><span class="kw">from</span> <span class="nm">.settings</span> <span class="kw">import</span> *
+<span class="cm"># ↑ Importa TODO de settings.py</span>
+<span class="cm"># ↑ Solo sobreescribimos lo que necesita cambiar</span>
+
+
+<span class="cm"># ── BD EN MEMORIA ────────────────────────────────</span>
+<span class="cm"># SQLite en memoria es ~10x más rápido que PostgreSQL</span>
+DATABASES = {
+    <span class="st">'default'</span>: {
+        <span class="st">'ENGINE'</span>: <span class="st">'django.db.backends.sqlite3'</span>,
+        <span class="st">'NAME'</span>: <span class="st">':memory:'</span>,
+        <span class="cm"># ↑ ':memory:' = vive en RAM, no en disco</span>
+        <span class="cm"># ↑ Se crea y destruye con cada ejecución</span>
+    }
+}
+
+
+<span class="cm"># ── EMAILS — capturar en lugar de enviar ─────────</span>
+EMAIL_BACKEND = <span class="st">'django.core.mail.backends.locmem.EmailBackend'</span>
+<span class="cm"># ↑ Los emails se guardan en django.core.mail.outbox</span>
+<span class="cm"># ↑ NUNCA se envían emails reales durante tests</span>
+
+
+<span class="cm"># ── CONTRASEÑAS — hasher más rápido ──────────────</span>
+PASSWORD_HASHERS = [
+    <span class="st">'django.contrib.auth.hashers.MD5PasswordHasher'</span>,
+    <span class="cm"># ↑ MD5 es rápido (no seguro, pero OK para tests)</span>
+    <span class="cm"># ↑ Bcrypt/argon2 son lentos por diseño (seguridad)</span>
+]
+
+
+<span class="cm"># ── CACHÉ — desactivar para tests predecibles ────</span>
+CACHES = {
+    <span class="st">'default'</span>: {
+        <span class="st">'BACKEND'</span>: <span class="st">'django.core.cache.backends.dummy.DummyCache'</span>,
+        <span class="cm"># ↑ DummyCache no guarda nada realmente</span>
+        <span class="cm"># ↑ Evita que tests se afecten entre sí por caché</span>
+    }
+}
+
+
+<span class="cm"># ── LOGGING — silenciar consola ───────────────────</span>
+LOGGING = {
+    <span class="st">'version'</span>: <span class="nu">1</span>,
+    <span class="st">'disable_existing_loggers'</span>: <span class="kw">True</span>,
+    <span class="cm"># ↑ Silencia todos los loggers → consola limpia</span>
+}
+
+
+<span class="cm"># ── ARCHIVOS MEDIA — directorio temporal ─────────</span>
+<span class="kw">import</span> <span class="nm">tempfile</span>
+MEDIA_ROOT = tempfile.<span class="fn">mkdtemp</span>()
+<span class="cm"># ↑ Archivos subidos van a carpeta temporal</span>
+
+
+<span class="cm"># ── SECRET_KEY — fija para tests ─────────────────</span>
+SECRET_KEY = <span class="st">'clave-solo-para-tests-no-usar-en-produccion'</span>
+
+
+<span class="cm"># ── CELERY — síncrono en tests (Día 17) ──────────</span>
+CELERY_TASK_ALWAYS_EAGER = <span class="kw">True</span>
+CELERY_TASK_EAGER_PROPAGATES = <span class="kw">True</span></pre></div>
+        </div>
+
+        <!-- PASO 2 -->
+        <div class="prose"><h3>PASO 2 — setUp y tearDown: preparar y limpiar</h3>
+          <p><code>setUp</code> se ejecuta <strong>antes de cada test</strong> y <code>tearDown</code> <strong>después de cada test</strong>. Son el lugar correcto para preparar datos comunes y limpiar recursos externos.</p>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">productos/tests/test_configuracion.py</span>
+            </div>
+            <span class="code-lang">Python</span>
+          </div>
+          <div class="code-body"><pre><span class="kw">from</span> <span class="nm">django.test</span> <span class="kw">import</span> <span class="cl">TestCase</span>
+<span class="kw">from</span> <span class="nm">django.core</span> <span class="kw">import</span> <span class="nm">mail</span>
+
+
+<span class="kw">class</span> <span class="cl">SetUpTearDownTest</span>(<span class="cl">TestCase</span>):
+
+    <span class="kw">def</span> <span class="fn">setUp</span>(<span class="nm">self</span>):
+        <span class="cm"># ↑ Se ejecuta ANTES de cada test</span>
+        <span class="cm"># ↑ Úsalo para preparar datos comunes</span>
+        <span class="nm">self</span>.precio_base = <span class="nu">100.0</span>
+        <span class="nm">self</span>.descuento   = <span class="nu">20</span>
+        <span class="nm">self</span>.producto    = <span class="st">"Laptop Gaming"</span>
+
+    <span class="kw">def</span> <span class="fn">tearDown</span>(<span class="nm">self</span>):
+        <span class="cm"># ↑ Se ejecuta DESPUÉS de cada test</span>
+        <span class="cm"># ↑ Úsalo para limpiar archivos, conexiones, etc.</span>
+        <span class="kw">pass</span>  <span class="cm"># Aquí limpiarías recursos externos si los hubiera</span>
+
+    <span class="kw">def</span> <span class="fn">test_usa_datos_del_setup</span>(<span class="nm">self</span>):
+        precio_final = <span class="nm">self</span>.precio_base * (<span class="nu">1</span> - <span class="nm">self</span>.descuento / <span class="nu">100</span>)
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(precio_final, <span class="nu">80.0</span>)
+
+    <span class="kw">def</span> <span class="fn">test_nombre_producto_no_vacio</span>(<span class="nm">self</span>):
+        <span class="cm"># setUp se volvió a ejecutar → self.producto existe</span>
+        <span class="nm">self</span>.<span class="fn">assertTrue</span>(<span class="fn">len</span>(<span class="nm">self</span>.producto) > <span class="nu">0</span>)
+
+
+<span class="kw">class</span> <span class="cl">SetUpClassTest</span>(<span class="cl">TestCase</span>):
+    <span class="cm">"""setUpClass se ejecuta UNA sola vez para toda la clase"""</span>
+
+    <span class="dc">@classmethod</span>
+    <span class="kw">def</span> <span class="fn">setUpClass</span>(<span class="nm">cls</span>):
+        <span class="fn">super</span>().<span class="fn">setUpClass</span>()  <span class="cm"># ← SIEMPRE llama a super() primero</span>
+        cls.config = {
+            <span class="st">'moneda'</span>: <span class="st">'USD'</span>,
+            <span class="st">'impuesto'</span>: <span class="nu">0.19</span>,
+            <span class="st">'version_api'</span>: <span class="st">'v2'</span>
+        }
+
+    <span class="kw">def</span> <span class="fn">test_moneda_correcta</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.config[<span class="st">'moneda'</span>], <span class="st">'USD'</span>)
+
+    <span class="kw">def</span> <span class="fn">test_impuesto_correcto</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.config[<span class="st">'impuesto'</span>], <span class="nu">0.19</span>)
+
+
+<span class="kw">class</span> <span class="cl">EmailBackendTest</span>(<span class="cl">TestCase</span>):
+    <span class="cm">"""Verifica que los emails se capturan y no se envían"""</span>
+
+    <span class="kw">def</span> <span class="fn">test_email_capturado_no_enviado</span>(<span class="nm">self</span>):
+        <span class="kw">from</span> <span class="nm">django.core.mail</span> <span class="kw">import</span> <span class="fn">send_mail</span>
+
+        <span class="fn">send_mail</span>(
+            subject=<span class="st">'Confirmación pedido #1234'</span>,
+            message=<span class="st">'Tu pedido está en camino'</span>,
+            from_email=<span class="st">'tienda@rapidoya.com'</span>,
+            recipient_list=[<span class="st">'cliente@gmail.com'</span>],
+        )
+
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="fn">len</span>(mail.outbox), <span class="nu">1</span>)
+        <span class="cm"># ↑ mail.outbox es la bandeja en memoria</span>
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(
+            mail.outbox[<span class="nu">0</span>].subject,
+            <span class="st">'Confirmación pedido #1234'</span>
+        )
+        <span class="nm">self</span>.<span class="fn">assertIn</span>(<span class="st">'cliente@gmail.com'</span>, mail.outbox[<span class="nu">0</span>].to)</pre></div>
+        </div>
+
+        <!-- PASO 3 -->
+        <div class="prose"><h3>PASO 3 — pytest.ini y comandos de ejecución</h3></div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">pytest.ini — raíz del proyecto</span>
+            </div>
+            <span class="code-lang">INI</span>
+          </div>
+          <div class="code-body"><pre>[pytest]
+<span class="cm"># Settings a usar en todos los tests</span>
+DJANGO_SETTINGS_MODULE = mi_tienda.settings_test
+
+<span class="cm"># Dónde buscar los archivos de test</span>
+testpaths = .
+
+<span class="cm"># Patrón de nombres</span>
+python_files   = test_*.py
+python_classes = *Test
+python_functions = test_*
+
+<span class="cm"># Opciones por defecto</span>
+addopts =
+    --verbose
+    --tb=short</pre></div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">terminal — comandos esenciales</span>
+            </div>
+            <span class="code-lang">BASH</span>
+          </div>
+          <div class="code-body"><pre><span class="cm"># Instalar dependencias de testing</span>
+pip install pytest-django pytest coverage
+
+<span class="cm"># Opción A: Django nativo con settings específicos</span>
+python manage.py test --settings=mi_tienda.settings_test
+
+<span class="cm"># Opción B: Variable de entorno (más cómodo)</span>
+<span class="kw">export</span> DJANGO_SETTINGS_MODULE=mi_tienda.settings_test
+python manage.py test
+
+<span class="cm"># Opción C: pytest (con pytest.ini configurado)</span>
+pytest                    <span class="cm"># todos los tests</span>
+pytest productos/         <span class="cm"># solo una app</span>
+pytest -k <span class="st">"test_email"</span>   <span class="cm"># tests con "email" en el nombre</span>
+pytest -x                 <span class="cm"># para en el primer fallo</span>
+pytest --lf               <span class="cm"># solo los que fallaron la última vez</span></pre></div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">output esperado</span>
+            </div>
+            <span class="code-lang">OUTPUT</span>
+          </div>
+          <div class="code-body"><pre>$ pytest --verbose
+
+===== test session starts =====
+django: settings: <span class="ok">mi_tienda.settings_test</span>  ← ✅ settings de test
+collected 5 items
+
+<span class="ok">test_email_capturado_no_enviado .... PASSED</span>
+<span class="ok">test_impuesto_correcto ............. PASSED</span>
+<span class="ok">test_moneda_correcta ............... PASSED</span>
+<span class="ok">test_nombre_producto_no_vacio ...... PASSED</span>
+<span class="ok">test_usa_datos_del_setup ........... PASSED</span>
+
+===== <span class="ok">5 passed in 0.18s</span> =====
+<span class="cm">#              ↑ Rápido gracias a SQLite en memoria</span></pre></div>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+          <div class="callout-content">
+            <strong>3 errores comunes del Día 2</strong>
+            Olvidar <code>super().setUpClass()</code> en setUpClass · Usar setUp para operaciones costosas que deberían ir en setUpClass · No crear el archivo <code>__init__.py</code> vacío en la carpeta tests/
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 3: RETOS ── -->
+      <section class="content-section fade-up" id="d2-retos">
+        <div class="section-header">
+          <div class="section-icon icon-orange"><i class="fa-solid fa-dumbbell"></i></div>
+          <div class="section-header-text">
+            <h2>Retos del Día</h2>
+            <p>// practica lo aprendido</p>
+          </div>
+        </div>
+
+        <div class="reto-card">
+          <div class="reto-header">
+            <span class="reto-num"><i class="fa-solid fa-hashtag" style="font-size:0.6rem"></i> RETO 01</span>
+            <span class="reto-stars">★☆☆</span>
+          </div>
+          <div class="reto-body">
+            <div class="reto-title">Configurar tu entorno de tests</div>
+            <div class="reto-objetivo">Crear la estructura profesional de archivos para testing lista para un equipo real.</div>
+            <ul class="reto-steps">
+              <li><span class="step-num">1</span><span>Crea <code>settings_test.py</code> con BD en memoria (<code>':memory:'</code>)</span></li>
+              <li><span class="step-num">2</span><span>Crea la carpeta <code>productos/tests/</code></span></li>
+              <li><span class="step-num">3</span><span>Agrega <code>__init__.py</code> vacío dentro de la carpeta tests/</span></li>
+              <li><span class="step-num">4</span><span>Crea <code>test_dia2.py</code> con al menos 1 test que pase</span></li>
+              <li><span class="step-num">5</span><span>Ejecuta con <code>--settings=mi_tienda.settings_test</code> y verifica <strong>OK</strong></span></li>
+            </ul>
+            <div class="reto-pista"><i class="fa-solid fa-lightbulb"></i><span><strong style="color:var(--accent-orange)">Pista:</strong> El <code>__init__.py</code> puede estar completamente vacío. Solo necesita existir para que Django encuentre los tests.</span></div>
+          </div>
+        </div>
+
+        <div class="reto-card">
+          <div class="reto-header">
+            <span class="reto-num"><i class="fa-solid fa-hashtag" style="font-size:0.6rem"></i> RETO 02</span>
+            <span class="reto-stars">★★☆</span>
+          </div>
+          <div class="reto-body">
+            <div class="reto-title">setUp en acción</div>
+            <div class="reto-objetivo">Usar setUp para eliminar código duplicado entre tests de un carrito de compras.</div>
+            <ul class="reto-steps">
+              <li><span class="step-num">1</span><span>Crea <code>CarritoTest</code> con un setUp que defina: <code>self.productos</code>, <code>self.precios</code> (lista) y <code>self.descuento_vip = 15</code></span></li>
+              <li><span class="step-num">2</span><span><code>test_carrito_tiene_3_productos</code>: verifica <code>len(self.productos) == 3</code></span></li>
+              <li><span class="step-num">3</span><span><code>test_total_sin_descuento</code>: suma de precios es correcta</span></li>
+              <li><span class="step-num">4</span><span><code>test_total_con_descuento_vip</code>: aplica el 15% al total</span></li>
+            </ul>
+            <div class="reto-pista"><i class="fa-solid fa-lightbulb"></i><span><strong style="color:var(--accent-orange)">Pista:</strong> El total sin descuento es <code>sum(self.precios)</code>. El total con descuento VIP es <code>total * (1 - 0.15)</code></span></div>
+          </div>
+        </div>
+
+        <div class="reto-card">
+          <div class="reto-header">
+            <span class="reto-num"><i class="fa-solid fa-hashtag" style="font-size:0.6rem"></i> RETO 03</span>
+            <span class="reto-stars">★★★</span>
+          </div>
+          <div class="reto-body">
+            <div class="reto-title">Sistema completo de notificaciones por email</div>
+            <div class="reto-objetivo">Crear tests que verifiquen el sistema de notificaciones de un e-commerce usando el backend en memoria.</div>
+            <ul class="reto-steps">
+              <li><span class="step-num">1</span><span>Crea la función <code>enviar_confirmacion_pedido(email, numero, total)</code> que envíe un email con asunto <code>"Pedido #[numero] confirmado"</code></span></li>
+              <li><span class="step-num">2</span><span><code>test_se_envia_exactamente_un_email</code></span></li>
+              <li><span class="step-num">3</span><span><code>test_asunto_contiene_numero_pedido</code></span></li>
+              <li><span class="step-num">4</span><span><code>test_mensaje_contiene_total</code></span></li>
+              <li><span class="step-num">5</span><span><code>test_destinatario_correcto</code></span></li>
+            </ul>
+            <div class="reto-pista"><i class="fa-solid fa-lightbulb"></i><span><strong style="color:var(--accent-orange)">Pista:</strong> <code>from django.core import mail</code> → verifica <code>mail.outbox</code> después de llamar tu función. Cada test empieza con <code>mail.outbox</code> vacío automáticamente.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 4: CASO REAL ── -->
+      <section class="content-section fade-up" id="d2-caso">
+        <div class="section-header">
+          <div class="section-icon icon-purple"><i class="fa-solid fa-building"></i></div>
+          <div class="section-header-text">
+            <h2>Caso Práctico Real</h2>
+            <p>// de 4 minutos a 0.031 segundos</p>
+          </div>
+        </div>
+
+        <div class="caso-card">
+          <div class="caso-header">
+            <div class="caso-icon"><i class="fa-solid fa-store"></i></div>
+            <div>
+              <h3>ShopFast — Tests que tardan 4 minutos</h3>
+              <p>// e-commerce · 50k usuarios · equipo de 8 devs</p>
+            </div>
+          </div>
+          <div class="caso-body">
+            <div class="caso-row">
+              <div class="caso-label"><i class="fa-solid fa-briefcase" style="margin-right:6px"></i>Contexto</div>
+              <div class="caso-text">Eres el nuevo dev en <strong>ShopFast</strong>. El equipo tiene tests pero todos usan la BD de desarrollo real. Los tests tardan <strong>4 minutos</strong> en correr y a veces dejan datos sucios. El Tech Lead te pide migrar la configuración.</div>
+            </div>
+            <div class="caso-row">
+              <div class="caso-label"><i class="fa-solid fa-clipboard-list" style="margin-right:6px"></i>Requerimiento</div>
+              <div class="caso-text">Configurar el entorno para que use SQLite en memoria, capture emails, y tenga un setUp reutilizable para los tests de <code>pedidos</code>. El equipo pierde <strong>30 minutos al día</strong> esperando que corran los tests.</div>
+            </div>
+            <div class="caso-row">
+              <div class="caso-label"><i class="fa-solid fa-list-check" style="margin-right:6px"></i>Tu Tarea</div>
+              <div class="caso-text">Crear la configuración completa y demostrar que funciona con tests reales de notificaciones por email.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">pedidos/tests/test_pedidos.py — Solución guiada</span>
+            </div>
+            <span class="code-lang">Python</span>
+          </div>
+          <div class="code-body"><pre><span class="kw">from</span> <span class="nm">django.test</span> <span class="kw">import</span> <span class="cl">TestCase</span>
+<span class="kw">from</span> <span class="nm">django.core</span> <span class="kw">import</span> <span class="nm">mail</span>
+
+
+<span class="kw">def</span> <span class="fn">crear_pedido_y_notificar</span>(<span class="nm">cliente_email</span>, <span class="nm">productos</span>, <span class="nm">total</span>):
+    <span class="st">"""Simula crear pedido y enviar confirmación por email"""</span>
+    numero_pedido = <span class="nu">9999</span>
+    mail.<span class="fn">send_mail</span>(
+        subject=<span class="st">f'ShopFast — Pedido #</span><span class="kw">{</span>numero_pedido<span class="kw">}</span><span class="st"> recibido'</span>,
+        message=<span class="st">f'Gracias por tu compra. Total: $</span><span class="kw">{</span>total<span class="kw">}</span><span class="st">.'</span>,
+        from_email=<span class="st">'no-reply@shopfast.com'</span>,
+        recipient_list=[cliente_email],
+    )
+    <span class="kw">return</span> numero_pedido
+
+
+<span class="kw">class</span> <span class="cl">PedidoNotificacionTest</span>(<span class="cl">TestCase</span>):
+
+    <span class="kw">def</span> <span class="fn">setUp</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.email   = <span class="st">'juan@gmail.com'</span>
+        <span class="nm">self</span>.total   = <span class="nu">1130.0</span>
+        <span class="nm">self</span>.num     = <span class="fn">crear_pedido_y_notificar</span>(
+            <span class="nm">self</span>.email, [<span class="st">'Laptop'</span>, <span class="st">'Mouse'</span>], <span class="nm">self</span>.total
+        )
+
+    <span class="kw">def</span> <span class="fn">test_exactamente_un_email</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="fn">len</span>(mail.outbox), <span class="nu">1</span>)
+
+    <span class="kw">def</span> <span class="fn">test_asunto_menciona_numero_pedido</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.<span class="fn">assertIn</span>(<span class="fn">str</span>(<span class="nm">self</span>.num), mail.outbox[<span class="nu">0</span>].subject)
+
+    <span class="kw">def</span> <span class="fn">test_mensaje_incluye_total</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.<span class="fn">assertIn</span>(<span class="st">'1130'</span>, mail.outbox[<span class="nu">0</span>].body)
+
+    <span class="kw">def</span> <span class="fn">test_email_llega_al_cliente</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.<span class="fn">assertIn</span>(<span class="nm">self</span>.email, mail.outbox[<span class="nu">0</span>].to)
+
+    <span class="kw">def</span> <span class="fn">test_remitente_es_shopfast</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(mail.outbox[<span class="nu">0</span>].from_email, <span class="st">'no-reply@shopfast.com'</span>)</pre></div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">resultado</span>
+            </div>
+            <span class="code-lang">OUTPUT</span>
+          </div>
+          <div class="code-body"><pre><span class="ok">test_asunto_menciona_numero_pedido ... ok</span>
+<span class="ok">test_email_llega_al_cliente ......... ok</span>
+<span class="ok">test_exactamente_un_email ........... ok</span>
+<span class="ok">test_mensaje_incluye_total .......... ok</span>
+<span class="ok">test_remitente_es_shopfast .......... ok</span>
+
+Ran 5 tests in <span class="ok">0.031s</span>  ← ⚡ antes: 4 minutos
+<span class="ok">OK</span>  — 30 min/día recuperados 🎉</pre></div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 5: CHECKLIST ── -->
+      <section class="content-section fade-up" id="d2-checklist">
+        <div class="section-header">
+          <div class="section-icon icon-green"><i class="fa-solid fa-circle-check"></i></div>
+          <div class="section-header-text">
+            <h2>Checklist de Aprendizaje</h2>
+            <p>// marca lo que ya dominas</p>
+          </div>
+        </div>
+        <div class="callout info" style="margin-bottom:20px">
+          <span class="callout-icon"><i class="fa-solid fa-hand-pointer"></i></span>
+          <div class="callout-content">Haz clic en cada casilla para marcarla. Tu progreso se guarda automáticamente.</div>
+        </div>
+        <ul class="checklist">
+          <li><div class="check-box" onclick="toggleCheckD2(this,0)"></div><span>Crear <code>settings_test.py</code> que hereda de <code>settings.py</code></span></li>
+          <li><div class="check-box" onclick="toggleCheckD2(this,1)"></div><span>Configurar BD SQLite en memoria con <code>':memory:'</code></span></li>
+          <li><div class="check-box" onclick="toggleCheckD2(this,2)"></div><span>Entender por qué <code>':memory:'</code> hace los tests más rápidos</span></li>
+          <li><div class="check-box" onclick="toggleCheckD2(this,3)"></div><span>Configurar <code>EMAIL_BACKEND</code> para capturar emails sin enviarlos</span></li>
+          <li><div class="check-box" onclick="toggleCheckD2(this,4)"></div><span>Organizar tests en carpeta <code>tests/</code> con <code>__init__.py</code></span></li>
+          <li><div class="check-box" onclick="toggleCheckD2(this,5)"></div><span>Usar <code>setUp</code> para preparar datos antes de cada test</span></li>
+          <li><div class="check-box" onclick="toggleCheckD2(this,6)"></div><span>Usar <code>setUpClass</code> para datos costosos que se crean una sola vez</span></li>
+          <li><div class="check-box" onclick="toggleCheckD2(this,7)"></div><span>Ejecutar tests con <code>--settings</code> específicos</span></li>
+          <li><div class="check-box" onclick="toggleCheckD2(this,8)"></div><span>Verificar emails capturados con <code>mail.outbox</code></span></li>
+          <li><div class="check-box" onclick="toggleCheckD2(this,9)"></div><span>Conocer los flags útiles de pytest: <code>-x</code>, <code>--lf</code>, <code>-k</code></span></li>
+        </ul>
+      </section>
+
+    </main>
+
+    <!-- ══════════ SIDEBAR ══════════ -->
+    <aside class="lesson-sidebar">
+
+      <div class="sidebar-card fade-up">
+        <div class="sidebar-title"><i class="fa-solid fa-chart-line" style="margin-right:6px;color:var(--accent-green)"></i>Tu Progreso</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Días completados</span><span>2 / 21</span></div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:9.5%"></div></div>
+        </div>
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-top:10px">
+          <i class="fa-solid fa-fire" style="color:var(--accent-orange);margin-right:4px"></i>
+          Día <strong style="color:var(--text-primary)">2</strong> de 21 — ¡Sigue así!
+        </div>
+      </div>
+
+      <div class="sidebar-card fade-up" style="transition-delay:0.05s">
+        <div class="sidebar-title"><i class="fa-solid fa-list" style="margin-right:6px;color:var(--accent)"></i>Contenido</div>
+        <ul class="toc-list">
+          <li><a href="#d2-teoria"><i class="fa-solid fa-book"></i> Teoría del Día</a></li>
+          <li><a href="#d2-demo"><i class="fa-solid fa-terminal"></i> Demostración en Vivo</a></li>
+          <li><a href="#d2-retos"><i class="fa-solid fa-dumbbell"></i> Retos del Día</a></li>
+          <li><a href="#d2-caso"><i class="fa-solid fa-building"></i> Caso Práctico Real</a></li>
+          <li><a href="#d2-checklist"><i class="fa-solid fa-circle-check"></i> Checklist</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card fade-up" style="transition-delay:0.1s">
+        <div class="sidebar-title"><i class="fa-solid fa-calendar" style="margin-right:6px;color:var(--accent-orange)"></i>Nivel Básico — Días 1–7</div>
+        <ul class="days-list">
+          <li><div class="day-num-badge day-done">01</div><span class="day-text">¿Qué son los tests?</span></li>
+          <li><div class="day-num-badge day-current">02</div><span class="day-text current">Configuración del entorno</span></li>
+          <li><div class="day-num-badge day-pending">03</div><span class="day-text">Tests de modelos</span></li>
+          <li><div class="day-num-badge day-pending">04</div><span class="day-text">Tests de formularios</span></li>
+          <li><div class="day-num-badge day-pending">05</div><span class="day-text">Tests de vistas</span></li>
+          <li><div class="day-num-badge day-pending">06</div><span class="day-text">TestCase y fixtures</span></li>
+          <li><div class="day-num-badge day-pending">07</div><span class="day-text">Proyecto integrador</span></li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- NAVEGACIÓN -->
+<div class="lesson-nav-bar">
+  <div class="container">
+    <div class="d-flex align-items-center gap-3">
+      <a href="{% url 'web:testing_dia1' %}" class="nav-btn">
+        <span class="nav-arrow"><i class="fa-solid fa-arrow-left"></i></span>
+        <div><div class="nav-label">Anterior</div><div class="nav-day">Día 1 — ¿Qué son los tests?</div></div>
+      </a>
+      <a href="{% url 'web:testing_dia3' %}" class="nav-btn next">
+        <div style="text-align:right">
+          <div class="nav-label">Siguiente</div>
+          <div class="nav-day">Día 3 — Tests unitarios: modelos</div>
+        </div>
+        <span class="nav-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  function toggleCheckD2(el, idx) {
+    el.classList.toggle('checked');
+    const boxes = document.querySelectorAll('#d2-checklist .check-box');
+    localStorage.setItem('checklist-d2', JSON.stringify([...boxes].map(b => b.classList.contains('checked'))));
+  }
+  window.toggleCheckD2 = toggleCheckD2;
+
+  const saved = localStorage.getItem('checklist-d2');
+  if (saved) {
+    const states = JSON.parse(saved);
+    document.querySelectorAll('#d2-checklist .check-box').forEach((b, i) => { if (states[i]) b.classList.add('checked'); });
+  }
+})();
+</script>
+{% endblock %}

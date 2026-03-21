@@ -1,0 +1,1586 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutoriales Backend: Django, Docker, Nginx y Testing | Sergio Rueda</title>
+  <meta name="description" content="Tutoriales prácticos de desarrollo backend: Nginx, Docker, Django, ORM, Testing y DevOps. Aprende desde cero hasta producción con Sergio Rueda, desarrollador fullstack en Colombia.">
+  <meta name="robots" content="index,follow">
+  <meta name="author" content="Sergio Rueda">
+  <link rel="canonical" href="https://sergiorueda.dev/learning/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Sergio Rueda | Tutoriales Backend">
+  <meta property="og:title" content="Tutoriales Backend: Django, Docker, Nginx y Testing | Sergio Rueda">
+  <meta property="og:description" content="Tutoriales prácticos de desarrollo backend. Aprende Nginx, Docker, Django, Testing y DevOps desde cero hasta producción.">
+  <meta property="og:url" content="https://sergiorueda.dev/learning/">
+  <meta property="og:image" content="https://sergiorueda.dev/static/img/og-cover.jpg">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tutoriales Backend: Django, Docker, Nginx y Testing | Sergio Rueda">
+  <meta name="twitter:description" content="Tutoriales prácticos de desarrollo backend. Aprende desde cero hasta producción.">
+  <meta name="twitter:image" content="https://sergiorueda.dev/static/img/og-cover.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Tutoriales Backend — Sergio Rueda",
+    "description": "Tutoriales prácticos de desarrollo backend: Nginx, Docker, Django, ORM, Testing y DevOps.",
+    "url": "https://sergiorueda.dev/learning/",
+    "author": {
+      "@type": "Person",
+      "name": "Sergio Rueda",
+      "url": "https://sergiorueda.dev/"
+    },
+    "inLanguage": "es",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "Sergio Rueda | Desarrollo de Software",
+      "url": "https://sergiorueda.dev/"
+    }
+  }
+  </script>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg-primary: #0d1117;
+      --bg-secondary: #161b22;
+      --bg-card: #1a2030;
+      --bg-card-hover: #1f2937;
+      --accent: #58a6ff;
+      --accent-green: #3fb950;
+      --accent-glow: rgba(88, 166, 255, 0.25);
+      --accent-green-glow: rgba(63, 185, 80, 0.2);
+      --text-primary: #e6edf3;
+      --text-secondary: #8b949e;
+      --text-muted: #6e7681;
+      --border: rgba(48, 54, 61, 0.8);
+      --border-accent: rgba(88, 166, 255, 0.3);
+      --font-main: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+      --radius-sm: 6px;
+      --radius-md: 12px;
+      --radius-lg: 18px;
+      --transition: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── SCROLLBAR ── */
+    ::-webkit-scrollbar { width: 6px; }
+    ::-webkit-scrollbar-track { background: var(--bg-primary); }
+    ::-webkit-scrollbar-thumb { background: #30363d; border-radius: 3px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.4;
+    }
+
+    /* ── NAVBAR ── */
+    .navbar {
+      background: rgba(13, 17, 23, 0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      font-family: var(--font-mono);
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-primary) !important;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-dot {
+      width: 8px; height: 8px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      animation: pulse 2s infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 var(--accent-green-glow); }
+      50% { box-shadow: 0 0 0 6px transparent; }
+    }
+
+    .nav-link {
+      color: var(--text-secondary) !important;
+      font-size: 0.875rem;
+      font-weight: 500;
+      padding: 6px 14px !important;
+      border-radius: var(--radius-sm);
+      transition: color var(--transition), background var(--transition);
+      letter-spacing: 0.01em;
+    }
+
+    .nav-link:hover { color: var(--text-primary) !important; background: rgba(48, 54, 61, 0.5); }
+
+    .btn-nav-cta {
+      background: var(--accent);
+      color: #0d1117 !important;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 7px 18px !important;
+      border-radius: 20px;
+      letter-spacing: 0.02em;
+      transition: all var(--transition);
+      border: none;
+    }
+
+    .btn-nav-cta:hover {
+      background: #79c0ff;
+      box-shadow: 0 0 16px var(--accent-glow);
+      transform: translateY(-1px);
+    }
+
+    .navbar-toggler {
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      padding: 6px 10px;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%238b949e' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 92vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      padding: 80px 0 60px;
+      overflow: hidden;
+    }
+
+    .hero-grid-bg {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(48, 54, 61, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(48, 54, 61, 0.15) 1px, transparent 1px);
+      background-size: 48px 48px;
+      mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 30%, transparent 80%);
+      pointer-events: none;
+    }
+
+    .hero-glow {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(88,166,255,0.06) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      pointer-events: none;
+    }
+
+    .hero-glow-2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(63,185,80,0.04) 0%, transparent 70%);
+      bottom: 0; left: 0;
+      pointer-events: none;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--accent-green);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 28px; height: 1px;
+      background: var(--accent-green);
+    }
+
+    .hero-title {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 24px;
+      color: var(--text-primary);
+    }
+
+    .hero-title .highlight {
+      color: var(--accent);
+      position: relative;
+      display: inline-block;
+    }
+
+    .hero-title .highlight::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent), transparent);
+      border-radius: 2px;
+    }
+
+    .hero-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 520px;
+      margin-bottom: 36px;
+      line-height: 1.75;
+    }
+
+    .btn-primary-hero {
+      background: var(--accent);
+      color: #0d1117;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 12px 28px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary-hero:hover {
+      background: #79c0ff;
+      box-shadow: 0 0 24px var(--accent-glow);
+      transform: translateY(-2px);
+      color: #0d1117;
+    }
+
+    .btn-secondary-hero {
+      background: transparent;
+      color: var(--text-primary);
+      font-weight: 500;
+      font-size: 0.9rem;
+      padding: 11px 28px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      transition: all var(--transition);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-secondary-hero:hover {
+      border-color: var(--border-accent);
+      background: rgba(88,166,255,0.06);
+      color: var(--text-primary);
+    }
+
+    .tech-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 40px;
+    }
+
+    .tech-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+      background: rgba(22, 27, 34, 0.8);
+      color: var(--text-secondary);
+      transition: all var(--transition);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tech-badge:hover {
+      border-color: var(--border-accent);
+      color: var(--accent);
+      background: rgba(88,166,255,0.06);
+    }
+
+    .tech-badge i { font-size: 0.85rem; }
+
+    /* ── AVATAR ── */
+    .hero-avatar-wrap {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .avatar-ring {
+      width: 280px; height: 280px;
+      border-radius: 50%;
+      border: 1px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      animation: rotate-slow 20s linear infinite;
+    }
+
+    .avatar-ring::before {
+      content: '';
+      position: absolute;
+      inset: -12px;
+      border-radius: 50%;
+      border: 1px dashed rgba(88,166,255,0.15);
+      animation: rotate-slow 30s linear infinite reverse;
+    }
+
+    @keyframes rotate-slow {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    .avatar-inner {
+      width: 240px; height: 240px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a2030, #0d1117);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      position: relative;
+      animation: rotate-slow 20s linear infinite reverse;
+      overflow: hidden;
+    }
+
+    .avatar-initials {
+      font-family: var(--font-mono);
+      font-size: 3.5rem;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: -0.04em;
+      animation: rotate-slow 20s linear infinite;
+    }
+
+    .avatar-dot {
+      position: absolute;
+      width: 14px; height: 14px;
+      background: var(--accent-green);
+      border-radius: 50%;
+      border: 2px solid var(--bg-primary);
+      top: 18px; right: 22px;
+      animation: none;
+    }
+
+    .floating-tag {
+      position: absolute;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg-secondary);
+      color: var(--text-secondary);
+      white-space: nowrap;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .floating-tag.t1 { top: 20px; left: -30px; animation-delay: 0s; }
+    .floating-tag.t2 { bottom: 40px; right: -40px; animation-delay: 1s; }
+    .floating-tag.t3 { bottom: 100px; left: -50px; animation-delay: 2s; }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    /* ── STATS ── */
+    .stats-section {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg-secondary);
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+
+    .stat-item + .stat-item::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 20%; bottom: 20%;
+      width: 1px;
+      background: var(--border);
+    }
+
+    .stat-number {
+      font-family: var(--font-mono);
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.04em;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-number span { color: var(--accent); }
+
+    .stat-label {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── SECTION COMMON ── */
+    .section { padding: 90px 0; }
+
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--accent-green);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .section-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      max-width: 560px;
+    }
+
+    /* ── CATEGORY CARDS ── */
+    .cat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px 24px;
+      transition: all var(--transition);
+      cursor: default;
+      height: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cat-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--accent-glow) 0%, transparent 60%);
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .cat-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--border-accent);
+    }
+
+    .cat-card:hover::before { opacity: 1; }
+
+    .cat-icon {
+      width: 48px; height: 48px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.4rem;
+      margin-bottom: 18px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cat-icon.blue { background: rgba(88,166,255,0.12); color: var(--accent); }
+    .cat-icon.green { background: rgba(63,185,80,0.12); color: var(--accent-green); }
+    .cat-icon.orange { background: rgba(210,153,84,0.12); color: #d2994a; }
+    .cat-icon.purple { background: rgba(188,140,255,0.12); color: #bc8cff; }
+    .cat-icon.teal { background: rgba(56,189,193,0.12); color: #38bdc1; }
+
+    .cat-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cat-desc {
+      font-size: 0.83rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cat-count {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .cat-count::before {
+      content: '';
+      width: 16px; height: 1px;
+      background: var(--border);
+    }
+
+    /* ── TUTORIAL CARDS ── */
+    .tut-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tut-card:hover {
+      border-color: var(--border-accent);
+      transform: translateY(-4px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5), 0 0 0 1px rgba(88,166,255,0.15);
+    }
+
+    .tut-cover {
+      height: 160px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.08);
+      letter-spacing: 0.05em;
+    }
+
+    .tut-cover-inner {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      opacity: 0.25;
+    }
+
+    .tut-cover.nginx { background: linear-gradient(135deg, #0a2236, #0d3354); }
+    .tut-cover.docker { background: linear-gradient(135deg, #0a1a2e, #0d2a4a); }
+    .tut-cover.django { background: linear-gradient(135deg, #0a2016, #0d3020); }
+    .tut-cover.orm { background: linear-gradient(135deg, #1a1030, #2a1850); }
+    .tut-cover.testing { background: linear-gradient(135deg, #2a1000, #3d1a00); }
+    .tut-cover.compose { background: linear-gradient(135deg, #0d2040, #0a1a34); }
+
+    .tut-cover-label {
+      position: absolute;
+      bottom: 12px; left: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.08em;
+    }
+
+    .tut-body {
+      padding: 20px 20px 24px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tut-tags {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 500;
+      padding: 3px 9px;
+      border-radius: 4px;
+      letter-spacing: 0.04em;
+    }
+
+    .tag-nginx { background: rgba(0,114,198,0.2); color: #58a6ff; border: 1px solid rgba(88,166,255,0.2); }
+    .tag-docker { background: rgba(13,112,182,0.15); color: #79c0ff; border: 1px solid rgba(121,192,255,0.2); }
+    .tag-django { background: rgba(10,80,40,0.25); color: #3fb950; border: 1px solid rgba(63,185,80,0.2); }
+    .tag-orm { background: rgba(80,50,180,0.2); color: #bc8cff; border: 1px solid rgba(188,140,255,0.2); }
+    .tag-testing { background: rgba(180,90,20,0.2); color: #e3b341; border: 1px solid rgba(227,179,65,0.2); }
+    .tag-basico { background: rgba(63,185,80,0.1); color: var(--accent-green); border: 1px solid rgba(63,185,80,0.15); }
+    .tag-intermedio { background: rgba(227,179,65,0.1); color: #e3b341; border: 1px solid rgba(227,179,65,0.15); }
+    .tag-avanzado { background: rgba(248,81,73,0.1); color: #f85149; border: 1px solid rgba(248,81,73,0.15); }
+
+    .tut-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      line-height: 1.4;
+      margin-bottom: 10px;
+    }
+
+    .tut-desc {
+      font-size: 0.82rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .tut-meta {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .tut-meta i { font-size: 0.7rem; }
+
+    .btn-tut {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      font-size: 0.8rem;
+      font-weight: 500;
+      padding: 8px 16px;
+      border-radius: var(--radius-sm);
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--transition);
+      align-self: flex-start;
+    }
+
+    .btn-tut:hover {
+      border-color: var(--border-accent);
+      color: var(--accent);
+      background: rgba(88,166,255,0.06);
+    }
+
+    /* ── ABOUT ── */
+    .about-section { background: var(--bg-secondary); }
+
+    .about-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+
+    .about-avatar {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #1a2030, #0d1117);
+      border: 2px solid var(--border-accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--accent);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+
+    .about-name {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: -0.02em;
+      margin-bottom: 4px;
+    }
+
+    .about-role {
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      color: var(--accent-green);
+      margin-bottom: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    .about-bio {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      line-height: 1.8;
+      margin-bottom: 28px;
+    }
+
+    .stack-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 28px;
+    }
+
+    .stack-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      padding: 5px 12px;
+      border-radius: 5px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all var(--transition);
+    }
+
+    .stack-pill:hover {
+      border-color: var(--border-accent);
+      color: var(--accent);
+    }
+
+    .social-links { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .social-link {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all var(--transition);
+    }
+
+    .social-link:hover {
+      border-color: var(--border-accent);
+      color: var(--accent);
+      background: rgba(88,166,255,0.06);
+    }
+
+    /* ── TERMINAL WIDGET ── */
+    .terminal-card {
+      background: #0d1117;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+
+    .terminal-bar {
+      background: #161b22;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .terminal-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+
+    .terminal-dot.red { background: #f85149; }
+    .terminal-dot.yellow { background: #e3b341; }
+    .terminal-dot.green { background: var(--accent-green); }
+
+    .terminal-title {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      margin-left: 8px;
+    }
+
+    .terminal-body {
+      padding: 20px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      line-height: 1.9;
+    }
+
+    .t-line { display: flex; gap: 10px; }
+    .t-prompt { color: var(--accent-green); }
+    .t-cmd { color: var(--text-primary); }
+    .t-comment { color: var(--text-muted); }
+    .t-output { color: #58a6ff; padding-left: 20px; }
+    .t-success { color: var(--accent-green); padding-left: 20px; }
+    .t-cursor {
+      display: inline-block;
+      width: 8px; height: 14px;
+      background: var(--accent);
+      animation: blink 1.2s step-end infinite;
+      vertical-align: middle;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    /* ── NEWSLETTER ── */
+    .newsletter-section {
+      padding: 80px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .newsletter-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 50% 50%, rgba(88,166,255,0.04) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .newsletter-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 56px 48px;
+      text-align: center;
+      position: relative;
+    }
+
+    .newsletter-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%; transform: translateX(-50%);
+      width: 60%; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+
+    .newsletter-title {
+      font-size: 1.8rem;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .newsletter-sub {
+      font-size: 0.9rem;
+      color: var(--text-secondary);
+      margin-bottom: 36px;
+    }
+
+    .newsletter-form {
+      display: flex;
+      max-width: 440px;
+      margin: 0 auto;
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      background: var(--bg-primary);
+      transition: border-color var(--transition);
+    }
+
+    .newsletter-form:focus-within { border-color: var(--border-accent); }
+
+    .newsletter-input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 13px 18px;
+      font-family: var(--font-main);
+      font-size: 0.875rem;
+      color: var(--text-primary);
+    }
+
+    .newsletter-input::placeholder { color: var(--text-muted); }
+
+    .newsletter-btn {
+      background: var(--accent);
+      border: none;
+      padding: 13px 22px;
+      color: #0d1117;
+      font-family: var(--font-main);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background var(--transition);
+      white-space: nowrap;
+    }
+
+    .newsletter-btn:hover { background: #79c0ff; }
+
+    .newsletter-note {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-top: 14px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg-secondary);
+      border-top: 1px solid var(--border);
+      padding: 48px 0 28px;
+    }
+
+    .footer-brand {
+      font-family: var(--font-mono);
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-tagline {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      max-width: 240px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .footer-heading {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .footer-link {
+      display: block;
+      font-size: 0.83rem;
+      color: var(--text-muted);
+      text-decoration: none;
+      margin-bottom: 8px;
+      transition: color var(--transition);
+    }
+
+    .footer-link:hover { color: var(--accent); }
+
+    .footer-divider {
+      border-top: 1px solid var(--border);
+      margin: 32px 0 24px;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .footer-copy span { color: var(--accent); }
+
+    /* ── ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ── UTILS ── */
+    .text-accent { color: var(--accent); }
+    .text-green { color: var(--accent-green); }
+    .text-mono { font-family: var(--font-mono); }
+    .gap-row-3 { row-gap: 24px; }
+
+    @media (max-width: 767px) {
+      .stat-item + .stat-item::before { display: none; }
+      .hero-avatar-wrap { margin-top: 40px; }
+      .avatar-ring { width: 220px; height: 220px; }
+      .avatar-inner { width: 185px; height: 185px; }
+      .floating-tag { display: none; }
+      .about-card { padding: 24px; }
+      .newsletter-card { padding: 32px 20px; }
+      .newsletter-form { flex-direction: column; border-radius: 10px; }
+      .newsletter-btn { border-radius: 0 0 9px 9px; padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<a class="visually-hidden-focusable" href="#main-content">Saltar al contenido principal</a>
+
+<!-- ═══════════════════════════ NAVBAR ═══════════════════════════ -->
+<nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'web:index' %}">
+      <span class="brand-dot" aria-hidden="true"></span>
+      <span>srueda<span style="color:var(--accent)">.</span>dev</span>
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Abrir menú" aria-expanded="false" aria-controls="navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav mx-auto gap-1">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#tutoriales">Tutoriales</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre-mi">Sobre mí</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+      </ul>
+      <a href="#tutoriales" class="btn-nav-cta nav-link">
+        <i class="fa-solid fa-play" style="font-size:0.65rem"></i> Ver tutoriales
+      </a>
+    </div>
+  </div>
+</nav>
+
+<main id="main-content">
+
+<!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-grid-bg"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="container position-relative">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <div class="hero-eyebrow">Backend Developer & Educator</div>
+        <h1 class="hero-title">
+          Aprende<br>
+          <span class="highlight">Backend</span><br>
+          como un Pro
+        </h1>
+        <p class="hero-subtitle">
+          Tutoriales prácticos, directos y sin rodeos sobre Nginx, Docker, Django, Testing y más. Desde cero hasta producción.
+        </p>
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#tutoriales" class="btn-primary-hero">
+            <i class="fa-solid fa-rocket" style="font-size:0.8rem"></i>
+            Explorar tutoriales
+          </a>
+          <a href="#sobre-mi" class="btn-secondary-hero">
+            Sobre mí <i class="fa-solid fa-arrow-right" style="font-size:0.75rem"></i>
+          </a>
+        </div>
+        <div class="tech-badges">
+          <span class="tech-badge"><i class="fa-brands fa-python" style="color:#3776ab"></i> Python</span>
+          <span class="tech-badge"><i class="fa-brands fa-docker" style="color:#0db7ed"></i> Docker</span>
+          <span class="tech-badge" style="color:var(--text-secondary)"><i class="fa-solid fa-server" style="color:#009900"></i> Nginx</span>
+          <span class="tech-badge"><i class="fa-solid fa-database" style="color:#bc8cff"></i> ORM</span>
+          <span class="tech-badge"><i class="fa-solid fa-vial" style="color:#e3b341"></i> Testing</span>
+          <span class="tech-badge"><i class="fa-brands fa-git-alt" style="color:#f05032"></i> Git</span>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-avatar-wrap">
+          <div class="avatar-ring">
+            <div class="avatar-inner">
+              <span class="avatar-initials">SR</span>
+              <div class="avatar-dot"></div>
+            </div>
+          </div>
+          <div class="floating-tag t1">
+            <i class="fa-brands fa-docker" style="color:#0db7ed;margin-right:5px"></i>
+            docker run -p 8000:8000
+          </div>
+          <div class="floating-tag t2">
+            <i class="fa-solid fa-vial" style="color:#e3b341;margin-right:5px"></i>
+            pytest --cov=. ✓ 24 passed
+          </div>
+          <div class="floating-tag t3">
+            <i class="fa-solid fa-server" style="color:#3fb950;margin-right:5px"></i>
+            nginx: [ok] config valid
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ STATS ═══════════════════════════ -->
+<section class="stats-section">
+  <div class="container">
+    <div class="row g-0">
+      <div class="col-6 col-md-3">
+        <div class="stat-item fade-up">
+          <div class="stat-number">48<span>+</span></div>
+          <div class="stat-label">Tutoriales</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item fade-up" style="transition-delay:0.1s">
+          <div class="stat-number">12<span>K</span></div>
+          <div class="stat-label">Estudiantes</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item fade-up" style="transition-delay:0.2s">
+          <div class="stat-number">11<span>+</span></div>
+          <div class="stat-label">Años de exp.</div>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item fade-up" style="transition-delay:0.3s">
+          <div class="stat-number">15<span>+</span></div>
+          <div class="stat-label">Tecnologías</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ CATEGORÍAS ═══════════════════════════ -->
+<section class="section" id="categorias">
+  <div class="container">
+    <div class="mb-5 fade-up">
+      <p class="section-eyebrow">// temas que cubro</p>
+      <h2 class="section-title">Tecnologías y Categorías</h2>
+      <p class="section-subtitle">Contenido organizado por tecnología para que avances a tu propio ritmo y encuentres exactamente lo que necesitas.</p>
+    </div>
+    <div class="row g-4 gap-row-3">
+      <div class="col-sm-6 col-lg-4 fade-up">
+        <div class="cat-card">
+          <div class="cat-icon blue"><i class="fa-solid fa-server"></i></div>
+          <div class="cat-title">Nginx</div>
+          <div class="cat-desc">Configura servidores web de alto rendimiento, reverse proxies, balanceo de carga y SSL desde cero.</div>
+          <div class="cat-count">9 tutoriales</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 fade-up" style="transition-delay:0.05s">
+        <div class="cat-card">
+          <div class="cat-icon blue" style="background:rgba(13,183,237,0.1);color:#0db7ed"><i class="fa-brands fa-docker"></i></div>
+          <div class="cat-title">Docker</div>
+          <div class="cat-desc">Contenerización de aplicaciones, Docker Compose, imágenes optimizadas y flujos de CI/CD.</div>
+          <div class="cat-count">14 tutoriales</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 fade-up" style="transition-delay:0.1s">
+        <div class="cat-card">
+          <div class="cat-icon green"><i class="fa-brands fa-python"></i></div>
+          <div class="cat-title">Django</div>
+          <div class="cat-desc">Desarrollo web con el framework más completo de Python: vistas, autenticación, REST APIs y deployment.</div>
+          <div class="cat-count">16 tutoriales</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 fade-up" style="transition-delay:0.15s">
+        <div class="cat-card">
+          <div class="cat-icon purple"><i class="fa-solid fa-database"></i></div>
+          <div class="cat-title">ORM / Django ORM</div>
+          <div class="cat-desc">Queries complejos, optimizaciones N+1, annotate, aggregate, select_related y raw SQL avanzado.</div>
+          <div class="cat-count">8 tutoriales</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 fade-up" style="transition-delay:0.2s">
+        <div class="cat-card">
+          <div class="cat-icon orange"><i class="fa-solid fa-vial"></i></div>
+          <div class="cat-title">Testing</div>
+          <div class="cat-desc">Pruebas unitarias, de integración y de cobertura con pytest, unittest y Factory Boy en proyectos reales.</div>
+          <div class="cat-count">11 tutoriales</div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-lg-4 fade-up" style="transition-delay:0.25s">
+        <div class="cat-card">
+          <div class="cat-icon teal"><i class="fa-solid fa-code-branch"></i></div>
+          <div class="cat-title">DevOps & CI/CD</div>
+          <div class="cat-desc">Pipelines con GitHub Actions, despliegue en VPS, Linux para developers y monitoreo con logs.</div>
+          <div class="cat-count">10 tutoriales</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ TUTORIALES ═══════════════════════════ -->
+<section class="section" id="tutoriales" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="mb-5 fade-up">
+      <p class="section-eyebrow">// últimos publicados</p>
+      <h2 class="section-title">Tutoriales Destacados</h2>
+      <p class="section-subtitle">Guías paso a paso con código real, explicaciones claras y casos de uso del mundo profesional.</p>
+    </div>
+    <div class="row g-4">
+
+      <div class="col-md-6 col-xl-4 fade-up">
+        <article class="tut-card">
+          <div class="tut-cover nginx">
+            <div class="tut-cover-inner"><i class="fa-solid fa-server"></i></div>
+            <span class="tut-cover-label">nginx.conf</span>
+          </div>
+          <div class="tut-body">
+            <div class="tut-tags">
+              <span class="tag tag-nginx">Nginx</span>
+              <span class="tag tag-intermedio">Intermedio</span>
+            </div>
+            <div class="tut-title">Configurar un Reverse Proxy con Nginx</div>
+            <div class="tut-desc">Aprende a enrutar tráfico hacia múltiples aplicaciones backend usando Nginx como proxy inverso con soporte SSL.</div>
+            <div class="tut-meta">
+              <span><i class="fa-regular fa-clock"></i> 18 min</span>
+              <span><i class="fa-regular fa-calendar"></i> Mar 2025</span>
+            </div>
+            <a href="#" class="btn-tut">Ver tutorial <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl-4 fade-up" style="transition-delay:0.05s">
+        <article class="tut-card">
+          <div class="tut-cover docker">
+            <div class="tut-cover-inner"><i class="fa-brands fa-docker"></i></div>
+            <span class="tut-cover-label">Dockerfile</span>
+          </div>
+          <div class="tut-body">
+            <div class="tut-tags">
+              <span class="tag tag-docker">Docker</span>
+              <span class="tag tag-django">Django</span>
+              <span class="tag tag-basico">Básico</span>
+            </div>
+            <div class="tut-title">Dockerizar una App Django paso a paso</div>
+            <div class="tut-desc">Crea una imagen Docker optimizada para tu proyecto Django con PostgreSQL, variables de entorno y volúmenes.</div>
+            <div class="tut-meta">
+              <span><i class="fa-regular fa-clock"></i> 25 min</span>
+              <span><i class="fa-regular fa-calendar"></i> Feb 2025</span>
+            </div>
+            <a href="#" class="btn-tut">Ver tutorial <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl-4 fade-up" style="transition-delay:0.1s">
+        <article class="tut-card">
+          <div class="tut-cover orm">
+            <div class="tut-cover-inner"><i class="fa-solid fa-database"></i></div>
+            <span class="tut-cover-label">models.py</span>
+          </div>
+          <div class="tut-body">
+            <div class="tut-tags">
+              <span class="tag tag-orm">ORM</span>
+              <span class="tag tag-avanzado">Avanzado</span>
+            </div>
+            <div class="tut-title">Django ORM: Queries Avanzadas con annotate y aggregate</div>
+            <div class="tut-desc">Domina aggregaciones, subqueries y expresiones F() para escribir consultas de alto rendimiento sin salir de Python.</div>
+            <div class="tut-meta">
+              <span><i class="fa-regular fa-clock"></i> 30 min</span>
+              <span><i class="fa-regular fa-calendar"></i> Feb 2025</span>
+            </div>
+            <a href="#" class="btn-tut">Ver tutorial <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl-4 fade-up" style="transition-delay:0.15s">
+        <article class="tut-card">
+          <div class="tut-cover testing">
+            <div class="tut-cover-inner"><i class="fa-solid fa-vial"></i></div>
+            <span class="tut-cover-label">test_views.py</span>
+          </div>
+          <div class="tut-body">
+            <div class="tut-tags">
+              <span class="tag tag-testing">Testing</span>
+              <span class="tag tag-intermedio">Intermedio</span>
+            </div>
+            <div class="tut-title">Testing con pytest en proyectos Django</div>
+            <div class="tut-desc">Escribe tests unitarios y de integración con pytest-django, fixtures, mocks y cobertura de código desde el día uno.</div>
+            <div class="tut-meta">
+              <span><i class="fa-regular fa-clock"></i> 22 min</span>
+              <span><i class="fa-regular fa-calendar"></i> Ene 2025</span>
+            </div>
+            <a href="{% url 'web:testing_temario' %}" class="btn-tut">Ver tutorial <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl-4 fade-up" style="transition-delay:0.2s">
+        <article class="tut-card">
+          <div class="tut-cover compose">
+            <div class="tut-cover-inner"><i class="fa-brands fa-docker"></i></div>
+            <span class="tut-cover-label">docker-compose.yml</span>
+          </div>
+          <div class="tut-body">
+            <div class="tut-tags">
+              <span class="tag tag-docker">Docker</span>
+              <span class="tag tag-intermedio">Intermedio</span>
+            </div>
+            <div class="tut-title">Docker Compose para entornos de desarrollo local</div>
+            <div class="tut-desc">Orquesta Django, PostgreSQL, Redis y Celery en un solo comando. Entornos reproducibles y sin conflictos.</div>
+            <div class="tut-meta">
+              <span><i class="fa-regular fa-clock"></i> 20 min</span>
+              <span><i class="fa-regular fa-calendar"></i> Ene 2025</span>
+            </div>
+            <a href="#" class="btn-tut">Ver tutorial <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+
+      <div class="col-md-6 col-xl-4 fade-up" style="transition-delay:0.25s">
+        <article class="tut-card">
+          <div class="tut-cover django">
+            <div class="tut-cover-inner"><i class="fa-brands fa-python"></i></div>
+            <span class="tut-cover-label">settings.py</span>
+          </div>
+          <div class="tut-body">
+            <div class="tut-tags">
+              <span class="tag tag-django">Django</span>
+              <span class="tag tag-nginx">Nginx</span>
+              <span class="tag tag-avanzado">Avanzado</span>
+            </div>
+            <div class="tut-title">Deploy Django en producción con Nginx + Gunicorn</div>
+            <div class="tut-desc">Despliega tu app Django en un VPS con Ubuntu: Gunicorn como WSGI, Nginx como proxy, SSL con Let's Encrypt.</div>
+            <div class="tut-meta">
+              <span><i class="fa-regular fa-clock"></i> 40 min</span>
+              <span><i class="fa-regular fa-calendar"></i> Dic 2024</span>
+            </div>
+            <a href="#" class="btn-tut">Ver tutorial <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </article>
+      </div>
+
+    </div>
+    <div class="text-center mt-5 fade-up">
+      <a href="#" class="btn-secondary-hero" style="margin:0 auto">
+        Ver todos los tutoriales <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ SOBRE MÍ ═══════════════════════════ -->
+<section class="section about-section" id="sobre-mi">
+  <div class="container">
+    <div class="mb-5 fade-up">
+      <p class="section-eyebrow">// whoami</p>
+      <h2 class="section-title">Sobre mí</h2>
+    </div>
+    <div class="row g-4 align-items-start">
+      <div class="col-lg-6 fade-up">
+        <div class="about-card">
+          <div class="d-flex align-items-center gap-4 mb-4">
+            <div class="about-avatar">SR</div>
+            <div>
+              <div class="about-name">Sergio Rueda</div>
+              <div class="about-role">// Backend Developer & Tech Educator</div>
+              <div class="d-flex gap-2 mt-2">
+                <span style="font-size:0.72rem;color:var(--accent-green);background:rgba(63,185,80,0.1);border:1px solid rgba(63,185,80,0.2);padding:3px 9px;border-radius:20px;font-family:var(--font-mono)">
+                  <i class="fa-solid fa-circle" style="font-size:0.4rem;margin-right:4px"></i>Disponible para proyectos
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="about-bio">
+            Soy desarrollador backend con más de 11 años de experiencia construyendo sistemas escalables con Python y Django. Me apasiona compartir lo que aprendo — porque creo que el conocimiento técnico de calidad debe ser accesible para todos, sin importar dónde estés.
+            <br><br>
+            Cuando no estoy escribiendo código o tutoriales, estoy explorando DevOps, contribuyendo a open source o tomando un buen café ☕.
+          </div>
+          <div class="stack-grid">
+            <span class="stack-pill"><i class="fa-brands fa-python" style="color:#3776ab"></i> Python</span>
+            <span class="stack-pill"><i class="fa-brands fa-docker" style="color:#0db7ed"></i> Docker</span>
+            <span class="stack-pill"><i class="fa-solid fa-server" style="color:#009900"></i> Nginx</span>
+            <span class="stack-pill"><i class="fa-solid fa-database" style="color:#336791"></i> PostgreSQL</span>
+            <span class="stack-pill"><i class="fa-solid fa-bolt" style="color:#dc382d"></i> Redis</span>
+            <span class="stack-pill"><i class="fa-brands fa-linux" style="color:#fcc624"></i> Linux</span>
+            <span class="stack-pill"><i class="fa-brands fa-git-alt" style="color:#f05032"></i> Git</span>
+            <span class="stack-pill"><i class="fa-solid fa-vial" style="color:#e3b341"></i> pytest</span>
+          </div>
+          <div class="social-links">
+            <a href="#" class="social-link" title="GitHub"><i class="fa-brands fa-github"></i></a>
+            <a href="#" class="social-link" title="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+            <a href="#" class="social-link" title="Twitter/X"><i class="fa-brands fa-x-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 fade-up" style="transition-delay:0.1s">
+        <div class="terminal-card">
+          <div class="terminal-bar">
+            <div class="terminal-dot red"></div>
+            <div class="terminal-dot yellow"></div>
+            <div class="terminal-dot green"></div>
+            <span class="terminal-title">sergio@dev ~ bash</span>
+          </div>
+          <div class="terminal-body">
+            <div class="t-line"><span class="t-prompt">~$</span><span class="t-cmd"> cat about.json</span></div>
+            <div class="t-output">{</div>
+            <div class="t-output" style="padding-left:40px">"name": "Sergio Rueda",</div>
+            <div class="t-output" style="padding-left:40px">"role": "Backend Developer",</div>
+            <div class="t-output" style="padding-left:40px">"years_exp": 11,</div>
+            <div class="t-output" style="padding-left:40px">"location": "Latinoamérica 🌎",</div>
+            <div class="t-output" style="padding-left:40px">"focus": ["Django", "Docker", "Nginx"]</div>
+            <div class="t-output">}</div>
+            <br>
+            <div class="t-line"><span class="t-prompt">~$</span><span class="t-cmd"> pytest --cov=. -v</span></div>
+            <div class="t-success">✓ test_nginx_config PASSED</div>
+            <div class="t-success">✓ test_docker_build PASSED</div>
+            <div class="t-success">✓ test_django_orm PASSED</div>
+            <div class="t-success">✓ test_rest_api PASSED</div>
+            <div class="t-output" style="color:#e3b341">Coverage: 96% ████████████████░</div>
+            <br>
+            <div class="t-line"><span class="t-prompt">~$</span><span class="t-cmd"> docker-compose up --build</span></div>
+            <div class="t-success">✓ web_1 | Starting server at 0.0.0.0:8000</div>
+            <div class="t-success">✓ nginx_1 | [notice] master process</div>
+            <br>
+            <div class="t-line"><span class="t-prompt">~$</span><span class="t-cursor"></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════ NEWSLETTER ═══════════════════════════ -->
+<section class="newsletter-section" id="contacto">
+  <div class="newsletter-bg"></div>
+  <div class="container position-relative">
+    <div class="newsletter-card fade-up">
+      <p class="section-eyebrow" style="text-align:center;margin-bottom:16px">// no te pierdas nada</p>
+      <h2 class="newsletter-title">Nuevo tutorial cada semana</h2>
+      <p class="newsletter-sub">Únete a más de 3,000 developers que reciben contenido backend directamente en su bandeja de entrada. Sin spam, solo código.</p>
+      <form class="newsletter-form" onsubmit="return false">
+        <input class="newsletter-input" type="email" placeholder="tu@email.com" />
+        <button class="newsletter-btn" type="submit">
+          <i class="fa-solid fa-paper-plane" style="margin-right:6px;font-size:0.8rem"></i>Suscribirme
+        </button>
+      </form>
+      <p class="newsletter-note">
+        <i class="fa-solid fa-lock" style="margin-right:4px"></i>
+        Sin spam. Puedes darte de baja cuando quieras.
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+<footer role="contentinfo">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-md-4">
+        <div class="footer-brand">
+          <span class="brand-dot"></span>
+          srueda<span style="color:var(--accent)">.</span>dev
+        </div>
+        <p class="footer-tagline">Tutoriales de backend en español para developers que quieren subir de nivel.</p>
+        <div class="social-links">
+          <a href="https://www.instagram.com/sergiodevsolutions" class="social-link" aria-label="Instagram de Sergio Rueda" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://www.facebook.com/sergiodevsolutions" class="social-link" aria-label="Facebook de Sergio Rueda" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-6 col-md-2 offset-md-1">
+        <div class="footer-heading">Navegación</div>
+        <a href="#inicio" class="footer-link">Inicio</a>
+        <a href="#tutoriales" class="footer-link">Tutoriales</a>
+        <a href="#categorias" class="footer-link">Categorías</a>
+        <a href="#sobre-mi" class="footer-link">Sobre mí</a>
+        <a href="#contacto" class="footer-link">Contacto</a>
+      </div>
+      <div class="col-6 col-md-2">
+        <div class="footer-heading">Tecnologías</div>
+        <a href="#" class="footer-link">Nginx</a>
+        <a href="#" class="footer-link">Docker</a>
+        <a href="#" class="footer-link">Django</a>
+        <a href="#" class="footer-link">ORM</a>
+        <a href="#" class="footer-link">Testing</a>
+      </div>
+      <div class="col-md-3">
+        <div class="footer-heading">Newsletter</div>
+        <p style="font-size:0.82rem;color:var(--text-muted);margin-bottom:12px">Tutoriales semanales en tu inbox</p>
+        <div style="display:flex;border:1px solid var(--border);border-radius:8px;overflow:hidden;background:var(--bg-primary)">
+          <label for="newsletter-email" class="visually-hidden">Correo electrónico</label>
+          <input id="newsletter-email" type="email" placeholder="tu@email.com" autocomplete="email" style="flex:1;background:transparent;border:none;outline:none;padding:9px 12px;font-size:0.78rem;color:var(--text-primary);font-family:var(--font-main)" />
+          <button aria-label="Suscribirse al newsletter" style="background:var(--accent);border:none;padding:9px 12px;color:#0d1117;cursor:pointer;font-size:0.8rem;transition:background 0.2s" onmouseover="this.style.background='#79c0ff'" onmouseout="this.style.background='var(--accent)'">
+            <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="footer-divider"></div>
+    <div class="footer-bottom">
+      <div class="footer-copy">
+        © 2025 <span>Sergio Rueda</span> — Todos los derechos reservados
+      </div>
+      <div class="footer-copy" style="display:flex;align-items:center;gap:6px">
+        Hecho con <i class="fa-solid fa-heart" style="color:#f85149;font-size:0.7rem"></i> y mucho
+        <span style="font-family:var(--font-mono);background:rgba(88,166,255,0.1);padding:2px 8px;border-radius:4px;color:var(--accent)">python</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+</body>
+</html>

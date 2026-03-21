@@ -1,0 +1,12 @@
+{
+  "name": "Sergio Rueda | Desarrollo de Software",
+  "short_name": "Sergio Rueda",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b1220",
+  "theme_color": "#0b1220",
+  "icons": [
+    { "src": "/static/img/favicon-32.png", "sizes": "32x32", "type": "image/png" },
+    { "src": "/static/img/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}

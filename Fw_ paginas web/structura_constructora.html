@@ -1,0 +1,2051 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="STRUCTURA — Constructora especializada en proyectos comerciales e industriales de gran escala. Ingeniería de precisión, cumplimiento garantizado y más de 20 años de experiencia."/>
+  <meta name="keywords" content="constructora comercial, construcción industrial, obras civiles, bodegas industriales, centros comerciales, ingeniería construcción"/>
+  <title>STRUCTURA | Construcción Comercial & Industrial</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300&family=Barlow+Condensed:wght@300;400;500;600;700;800;900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ════════════════════════════════
+       VARIABLES
+    ════════════════════════════════ */
+    :root {
+      --navy:        #0a1628;
+      --navy2:       #0d1f3c;
+      --navy3:       #112348;
+      --blue:        #1a3a6e;
+      --blue2:       #1e4080;
+      --steel:       #2d5299;
+      --steel2:      #3563b5;
+      --sky:         #4a80c4;
+      --ice:         #7aaad4;
+      --white:       #ffffff;
+      --off-white:   #f4f7fb;
+      --light-gray:  #e8eef6;
+      --mid-gray:    #b8c8dc;
+      --gray:        #7a92aa;
+      --accent:      #e8b84b;
+      --accent2:     #f5cc6a;
+      --border:      rgba(74,128,196,.15);
+      --border-light:rgba(255,255,255,.08);
+      --font-display:'Barlow Condensed', sans-serif;
+      --font-body:   'Barlow', sans-serif;
+      --font-mono:   'DM Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      background: var(--white);
+      color: var(--navy);
+      font-family: var(--font-body);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width:3px; }
+    ::-webkit-scrollbar-track { background:var(--light-gray); }
+    ::-webkit-scrollbar-thumb { background:var(--steel); }
+
+    /* ── img helper ── */
+    .img-c { width:100%; height:100%; object-fit:cover; object-position:center; display:block; opacity:0; transition:opacity .7s; }
+    .img-c.on { opacity:1; }
+
+    /* ════════════════════════════════
+       TECHNICAL GRID OVERLAY
+    ════════════════════════════════ */
+    .tech-grid {
+      position:absolute; inset:0; pointer-events:none; overflow:hidden;
+    }
+    .tech-grid::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(74,128,196,.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,128,196,.06) 1px, transparent 1px);
+      background-size:48px 48px;
+    }
+    .tech-grid::after {
+      content:'';
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(74,128,196,.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(74,128,196,.03) 1px, transparent 1px);
+      background-size:12px 12px;
+    }
+
+    /* ════════════════════════════════
+       NAVBAR
+    ════════════════════════════════ */
+    #nav {
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      transition:all .35s;
+      padding:1.2rem 0;
+    }
+    #nav.solid {
+      background:rgba(10,22,40,.97);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border-light);
+      padding:.75rem 0;
+      box-shadow:0 4px 30px rgba(0,0,0,.3);
+    }
+    .nav-brand {
+      font-family:var(--font-display);
+      font-size:1.6rem;
+      font-weight:800;
+      letter-spacing:6px;
+      color:var(--white);
+      text-decoration:none;
+      display:flex; align-items:center; gap:10px;
+    }
+    .brand-icon {
+      width:34px; height:34px;
+      background:var(--steel2);
+      display:flex; align-items:center; justify-content:center;
+      font-size:.85rem; color:var(--white);
+      clip-path:polygon(50% 0%,100% 25%,100% 75%,50% 100%,0% 75%,0% 25%);
+    }
+    .brand-tagline {
+      font-family:var(--font-mono);
+      font-size:.5rem; letter-spacing:2px;
+      color:var(--ice); font-weight:300;
+      display:block; margin-top:1px;
+    }
+    .nav-link-c {
+      font-family:var(--font-display);
+      font-size:.75rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:500;
+      color:rgba(255,255,255,.6) !important;
+      text-decoration:none; padding:.35rem .9rem !important;
+      transition:color .2s;
+    }
+    .nav-link-c:hover { color:var(--white) !important; }
+    .btn-nav-c {
+      font-family:var(--font-display);
+      font-size:.72rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:700;
+      background:var(--steel2); color:var(--white);
+      border:none; padding:.55rem 1.6rem;
+      text-decoration:none; transition:all .2s;
+      clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
+    }
+    .btn-nav-c:hover { background:var(--accent); color:var(--navy); }
+    #mob-menu {
+      background:var(--navy); border-top:1px solid var(--border-light);
+      padding:1rem 0; display:none;
+    }
+
+    /* ════════════════════════════════
+       HERO — full dark split
+    ════════════════════════════════ */
+    #hero {
+      min-height:100vh;
+      background:var(--navy);
+      position:relative; overflow:hidden;
+      display:flex; align-items:center;
+    }
+
+    /* Animated blueprint lines */
+    .blueprint-lines {
+      position:absolute; inset:0; pointer-events:none;
+    }
+    .blueprint-lines svg {
+      width:100%; height:100%; opacity:.06;
+    }
+
+    /* Large diagonal accent */
+    .hero-diag {
+      position:absolute;
+      top:0; right:0; bottom:0;
+      width:45%;
+      background:linear-gradient(135deg, var(--navy2) 0%, var(--blue) 100%);
+      clip-path:polygon(15% 0,100% 0,100% 100%,0% 100%);
+    }
+    .hero-diag-img {
+      position:absolute; inset:0;
+      clip-path:polygon(15% 0,100% 0,100% 100%,0% 100%);
+      overflow:hidden;
+    }
+    .hero-diag-img img {
+      width:100%; height:100%;
+      object-fit:cover; object-position:center;
+      opacity:0; transition:opacity .9s;
+      mix-blend-mode:luminosity;
+      filter:brightness(.4) contrast(1.2);
+    }
+    .hero-diag-img img.on { opacity:1; }
+
+    /* Accent stripe */
+    .hero-stripe {
+      position:absolute;
+      top:0; bottom:0;
+      width:3px;
+      background:linear-gradient(180deg,transparent,var(--accent),transparent);
+      left:55.5%;
+    }
+
+    /* Corner markers (engineering style) */
+    .corner { position:absolute; width:20px; height:20px; }
+    .corner.tl { top:1.5rem; left:1.5rem; border-top:2px solid var(--steel2); border-left:2px solid var(--steel2); }
+    .corner.tr { top:1.5rem; right:1.5rem; border-top:2px solid var(--steel2); border-right:2px solid var(--steel2); }
+    .corner.bl { bottom:1.5rem; left:1.5rem; border-bottom:2px solid var(--steel2); border-left:2px solid var(--steel2); }
+    .corner.br { bottom:1.5rem; right:1.5rem; border-bottom:2px solid var(--steel2); border-right:2px solid var(--steel2); }
+
+    /* Coordinate labels */
+    .coord {
+      position:absolute;
+      font-family:var(--font-mono);
+      font-size:.52rem; color:rgba(74,128,196,.4);
+      letter-spacing:1px;
+    }
+    .coord.tl { top:1.8rem; left:3.5rem; }
+    .coord.br { bottom:1.8rem; right:3.5rem; }
+
+    .hero-content { position:relative; z-index:2; padding-top:90px; }
+
+    .hero-project-code {
+      font-family:var(--font-mono);
+      font-size:.65rem; letter-spacing:3px;
+      color:var(--steel2); margin-bottom:1.5rem;
+      display:flex; align-items:center; gap:10px;
+    }
+    .hero-project-code::before {
+      content:''; display:block;
+      width:30px; height:1px; background:var(--steel2);
+    }
+
+    .hero-h1 {
+      font-family:var(--font-display);
+      font-size:clamp(3rem,9vw,8.5rem);
+      font-weight:900;
+      color:var(--white);
+      line-height:.92;
+      letter-spacing:-1px;
+      margin-bottom:1.5rem;
+    }
+    .hero-h1 .accent-line {
+      color:var(--accent);
+      display:block;
+    }
+    .hero-h1 .outline-line {
+      -webkit-text-stroke:1px rgba(255,255,255,.2);
+      color:transparent; display:block;
+    }
+
+    .hero-desc {
+      font-family:var(--font-body);
+      font-size:1rem; font-weight:300;
+      color:var(--mid-gray); line-height:1.8;
+      max-width:440px; margin-bottom:2.5rem;
+    }
+
+    /* Metric pills */
+    .hero-metrics {
+      display:flex; gap:0; flex-wrap:wrap;
+      margin-bottom:2.5rem;
+      border:1px solid var(--border-light);
+      border-radius:2px; overflow:hidden;
+    }
+    .h-metric {
+      padding:.9rem 1.5rem;
+      border-right:1px solid var(--border-light);
+      flex:1; min-width:90px;
+    }
+    .h-metric:last-child { border-right:none; }
+    .h-metric-n {
+      font-family:var(--font-display);
+      font-size:1.8rem; font-weight:800;
+      color:var(--accent); line-height:1;
+    }
+    .h-metric-l {
+      font-family:var(--font-mono);
+      font-size:.55rem; letter-spacing:1.5px;
+      color:var(--gray); text-transform:uppercase;
+      margin-top:3px;
+    }
+
+    .btn-primary-c {
+      font-family:var(--font-display);
+      font-size:.82rem; letter-spacing:3px;
+      text-transform:uppercase; font-weight:700;
+      background:var(--steel2); color:var(--white);
+      border:none; padding:1rem 2.5rem;
+      clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);
+      text-decoration:none;
+      display:inline-flex; align-items:center; gap:10px;
+      transition:all .25s; position:relative; overflow:hidden;
+    }
+    .btn-primary-c::after {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.1),transparent);
+      transform:translateX(-100%); transition:transform .4s;
+    }
+    .btn-primary-c:hover { background:var(--accent); color:var(--navy); transform:translateY(-2px); box-shadow:0 10px 30px rgba(232,184,75,.25); }
+    .btn-primary-c:hover::after { transform:translateX(100%); }
+
+    .btn-ghost-c {
+      font-family:var(--font-display);
+      font-size:.82rem; letter-spacing:3px;
+      text-transform:uppercase; font-weight:600;
+      background:transparent; color:var(--mid-gray);
+      border:1px solid var(--border-light); padding:1rem 2.5rem;
+      clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);
+      text-decoration:none;
+      display:inline-flex; align-items:center; gap:10px;
+      transition:all .25s;
+    }
+    .btn-ghost-c:hover { border-color:rgba(255,255,255,.3); color:var(--white); }
+
+    /* Scrolling clients strip */
+    .clients-strip {
+      position:absolute; bottom:0; left:0; right:0;
+      background:rgba(255,255,255,.04);
+      border-top:1px solid var(--border-light);
+      padding:.8rem 0; overflow:hidden;
+    }
+    .clients-inner {
+      display:inline-flex; gap:4rem; align-items:center;
+      animation:clientScroll 20s linear infinite;
+      white-space:nowrap;
+    }
+    .client-name {
+      font-family:var(--font-display);
+      font-size:.7rem; letter-spacing:3px;
+      text-transform:uppercase; font-weight:600;
+      color:rgba(255,255,255,.2);
+    }
+    @keyframes clientScroll {
+      from{transform:translateX(0);}
+      to{transform:translateX(-50%);}
+    }
+
+    /* ════════════════════════════════
+       SECTION COMMONS
+    ════════════════════════════════ */
+    section { position:relative; }
+
+    .tag-c {
+      font-family:var(--font-mono);
+      font-size:.6rem; letter-spacing:3px;
+      text-transform:uppercase; color:var(--steel2);
+      display:flex; align-items:center; gap:10px;
+      margin-bottom:.8rem;
+    }
+    .tag-c::before { content:'//'; color:var(--accent); }
+
+    .title-c {
+      font-family:var(--font-display);
+      font-size:clamp(2rem,4vw,3.8rem);
+      font-weight:800; color:var(--navy);
+      line-height:1; letter-spacing:-0.5px;
+    }
+    .title-c span { color:var(--steel2); }
+    .title-c-light { color:var(--white); }
+    .title-c-light span { color:var(--accent); }
+
+    .sub-c {
+      font-family:var(--font-body);
+      font-size:.92rem; color:var(--gray);
+      line-height:1.75; font-weight:300;
+    }
+
+    .rule-c {
+      width:40px; height:3px;
+      background:var(--steel2);
+      margin:1.2rem 0 1.8rem;
+    }
+    .rule-c-accent { background:var(--accent); }
+
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .6s,transform .6s; }
+    .reveal.on { opacity:1; transform:none; }
+    .rl { opacity:0; transform:translateX(-22px); transition:opacity .6s,transform .6s; }
+    .rl.on { opacity:1; transform:none; }
+    .rr { opacity:0; transform:translateX(22px); transition:opacity .6s,transform .6s; }
+    .rr.on { opacity:1; transform:none; }
+    .d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.3s;} .d4{transition-delay:.4s;}
+
+    /* ════════════════════════════════
+       NOSOTROS
+    ════════════════════════════════ */
+    #nosotros { padding:7rem 0; background:var(--white); }
+
+    .about-img-stack {
+      position:relative; height:560px;
+    }
+    .about-img-main {
+      position:absolute;
+      top:0; left:0; right:60px; bottom:60px;
+      border-radius:2px; overflow:hidden;
+    }
+    .about-img-sec {
+      position:absolute;
+      bottom:0; right:0;
+      width:55%; height:55%;
+      border-radius:2px; overflow:hidden;
+      border:6px solid var(--white);
+      box-shadow:0 20px 60px rgba(10,22,40,.15);
+    }
+    .about-stat-card {
+      position:absolute;
+      top:2rem; right:55px;
+      background:var(--navy);
+      color:var(--white); padding:1.2rem 1.5rem;
+      border-left:3px solid var(--accent);
+      z-index:2;
+    }
+    .asc-n { font-family:var(--font-display); font-size:2.2rem; font-weight:800; color:var(--accent); line-height:1; }
+    .asc-l { font-family:var(--font-mono); font-size:.55rem; letter-spacing:2px; color:var(--mid-gray); margin-top:2px; }
+
+    .cert-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      border:1px solid var(--border);
+      padding:.5rem 1rem; border-radius:1px;
+      font-family:var(--font-mono); font-size:.62rem;
+      letter-spacing:1.5px; color:var(--gray);
+      text-transform:uppercase; margin:.3rem;
+    }
+    .cert-badge i { color:var(--steel2); }
+
+    /* ════════════════════════════════
+       SERVICIOS
+    ════════════════════════════════ */
+    #servicios { padding:7rem 0; background:var(--off-white); }
+
+    .service-card {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:2px; padding:2.5rem 2rem;
+      height:100%; transition:all .3s;
+      position:relative; overflow:hidden;
+    }
+    .service-card::before {
+      content:'';
+      position:absolute; top:0; left:0; right:0;
+      height:3px; background:var(--border);
+      transition:background .3s;
+    }
+    .service-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(10,22,40,.1); border-color:rgba(53,99,181,.3); }
+    .service-card:hover::before { background:var(--steel2); }
+
+    .srv-num {
+      font-family:var(--font-display);
+      font-size:5rem; font-weight:900;
+      color:rgba(10,22,40,.04); line-height:1;
+      position:absolute; top:0; right:1rem;
+    }
+    .srv-icon {
+      width:52px; height:52px;
+      background:var(--navy);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.3rem; color:var(--accent);
+      margin-bottom:1.5rem;
+      clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
+    }
+    .srv-title {
+      font-family:var(--font-display);
+      font-size:1.15rem; font-weight:700;
+      letter-spacing:1px; text-transform:uppercase;
+      color:var(--navy); margin-bottom:.6rem;
+    }
+    .srv-desc { font-size:.88rem; color:var(--gray); line-height:1.7; font-weight:300; margin-bottom:1.2rem; }
+    .srv-features { list-style:none; padding:0; margin:0; }
+    .srv-features li {
+      font-family:var(--font-mono);
+      font-size:.68rem; color:var(--gray);
+      padding:.3rem 0; border-bottom:1px solid var(--light-gray);
+      display:flex; align-items:center; gap:8px;
+    }
+    .srv-features li:last-child { border:none; }
+    .srv-features li::before { content:'→'; color:var(--steel2); font-size:.7rem; }
+
+    /* ════════════════════════════════
+       PROYECTOS
+    ════════════════════════════════ */
+    #proyectos { padding:7rem 0; background:var(--navy); }
+
+    .proj-filter {
+      display:flex; gap:.5rem; flex-wrap:wrap; margin-bottom:2.5rem;
+    }
+    .pfil {
+      font-family:var(--font-display);
+      font-size:.65rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:600;
+      padding:.4rem 1.2rem;
+      background:transparent; color:var(--gray);
+      border:1px solid var(--border-light);
+      cursor:pointer; transition:all .2s;
+    }
+    .pfil.active, .pfil:hover { background:var(--steel2); color:var(--white); border-color:var(--steel2); }
+
+    .proj-card {
+      position:relative; border-radius:2px; overflow:hidden;
+      transition:transform .3s; cursor:pointer;
+      background:var(--navy2);
+    }
+    .proj-card:hover { transform:translateY(-5px); }
+    .proj-img { width:100%; aspect-ratio:4/3; overflow:hidden; position:relative; }
+    .proj-img img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
+    .proj-card:hover .proj-img img { transform:scale(1.06); }
+    .proj-img::after {
+      content:'';
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(10,22,40,.9) 0%, transparent 60%);
+    }
+    .proj-category {
+      position:absolute; top:12px; left:12px; z-index:2;
+      font-family:var(--font-mono); font-size:.58rem;
+      letter-spacing:2px; text-transform:uppercase;
+      background:var(--accent); color:var(--navy);
+      font-weight:500; padding:.2rem .7rem;
+    }
+    .proj-body { padding:1.4rem; }
+    .proj-name {
+      font-family:var(--font-display);
+      font-size:1.2rem; font-weight:700;
+      color:var(--white); letter-spacing:.5px;
+      margin-bottom:.3rem;
+    }
+    .proj-meta {
+      font-family:var(--font-mono);
+      font-size:.62rem; letter-spacing:1.5px;
+      color:var(--gray); margin-bottom:1rem;
+      display:flex; align-items:center; gap:8px;
+    }
+    .proj-meta span { color:var(--steel2); }
+    .proj-specs {
+      display:flex; gap:1.5rem; flex-wrap:wrap;
+      border-top:1px solid var(--border-light);
+      padding-top:.8rem;
+    }
+    .ps-item {
+      font-family:var(--font-mono);
+      font-size:.62rem; color:var(--gray);
+      display:flex; flex-direction:column; gap:2px;
+    }
+    .ps-item strong { color:var(--ice); font-weight:400; font-size:.78rem; }
+
+    /* ════════════════════════════════
+       PROCESO
+    ════════════════════════════════ */
+    #proceso { padding:7rem 0; background:var(--white); }
+
+    .timeline {
+      position:relative;
+      padding-left:3rem;
+    }
+    .timeline::before {
+      content:'';
+      position:absolute; left:8px; top:0; bottom:0;
+      width:2px;
+      background:linear-gradient(180deg, var(--steel2), var(--light-gray));
+    }
+    .tl-item {
+      position:relative;
+      padding-bottom:2.5rem;
+      opacity:0; transform:translateX(-16px);
+      transition:opacity .5s, transform .5s;
+    }
+    .tl-item.on { opacity:1; transform:none; }
+    .tl-dot {
+      position:absolute; left:-3rem;
+      top:4px; width:18px; height:18px;
+      border-radius:50%;
+      background:var(--white);
+      border:2px solid var(--steel2);
+      display:flex; align-items:center; justify-content:center;
+    }
+    .tl-dot::after {
+      content:''; width:6px; height:6px;
+      border-radius:50%; background:var(--steel2);
+    }
+    .tl-phase {
+      font-family:var(--font-mono);
+      font-size:.58rem; letter-spacing:2px;
+      color:var(--accent); text-transform:uppercase;
+      margin-bottom:.3rem;
+    }
+    .tl-title {
+      font-family:var(--font-display);
+      font-size:1.1rem; font-weight:700;
+      color:var(--navy); text-transform:uppercase;
+      letter-spacing:1px; margin-bottom:.4rem;
+    }
+    .tl-text { font-size:.86rem; color:var(--gray); line-height:1.65; font-weight:300; }
+
+    /* Proceso visual right */
+    .proceso-visual {
+      background:var(--navy);
+      border-radius:2px; padding:2.5rem;
+      height:100%;
+      position:relative; overflow:hidden;
+    }
+    .proceso-visual::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(74,128,196,.08) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(74,128,196,.08) 1px,transparent 1px);
+      background-size:30px 30px;
+    }
+    .pv-item {
+      display:flex; gap:1rem; align-items:flex-start;
+      padding:1rem 0; border-bottom:1px solid var(--border-light);
+      position:relative; z-index:1;
+    }
+    .pv-item:last-child { border:none; }
+    .pv-num {
+      font-family:var(--font-display);
+      font-size:1.8rem; font-weight:900;
+      color:var(--accent); line-height:1;
+      min-width:42px;
+    }
+    .pv-title {
+      font-family:var(--font-display);
+      font-size:.9rem; font-weight:700;
+      text-transform:uppercase; letter-spacing:1.5px;
+      color:var(--white); margin-bottom:.3rem;
+    }
+    .pv-text { font-size:.82rem; color:var(--mid-gray); line-height:1.6; font-weight:300; }
+
+    /* ════════════════════════════════
+       SECTORES
+    ════════════════════════════════ */
+    #sectores { padding:7rem 0; background:var(--navy2); }
+
+    .sector-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      grid-template-rows:auto auto;
+      gap:2px;
+    }
+    .sector-item {
+      position:relative; overflow:hidden;
+      min-height:260px;
+      cursor:pointer;
+    }
+    .sector-item:nth-child(1) { grid-column:1/3; }
+    .sector-item img { width:100%; height:100%; object-fit:cover; transition:transform .6s; }
+    .sector-item:hover img { transform:scale(1.05); }
+    .sector-overlay {
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(10,22,40,.92) 0%, rgba(10,22,40,.3) 60%, transparent 100%);
+      display:flex; align-items:flex-end;
+      padding:1.5rem;
+      transition:background .3s;
+    }
+    .sector-item:hover .sector-overlay {
+      background:linear-gradient(to top,rgba(29,64,128,.92) 0%,rgba(29,64,128,.4) 60%,transparent 100%);
+    }
+    .sector-name {
+      font-family:var(--font-display);
+      font-size:1.3rem; font-weight:800;
+      text-transform:uppercase; letter-spacing:2px;
+      color:var(--white);
+    }
+    .sector-count {
+      font-family:var(--font-mono);
+      font-size:.6rem; color:var(--accent);
+      letter-spacing:2px; margin-top:.2rem;
+    }
+    .sector-arrow {
+      margin-left:auto; font-size:1.2rem;
+      color:rgba(255,255,255,.3);
+      transition:all .3s;
+    }
+    .sector-item:hover .sector-arrow { color:var(--accent); transform:translateX(5px); }
+
+    /* ════════════════════════════════
+       CIFRAS / STATS
+    ════════════════════════════════ */
+    #cifras {
+      padding:6rem 0;
+      background:var(--steel2);
+      position:relative; overflow:hidden;
+    }
+    #cifras::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(255,255,255,.05) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.05) 1px,transparent 1px);
+      background-size:60px 60px;
+    }
+
+    .cifra-item { text-align:center; position:relative; z-index:1; }
+    .cifra-item::after {
+      content:'';
+      position:absolute; right:0; top:20%; bottom:20%;
+      width:1px; background:rgba(255,255,255,.15);
+    }
+    .cifra-item:last-child::after { display:none; }
+    .cifra-num {
+      font-family:var(--font-display);
+      font-size:clamp(3rem,5vw,5rem);
+      font-weight:900; color:var(--white);
+      line-height:1;
+    }
+    .cifra-num sup { font-size:1.5rem; color:var(--accent); vertical-align:super; }
+    .cifra-lbl {
+      font-family:var(--font-mono);
+      font-size:.65rem; letter-spacing:2px;
+      text-transform:uppercase; color:rgba(255,255,255,.5);
+      margin-top:.5rem;
+    }
+    .cifra-rule {
+      width:30px; height:2px;
+      background:var(--accent); margin:.8rem auto;
+    }
+
+    /* ════════════════════════════════
+       EQUIPO
+    ════════════════════════════════ */
+    #equipo { padding:7rem 0; background:var(--off-white); }
+
+    .team-card {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:2px; overflow:hidden;
+      transition:all .3s; height:100%;
+    }
+    .team-card:hover { border-color:rgba(53,99,181,.35); transform:translateY(-5px); box-shadow:0 20px 50px rgba(10,22,40,.1); }
+    .team-img {
+      width:100%; aspect-ratio:3/4;
+      position:relative; overflow:hidden;
+    }
+    .team-img img { width:100%; height:100%; object-fit:cover; object-position:top; transition:transform .5s; }
+    .team-card:hover .team-img img { transform:scale(1.04); }
+    .team-img::after { content:''; position:absolute; inset:0; background:linear-gradient(to top,rgba(10,22,40,.7) 0%,transparent 50%); }
+    .team-spec {
+      position:absolute; bottom:12px; left:12px; z-index:2;
+      font-family:var(--font-mono); font-size:.58rem;
+      letter-spacing:2px; text-transform:uppercase;
+      background:var(--accent); color:var(--navy);
+      font-weight:500; padding:.2rem .7rem;
+    }
+    .team-body { padding:1.4rem; }
+    .team-name { font-family:var(--font-display); font-size:1.2rem; font-weight:800; color:var(--navy); letter-spacing:.5px; margin-bottom:.15rem; }
+    .team-role { font-family:var(--font-mono); font-size:.65rem; letter-spacing:2px; text-transform:uppercase; color:var(--steel2); margin-bottom:.7rem; }
+    .team-bio  { font-size:.84rem; color:var(--gray); line-height:1.6; font-weight:300; margin-bottom:1rem; }
+    .team-certs { display:flex; gap:.3rem; flex-wrap:wrap; }
+    .cert-tag {
+      font-family:var(--font-mono); font-size:.55rem;
+      letter-spacing:1px; color:var(--steel2);
+      border:1px solid rgba(53,99,181,.25);
+      padding:.15rem .5rem; border-radius:1px;
+    }
+
+    /* ════════════════════════════════
+       TESTIMONIOS
+    ════════════════════════════════ */
+    #testimonios { padding:7rem 0; background:var(--white); }
+
+    .testi-c {
+      border:1px solid var(--border);
+      border-radius:2px; padding:2rem;
+      height:100%; position:relative;
+      transition:border-color .3s;
+    }
+    .testi-c:hover { border-color:rgba(53,99,181,.3); }
+    .testi-c::before {
+      content:'';
+      position:absolute; top:0; left:0; right:0;
+      height:2px; background:transparent;
+      transition:background .3s;
+    }
+    .testi-c:hover::before { background:var(--steel2); }
+    .testi-q-c {
+      font-family:var(--font-display);
+      font-size:4rem; font-weight:900;
+      color:var(--light-gray); line-height:.7;
+      margin-bottom:.8rem;
+    }
+    .testi-text-c {
+      font-size:.92rem; color:var(--navy);
+      line-height:1.75; margin-bottom:1.2rem;
+      font-weight:300;
+    }
+    .testi-project {
+      font-family:var(--font-mono);
+      font-size:.6rem; letter-spacing:2px;
+      text-transform:uppercase; color:var(--steel2);
+      margin-bottom:1rem;
+    }
+    .testi-author-c {
+      display:flex; align-items:center; gap:.8rem;
+      border-top:1px solid var(--light-gray);
+      padding-top:1rem;
+    }
+    .tav {
+      width:42px; height:42px; border-radius:50%;
+      background:linear-gradient(135deg,var(--steel2),var(--navy));
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-display); font-size:1.1rem;
+      font-weight:800; color:var(--white);
+    }
+    .tav-name { font-family:var(--font-display); font-size:.88rem; font-weight:700; color:var(--navy); letter-spacing:.5px; text-transform:uppercase; }
+    .tav-role { font-size:.75rem; color:var(--gray); font-weight:300; }
+
+    /* ════════════════════════════════
+       CTA
+    ════════════════════════════════ */
+    #cta { padding:7rem 0; background:var(--navy); position:relative; overflow:hidden; }
+    .cta-bg-img { position:absolute; inset:0; }
+    .cta-bg-img img { width:100%; height:100%; object-fit:cover; filter:brightness(.15) saturate(.5); }
+    .cta-inner {
+      position:relative; z-index:2;
+      border:1px solid var(--border-light);
+      padding:5rem 4rem;
+      text-align:center;
+    }
+    /* engineering corners */
+    .cta-inner::before { content:''; position:absolute; top:16px; left:16px; width:30px; height:30px; border-top:1px solid var(--steel2); border-left:1px solid var(--steel2); }
+    .cta-inner::after  { content:''; position:absolute; bottom:16px; right:16px; width:30px; height:30px; border-bottom:1px solid var(--steel2); border-right:1px solid var(--steel2); }
+    .cta-code {
+      font-family:var(--font-mono);
+      font-size:.65rem; letter-spacing:3px;
+      color:var(--steel2); margin-bottom:1.5rem;
+    }
+    .cta-h {
+      font-family:var(--font-display);
+      font-size:clamp(2.5rem,6vw,5.5rem);
+      font-weight:900; color:var(--white);
+      line-height:1; letter-spacing:-1px;
+      margin-bottom:1.2rem;
+    }
+    .cta-h span { color:var(--accent); }
+
+    /* ════════════════════════════════
+       CONTACTO
+    ════════════════════════════════ */
+    #contacto { padding:7rem 0; background:var(--off-white); }
+
+    .contact-wrap {
+      background:var(--white);
+      border:1px solid var(--border);
+      border-radius:2px; padding:2.5rem;
+    }
+    .form-lbl-c {
+      font-family:var(--font-mono);
+      font-size:.6rem; letter-spacing:2px;
+      text-transform:uppercase; color:var(--gray);
+      display:block; margin-bottom:.4rem;
+    }
+    .form-ctrl-c {
+      background:var(--off-white);
+      border:1px solid var(--border);
+      border-radius:1px; color:var(--navy);
+      font-family:var(--font-body); font-size:.9rem;
+      font-weight:300; padding:.75rem 1rem;
+      width:100%; outline:none;
+      transition:border-color .2s;
+    }
+    .form-ctrl-c:focus { border-color:var(--steel2); background:var(--white); }
+    .form-ctrl-c::placeholder { color:var(--mid-gray); }
+    .btn-submit-c {
+      font-family:var(--font-display);
+      font-size:.78rem; letter-spacing:3px;
+      text-transform:uppercase; font-weight:700;
+      background:var(--navy); color:var(--white);
+      border:none; padding:1rem; width:100%;
+      cursor:pointer; transition:all .25s;
+      clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
+    }
+    .btn-submit-c:hover { background:var(--steel2); }
+
+    .info-block {
+      background:var(--navy);
+      border-radius:2px; padding:2.5rem;
+      height:100%;
+      position:relative; overflow:hidden;
+    }
+    .info-block::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image:
+        linear-gradient(rgba(74,128,196,.08) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(74,128,196,.08) 1px,transparent 1px);
+      background-size:30px 30px;
+    }
+    .info-item {
+      display:flex; gap:1rem; align-items:flex-start;
+      padding:1.1rem 0; border-bottom:1px solid var(--border-light);
+      position:relative; z-index:1;
+    }
+    .info-item:last-child { border:none; }
+    .info-icon {
+      width:38px; height:38px; min-width:38px;
+      background:rgba(74,128,196,.15);
+      border:1px solid rgba(74,128,196,.2);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--accent); font-size:1rem;
+    }
+    .info-lbl { font-family:var(--font-mono); font-size:.55rem; letter-spacing:2px; text-transform:uppercase; color:var(--gray); margin-bottom:.2rem; }
+    .info-val  { font-size:.9rem; color:var(--mid-gray); font-weight:300; }
+
+    /* ════════════════════════════════
+       FOOTER
+    ════════════════════════════════ */
+    footer { background:var(--navy); border-top:1px solid var(--border-light); padding:4rem 0 2rem; }
+    .footer-brand-c { font-family:var(--font-display); font-size:1.8rem; font-weight:900; letter-spacing:5px; color:var(--white); }
+    .footer-brand-c span { color:var(--accent); }
+    .footer-tag-c { font-family:var(--font-mono); font-size:.52rem; letter-spacing:3px; text-transform:uppercase; color:var(--steel2); margin-top:.2rem; }
+    .footer-col-h-c { font-family:var(--font-mono); font-size:.58rem; letter-spacing:3px; text-transform:uppercase; color:var(--gray); font-weight:400; margin-bottom:1.2rem; }
+    .footer-lnk-c   { display:block; font-size:.85rem; color:rgba(255,255,255,.3); text-decoration:none; margin-bottom:.5rem; transition:color .2s; font-weight:300; }
+    .footer-lnk-c:hover { color:var(--ice); }
+    .footer-btm-c { border-top:1px solid var(--border-light); margin-top:3rem; padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.8rem; }
+    .footer-copy-c { font-size:.72rem; color:rgba(255,255,255,.15); font-family:var(--font-mono); }
+    .soc-c { width:34px; height:34px; border:1px solid var(--border-light); display:inline-flex; align-items:center; justify-content:center; color:rgba(255,255,255,.3); text-decoration:none; font-size:.85rem; margin-left:.4rem; transition:all .2s; }
+    .soc-c:hover { border-color:var(--steel2); color:var(--ice); }
+
+    /* WA float */
+    .wa-c { position:fixed; bottom:2rem; right:2rem; width:52px; height:52px; background:#25d366; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.5rem; color:white; text-decoration:none; z-index:997; box-shadow:0 4px 20px rgba(37,211,102,.4); transition:transform .2s; }
+    .wa-c:hover { transform:scale(1.1); color:white; }
+    .wa-ring-c { position:absolute; inset:0; border-radius:50%; background:rgba(37,211,102,.3); animation:waRc 2.2s ease-out infinite; }
+    @keyframes waRc { 0%{transform:scale(1);opacity:.8;} 100%{transform:scale(1.8);opacity:0;} }
+
+    /* RESPONSIVE */
+    @media(max-width:991px) {
+      .hero-diag, .hero-diag-img, .hero-stripe { display:none; }
+      .sector-grid { grid-template-columns:1fr 1fr; }
+      .sector-item:nth-child(1) { grid-column:1/3; }
+      .cta-inner { padding:3rem 1.5rem; }
+      .about-img-stack { height:400px; }
+      .about-stat-card { right:10px; }
+    }
+    @media(max-width:767px) {
+      .hero-metrics { flex-wrap:wrap; }
+      .h-metric { min-width:50%; }
+      .sector-grid { grid-template-columns:1fr; }
+      .sector-item:nth-child(1) { grid-column:auto; }
+      .proceso-visual { margin-top:2rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════
+     NAVBAR
+════════════════════════════════ -->
+<nav id="nav">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="#hero" class="nav-brand">
+        <div class="brand-icon"><i class="bi bi-building-gear"></i></div>
+        <div>
+          STRUCTURA
+          <span class="brand-tagline">Ingeniería & Construcción · Est. 2004</span>
+        </div>
+      </a>
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a href="#nosotros"   class="nav-link-c">Nosotros</a>
+        <a href="#servicios"  class="nav-link-c">Servicios</a>
+        <a href="#proyectos"  class="nav-link-c">Proyectos</a>
+        <a href="#sectores"   class="nav-link-c">Sectores</a>
+        <a href="#equipo"     class="nav-link-c">Equipo</a>
+        <a href="#contacto"   class="nav-link-c">Contacto</a>
+        <a href="https://wa.me/573000000000" target="_blank" class="btn-nav-c ms-3">
+          <i class="bi bi-whatsapp me-1"></i> Cotizar proyecto
+        </a>
+      </div>
+      <button id="navToggle" class="btn d-lg-none" style="border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6);border-radius:1px;padding:.4rem .8rem;">
+        <i class="bi bi-list fs-5"></i>
+      </button>
+    </div>
+    <div id="mob-menu">
+      <a href="#nosotros"   class="nav-link-c d-block py-2">Nosotros</a>
+      <a href="#servicios"  class="nav-link-c d-block py-2">Servicios</a>
+      <a href="#proyectos"  class="nav-link-c d-block py-2">Proyectos</a>
+      <a href="#sectores"   class="nav-link-c d-block py-2">Sectores</a>
+      <a href="#equipo"     class="nav-link-c d-block py-2">Equipo</a>
+      <a href="#contacto"   class="nav-link-c d-block py-2">Contacto</a>
+      <a href="https://wa.me/573000000000" target="_blank" class="btn-nav-c d-inline-block mt-2">
+        <i class="bi bi-whatsapp me-1"></i> Cotizar proyecto
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ════════════════════════════════
+     HERO
+════════════════════════════════ -->
+<section id="hero">
+  <!-- Blueprint SVG lines -->
+  <div class="blueprint-lines">
+    <svg viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+      <defs><pattern id="bp" x="0" y="0" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M 48 0 L 0 0 0 48" fill="none" stroke="rgba(74,128,196,1)" stroke-width=".5"/></pattern></defs>
+      <rect width="100%" height="100%" fill="url(#bp)"/>
+      <circle cx="600" cy="400" r="300" fill="none" stroke="rgba(74,128,196,1)" stroke-width=".5"/>
+      <circle cx="600" cy="400" r="200" fill="none" stroke="rgba(74,128,196,1)" stroke-width=".5"/>
+      <line x1="0" y1="400" x2="1200" y2="400" stroke="rgba(74,128,196,1)" stroke-width=".5"/>
+      <line x1="600" y1="0" x2="600" y2="800" stroke="rgba(74,128,196,1)" stroke-width=".5"/>
+    </svg>
+  </div>
+
+  <!-- Diagonal image panel -->
+  <div class="hero-diag"></div>
+  <div class="hero-diag-img">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=80&fit=crop"
+         alt="Construcción industrial" id="heroImg" loading="eager"/>
+  </div>
+  <div class="hero-stripe"></div>
+
+  <!-- Engineering corners -->
+  <div class="corner tl"></div>
+  <div class="corner tr"></div>
+  <div class="corner bl"></div>
+  <div class="corner br"></div>
+  <span class="coord tl">LAT 4.7110° N · LON 74.0721° W</span>
+  <span class="coord br">PROJECT // STR-2024-001</span>
+
+  <div class="container hero-content py-5">
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="hero-project-code">STRUCTURA INGENIERÍA · DIVISIÓN COMERCIAL & INDUSTRIAL</div>
+        <h1 class="hero-h1">
+          CONSTRUIMOS
+          <span class="accent-line">EL FUTURO</span>
+          <span class="outline-line">INDUSTRIAL</span>
+        </h1>
+        <p class="hero-desc">
+          Más de 20 años ejecutando proyectos de construcción comercial e industrial de gran escala.
+          Desde bodegas y parques logísticos hasta centros comerciales y plantas de manufactura.
+          <strong style="color:var(--ice);font-weight:400;">Ingeniería de precisión. Resultados garantizados.</strong>
+        </p>
+
+        <!-- Métricas -->
+        <div class="hero-metrics">
+          <div class="h-metric">
+            <div class="h-metric-n">20<sup>+</sup></div>
+            <div class="h-metric-l">Años experiencia</div>
+          </div>
+          <div class="h-metric">
+            <div class="h-metric-n">340<sup>+</sup></div>
+            <div class="h-metric-l">Proyectos</div>
+          </div>
+          <div class="h-metric">
+            <div class="h-metric-n">2.8M</div>
+            <div class="h-metric-l">m² construidos</div>
+          </div>
+          <div class="h-metric">
+            <div class="h-metric-n">98%</div>
+            <div class="h-metric-l">Entregas a tiempo</div>
+          </div>
+        </div>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#contacto" class="btn-primary-c">Cotizar proyecto <i class="bi bi-arrow-right"></i></a>
+          <a href="#proyectos" class="btn-ghost-c">Ver portafolio <i class="bi bi-grid"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Clientes scroll -->
+  <div class="clients-strip">
+    <div class="clients-inner">
+      <span class="client-name">Grupo Empresarial XYZ</span>
+      <span class="client-name">Logística Nacional S.A.</span>
+      <span class="client-name">Industrias del Norte</span>
+      <span class="client-name">Centro Comercial Plaza Mayor</span>
+      <span class="client-name">Almacenes Distribución</span>
+      <span class="client-name">Zona Franca Industrial</span>
+      <span class="client-name">Constructora Aliada</span>
+      <span class="client-name">Manufactura Colombiana</span>
+      <span class="client-name">Grupo Empresarial XYZ</span>
+      <span class="client-name">Logística Nacional S.A.</span>
+      <span class="client-name">Industrias del Norte</span>
+      <span class="client-name">Centro Comercial Plaza Mayor</span>
+      <span class="client-name">Almacenes Distribución</span>
+      <span class="client-name">Zona Franca Industrial</span>
+      <span class="client-name">Constructora Aliada</span>
+      <span class="client-name">Manufactura Colombiana</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     NOSOTROS
+════════════════════════════════ -->
+<section id="nosotros">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-5 rl">
+        <div class="about-img-stack">
+          <div class="about-img-main">
+            <img src="https://images.unsplash.com/photo-1590496793929-36417d3117de?w=800&q=80&fit=crop"
+                 alt="Construcción industrial" class="img-c" loading="lazy"/>
+          </div>
+          <div class="about-img-sec">
+            <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80&fit=crop"
+                 alt="Ingenieros en obra" class="img-c" loading="lazy"/>
+          </div>
+          <div class="about-stat-card">
+            <div class="asc-n">20+</div>
+            <div class="asc-l">Años en el mercado</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="tag-c reveal">Quiénes somos</div>
+        <h2 class="title-c reveal">INGENIERÍA DE<br><span>ALTO ESTÁNDAR</span></h2>
+        <div class="rule-c reveal"></div>
+        <p class="sub-c reveal d1" style="margin-bottom:1.2rem;">
+          <strong style="color:var(--navy);font-weight:600;">STRUCTURA</strong> es una firma de construcción especializada
+          en proyectos comerciales e industriales de mediana y gran escala. Combinamos
+          experiencia técnica, tecnología BIM y un equipo de ingenieros certificados para
+          entregar obras que superan las expectativas de nuestros clientes.
+        </p>
+        <p class="sub-c reveal d2" style="margin-bottom:2rem;">
+          Desde el diseño estructural hasta la entrega de llaves, gestionamos cada etapa
+          del proyecto con precisión milimétrica, cumplimiento de normas sismo-resistentes
+          y los más altos estándares de seguridad en obra.
+        </p>
+
+        <div class="reveal d3">
+          <span class="cert-badge"><i class="bi bi-patch-check-fill"></i>ISO 9001:2015</span>
+          <span class="cert-badge"><i class="bi bi-patch-check-fill"></i>NSR-10 Certificado</span>
+          <span class="cert-badge"><i class="bi bi-patch-check-fill"></i>BIM Level 2</span>
+          <span class="cert-badge"><i class="bi bi-patch-check-fill"></i>OHSAS 18001</span>
+          <span class="cert-badge"><i class="bi bi-patch-check-fill"></i>ISO 14001</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     SERVICIOS
+════════════════════════════════ -->
+<section id="servicios">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="tag-c reveal">Lo que hacemos</div>
+        <h2 class="title-c reveal">SERVICIOS<br><span>ESPECIALIZADOS</span></h2>
+        <div class="rule-c reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="sub-c reveal">Soluciones integrales de construcción para cada tipo de proyecto comercial e industrial, con gestión llave en mano.</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="service-card">
+          <div class="srv-num">01</div>
+          <div class="srv-icon"><i class="bi bi-building-gear"></i></div>
+          <div class="srv-title">Naves & Bodegas</div>
+          <div class="srv-desc">Construcción de naves industriales, bodegas logísticas y centros de distribución con estructura metálica o concreto prefabricado.</div>
+          <ul class="srv-features">
+            <li>Estructura metálica o prefabricada</li>
+            <li>Pisos industriales de alta carga</li>
+            <li>Sistemas contra incendios</li>
+            <li>Entrega llave en mano</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="service-card">
+          <div class="srv-num">02</div>
+          <div class="srv-icon"><i class="bi bi-shop-window"></i></div>
+          <div class="srv-title">Centros Comerciales</div>
+          <div class="srv-desc">Diseño y construcción de centros comerciales, plazas y strip centers con alta especificación arquitectónica y sistemas MEP.</div>
+          <ul class="srv-features">
+            <li>Diseño arquitectónico integral</li>
+            <li>Ingeniería MEP completa</li>
+            <li>Certificación LEED</li>
+            <li>Gestión de permisos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="service-card">
+          <div class="srv-num">03</div>
+          <div class="srv-icon"><i class="bi bi-gear-wide-connected"></i></div>
+          <div class="srv-title">Plantas Industriales</div>
+          <div class="srv-desc">Plantas de manufactura, procesamiento y producción diseñadas según las necesidades operativas específicas de cada industria.</div>
+          <ul class="srv-features">
+            <li>Ingeniería de proceso</li>
+            <li>Salas limpias y controladas</li>
+            <li>Instalaciones especializadas</li>
+            <li>Normas INVIMA / FDA</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="service-card">
+          <div class="srv-num">04</div>
+          <div class="srv-icon"><i class="bi bi-diagram-3"></i></div>
+          <div class="srv-title">Parques Logísticos</div>
+          <div class="srv-desc">Desarrollo de parques logísticos y zonas francas con infraestructura para múltiples operadores y conectividad vial óptima.</div>
+          <ul class="srv-features">
+            <li>Máster planning</li>
+            <li>Infraestructura vial interna</li>
+            <li>Redes de servicios</li>
+            <li>Zonas de maniobra</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="service-card">
+          <div class="srv-num">05</div>
+          <div class="srv-icon"><i class="bi bi-graph-up-arrow"></i></div>
+          <div class="srv-title">Gerencia de Proyectos</div>
+          <div class="srv-desc">Gestión integral PMC de proyectos de construcción. Supervisión técnica, control de costos y cronogramas para proyectos de terceros.</div>
+          <ul class="srv-features">
+            <li>Metodología PMI/BIM</li>
+            <li>Control de presupuesto</li>
+            <li>Supervisión técnica</li>
+            <li>Informes ejecutivos</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="service-card">
+          <div class="srv-num">06</div>
+          <div class="srv-icon"><i class="bi bi-tools"></i></div>
+          <div class="srv-title">Adecuaciones & Reformas</div>
+          <div class="srv-desc">Adecuaciones, ampliaciones y reformas de espacios comerciales e industriales existentes con mínima interrupción operacional.</div>
+          <ul class="srv-features">
+            <li>Sin parar operaciones</li>
+            <li>Diseño As-Built</li>
+            <li>Reforzamiento estructural</li>
+            <li>Upgrades de instalaciones</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     CIFRAS
+════════════════════════════════ -->
+<section id="cifras">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="row g-0">
+      <div class="col-6 col-lg-3">
+        <div class="cifra-item reveal">
+          <div class="cifra-num">340<sup>+</sup></div>
+          <div class="cifra-rule"></div>
+          <div class="cifra-lbl">Proyectos completados</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="cifra-item reveal d1">
+          <div class="cifra-num">2.8<sup>M</sup></div>
+          <div class="cifra-rule"></div>
+          <div class="cifra-lbl">Metros cuadrados</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="cifra-item reveal d2">
+          <div class="cifra-num">98<sup>%</sup></div>
+          <div class="cifra-rule"></div>
+          <div class="cifra-lbl">Entregas a tiempo</div>
+        </div>
+      </div>
+      <div class="col-6 col-lg-3">
+        <div class="cifra-item reveal d3">
+          <div class="cifra-num">0</div>
+          <div class="cifra-rule"></div>
+          <div class="cifra-lbl">Accidentes fatales</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     PROYECTOS
+════════════════════════════════ -->
+<section id="proyectos">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-4">
+      <div class="col-lg-5">
+        <div class="tag-c reveal" style="color:var(--ice);">Portafolio</div>
+        <h2 class="title-c title-c-light reveal">PROYECTOS<br><span>EJECUTADOS</span></h2>
+        <div class="rule-c rule-c-accent reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="sub-c reveal" style="color:var(--gray);">Una selección de los proyectos más representativos que evidencian nuestra capacidad técnica y escala de ejecución.</p>
+      </div>
+    </div>
+
+    <div class="proj-filter reveal" id="projFilter">
+      <button class="pfil active" data-f="all">Todos</button>
+      <button class="pfil" data-f="bodega">Bodegas</button>
+      <button class="pfil" data-f="comercial">Comercial</button>
+      <button class="pfil" data-f="planta">Plantas</button>
+      <button class="pfil" data-f="logistico">Logístico</button>
+    </div>
+
+    <div class="row g-3" id="projGrid">
+
+      <div class="col-md-6 col-lg-4 reveal proj-item" data-t="bodega">
+        <div class="proj-card">
+          <div class="proj-img">
+            <img src="https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=700&q=80&fit=crop"
+                 alt="Bodega logística" loading="lazy" class="img-c"/>
+            <span class="proj-category">Bodega</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-name">Centro Logístico Norte</div>
+            <div class="proj-meta">Bogotá, Colombia <span>·</span> 2023</div>
+            <div class="proj-specs">
+              <div class="ps-item"><strong>28.400 m²</strong><span>Área total</span></div>
+              <div class="ps-item"><strong>$12.8B</strong><span>Valor obra</span></div>
+              <div class="ps-item"><strong>14 meses</strong><span>Ejecución</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1 proj-item" data-t="comercial">
+        <div class="proj-card">
+          <div class="proj-img">
+            <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=700&q=80&fit=crop"
+                 alt="Centro comercial" loading="lazy" class="img-c"/>
+            <span class="proj-category">Comercial</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-name">Plaza Empresarial Sur</div>
+            <div class="proj-meta">Medellín, Colombia <span>·</span> 2022</div>
+            <div class="proj-specs">
+              <div class="ps-item"><strong>45.000 m²</strong><span>Área total</span></div>
+              <div class="ps-item"><strong>$28.5B</strong><span>Valor obra</span></div>
+              <div class="ps-item"><strong>22 meses</strong><span>Ejecución</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2 proj-item" data-t="planta">
+        <div class="proj-card">
+          <div class="proj-img">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=700&q=80&fit=crop"
+                 alt="Planta industrial" loading="lazy" class="img-c"/>
+            <span class="proj-category">Planta</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-name">Planta Manufactura Cali</div>
+            <div class="proj-meta">Cali, Colombia <span>·</span> 2023</div>
+            <div class="proj-specs">
+              <div class="ps-item"><strong>18.200 m²</strong><span>Área total</span></div>
+              <div class="ps-item"><strong>$9.4B</strong><span>Valor obra</span></div>
+              <div class="ps-item"><strong>11 meses</strong><span>Ejecución</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal proj-item" data-t="logistico">
+        <div class="proj-card">
+          <div class="proj-img">
+            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=700&q=80&fit=crop"
+                 alt="Parque logístico" loading="lazy" class="img-c"/>
+            <span class="proj-category">Logístico</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-name">Parque Industrial Sabana</div>
+            <div class="proj-meta">Tocancipá, Colombia <span>·</span> 2022</div>
+            <div class="proj-specs">
+              <div class="ps-item"><strong>62.000 m²</strong><span>Área total</span></div>
+              <div class="ps-item"><strong>$35.2B</strong><span>Valor obra</span></div>
+              <div class="ps-item"><strong>28 meses</strong><span>Ejecución</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1 proj-item" data-t="bodega">
+        <div class="proj-card">
+          <div class="proj-img">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&q=80&fit=crop"
+                 alt="Bodega distribución" loading="lazy" class="img-c"/>
+            <span class="proj-category">Bodega</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-name">Almacén Central Oriente</div>
+            <div class="proj-meta">Bucaramanga, Colombia <span>·</span> 2024</div>
+            <div class="proj-specs">
+              <div class="ps-item"><strong>15.800 m²</strong><span>Área total</span></div>
+              <div class="ps-item"><strong>$7.6B</strong><span>Valor obra</span></div>
+              <div class="ps-item"><strong>10 meses</strong><span>Ejecución</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2 proj-item" data-t="comercial">
+        <div class="proj-card">
+          <div class="proj-img">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=700&q=80&fit=crop"
+                 alt="Edificio oficinas" loading="lazy" class="img-c"/>
+            <span class="proj-category">Comercial</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-name">Torre Empresarial 360</div>
+            <div class="proj-meta">Bogotá, Colombia <span>·</span> 2024</div>
+            <div class="proj-specs">
+              <div class="ps-item"><strong>32.400 m²</strong><span>Área total</span></div>
+              <div class="ps-item"><strong>$22.1B</strong><span>Valor obra</span></div>
+              <div class="ps-item"><strong>20 meses</strong><span>Ejecución</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     SECTORES
+════════════════════════════════ -->
+<section id="sectores">
+  <div class="container-fluid px-0">
+    <div class="container mb-4 pt-4">
+      <div class="tag-c reveal" style="color:var(--ice);">Industrias</div>
+      <h2 class="title-c title-c-light reveal">SECTORES QUE<br><span>ATENDEMOS</span></h2>
+      <div class="rule-c rule-c-accent reveal"></div>
+    </div>
+
+    <div class="sector-grid reveal">
+      <div class="sector-item">
+        <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=1000&q=80&fit=crop"
+             alt="Logística" loading="lazy"/>
+        <div class="sector-overlay">
+          <div>
+            <div class="sector-name">Logística & Distribución</div>
+            <div class="sector-count">82 proyectos ejecutados</div>
+          </div>
+          <span class="sector-arrow"><i class="bi bi-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="sector-item">
+        <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&fit=crop"
+             alt="Manufactura" loading="lazy"/>
+        <div class="sector-overlay">
+          <div>
+            <div class="sector-name">Manufactura</div>
+            <div class="sector-count">64 proyectos</div>
+          </div>
+          <span class="sector-arrow"><i class="bi bi-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="sector-item">
+        <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80&fit=crop"
+             alt="Retail" loading="lazy"/>
+        <div class="sector-overlay">
+          <div>
+            <div class="sector-name">Retail & Comercio</div>
+            <div class="sector-count">58 proyectos</div>
+          </div>
+          <span class="sector-arrow"><i class="bi bi-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="sector-item">
+        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&q=80&fit=crop"
+             alt="Corporativo" loading="lazy"/>
+        <div class="sector-overlay">
+          <div>
+            <div class="sector-name">Corporativo & Oficinas</div>
+            <div class="sector-count">72 proyectos</div>
+          </div>
+          <span class="sector-arrow"><i class="bi bi-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="sector-item">
+        <img src="https://images.unsplash.com/photo-1590496793929-36417d3117de?w=600&q=80&fit=crop"
+             alt="Salud" loading="lazy"/>
+        <div class="sector-overlay">
+          <div>
+            <div class="sector-name">Salud & Farmacéutico</div>
+            <div class="sector-count">28 proyectos</div>
+          </div>
+          <span class="sector-arrow"><i class="bi bi-arrow-right"></i></span>
+        </div>
+      </div>
+      <div class="sector-item">
+        <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80&fit=crop"
+             alt="Energía" loading="lazy"/>
+        <div class="sector-overlay">
+          <div>
+            <div class="sector-name">Energía & Utilities</div>
+            <div class="sector-count">36 proyectos</div>
+          </div>
+          <span class="sector-arrow"><i class="bi bi-arrow-right"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     PROCESO
+════════════════════════════════ -->
+<section id="proceso">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="tag-c reveal">Metodología</div>
+        <h2 class="title-c reveal">PROCESO DE<br><span>EJECUCIÓN</span></h2>
+        <div class="rule-c reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="sub-c reveal">Nuestra metodología de ejecución garantiza proyectos dentro del presupuesto, el tiempo y la calidad acordada desde el primer día.</p>
+      </div>
+    </div>
+
+    <div class="row g-5 align-items-center">
+      <div class="col-lg-5">
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-phase">// FASE 01</div>
+            <div class="tl-title">Diagnóstico & Ingeniería</div>
+            <div class="tl-text">Levantamiento técnico, estudio de suelos, diseño estructural BIM y elaboración de presupuesto detallado con tolerancias de ±3%.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-phase">// FASE 02</div>
+            <div class="tl-title">Licencias & Permisos</div>
+            <div class="tl-text">Gestión integral de licencias de construcción, permisos ambientales, conceptos de bomberos y radicaciones ante curaduría.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-phase">// FASE 03</div>
+            <div class="tl-title">Ejecución & Control</div>
+            <div class="tl-text">Construcción con personal propio y subcontratistas certificados. Control de calidad diario, informes semanales y acceso a plataforma de seguimiento en tiempo real.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-phase">// FASE 04</div>
+            <div class="tl-title">Entrega & Post-obra</div>
+            <div class="tl-text">Entrega con acta de obra, planos As-Built, manuales técnicos y garantía de estabilidad. Soporte post-entrega por 12 meses.</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 rr">
+        <div class="proceso-visual">
+          <div class="mb-3" style="position:relative;z-index:1;">
+            <span style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:3px;color:var(--steel2);">// VENTAJAS STRUCTURA</span>
+          </div>
+          <div class="pv-item">
+            <div class="pv-num">01</div>
+            <div>
+              <div class="pv-title">Tecnología BIM 360°</div>
+              <div class="pv-text">Modelado 3D completo del proyecto antes de iniciar obras, reduciendo errores en un 70% y optimizando costos de materiales.</div>
+            </div>
+          </div>
+          <div class="pv-item">
+            <div class="pv-num">02</div>
+            <div>
+              <div class="pv-title">Estructura propia</div>
+              <div class="pv-text">Contamos con maquinaria, equipo pesado y cuadrillas propias. Sin dependencia de terceros en etapas críticas del proyecto.</div>
+            </div>
+          </div>
+          <div class="pv-item">
+            <div class="pv-num">03</div>
+            <div>
+              <div class="pv-title">Control presupuestal</div>
+              <div class="pv-text">Sistema propio de control de costos con alertas tempranas. El 98% de nuestros proyectos se entrega dentro del presupuesto aprobado.</div>
+            </div>
+          </div>
+          <div class="pv-item">
+            <div class="pv-num">04</div>
+            <div>
+              <div class="pv-title">Seguridad HSE certificada</div>
+              <div class="pv-text">Programa HSE con cero accidentes fatales en 20 años. SGSST implementado, ARL vinculada y coordinador de seguridad en cada obra.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     EQUIPO
+════════════════════════════════ -->
+<section id="equipo">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-c justify-content-center reveal">Talento humano</div>
+      <h2 class="title-c reveal">NUESTRO<br><span>EQUIPO DIRECTIVO</span></h2>
+      <div class="rule-c mx-auto reveal"></div>
+      <p class="sub-c mx-auto reveal" style="max-width:520px;">Ingenieros con posgrados nacionales e internacionales, certificaciones técnicas y trayectorias en los proyectos más complejos del país.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="team-card">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1560250097-0dc05888820c?w=500&q=80&fit=crop&crop=top"
+                 alt="Director general" loading="lazy"/>
+            <span class="team-spec">Dirección general</span>
+          </div>
+          <div class="team-body">
+            <div class="team-name">Ing. Ricardo Montoya</div>
+            <div class="team-role">CEO & Director General</div>
+            <div class="team-bio">Ingeniero Civil, MSc. Estructuras Universidad de los Andes. 22 años liderando proyectos de infraestructura industrial.</div>
+            <div class="team-certs">
+              <span class="cert-tag">PMP®</span>
+              <span class="cert-tag">BIM Manager</span>
+              <span class="cert-tag">LEED AP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal d1">
+        <div class="team-card">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=500&q=80&fit=crop&crop=top"
+                 alt="Directora técnica" loading="lazy"/>
+            <span class="team-spec">Ingeniería</span>
+          </div>
+          <div class="team-body">
+            <div class="team-name">Ing. Sandra Parra</div>
+            <div class="team-role">Directora Técnica</div>
+            <div class="team-bio">Ingeniera Civil con especialización en Geotecnia. Experta en cimentaciones industriales y estructuras metálicas de gran escala.</div>
+            <div class="team-certs">
+              <span class="cert-tag">MSc. Geotecnia</span>
+              <span class="cert-tag">NSR-10</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal d2">
+        <div class="team-card">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80&fit=crop&crop=top"
+                 alt="Director de proyectos" loading="lazy"/>
+            <span class="team-spec">Proyectos</span>
+          </div>
+          <div class="team-body">
+            <div class="team-name">Ing. Carlos Díaz</div>
+            <div class="team-role">Director de Proyectos</div>
+            <div class="team-bio">MBA + Ingeniería Civil. Coordinó los proyectos más grandes de la firma: más de 120.000 m² bajo su gestión directa.</div>
+            <div class="team-certs">
+              <span class="cert-tag">MBA</span>
+              <span class="cert-tag">PMP®</span>
+              <span class="cert-tag">BIM L2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal d3">
+        <div class="team-card">
+          <div class="team-img">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80&fit=crop&crop=top"
+                 alt="Directora HSE" loading="lazy"/>
+            <span class="team-spec">HSE</span>
+          </div>
+          <div class="team-body">
+            <div class="team-name">Ing. Mónica Vargas</div>
+            <div class="team-role">Directora HSE & Calidad</div>
+            <div class="team-bio">Especialista en Salud Ocupacional. Responsable del programa HSE que lleva 20 años sin accidentes fatales en obra.</div>
+            <div class="team-certs">
+              <span class="cert-tag">OHSAS 18001</span>
+              <span class="cert-tag">ISO 9001</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     TESTIMONIOS
+════════════════════════════════ -->
+<section id="testimonios">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-c justify-content-center reveal">Clientes</div>
+      <h2 class="title-c reveal">LO QUE DICEN<br><span>NUESTROS CLIENTES</span></h2>
+      <div class="rule-c mx-auto reveal"></div>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testi-c">
+          <div class="testi-q-c">"</div>
+          <div class="testi-text-c">STRUCTURA construyó nuestra planta de 22.000 m² en 11 meses, dos semanas antes del plazo acordado. La calidad de los acabados y el nivel técnico del equipo superaron todas nuestras expectativas. Los volveríamos a contratar sin dudarlo.</div>
+          <div class="testi-project">// Planta Manufactura Cali · 2023</div>
+          <div class="testi-author-c">
+            <div class="tav">JM</div>
+            <div>
+              <div class="tav-name">Jorge Martínez</div>
+              <div class="tav-role">CEO · Industrias del Norte S.A.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="testi-c">
+          <div class="testi-q-c">"</div>
+          <div class="testi-text-c">El parque logístico más grande que hemos desarrollado, y STRUCTURA lo ejecutó con una precisión impresionante. Control presupuestal exacto, cero incidentes de seguridad y comunicación permanente durante los 28 meses de obra. Referencia obligada.</div>
+          <div class="testi-project">// Parque Industrial Sabana · 2022</div>
+          <div class="testi-author-c">
+            <div class="tav">LP</div>
+            <div>
+              <div class="tav-name">Laura Pedraza</div>
+              <div class="tav-role">Directora Proyectos · Logística Nacional</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="testi-c">
+          <div class="testi-q-c">"</div>
+          <div class="testi-text-c">Contratamos a STRUCTURA para la gerencia técnica de nuestra Torre Empresarial. Su metodología BIM y el control de costos semanal nos permitió tomar decisiones en tiempo real. Un aliado estratégico, no solo un contratista.</div>
+          <div class="testi-project">// Torre Empresarial 360 · 2024</div>
+          <div class="testi-author-c">
+            <div class="tav">AC</div>
+            <div>
+              <div class="tav-name">Andrés Castillo</div>
+              <div class="tav-role">VP Infraestructura · Grupo Empresarial XYZ</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     CTA
+════════════════════════════════ -->
+<section id="cta">
+  <div class="cta-bg-img">
+    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1800&q=80&fit=crop"
+         alt="Obra industrial" loading="lazy" class="img-c"/>
+  </div>
+  <div class="container" style="position:relative;z-index:2;">
+    <div class="cta-inner reveal">
+      <div class="cta-code">// STR-2024 · CONVOCATORIA ABIERTA</div>
+      <h2 class="cta-h">
+        HABLEMOS DE<br>
+        <span>TU PROYECTO</span>
+      </h2>
+      <p class="sub-c mx-auto mt-3 mb-4 reveal" style="max-width:500px;color:var(--mid-gray);">
+        Solicita una visita técnica sin costo. Nuestros ingenieros analizarán tu proyecto
+        y te presentarán una propuesta técnica y económica en 5 días hábiles.
+      </p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center reveal">
+        <a href="https://wa.me/573000000000?text=Hola%20STRUCTURA,%20quiero%20cotizar%20un%20proyecto%20de%20construcción%20comercial." target="_blank" class="btn-primary-c">
+          <i class="bi bi-whatsapp"></i> Solicitar visita técnica
+        </a>
+        <a href="#contacto" class="btn-ghost-c">
+          Formulario de contacto <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     CONTACTO
+════════════════════════════════ -->
+<section id="contacto">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-c justify-content-center reveal">Contáctenos</div>
+      <h2 class="title-c reveal">SOLICITE SU<br><span>PROPUESTA TÉCNICA</span></h2>
+      <div class="rule-c mx-auto reveal"></div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <div class="contact-wrap reveal">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-lbl-c">Nombre completo *</label>
+              <input type="text" class="form-ctrl-c" placeholder="Su nombre"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl-c">Empresa / Organización *</label>
+              <input type="text" class="form-ctrl-c" placeholder="Nombre de la empresa"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl-c">Cargo</label>
+              <input type="text" class="form-ctrl-c" placeholder="Su cargo"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl-c">Teléfono / WhatsApp *</label>
+              <input type="tel" class="form-ctrl-c" placeholder="+57 300 000 0000"/>
+            </div>
+            <div class="col-12">
+              <label class="form-lbl-c">Correo electrónico *</label>
+              <input type="email" class="form-ctrl-c" placeholder="correo@empresa.com"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl-c">Tipo de proyecto</label>
+              <select class="form-ctrl-c">
+                <option disabled selected>Seleccione...</option>
+                <option>Nave / Bodega industrial</option>
+                <option>Centro comercial / Retail</option>
+                <option>Planta de manufactura</option>
+                <option>Parque logístico</option>
+                <option>Edificio corporativo</option>
+                <option>Adecuación / Reforma</option>
+                <option>Gerencia técnica PMC</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl-c">Área aproximada (m²)</label>
+              <select class="form-ctrl-c">
+                <option disabled selected>Seleccione rango...</option>
+                <option>Hasta 2.000 m²</option>
+                <option>2.000 – 10.000 m²</option>
+                <option>10.000 – 30.000 m²</option>
+                <option>30.000 – 60.000 m²</option>
+                <option>Más de 60.000 m²</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-lbl-c">Ciudad / Ubicación del proyecto</label>
+              <input type="text" class="form-ctrl-c" placeholder="Ciudad donde se ejecutará el proyecto"/>
+            </div>
+            <div class="col-12">
+              <label class="form-lbl-c">Descripción del proyecto *</label>
+              <textarea class="form-ctrl-c" rows="4" placeholder="Describa brevemente el proyecto: tipo de uso, especificaciones especiales, plazo deseado de entrega..."></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn-submit-c" onclick="submitC(this)">
+                <i class="bi bi-send me-2"></i> Enviar solicitud técnica
+              </button>
+            </div>
+            <div id="formOkC" style="display:none;margin-top:.5rem;">
+              <div style="background:rgba(53,99,181,.1);border:1px solid rgba(53,99,181,.3);padding:1rem;text-align:center;">
+                <i class="bi bi-check-circle" style="color:var(--steel2);font-size:1.4rem;"></i>
+                <p style="font-family:var(--font-mono);font-size:.7rem;letter-spacing:1.5px;color:var(--steel2);margin-top:.5rem;text-transform:uppercase;">// Solicitud recibida · Un ingeniero la contactará en 24h hábiles</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 reveal d2">
+        <div class="info-block">
+          <div style="position:relative;z-index:1;">
+            <span style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:3px;color:var(--steel2);display:block;margin-bottom:1.5rem;">// INFORMACIÓN DE CONTACTO</span>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div><div class="info-lbl">Oficina principal</div><div class="info-val">Cra 7 # 71-21 Torre B, Piso 12<br>Bogotá D.C., Colombia</div></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div><div class="info-lbl">Línea directa</div><div class="info-val">+57 (1) 000 0000</div></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-whatsapp"></i></div>
+            <div><div class="info-lbl">WhatsApp comercial</div><div class="info-val">+57 300 000 0000</div></div>
+          </div>
+          <div class="info-item">
+            <div class="info-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div><div class="info-lbl">Email</div><div class="info-val">proyectos@structura.co</div></div>
+          </div>
+          <div class="info-item" style="border:none;">
+            <div class="info-icon"><i class="bi bi-clock-fill"></i></div>
+            <div><div class="info-lbl">Atención</div><div class="info-val">Lun–Vie: 7:00am – 6:00pm<br>Sáb: 8:00am – 12:00pm</div></div>
+          </div>
+
+          <div style="margin-top:1.5rem;padding:1.2rem;border:1px solid var(--border-light);position:relative;z-index:1;">
+            <div style="font-family:var(--font-mono);font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--steel2);margin-bottom:.5rem;">// Sede regional</div>
+            <div style="font-size:.85rem;color:var(--mid-gray);font-weight:300;line-height:1.6;">
+              Medellín · Cra 43A # 1-50, El Poblado<br>
+              Cali · Cra 100 # 11-60, Ciudad Jardín<br>
+              Barranquilla · Cra 52 # 72-50
+            </div>
+          </div>
+
+          <a href="https://wa.me/573000000000?text=Hola%20STRUCTURA,%20necesito%20información%20sobre%20un%20proyecto." target="_blank"
+             style="display:block;width:100%;text-align:center;margin-top:1.5rem;font-family:var(--font-display);font-size:.75rem;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;background:var(--steel2);color:var(--white);padding:.9rem;text-decoration:none;transition:background .2s;position:relative;z-index:1;"
+             onmouseover="this.style.background='#e8b84b';this.style.color='var(--navy)'"
+             onmouseout="this.style.background='var(--steel2)';this.style.color='var(--white)'">
+            <i class="bi bi-whatsapp me-2"></i> Contactar ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ════════════════════════════════
+     FOOTER
+════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand-c">STR<span>U</span>CTURA</div>
+        <div class="footer-tag-c">Ingeniería & Construcción · Est. 2004</div>
+        <p style="font-size:.83rem;color:rgba(255,255,255,.25);font-family:var(--font-body);line-height:1.8;margin-top:1rem;font-weight:300;">
+          Firma colombiana especializada en construcción comercial e industrial de gran escala. 20 años construyendo el país.
+        </p>
+        <div style="margin-top:1rem;display:flex;gap:.5rem;flex-wrap:wrap;">
+          <span style="font-family:var(--font-mono);font-size:.55rem;letter-spacing:1px;color:rgba(74,128,196,.5);border:1px solid rgba(74,128,196,.15);padding:.15rem .5rem;">ISO 9001</span>
+          <span style="font-family:var(--font-mono);font-size:.55rem;letter-spacing:1px;color:rgba(74,128,196,.5);border:1px solid rgba(74,128,196,.15);padding:.15rem .5rem;">NSR-10</span>
+          <span style="font-family:var(--font-mono);font-size:.55rem;letter-spacing:1px;color:rgba(74,128,196,.5);border:1px solid rgba(74,128,196,.15);padding:.15rem .5rem;">BIM L2</span>
+          <span style="font-family:var(--font-mono);font-size:.55rem;letter-spacing:1px;color:rgba(74,128,196,.5);border:1px solid rgba(74,128,196,.15);padding:.15rem .5rem;">OHSAS</span>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-col-h-c">Navegación</div>
+        <a href="#nosotros"  class="footer-lnk-c">Nosotros</a>
+        <a href="#servicios" class="footer-lnk-c">Servicios</a>
+        <a href="#proyectos" class="footer-lnk-c">Proyectos</a>
+        <a href="#sectores"  class="footer-lnk-c">Sectores</a>
+        <a href="#equipo"    class="footer-lnk-c">Equipo</a>
+        <a href="#contacto"  class="footer-lnk-c">Contacto</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-h-c">Servicios</div>
+        <a href="#servicios" class="footer-lnk-c">Naves & Bodegas</a>
+        <a href="#servicios" class="footer-lnk-c">Centros Comerciales</a>
+        <a href="#servicios" class="footer-lnk-c">Plantas Industriales</a>
+        <a href="#servicios" class="footer-lnk-c">Parques Logísticos</a>
+        <a href="#servicios" class="footer-lnk-c">Gerencia PMC</a>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-col-h-c">Contacto</div>
+        <a href="https://wa.me/573000000000" target="_blank" class="footer-lnk-c"><i class="bi bi-whatsapp me-2" style="color:#25d366;"></i>+57 300 000 0000</a>
+        <a href="mailto:proyectos@structura.co" class="footer-lnk-c"><i class="bi bi-envelope me-2" style="color:var(--sky);"></i>proyectos@structura.co</a>
+        <span class="footer-lnk-c" style="cursor:default;"><i class="bi bi-geo-alt me-2" style="color:var(--sky);"></i>Bogotá · Medellín · Cali</span>
+        <div style="margin-top:1rem;padding:1rem;border:1px solid var(--border-light);border-left:2px solid var(--steel2);">
+          <div style="font-family:var(--font-mono);font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:.4rem;">NIT</div>
+          <div style="font-size:.83rem;color:rgba(255,255,255,.25);font-weight:300;">900.123.456 – 7<br>Reg. Cámara Comercio Bogotá</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-btm-c">
+      <div class="footer-copy-c">© 2025 STRUCTURA Ingeniería & Construcción S.A.S. · Todos los derechos reservados · Imágenes: Unsplash</div>
+      <div>
+        <a href="#" class="soc-c" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="#" class="soc-c" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="soc-c" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+        <a href="https://wa.me/573000000000" class="soc-c" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/573000000000?text=Hola%20STRUCTURA,%20quiero%20información%20sobre%20un%20proyecto%20de%20construcción."
+   target="_blank" class="wa-c" aria-label="WhatsApp">
+  <div class="wa-ring-c"></div>
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* ── Navbar ── */
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => nav.classList.toggle('solid', window.scrollY > 60));
+
+  /* ── Mobile ── */
+  document.getElementById('navToggle').addEventListener('click', () => {
+    const m = document.getElementById('mob-menu');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  });
+  document.getElementById('mob-menu').querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('mob-menu').style.display = 'none')
+  );
+
+  /* ── Images ── */
+  const heroImg = document.getElementById('heroImg');
+  if (heroImg) { if(heroImg.complete) heroImg.classList.add('on'); else heroImg.addEventListener('load',()=>heroImg.classList.add('on')); }
+  document.querySelectorAll('.img-c').forEach(img => {
+    if (img.complete) img.classList.add('on');
+    else { img.addEventListener('load',()=>img.classList.add('on')); img.addEventListener('error',()=>{}); }
+  });
+
+  /* ── Reveal ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold:0.08 });
+  document.querySelectorAll('.reveal,.rl,.rr,.tl-item').forEach(el => io.observe(el));
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t){ e.preventDefault(); window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'}); }
+    });
+  });
+
+  /* ── Proyecto filter ── */
+  document.getElementById('projFilter').addEventListener('click', e => {
+    if(!e.target.classList.contains('pfil')) return;
+    document.querySelectorAll('.pfil').forEach(b => b.classList.remove('active'));
+    e.target.classList.add('active');
+    const f = e.target.dataset.f;
+    document.querySelectorAll('.proj-item').forEach(it => {
+      it.style.display = (f==='all' || it.dataset.t===f) ? '' : 'none';
+    });
+  });
+
+  /* ── Formulario ── */
+  function submitC(btn) {
+    btn.innerHTML = '<i class="bi bi-hourglass me-2"></i>Procesando...';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('formOkC').style.display = 'block';
+      btn.innerHTML = '// Solicitud enviada correctamente';
+      btn.style.background = 'var(--steel2)';
+    }, 1400);
+  }
+
+  /* ── Counter animation ── */
+  function animateCounters() {
+    document.querySelectorAll('.cifra-num').forEach(el => {
+      const text = el.textContent;
+      const num = parseFloat(text);
+      if (isNaN(num)) return;
+      const suffix = text.replace(/[\d.]/g,'');
+      let start = 0; const dur = 1500; const step = 16;
+      const inc = num / (dur / step);
+      const timer = setInterval(() => {
+        start += inc;
+        if (start >= num) { start = num; clearInterval(timer); }
+        el.textContent = (Number.isInteger(num) ? Math.floor(start) : start.toFixed(1)) + suffix;
+      }, step);
+    });
+  }
+  const statsObs = new IntersectionObserver(entries => {
+    if(entries[0].isIntersecting){ animateCounters(); statsObs.disconnect(); }
+  }, {threshold:.3});
+  const cifrasSection = document.getElementById('cifras');
+  if(cifrasSection) statsObs.observe(cifrasSection);
+</script>
+</body>
+</html>

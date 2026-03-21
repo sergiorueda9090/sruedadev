@@ -1,0 +1,652 @@
+{% extends "pages/learning_base.html" %}
+{% load static %}
+
+<!-- ============================================================
+     DIA 3 — Tests unitarios: modelos y campos
+     Fragmento embebible — srueda.dev
+     ============================================================ -->
+
+{% block title %}Día 3 — Tests unitarios: modelos y campos{% endblock %}
+{% block meta_description %}Día 3 del curso de Testing en Django: testear modelos, métodos, propiedades, validaciones y relaciones. Tutorial práctico con código real.{% endblock %}
+{% block canonical %}https://sergiorueda.dev/learning/testing-django/dia-3/{% endblock %}
+{% block og_title %}Día 3 — Tests unitarios: modelos y campos | Testing en Django{% endblock %}
+{% block og_description %}Aprende a testear modelos Django: métodos, propiedades, validaciones y relaciones entre modelos.{% endblock %}
+{% block og_url %}https://sergiorueda.dev/learning/testing-django/dia-3/{% endblock %}
+{% block twitter_title %}Día 3 — Tests unitarios: modelos | Testing en Django{% endblock %}
+{% block twitter_description %}Testear modelos Django: métodos, propiedades, validaciones y relaciones.{% endblock %}
+
+{% block content %}
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="lesson-hero">
+  <div class="lesson-hero-grid"></div>
+  <div class="lesson-hero-glow"></div>
+  <div class="container position-relative">
+    <div class="lesson-breadcrumb">
+      <a href="{% url 'web:learning' %}"><i class="fa-solid fa-house" style="font-size:0.65rem"></i> Inicio</a>
+      <span class="sep">/</span>
+      <a href="{% url 'web:testing_temario' %}">Testing en Django</a>
+      <span class="sep">/</span>
+      <span style="color:var(--accent)">Día 3</span>
+    </div>
+    <div class="lesson-day-badge"><i class="fa-solid fa-calendar-day"></i> DÍA 03 — NIVEL BÁSICO</div>
+    <h1 class="lesson-title">Tests unitarios:<br><span class="hl">modelos y campos</span></h1>
+    <p class="lesson-subtitle">Aprende a testear el corazón de tu aplicación Django: modelos, sus campos, métodos personalizados, propiedades calculadas y relaciones entre entidades.</p>
+    <div class="lesson-meta">
+      <div class="lesson-meta-item"><i class="fa-solid fa-clock"></i><span>40 min de lectura</span></div>
+      <div class="lesson-meta-item"><i class="fa-solid fa-code"></i><span>3 retos prácticos</span></div>
+      <div class="lesson-meta-item"><i class="fa-solid fa-vial"></i><span>1 caso real</span></div>
+      <span class="level-badge level-basico">Básico</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ RESUMEN DÍA ANTERIOR ═══════════════════ -->
+<div class="container">
+  <div style="padding: 28px 0 0;">
+    <div class="callout success fade-up">
+      <span class="callout-icon"><i class="fa-solid fa-rotate-left"></i></span>
+      <div class="callout-content">
+        <strong>Resumen del Día 2</strong>
+        Creamos <code>settings_test.py</code> con BD en memoria · Configuramos email backend para capturar correos · Organizamos tests en carpeta <code>tests/</code> con <code>__init__.py</code> · Aprendimos <code>setUp</code> y <code>setUpClass</code> · Ejecutamos tests con <code>--settings</code> específicos
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════ LAYOUT PRINCIPAL ═══════════════════ -->
+<div class="container">
+  <div class="lesson-layout">
+    <main class="lesson-content">
+
+      <!-- ── SECCIÓN 1: TEORÍA ── -->
+      <section class="content-section fade-up" id="d3-teoria">
+        <div class="section-header">
+          <div class="section-icon icon-blue"><i class="fa-solid fa-book"></i></div>
+          <div class="section-header-text">
+            <h2>Teoría del Día</h2>
+            <p>// qué testear en los modelos</p>
+          </div>
+        </div>
+
+        <div class="prose">
+          <h3>¿Por qué testear modelos?</h3>
+          <p>Los modelos son el <strong>núcleo de tu aplicación Django</strong>. Si tu modelo falla, todo falla. Contienen la lógica de negocio más crítica de tu sistema.</p>
+        </div>
+
+        <table class="compare-table">
+          <thead>
+            <tr><th>✅ SÍ testear</th><th>❌ NO testear</th></tr>
+          </thead>
+          <tbody>
+            <tr><td class="good">Tu lógica de negocio (métodos propios)</td><td class="bad">Que Django guarda en BD (ya lo testea Django)</td></tr>
+            <tr><td class="good">Tus validaciones personalizadas</td><td class="bad">El ORM de Django (ya está testeado)</td></tr>
+            <tr><td class="good">Tus métodos: <code>__str__</code>, <code>clean()</code>, etc.</td><td class="bad">Las migraciones (eso es Django)</td></tr>
+            <tr><td class="good">Tus propiedades <code>@property</code> calculadas</td><td class="bad">Que <code>CharField(max_length=200)</code> funciona</td></tr>
+            <tr><td class="good">Valores por defecto de tus campos</td><td class="bad">El comportamiento de <code>auto_now_add</code></td></tr>
+          </tbody>
+        </table>
+
+        <div class="callout info">
+          <span class="callout-icon"><i class="fa-solid fa-circle-info"></i></span>
+          <div class="callout-content">
+            <strong>Regla de oro</strong>
+            Testea <strong>TU</strong> código. No testees el código de Django, de DRF ni de ninguna librería externa. Solo testea lo que tú escribiste.
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 2: DEMO ── -->
+      <section class="content-section fade-up" id="d3-demo">
+        <div class="section-header">
+          <div class="section-icon icon-green"><i class="fa-solid fa-terminal"></i></div>
+          <div class="section-header-text">
+            <h2>Demostración en Vivo</h2>
+            <p>// el modelo y sus tests completos</p>
+          </div>
+        </div>
+
+        <div class="prose"><h3>El modelo que testaremos — E-commerce real</h3></div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">productos/models.py</span>
+            </div>
+            <span class="code-lang">Python</span>
+          </div>
+          <div class="code-body"><pre><span class="kw">from</span> <span class="nm">django.db</span> <span class="kw">import</span> <span class="nm">models</span>
+<span class="kw">from</span> <span class="nm">django.core.exceptions</span> <span class="kw">import</span> <span class="cl">ValidationError</span>
+
+
+<span class="kw">class</span> <span class="cl">Categoria</span>(<span class="nm">models</span>.<span class="cl">Model</span>):
+    nombre = <span class="nm">models</span>.<span class="fn">CharField</span>(max_length=<span class="nu">100</span>)
+    slug   = <span class="nm">models</span>.<span class="fn">SlugField</span>(unique=<span class="kw">True</span>)
+    activa = <span class="nm">models</span>.<span class="fn">BooleanField</span>(default=<span class="kw">True</span>)
+
+    <span class="kw">def</span> <span class="fn">__str__</span>(<span class="nm">self</span>): <span class="kw">return</span> <span class="nm">self</span>.nombre
+
+
+<span class="kw">class</span> <span class="cl">Producto</span>(<span class="nm">models</span>.<span class="cl">Model</span>):
+
+    ESTADO_CHOICES = [
+        (<span class="st">'activo'</span>, <span class="st">'Activo'</span>),
+        (<span class="st">'inactivo'</span>, <span class="st">'Inactivo'</span>),
+        (<span class="st">'agotado'</span>, <span class="st">'Agotado'</span>),
+    ]
+
+    nombre    = <span class="nm">models</span>.<span class="fn">CharField</span>(max_length=<span class="nu">200</span>)
+    precio    = <span class="nm">models</span>.<span class="fn">DecimalField</span>(max_digits=<span class="nu">10</span>, decimal_places=<span class="nu">2</span>)
+    stock     = <span class="nm">models</span>.<span class="fn">PositiveIntegerField</span>(default=<span class="nu">0</span>)
+    estado    = <span class="nm">models</span>.<span class="fn">CharField</span>(max_length=<span class="nu">10</span>, choices=ESTADO_CHOICES, default=<span class="st">'activo'</span>)
+    categoria = <span class="nm">models</span>.<span class="fn">ForeignKey</span>(<span class="cl">Categoria</span>, on_delete=<span class="nm">models</span>.PROTECT, related_name=<span class="st">'productos'</span>)
+
+    <span class="kw">def</span> <span class="fn">__str__</span>(<span class="nm">self</span>):
+        <span class="kw">return</span> <span class="st">f"</span><span class="kw">{</span><span class="nm">self</span>.nombre<span class="kw">}</span><span class="st"> ($</span><span class="kw">{</span><span class="nm">self</span>.precio<span class="kw">}</span><span class="st">)"</span>
+
+    <span class="kw">def</span> <span class="fn">esta_disponible</span>(<span class="nm">self</span>):
+        <span class="st">"""True si el producto tiene stock y está activo"""</span>
+        <span class="kw">return</span> <span class="nm">self</span>.estado == <span class="st">'activo'</span> <span class="kw">and</span> <span class="nm">self</span>.stock > <span class="nu">0</span>
+
+    <span class="kw">def</span> <span class="fn">aplicar_descuento</span>(<span class="nm">self</span>, <span class="nm">porcentaje</span>):
+        <span class="st">"""Retorna el precio con descuento. Rango válido: 0-100."""</span>
+        <span class="kw">if not</span> <span class="nu">0</span> &lt;= porcentaje &lt;= <span class="nu">100</span>:
+            <span class="kw">raise</span> <span class="cl">ValueError</span>(<span class="st">f"Porcentaje inválido: </span><span class="kw">{</span>porcentaje<span class="kw">}</span><span class="st">. Debe ser 0-100."</span>)
+        <span class="kw">return</span> <span class="nm">self</span>.precio - (<span class="nm">self</span>.precio * (porcentaje / <span class="nu">100</span>))
+
+    <span class="kw">def</span> <span class="fn">reducir_stock</span>(<span class="nm">self</span>, <span class="nm">cantidad</span>):
+        <span class="st">"""Reduce el stock. Si llega a 0, cambia estado a 'agotado'."""</span>
+        <span class="kw">if</span> cantidad &lt;= <span class="nu">0</span>:
+            <span class="kw">raise</span> <span class="cl">ValueError</span>(<span class="st">"La cantidad debe ser mayor a 0"</span>)
+        <span class="kw">if</span> cantidad > <span class="nm">self</span>.stock:
+            <span class="kw">raise</span> <span class="cl">ValueError</span>(
+                <span class="st">f"Stock insuficiente. Actual: </span><span class="kw">{</span><span class="nm">self</span>.stock<span class="kw">}</span><span class="st">, solicitado: </span><span class="kw">{</span>cantidad<span class="kw">}</span><span class="st">"</span>
+            )
+        <span class="nm">self</span>.stock -= cantidad
+        <span class="kw">if</span> <span class="nm">self</span>.stock == <span class="nu">0</span>:
+            <span class="nm">self</span>.estado = <span class="st">'agotado'</span>
+        <span class="nm">self</span>.<span class="fn">save</span>()
+
+    <span class="kw">def</span> <span class="fn">clean</span>(<span class="nm">self</span>):
+        <span class="kw">if</span> <span class="nm">self</span>.precio &lt;= <span class="nu">0</span>:
+            <span class="kw">raise</span> <span class="cl">ValidationError</span>({<span class="st">'precio'</span>: <span class="st">'El precio debe ser mayor a cero.'</span>})
+
+    <span class="dc">@property</span>
+    <span class="kw">def</span> <span class="fn">tiene_stock_bajo</span>(<span class="nm">self</span>):
+        <span class="st">"""True si hay menos de 5 unidades"""</span>
+        <span class="kw">return</span> <span class="nm">self</span>.stock &lt; <span class="nu">5</span>
+
+    <span class="dc">@property</span>
+    <span class="kw">def</span> <span class="fn">valor_inventario</span>(<span class="nm">self</span>):
+        <span class="st">"""Valor total del inventario de este producto"""</span>
+        <span class="kw">return</span> <span class="nm">self</span>.precio * <span class="nm">self</span>.stock</pre></div>
+        </div>
+
+        <!-- HELPER -->
+        <div class="prose"><h3>Funciones helper — evita repetir código en tests</h3></div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">productos/tests/test_models.py</span>
+            </div>
+            <span class="code-lang">Python</span>
+          </div>
+          <div class="code-body"><pre><span class="kw">from</span> <span class="nm">django.test</span> <span class="kw">import</span> <span class="cl">TestCase</span>
+<span class="kw">from</span> <span class="nm">django.core.exceptions</span> <span class="kw">import</span> <span class="cl">ValidationError</span>
+<span class="kw">from</span> <span class="nm">decimal</span> <span class="kw">import</span> <span class="cl">Decimal</span>
+<span class="kw">from</span> <span class="nm">productos.models</span> <span class="kw">import</span> <span class="cl">Producto</span>, <span class="cl">Categoria</span>
+
+
+<span class="cm"># ── HELPERS — crean datos de prueba reutilizables ─────────────</span>
+
+<span class="kw">def</span> <span class="fn">crear_categoria</span>(<span class="nm">nombre</span>=<span class="st">"Electrónica"</span>, <span class="nm">slug</span>=<span class="st">"electronica"</span>):
+    <span class="kw">return</span> <span class="cl">Categoria</span>.objects.<span class="fn">create</span>(nombre=nombre, slug=slug)
+
+
+<span class="kw">def</span> <span class="fn">crear_producto</span>(
+    <span class="nm">nombre</span>=<span class="st">"Laptop Gaming"</span>,
+    <span class="nm">precio</span>=<span class="cl">Decimal</span>(<span class="st">"999.99"</span>),
+    <span class="nm">stock</span>=<span class="nu">10</span>,
+    <span class="nm">estado</span>=<span class="st">"activo"</span>,
+    <span class="nm">categoria</span>=<span class="kw">None</span>
+):
+    <span class="kw">if</span> categoria <span class="kw">is None</span>:
+        categoria = <span class="fn">crear_categoria</span>()
+    <span class="kw">return</span> <span class="cl">Producto</span>.objects.<span class="fn">create</span>(
+        nombre=nombre, precio=precio,
+        stock=stock, estado=estado, categoria=categoria
+    )</pre></div>
+        </div>
+
+        <!-- TESTS CREACIÓN -->
+        <div class="prose"><h3>Tests de creación y campos básicos</h3></div>
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">test_models.py — continuación</span>
+            </div>
+            <span class="code-lang">Python</span>
+          </div>
+          <div class="code-body"><pre><span class="kw">class</span> <span class="cl">ProductoCreacionTest</span>(<span class="cl">TestCase</span>):
+
+    <span class="kw">def</span> <span class="fn">setUp</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.categoria = <span class="fn">crear_categoria</span>()
+        <span class="nm">self</span>.producto  = <span class="fn">crear_producto</span>(categoria=<span class="nm">self</span>.categoria)
+
+    <span class="kw">def</span> <span class="fn">test_campos_tienen_valores_correctos</span>(<span class="nm">self</span>):
+        p = <span class="nm">self</span>.producto
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(p.nombre, <span class="st">"Laptop Gaming"</span>)
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(p.precio, <span class="cl">Decimal</span>(<span class="st">"999.99"</span>))
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(p.stock, <span class="nu">10</span>)
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(p.estado, <span class="st">"activo"</span>)
+
+    <span class="kw">def</span> <span class="fn">test_estado_por_defecto_es_activo</span>(<span class="nm">self</span>):
+        p = <span class="cl">Producto</span>.objects.<span class="fn">create</span>(
+            nombre=<span class="st">"Teclado"</span>, precio=<span class="cl">Decimal</span>(<span class="st">"50.00"</span>),
+            categoria=<span class="nm">self</span>.categoria
+        )
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(p.estado, <span class="st">"activo"</span>)
+
+    <span class="kw">def</span> <span class="fn">test_stock_por_defecto_es_cero</span>(<span class="nm">self</span>):
+        p = <span class="cl">Producto</span>.objects.<span class="fn">create</span>(
+            nombre=<span class="st">"Mouse"</span>, precio=<span class="cl">Decimal</span>(<span class="st">"30.00"</span>),
+            categoria=<span class="nm">self</span>.categoria
+        )
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(p.stock, <span class="nu">0</span>)
+
+    <span class="kw">def</span> <span class="fn">test_str_retorna_nombre_y_precio</span>(<span class="nm">self</span>):
+        esperado = <span class="st">"Laptop Gaming ($999.99)"</span>
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="fn">str</span>(<span class="nm">self</span>.producto), esperado)
+
+
+<span class="kw">class</span> <span class="cl">ProductoDisponibilidadTest</span>(<span class="cl">TestCase</span>):
+
+    <span class="kw">def</span> <span class="fn">setUp</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.cat = <span class="fn">crear_categoria</span>()
+
+    <span class="kw">def</span> <span class="fn">test_activo_con_stock_esta_disponible</span>(<span class="nm">self</span>):
+        p = <span class="fn">crear_producto</span>(estado=<span class="st">'activo'</span>, stock=<span class="nu">5</span>, categoria=<span class="nm">self</span>.cat)
+        <span class="nm">self</span>.<span class="fn">assertTrue</span>(p.<span class="fn">esta_disponible</span>())
+
+    <span class="kw">def</span> <span class="fn">test_inactivo_no_esta_disponible</span>(<span class="nm">self</span>):
+        p = <span class="fn">crear_producto</span>(estado=<span class="st">'inactivo'</span>, stock=<span class="nu">10</span>, categoria=<span class="nm">self</span>.cat)
+        <span class="nm">self</span>.<span class="fn">assertFalse</span>(p.<span class="fn">esta_disponible</span>())
+        <span class="cm"># ↑ Aunque tiene stock, está inactivo</span>
+
+    <span class="kw">def</span> <span class="fn">test_sin_stock_no_esta_disponible</span>(<span class="nm">self</span>):
+        p = <span class="fn">crear_producto</span>(estado=<span class="st">'activo'</span>, stock=<span class="nu">0</span>, categoria=<span class="nm">self</span>.cat)
+        <span class="nm">self</span>.<span class="fn">assertFalse</span>(p.<span class="fn">esta_disponible</span>())
+
+
+<span class="kw">class</span> <span class="cl">ProductoStockTest</span>(<span class="cl">TestCase</span>):
+
+    <span class="kw">def</span> <span class="fn">setUp</span>(<span class="nm">self</span>):
+        self.cat     = <span class="fn">crear_categoria</span>()
+        <span class="nm">self</span>.producto = <span class="fn">crear_producto</span>(stock=<span class="nu">10</span>, categoria=<span class="nm">self</span>.cat)
+
+    <span class="kw">def</span> <span class="fn">test_reducir_stock_correctamente</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.producto.<span class="fn">reducir_stock</span>(<span class="nu">3</span>)
+        <span class="nm">self</span>.producto.<span class="fn">refresh_from_db</span>()
+        <span class="cm"># ↑ refresh_from_db() recarga desde BD — ¡no olvides esto!</span>
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.producto.stock, <span class="nu">7</span>)
+
+    <span class="kw">def</span> <span class="fn">test_agotar_stock_cambia_estado</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.producto.<span class="fn">reducir_stock</span>(<span class="nu">10</span>)
+        <span class="nm">self</span>.producto.<span class="fn">refresh_from_db</span>()
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.producto.stock, <span class="nu">0</span>)
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.producto.estado, <span class="st">'agotado'</span>)
+        <span class="cm"># ↑ CRÍTICO: estado debe cambiar automáticamente</span>
+
+    <span class="kw">def</span> <span class="fn">test_sobreventa_lanza_error</span>(<span class="nm">self</span>):
+        <span class="kw">with</span> <span class="nm">self</span>.<span class="fn">assertRaises</span>(<span class="cl">ValueError</span>):
+            <span class="nm">self</span>.producto.<span class="fn">reducir_stock</span>(<span class="nu">999</span>)
+
+    <span class="kw">def</span> <span class="fn">test_stock_intacto_si_hay_error</span>(<span class="nm">self</span>):
+        <span class="cm"># Si falla, el stock debe quedar sin cambios</span>
+        <span class="kw">try</span>:
+            <span class="nm">self</span>.producto.<span class="fn">reducir_stock</span>(<span class="nu">999</span>)
+        <span class="kw">except</span> <span class="cl">ValueError</span>:
+            <span class="kw">pass</span>
+        <span class="nm">self</span>.producto.<span class="fn">refresh_from_db</span>()
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.producto.stock, <span class="nu">10</span>)
+
+
+<span class="kw">class</span> <span class="cl">ProductoPropertyTest</span>(<span class="cl">TestCase</span>):
+
+    <span class="kw">def</span> <span class="fn">setUp</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.cat = <span class="fn">crear_categoria</span>()
+
+    <span class="kw">def</span> <span class="fn">test_stock_bajo_cuando_es_menor_a_5</span>(<span class="nm">self</span>):
+        p = <span class="fn">crear_producto</span>(stock=<span class="nu">4</span>, categoria=<span class="nm">self</span>.cat)
+        <span class="nm">self</span>.<span class="fn">assertTrue</span>(p.tiene_stock_bajo)
+
+    <span class="kw">def</span> <span class="fn">test_no_stock_bajo_cuando_es_5_o_mas</span>(<span class="nm">self</span>):
+        p = <span class="fn">crear_producto</span>(stock=<span class="nu">5</span>, categoria=<span class="nm">self</span>.cat)
+        <span class="nm">self</span>.<span class="fn">assertFalse</span>(p.tiene_stock_bajo)
+
+    <span class="kw">def</span> <span class="fn">test_valor_inventario_calcula_correctamente</span>(<span class="nm">self</span>):
+        p = <span class="fn">crear_producto</span>(precio=<span class="cl">Decimal</span>(<span class="st">"100.00"</span>), stock=<span class="nu">5</span>, categoria=<span class="nm">self</span>.cat)
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(p.valor_inventario, <span class="cl">Decimal</span>(<span class="st">"500.00"</span>))
+        <span class="cm"># ↑ SIEMPRE usa Decimal para campos DecimalField, nunca float</span>
+
+
+<span class="kw">class</span> <span class="cl">ProductoValidacionTest</span>(<span class="cl">TestCase</span>):
+
+    <span class="kw">def</span> <span class="fn">setUp</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.cat = <span class="fn">crear_categoria</span>()
+
+    <span class="kw">def</span> <span class="fn">test_precio_cero_es_invalido</span>(<span class="nm">self</span>):
+        p = <span class="cl">Producto</span>(nombre=<span class="st">"X"</span>, precio=<span class="cl">Decimal</span>(<span class="st">"0.00"</span>), categoria=<span class="nm">self</span>.cat)
+        <span class="kw">with</span> <span class="nm">self</span>.<span class="fn">assertRaises</span>(<span class="cl">ValidationError</span>) <span class="kw">as</span> <span class="nm">ctx</span>:
+            p.<span class="fn">clean</span>()
+        <span class="nm">self</span>.<span class="fn">assertIn</span>(<span class="st">'precio'</span>, ctx.exception.message_dict)
+
+    <span class="kw">def</span> <span class="fn">test_precio_positivo_es_valido</span>(<span class="nm">self</span>):
+        p = <span class="cl">Producto</span>(nombre=<span class="st">"X"</span>, precio=<span class="cl">Decimal</span>(<span class="st">"9.99"</span>), categoria=<span class="nm">self</span>.cat)
+        <span class="kw">try</span>:
+            p.<span class="fn">clean</span>()  <span class="cm"># No debe lanzar ninguna excepción</span>
+        <span class="kw">except</span> <span class="cl">ValidationError</span>:
+            <span class="nm">self</span>.<span class="fn">fail</span>(<span class="st">"clean() lanzó ValidationError con precio válido"</span>)</pre></div>
+        </div>
+
+        <div class="callout warning">
+          <span class="callout-icon"><i class="fa-solid fa-triangle-exclamation"></i></span>
+          <div class="callout-content">
+            <strong>3 errores críticos al testear modelos</strong>
+            No usar <code>refresh_from_db()</code> después de <code>save()</code> · Comparar <code>Decimal</code> con <code>float</code> (da falsos negativos) · Hacer que un test dependa del resultado de otro test anterior
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 3: RETOS ── -->
+      <section class="content-section fade-up" id="d3-retos">
+        <div class="section-header">
+          <div class="section-icon icon-orange"><i class="fa-solid fa-dumbbell"></i></div>
+          <div class="section-header-text">
+            <h2>Retos del Día</h2>
+            <p>// practica lo aprendido</p>
+          </div>
+        </div>
+
+        <div class="reto-card">
+          <div class="reto-header">
+            <span class="reto-num"><i class="fa-solid fa-hashtag" style="font-size:0.6rem"></i> RETO 01</span>
+            <span class="reto-stars">★☆☆</span>
+          </div>
+          <div class="reto-body">
+            <div class="reto-title">Testeando el modelo Categoria</div>
+            <div class="reto-objetivo">Escribir tests completos para el modelo Categoria cubriendo sus campos y comportamientos.</div>
+            <ul class="reto-steps">
+              <li><span class="step-num">1</span><span>Crea la clase <code>CategoriaTest(TestCase)</code></span></li>
+              <li><span class="step-num">2</span><span>Test: se crea con nombre y slug correctos</span></li>
+              <li><span class="step-num">3</span><span>Test: <code>activa=True</code> es el valor por defecto</span></li>
+              <li><span class="step-num">4</span><span>Test: <code>__str__</code> retorna el nombre</span></li>
+              <li><span class="step-num">5</span><span>Test: el slug es único (lanza <code>IntegrityError</code> al duplicar)</span></li>
+            </ul>
+            <div class="reto-pista"><i class="fa-solid fa-lightbulb"></i><span><strong style="color:var(--accent-orange)">Pista:</strong> <code>from django.db import IntegrityError</code> → <code>with self.assertRaises(IntegrityError): Categoria.objects.create(slug="repetido")</code></span></div>
+          </div>
+        </div>
+
+        <div class="reto-card">
+          <div class="reto-header">
+            <span class="reto-num"><i class="fa-solid fa-hashtag" style="font-size:0.6rem"></i> RETO 02</span>
+            <span class="reto-stars">★★☆</span>
+          </div>
+          <div class="reto-body">
+            <div class="reto-title">Modelo Cupon con lógica de negocio</div>
+            <div class="reto-objetivo">Crear un modelo nuevo con lógica propia y testearlo exhaustivamente.</div>
+            <ul class="reto-steps">
+              <li><span class="step-num">1</span><span>Agrega el modelo <code>Cupon</code>: <code>codigo</code> (único), <code>descuento_pct</code>, <code>activo=True</code>, <code>usos_maximos=100</code>, <code>usos_actuales=0</code></span></li>
+              <li><span class="step-num">2</span><span>Método <code>esta_vigente()</code>: <code>True</code> si <code>activo</code> y <code>usos_actuales &lt; usos_maximos</code></span></li>
+              <li><span class="step-num">3</span><span>Método <code>usar()</code>: incrementa <code>usos_actuales</code>, lanza <code>ValueError</code> si ya agotado</span></li>
+              <li><span class="step-num">4</span><span>Escribe tests para <strong>todos</strong> los métodos incluyendo los casos borde</span></li>
+            </ul>
+            <div class="reto-pista"><i class="fa-solid fa-lightbulb"></i><span><strong style="color:var(--accent-orange)">Pista:</strong> Prueba el caso borde: <code>usos_actuales == usos_maximos - 1</code> (aún vigente) y luego <code>usar()</code> → pasa a agotado</span></div>
+          </div>
+        </div>
+
+        <div class="reto-card">
+          <div class="reto-header">
+            <span class="reto-num"><i class="fa-solid fa-hashtag" style="font-size:0.6rem"></i> RETO 03</span>
+            <span class="reto-stars">★★★</span>
+          </div>
+          <div class="reto-body">
+            <div class="reto-title">Valor de inventario total de una categoría</div>
+            <div class="reto-objetivo">Testear lógica que involucra múltiples objetos relacionados en BD.</div>
+            <ul class="reto-steps">
+              <li><span class="step-num">1</span><span>Agrega a <code>Categoria</code> el método <code>valor_inventario_total()</code> que sume <code>precio × stock</code> de todos sus productos <strong>activos</strong></span></li>
+              <li><span class="step-num">2</span><span>Test: categoría con 3 productos activos calcula bien</span></li>
+              <li><span class="step-num">3</span><span>Test: categoría con mezcla activos/inactivos (solo cuenta activos)</span></li>
+              <li><span class="step-num">4</span><span>Test: categoría sin productos retorna <code>Decimal('0')</code></span></li>
+            </ul>
+            <div class="reto-pista"><i class="fa-solid fa-lightbulb"></i><span><strong style="color:var(--accent-orange)">Pista:</strong> En el modelo usa <code>from django.db.models import Sum, F</code> → <code>self.productos.filter(estado='activo').aggregate(total=Sum(F('precio')*F('stock')))</code></span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 4: CASO REAL ── -->
+      <section class="content-section fade-up" id="d3-caso">
+        <div class="section-header">
+          <div class="section-icon icon-purple"><i class="fa-solid fa-building"></i></div>
+          <div class="section-header-text">
+            <h2>Caso Práctico Real</h2>
+            <p>// $2000/mes en devoluciones por bugs de inventario</p>
+          </div>
+        </div>
+
+        <div class="caso-card">
+          <div class="caso-header">
+            <div class="caso-icon"><i class="fa-solid fa-warehouse"></i></div>
+            <div>
+              <h3>MegaStore — Pedidos de productos sin stock</h3>
+              <p>// e-commerce · 200 productos · bodega en caos</p>
+            </div>
+          </div>
+          <div class="caso-body">
+            <div class="caso-row">
+              <div class="caso-label"><i class="fa-solid fa-briefcase" style="margin-right:6px"></i>Contexto</div>
+              <div class="caso-text">Trabajas en <strong>MegaStore</strong>. El equipo de logística reportó pedidos de productos sin stock. El CTO descubrió que <code>reducir_stock()</code> no funciona correctamente en casos de concurrencia y los estados no se actualizan bien.</div>
+            </div>
+            <div class="caso-row">
+              <div class="caso-label"><i class="fa-solid fa-clipboard-list" style="margin-right:6px"></i>Requerimiento</div>
+              <div class="caso-text">Tests exhaustivos de <code>reducir_stock()</code>. Los errores de inventario cuestan <strong>$2000/mes</strong> en devoluciones. El sistema debe garantizar que el stock nunca quede negativo y los estados sean siempre consistentes.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">productos/tests/test_models.py — Solución guiada</span>
+            </div>
+            <span class="code-lang">Python</span>
+          </div>
+          <div class="code-body"><pre><span class="kw">class</span> <span class="cl">ReducirStockMegaStoreTest</span>(<span class="cl">TestCase</span>):
+    <span class="st">"""Suite completa — cada test = un escenario real del negocio"""</span>
+
+    <span class="kw">def</span> <span class="fn">setUp</span>(<span class="nm">self</span>):
+        cat = <span class="fn">crear_categoria</span>()
+        <span class="nm">self</span>.p = <span class="fn">crear_producto</span>(stock=<span class="nu">10</span>, estado=<span class="st">"activo"</span>, categoria=cat)
+
+    <span class="kw">def</span> <span class="fn">test_compra_normal_reduce_stock</span>(<span class="nm">self</span>):
+        <span class="cm"># Escenario: cliente compra 2 de 10</span>
+        <span class="nm">self</span>.p.<span class="fn">reducir_stock</span>(<span class="nu">2</span>)
+        <span class="nm">self</span>.p.<span class="fn">refresh_from_db</span>()
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.p.stock, <span class="nu">8</span>)
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.p.estado, <span class="st">"activo"</span>)
+
+    <span class="kw">def</span> <span class="fn">test_comprar_ultimo_producto_lo_agota</span>(<span class="nm">self</span>):
+        <span class="cm"># Escenario: cliente compra la última unidad</span>
+        <span class="nm">self</span>.p.<span class="fn">reducir_stock</span>(<span class="nu">10</span>)
+        <span class="nm">self</span>.p.<span class="fn">refresh_from_db</span>()
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.p.stock, <span class="nu">0</span>)
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.p.estado, <span class="st">"agotado"</span>)  <span class="cm"># ← CRÍTICO</span>
+
+    <span class="kw">def</span> <span class="fn">test_sobreventa_no_modifica_stock</span>(<span class="nm">self</span>):
+        <span class="cm"># Escenario: intento de comprar más del disponible</span>
+        <span class="kw">with</span> <span class="nm">self</span>.<span class="fn">assertRaises</span>(<span class="cl">ValueError</span>):
+            <span class="nm">self</span>.p.<span class="fn">reducir_stock</span>(<span class="nu">11</span>)
+        <span class="nm">self</span>.p.<span class="fn">refresh_from_db</span>()
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.p.stock, <span class="nu">10</span>)   <span class="cm"># ← stock intacto</span>
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.p.estado, <span class="st">"activo"</span>)  <span class="cm"># ← estado intacto</span>
+
+    <span class="kw">def</span> <span class="fn">test_cantidad_cero_es_invalida</span>(<span class="nm">self</span>):
+        <span class="kw">with</span> <span class="nm">self</span>.<span class="fn">assertRaises</span>(<span class="cl">ValueError</span>) <span class="kw">as</span> <span class="nm">ctx</span>:
+            <span class="nm">self</span>.p.<span class="fn">reducir_stock</span>(<span class="nu">0</span>)
+        <span class="nm">self</span>.<span class="fn">assertIn</span>(<span class="st">"mayor a 0"</span>, <span class="fn">str</span>(ctx.exception))
+
+    <span class="kw">def</span> <span class="fn">test_stock_bajo_activa_alerta</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.p.<span class="fn">reducir_stock</span>(<span class="nu">7</span>)   <span class="cm"># 10 - 7 = 3 unidades</span>
+        <span class="nm">self</span>.p.<span class="fn">refresh_from_db</span>()
+        <span class="nm">self</span>.<span class="fn">assertTrue</span>(<span class="nm">self</span>.p.tiene_stock_bajo)
+
+    <span class="kw">def</span> <span class="fn">test_compras_multiples_acumulan_correctamente</span>(<span class="nm">self</span>):
+        <span class="nm">self</span>.p.<span class="fn">reducir_stock</span>(<span class="nu">3</span>)   <span class="cm"># 10 → 7</span>
+        <span class="nm">self</span>.p.<span class="fn">reducir_stock</span>(<span class="nu">4</span>)   <span class="cm">#  7 → 3</span>
+        <span class="nm">self</span>.p.<span class="fn">reducir_stock</span>(<span class="nu">2</span>)   <span class="cm">#  3 → 1</span>
+        <span class="nm">self</span>.p.<span class="fn">refresh_from_db</span>()
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.p.stock, <span class="nu">1</span>)
+        <span class="nm">self</span>.<span class="fn">assertEqual</span>(<span class="nm">self</span>.p.estado, <span class="st">"activo"</span>)</pre></div>
+        </div>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-header-left">
+              <div class="code-dots"><div class="code-dot r"></div><div class="code-dot y"></div><div class="code-dot g"></div></div>
+              <span class="code-filename">resultado</span>
+            </div>
+            <span class="code-lang">OUTPUT</span>
+          </div>
+          <div class="code-body"><pre><span class="ok">test_compra_normal_reduce_stock .............. ok</span>
+<span class="ok">test_comprar_ultimo_producto_lo_agota ........ ok</span>
+<span class="ok">test_compras_multiples_acumulan_correctamente  ok</span>
+<span class="ok">test_cantidad_cero_es_invalida ............... ok</span>
+<span class="ok">test_sobreventa_no_modifica_stock ............ ok</span>
+<span class="ok">test_stock_bajo_activa_alerta ................ ok</span>
+
+Ran 6 tests in 0.089s
+<span class="ok">OK 🎉 — $2000/mes en devoluciones → $0 💰</span></pre></div>
+        </div>
+      </section>
+
+      <!-- ── SECCIÓN 5: CHECKLIST ── -->
+      <section class="content-section fade-up" id="d3-checklist">
+        <div class="section-header">
+          <div class="section-icon icon-green"><i class="fa-solid fa-circle-check"></i></div>
+          <div class="section-header-text">
+            <h2>Checklist de Aprendizaje</h2>
+            <p>// marca lo que ya dominas</p>
+          </div>
+        </div>
+        <div class="callout info" style="margin-bottom:20px">
+          <span class="callout-icon"><i class="fa-solid fa-hand-pointer"></i></span>
+          <div class="callout-content">Haz clic en cada casilla para marcarla. Tu progreso se guarda automáticamente.</div>
+        </div>
+        <ul class="checklist">
+          <li><div class="check-box" onclick="toggleCheckD3(this,0)"></div><span>Saber qué SÍ y qué NO testear en modelos Django</span></li>
+          <li><div class="check-box" onclick="toggleCheckD3(this,1)"></div><span>Crear funciones helper para datos de prueba reutilizables</span></li>
+          <li><div class="check-box" onclick="toggleCheckD3(this,2)"></div><span>Testear valores por defecto de campos</span></li>
+          <li><div class="check-box" onclick="toggleCheckD3(this,3)"></div><span>Testear el método <code>__str__</code> de los modelos</span></li>
+          <li><div class="check-box" onclick="toggleCheckD3(this,4)"></div><span>Testear métodos personalizados con lógica de negocio</span></li>
+          <li><div class="check-box" onclick="toggleCheckD3(this,5)"></div><span>Usar <code>refresh_from_db()</code> después de operaciones <code>save()</code></span></li>
+          <li><div class="check-box" onclick="toggleCheckD3(this,6)"></div><span>Comparar <code>Decimal</code> correctamente (no <code>float</code>)</span></li>
+          <li><div class="check-box" onclick="toggleCheckD3(this,7)"></div><span>Testear que las excepciones se lanzan correctamente con <code>assertRaises</code></span></li>
+          <li><div class="check-box" onclick="toggleCheckD3(this,8)"></div><span>Testear que el estado no cambia si hay un error</span></li>
+          <li><div class="check-box" onclick="toggleCheckD3(this,9)"></div><span>Testear propiedades <code>@property</code> y validaciones <code>clean()</code></span></li>
+          <li><div class="check-box" onclick="toggleCheckD3(this,10)"></div><span>Testear relaciones <code>ForeignKey</code> y el <code>related_name</code></span></li>
+        </ul>
+      </section>
+
+    </main>
+
+    <!-- ══════════ SIDEBAR ══════════ -->
+    <aside class="lesson-sidebar">
+
+      <div class="sidebar-card fade-up">
+        <div class="sidebar-title"><i class="fa-solid fa-chart-line" style="margin-right:6px;color:var(--accent-green)"></i>Tu Progreso</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Días completados</span><span>3 / 21</span></div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:14.3%"></div></div>
+        </div>
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-top:10px">
+          <i class="fa-solid fa-fire" style="color:var(--accent-orange);margin-right:4px"></i>
+          Día <strong style="color:var(--text-primary)">3</strong> de 21 — ¡Vas muy bien!
+        </div>
+      </div>
+
+      <div class="sidebar-card fade-up" style="transition-delay:0.05s">
+        <div class="sidebar-title"><i class="fa-solid fa-list" style="margin-right:6px;color:var(--accent)"></i>Contenido</div>
+        <ul class="toc-list">
+          <li><a href="#d3-teoria"><i class="fa-solid fa-book"></i> Teoría del Día</a></li>
+          <li><a href="#d3-demo"><i class="fa-solid fa-terminal"></i> Demostración en Vivo</a></li>
+          <li><a href="#d3-retos"><i class="fa-solid fa-dumbbell"></i> Retos del Día</a></li>
+          <li><a href="#d3-caso"><i class="fa-solid fa-building"></i> Caso Práctico Real</a></li>
+          <li><a href="#d3-checklist"><i class="fa-solid fa-circle-check"></i> Checklist</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card fade-up" style="transition-delay:0.1s">
+        <div class="sidebar-title"><i class="fa-solid fa-calendar" style="margin-right:6px;color:var(--accent-orange)"></i>Nivel Básico — Días 1–7</div>
+        <ul class="days-list">
+          <li><div class="day-num-badge day-done">01</div><span class="day-text">¿Qué son los tests?</span></li>
+          <li><div class="day-num-badge day-done">02</div><span class="day-text">Configuración del entorno</span></li>
+          <li><div class="day-num-badge day-current">03</div><span class="day-text current">Tests de modelos</span></li>
+          <li><div class="day-num-badge day-pending">04</div><span class="day-text">Tests de formularios</span></li>
+          <li><div class="day-num-badge day-pending">05</div><span class="day-text">Tests de vistas</span></li>
+          <li><div class="day-num-badge day-pending">06</div><span class="day-text">TestCase y fixtures</span></li>
+          <li><div class="day-num-badge day-pending">07</div><span class="day-text">Proyecto integrador</span></li>
+        </ul>
+      </div>
+
+    </aside>
+  </div>
+</div>
+
+<!-- NAVEGACIÓN -->
+<div class="lesson-nav-bar">
+  <div class="container">
+    <div class="d-flex align-items-center gap-3">
+      <a href="{% url 'web:testing_dia2' %}" class="nav-btn">
+        <span class="nav-arrow"><i class="fa-solid fa-arrow-left"></i></span>
+        <div><div class="nav-label">Anterior</div><div class="nav-day">Día 2 — Configuración del entorno</div></div>
+      </a>
+      <a href="#" class="nav-btn next disabled">
+        <div style="text-align:right">
+          <div class="nav-label">Siguiente</div>
+          <div class="nav-day">Día 4 — Tests de formularios</div>
+        </div>
+        <span class="nav-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  function toggleCheckD3(el, idx) {
+    el.classList.toggle('checked');
+    const boxes = document.querySelectorAll('#d3-checklist .check-box');
+    localStorage.setItem('checklist-d3', JSON.stringify([...boxes].map(b => b.classList.contains('checked'))));
+  }
+  window.toggleCheckD3 = toggleCheckD3;
+
+  const saved = localStorage.getItem('checklist-d3');
+  if (saved) {
+    const states = JSON.parse(saved);
+    document.querySelectorAll('#d3-checklist .check-box').forEach((b, i) => { if (states[i]) b.classList.add('checked'); });
+  }
+})();
+</script>
+{% endblock %}

@@ -1,0 +1,506 @@
+{% extends "pages/learning_base.html" %}
+
+{% block title %}Testing en Django — Plan de 21 días{% endblock %}
+{% block meta_description %}Aprende testing en Django en 21 días: desde assertEqual hasta CI/CD con 100% coverage. Tutoriales prácticos con código real y retos diarios.{% endblock %}
+{% block canonical %}https://sergiorueda.dev/learning/testing-django/{% endblock %}
+{% block og_title %}Testing en Django — Plan de 21 días | Sergio Rueda{% endblock %}
+{% block og_description %}Domina el testing en Django en 21 días. Desde tests unitarios hasta CI/CD con GitHub Actions. Tutoriales prácticos con código real.{% endblock %}
+{% block og_url %}https://sergiorueda.dev/learning/testing-django/{% endblock %}
+{% block twitter_title %}Testing en Django — Plan de 21 días | Sergio Rueda{% endblock %}
+{% block twitter_description %}Domina el testing en Django en 21 días. Desde tests unitarios hasta CI/CD con GitHub Actions.{% endblock %}
+
+{% block extra_schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Testing en Django — De cero a experto en 21 días",
+  "description": "Curso práctico de testing en Django: tests unitarios, integración, mocking, Factory Boy, coverage y CI/CD con GitHub Actions.",
+  "provider": {
+    "@type": "Person",
+    "name": "Sergio Rueda",
+    "url": "https://sergiorueda.dev/"
+  },
+  "educationalLevel": "Beginner to Advanced",
+  "inLanguage": "es",
+  "isAccessibleForFree": true,
+  "numberOfCredits": "21",
+  "hasCourseInstance": {
+    "@type": "CourseInstance",
+    "courseMode": "online",
+    "courseWorkload": "PT10H"
+  }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="lesson-hero">
+  <div class="lesson-hero-grid"></div>
+  <div class="lesson-hero-glow"></div>
+  <div class="container position-relative">
+    <div class="lesson-breadcrumb">
+      <a href="{% url 'web:learning' %}"><i class="fa-solid fa-house" style="font-size:0.65rem"></i> Tutoriales</a>
+      <span class="sep">/</span>
+      <span style="color:var(--accent)">Testing en Django</span>
+    </div>
+    <div class="lesson-day-badge"><i class="fa-solid fa-calendar"></i> PLAN COMPLETO — 21 DÍAS</div>
+    <h1 class="lesson-title">Testing en Django<br><span class="hl">de cero a experto</span></h1>
+    <p class="lesson-subtitle">Domina el testing en Django en 21 días: desde tu primer <code>assertEqual</code> hasta CI/CD con 100% coverage. Tutoriales prácticos con código real, retos diarios y casos de empresas.</p>
+    <div class="lesson-meta">
+      <div class="lesson-meta-item"><i class="fa-solid fa-calendar-days"></i><span>21 días</span></div>
+      <div class="lesson-meta-item"><i class="fa-solid fa-clock"></i><span>~10 horas de contenido</span></div>
+      <div class="lesson-meta-item"><i class="fa-solid fa-code"></i><span>63 retos prácticos</span></div>
+      <div class="lesson-meta-item"><i class="fa-solid fa-building"></i><span>21 casos reales</span></div>
+    </div>
+    <div style="margin-top:28px">
+      <a href="{% url 'web:testing_dia1' %}" class="btn-start-course">
+        <i class="fa-solid fa-rocket" style="font-size:0.8rem"></i>
+        Comenzar el curso — Día 1
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ TEMARIO ═══════════════════ -->
+<div class="container">
+  <div class="temario-layout">
+
+    <!-- ══════════ CONTENIDO PRINCIPAL ══════════ -->
+    <main class="temario-content">
+
+      <!-- ── NIVEL BÁSICO ── -->
+      <section class="temario-level fade-up" id="nivel-basico">
+        <div class="level-header level-green">
+          <div class="level-icon green"><i class="fa-solid fa-seedling"></i></div>
+          <div>
+            <h2 class="level-title">Nivel Básico</h2>
+            <p class="level-range">Días 1 al 7</p>
+          </div>
+          <span class="level-badge level-basico" style="margin-left:auto">BÁSICO</span>
+        </div>
+
+        <div class="temario-days">
+          <a href="{% url 'web:testing_dia1' %}" class="day-row completed">
+            <div class="day-number">01</div>
+            <div class="day-info">
+              <div class="day-title">¿Qué son los tests y por qué usarlos?</div>
+              <div class="day-desc">Conceptos fundamentales, pirámide de testing, tu primer test con assertEqual</div>
+            </div>
+            <div class="day-status"><span class="status-badge done"><i class="fa-solid fa-check"></i> Completado</span></div>
+          </a>
+
+          <a href="{% url 'web:testing_dia2' %}" class="day-row completed">
+            <div class="day-number">02</div>
+            <div class="day-info">
+              <div class="day-title">Configuración del entorno de testing</div>
+              <div class="day-desc">Settings separados, BD en memoria, setUp/tearDown, pytest.ini</div>
+            </div>
+            <div class="day-status"><span class="status-badge done"><i class="fa-solid fa-check"></i> Completado</span></div>
+          </a>
+
+          <a href="{% url 'web:testing_dia3' %}" class="day-row completed">
+            <div class="day-number">03</div>
+            <div class="day-info">
+              <div class="day-title">Tests unitarios: modelos y campos</div>
+              <div class="day-desc">Testear modelos, métodos, propiedades, validaciones y relaciones</div>
+            </div>
+            <div class="day-status"><span class="status-badge done"><i class="fa-solid fa-check"></i> Completado</span></div>
+          </a>
+
+          <div class="day-row pending">
+            <div class="day-number">04</div>
+            <div class="day-info">
+              <div class="day-title">Tests de formularios</div>
+              <div class="day-desc">Validación de forms, campos requeridos, datos limpios y errores personalizados</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">05</div>
+            <div class="day-info">
+              <div class="day-title">Tests de vistas básicas</div>
+              <div class="day-desc">Client de testing, status codes, templates, redirects y contexto</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">06</div>
+            <div class="day-info">
+              <div class="day-title">TestCase y fixtures</div>
+              <div class="day-desc">Datos de prueba reutilizables, fixtures JSON y setUpTestData</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">07</div>
+            <div class="day-info">
+              <div class="day-title">Proyecto integrador básico</div>
+              <div class="day-desc">Aplicación completa con tests de modelos, forms y vistas integrados</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── NIVEL INTERMEDIO ── -->
+      <section class="temario-level fade-up" id="nivel-intermedio">
+        <div class="level-header level-yellow">
+          <div class="level-icon orange"><i class="fa-solid fa-fire"></i></div>
+          <div>
+            <h2 class="level-title">Nivel Intermedio</h2>
+            <p class="level-range">Días 8 al 14</p>
+          </div>
+          <span class="level-badge level-intermedio" style="margin-left:auto">INTERMEDIO</span>
+        </div>
+
+        <div class="temario-days">
+          <div class="day-row pending">
+            <div class="day-number">08</div>
+            <div class="day-info">
+              <div class="day-title">Tests con autenticación y permisos</div>
+              <div class="day-desc">Login, logout, decoradores, permisos de usuario y grupos</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">09</div>
+            <div class="day-info">
+              <div class="day-title">Tests de API REST con Django REST Framework</div>
+              <div class="day-desc">APIClient, serializers, viewsets, autenticación JWT y paginación</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">10</div>
+            <div class="day-info">
+              <div class="day-title">Mocking y patches</div>
+              <div class="day-desc">unittest.mock, patch, MagicMock, side_effect y APIs externas</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">11</div>
+            <div class="day-info">
+              <div class="day-title">Tests de señales (signals)</div>
+              <div class="day-desc">post_save, pre_delete, signals custom y verificación de efectos</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">12</div>
+            <div class="day-info">
+              <div class="day-title">Factory Boy y Faker para datos de prueba</div>
+              <div class="day-desc">Factories, SubFactory, lazy attributes y datos realistas automatizados</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">13</div>
+            <div class="day-info">
+              <div class="day-title">Coverage y métricas de calidad</div>
+              <div class="day-desc">pytest-cov, reportes HTML, configuración mínima y branches</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">14</div>
+            <div class="day-info">
+              <div class="day-title">Proyecto integrador intermedio</div>
+              <div class="day-desc">API REST completa con auth, mocks, factories y 85%+ coverage</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ── NIVEL AVANZADO ── -->
+      <section class="temario-level fade-up" id="nivel-avanzado">
+        <div class="level-header level-red">
+          <div class="level-icon red"><i class="fa-solid fa-bolt"></i></div>
+          <div>
+            <h2 class="level-title">Nivel Avanzado</h2>
+            <p class="level-range">Días 15 al 21</p>
+          </div>
+          <span class="level-badge level-avanzado" style="margin-left:auto">AVANZADO</span>
+        </div>
+
+        <div class="temario-days">
+          <div class="day-row pending">
+            <div class="day-number">15</div>
+            <div class="day-info">
+              <div class="day-title">Tests de rendimiento y carga</div>
+              <div class="day-desc">django-silk, assertNumQueries, N+1 detection y benchmarks</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">16</div>
+            <div class="day-info">
+              <div class="day-title">Tests de integración con base de datos</div>
+              <div class="day-desc">TransactionTestCase, fixtures complejos, migraciones y constraints</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">17</div>
+            <div class="day-info">
+              <div class="day-title">Tests con Celery y tareas asíncronas</div>
+              <div class="day-desc">CELERY_ALWAYS_EAGER, task mocking, resultados y retry</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">18</div>
+            <div class="day-info">
+              <div class="day-title">Tests end-to-end con Selenium</div>
+              <div class="day-desc">StaticLiveServerTestCase, WebDriver, esperas y capturas de pantalla</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">19</div>
+            <div class="day-info">
+              <div class="day-title">CI/CD con GitHub Actions y tests automáticos</div>
+              <div class="day-desc">Workflows, matrix testing, cache de dependencias y badges</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">20</div>
+            <div class="day-info">
+              <div class="day-title">TDD (Test Driven Development) en Django</div>
+              <div class="day-desc">Red-Green-Refactor, diseño guiado por tests y patrones TDD</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+
+          <div class="day-row pending">
+            <div class="day-number">21</div>
+            <div class="day-info">
+              <div class="day-title">Proyecto final EXPERTO: sistema completo con 100% coverage</div>
+              <div class="day-desc">E-commerce completo con TDD, CI/CD, Selenium, factories y documentación</div>
+            </div>
+            <div class="day-status"><span class="status-badge soon"><i class="fa-solid fa-clock"></i> Próximamente</span></div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ══════════ SIDEBAR ══════════ -->
+    <aside class="lesson-sidebar">
+      <div class="sidebar-card fade-up">
+        <div class="sidebar-title"><i class="fa-solid fa-chart-line" style="margin-right:6px;color:var(--accent-green)"></i>Progreso General</div>
+        <div class="progress-wrap">
+          <div class="progress-label"><span>Días completados</span><span>3 / 21</span></div>
+          <div class="progress-bar-bg"><div class="progress-bar-fill" style="width:14.3%"></div></div>
+        </div>
+        <div style="font-size:0.78rem;color:var(--text-muted);margin-top:10px">
+          <i class="fa-solid fa-fire" style="color:var(--accent-orange);margin-right:4px"></i>
+          <strong style="color:var(--text-primary)">3</strong> de 21 días — ¡Sigue así!
+        </div>
+      </div>
+
+      <div class="sidebar-card fade-up" style="transition-delay:0.05s">
+        <div class="sidebar-title"><i class="fa-solid fa-list" style="margin-right:6px;color:var(--accent)"></i>Niveles</div>
+        <ul class="toc-list">
+          <li><a href="#nivel-basico"><i class="fa-solid fa-seedling" style="color:var(--accent-green)"></i> Básico (1–7)</a></li>
+          <li><a href="#nivel-intermedio"><i class="fa-solid fa-fire" style="color:var(--accent-orange)"></i> Intermedio (8–14)</a></li>
+          <li><a href="#nivel-avanzado"><i class="fa-solid fa-bolt" style="color:var(--accent-red)"></i> Avanzado (15–21)</a></li>
+        </ul>
+      </div>
+
+      <div class="sidebar-card fade-up" style="transition-delay:0.1s">
+        <div class="sidebar-title"><i class="fa-solid fa-graduation-cap" style="margin-right:6px;color:var(--accent-purple)"></i>¿Qué aprenderás?</div>
+        <ul style="list-style:none;padding:0;font-size:0.8rem;color:var(--text-secondary)">
+          <li style="padding:6px 0;border-bottom:1px solid rgba(48,54,61,0.4);display:flex;gap:8px"><i class="fa-solid fa-check" style="color:var(--accent-green);font-size:0.65rem;margin-top:4px"></i>Tests unitarios y de integración</li>
+          <li style="padding:6px 0;border-bottom:1px solid rgba(48,54,61,0.4);display:flex;gap:8px"><i class="fa-solid fa-check" style="color:var(--accent-green);font-size:0.65rem;margin-top:4px"></i>pytest + Factory Boy + Faker</li>
+          <li style="padding:6px 0;border-bottom:1px solid rgba(48,54,61,0.4);display:flex;gap:8px"><i class="fa-solid fa-check" style="color:var(--accent-green);font-size:0.65rem;margin-top:4px"></i>Mocking de APIs externas</li>
+          <li style="padding:6px 0;border-bottom:1px solid rgba(48,54,61,0.4);display:flex;gap:8px"><i class="fa-solid fa-check" style="color:var(--accent-green);font-size:0.65rem;margin-top:4px"></i>Coverage al 100%</li>
+          <li style="padding:6px 0;border-bottom:1px solid rgba(48,54,61,0.4);display:flex;gap:8px"><i class="fa-solid fa-check" style="color:var(--accent-green);font-size:0.65rem;margin-top:4px"></i>CI/CD con GitHub Actions</li>
+          <li style="padding:6px 0;display:flex;gap:8px"><i class="fa-solid fa-check" style="color:var(--accent-green);font-size:0.65rem;margin-top:4px"></i>TDD en proyectos reales</li>
+        </ul>
+      </div>
+    </aside>
+
+  </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function() {
+  const obs = new IntersectionObserver(
+    entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
+    { threshold: 0.08 }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+})();
+</script>
+
+<style>
+/* ── TEMARIO LAYOUT ── */
+.temario-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 40px;
+  padding: 52px 0 80px;
+  align-items: start;
+}
+@media (max-width: 991px) {
+  .temario-layout { grid-template-columns: 1fr; }
+  .temario-layout .lesson-sidebar { order: -1; }
+}
+.temario-content { min-width: 0; }
+
+/* ── LEVEL SECTIONS ── */
+.temario-level { margin-bottom: 48px; }
+
+.level-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 20px 24px;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border: 1px solid var(--border);
+  border-bottom: none;
+}
+.level-header.level-green { background: linear-gradient(135deg, rgba(63,185,80,0.08), rgba(63,185,80,0.02)); }
+.level-header.level-yellow { background: linear-gradient(135deg, rgba(227,179,65,0.08), rgba(227,179,65,0.02)); }
+.level-header.level-red { background: linear-gradient(135deg, rgba(248,81,73,0.08), rgba(248,81,73,0.02)); }
+
+.level-icon {
+  width: 44px; height: 44px;
+  border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; flex-shrink: 0;
+}
+.level-icon.green { background: rgba(63,185,80,0.15); color: var(--accent-green); }
+.level-icon.orange { background: rgba(227,179,65,0.15); color: var(--accent-orange); }
+.level-icon.red { background: rgba(248,81,73,0.15); color: var(--accent-red); }
+
+.level-title {
+  font-size: 1.1rem; font-weight: 700;
+  color: var(--text-primary); letter-spacing: -0.02em; margin-bottom: 2px;
+}
+.level-range {
+  font-family: var(--font-mono); font-size: 0.72rem;
+  color: var(--text-muted); letter-spacing: 0.04em;
+}
+
+.level-intermedio {
+  background: rgba(227,179,65,0.12); color: var(--accent-orange);
+  border: 1px solid rgba(227,179,65,0.2);
+}
+.level-avanzado {
+  background: rgba(248,81,73,0.12); color: var(--accent-red);
+  border: 1px solid rgba(248,81,73,0.2);
+}
+
+/* ── DAY ROWS ── */
+.temario-days {
+  border: 1px solid var(--border);
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  overflow: hidden;
+}
+
+.day-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 24px;
+  border-bottom: 1px solid rgba(48,54,61,0.5);
+  transition: all var(--transition);
+  text-decoration: none;
+  color: inherit;
+}
+.day-row:last-child { border-bottom: none; }
+.day-row:hover { background: rgba(88,166,255,0.04); }
+a.day-row.completed:hover { background: rgba(63,185,80,0.06); }
+.day-row.pending { cursor: default; }
+
+.day-number {
+  font-family: var(--font-mono);
+  font-size: 0.75rem; font-weight: 700;
+  width: 36px; height: 36px;
+  border-radius: 8px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.day-row.completed .day-number {
+  background: rgba(63,185,80,0.15); color: var(--accent-green);
+  border: 1px solid rgba(63,185,80,0.3);
+}
+.day-row.pending .day-number {
+  background: rgba(48,54,61,0.5); color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.day-info { flex: 1; min-width: 0; }
+.day-title {
+  font-size: 0.9rem; font-weight: 600;
+  color: var(--text-primary); margin-bottom: 3px;
+}
+.day-row.pending .day-title { color: var(--text-secondary); }
+.day-desc {
+  font-size: 0.78rem; color: var(--text-muted);
+  line-height: 1.5;
+}
+
+.day-status { flex-shrink: 0; }
+.status-badge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem; font-weight: 600;
+  padding: 4px 12px; border-radius: 20px;
+  letter-spacing: 0.04em;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.status-badge.done {
+  background: rgba(63,185,80,0.12); color: var(--accent-green);
+  border: 1px solid rgba(63,185,80,0.25);
+}
+.status-badge.soon {
+  background: rgba(48,54,61,0.5); color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+/* ── START BUTTON ── */
+.btn-start-course {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--accent); color: #0d1117;
+  font-weight: 600; font-size: 0.9rem;
+  padding: 12px 28px; border-radius: 8px;
+  border: none; cursor: pointer;
+  transition: all var(--transition);
+  text-decoration: none;
+}
+.btn-start-course:hover {
+  background: #79c0ff; color: #0d1117;
+  box-shadow: 0 0 24px rgba(88,166,255,0.25);
+  transform: translateY(-2px);
+}
+
+@media (max-width: 767px) {
+  .day-row { flex-wrap: wrap; gap: 10px; }
+  .day-status { width: 100%; }
+  .level-header { flex-wrap: wrap; }
+}
+</style>
+{% endblock %}

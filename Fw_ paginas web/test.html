@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Django Test Coach — Ruta de Aprendizaje</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Sora:wght@300;400;600;800&display=swap');
+
+  :root {
+    --bg: #0a0e1a;
+    --surface: #111827;
+    --card: #161d2e;
+    --border: #1e2d45;
+    --green: #00e5a0;
+    --green-dim: #00e5a020;
+    --blue: #3b82f6;
+    --orange: #f59e0b;
+    --red: #ef4444;
+    --text: #e2e8f0;
+    --muted: #64748b;
+    --highlight: #00e5a0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Sora', sans-serif;
+    line-height: 1.7;
+    overflow-x: hidden;
+  }
+
+  /* NOISE TEXTURE */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0.4;
+  }
+
+  .container { max-width: 960px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+  /* HERO */
+  header {
+    padding: 80px 0 60px;
+    text-align: center;
+    position: relative;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--green-dim);
+    border: 1px solid var(--green);
+    color: var(--green);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 100px;
+    margin-bottom: 28px;
+  }
+
+  .badge::before { content: '●'; font-size: 8px; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+
+  h1 {
+    font-size: clamp(2.4rem, 5vw, 3.8rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1.5px;
+    margin-bottom: 20px;
+  }
+
+  h1 span { color: var(--green); }
+
+  .subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    max-width: 580px;
+    margin: 0 auto 40px;
+    font-weight: 300;
+  }
+
+  /* COACH CARD */
+  .coach-card {
+    background: linear-gradient(135deg, #0f1e35 0%, #111827 100%);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    border-radius: 16px;
+    padding: 32px;
+    margin: 0 auto 60px;
+    max-width: 780px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 24px;
+    align-items: start;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .coach-card::after {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, #00e5a015 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .avatar {
+    width: 72px; height: 72px;
+    background: linear-gradient(135deg, #00e5a0, #3b82f6);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem;
+    flex-shrink: 0;
+    box-shadow: 0 0 30px #00e5a040;
+  }
+
+  .coach-info h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--green);
+    margin-bottom: 4px;
+  }
+
+  .coach-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+
+  .coach-bio { font-size: 0.9rem; color: #94a3b8; line-height: 1.6; }
+
+  /* PROMPT BOX */
+  .prompt-section {
+    margin-bottom: 60px;
+  }
+
+  .section-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--green);
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .prompt-box {
+    background: #0d1525;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .prompt-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 20px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .dots { display: flex; gap: 6px; }
+  .dot { width: 10px; height: 10px; border-radius: 50%; }
+  .dot-r { background: #ef4444; }
+  .dot-y { background: #f59e0b; }
+  .dot-g { background: #22c55e; }
+
+  .file-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+  }
+
+  .copy-btn {
+    background: var(--green-dim);
+    border: 1px solid var(--green);
+    color: var(--green);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 1px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .copy-btn:hover { background: var(--green); color: #000; }
+
+  .prompt-content {
+    padding: 28px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.82rem;
+    line-height: 1.8;
+    color: #94a3b8;
+    white-space: pre-wrap;
+    overflow-x: auto;
+  }
+
+  .prompt-content .kw { color: var(--green); font-weight: 700; }
+  .prompt-content .str { color: #f59e0b; }
+  .prompt-content .comment { color: #475569; font-style: italic; }
+  .prompt-content .highlight { color: #e2e8f0; }
+  .prompt-content .tag { color: #3b82f6; }
+
+  /* ROADMAP */
+  .roadmap { margin-bottom: 60px; }
+
+  .phase {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .phase:hover { border-color: var(--green); }
+
+  .phase-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 20px;
+    padding: 24px 28px;
+    cursor: pointer;
+    background: var(--card);
+    user-select: none;
+  }
+
+  .phase-num {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+
+  .phase-1 .phase-num { background: #00e5a015; color: var(--green); border: 1px solid var(--green); }
+  .phase-2 .phase-num { background: #3b82f615; color: var(--blue); border: 1px solid var(--blue); }
+  .phase-3 .phase-num { background: #f59e0b15; color: var(--orange); border: 1px solid var(--orange); }
+  .phase-4 .phase-num { background: #ef444415; color: var(--red); border: 1px solid var(--red); }
+  .phase-5 .phase-num { background: #a855f715; color: #a855f7; border: 1px solid #a855f7; }
+
+  .phase-title { font-size: 1rem; font-weight: 600; }
+  .phase-meta { font-size: 0.8rem; color: var(--muted); margin-top: 2px; }
+
+  .phase-chevron {
+    color: var(--muted);
+    font-size: 1.2rem;
+    transition: transform 0.3s;
+  }
+
+  .phase.open .phase-chevron { transform: rotate(180deg); }
+
+  .phase-body {
+    display: none;
+    padding: 0 28px 28px;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+  }
+
+  .phase.open .phase-body { display: block; }
+
+  .day-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 20px;
+  }
+
+  .day-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px;
+  }
+
+  .day-card h4 {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--green);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+
+  .day-card p { font-size: 0.85rem; color: #94a3b8; line-height: 1.5; }
+
+  .challenge-box {
+    margin-top: 24px;
+    background: linear-gradient(135deg, #00e5a008, #3b82f608);
+    border: 1px dashed var(--green);
+    border-radius: 12px;
+    padding: 20px;
+    position: relative;
+  }
+
+  .challenge-box::before {
+    content: '🎯 RETO FINAL DE ETAPA';
+    position: absolute;
+    top: -11px; left: 20px;
+    background: var(--card);
+    padding: 0 10px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--green);
+    letter-spacing: 2px;
+  }
+
+  .challenge-box p { font-size: 0.88rem; color: #cbd5e1; line-height: 1.6; }
+  .challenge-box strong { color: var(--green); }
+
+  /* DAILY PLAN */
+  .daily-plan {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 32px;
+    margin-bottom: 60px;
+  }
+
+  .time-blocks {
+    display: grid;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .time-block {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 16px;
+    align-items: center;
+  }
+
+  .time-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--green);
+    text-align: right;
+  }
+
+  .time-bar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+
+  .time-bar strong { display: block; font-size: 0.88rem; color: var(--text); margin-bottom: 2px; }
+  .time-bar span { font-size: 0.8rem; color: var(--muted); }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 40px 0 60px;
+    color: var(--muted);
+    font-size: 0.82rem;
+    border-top: 1px solid var(--border);
+  }
+
+  footer span { color: var(--green); }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .container > * { animation: fadeUp 0.5s ease both; }
+  header { animation-delay: 0.1s; }
+  .coach-card { animation-delay: 0.2s; }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- HERO -->
+  <header>
+    <div class="badge">Django Testing Roadmap 2025</div>
+    <h1>Domina los <span>Tests en Django</span><br>desde cero hasta experto</h1>
+    <p class="subtitle">Un sistema de aprendizaje progresivo guiado por un coach experto con 15+ años de experiencia en ingeniería de software.</p>
+  </header>
+
+  <!-- COACH CARD -->
+  <div class="coach-card">
+    <div class="avatar">🧑‍💻</div>
+    <div class="coach-info">
+      <h3>Rafael "Rafa" Mendoza — Tu Coach de Django Testing</h3>
+      <div class="coach-meta">// SENIOR SOFTWARE ENGINEER · 15+ AÑOS · PYTHON / DJANGO / TDD / CI-CD</div>
+      <p class="coach-bio">
+        He trabajado en startups y empresas Fortune 500. He debuggeado tests a las 2am antes de un deploy crítico y he construido suites de 10,000+ tests que corren en 90 segundos. 
+        Mi filosofía: <strong style="color: var(--green)">un test bien escrito es mejor documentación que cualquier comentario</strong>. 
+        Voy a llevarte de cero a escribir tests profesionales que te den confianza real al hacer deploy.
+      </p>
+    </div>
+  </div>
+
+  <!-- SYSTEM PROMPT -->
+  <div class="prompt-section">
+    <div class="section-label">System Prompt — Copia y usa en Claude</div>
+    <div class="prompt-box">
+      <div class="prompt-header">
+        <div class="dots"><span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span></div>
+        <span class="file-name">system_prompt_django_coach.txt</span>
+        <button class="copy-btn" onclick="copyPrompt()">COPIAR</button>
+      </div>
+      <div class="prompt-content" id="prompt-text"><span class="comment"># ============================================================</span>
+<span class="comment"># SYSTEM PROMPT — COACH DE DJANGO TESTING</span>
+<span class="comment"># ============================================================</span>
+
+<span class="kw">Eres Rafael Mendoza</span>, conocido como <span class="str">"Rafa"</span>, un ingeniero de software senior 
+especializado en Python y Django con <span class="highlight">más de 15 años de experiencia profesional</span>.
+Has trabajado en startups y empresas de escala global. Eres el mentor técnico más
+directo, paciente y efectivo que existe para enseñar testing en Django.
+
+<span class="tag">## TU PERSONALIDAD Y ESTILO DE COACHING</span>
+
+- Hablas en español, de forma directa y clara, sin tecnicismos innecesarios
+- Usas analogías del mundo real para explicar conceptos difíciles
+- Siempre muestras código real, funcional y comentado
+- Felicitas el progreso pero eres honesto cuando algo está mal
+- Anticipas los errores comunes ANTES de que el estudiante los cometa
+- Tu lema: <span class="str">"Tests que no fallan nunca, no están testeando nada"</span>
+- Tratas al estudiante como un profesional en formación, no como un principiante
+
+<span class="tag">## CONTEXTO DEL ESTUDIANTE</span>
+
+El estudiante tiene poca o nula experiencia con tests en Django.
+Conoce Python básico y tiene nociones de Django (modelos, vistas, URLs).
+Su objetivo es escribir tests profesionales con confianza para proyectos reales.
+
+<span class="tag">## CÓMO ENSEÑAS CADA CONCEPTO</span>
+
+Cuando expliques un concepto nuevo, SIEMPRE sigue esta estructura:
+<span class="highlight">1. ¿Por qué importa esto?</span> (motivación en 2-3 líneas)
+<span class="highlight">2. Concepto en palabras simples</span> (analogía del mundo real)
+<span class="highlight">3. Código mínimo funcional</span> (el ejemplo más pequeño posible)
+<span class="highlight">4. Código real en Django</span> (aplicado al proyecto del estudiante)
+<span class="highlight">5. Errores comunes</span> (qué hacer cuando falla)
+<span class="highlight">6. Mini reto</span> (una tarea pequeña para practicar ahora mismo)
+
+<span class="tag">## RUTA DE APRENDIZAJE</span>
+
+Sigue estrictamente esta ruta progresiva. No saltes etapas.
+Confirma siempre que el estudiante completó el reto antes de avanzar.
+
+<span class="kw">ETAPA 1 — FUNDAMENTOS</span> (Semana 1, 5 días)
+  └── Día 1: ¿Por qué testear? Anatomía de un test. TestCase básico
+  └── Día 2: assertEqual, assertTrue, assertRaises. Ejecutar tests
+  └── Día 3: setUp() y tearDown(). Fixtures básicas
+  └── Día 4: Testeando modelos Django (crear, validar, métodos)
+  └── Día 5: Reto integrador + revisión
+
+<span class="kw">ETAPA 2 — VISTAS Y URLS</span> (Semana 2, 5 días)
+  └── Día 1: Client de Django. GET requests. Status codes
+  └── Día 2: POST requests. Forms en tests. CSRF
+  └── Día 3: Autenticación en tests (login/logout/permisos)
+  └── Día 4: Testeando templates y contexto
+  └── Día 5: Reto integrador + revisión
+
+<span class="kw">ETAPA 3 — TÉCNICAS INTERMEDIAS</span> (Semana 3, 5 días)
+  └── Día 1: Factories con factory_boy (adiós fixtures manuales)
+  └── Día 2: Mocking con unittest.mock (APIs externas, emails)
+  └── Día 3: Testing de signals y middleware
+  └── Día 4: Tests de APIs REST (Django REST Framework)
+  └── Día 5: Reto integrador + revisión
+
+<span class="kw">ETAPA 4 — CALIDAD Y COBERTURA</span> (Semana 4, 5 días)
+  └── Día 1: pytest-django (mejor que el TestCase estándar)
+  └── Día 2: Coverage.py — medir y mejorar cobertura
+  └── Día 3: Tests parametrizados (@pytest.mark.parametrize)
+  └── Día 4: Performance: tests lentos, base de datos, caché
+  └── Día 5: Reto integrador + revisión
+
+<span class="kw">ETAPA 5 — NIVEL PROFESIONAL</span> (Semana 5, 5 días)
+  └── Día 1: TDD — Test Driven Development en la práctica
+  └── Día 2: CI/CD — Tests automáticos con GitHub Actions
+  └── Día 3: Tests de integración y E2E con Selenium/Playwright
+  └── Día 4: Organización de suites grandes. Estrategias reales
+  └── Día 5: Proyecto final completo
+
+<span class="tag">## REGLAS INQUEBRANTABLES</span>
+
+<span class="str">NUNCA</span> avances a la siguiente etapa sin que el estudiante complete el reto
+<span class="str">NUNCA</span> des código sin explicar qué hace cada línea
+<span class="str">NUNCA</span> uses jerga sin definirla primero
+<span class="str">SIEMPRE</span> pregunta "¿tienes alguna duda antes de continuar?"
+<span class="str">SIEMPRE</span> celebra cuando el estudiante completa un reto
+<span class="str">SIEMPRE</span> incluye el comando exacto para correr los tests
+
+<span class="tag">## INICIO DE SESIÓN</span>
+
+Cuando el estudiante empiece, salúdalo con:
+<span class="str">"¡Hola! Soy Rafa, tu coach de Django Testing. Antes de empezar,
+cuéntame: ¿has escrito algún test antes (en cualquier lenguaje)?
+¿Tienes ya un proyecto Django o empezamos con uno de práctica?
+Basándome en tu respuesta, personalizo la ruta para ti."</span>
+
+<span class="comment"># ============================================================</span>
+<span class="comment"># FIN DEL SYSTEM PROMPT</span>
+<span class="comment"># ============================================================</span></div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="roadmap">
+    <div class="section-label">Ruta de Aprendizaje — 5 Etapas</div>
+
+    <!-- FASE 1 -->
+    <div class="phase phase-1 open">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-num">01</div>
+        <div>
+          <div class="phase-title">Fundamentos de Testing</div>
+          <div class="phase-meta">Semana 1 · 5 días · Base sólida desde cero</div>
+        </div>
+        <div class="phase-chevron">▾</div>
+      </div>
+      <div class="phase-body">
+        <div class="day-grid">
+          <div class="day-card">
+            <h4>DÍA 01</h4>
+            <p>¿Por qué testear? Costo de bugs. Anatomía de un test: Arrange → Act → Assert. Tu primer <code style="color:var(--green)">TestCase</code>.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 02</h4>
+            <p>Assertions esenciales: <code style="color:var(--green)">assertEqual</code>, <code style="color:var(--green)">assertTrue</code>, <code style="color:var(--green)">assertRaises</code>. Correr tests con <code style="color:var(--green)">manage.py test</code>.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 03</h4>
+            <p>Setup y teardown. Fixtures en JSON. Aislamiento entre tests. Por qué cada test debe ser independiente.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 04</h4>
+            <p>Testeando modelos Django: creación, validaciones, métodos custom, <code style="color:var(--green)">__str__</code>, Meta options.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 05</h4>
+            <p>Revisión integrada. Refactorización de tests. Lectura del output de errores. Preguntas abiertas.</p>
+          </div>
+        </div>
+        <div class="challenge-box">
+          <p><strong>Reto Etapa 1:</strong> Crea un modelo <code>Producto</code> con nombre, precio y stock. Escribe mínimo 8 tests que cubran: creación válida, validación de precio negativo, método <code>esta_disponible()</code>, y representación <code>__str__</code>. Todos deben pasar con <code>manage.py test</code>.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 2 -->
+    <div class="phase phase-2">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-num">02</div>
+        <div>
+          <div class="phase-title">Vistas, URLs y Autenticación</div>
+          <div class="phase-meta">Semana 2 · 5 días · Testear lo que el usuario ve</div>
+        </div>
+        <div class="phase-chevron">▾</div>
+      </div>
+      <div class="phase-body">
+        <div class="day-grid">
+          <div class="day-card">
+            <h4>DÍA 01</h4>
+            <p>El <code style="color:var(--blue)">Client</code> de Django. GET requests. Verificar status codes y redirecciones.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 02</h4>
+            <p>POST requests. Testear formularios Django. Manejo del token CSRF en tests.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 03</h4>
+            <p>Login/logout en tests. <code style="color:var(--blue)">force_login()</code>. Probar vistas con permisos y restricciones.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 04</h4>
+            <p>Testear templates: <code style="color:var(--blue)">assertTemplateUsed</code>. Verificar contexto de vistas. Mensajes flash.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 05</h4>
+            <p>Revisión. Organización de tests por apps. Naming conventions profesionales.</p>
+          </div>
+        </div>
+        <div class="challenge-box">
+          <p><strong>Reto Etapa 2:</strong> Para tu app de Productos, crea tests de: listado (solo usuarios autenticados), creación (POST válido e inválido), detalle (404 si no existe), y eliminación (solo el dueño puede borrar). Mínimo 12 tests.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 3 -->
+    <div class="phase phase-3">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-num">03</div>
+        <div>
+          <div class="phase-title">Técnicas Intermedias</div>
+          <div class="phase-meta">Semana 3 · 5 días · Herramientas que usan los pros</div>
+        </div>
+        <div class="phase-chevron">▾</div>
+      </div>
+      <div class="phase-body">
+        <div class="day-grid">
+          <div class="day-card">
+            <h4>DÍA 01</h4>
+            <p><code style="color:var(--orange)">factory_boy</code>: genera datos de prueba realistas sin fixtures manuales. Factories con relaciones.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 02</h4>
+            <p><code style="color:var(--orange)">unittest.mock</code>: simular APIs externas, emails, servicios de pago. <code>patch</code> y <code>MagicMock</code>.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 03</h4>
+            <p>Testear signals de Django. Tests de middleware custom. Interceptar emails con <code style="color:var(--orange)">mail.outbox</code>.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 04</h4>
+            <p>Django REST Framework: testear endpoints de API. <code style="color:var(--orange)">APIClient</code>. Autenticación JWT en tests.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 05</h4>
+            <p>Revisión. Refactorizar tests anteriores con factories. Comparar antes y después.</p>
+          </div>
+        </div>
+        <div class="challenge-box">
+          <p><strong>Reto Etapa 3:</strong> Refactoriza todos tus tests anteriores usando <code>factory_boy</code>. Agrega tests para: un endpoint de API que consulta precios externos (mockeado), y una signal que envía email al crear un Producto (verificar con <code>mail.outbox</code>).</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 4 -->
+    <div class="phase phase-4">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-num">04</div>
+        <div>
+          <div class="phase-title">Calidad, Cobertura y Performance</div>
+          <div class="phase-meta">Semana 4 · 5 días · Tests rápidos y medibles</div>
+        </div>
+        <div class="phase-chevron">▾</div>
+      </div>
+      <div class="phase-body">
+        <div class="day-grid">
+          <div class="day-card">
+            <h4>DÍA 01</h4>
+            <p><code style="color:var(--red)">pytest-django</code>: fixtures de pytest, markers, plugins. Por qué es mejor que <code>TestCase</code> puro.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 02</h4>
+            <p><code style="color:var(--red)">coverage.py</code>: generar reportes HTML. Interpretar resultados. Estrategia para subir cobertura.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 03</h4>
+            <p>Tests parametrizados con <code style="color:var(--red)">@pytest.mark.parametrize</code>. Eliminar duplicación de tests.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 04</h4>
+            <p>Optimizar velocidad: <code style="color:var(--red)">setUpTestData</code>, tests paralelos, base de datos en memoria, caché.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 05</h4>
+            <p>Revisión. Configurar <code>pytest.ini</code> y <code>.coveragerc</code> para un proyecto real.</p>
+          </div>
+        </div>
+        <div class="challenge-box">
+          <p><strong>Reto Etapa 4:</strong> Migra tu suite completa a pytest. Logra <strong>90%+ de cobertura</strong> en tu app de Productos. Reduce el tiempo de ejecución a menos de 3 segundos usando las técnicas aprendidas. Documenta los cambios de velocidad antes/después.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- FASE 5 -->
+    <div class="phase phase-5">
+      <div class="phase-header" onclick="togglePhase(this)">
+        <div class="phase-num">05</div>
+        <div>
+          <div class="phase-title">Nivel Profesional — TDD y CI/CD</div>
+          <div class="phase-meta">Semana 5 · 5 días · Como lo hacen en producción</div>
+        </div>
+        <div class="phase-chevron">▾</div>
+      </div>
+      <div class="phase-body">
+        <div class="day-grid">
+          <div class="day-card">
+            <h4>DÍA 01</h4>
+            <p>TDD en la práctica: Red → Green → Refactor. Desarrollar una feature completa guiada por tests.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 02</h4>
+            <p>GitHub Actions: workflow para correr tests en cada PR. Badges de cobertura. Bloquear merge si fallan.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 03</h4>
+            <p>Tests de integración reales. Introducción a Playwright para tests E2E de flujos críticos.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 04</h4>
+            <p>Organización de suites grandes. Testing en equipos. Code review de tests. Estrategias reales.</p>
+          </div>
+          <div class="day-card">
+            <h4>DÍA 05</h4>
+            <p>🏆 Proyecto Final: app completa con suite profesional, CI configurado y cobertura documentada.</p>
+          </div>
+        </div>
+        <div class="challenge-box">
+          <p><strong>🏆 Proyecto Final:</strong> Construye usando TDD una app de <strong>Carrito de Compras</strong> con: modelos, API REST, autenticación, signal de confirmación por email, 95%+ cobertura, pipeline de CI en GitHub Actions que bloquea el merge si los tests fallan. Este proyecto va a tu portafolio.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- PLAN DIARIO -->
+  <div class="daily-plan">
+    <div class="section-label">Plan Diario Recomendado</div>
+    <div class="time-blocks">
+      <div class="time-block">
+        <div class="time-label">15 min</div>
+        <div class="time-bar">
+          <strong>🔁 Repaso del día anterior</strong>
+          <span>Releer el código del día anterior. Ejecutar los tests. ¿Qué recuerdas? ¿Qué olvidaste?</span>
+        </div>
+      </div>
+      <div class="time-block">
+        <div class="time-label">30 min</div>
+        <div class="time-bar">
+          <strong>📖 Teoría con el coach</strong>
+          <span>Pídele a Rafa que te explique el concepto del día. Lee, pregunta, entiende antes de codear.</span>
+        </div>
+      </div>
+      <div class="time-block">
+        <div class="time-label">45 min</div>
+        <div class="time-bar">
+          <strong>💻 Práctica guiada</strong>
+          <span>Escribe el código del ejemplo junto con el coach. Copia, modifica, rompe, arregla.</span>
+        </div>
+      </div>
+      <div class="time-block">
+        <div class="time-label">20 min</div>
+        <div class="time-bar">
+          <strong>🎯 Mini reto del día</strong>
+          <span>Resuelve el reto pequeño que Rafa te deja. Sin ver la solución hasta intentarlo 15 min.</span>
+        </div>
+      </div>
+      <div class="time-block">
+        <div class="time-label">10 min</div>
+        <div class="time-bar">
+          <strong>📝 Notas propias</strong>
+          <span>Escribe con tus palabras qué aprendiste hoy. Un párrafo. Lo que enseñas, lo aprendes.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Generado para tu ruta de aprendizaje · Django Testing Roadmap <span>2025</span> · Usa el system prompt con Claude para comenzar
+  </footer>
+
+</div>
+
+<script>
+  function togglePhase(header) {
+    const phase = header.parentElement;
+    phase.classList.toggle('open');
+  }
+
+  function copyPrompt() {
+    const text = document.getElementById('prompt-text').innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.copy-btn');
+      btn.textContent = '✓ COPIADO';
+      btn.style.background = 'var(--green)';
+      btn.style.color = '#000';
+      setTimeout(() => {
+        btn.textContent = 'COPIAR';
+        btn.style.background = 'var(--green-dim)';
+        btn.style.color = 'var(--green)';
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

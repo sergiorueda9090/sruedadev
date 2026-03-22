@@ -11,6 +11,22 @@
     gtag('config', 'AW-17226987245');
   </script>
 
+  <!-- Google tag (gtag.js) event - delayed navigation helper -->
+  <script>
+    function gtagSendEvent(url) {
+      var callback = function () {
+        if (typeof url === 'string') {
+          window.location = url;
+        }
+      };
+      gtag('event', 'ads_conversion_PAGE_VIEW_1', {
+        'event_callback': callback,
+        'event_timeout': 2000,
+      });
+      return false;
+    }
+  </script>
+
   <meta charset="utf-8">
   <title>{% block title %}Sergio Rueda | Desarrollo Web y Software en Colombia{% endblock %}</title>
   <meta name="description" content="{% block meta_description %}Desarrollador fullstack con +11 años. Páginas web, e-commerce, software a medida, automatización n8n y arquitectura AWS en Colombia.{% endblock %}">

@@ -903,6 +903,12 @@ body.theme-light .carousel-control-next-icon{ filter: invert(0); }
   color: var(--text);
   margin-bottom: .75rem;
 }
+.testimonial-metric{
+  display: flex;
+  align-items: baseline;
+  gap: .25rem;
+  line-height: 1.2;
+}
 
 .clients-grid {
   display: grid;

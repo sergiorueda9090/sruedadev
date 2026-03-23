@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Plan Estratégico — sruedadev.com | De freelance a 2-3 ventas por semana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg-deep: #0a0a0f;
+    --bg-card: #111118;
+    --bg-card-hover: #16161f;
+    --bg-surface: #1a1a24;
+    --bg-accent: #1e1e2a;
+    --text-primary: #e8e6f0;
+    --text-secondary: #9896a8;
+    --text-muted: #6b6980;
+    --accent-main: #c8f031;
+    --accent-glow: rgba(200, 240, 49, 0.15);
+    --accent-coral: #ff6b5a;
+    --accent-blue: #5a8aff;
+    --accent-teal: #3ddbc4;
+    --accent-purple: #a78bfa;
+    --accent-amber: #f5b731;
+    --accent-pink: #f472b6;
+    --border-subtle: rgba(255,255,255,0.06);
+    --border-medium: rgba(255,255,255,0.1);
+    --font-display: 'DM Serif Display', Georgia, serif;
+    --font-body: 'Outfit', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 16px;
+    --radius-xl: 24px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-deep);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-weight: 400;
+    line-height: 1.7;
+    font-size: 15px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--accent-main);
+    color: var(--bg-deep);
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(200,240,49,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(90,138,255,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--accent-glow);
+    border: 1px solid rgba(200,240,49,0.2);
+    padding: 6px 16px;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent-main);
+    margin-bottom: 2rem;
+    width: fit-content;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: var(--accent-main);
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    max-width: 900px;
+    animation: fadeDown 0.8s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    font-style: italic;
+    color: var(--accent-main);
+  }
+
+  .hero-sub {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--text-secondary);
+    max-width: 650px;
+    margin-top: 1.5rem;
+    font-weight: 300;
+    animation: fadeDown 0.8s ease 0.2s both;
+  }
+
+  .hero-metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 1px;
+    background: var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-top: 3rem;
+    max-width: 750px;
+    animation: fadeDown 0.8s ease 0.3s both;
+  }
+
+  .hero-metric {
+    background: var(--bg-card);
+    padding: 1.5rem;
+  }
+
+  .hero-metric-value {
+    font-family: var(--font-mono);
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--accent-main);
+  }
+
+  .hero-metric-label {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── NAV ─── */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-subtle);
+    padding: 0 2rem;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sticky-nav::-webkit-scrollbar { display: none; }
+
+  .nav-inner {
+    display: flex;
+    gap: 0;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .nav-link {
+    display: block;
+    padding: 1rem 1.25rem;
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-decoration: none;
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+
+  .nav-link:hover, .nav-link.active {
+    color: var(--accent-main);
+    border-bottom-color: var(--accent-main);
+  }
+
+  /* ─── LAYOUT ─── */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 5rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--accent-main);
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-label::before {
+    content: '';
+    width: 24px;
+    height: 1px;
+    background: var(--accent-main);
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    font-weight: 400;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-desc {
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  /* ─── CARDS ─── */
+  .card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    transition: all 0.3s;
+  }
+
+  .card:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-medium);
+    transform: translateY(-2px);
+  }
+
+  .card-grid {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .card-grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+  .card-grid-3 { grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); }
+
+  .card-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .card-title {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .card-text {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .card-text strong {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* ─── TAGS ─── */
+  .tag {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 100px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-lime { background: rgba(200,240,49,0.15); color: var(--accent-main); }
+  .tag-coral { background: rgba(255,107,90,0.15); color: var(--accent-coral); }
+  .tag-blue { background: rgba(90,138,255,0.15); color: var(--accent-blue); }
+  .tag-teal { background: rgba(61,219,196,0.15); color: var(--accent-teal); }
+  .tag-purple { background: rgba(167,139,250,0.15); color: var(--accent-purple); }
+  .tag-amber { background: rgba(245,183,49,0.15); color: var(--accent-amber); }
+  .tag-pink { background: rgba(244,114,182,0.15); color: var(--accent-pink); }
+
+  /* ─── PRIORITY ITEMS ─── */
+  .priority-item {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .priority-item:last-child { border-bottom: none; }
+
+  .priority-marker {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+    font-family: var(--font-mono);
+  }
+
+  .priority-marker.critical { background: rgba(255,107,90,0.15); color: var(--accent-coral); }
+  .priority-marker.important { background: rgba(245,183,49,0.15); color: var(--accent-amber); }
+  .priority-marker.nice { background: rgba(61,219,196,0.15); color: var(--accent-teal); }
+
+  .priority-title {
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 0.35rem;
+  }
+
+  .priority-desc {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .priority-desc strong {
+    color: var(--accent-main);
+    font-weight: 500;
+  }
+
+  /* ─── FUNNEL ─── */
+  .funnel-step {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    position: relative;
+  }
+
+  .funnel-step:last-child { border-bottom: none; }
+
+  .funnel-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .funnel-dot {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .funnel-line {
+    width: 2px;
+    flex: 1;
+    min-height: 30px;
+    border-radius: 1px;
+  }
+
+  .funnel-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .funnel-body {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  .funnel-body strong {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  /* ─── MESSAGES ─── */
+  .msg-block {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    margin-bottom: 1rem;
+  }
+
+  .msg-header {
+    padding: 0.75rem 1.25rem;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .msg-body {
+    padding: 1.25rem;
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--text-secondary);
+  }
+
+  .copy-btn {
+    background: transparent;
+    border: 1px solid var(--border-medium);
+    color: var(--text-muted);
+    padding: 4px 12px;
+    border-radius: var(--radius-sm);
+    font-size: 11px;
+    font-family: var(--font-body);
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .copy-btn:hover {
+    background: var(--accent-glow);
+    color: var(--accent-main);
+    border-color: rgba(200,240,49,0.3);
+  }
+
+  /* ─── TIMELINE ─── */
+  .timeline-item {
+    display: grid;
+    grid-template-columns: 100px 1fr;
+    gap: 2rem;
+    padding: 2rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+  }
+
+  .timeline-item:last-child { border-bottom: none; }
+
+  .timeline-week {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--accent-main);
+    padding-top: 4px;
+  }
+
+  .timeline-week span {
+    display: block;
+    font-family: var(--font-display);
+    font-size: 2rem;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+
+  .timeline-title {
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-body {
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  /* ─── CHECKLIST ─── */
+  .checklist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .checklist-block h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .check-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border-subtle);
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .check-item:last-child { border-bottom: none; }
+
+  .check-box {
+    width: 20px;
+    height: 20px;
+    border: 1.5px solid var(--border-medium);
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 12px;
+    color: transparent;
+  }
+
+  .check-item.done .check-box {
+    background: rgba(200,240,49,0.2);
+    border-color: var(--accent-main);
+    color: var(--accent-main);
+  }
+
+  .check-item.done .check-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+  }
+
+  .check-text {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* ─── CALENDAR ─── */
+  .calendar-row {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-subtle);
+    align-items: start;
+  }
+
+  .calendar-row:last-child { border-bottom: none; }
+
+  .calendar-day {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 6px 12px;
+    border-radius: var(--radius-sm);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .calendar-content-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    margin-bottom: 4px;
+  }
+
+  .calendar-content-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  /* ─── WHATSAPP SECTION ─── */
+  .wa-config {
+    background: var(--bg-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .wa-config h3 {
+    font-weight: 600;
+    font-size: 1.05rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .wa-config-body {
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.8;
+  }
+
+  .wa-config-body strong {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .wa-labels {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 1rem;
+  }
+
+  .wa-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    padding: 6px 14px;
+    border-radius: 100px;
+    border: 1px solid var(--border-subtle);
+    background: var(--bg-surface);
+  }
+
+  .wa-label-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+
+  /* ─── QUOTE BLOCK ─── */
+  .quote-block {
+    border-left: 3px solid var(--accent-main);
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-card);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin: 1.5rem 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .quote-block strong {
+    color: var(--accent-main);
+    font-weight: 500;
+  }
+
+  /* ─── FOOTER ─── */
+  .footer {
+    padding: 4rem 2rem;
+    text-align: center;
+    border-top: 1px solid var(--border-subtle);
+  }
+
+  .footer-text {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .footer-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 1.5rem;
+    padding: 14px 32px;
+    background: var(--accent-main);
+    color: var(--bg-deep);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    border-radius: 100px;
+    transition: all 0.3s;
+  }
+
+  .footer-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(200,240,49,0.25);
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+    .hero { padding: 2rem 1.25rem; }
+    .container { padding: 0 1.25rem; }
+    section { padding: 3rem 0; }
+    .timeline-item { grid-template-columns: 1fr; gap: 0.5rem; }
+    .calendar-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    .funnel-step { flex-direction: column; gap: 0.75rem; }
+    .funnel-indicator { flex-direction: row; }
+    .funnel-line { display: none; }
+    .checklist-grid { grid-template-columns: 1fr; }
+    .priority-item { flex-direction: column; gap: 0.75rem; }
+  }
+
+  @media print {
+    .sticky-nav { display: none; }
+    body { background: #fff; color: #111; }
+    .card, .msg-block, .wa-config { border: 1px solid #ddd; background: #fafafa; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+<div class="hero">
+  <div class="container">
+    <div class="hero-badge">Plan activo — Marzo 2026</div>
+    <h1>De ventas ocasionales a cerrar <em>2-3 landing pages</em> por semana</h1>
+    <p class="hero-sub">Plan estratégico paso a paso para sruedadev.com — Adquisición de clientes, optimización de ventas y crecimiento sostenible como desarrollador freelance.</p>
+
+    <div class="hero-metrics">
+      <div class="hero-metric">
+        <div class="hero-metric-value">2-3</div>
+        <div class="hero-metric-label">Proyectos / semana</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-value">$3M+</div>
+        <div class="hero-metric-label">COP / semana</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-value">15-20</div>
+        <div class="hero-metric-label">Leads / semana</div>
+      </div>
+      <div class="hero-metric">
+        <div class="hero-metric-value">2-3</div>
+        <div class="hero-metric-label">Semanas al 1er resultado</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════ NAV ═══════════════════════ -->
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="#diagnostico" class="nav-link active">01 Diagnóstico web</a>
+    <a href="#propuesta" class="nav-link">02 Propuesta de valor</a>
+    <a href="#embudo" class="nav-link">03 Embudo de ventas</a>
+    <a href="#whatsapp" class="nav-link">04 WhatsApp Business</a>
+    <a href="#contenido" class="nav-link">05 Contenido</a>
+    <a href="#mensajes" class="nav-link">06 Mensajes</a>
+    <a href="#diferenciacion" class="nav-link">07 Diferenciación</a>
+    <a href="#acciones" class="nav-link">08 Acciones</a>
+    <a href="#metricas" class="nav-link">09 Métricas</a>
+  </div>
+</nav>
+
+
+<!-- ═══════════════════════ 01 DIAGNÓSTICO ═══════════════════════ -->
+<section id="diagnostico">
+  <div class="container">
+    <div class="section-label reveal">Fase 01</div>
+    <h2 class="section-title reveal">Mejoras críticas para tu web actual</h2>
+    <p class="section-desc reveal">Tu sitio tiene buena base — portafolio amplio, testimonios, stack sólido. Pero hay fricciones que están costándote clientes todos los días. Estos cambios están ordenados por impacto.</p>
+
+    <div class="priority-item reveal">
+      <div class="priority-marker critical">!</div>
+      <div>
+        <div class="priority-title">Falta urgencia y escasez</div>
+        <div class="priority-desc">Tu web informa pero no empuja a actuar. Agrega: <strong>"Solo tomo 3 proyectos nuevos por mes"</strong> o <strong>"Agenda esta semana y recibe diagnóstico SEO gratis"</strong>. La gente pospone si no hay razón para actuar hoy. Coloca esto justo debajo del hero y antes de cada CTA.</div>
+      </div>
+    </div>
+
+    <div class="priority-item reveal">
+      <div class="priority-marker critical">!</div>
+      <div>
+        <div class="priority-title">CTAs débiles — "Solicitar diagnóstico gratuito"</div>
+        <div class="priority-desc">Es genérico. Cambia a algo orientado al resultado: <strong>"Quiero mi página web lista en 7 días"</strong> o <strong>"Ver cuánto puedo ahorrar automatizando"</strong>. El CTA debe reflejar el resultado que el cliente quiere, no tu proceso interno. Haz A/B testing con 2 versiones.</div>
+      </div>
+    </div>
+
+    <div class="priority-item reveal">
+      <div class="priority-marker critical">!</div>
+      <div>
+        <div class="priority-title">No hay precios de referencia</div>
+        <div class="priority-desc">Muchos clientes no te escriben porque no saben si pueden pagarte. Agrega rangos: <strong>"Landing pages desde $800.000 COP"</strong>, <strong>"Páginas corporativas desde $1.500.000 COP"</strong>. Filtra mejor los leads y acelera la decisión de los que sí pueden pagar.</div>
+      </div>
+    </div>
+
+    <div class="priority-item reveal">
+      <div class="priority-marker important">~</div>
+      <div>
+        <div class="priority-title">Testimonios sin métricas de impacto</div>
+        <div class="priority-desc">Tus testimonios son buenos pero vagos. Reescríbelos con datos concretos: <strong>"Pasamos de 0 a 50 leads/mes"</strong>, <strong>"Reducimos 15hrs semanales de trabajo manual"</strong>, <strong>"Duplicamos ventas online en 3 meses"</strong>. Números = credibilidad instantánea.</div>
+      </div>
+    </div>
+
+    <div class="priority-item reveal">
+      <div class="priority-marker important">~</div>
+      <div>
+        <div class="priority-title">Crear sección de paquetes con 3 opciones</div>
+        <div class="priority-desc">La gente compra más fácil cuando hay opciones comparables. Crea: <strong>Básico</strong> (landing + WhatsApp, $800K), <strong>Pro</strong> (landing + SEO + formulario inteligente, $1.2M), <strong>Premium</strong> (landing + automatización + analítica + seguimiento, $1.8M). Destaca el Pro como "más popular".</div>
+      </div>
+    </div>
+
+    <div class="priority-item reveal">
+      <div class="priority-marker nice">+</div>
+      <div>
+        <div class="priority-title">Video corto en el hero (60 segundos)</div>
+        <div class="priority-desc">Un video donde hables directo a cámara explicando qué haces y por qué eres diferente. Aumenta la confianza dramáticamente en Latam, donde la relación personal importa mucho. No necesitas producción costosa — grabado con buen audio y buena luz es suficiente.</div>
+      </div>
+    </div>
+
+    <div class="priority-item reveal">
+      <div class="priority-marker nice">+</div>
+      <div>
+        <div class="priority-title">Pop-up de salida con oferta</div>
+        <div class="priority-desc">Cuando el visitante va a cerrar la pestaña: <strong>"Espera — te hago una auditoría gratis de tu página actual en 24hrs. Solo déjame tu WhatsApp."</strong> Captura leads que de otro modo se pierden para siempre. Implementa con un simple JS de exit-intent.</div>
+      </div>
+    </div>
+
+    <div class="priority-item reveal">
+      <div class="priority-marker nice">+</div>
+      <div>
+        <div class="priority-title">Contador de proyectos en vivo</div>
+        <div class="priority-desc">Agrega un banner sutil: <strong>"2 de 3 espacios disponibles este mes"</strong>. Crea escasez real y urgencia. Actualízalo manualmente cada semana. Esto funciona extremadamente bien para servicios freelance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ 02 PROPUESTA DE VALOR ═══════════════════════ -->
+<section id="propuesta">
+  <div class="container">
+    <div class="section-label reveal">Fase 02</div>
+    <h2 class="section-title reveal">Propuesta de valor por servicio</h2>
+    <p class="section-desc reveal">No vendas tecnología, vende el resultado de negocio. Cada servicio necesita su propio gancho emocional que conecte con el dolor del cliente.</p>
+
+    <div class="card-grid card-grid-2">
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(200,240,49,0.15);color:var(--accent-main);">01</div>
+        <span class="tag tag-lime" style="margin-bottom:12px;">Servicio estrella</span>
+        <div class="card-title">Landing Pages / Páginas Web</div>
+        <div class="card-text">
+          <strong>Antes:</strong> "Creo páginas web profesionales"<br><br>
+          <strong>Después:</strong> "Tu página web lista en 7 días, optimizada para que Google te encuentre y WhatsApp reciba cotizaciones automáticas. Desde $800.000 COP."<br><br>
+          <strong>Diferenciador:</strong> Velocidad de entrega + SEO incluido + integración WhatsApp desde día 1. No es "una página bonita", es una máquina de captar clientes.
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">02</div>
+        <span class="tag tag-purple" style="margin-bottom:12px;">Ticket alto</span>
+        <div class="card-title">Software a Medida</div>
+        <div class="card-text">
+          <strong>Antes:</strong> "Desarrollo software personalizado"<br><br>
+          <strong>Después:</strong> "Elimino el caos de tus hojas de Excel y sistemas desconectados. Construyo el software exacto que tu operación necesita, con entregas semanales."<br><br>
+          <strong>Diferenciador:</strong> Entregas iterativas + no necesitas saber de tecnología para explicarme tu problema. Ves resultados desde la semana 1.
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(61,219,196,0.15);color:var(--accent-teal);">03</div>
+        <span class="tag tag-teal" style="margin-bottom:12px;">Cross-sell</span>
+        <div class="card-title">Integración de APIs</div>
+        <div class="card-text">
+          <strong>Antes:</strong> "Conecto sistemas con APIs"<br><br>
+          <strong>Después:</strong> "Hago que tus sistemas hablen entre sí automáticamente. Que la venta en tu web llegue al CRM, genere la factura y notifique al equipo — sin que nadie toque nada."<br><br>
+          <strong>Diferenciador:</strong> Lo explicas en español y yo lo traduzco a código. Sin jerga técnica.
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(255,107,90,0.15);color:var(--accent-coral);">04</div>
+        <span class="tag tag-coral" style="margin-bottom:12px;">Alta demanda</span>
+        <div class="card-title">Automatización (Bots, WhatsApp, n8n)</div>
+        <div class="card-text">
+          <strong>Antes:</strong> "Automatizo procesos con n8n"<br><br>
+          <strong>Después:</strong> "Recupera 20+ horas al mes. Automatizo las tareas que tu equipo odia: copiar datos, enviar reportes, responder lo mismo 50 veces. Tu negocio trabaja mientras duermes."<br><br>
+          <strong>Diferenciador:</strong> ROI medible — te muestro cuántas horas y dinero ahorras antes de empezar.
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(245,183,49,0.15);color:var(--accent-amber);">05</div>
+        <span class="tag tag-amber" style="margin-bottom:12px;">Add-on rentable</span>
+        <div class="card-title">Pasarelas de Pago</div>
+        <div class="card-text">
+          <strong>Antes:</strong> "Integro pasarelas de pago"<br><br>
+          <strong>Después:</strong> "Que tu cliente pague en tu web con tarjeta, PSE o Nequi en menos de 2 minutos. Sin redirecciones raras. Más pagos completados = más plata en tu cuenta."<br><br>
+          <strong>Diferenciador:</strong> Implementación en 3-5 días + soporte si algo falla con los pagos.
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(90,138,255,0.15);color:var(--accent-blue);">06</div>
+        <span class="tag tag-blue" style="margin-bottom:12px;">Recurrente</span>
+        <div class="card-title">Mantenimiento y Soporte Mensual</div>
+        <div class="card-text">
+          <strong>Antes:</strong> "Ofrezco soporte post-entrega"<br><br>
+          <strong>Después:</strong> "Tu web siempre actualizada, segura y funcionando. Correcciones en menos de 24hrs, actualizaciones de contenido ilimitadas y monitoreo de rendimiento. Desde $300.000/mes."<br><br>
+          <strong>Diferenciador:</strong> Ingreso recurrente para ti + tranquilidad para el cliente. Todos ganan.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ 03 EMBUDO ═══════════════════════ -->
+<section id="embudo">
+  <div class="container">
+    <div class="section-label reveal">Fase 03</div>
+    <h2 class="section-title reveal">Embudo de ventas simplificado</h2>
+    <p class="section-desc reveal">Tu embudo debe ser corto y directo. El objetivo: de desconocido a cliente pagando en máximo 5 días.</p>
+
+    <div class="funnel-step reveal">
+      <div class="funnel-indicator">
+        <div class="funnel-dot" style="background:rgba(90,138,255,0.2);color:var(--accent-blue);">1</div>
+        <div class="funnel-line" style="background:rgba(90,138,255,0.15);"></div>
+      </div>
+      <div>
+        <div class="funnel-title">Atracción <span class="tag tag-blue">100% del tráfico</span></div>
+        <div class="funnel-body">
+          <strong>Canales:</strong> Contenido en redes (Instagram, LinkedIn, TikTok), SEO orgánico de tu blog/tutoriales, grupos de Facebook/WhatsApp de emprendedores colombianos, referencias de clientes existentes, anuncios Meta segmentados.<br><br>
+          <strong>Meta:</strong> 500-1.000 visitas/semana a tu web o perfiles sociales.<br><br>
+          <strong>Acción clave:</strong> Cada pieza de contenido debe terminar con un CTA que lleve a WhatsApp. Sin excepción.
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel-step reveal">
+      <div class="funnel-indicator">
+        <div class="funnel-dot" style="background:rgba(61,219,196,0.2);color:var(--accent-teal);">2</div>
+        <div class="funnel-line" style="background:rgba(61,219,196,0.15);"></div>
+      </div>
+      <div>
+        <div class="funnel-title">Captura de lead <span class="tag tag-teal">30-40% convierte</span></div>
+        <div class="funnel-body">
+          <strong>Mecanismos:</strong> Botón WhatsApp con mensaje prellenado, pop-up exit-intent con oferta de auditoría gratis, formulario rápido (nombre + WhatsApp + qué necesitas), lead magnet descargable: "5 errores que tu página web tiene y cómo arreglarlos".<br><br>
+          <strong>Meta:</strong> 15-20 leads/semana que llegan a tu WhatsApp Business.<br><br>
+          <strong>Regla de oro:</strong> Nunca pidas más de 3 datos en el primer contacto.
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel-step reveal">
+      <div class="funnel-indicator">
+        <div class="funnel-dot" style="background:rgba(245,183,49,0.2);color:var(--accent-amber);">3</div>
+        <div class="funnel-line" style="background:rgba(245,183,49,0.15);"></div>
+      </div>
+      <div>
+        <div class="funnel-title">Calificación rápida <span class="tag tag-amber">60% califica</span></div>
+        <div class="funnel-body">
+          <strong>Acción:</strong> Responder en menos de 5 minutos con mensaje automático de WhatsApp. Hacer 3 preguntas filtro: ¿Qué tipo de negocio tienes? ¿Qué necesitas exactamente? ¿Para cuándo lo necesitas?<br><br>
+          <strong>Meta:</strong> Filtrar a 10-12 leads calificados/semana.<br><br>
+          <strong>Dato:</strong> Responder en menos de 5 minutos multiplica x10 la probabilidad de cerrar vs responder en 1 hora.
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel-step reveal">
+      <div class="funnel-indicator">
+        <div class="funnel-dot" style="background:rgba(255,107,90,0.2);color:var(--accent-coral);">4</div>
+        <div class="funnel-line" style="background:rgba(255,107,90,0.15);"></div>
+      </div>
+      <div>
+        <div class="funnel-title">Propuesta + mockup <span class="tag tag-coral">40-50% acepta</span></div>
+        <div class="funnel-body">
+          <strong>Acción:</strong> Llamada de 15 min o audio detallado de WhatsApp. Enviar propuesta en PDF con: problema identificado, solución propuesta, timeline, precio con 2-3 opciones, link de pago directo. Incluir un mockup rápido personalizado (15 min de tu tiempo).<br><br>
+          <strong>Follow-up:</strong> Si no responde en 24hrs → recordatorio suave. A las 72hrs → último mensaje con urgencia/bonificación. Después de 7 días → mensaje de cierre de ciclo.
+        </div>
+      </div>
+    </div>
+
+    <div class="funnel-step reveal">
+      <div class="funnel-indicator">
+        <div class="funnel-dot" style="background:rgba(200,240,49,0.2);color:var(--accent-main);">5</div>
+        <div class="funnel-line" style="background: transparent;"></div>
+      </div>
+      <div>
+        <div class="funnel-title">Cierre y anticipo <span class="tag tag-lime">Meta: 2-3 / semana</span></div>
+        <div class="funnel-body">
+          <strong>Acción:</strong> Cobrar 50% anticipo para arrancar. Enviar contrato simple por WhatsApp (puede ser un PDF de 1 página). Confirmar inicio y entregar primer avance visible en 48hrs.<br><br>
+          <strong>Post-venta:</strong> Pedir testimonio al entregar. Ofrecer mantenimiento mensual. Pedir referidos con incentivo (10% descuento en próximo servicio). Un cliente contento vale más que 10 anuncios.
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ 04 WHATSAPP ═══════════════════════ -->
+<section id="whatsapp">
+  <div class="container">
+    <div class="section-label reveal">Fase 04</div>
+    <h2 class="section-title reveal">WhatsApp Business optimizado para ventas</h2>
+    <p class="section-desc reveal">WhatsApp es tu canal de cierre #1. Debe estar configurado como un vendedor que trabaja 24/7 por ti.</p>
+
+    <div class="wa-config reveal">
+      <h3>📱 Perfil profesional completo</h3>
+      <div class="wa-config-body">
+        <strong>Foto:</strong> Tu foto profesional (no logo). La gente compra a personas, no a marcas.<br>
+        <strong>Descripción:</strong> "Desarrollo páginas web que generan clientes. Landing pages desde $800K COP en 7 días. +11 años de experiencia. Escríbeme y te hago una auditoría gratis de tu presencia digital."<br>
+        <strong>Horario:</strong> Lun-Vie 9AM-6PM, Sáb 9AM-1PM (COT)<br>
+        <strong>Dirección:</strong> Bucaramanga, Colombia — genera confianza local.<br>
+        <strong>Email:</strong> contacto@sergiorueda.dev<br>
+        <strong>Sitio web:</strong> sruedadev.com
+      </div>
+    </div>
+
+    <div class="wa-config reveal">
+      <h3>🛍️ Catálogo de servicios</h3>
+      <div class="wa-config-body">
+        Crea estos items en el catálogo de WhatsApp Business con imagen profesional para cada uno:<br><br>
+        <strong>1. Landing Page Express</strong> — desde $800.000 COP — "Tu página lista en 7 días con SEO + WhatsApp integrado"<br>
+        <strong>2. Página Web Corporativa</strong> — desde $1.500.000 COP — "Presencia digital profesional que posiciona en Google"<br>
+        <strong>3. Tienda Online (E-commerce)</strong> — desde $2.500.000 COP — "Vende 24/7 con pasarela de pagos integrada"<br>
+        <strong>4. Automatización de Procesos</strong> — desde $1.200.000 COP — "Ahorra 20+ horas al mes eliminando tareas manuales"<br>
+        <strong>5. Software a Medida</strong> — cotización personalizada — "La solución exacta que tu negocio necesita"<br>
+        <strong>6. Mantenimiento Mensual</strong> — desde $300.000 COP/mes — "Tu web siempre actualizada, segura y optimizada"
+      </div>
+    </div>
+
+    <div class="wa-config reveal">
+      <h3>🤖 Mensajes automáticos</h3>
+      <div class="wa-config-body">
+        <strong>Mensaje de bienvenida (nuevo contacto):</strong><br>
+        "¡Hola! 👋 Soy Sergio Rueda, desarrollador web con +11 años de experiencia. Gracias por escribirme. Para ayudarte mejor, cuéntame:<br>
+        1️⃣ ¿Qué tipo de negocio tienes?<br>
+        2️⃣ ¿Qué necesitas? (página web, tienda online, automatización, software)<br>
+        3️⃣ ¿Tienes un plazo en mente?<br>
+        Te respondo en menos de 10 minutos. 🚀"<br><br>
+
+        <strong>Mensaje de ausencia:</strong><br>
+        "Hola, en este momento estoy fuera de horario. Tu mensaje es importante — te respondo mañana a primera hora. Mientras tanto, puedes ver mis trabajos en sruedadev.com 🌐"<br><br>
+
+        <strong>8 Respuestas rápidas (atajos):</strong><br>
+        <code>/precios</code> → lista completa de rangos de precios<br>
+        <code>/portafolio</code> → link a tus demos<br>
+        <code>/proceso</code> → cómo trabajas paso a paso<br>
+        <code>/landing</code> → info detallada del servicio de landing pages<br>
+        <code>/tiempos</code> → plazos de entrega estándar<br>
+        <code>/pago</code> → métodos de pago aceptados<br>
+        <code>/mantenimiento</code> → planes de soporte post-entrega<br>
+        <code>/gracias</code> → mensaje de agradecimiento + solicitud de testimonio
+      </div>
+    </div>
+
+    <div class="wa-config reveal">
+      <h3>🏷️ Etiquetas para pipeline de ventas</h3>
+      <div class="wa-config-body">
+        Usa estas etiquetas para organizar y trackear cada conversación:
+        <div class="wa-labels">
+          <div class="wa-label"><div class="wa-label-dot" style="background:var(--accent-blue);"></div> Nuevo lead</div>
+          <div class="wa-label"><div class="wa-label-dot" style="background:var(--accent-amber);"></div> En conversación</div>
+          <div class="wa-label"><div class="wa-label-dot" style="background:var(--accent-purple);"></div> Propuesta enviada</div>
+          <div class="wa-label"><div class="wa-label-dot" style="background:var(--accent-main);"></div> Cliente activo</div>
+          <div class="wa-label"><div class="wa-label-dot" style="background:var(--accent-coral);"></div> Follow-up pendiente</div>
+          <div class="wa-label"><div class="wa-label-dot" style="background:var(--accent-pink);"></div> Referido potencial</div>
+        </div>
+        <br>
+        <strong>Regla:</strong> Cada domingo revisa todos los leads etiquetados como "Follow-up pendiente" y "Propuesta enviada". Envía un último mensaje antes de cerrar el ciclo.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ 05 CONTENIDO ═══════════════════════ -->
+<section id="contenido">
+  <div class="container">
+    <div class="section-label reveal">Fase 05</div>
+    <h2 class="section-title reveal">Estrategia de contenido semanal</h2>
+    <p class="section-desc reveal">No necesitas ser influencer. Necesitas publicar contenido que demuestre que resuelves problemas reales. Frecuencia: 5 publicaciones por semana.</p>
+
+    <div class="calendar-row reveal">
+      <div class="calendar-day" style="background:rgba(90,138,255,0.15);color:var(--accent-blue);">Lunes</div>
+      <div>
+        <div class="calendar-content-title">Caso de éxito / antes y después</div>
+        <div class="calendar-content-desc">
+          <span class="tag tag-purple">Instagram</span> <span class="tag tag-blue">LinkedIn</span> <span class="tag tag-coral">TikTok</span><br>
+          Muestra un proyecto real: screenshot del antes vs después. Cuenta el problema del cliente, qué hiciste y qué resultado obtuvo con datos concretos. Ejemplo: "Este restaurante pasó de 0 pedidos online a 30/día con la landing page que le hice."
+        </div>
+      </div>
+    </div>
+
+    <div class="calendar-row reveal">
+      <div class="calendar-day" style="background:rgba(61,219,196,0.15);color:var(--accent-teal);">Martes</div>
+      <div>
+        <div class="calendar-content-title">Tip técnico rápido (Reel 30-60s)</div>
+        <div class="calendar-content-desc">
+          <span class="tag tag-purple">Instagram Reels</span> <span class="tag tag-coral">TikTok</span><br>
+          "3 cosas que tu página web necesita para aparecer en Google", "Por qué tu web tarda en cargar y cómo arreglarlo", "Cómo conectar WhatsApp a tu página en 5 minutos". Educas y demuestras expertise sin vender directamente.
+        </div>
+      </div>
+    </div>
+
+    <div class="calendar-row reveal">
+      <div class="calendar-day" style="background:rgba(245,183,49,0.15);color:var(--accent-amber);">Miércoles</div>
+      <div>
+        <div class="calendar-content-title">Carrusel educativo / artículo</div>
+        <div class="calendar-content-desc">
+          <span class="tag tag-purple">Instagram Carrusel</span> <span class="tag tag-blue">LinkedIn Artículo</span><br>
+          "5 señales de que tu negocio necesita una página web", "Cuánto cuesta realmente una página web en Colombia (2026)", "Landing page vs página web completa: ¿cuál necesitas?". Termina SIEMPRE con CTA: "¿Quieres saber cuál necesitas? Escríbeme al link en bio."
+        </div>
+      </div>
+    </div>
+
+    <div class="calendar-row reveal">
+      <div class="calendar-day" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">Jueves</div>
+      <div>
+        <div class="calendar-content-title">Behind the scenes / proceso</div>
+        <div class="calendar-content-desc">
+          <span class="tag tag-purple">Instagram Stories</span> <span class="tag tag-coral">TikTok</span><br>
+          Muestra tu pantalla mientras trabajas: "Así estoy construyendo la tienda online de un cliente". Humaniza tu trabajo. La gente conecta con el proceso y se visualiza como tu próximo cliente.
+        </div>
+      </div>
+    </div>
+
+    <div class="calendar-row reveal">
+      <div class="calendar-day" style="background:rgba(200,240,49,0.15);color:var(--accent-main);">Viernes</div>
+      <div>
+        <div class="calendar-content-title">Testimonio + CTA directo de venta</div>
+        <div class="calendar-content-desc">
+          <span class="tag tag-purple">Instagram</span> <span class="tag tag-blue">LinkedIn</span> <span class="tag tag-coral">TikTok</span><br>
+          Screenshot de un mensaje de WhatsApp de un cliente contento (con permiso). O una métrica de impacto. CTA agresivo: "¿Quieres resultados así? Solo tomo 3 proyectos por mes. Link en bio." Este es tu día de vender sin disculpas.
+        </div>
+      </div>
+    </div>
+
+    <div class="quote-block reveal">
+      <strong>Prioridad de canales:</strong> 1) Instagram (dueños de negocio PYME en Colombia) → 2) LinkedIn (B2B, software a medida) → 3) TikTok (reutiliza Reels, alcance orgánico brutal) → 4) Grupos de Facebook/WhatsApp de emprendedores (dar valor, no spam).
+    </div>
+
+    <div class="quote-block reveal">
+      <strong>Hack de productividad:</strong> Graba todos los Reels del martes y jueves en una sola sesión de 1 hora los sábados. Edita con CapCut. Programa con Meta Business Suite. Así no interrumpes tu semana de desarrollo.
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ 06 MENSAJES ═══════════════════════ -->
+<section id="mensajes">
+  <div class="container">
+    <div class="section-label reveal">Fase 06</div>
+    <h2 class="section-title reveal">Plantillas de mensajes para captar y cerrar</h2>
+    <p class="section-desc reveal">Mensajes probados y listos para usar. Copia, adapta con los datos del cliente y envía. Cada uno tiene un objetivo de venta claro.</p>
+
+    <div class="msg-block reveal">
+      <div class="msg-header" style="background:rgba(90,138,255,0.08);color:var(--accent-blue);">
+        Prospección en frío — DM a negocio sin web
+        <button class="copy-btn" onclick="copyMsg(this)">Copiar</button>
+      </div>
+      <div class="msg-body msg-text">Hola [nombre], vi tu negocio en Instagram y me pareció muy bueno lo que hacen con [detalle específico del negocio]. Noté que no tienen página web — y eso significa que están perdiendo clientes que buscan en Google "[su servicio] en [su ciudad]" todos los días.
+
+Yo me dedico a crear páginas web que generan clientes reales (no solo "páginas bonitas"). ¿Te interesaría que te muestre cómo se vería la tuya en 2 minutos? Sin compromiso.
+
+Soy Sergio, llevo +11 años haciendo esto. Puedes ver mis trabajos en sruedadev.com</div>
+    </div>
+
+    <div class="msg-block reveal">
+      <div class="msg-header" style="background:rgba(61,219,196,0.08);color:var(--accent-teal);">
+        Respuesta a lead que llega por WhatsApp
+        <button class="copy-btn" onclick="copyMsg(this)">Copiar</button>
+      </div>
+      <div class="msg-body msg-text">¡Hola [nombre]! Gracias por escribirme 🙌 Me encantaría ayudarte.
+
+Para hacerte la mejor propuesta, cuéntame rápido:
+1) ¿A qué se dedica tu negocio?
+2) ¿Qué necesitas exactamente? (página web, tienda online, automatización...)
+3) ¿Tienes una fecha límite?
+
+Con eso te preparo una propuesta personalizada hoy mismo.</div>
+    </div>
+
+    <div class="msg-block reveal">
+      <div class="msg-header" style="background:rgba(245,183,49,0.08);color:var(--accent-amber);">
+        Follow-up a lead que no respondió (48 horas)
+        <button class="copy-btn" onclick="copyMsg(this)">Copiar</button>
+      </div>
+      <div class="msg-body msg-text">Hola [nombre], te escribo rápido porque sé que las cosas se ponen ocupadas 😊
+
+Quería saber si pudiste pensar en lo que hablamos sobre tu [página web / automatización / proyecto]. Esta semana tengo disponibilidad para comenzar un proyecto nuevo y quería darte prioridad.
+
+¿Hablamos 5 minutos hoy? Si prefieres, te puedo enviar un audio explicándote lo que haría para ti.</div>
+    </div>
+
+    <div class="msg-block reveal">
+      <div class="msg-header" style="background:rgba(255,107,90,0.08);color:var(--accent-coral);">
+        Envío de propuesta con cierre
+        <button class="copy-btn" onclick="copyMsg(this)">Copiar</button>
+      </div>
+      <div class="msg-body msg-text">[Nombre], aquí te envío la propuesta para tu [proyecto] 📄
+
+Resumen rápido:
+✅ [Descripción breve de lo que incluye]
+📅 Entrega: [plazo] días hábiles
+💰 Inversión: [precio] COP (50% anticipo + 50% al entregar)
+
+Si confirmas hoy, te incluyo [bonus: configuración de Google Analytics / mes extra de soporte / SEO básico] sin costo adicional.
+
+¿Procedemos? Te puedo enviar el link de pago ahora mismo.</div>
+    </div>
+
+    <div class="msg-block reveal">
+      <div class="msg-header" style="background:rgba(255,107,90,0.08);color:var(--accent-coral);">
+        Último follow-up (7 días sin respuesta)
+        <button class="copy-btn" onclick="copyMsg(this)">Copiar</button>
+      </div>
+      <div class="msg-body msg-text">Hola [nombre], entiendo que tal vez no es el momento adecuado y lo respeto totalmente.
+
+Cierro este espacio por ahora para atender otros proyectos, pero si más adelante necesitas una página web o automatizar algo en tu negocio, aquí estoy.
+
+Te deseo mucho éxito con [nombre de su negocio]. ¡Un abrazo!</div>
+    </div>
+
+    <div class="msg-block reveal">
+      <div class="msg-header" style="background:rgba(200,240,49,0.08);color:var(--accent-main);">
+        Pedir referidos después de entregar
+        <button class="copy-btn" onclick="copyMsg(this)">Copiar</button>
+      </div>
+      <div class="msg-body msg-text">[Nombre], me alegra mucho que estés contento con [el proyecto] 🎉
+
+Una pregunta: ¿conoces a alguien más que necesite una página web o automatizar algo en su negocio? Si me refieres a alguien que cierre proyecto conmigo, te doy un 10% de descuento en tu próximo servicio o en el mantenimiento mensual.
+
+¡Gracias por la confianza! Ha sido un placer trabajar contigo.</div>
+    </div>
+
+    <div class="msg-block reveal">
+      <div class="msg-header" style="background:rgba(167,139,250,0.08);color:var(--accent-purple);">
+        Upsell de mantenimiento al entregar proyecto
+        <button class="copy-btn" onclick="copyMsg(this)">Copiar</button>
+      </div>
+      <div class="msg-body msg-text">[Nombre], tu [página web / sistema] ya está en producción y funcionando 🚀
+
+Una recomendación: para que siempre esté actualizada, segura y con buen rendimiento en Google, te ofrezco un plan de mantenimiento mensual desde $300.000 COP que incluye:
+
+• Actualizaciones de seguridad y rendimiento
+• Cambios menores de contenido ilimitados
+• Monitoreo 24/7 y backup semanal
+• Soporte prioritario por WhatsApp
+
+El 80% de mis clientes lo toman porque la tranquilidad no tiene precio. ¿Te interesa?</div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ 07 DIFERENCIACIÓN ═══════════════════════ -->
+<section id="diferenciacion">
+  <div class="container">
+    <div class="section-label reveal">Fase 07</div>
+    <h2 class="section-title reveal">Cómo diferenciarte de otros desarrolladores</h2>
+    <p class="section-desc reveal">En un mercado saturado de "desarrolladores web", el que mejor comunica su valor gana. No el que mejor programa.</p>
+
+    <div class="card-grid card-grid-2">
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(255,107,90,0.15);color:var(--accent-coral);">⚡</div>
+        <div class="card-title">Garantía de entrega en 7 días</div>
+        <div class="card-text">Nadie en tu mercado lo ofrece para landing pages. <strong>"Tu landing page lista en 7 días o te devuelvo el anticipo."</strong> Esto elimina el miedo #1 del cliente: que el proyecto se eternice como les pasó con otro desarrollador. Cúmplelo religiosamente.</div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(200,240,49,0.15);color:var(--accent-main);">🎨</div>
+        <div class="card-title">Mockup gratis antes de cotizar</div>
+        <div class="card-text">Antes de que el cliente pague, envíale un mockup rápido de cómo se vería su página (adapta tus demos con su logo/colores). 15 minutos de tu tiempo que triplican la tasa de cierre. La gente no compra lo que no puede visualizar.</div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(90,138,255,0.15);color:var(--accent-blue);">📦</div>
+        <div class="card-title">Paquetes "llave en mano"</div>
+        <div class="card-text">No vendas solo la página. Vende el resultado completo: <strong>página + dominio + hosting primer año + SEO básico + WhatsApp integrado + 3 meses soporte</strong>. El cliente no quiere comprar piezas sueltas. Quiere que el problema desaparezca.</div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">📍</div>
+        <div class="card-title">Posicionamiento local fuerte</div>
+        <div class="card-text">"El desarrollador web de referencia en Bucaramanga" suena mejor que "desarrollador freelance". Crea contenido específico: <strong>"Las 5 mejores páginas web de negocios en Bucaramanga"</strong>. El SEO local es más fácil de ganar y los clientes cercanos pagan más rápido.</div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(61,219,196,0.15);color:var(--accent-teal);">🔄</div>
+        <div class="card-title">Ecosistema de servicios recurrentes</div>
+        <div class="card-text">La landing page es la puerta de entrada. Después vendes: mantenimiento mensual ($300K/mes), automatización WhatsApp, integración de pagos, chatbot con IA. <strong>Un cliente de $800K puede terminar pagándote $3M+ al año</strong> en servicios recurrentes.</div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(245,183,49,0.15);color:var(--accent-amber);">📝</div>
+        <div class="card-title">Tu blog de tutoriales como arma SEO</div>
+        <div class="card-text">Ya tienes 68+ tutoriales técnicos. Eso es oro para posicionamiento orgánico. Optimiza cada uno para keywords y al final agrega: <strong>"¿Necesitas que lo implemente por ti? Escríbeme."</strong> Convierte lectores técnicos en clientes que no quieren hacerlo solos.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ 08 ACCIONES ═══════════════════════ -->
+<section id="acciones">
+  <div class="container">
+    <div class="section-label reveal">Fase 08</div>
+    <h2 class="section-title reveal">Acciones diarias, semanales y plan de 4 semanas</h2>
+    <p class="section-desc reveal">Si no agendas tiempo específico para vender, no vas a vender. Bloquea estas actividades como si fueran reuniones con clientes.</p>
+
+    <div class="checklist-grid reveal">
+      <div class="checklist-block">
+        <h3>☀️ Rutina diaria (1.5 - 2 horas)</h3>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text">Responder TODOS los WhatsApp pendientes (máx 10 min, velocidad es clave)</div>
+        </div>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text">Enviar 5 mensajes de prospección a negocios sin web / con web desactualizada</div>
+        </div>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text">Publicar 1 pieza de contenido en Instagram (según el calendario semanal)</div>
+        </div>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text">Comentar en 10 publicaciones de potenciales clientes (aportar valor, no spam)</div>
+        </div>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text">Hacer follow-up a leads de más de 48hrs sin respuesta</div>
+        </div>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text">Participar en 2-3 grupos de emprendedores respondiendo preguntas</div>
+        </div>
+      </div>
+
+      <div class="checklist-block">
+        <h3>📅 Rutina semanal (bloques fijos)</h3>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text"><strong>Lunes AM:</strong> Planificar contenido de la semana completa (30 min)</div>
+        </div>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text"><strong>Martes PM:</strong> Grabar 2-3 Reels en batch para la semana</div>
+        </div>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text"><strong>Miércoles:</strong> Revisar métricas y ajustar estrategia</div>
+        </div>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text"><strong>Jueves:</strong> Enviar todas las propuestas pendientes</div>
+        </div>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text"><strong>Viernes:</strong> Pedir testimonios y referidos a clientes activos</div>
+        </div>
+        <div class="check-item" onclick="this.classList.toggle('done')">
+          <div class="check-box">✓</div>
+          <div class="check-text"><strong>Sábado AM:</strong> Crear 1 nueva demo de portafolio + grabar contenido</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="height:3rem"></div>
+
+    <h3 class="reveal" style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:1.5rem;">Plan de lanzamiento — Primeras 4 semanas</h3>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-week">
+        <span>S1</span>
+        Semana 1
+      </div>
+      <div>
+        <div class="timeline-title">Infraestructura de ventas</div>
+        <div class="timeline-body">
+          → Configurar WhatsApp Business completo (perfil, catálogo, mensajes automáticos, etiquetas)<br>
+          → Agregar precios de referencia a la web<br>
+          → Crear sección de 3 paquetes de landing pages en la web<br>
+          → Preparar 5 plantillas de mensajes listas para usar<br>
+          → Publicar primer contenido en Instagram<br>
+          → Enviar 25 mensajes de prospección fría a negocios en Bucaramanga<br>
+          → Unirse a 5 grupos de emprendedores en Facebook/WhatsApp
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-week">
+        <span>S2</span>
+        Semana 2
+      </div>
+      <div>
+        <div class="timeline-title">Activación y primeros leads</div>
+        <div class="timeline-body">
+          → Publicar contenido todos los días (seguir calendario)<br>
+          → Enviar 25 DMs más de prospección<br>
+          → Hacer follow-up a TODOS los leads de semana 1<br>
+          → Mejorar CTAs de la web basándote en las conversaciones que tuviste<br>
+          → Crear pop-up de salida con oferta de auditoría gratis<br>
+          → Objetivo: primera propuesta formal enviada<br>
+          → Grabar video de 60s para el hero de la web
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-week">
+        <span>S3</span>
+        Semana 3
+      </div>
+      <div>
+        <div class="timeline-title">Primeras ventas</div>
+        <div class="timeline-body">
+          → Mantener rutina diaria sin falta<br>
+          → Cerrar 1-2 landing pages (primer objetivo cumplido)<br>
+          → Invertir $50-100 USD en Facebook/Instagram Ads → dueños de negocio + Colombia<br>
+          → Crear tu propia landing page para captar leads (tu propia publicidad)<br>
+          → Pedir primer testimonio al entregar<br>
+          → Ofrecer primer upsell de mantenimiento mensual
+        </div>
+      </div>
+    </div>
+
+    <div class="timeline-item reveal">
+      <div class="timeline-week">
+        <span>S4</span>
+        Semana 4
+      </div>
+      <div>
+        <div class="timeline-title">Escalar lo que funciona</div>
+        <div class="timeline-body">
+          → Analizar qué canal trajo más leads y duplicar esfuerzo ahí<br>
+          → Duplicar inversión en ads si el ROI es positivo<br>
+          → Subir precios si hay más demanda que capacidad (señal de que vas bien)<br>
+          → Lanzar programa de referidos con incentivo del 10%<br>
+          → Preparar propuestas de upsell para clientes existentes<br>
+          → Crear segundo lead magnet (ebook, checklist, o calculadora)<br>
+          → Meta de la semana: cerrar 2-3 proyectos
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ 09 MÉTRICAS ═══════════════════════ -->
+<section id="metricas">
+  <div class="container">
+    <div class="section-label reveal">Fase 09</div>
+    <h2 class="section-title reveal">Métricas clave para medir resultados</h2>
+    <p class="section-desc reveal">Lo que no mides no mejora. Revisa estos números cada miércoles y ajusta tu estrategia basándote en datos, no en intuición.</p>
+
+    <div class="card-grid card-grid-2">
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(200,240,49,0.15);color:var(--accent-main);">$</div>
+        <div class="card-title">Métricas de ingresos</div>
+        <div class="card-text">
+          <strong>Proyectos cerrados/semana</strong> — Meta: 2-3<br>
+          <strong>Ticket promedio por proyecto</strong> — Cuánto cobras en promedio<br>
+          <strong>Ingresos semanales</strong> — Meta inicial: $2-3M COP/semana<br>
+          <strong>Ingresos recurrentes mensuales</strong> — Mantenimientos × precio<br>
+          <strong>LTV (valor de vida del cliente)</strong> — Cuánto paga un cliente a lo largo del tiempo<br>
+          <strong>Ingreso por hora efectiva</strong> — Ingresos totales ÷ horas trabajadas
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(90,138,255,0.15);color:var(--accent-blue);">→</div>
+        <div class="card-title">Métricas de embudo</div>
+        <div class="card-text">
+          <strong>Leads nuevos/semana</strong> — Meta: 15-20<br>
+          <strong>Tasa de respuesta</strong> — % que responde tus preguntas (meta: 60%+)<br>
+          <strong>Propuestas enviadas/semana</strong> — Meta: 5-8<br>
+          <strong>Tasa de cierre</strong> — % que se convierte en venta (meta: 30-40%)<br>
+          <strong>Tiempo de cierre</strong> — Días desde contacto hasta pago (meta: 3-5)<br>
+          <strong>Costo por lead (si usas ads)</strong> — Inversión ÷ leads obtenidos
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(167,139,250,0.15);color:var(--accent-purple);">◎</div>
+        <div class="card-title">Métricas de contenido y alcance</div>
+        <div class="card-text">
+          <strong>Visitas web/semana</strong> — Google Analytics 4 (meta: 500+)<br>
+          <strong>Seguidores nuevos/semana</strong> — Instagram + LinkedIn<br>
+          <strong>Alcance por publicación</strong> — Cuántas personas ven tu contenido<br>
+          <strong>Clicks en botón WhatsApp</strong> — Medir con Google Tag Manager<br>
+          <strong>Posición SEO</strong> — "desarrollo web bucaramanga", "páginas web colombia"<br>
+          <strong>Engagement rate</strong> — Interacciones ÷ alcance por post
+        </div>
+      </div>
+
+      <div class="card reveal">
+        <div class="card-icon" style="background:rgba(245,183,49,0.15);color:var(--accent-amber);">★</div>
+        <div class="card-title">Métricas de calidad y retención</div>
+        <div class="card-text">
+          <strong>NPS (satisfacción)</strong> — "Del 1 al 10, ¿me recomendarías?" (meta: 9+)<br>
+          <strong>Testimonios nuevos/mes</strong> — Meta: 2-4<br>
+          <strong>Referidos recibidos/mes</strong> — Meta: 3-5<br>
+          <strong>Tasa de recompra</strong> — % que compra un segundo servicio<br>
+          <strong>Tasa de retención mantenimiento</strong> — % que renueva cada mes<br>
+          <strong>Tasa de upsell</strong> — % que compra servicios adicionales
+        </div>
+      </div>
+
+    </div>
+
+    <div class="quote-block reveal" style="margin-top:2rem;">
+      <strong>Herramientas recomendadas:</strong> Google Analytics 4 (web), Google Search Console (SEO), WhatsApp Business estadísticas (mensajes), Meta Business Suite (redes sociales), y una hoja de Google Sheets donde registres cada semana: leads nuevos, propuestas enviadas, cierres, ingresos y de qué canal vino cada lead. Este spreadsheet es tu herramienta más valiosa.
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+<div class="footer">
+  <p style="font-family:var(--font-display);font-size:1.5rem;margin-bottom:0.5rem;">¿Listo para ejecutar?</p>
+  <p class="footer-text">El mejor momento para empezar fue ayer. El segundo mejor momento es ahora.<br>Empieza por la Semana 1 y no pares.</p>
+  <a href="https://www.sruedadev.com/" class="footer-cta">
+    Visitar sruedadev.com →
+  </a>
+  <p class="footer-text" style="margin-top:2rem;font-size:11px;opacity:0.5;">Plan estratégico generado para Sergio Rueda — Marzo 2026</p>
+</div>
+
+
+<!-- ═══════════════════════ SCRIPTS ═══════════════════════ -->
+<script>
+// Copy message function
+function copyMsg(btn) {
+  const text = btn.closest('.msg-block').querySelector('.msg-text').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    btn.textContent = '¡Copiado!';
+    btn.style.color = '#c8f031';
+    btn.style.borderColor = 'rgba(200,240,49,0.4)';
+    setTimeout(() => {
+      btn.textContent = 'Copiar';
+      btn.style.color = '';
+      btn.style.borderColor = '';
+    }, 2000);
+  });
+}
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// Active nav link on scroll
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-link');
+
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const top = section.offsetTop - 100;
+    if (window.scrollY >= top) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.classList.remove('active');
+    if (link.getAttribute('href') === '#' + current) {
+      link.classList.add('active');
+    }
+  });
+});
+
+// Smooth scroll for nav links
+navLinks.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.querySelector(link.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>

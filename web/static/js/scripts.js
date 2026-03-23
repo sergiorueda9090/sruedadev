@@ -49,9 +49,58 @@ function initYear() {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 }
 
+// A/B Testing de CTAs
+function initABTest() {
+  var stored = localStorage.getItem("cta_variant");
+  var variant;
+  if (stored === "A" || stored === "B") {
+    variant = stored;
+  } else {
+    variant = Math.random() < 0.5 ? "A" : "B";
+    localStorage.setItem("cta_variant", variant);
+  }
+
+  document.querySelectorAll("[data-cta-a][data-cta-b]").forEach(function (el) {
+    var text = variant === "A" ? el.getAttribute("data-cta-a") : el.getAttribute("data-cta-b");
+    // Preserve icon if present
+    var icon = el.querySelector("i");
+    if (icon) {
+      el.textContent = "";
+      el.appendChild(icon);
+      el.append(" " + text);
+    } else {
+      el.textContent = text;
+    }
+  });
+
+  // Track variant in GA4
+  if (typeof gtag === "function") {
+    gtag("event", "ab_cta_variant", {
+      variant: variant,
+      event_category: "AB_Test",
+      event_label: "CTA_v1_" + variant
+    });
+  }
+
+  // Track CTA clicks with variant info
+  document.querySelectorAll("[data-cta-a][data-cta-b]").forEach(function (el) {
+    el.addEventListener("click", function () {
+      if (typeof gtag === "function") {
+        gtag("event", "ab_cta_click", {
+          variant: variant,
+          cta_section: el.getAttribute("data-cta-section") || "unknown",
+          cta_text: el.textContent.trim(),
+          event_category: "AB_Test"
+        });
+      }
+    });
+  });
+}
+
 // BOOT - Ya no necesita cargar partials, Django los incluye via templates
 (function boot() {
   setActiveNav();
   initTheme();
   initYear();
+  initABTest();
 })();

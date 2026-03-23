@@ -12,7 +12,15 @@
       "Read(//c/proyectos/templates/**)",
       "Bash(taskkill //F //IM python.exe)",
       "Bash(echo \"OK: $f\")",
-      "Bash(curl -s http://127.0.0.1:8080/static/css/styles.css)"
+      "Bash(curl -s http://127.0.0.1:8080/static/css/styles.css)",
+      "Bash(wc -l /c/proyectos/sergio/templates/**/*.html)",
+      "Bash(for file:*)",
+      "Bash(do echo:*)",
+      "Read(//c/proyectos/sergio/**)",
+      "Bash(echo \"=== $file ===\")",
+      "Bash(sed 's/,$//')",
+      "Bash(wc -l *.html)",
+      "Bash(__NEW_LINE_cac68b2b08736c71__ echo:*)"
     ]
   }
 }

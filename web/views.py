@@ -162,24 +162,24 @@ def portafolio_raw(request, slug):
     return HttpResponse(content)
 
 
-def learning(request):
-    return render(request, 'pages/learning.html')
-
-
-def testing_temario(request):
-    return render(request, 'pages/testing_temario.html')
-
-
-def testing_dia1(request):
-    return render(request, 'pages/testing_dia1.html')
-
-
-def testing_dia2(request):
-    return render(request, 'pages/testing_dia2.html')
-
-
-def testing_dia3(request):
-    return render(request, 'pages/testing_dia3.html')
+# def learning(request):
+#     return render(request, 'pages/learning.html')
+#
+#
+# def testing_temario(request):
+#     return render(request, 'pages/testing_temario.html')
+#
+#
+# def testing_dia1(request):
+#     return render(request, 'pages/testing_dia1.html')
+#
+#
+# def testing_dia2(request):
+#     return render(request, 'pages/testing_dia2.html')
+#
+#
+# def testing_dia3(request):
+#     return render(request, 'pages/testing_dia3.html')
 
 
 def robots_txt(request):

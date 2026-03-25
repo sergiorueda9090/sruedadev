@@ -1,10 +1,9 @@
 // Marcar link activo
 function setActiveNav() {
-  const path = window.location.pathname.replace(/\/+$/, "");
-  document.querySelectorAll(".nav-link").forEach(a => {
-    const href = (a.getAttribute("href") || "").replace(/\/+$/, "");
+  var path = window.location.pathname.replace(/\/+$/, "");
+  document.querySelectorAll(".nav-link").forEach(function(a) {
+    var href = (a.getAttribute("href") || "").replace(/\/+$/, "");
     if (!href) return;
-
     if (
       href === path ||
       (path === "" && href === "/") ||
@@ -15,37 +14,66 @@ function setActiveNav() {
   });
 }
 
-// Theme toggle
-function initTheme() {
-  const body = document.body;
-  const toggleBtn = document.getElementById("themeToggle");
-  const icon = document.getElementById("themeIcon");
-  const label = document.getElementById("themeLabel");
+// Navbar scroll detection
+function initNavbarScroll() {
+  var navbar = document.getElementById("mainNavbar");
+  if (!navbar) return;
 
-  function applyTheme(theme) {
-    body.classList.remove("theme-dark", "theme-light");
-    body.classList.add(theme);
-
-    const isLight = theme === "theme-light";
-    if (icon) icon.className = isLight ? "bi bi-brightness-high" : "bi bi-moon-stars";
-    if (label) label.textContent = isLight ? "Claro" : "Oscuro";
+  function checkScroll() {
+    if (window.scrollY > 60) {
+      navbar.classList.add("scrolled");
+    } else {
+      navbar.classList.remove("scrolled");
+    }
   }
 
-  const saved = localStorage.getItem("theme") || "theme-dark";
-  applyTheme(saved);
+  window.addEventListener("scroll", checkScroll, { passive: true });
+  checkScroll();
+}
 
-  if (toggleBtn) {
-    toggleBtn.addEventListener("click", () => {
-      const next = body.classList.contains("theme-light") ? "theme-dark" : "theme-light";
-      localStorage.setItem("theme", next);
-      applyTheme(next);
+// Scroll Reveal (Intersection Observer)
+function initScrollReveal() {
+  var reveals = document.querySelectorAll(".reveal");
+  if (!reveals.length) return;
+
+  var observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+        observer.unobserve(entry.target);
+      }
     });
-  }
+  }, { threshold: 0.15 });
+
+  reveals.forEach(function(el) { observer.observe(el); });
+}
+
+// "Leer más" expand/collapse toggles
+function initSvcToggles() {
+  document.querySelectorAll(".svc-toggle").forEach(function(btn) {
+    btn.addEventListener("click", function() {
+      var card = btn.closest(".svc-card");
+      if (!card) return;
+      var expand = card.querySelector(".svc-expand");
+      if (!expand) return;
+
+      var isOpen = expand.classList.contains("is-open");
+      if (isOpen) {
+        expand.classList.remove("is-open");
+        btn.classList.remove("is-open");
+        btn.querySelector("span").textContent = "Leer más";
+      } else {
+        expand.classList.add("is-open");
+        btn.classList.add("is-open");
+        btn.querySelector("span").textContent = "Leer menos";
+      }
+    });
+  });
 }
 
 // Año automático
 function initYear() {
-  const yearEl = document.getElementById("year");
+  var yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 }
 
@@ -60,9 +88,8 @@ function initABTest() {
     localStorage.setItem("cta_variant", variant);
   }
 
-  document.querySelectorAll("[data-cta-a][data-cta-b]").forEach(function (el) {
+  document.querySelectorAll("[data-cta-a][data-cta-b]").forEach(function(el) {
     var text = variant === "A" ? el.getAttribute("data-cta-a") : el.getAttribute("data-cta-b");
-    // Preserve icon if present
     var icon = el.querySelector("i");
     if (icon) {
       el.textContent = "";
@@ -73,7 +100,6 @@ function initABTest() {
     }
   });
 
-  // Track variant in GA4
   if (typeof gtag === "function") {
     gtag("event", "ab_cta_variant", {
       variant: variant,
@@ -82,9 +108,8 @@ function initABTest() {
     });
   }
 
-  // Track CTA clicks with variant info
-  document.querySelectorAll("[data-cta-a][data-cta-b]").forEach(function (el) {
-    el.addEventListener("click", function () {
+  document.querySelectorAll("[data-cta-a][data-cta-b]").forEach(function(el) {
+    el.addEventListener("click", function() {
       if (typeof gtag === "function") {
         gtag("event", "ab_cta_click", {
           variant: variant,
@@ -97,10 +122,56 @@ function initABTest() {
   });
 }
 
-// BOOT - Ya no necesita cargar partials, Django los incluye via templates
+// Generic slider arrow setup
+function setupSlider(sliderId, prevId, nextId, itemSelector) {
+  var slider = document.getElementById(sliderId);
+  var prev = document.getElementById(prevId);
+  var next = document.getElementById(nextId);
+  if (!slider || !prev || !next) return;
+
+  function getScrollAmount() {
+    var item = slider.querySelector(itemSelector);
+    if (!item) return 300;
+    return item.offsetWidth + 20;
+  }
+
+  prev.addEventListener("click", function() {
+    slider.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+  });
+  next.addEventListener("click", function() {
+    slider.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+  });
+}
+
+// Init all sliders
+function initSliders() {
+  setupSlider("svcSlider", "svcPrev", "svcNext", ".hslider-item");
+  setupSlider("portSlider", "portSliderPrev", "portSliderNext", ".port-slide");
+  setupSlider("testiSlider", "testiPrev", "testiNext", ".hslider-item");
+  setupSlider("projSlider", "projPrev", "projNext", ".hslider-item");
+}
+
+// Smooth scrolling for anchor links
+function initSmoothScroll() {
+  document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+    a.addEventListener("click", function(e) {
+      var target = document.querySelector(a.getAttribute("href"));
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+  });
+}
+
+// BOOT
 (function boot() {
   setActiveNav();
-  initTheme();
+  initNavbarScroll();
+  initScrollReveal();
   initYear();
+  initSvcToggles();
   initABTest();
+  initSliders();
+  initSmoothScroll();
 })();

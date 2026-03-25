@@ -1,82 +1,298 @@
 <section id="desarrollo-web" class="section pt-0">
   <div class="container">
-    <div class="text-center mb-5">
-      <span class="case-badge mb-3">
-        <i class="bi bi-globe accent-6"></i> Desarrollo Web Profesional
-      </span>
-      <h2 class="section-title fw-bold mb-3">Páginas web que generan resultados</h2>
-      <p class="muted mb-0">
-        No creo "páginas bonitas". Creo <strong>herramientas digitales</strong> optimizadas para <strong>convertir visitas en clientes</strong>, posicionar en Google.
-      </p>
-    </div>
 
-    <div class="row g-4">
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="feature-icon mb-3 shadow-sm">
-            <i class="bi bi-rocket-takeoff accent-1 fs-5"></i>
-          </div>
-          <h3 class="h5 fw-bold mb-2">Landing Pages</h3>
-          <p class="muted small mb-3">
-            Páginas de aterrizaje diseñadas para convertir visitantes en clientes. Ideales para campañas de Google Ads y redes sociales.
-          </p>
-          <ul class="list-unstyled muted small mb-0">
-            <li class="mb-2"><i class="bi bi-check2 accent-1 me-2"></i>Diseño enfocado en conversión</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-1 me-2"></i>Formularios inteligentes de captación</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-1 me-2"></i>Integración con WhatsApp Business</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-1 me-2"></i>Google Analytics y seguimiento</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-1 me-2"></i>Configuración de Google Ads</li>
-            <li><i class="bi bi-check2 accent-1 me-2"></i>Velocidad de carga optimizada</li>
-          </ul>
-        </div>
+    <div class="d-flex align-items-end justify-content-between flex-wrap gap-3 mb-5">
+      <div>
+        <span class="case-badge mb-2">
+          <i class="bi bi-globe accent-6"></i> Servicios &amp; Paquetes
+        </span>
+        <h2 class="section-title fw-bold mb-1">Páginas web que generan resultados</h2>
+        <p class="muted mb-0">
+          No creo "páginas bonitas". Creo <strong>herramientas digitales</strong> que convierten visitas en clientes.
+        </p>
       </div>
-
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="feature-icon mb-3 shadow-sm">
-            <i class="bi bi-building accent-6 fs-5"></i>
-          </div>
-          <h3 class="h5 fw-bold mb-2">Páginas Web Corporativas</h3>
-          <p class="muted small mb-3">
-            Presencia digital profesional para empresas que quieren transmitir confianza, atraer clientes y destacar de la competencia.
-          </p>
-          <ul class="list-unstyled muted small mb-0">
-            <li class="mb-2"><i class="bi bi-check2 accent-6 me-2"></i>Diseño profesional y responsive</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-6 me-2"></i>Optimización SEO desde día 1</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-6 me-2"></i>Formularios de contacto inteligentes</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-6 me-2"></i>Integración con WhatsApp y redes</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-6 me-2"></i>Velocidad de carga optimizada</li>
-            <li><i class="bi bi-check2 accent-6 me-2"></i>Panel de administración (CMS)</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="feature-icon mb-3 shadow-sm">
-            <i class="bi bi-window-stack accent-11 fs-5"></i>
-          </div>
-          <h3 class="h5 fw-bold mb-2">Software a la Medida</h3>
-          <p class="muted small mb-3">
-            Aplicaciones web personalizadas para automatizar y escalar tu negocio: CRM, ERP, dashboards y sistemas internos.
-          </p>
-          <ul class="list-unstyled muted small mb-0">
-            <li class="mb-2"><i class="bi bi-check2 accent-11 me-2"></i>Sistemas de gestión (CRM, ERP)</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-11 me-2"></i>Dashboards y reportes en tiempo real</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-11 me-2"></i>Gestión de usuarios y roles</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-11 me-2"></i>Integraciones con APIs externas</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-11 me-2"></i>Despliegue en la nube</li>
-            <li><i class="bi bi-check2 accent-11 me-2"></i>Soporte y mantenimiento continuo</li>
-          </ul>
-        </div>
+      <div class="d-flex gap-2">
+        <button class="slider-btn" id="svcPrev" aria-label="Anterior"><i class="bi bi-chevron-left"></i></button>
+        <button class="slider-btn" id="svcNext" aria-label="Siguiente"><i class="bi bi-chevron-right"></i></button>
       </div>
     </div>
 
-    <div class="mt-4 text-center">
+    <div class="hslider" id="svcSlider">
+
+      {# ── 1. LANDING PAGES ── #}
+      <div class="hslider-item hslider-item--3">
+        <div class="glass p-4 h-100 d-flex flex-column svc-card">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="feature-icon shadow-sm"><i class="bi bi-rocket-takeoff accent-1 fs-5"></i></div>
+            <span class="pill"><i class="bi bi-star-fill me-1 accent-8"></i>Popular</span>
+          </div>
+          <h3 class="h5 fw-bold mb-1">Landing Pages</h3>
+          <p class="muted small mb-2">Páginas de aterrizaje que convierten visitas en clientes reales.</p>
+          <div class="svc-price mb-3">
+            <span class="h3 fw-bold" style="color: var(--blue);">$800.000</span>
+            <span class="muted small"> COP</span>
+          </div>
+
+          {# preview #}
+          <ul class="list-unstyled muted small mb-2 flex-grow-1">
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>1 página optimizada para conversión</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Diseño responsive (móvil, tablet, PC)</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Integración WhatsApp Business</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Formulario inteligente de leads</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>SEO básico + Google Analytics</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Configuración Google Ads</li>
+          </ul>
+
+          {# expandible #}
+          <div class="svc-expand" hidden>
+            <ul class="list-unstyled muted small mb-2">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Secciones: Quiénes somos, Visión, Misión y Valores</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Galería de imágenes y videos</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Integración con redes sociales (Instagram, Facebook, TikTok)</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Ubicación con Google Maps integrado</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Configuración de seguimiento (eventos, clics, conversiones)</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Diseño moderno y adaptable</li>
+            </ul>
+          </div>
+          <button class="svc-toggle mb-3" type="button"><i class="bi bi-plus-circle me-1"></i> <span>Leer más</span></button>
+
+          <div class="svc-result mb-3"><i class="bi bi-bullseye me-2"></i>Más clientes contactándote por WhatsApp.</div>
+          <a class="btn-wa w-100" href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20me%20interesa%20el%20paquete%20Landing%20Page" target="_blank" rel="noopener noreferrer"
+             data-cta-a="Quiero mi landing que vende" data-cta-b="Empezar a recibir clientes hoy" data-cta-section="svc-landing">
+            <i class="bi bi-whatsapp me-2"></i>Quiero este paquete
+          </a>
+        </div>
+      </div>
+
+      {# ── 2. PÁGINAS CORPORATIVAS ── #}
+      <div class="hslider-item hslider-item--3">
+        <div class="glass p-4 h-100 d-flex flex-column svc-card svc-card--featured">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="feature-icon shadow-sm"><i class="bi bi-building accent-6 fs-5"></i></div>
+            <span class="pill" style="background:rgba(23,162,184,.1);border-color:rgba(23,162,184,.2);color:var(--teal);"><i class="bi bi-lightning-charge-fill me-1"></i>Recomendado</span>
+          </div>
+          <h3 class="h5 fw-bold mb-1">Páginas Corporativas</h3>
+          <p class="muted small mb-2">Presencia digital profesional que transmite confianza y atrae clientes.</p>
+          <div class="svc-price mb-3">
+            <span class="h4 fw-bold" style="color: var(--blue);">Cotización personalizada</span>
+          </div>
+
+          <ul class="list-unstyled muted small mb-2 flex-grow-1">
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Sitio multipágina profesional</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Diseño profesional y responsive</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Optimización SEO completa</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Formularios de contacto inteligentes</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>WhatsApp + redes sociales</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Panel de administración (CMS)</li>
+          </ul>
+
+          <div class="svc-expand" hidden>
+            <ul class="list-unstyled muted small mb-2">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Google Analytics + Google Ads configurado</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Velocidad de carga optimizada</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Certificado SSL (HTTPS)</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Blog integrado (opcional)</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Galería de proyectos / portafolio</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Sección de testimonios y equipo</li>
+            </ul>
+          </div>
+          <button class="svc-toggle mb-3" type="button"><i class="bi bi-plus-circle me-1"></i> <span>Leer más</span></button>
+
+          <div class="svc-result mb-3"><i class="bi bi-bullseye me-2"></i>Posicionamiento en Google y leads calificados.</div>
+          <a class="btn-wa w-100" href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web%20corporativa" target="_blank" rel="noopener noreferrer"
+             data-cta-a="Cotizar mi página corporativa" data-cta-b="Quiero mi web profesional" data-cta-section="svc-corporativa">
+            <i class="bi bi-whatsapp me-2"></i>Cotizar ahora
+          </a>
+        </div>
+      </div>
+
+      {# ── 3. E-COMMERCE ── #}
+      <div class="hslider-item hslider-item--3">
+        <div class="glass p-4 h-100 d-flex flex-column svc-card">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="feature-icon shadow-sm"><i class="bi bi-cart-check accent-2 fs-5"></i></div>
+            <span class="pill"><i class="bi bi-bag-check-fill me-1 accent-2"></i>Ventas 24/7</span>
+          </div>
+          <h3 class="h5 fw-bold mb-1">E-commerce</h3>
+          <p class="muted small mb-2">Tienda online completa para vender productos o servicios las 24 horas.</p>
+          <div class="svc-price mb-3">
+            <span class="h3 fw-bold" style="color: var(--blue);">$2.500.000</span>
+            <span class="muted small"> COP</span>
+          </div>
+
+          <ul class="list-unstyled muted small mb-2 flex-grow-1">
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Catálogo de productos ilimitados</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Carrito de compras avanzado</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Pasarelas de pago (PayU, Wompi, MercadoPago)</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Control de inventario automático</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Panel administrativo completo</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i>SEO + Google Analytics + Meta Pixel</li>
+          </ul>
+
+          <div class="svc-expand" hidden>
+            <p class="fw-bold small mb-2 mt-1"><i class="bi bi-cart-check accent-2 me-2"></i>Proceso de Compra</p>
+            <ul class="list-unstyled muted small mb-3">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Checkout rápido (1 o 2 pasos)</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Registro e inicio de sesión de clientes</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Cálculo de envíos (manual o automático)</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Pagos contra entrega (opcional)</li>
+            </ul>
+            <p class="fw-bold small mb-2"><i class="bi bi-sliders accent-2 me-2"></i>Gestión y Administración</p>
+            <ul class="list-unstyled muted small mb-3">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Gestión de pedidos (pendiente → entregado)</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Comprobantes y facturas</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Gestión de clientes e historial</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Precios, descuentos y promociones</li>
+            </ul>
+            <p class="fw-bold small mb-2"><i class="bi bi-graph-up-arrow accent-2 me-2"></i>Funciones que Aumentan Ventas</p>
+            <ul class="list-unstyled muted small mb-3">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Reseñas y calificaciones</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Wishlist y productos destacados</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Cross-selling y contadores de urgencia</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Popups inteligentes de captación</li>
+            </ul>
+            <p class="fw-bold small mb-2"><i class="bi bi-shield-lock accent-2 me-2"></i>Seguridad y Extras</p>
+            <ul class="list-unstyled muted small mb-2">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Certificado SSL + protección básica</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Panel de usuario (perfil, pedidos)</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Páginas legales: Privacidad, Términos</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Capacitación para administrar la tienda</li>
+            </ul>
+          </div>
+          <button class="svc-toggle mb-3" type="button"><i class="bi bi-plus-circle me-1"></i> <span>Leer más</span></button>
+
+          <div class="svc-result mb-3"><i class="bi bi-bullseye me-2"></i>Tu negocio vendiendo online 24/7.</div>
+          <a class="btn-wa w-100" href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20me%20interesa%20el%20paquete%20Ecommerce%20%E2%80%93%20Tienda%20Online" target="_blank" rel="noopener noreferrer"
+             data-cta-a="Quiero mi tienda online" data-cta-b="Empezar a vender online 24/7" data-cta-section="svc-ecommerce">
+            <i class="bi bi-whatsapp me-2"></i>Quiero este paquete
+          </a>
+        </div>
+      </div>
+
+      {# ── 4. SOFTWARE A LA MEDIDA ── #}
+      <div class="hslider-item hslider-item--3">
+        <div class="glass p-4 h-100 d-flex flex-column svc-card">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="feature-icon shadow-sm"><i class="bi bi-window-stack accent-11 fs-5"></i></div>
+            <span class="pill"><i class="bi bi-infinity me-1 accent-11"></i>Escalable</span>
+          </div>
+          <h3 class="h5 fw-bold mb-1">Software a la Medida</h3>
+          <p class="muted small mb-2">Sistemas personalizados para automatizar y escalar tu negocio.</p>
+          <div class="svc-price mb-3">
+            <span class="h4 fw-bold" style="color: var(--blue);">Cotización personalizada</span>
+          </div>
+
+          <ul class="list-unstyled muted small mb-2 flex-grow-1">
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>CRM, ERP, dashboards a medida</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Sistemas POS e inventario</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Automatización y bots (WhatsApp, Telegram)</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Integraciones con APIs y pasarelas</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Reportes y analítica en tiempo real</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Gestión de usuarios, roles y permisos</li>
+          </ul>
+
+          <div class="svc-expand" hidden>
+            <p class="fw-bold small mb-2 mt-1"><i class="bi bi-lightbulb accent-11 me-2"></i>Análisis y Planeación</p>
+            <ul class="list-unstyled muted small mb-3">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Análisis de requerimientos del negocio</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Levantamiento y optimización de procesos</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Diseño de arquitectura del sistema</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Prototipos y wireframes</li>
+            </ul>
+            <p class="fw-bold small mb-2"><i class="bi bi-code-slash accent-11 me-2"></i>Desarrollo</p>
+            <ul class="list-unstyled muted small mb-3">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Aplicaciones web y sistemas internos</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Plataformas tipo SaaS</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Gestión de ventas y facturación</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Panel administrativo personalizado</li>
+            </ul>
+            <p class="fw-bold small mb-2"><i class="bi bi-cloud-arrow-up accent-11 me-2"></i>Infraestructura</p>
+            <ul class="list-unstyled muted small mb-3">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Despliegue en la nube (AWS, VPS)</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>CI/CD y Docker (opcional)</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Escalabilidad del sistema</li>
+            </ul>
+            <p class="fw-bold small mb-2"><i class="bi bi-headset accent-11 me-2"></i>Soporte</p>
+            <ul class="list-unstyled muted small mb-2">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Capacitación y documentación</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Soporte post-entrega</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Mantenimiento y mejoras continuas</li>
+            </ul>
+          </div>
+          <button class="svc-toggle mb-3" type="button"><i class="bi bi-plus-circle me-1"></i> <span>Leer más</span></button>
+
+          <div class="svc-result mb-3"><i class="bi bi-bullseye me-2"></i>Automatizas tu negocio y reduces trabajo manual.</div>
+          <a class="btn-wa w-100" href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20me%20interesa%20el%20paquete%20de%20Software%20a%20la%20Medida" target="_blank" rel="noopener noreferrer"
+             data-cta-a="Quiero automatizar mi negocio" data-cta-b="Dejar de perder tiempo en lo manual" data-cta-section="svc-software">
+            <i class="bi bi-whatsapp me-2"></i>Cotizar ahora
+          </a>
+        </div>
+      </div>
+
+      {# ── 5. INTEGRACIÓN CON APIs ── #}
+      <div class="hslider-item hslider-item--3">
+        <div class="glass p-4 h-100 d-flex flex-column svc-card">
+          <div class="d-flex align-items-center gap-2 mb-3">
+            <div class="feature-icon shadow-sm"><i class="bi bi-diagram-3 accent-9 fs-5"></i></div>
+            <span class="pill"><i class="bi bi-link-45deg me-1 accent-9"></i>Conecta todo</span>
+          </div>
+          <h3 class="h5 fw-bold mb-1">Integración con APIs</h3>
+          <p class="muted small mb-2">Conecta tus sistemas, automatiza flujos y elimina el trabajo manual entre plataformas.</p>
+          <div class="svc-price mb-3">
+            <span class="h4 fw-bold" style="color: var(--blue);">Cotización personalizada</span>
+          </div>
+
+          <ul class="list-unstyled muted small mb-2 flex-grow-1">
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Pasarelas de pago (Stripe, PayU, MercadoPago)</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>CRM &amp; Ventas (HubSpot, Zoho, Salesforce)</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Mensajería (WhatsApp Business, Telegram, Slack)</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Email Marketing (Mailchimp, SendGrid)</li>
+            <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Google Services (Sheets, Calendar, Drive, Maps)</li>
+            <li><i class="bi bi-check-circle-fill text-success me-2"></i>Cualquier API REST documentada</li>
+          </ul>
+
+          <div class="svc-expand" hidden>
+            <p class="fw-bold small mb-2 mt-1"><i class="bi bi-arrow-left-right accent-9 me-2"></i>Capacidades</p>
+            <ul class="list-unstyled muted small mb-3">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Sincronización bidireccional entre sistemas</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Notificaciones multicanal automáticas</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Automatización de facturación</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Consolidación de datos de múltiples fuentes</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Webhooks personalizados</li>
+            </ul>
+            <p class="fw-bold small mb-2"><i class="bi bi-code-slash accent-9 me-2"></i>APIs Propias</p>
+            <ul class="list-unstyled muted small mb-3">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Desarrollo de APIs REST robustas</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Autenticación (OAuth2, JWT, API Keys)</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Documentación Swagger / OpenAPI</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Versionado y rate limiting</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>Monitoreo y alertas</li>
+            </ul>
+            <p class="fw-bold small mb-2"><i class="bi bi-truck accent-9 me-2"></i>Más integraciones</p>
+            <ul class="list-unstyled muted small mb-2">
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Envíos (Coordinadora, Servientrega, FedEx)</li>
+              <li class="mb-1"><i class="bi bi-check-circle-fill text-success me-2"></i>Calendarios (Google Calendar, Calendly)</li>
+              <li><i class="bi bi-check-circle-fill text-success me-2"></i>ERPs y sistemas legacy</li>
+            </ul>
+          </div>
+          <button class="svc-toggle mb-3" type="button"><i class="bi bi-plus-circle me-1"></i> <span>Leer más</span></button>
+
+          <div class="svc-result mb-3"><i class="bi bi-bullseye me-2"></i>Tus sistemas conectados, cero trabajo manual.</div>
+          <a class="btn-wa w-100" href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20necesito%20integrar%20mis%20sistemas%20con%20APIs" target="_blank" rel="noopener noreferrer"
+             data-cta-a="Quiero conectar mis sistemas" data-cta-b="Eliminar trabajo manual entre plataformas" data-cta-section="svc-apis">
+            <i class="bi bi-whatsapp me-2"></i>Cotizar ahora
+          </a>
+        </div>
+      </div>
+
+    </div>
+
+    {# ── Barra de optimización + asesoría ── #}
+    <div class="mt-5 text-center">
       <div class="glass p-4 d-inline-block">
         <p class="fw-bold mb-2">
           <i class="bi bi-speedometer2 accent-6 me-2"></i>
-          Todas mis páginas web están optimizadas para:
+          Todos mis proyectos están optimizados para:
         </p>
         <div class="d-flex gap-3 flex-wrap justify-content-center muted small mb-3">
           <span><i class="bi bi-check-circle-fill text-success me-1"></i>SEO (Google)</span>
@@ -85,11 +301,10 @@
           <span><i class="bi bi-check-circle-fill text-success me-1"></i>Conversión</span>
           <span><i class="bi bi-check-circle-fill text-success me-1"></i>Seguridad (SSL)</span>
         </div>
-        <a class="btn-wa" href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener noreferrer"
-           data-cta-a="Quiero mi página web profesional"
-           data-cta-b="Tener mi web lista en 7 días"
-           data-cta-section="desarrollo-web">
-          <i class="bi bi-whatsapp me-2"></i>Cotizar mi página web
+        <p class="muted small mb-3">¿No sabes cuál es para ti? Escríbeme y te asesoro gratis.</p>
+        <a class="btn btn-primary" href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20no%20s%C3%A9%20cu%C3%A1l%20paquete%20es%20para%20m%C3%AD%2C%20%C2%BFme%20puedes%20asesorar%3F" target="_blank" rel="noopener noreferrer"
+           data-cta-a="Asesorarme gratis por WhatsApp" data-cta-b="Descubrir qué necesita mi negocio" data-cta-section="svc-asesoria">
+          <i class="bi bi-whatsapp me-2"></i>Pedir asesoría gratuita
         </a>
       </div>
     </div>

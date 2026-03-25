@@ -1,266 +1,216 @@
 <section id="proyectos" class="section pt-0">
   <div class="container">
-    <div class="text-center mb-4">
-      <h2 class="section-title fw-bold mb-3">Proyectos desarrollados</h2>
-      <p class="muted mb-0">Software y páginas web que están funcionando en producción</p>
+
+    <div class="d-flex align-items-end justify-content-between flex-wrap gap-3 mb-4">
+      <div>
+        <span class="case-badge mb-2">
+          <i class="bi bi-code-slash accent-1"></i> Proyectos
+        </span>
+        <h2 class="section-title fw-bold mb-1">Proyectos desarrollados</h2>
+        <p class="muted mb-0">Software y páginas web en producción</p>
+      </div>
+      <div class="d-flex gap-2">
+        <button class="slider-btn" id="projPrev" aria-label="Anterior"><i class="bi bi-chevron-left"></i></button>
+        <button class="slider-btn" id="projNext" aria-label="Siguiente"><i class="bi bi-chevron-right"></i></button>
+      </div>
     </div>
 
-    <div class="row g-4">
+    <div class="hslider" id="projSlider">
 
-      <!-- Proyecto 1: Sistema de Préstamos -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 1 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-currency-dollar accent-1 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">Sistema de Préstamos</h3>
-          <p class="muted small mb-3">Plataforma completa para gestión de préstamos con cálculos financieros, extensiones, liquidaciones y generación de documentos PDF.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">Sistema de Préstamos</h3>
+          <p class="muted small mb-3">Gestión de préstamos con cálculos financieros, extensiones y generación de PDFs.</p>
+          <div class="project-tags">
             <span class="tech-pill">React</span><span class="tech-pill">Django</span><span class="tech-pill">MySQL</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-1 me-2"></i>Cálculos financieros complejos</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-1 me-2"></i>Generación automática de PDFs</li>
-            <li><i class="bi bi-check2 accent-1 me-2"></i>Dashboard de métricas en tiempo real</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Proyecto 2: Portal de Proveedores -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 2 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-people accent-2 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">Portal de Proveedores</h3>
-          <p class="muted small mb-3">Sistema de gestión de proveedores, órdenes de compra y facturación con interfaz profesional y reportes automatizados.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">Portal de Proveedores</h3>
+          <p class="muted small mb-3">Gestión de proveedores, órdenes de compra y facturación con reportes automatizados.</p>
+          <div class="project-tags">
             <span class="tech-pill">React</span><span class="tech-pill">Django REST</span><span class="tech-pill">Redux</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-2 me-2"></i>CRUD completo de proveedores</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-2 me-2"></i>Generación de órdenes de compra</li>
-            <li><i class="bi bi-check2 accent-2 me-2"></i>Material-UI para interfaces profesionales</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Proyecto 3: WhatsApp Business API -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 3 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-whatsapp accent-3 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">WhatsApp Business API</h3>
-          <p class="muted small mb-3">Integración completa con WhatsApp Business para envío automatizado de documentos, mensajes de plantilla y notificaciones.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">WhatsApp Business API</h3>
+          <p class="muted small mb-3">Envío automatizado de documentos, mensajes de plantilla y notificaciones masivas.</p>
+          <div class="project-tags">
             <span class="tech-pill">Python</span><span class="tech-pill">WhatsApp API</span><span class="tech-pill">Django</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-3 me-2"></i>Envío masivo de mensajes</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-3 me-2"></i>Templates personalizados</li>
-            <li><i class="bi bi-check2 accent-3 me-2"></i>Gestión de documentos adjuntos</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Proyecto 4: Chat Center Multicanal -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 4 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-chat-dots accent-6 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">Chat Center Multicanal</h3>
-          <p class="muted small mb-3">Plataforma centralizada para gestión de conversaciones con clientes desde múltiples canales en tiempo real con asignación automática.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">Chat Center Multicanal</h3>
+          <p class="muted small mb-3">Gestión centralizada de conversaciones en tiempo real con asignación automática.</p>
+          <div class="project-tags">
             <span class="tech-pill">Django Channels</span><span class="tech-pill">WebSockets</span><span class="tech-pill">Redis</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-6 me-2"></i>Mensajería en tiempo real</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-6 me-2"></i>Integración multicanal</li>
-            <li><i class="bi bi-check2 accent-6 me-2"></i>Historial de conversaciones</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Proyecto 5: Agentes IA -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 5 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-robot accent-11 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">Agentes Inteligentes con IA</h3>
-          <p class="muted small mb-3">Asistentes virtuales basados en IA que clasifican consultas, responden preguntas frecuentes y escalan tickets complejos automáticamente.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">Agentes Inteligentes con IA</h3>
+          <p class="muted small mb-3">Asistentes virtuales que clasifican consultas y escalan tickets complejos automáticamente.</p>
+          <div class="project-tags">
             <span class="tech-pill">Python</span><span class="tech-pill">AWS Bedrock</span><span class="tech-pill">LangChain</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-11 me-2"></i>Clasificación automática de consultas</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-11 me-2"></i>Respuestas contextuales con IA</li>
-            <li><i class="bi bi-check2 accent-11 me-2"></i>Integración con bases de conocimiento</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Proyecto 6: Chatbots -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 6 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-chat-square-text accent-7 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">Chatbots Empresariales</h3>
-          <p class="muted small mb-3">Bots conversacionales para atención al cliente 24/7, captura de leads, agendamiento de citas y respuestas automáticas personalizadas.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">Chatbots Empresariales</h3>
+          <p class="muted small mb-3">Atención al cliente 24/7, captura de leads y agendamiento de citas automatizado.</p>
+          <div class="project-tags">
             <span class="tech-pill">Dialogflow</span><span class="tech-pill">WhatsApp</span><span class="tech-pill">n8n</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-7 me-2"></i>Atención 24/7 automatizada</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-7 me-2"></i>Integración con CRM</li>
-            <li><i class="bi bi-check2 accent-7 me-2"></i>Flujos de conversación personalizados</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Proyecto 7: Clínica Dental -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 7 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-heart-pulse accent-4 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">Sitio Web Clínica Dental</h3>
-          <p class="muted small mb-3">Página web profesional para clínica dental con sistema de citas online, galería de casos y testimonios de pacientes.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">Sitio Web Clínica Dental</h3>
+          <p class="muted small mb-3">Página web profesional con sistema de citas online, galería de casos y SEO local.</p>
+          <div class="project-tags">
             <span class="tech-pill">HTML5</span><span class="tech-pill">Bootstrap</span><span class="tech-pill">SEO</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-4 me-2"></i>Optimizado para SEO local</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-4 me-2"></i>Sistema de agendamiento</li>
-            <li><i class="bi bi-check2 accent-4 me-2"></i>Integración WhatsApp y redes</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Proyecto 8: Infraestructura AWS -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 8 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-cloud-arrow-up accent-5 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">Infraestructura AWS</h3>
-          <p class="muted small mb-3">Migración y configuración de aplicaciones empresariales a AWS con EC2, RDS, S3 y Route 53 para alta disponibilidad.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">Infraestructura AWS</h3>
+          <p class="muted small mb-3">Migración a AWS con EC2, RDS, S3 y Route 53 para alta disponibilidad.</p>
+          <div class="project-tags">
             <span class="tech-pill">AWS EC2</span><span class="tech-pill">Apache2</span><span class="tech-pill">MySQL RDS</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-5 me-2"></i>Configuración de servidores EC2</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-5 me-2"></i>Gestión de dominios con Route 53</li>
-            <li><i class="bi bi-check2 accent-5 me-2"></i>Backups automáticos y seguridad</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Proyecto 9: Bot Notificaciones -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 9 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-telegram accent-8 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">Bot de Notificaciones</h3>
-          <p class="muted small mb-3">Bot inteligente para envío de alertas automáticas, recordatorios, confirmaciones y notificaciones de eventos críticos del negocio.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">Bot de Notificaciones</h3>
+          <p class="muted small mb-3">Alertas automáticas, recordatorios y notificaciones de eventos críticos del negocio.</p>
+          <div class="project-tags">
             <span class="tech-pill">Python</span><span class="tech-pill">Telegram Bot</span><span class="tech-pill">Celery</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-8 me-2"></i>Notificaciones programadas</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-8 me-2"></i>Alertas en tiempo real</li>
-            <li><i class="bi bi-check2 accent-8 me-2"></i>Integración con sistemas internos</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Proyecto 10: RPA -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 10 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-cpu accent-9 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">Automatización con RPA</h3>
-          <p class="muted small mb-3">Robots de automatización de procesos para tareas repetitivas: extracción de datos, llenado de formularios y generación de reportes.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">Automatización con RPA</h3>
+          <p class="muted small mb-3">Extracción de datos, llenado de formularios y generación de reportes automatizados.</p>
+          <div class="project-tags">
             <span class="tech-pill">Python</span><span class="tech-pill">Selenium</span><span class="tech-pill">n8n</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-9 me-2"></i>Automatización de tareas web</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-9 me-2"></i>Extracción de datos automatizada</li>
-            <li><i class="bi bi-check2 accent-9 me-2"></i>Reportes programados</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Proyecto 11: Procesamiento Documentos IA -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 11 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-file-earmark-text accent-10 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">Procesamiento de Documentos IA</h3>
-          <p class="muted small mb-3">Sistema inteligente para análisis, clasificación y extracción de información de documentos PDF, facturas y contratos con IA.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">Procesamiento Documentos IA</h3>
+          <p class="muted small mb-3">Análisis, clasificación y extracción de información de PDFs, facturas y contratos.</p>
+          <div class="project-tags">
             <span class="tech-pill">Python</span><span class="tech-pill">AWS Textract</span><span class="tech-pill">Claude API</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-10 me-2"></i>OCR inteligente con IA</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-10 me-2"></i>Clasificación automática</li>
-            <li><i class="bi bi-check2 accent-10 me-2"></i>Extracción de datos estructurados</li>
-          </ul>
         </div>
       </div>
 
-      <!-- Proyecto 12: Asistente Virtual -->
-      <div class="col-lg-4">
-        <div class="glass p-4 h-100 card-hover">
-          <div class="project-header mb-3">
+      {# Proyecto 12 #}
+      <div class="hslider-item hslider-item--3">
+        <div class="proj-slide glass">
+          <div class="proj-slide-head">
             <div class="feature-icon shadow-sm"><i class="bi bi-brain accent-1 fs-5"></i></div>
-            <span class="pill ms-auto"><i class="bi bi-check-circle-fill text-success me-1"></i>En producción</span>
+            <span class="pill"><i class="bi bi-check-circle-fill text-success me-1"></i>Producción</span>
           </div>
-          <h3 class="h5 fw-bold mb-2">Asistente Virtual Corporativo</h3>
-          <p class="muted small mb-3">Asistente de IA integrado que ayuda a empleados con consultas internas, búsqueda en documentos y automatización de tareas administrativas.</p>
-          <div class="project-tags mb-3">
+          <h3 class="proj-slide-title">Asistente Virtual Corporativo</h3>
+          <p class="muted small mb-3">IA integrada para consultas internas, búsqueda en documentos y tareas administrativas.</p>
+          <div class="project-tags">
             <span class="tech-pill">LangChain</span><span class="tech-pill">FastAPI</span><span class="tech-pill">Vector DB</span>
           </div>
-          <ul class="list-unstyled muted small">
-            <li class="mb-2"><i class="bi bi-check2 accent-1 me-2"></i>RAG sobre documentos internos</li>
-            <li class="mb-2"><i class="bi bi-check2 accent-1 me-2"></i>Respuestas contextualizadas</li>
-            <li><i class="bi bi-check2 accent-1 me-2"></i>Integración con Slack/Teams</li>
-          </ul>
         </div>
       </div>
 
     </div>
 
-    <div class="text-center mt-4">
+    <div class="text-center mt-5">
       <div class="glass p-4 d-inline-block">
         <p class="fw-bold mb-2">
           <i class="bi bi-rocket-takeoff accent-1 me-2"></i>
           ¿Quieres ver tu proyecto aquí?
         </p>
         <p class="muted small mb-3">Agenda una llamada y conversemos sobre cómo puedo ayudarte</p>
-        <a href="#contacto" class="btn btn-primary"
+        <a href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener noreferrer" class="btn-wa"
            data-cta-a="Quiero un proyecto como estos"
            data-cta-b="Empezar mi proyecto esta semana"
            data-cta-section="proyectos">
-          <i class="bi bi-calendar2-check me-2"></i>Agendar llamada gratuita
+          <i class="bi bi-whatsapp me-2"></i>Agendar llamada gratuita
         </a>
       </div>
     </div>

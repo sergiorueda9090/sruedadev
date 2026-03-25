@@ -35,9 +35,11 @@ No build step, no linter, no test suite configured.
 The site has **two independent visual designs** with separate base templates:
 
 **1. Portfolio site** (`base.html`) — Services, projects, about, contact
-- Uses Bootstrap 5.3.3 + Bootstrap Icons + `web/static/css/styles.css`
-- Dark/light theme toggle via CSS custom properties (`theme-dark`/`theme-light` on `<body>`, persisted in localStorage)
-- Glassmorphism design (`.glass` class), accent colors `.accent-1` through `.accent-11`
+- Uses Bootstrap 5.3.3 + Bootstrap Icons + Google Fonts (Nunito + Lora) + `web/static/css/styles.css`
+- Light professional design inspired by dental consultorio template (blue/teal palette)
+- Fixed navbar with scroll detection (transparent → white), dark gradient mesh hero
+- CSS custom properties: `--blue`, `--teal`, `--sky`, `--off-white`, etc.
+- Card design (`.glass` class), accent colors `.accent-1` through `.accent-11` (blue/teal variants)
 - Template blocks: `title`, `meta_description`, `canonical`, `og_title`, `og_description`, `og_url`, `og_type`, `twitter_title`, `twitter_description`, `extra_head`, `extra_schema`, `content`, `extra_js`
 
 **2. Learning site** (`pages/learning_base.html`) — Tutorial lessons

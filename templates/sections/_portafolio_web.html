@@ -1,48 +1,55 @@
 <section id="portafolio-web" class="section pt-0">
   <div class="container">
-    <div class="text-center mb-5">
+    <div class="text-center mb-4">
       <span class="case-badge mb-3">
-        <i class="bi bi-palette accent-1"></i> Portafolio de Diseño Web
+        <i class="bi bi-palette accent-1"></i> Portafolio
       </span>
-      <h2 class="section-title fw-bold mb-3">Páginas web que he diseñado</h2>
+      <h2 class="section-title fw-bold mb-2">Páginas web que he diseñado</h2>
       <p class="muted mb-0">
-        Explora demos interactivas de sitios web reales que he creado para distintos tipos de negocio. <strong>Haz clic en cualquiera para verla en acción</strong>.
+        Desliza para explorar demos reales. <strong>Haz clic para verla en acción</strong>.
       </p>
     </div>
 
-    <div class="row g-4">
+    {# ── Slider controls ── #}
+    <div class="d-flex justify-content-end gap-2 mb-3">
+      <button class="slider-btn" id="portSliderPrev" aria-label="Anterior">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <button class="slider-btn" id="portSliderNext" aria-label="Siguiente">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+
+    {# ── Slider track ── #}
+    <div class="port-slider" id="portSlider">
       {% for slug, page in portafolio_pages.items %}
-      <div class="col-lg-4 col-md-6">
-        <a href="{% url 'web:portafolio_demo' slug %}" class="portafolio-card glass p-0 d-block h-100 card-hover text-decoration-none">
-          <div class="portafolio-card-header" style="border-left: 3px solid {{ page.color }};">
-            <div class="d-flex align-items-center gap-3 mb-2">
-              <div class="portafolio-icon" style="background: {{ page.color }}15; color: {{ page.color }}; border: 1px solid {{ page.color }}30;">
-                <i class="bi {{ page.icon }}"></i>
-              </div>
-              <div>
-                <span class="portafolio-category" style="color: {{ page.color }};">{{ page.category }}</span>
-              </div>
+      <a href="{% url 'web:portafolio_demo' slug %}" class="port-slide text-decoration-none">
+        <div class="port-slide-inner">
+          <div class="port-slide-top" style="background: linear-gradient(135deg, {{ page.color }}18, {{ page.color }}08);">
+            <div class="port-slide-icon" style="background: {{ page.color }}20; color: {{ page.color }}; border: 1.5px solid {{ page.color }}35;">
+              <i class="bi {{ page.icon }}"></i>
             </div>
-            <h3 class="portafolio-title">{{ page.title }}</h3>
-            <p class="portafolio-desc">{{ page.desc }}</p>
+            <span class="port-slide-cat" style="color: {{ page.color }};">{{ page.category }}</span>
           </div>
-          <div class="portafolio-card-footer">
-            <span class="portafolio-view">
-              <i class="bi bi-eye me-1"></i> Ver demo en vivo
+          <div class="port-slide-body">
+            <h3 class="port-slide-title">{{ page.title }}</h3>
+            <span class="port-slide-cta">
+              Ver demo en vivo <i class="bi bi-arrow-right ms-1"></i>
             </span>
           </div>
-        </a>
-      </div>
+        </div>
+      </a>
       {% endfor %}
     </div>
 
+    {# ── CTA ── #}
     <div class="text-center mt-5">
       <div class="glass p-4 d-inline-block">
         <p class="fw-bold mb-2">
           <i class="bi bi-lightbulb accent-1 me-2"></i>
-          ¿Quieres una página web como estas para tu negocio?
+          ¿Quieres una página web como estas?
         </p>
-        <p class="muted small mb-3">Cada sitio web se diseña 100% personalizado para tu marca, con dominio propio, SEO y soporte incluido.</p>
+        <p class="muted small mb-3">100% personalizada, con dominio propio, SEO y soporte incluido.</p>
         <a class="btn-wa" href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20vi%20tu%20portafolio%20y%20quiero%20cotizar%20una%20p%C3%A1gina%20web" target="_blank" rel="noopener noreferrer"
            data-cta-a="Quiero una web como estas"
            data-cta-b="Crear mi página web esta semana"

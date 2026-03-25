@@ -1,71 +1,67 @@
-<header id="top" class="hero">
-  {# ── Fondo CSS: grilla de circuito + nodos + glows ── #}
-  <div class="hero-bg" aria-hidden="true">
-    <div class="hero-grid"></div>
-    <div class="hero-glow hero-glow--1"></div>
-    <div class="hero-glow hero-glow--2"></div>
-    <div class="hero-glow hero-glow--3"></div>
-    <div class="hero-node hero-node--1"></div>
-    <div class="hero-node hero-node--2"></div>
-    <div class="hero-node hero-node--3"></div>
-    <div class="hero-node hero-node--4"></div>
-    <div class="hero-node hero-node--5"></div>
-    <div class="hero-node hero-node--6"></div>
-    <div class="hero-node hero-node--7"></div>
-    <div class="hero-line hero-line--h1"></div>
-    <div class="hero-line hero-line--h2"></div>
-    <div class="hero-line hero-line--h3"></div>
-    <div class="hero-line hero-line--v1"></div>
-    <div class="hero-line hero-line--v2"></div>
-    <div class="hero-line hero-line--v3"></div>
-    <div class="hero-bracket hero-bracket--1">&lt;/&gt;</div>
-    <div class="hero-bracket hero-bracket--2">{ }</div>
-    <div class="hero-bracket hero-bracket--3">01</div>
-  </div>
-  <div class="container position-relative" style="z-index:2;">
-    <div class="row g-4 align-items-center">
+<header class="hero">
+  {# ── Fondo: Gradient mesh + shapes + grid ── #}
+  <div class="hero-mesh"></div>
+  <div class="hero-shape"></div>
+  <div class="hero-shape"></div>
+  <div class="hero-shape"></div>
+  <div class="hero-grid"></div>
+
+  <div class="container hero-content">
+    <div class="row align-items-center g-5">
+
+      {# ── Texto ── #}
       <div class="col-lg-7">
-        <div class="d-flex gap-2 flex-wrap mb-3">
-          <span class="pill"><i class="bi bi-rocket-takeoff accent-1"></i> Landing Pages</span>
-          <span class="pill"><i class="bi bi-building accent-5"></i> Páginas Corporativas</span>
-          <span class="pill"><i class="bi bi-window-stack accent-7"></i> Software a la medida</span>
-          <span class="pill"><i class="bi bi-globe accent-3"></i> Diseño responsive</span>
-          <span class="pill"><i class="bi bi-search accent-4"></i> SEO optimizado</span>
-          <span class="pill"><i class="bi bi-shield-check accent-8"></i> Sistemas confiables</span>
+        <div class="hero-pill">
+          <span class="pip"></span>
+          Desarrollo web profesional · Bucaramanga, Colombia
         </div>
 
-        <h1 class="display-5 fw-bold mb-3">
-          <span class="accent-1">Landing pages</span>, <span class="accent-2">páginas corporativas</span>
-          y <span class="accent-3">software a la medida</span> que impulsan tu negocio
+        <h1 class="hero-h1">
+          <em>Landing pages</em>, páginas corporativas y <em>software a la medida</em>
         </h1>
 
-        <p class="lead muted mb-4">
-          Soy <strong>Sergio Rueda</strong>, <em>desarrollador fullstack</em> con <strong>más de 11 años</strong> creando soluciones web profesionales para empresas que quieren crecer, desde <strong>Bucaramanga, Colombia</strong>.
+        <p class="hero-lead">
+          Soy <strong>Sergio Rueda</strong>, desarrollador fullstack con <strong>más de 11 años</strong> creando soluciones web profesionales para empresas que quieren crecer.
         </p>
 
-        <div class="d-flex gap-2 flex-wrap">
-          <a class="btn btn-primary" href="#contacto"
-             data-cta-a="Quiero mi página web lista en 7 días"
-             data-cta-b="Ver cuánto puedo ahorrar automatizando"
+        <div class="hero-btns">
+          <a class="btn-wa" href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener noreferrer"
+             data-cta-a="Solicitar diagnóstico gratuito"
+             data-cta-b="Ver cuánto puedo ahorrar"
              data-cta-section="hero">
-            <i class="bi bi-chat-dots me-2"></i>Solicitar diagnóstico gratuito
+            <i class="bi bi-whatsapp"></i> Solicitar diagnóstico gratuito
           </a>
-          <a class="btn btn-outline-light" href="#desarrollo-web"
+          <a class="btn-outline-light" href="#desarrollo-web"
              data-cta-a="Explorar soluciones para mi negocio"
              data-cta-b="Ver qué puedo digitalizar hoy"
              data-cta-section="hero-secondary">
-            <i class="bi bi-grid me-2"></i>Ver todos los servicios
+            <i class="bi bi-grid"></i> Ver servicios
           </a>
+        </div>
+
+        <div class="hero-stats-row">
+          <div class="h-stat-pill">
+            <div><div class="n">11<sup>+</sup></div></div>
+            <div class="t">Años de experiencia</div>
+          </div>
+          <div class="h-stat-pill">
+            <div><div class="n">30<sup>+</sup></div></div>
+            <div class="t">Proyectos entregados</div>
+          </div>
+          <div class="h-stat-pill">
+            <div><div class="n">100<sup>%</sup></div></div>
+            <div class="t">Clientes satisfechos</div>
+          </div>
         </div>
       </div>
 
+      {# ── Benefits card ── #}
       <div class="col-lg-5">
-        <aside class="glass p-4 h-100" aria-label="Beneficios de trabajar con Sergio Rueda">
+        <aside class="hero-benefits" aria-label="Beneficios de trabajar con Sergio Rueda">
           <div class="d-flex align-items-center justify-content-between mb-3">
             <div class="fw-bold">
-              <i class="bi bi-stars me-2 accent-1"></i>Lo que lograrás
+              <i class="bi bi-stars me-2" style="color:var(--teal-light)"></i>Lo que lograrás
             </div>
-            <span class="pill"><i class="bi bi-clock-history me-1"></i>Resultados medibles</span>
           </div>
 
           <ul class="list-unstyled mb-0">

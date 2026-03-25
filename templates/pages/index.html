@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 
-{% block title %}Sergio Rueda | Desarrollo Web y Software a Medida en Colombia{% endblock %}
-{% block meta_description %}Desarrollador fullstack con +11 años en Bucaramanga. Páginas web, e-commerce, software a medida, automatización n8n y arquitectura cloud AWS. Diagnóstico gratuito.{% endblock %}
+{% block title %}Sergio Rueda | Landing Pages, Páginas Corporativas y Software a la Medida en Colombia{% endblock %}
+{% block meta_description %}Desarrollador fullstack con +11 años en Bucaramanga. Landing pages, páginas web corporativas y software a la medida. Diagnóstico gratuito.{% endblock %}
 {% block canonical %}https://sergiorueda.dev/{% endblock %}
-{% block og_title %}Sergio Rueda | Desarrollo Web y Software a Medida en Colombia{% endblock %}
-{% block og_description %}Transformo procesos manuales en sistemas automáticos. Páginas web, e-commerce, software a medida y arquitectura cloud con AWS.{% endblock %}
+{% block og_title %}Sergio Rueda | Landing Pages, Páginas Corporativas y Software a la Medida{% endblock %}
+{% block og_description %}Landing pages, páginas web corporativas y software a la medida para empresas que quieren crecer. Diagnóstico gratuito.{% endblock %}
 {% block og_url %}https://sergiorueda.dev/{% endblock %}
-{% block twitter_title %}Sergio Rueda | Desarrollo Web y Software en Colombia{% endblock %}
-{% block twitter_description %}+11 años creando páginas web, software a medida y automatización para empresas. Diagnóstico gratuito.{% endblock %}
+{% block twitter_title %}Sergio Rueda | Landing Pages, Páginas Corporativas y Software a la Medida{% endblock %}
+{% block twitter_description %}+11 años creando landing pages, páginas corporativas y software a la medida. Diagnóstico gratuito.{% endblock %}
 
 {% block extra_schema %}
 <script type="application/ld+json">
@@ -37,17 +37,17 @@
   {# ===== PORTAFOLIO DE PÁGINAS WEB ===== #}
   {% include "sections/_portafolio_web.html" %}
 
-  {# ===== SOFTWARE A LA MEDIDA ===== #}
-  {% include "sections/_software_medida.html" %}
+  {% comment %}===== SOFTWARE A LA MEDIDA (integrado en desarrollo web) ====={% endcomment %}
+  {% comment %}{% include "sections/_software_medida.html" %}{% endcomment %}
 
-  {# ===== INTEGRACIÓN CON APIs ===== #}
-  {% include "sections/_apis.html" %}
+  {% comment %}===== INTEGRACIÓN CON APIs (deshabilitado) ====={% endcomment %}
+  {% comment %}{% include "sections/_apis.html" %}{% endcomment %}
 
-  {# ===== AWS ===== #}
-  {% include "sections/_aws.html" %}
+  {% comment %}===== AWS (deshabilitado) ====={% endcomment %}
+  {% comment %}{% include "sections/_aws.html" %}{% endcomment %}
 
-  {# ===== AUTOMATIZACIÓN n8n ===== #}
-  {% include "sections/_n8n.html" %}
+  {% comment %}===== AUTOMATIZACIÓN n8n (deshabilitado) ====={% endcomment %}
+  {% comment %}{% include "sections/_n8n.html" %}{% endcomment %}
 
   {# ===== SOBRE MÍ ===== #}
   {% include "sections/_sobre_mi.html" %}

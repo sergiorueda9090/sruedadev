@@ -4,7 +4,79 @@
   <div class="hero-shape"></div>
   <div class="hero-shape"></div>
   <div class="hero-shape"></div>
-  <div class="hero-grid"></div>
+  <div class="hero-grid" aria-hidden="true"><span style="color:#3ac878">from</span> django.urls <span style="color:#3ac878">import</span> path, include
+<span style="color:#3ac878">from</span> rest_framework <span style="color:#3ac878">import</span> viewsets
+<span style="color:#5a8a6e">// Building digital solutions</span>
+<span style="color:#3ac878">class</span> <span style="color:#4ed88e">ProjectViewSet</span>(viewsets.ModelViewSet):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+<span style="color:#3ac878">def</span> <span style="color:#4ed88e">deploy</span>(project, env=<span style="color:#7dcea0">'production'</span>):
+    container = docker.build(project.image)
+    container.push(registry=<span style="color:#7dcea0">'aws-ecr'</span>)
+    kubernetes.apply(project.k8s_config)
+    <span style="color:#3ac878">return</span> {<span style="color:#7dcea0">'status'</span>: <span style="color:#7dcea0">'deployed'</span>}
+
+<span style="color:#5a8a6e"># AI model integration</span>
+<span style="color:#3ac878">from</span> langchain <span style="color:#3ac878">import</span> ChatOpenAI
+model = ChatOpenAI(model=<span style="color:#7dcea0">"gpt-4"</span>)
+response = model.predict(prompt)
+
+<span style="color:#5a8a6e">&lt;!-- React Component --&gt;</span>
+&lt;<span style="color:#3ac878">section</span> class=<span style="color:#7dcea0">"hero"</span>&gt;
+  &lt;<span style="color:#3ac878">h1</span>&gt;Tu negocio digital&lt;/<span style="color:#3ac878">h1</span>&gt;
+  &lt;<span style="color:#3ac878">Button</span> onClick={requestQuote}/&gt;
+&lt;/<span style="color:#3ac878">section</span>&gt;
+
+urlpatterns = [
+    path(<span style="color:#7dcea0">'api/'</span>, include(router.urls)),
+    path(<span style="color:#7dcea0">'landing/'</span>, views.landing),
+    path(<span style="color:#7dcea0">'shop/'</span>, views.ecommerce),
+]
+
+<span style="color:#3ac878">const</span> app = express()
+app.use(<span style="color:#7dcea0">'/api'</span>, cors(), rateLimiter)
+<span style="color:#3ac878">async function</span> <span style="color:#4ed88e">createStore</span>(cfg) {
+  <span style="color:#3ac878">const</span> db = <span style="color:#3ac878">await</span> pg.connect(cfg)
+  <span style="color:#3ac878">return</span> { db, status: <span style="color:#7dcea0">'ready'</span> }
+}
+
+<span style="color:#5a8a6e"># docker-compose.yml</span>
+services:
+  web:
+    build: .
+    ports: [<span style="color:#7dcea0">"8080:8080"</span>]
+  db:
+    image: postgres:16
+<span style="color:#3ac878">from</span> django.urls <span style="color:#3ac878">import</span> path, include
+<span style="color:#3ac878">from</span> rest_framework <span style="color:#3ac878">import</span> viewsets
+<span style="color:#5a8a6e">// Building digital solutions</span>
+<span style="color:#3ac878">class</span> <span style="color:#4ed88e">ProjectViewSet</span>(viewsets.ModelViewSet):
+    queryset = Project.objects.all()
+    serializer_class = ProjectSerializer
+
+<span style="color:#3ac878">def</span> <span style="color:#4ed88e">deploy</span>(project, env=<span style="color:#7dcea0">'production'</span>):
+    container = docker.build(project.image)
+    container.push(registry=<span style="color:#7dcea0">'aws-ecr'</span>)
+    kubernetes.apply(project.k8s_config)
+    <span style="color:#3ac878">return</span> {<span style="color:#7dcea0">'status'</span>: <span style="color:#7dcea0">'deployed'</span>}
+
+<span style="color:#5a8a6e"># AI model integration</span>
+<span style="color:#3ac878">from</span> langchain <span style="color:#3ac878">import</span> ChatOpenAI
+model = ChatOpenAI(model=<span style="color:#7dcea0">"gpt-4"</span>)
+response = model.predict(prompt)
+
+<span style="color:#5a8a6e">&lt;!-- React Component --&gt;</span>
+&lt;<span style="color:#3ac878">section</span> class=<span style="color:#7dcea0">"hero"</span>&gt;
+  &lt;<span style="color:#3ac878">h1</span>&gt;Tu negocio digital&lt;/<span style="color:#3ac878">h1</span>&gt;
+  &lt;<span style="color:#3ac878">Button</span> onClick={requestQuote}/&gt;
+&lt;/<span style="color:#3ac878">section</span>&gt;
+
+urlpatterns = [
+    path(<span style="color:#7dcea0">'api/'</span>, include(router.urls)),
+    path(<span style="color:#7dcea0">'landing/'</span>, views.landing),
+    path(<span style="color:#7dcea0">'shop/'</span>, views.ecommerce),
+]</div>
 
   <div class="container hero-content">
     <div class="row align-items-center g-5">
@@ -25,17 +97,17 @@
         </p>
 
         <div class="hero-btns">
-          <a class="btn-wa" href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20quiero%20cotizar%20un%20proyecto" target="_blank" rel="noopener noreferrer"
-             data-cta-a="Solicitar diagnóstico gratuito"
+          <a class="btn-wa" href="https://wa.me/573506240534?text=Hola%20Sergio%2C%20quiero%20cotizar%20mi%20landing%20page" target="_blank" rel="noopener noreferrer"
+             data-cta-a="Cotiza tu landing en 5 minutos"
              data-cta-b="Ver cuánto puedo ahorrar"
              data-cta-section="hero">
-            <i class="bi bi-whatsapp"></i> Solicitar diagnóstico gratuito
+            <i class="bi bi-whatsapp"></i> Cotiza tu landing en 5 minutos
           </a>
-          <a class="btn-outline-light" href="#desarrollo-web"
-             data-cta-a="Explorar soluciones para mi negocio"
-             data-cta-b="Ver qué puedo digitalizar hoy"
+          <a class="btn-outline-light" href="#precios"
+             data-cta-a="Ver precios"
+             data-cta-b="Explorar planes disponibles"
              data-cta-section="hero-secondary">
-            <i class="bi bi-grid"></i> Ver servicios
+            <i class="bi bi-tag"></i> Ver precios
           </a>
         </div>
 

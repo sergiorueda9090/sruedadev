@@ -20,7 +20,9 @@
       "Bash(echo \"=== $file ===\")",
       "Bash(sed 's/,$//')",
       "Bash(wc -l *.html)",
-      "Bash(__NEW_LINE_cac68b2b08736c71__ echo:*)"
+      "Bash(__NEW_LINE_cac68b2b08736c71__ echo:*)",
+      "Bash(pip show:*)",
+      "Bash(pip install:*)"
     ]
   }
 }

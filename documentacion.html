@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Documentación — sruedadev</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0f14; --surface:#121820; --surface-2:#1a222c; --surface-3:#0e141b;
+    --border:#243140; --border-soft:#1a2430;
+    --fg:#e7edf3; --fg-muted:#90a0b0; --fg-faint:#5b6b7a;
+    --accent:#f2a93b; --accent-fg:#1a1203; --accent-soft:#3a2c13;
+    --ok:#4caf7d; --ok-soft:#132b20;
+    --warn:#ef6b5e; --warn-soft:#3a1a16;
+    --info:#5ea8d9; --info-soft:#122838;
+    --radius:10px; --radius-lg:16px;
+    --font-sans:'IBM Plex Sans',-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--fg); font-family:var(--font-sans); line-height:1.55;}
+  h1,h2,h3{font-family:var(--font-sans); margin:0;}
+  p{margin:0 0 .9em;}
+  a{color:var(--accent);}
+  code{font-family:var(--font-mono);}
+  .wrap{max-width:780px; margin:0 auto; padding:48px 20px 90px;}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:.72rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:14px;}
+  .eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  h1{font-size:clamp(1.6rem,1.3rem + 1.5vw,2.1rem); font-weight:700; margin-bottom:10px;}
+  .lead{color:var(--fg-muted); max-width:62ch;}
+
+  .toc{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:18px 20px; margin:28px 0;}
+  .toc h2{font-size:.72rem; text-transform:uppercase; letter-spacing:.1em; color:var(--fg-faint); margin-bottom:10px;}
+  .toc ol{margin:0; padding:0 0 0 1.1em;}
+  .toc li{margin-bottom:4px; font-size:.88rem;}
+  .toc a{color:var(--fg-muted); text-decoration:none;}
+  .toc a:hover{color:var(--accent);}
+
+  section{margin:44px 0;}
+  section h2{font-size:1.15rem; font-weight:700; padding-bottom:10px; border-bottom:1px solid var(--border); margin-bottom:16px; scroll-margin-top:20px;}
+  section h3{font-size:.98rem; font-weight:600; margin:20px 0 8px; color:var(--fg);}
+
+  .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; margin:18px 0;}
+  .fact{background:var(--surface); padding:13px 15px;}
+  .fact b{display:block; font-size:.66rem; text-transform:uppercase; letter-spacing:.07em; color:var(--fg-faint); margin-bottom:4px; font-weight:600;}
+  .fact span{font-family:var(--font-mono); font-size:.84rem;}
+
+  .code-block{margin:12px 0; border-radius:var(--radius); overflow:hidden; border:1px solid var(--border-soft);}
+  .code-head{background:var(--surface-3); padding:6px 12px; border-bottom:1px solid var(--border-soft); font-size:.68rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; color:var(--fg-muted);}
+  pre{margin:0; padding:12px 14px; overflow-x:auto; background:var(--surface-2);}
+  pre code{font-family:var(--font-mono); font-size:.8rem; line-height:1.6; color:var(--fg); white-space:pre;}
+
+  .callout{border-radius:var(--radius); padding:12px 15px; margin:14px 0; border:1px solid; font-size:.88rem; display:flex; gap:10px;}
+  .callout .ctag{flex-shrink:0; font-size:.64rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px; border-radius:5px; height:fit-content;}
+  .callout p:last-child{margin-bottom:0;}
+  .callout-warn{background:var(--warn-soft); border-color:#5a2e28;}
+  .callout-warn .ctag{background:var(--warn); color:#2a0704;}
+  .callout-info{background:var(--info-soft); border-color:#1f3f55;}
+  .callout-info .ctag{background:var(--info); color:#07141f;}
+  .callout-tip{background:var(--ok-soft); border-color:#1d4634;}
+  .callout-tip .ctag{background:var(--ok); color:#05170f;}
+
+  table{width:100%; border-collapse:collapse; margin:12px 0; font-size:.85rem;}
+  th,td{text-align:left; padding:8px 10px; border-bottom:1px solid var(--border-soft); vertical-align:top;}
+  th{color:var(--fg-faint); font-size:.68rem; text-transform:uppercase; letter-spacing:.06em; font-weight:600;}
+
+  ul.plain, ol.plain{padding-left:1.25em; margin:0 0 .9em;}
+  ul.plain li, ol.plain li{margin-bottom:6px;}
+  .kbd{font-family:var(--font-mono); font-size:.8rem; background:var(--surface-2); border:1px solid var(--border); border-radius:5px; padding:1px 6px;}
+  .tree{font-family:var(--font-mono); font-size:.8rem; background:var(--surface-2); border:1px solid var(--border-soft); border-radius:var(--radius); padding:14px 16px; overflow-x:auto; white-space:pre; color:var(--fg-muted);}
+  .tree b{color:var(--fg);}
+
+  footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--border); color:var(--fg-faint); font-size:.8rem;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <div class="eyebrow">Documentación del proyecto</div>
+  <h1>sruedadev — guía técnica</h1>
+  <p class="lead">Referencia para trabajar, correr en local y desplegar el sitio de sruedadev.com: estructura del proyecto, variables de entorno, comandos y el flujo de actualización en el servidor.</p>
+
+  <div class="facts">
+    <div class="fact"><b>Stack</b><span>Django 4.0 + Apache2</span></div>
+    <div class="fact"><b>Base de datos</b><span>SQLite</span></div>
+    <div class="fact"><b>Dominio</b><span>sruedadev.com</span></div>
+    <div class="fact"><b>Repositorio</b><span>github.com/sergiorueda9090/sruedadev</span></div>
+  </div>
+
+  <div class="toc">
+    <h2>Contenido</h2>
+    <ol>
+      <li><a href="#estructura">Estructura del proyecto</a></li>
+      <li><a href="#local">Instalación y ejecución en local</a></li>
+      <li><a href="#entorno">Variables de entorno</a></li>
+      <li><a href="#comandos">Comandos útiles de Django</a></li>
+      <li><a href="#contenido">Dónde editar el contenido del sitio</a></li>
+      <li><a href="#despliegue">Flujo de despliegue en producción</a></li>
+      <li><a href="#actualizar">Cómo subir cambios al sitio ya desplegado</a></li>
+      <li><a href="#marca">Datos de contacto y marca</a></li>
+      <li><a href="#problemas">Solución de problemas comunes</a></li>
+    </ol>
+  </div>
+
+  <section id="estructura">
+    <h2>1. Estructura del proyecto</h2>
+    <p>Es un proyecto Django con una sola app (<code>core</code>) y todo el contenido del sitio centralizado en <code>core/data.py</code> — no hay modelos ni CMS, así que para cambiar textos, precios o proyectos del portafolio se edita ese archivo directamente.</p>
+    <div class="tree">sruedadev/
+├── manage.py
+├── requirements.txt
+├── .env                  <b>← no versionado, se crea en cada entorno</b>
+├── .env.example
+├── db.sqlite3
+├── srueda/               <b>← paquete de configuración Django</b>
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── core/                 <b>← la app</b>
+    ├── views.py          (home, portafolio_detalle, servicio_detalle, contacto...)
+    ├── data.py           <b>← SERVICIOS, PROYECTOS, PLANES, FAQ, contacto, WhatsApp...</b>
+    ├── urls.py
+    ├── context_processors.py
+    ├── templates/core/
+    │   ├── base.html
+    │   └── partials/_*.html   (navbar, hero, portafolio, contacto, footer...)
+    ├── static/core/{css,js,img}/
+    └── portafolio_pages/      (una página HTML por proyecto del portafolio)</div>
+  </section>
+
+  <section id="local">
+    <h2>2. Instalación y ejecución en local</h2>
+    <div class="code-block">
+      <div class="code-head">Terminal — en la carpeta del proyecto</div>
+      <pre><code>python -m venv env
+env\Scripts\activate        # Windows
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver</code></pre>
+    </div>
+    <p>El sitio queda disponible en <code>http://127.0.0.1:8000/</code>. Si no existe un archivo <code>.env</code>, el proyecto arranca igual con valores de desarrollo por defecto (ver siguiente sección).</p>
+  </section>
+
+  <section id="entorno">
+    <h2>3. Variables de entorno</h2>
+    <p><code>srueda/settings.py</code> lee estas variables desde un archivo <code>.env</code> en la raíz (vía <code>python-dotenv</code>). Si el archivo no existe —como en desarrollo local— se usan valores por defecto seguros para trabajar en local.</p>
+    <table>
+      <tr><th>Variable</th><th>Uso</th><th>Valor en producción</th></tr>
+      <tr><td><code>SECRET_KEY</code></td><td>Clave criptográfica de Django</td><td>Única por servidor, generada con <code>get_random_secret_key()</code></td></tr>
+      <tr><td><code>DEBUG</code></td><td>Modo de depuración</td><td><code>False</code> — obligatorio en producción</td></tr>
+      <tr><td><code>ALLOWED_HOSTS</code></td><td>Dominios/IPs permitidos</td><td><code>sruedadev.com,www.sruedadev.com,IP_DEL_SERVIDOR</code></td></tr>
+    </table>
+    <p>Plantilla de referencia en <code>.env.example</code> (sí está versionado; <code>.env</code> no).</p>
+    <div class="callout callout-warn">
+      <span class="ctag">Nunca subas <code>.env</code></span>
+      <p>Contiene el <code>SECRET_KEY</code> real de producción. Está en <code>.gitignore</code>; no lo fuerces a git ni lo pegues en issues, commits o mensajes.</p>
+    </div>
+  </section>
+
+  <section id="comandos">
+    <h2>4. Comandos útiles de Django</h2>
+    <table>
+      <tr><th>Comando</th><th>Qué hace</th></tr>
+      <tr><td><code>python manage.py runserver</code></td><td>Levanta el servidor de desarrollo</td></tr>
+      <tr><td><code>python manage.py migrate</code></td><td>Aplica migraciones a <code>db.sqlite3</code></td></tr>
+      <tr><td><code>python manage.py collectstatic</code></td><td>Copia CSS/JS/imágenes a <code>staticfiles/</code> (solo necesario en producción)</td></tr>
+      <tr><td><code>python manage.py createsuperuser</code></td><td>Crea un usuario para entrar a <code>/admin/</code></td></tr>
+      <tr><td><code>python manage.py check</code></td><td>Valida la configuración sin levantar el servidor</td></tr>
+    </table>
+  </section>
+
+  <section id="contenido">
+    <h2>5. Dónde editar el contenido del sitio</h2>
+    <ul class="plain">
+      <li><b>Textos, precios, servicios, FAQ, testimonios, portafolio:</b> todo vive en <code>core/data.py</code> como diccionarios Python. No hay base de datos de por medio para este contenido.</li>
+      <li><b>Datos de contacto (correo, WhatsApp, horario, ubicación):</b> <code>core/data.py</code> (<code>WHATSAPP_NUMERO</code>, <code>WHATSAPP_TEXTO</code>) y los partials <code>core/templates/core/partials/_contacto.html</code> y <code>_footer.html</code>.</li>
+      <li><b>Estilos:</b> <code>core/static/core/css/estilo.css</code> — variables de color y tipografía al inicio del archivo, en <code>:root</code>.</li>
+      <li><b>Secciones de la página de inicio:</b> cada bloque es un partial independiente en <code>core/templates/core/partials/_*.html</code>, incluido desde <code>core/templates/core/index.html</code>.</li>
+    </ul>
+  </section>
+
+  <section id="despliegue">
+    <h2>6. Flujo de despliegue en producción</h2>
+    <p>El despliegue completo (crear la instancia EC2, Apache2 + mod_wsgi, SSL con Certbot, Route 53) está documentado aparte, paso a paso, porque son pasos de consola de AWS además de terminal. Resumen de la arquitectura:</p>
+    <ul class="plain">
+      <li>Instancia EC2 (Ubuntu 22.04, t2.micro/t3.micro) con IP elástica fija.</li>
+      <li>El servidor clona el código directamente de GitHub (<code>git clone</code> / <code>git pull</code>), no se sube por FTP ni se copian archivos a mano.</li>
+      <li>Apache2 con <code>mod_wsgi</code> sirve la app Django; <code>/static/</code> lo sirve Apache directamente desde <code>staticfiles/</code>.</li>
+      <li>Route 53 apunta <code>sruedadev.com</code> y <code>www.sruedadev.com</code> (registros tipo A) a la IP elástica.</li>
+      <li>Certbot (Let's Encrypt) emite y renueva el certificado SSL automáticamente.</li>
+    </ul>
+    <div class="callout callout-info">
+      <span class="ctag">Guía completa</span>
+      <p>Los 16 pasos detallados de consola de AWS, SSH y configuración de Apache están en la guía de despliegue publicada por separado (artifact "Despliegue sruedadev.com"), pensada para seguirse en el navegador mientras trabajas en la terminal.</p>
+    </div>
+  </section>
+
+  <section id="actualizar">
+    <h2>7. Cómo subir cambios al sitio ya desplegado</h2>
+    <div class="code-block">
+      <div class="code-head">Local</div>
+      <pre><code>git add -A
+git commit -m "Describe el cambio"
+git push origin master</code></pre>
+    </div>
+    <div class="code-block">
+      <div class="code-head">Servidor — SSH</div>
+      <pre><code>cd ~/sruedadev
+git pull origin master
+source env/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py collectstatic --noinput
+deactivate
+sudo systemctl restart apache2</code></pre>
+    </div>
+    <p>Si el cambio fue solo en plantillas, CSS o <code>data.py</code> (sin tocar dependencias), puedes saltarte <code>pip install</code> y <code>migrate</code> — pero <code>collectstatic</code> y el reinicio de Apache son necesarios siempre para que el cambio se vea reflejado.</p>
+  </section>
+
+  <section id="marca">
+    <h2>8. Datos de contacto y marca</h2>
+    <table>
+      <tr><th>Dato</th><th>Valor</th></tr>
+      <tr><td>Correo</td><td>hello@sruedadev.com</td></tr>
+      <tr><td>WhatsApp</td><td>+57 350 624 0534</td></tr>
+      <tr><td>Ubicación</td><td>Floridablanca, Santander, Colombia</td></tr>
+      <tr><td>Horario</td><td>Lunes a sábado, 7:00 a.m. a 8:00 p.m.</td></tr>
+    </table>
+    <p>La paleta de colores de marca está documentada en <code>PALETA-COLORES.md</code>, en la raíz del proyecto.</p>
+  </section>
+
+  <section id="problemas">
+    <h2>9. Solución de problemas comunes</h2>
+    <table>
+      <tr><th>Síntoma</th><th>Dónde mirar</th></tr>
+      <tr><td>Error 500 en producción</td><td><code>sudo tail -n 50 /var/log/apache2/sruedadev-error.log</code> en el servidor</td></tr>
+      <tr><td>El sitio carga sin estilos</td><td>Falta correr <code>collectstatic</code>, o la carpeta <code>staticfiles/</code> no existe</td></tr>
+      <tr><td><code>DisallowedHost</code></td><td>Falta el dominio/IP en <code>ALLOWED_HOSTS</code> dentro del <code>.env</code> del servidor</td></tr>
+      <tr><td>Cambios locales no se ven en producción</td><td>Olvidaste <code>git push</code> en local, o <code>git pull</code> + reinicio de Apache en el servidor</td></tr>
+    </table>
+  </section>
+
+  <footer>Documentación interna del proyecto sruedadev. Mantener actualizada al cambiar estructura, variables de entorno o el flujo de despliegue.</footer>
+</div>
+</body>
+</html>

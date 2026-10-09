@@ -58,6 +58,23 @@ def portafolio_detalle(request, slug):
     return HttpResponse(contenido)
 
 
+def nosotros(request):
+    contexto = {"proceso": data.PROCESO}
+    return render(request, "core/nosotros.html", contexto)
+
+
+def terminos(request):
+    return render(request, "core/legal/terminos.html")
+
+
+def privacidad(request):
+    return render(request, "core/legal/privacidad.html")
+
+
+def cookies(request):
+    return render(request, "core/legal/cookies.html")
+
+
 def servicio_detalle(request, slug):
     servicio = PLANES_POR_SLUG.get(slug)
     if servicio is None:
@@ -151,6 +168,12 @@ def sitemap_xml(request):
     # desincronice de lo que Django realmente sirve. No se incluye <lastmod>
     # porque no hay fecha real de última edición que reportar.
     urls = [DOMINIO + "/"]
+    urls += [
+        DOMINIO + reverse(nombre)
+        for nombre in (
+            "core:nosotros", "core:terminos", "core:privacidad", "core:cookies",
+        )
+    ]
     urls += [
         DOMINIO + reverse("core:servicio_detalle", args=[plan["slug"]])
         for plan in data.PLANES

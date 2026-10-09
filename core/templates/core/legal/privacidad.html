@@ -1,0 +1,134 @@
+{% extends "core/base.html" %}
+
+{% block title %}Política de Privacidad | sruedadev.com{% endblock %}
+{% block description %}Cómo se recopilan, usan y protegen los datos personales de quienes visitan sruedadev.com o usan el formulario de contacto.{% endblock %}
+{% block og_title %}Política de Privacidad | sruedadev.com{% endblock %}
+{% block og_description %}Cómo se recopilan, usan y protegen los datos personales de quienes visitan sruedadev.com o usan el formulario de contacto.{% endblock %}
+{% block twitter_title %}Política de Privacidad | sruedadev.com{% endblock %}
+{% block twitter_description %}Cómo se recopilan, usan y protegen los datos personales de quienes visitan sruedadev.com o usan el formulario de contacto.{% endblock %}
+{% block canonical %}https://sruedadev.com/privacidad/{% endblock %}
+{% block og_url %}https://sruedadev.com/privacidad/{% endblock %}
+
+{% block content %}
+<section class="hero-legal">
+    <div class="circuito" aria-hidden="true"></div>
+    <div class="contenedor">
+        <p class="miga">
+            <a href="{% url 'core:home' %}">Inicio</a> / Política de Privacidad
+        </p>
+        <span class="etiqueta"><i class="punto"></i> Legal</span>
+        <h1>Política de Privacidad</h1>
+        <p class="actualizado">Última actualización: 9 de octubre de 2026</p>
+    </div>
+</section>
+
+<section class="seccion legal">
+    <div class="contenedor contenedor-legal">
+
+        <div class="aviso-borrador">
+            <strong>Nota:</strong> este texto es una plantilla básica alineada con la Ley 1581 de 2012
+            (protección de datos personales en Colombia), pensada para un sitio que solo recoge datos a
+            través de un formulario de contacto. No reemplaza asesoría legal si en el futuro procesas datos
+            más sensibles o a mayor escala.
+        </div>
+
+        <div class="legal">
+            <h2>1. Responsable del tratamiento</h2>
+            <p>
+                El responsable de los datos personales recogidos a través de sruedadev.com es
+                <span class="pendiente">Sergio Rueda / razón social pendiente</span>, con domicilio en
+                Floridablanca, Santander, Colombia. Puedes contactarnos en
+                <a href="mailto:hello@sruedadev.com">hello@sruedadev.com</a> o por WhatsApp al
+                +57 350 624 0534 para cualquier tema relacionado con tus datos.
+            </p>
+
+            <h2>2. Qué datos recopilamos</h2>
+            <p>Recopilamos datos personales únicamente cuando los proporcionas voluntariamente, principalmente a través del formulario de contacto:</p>
+            <ul>
+                <li>Nombre completo</li>
+                <li>Correo electrónico</li>
+                <li>Teléfono / WhatsApp (opcional)</li>
+                <li>Servicio de tu interés y presupuesto aproximado (opcional)</li>
+                <li>El mensaje que escribas describiendo tu proyecto</li>
+            </ul>
+            <p>
+                No recopilamos datos financieros, de salud ni ninguna categoría de dato sensible a través de
+                este sitio.
+            </p>
+
+            <h2>3. Para qué usamos tus datos</h2>
+            <p>Tus datos se usan exclusivamente para:</p>
+            <ul>
+                <li>Responder tu solicitud de información o cotización.</li>
+                <li>Contactarte sobre el proyecto que consultaste.</li>
+                <li>Llevar un registro básico de las solicitudes recibidas.</li>
+            </ul>
+            <p>
+                No usamos tus datos para enviarte publicidad no solicitada, ni los vendemos, alquilamos o
+                compartimos con terceros con fines comerciales.
+            </p>
+
+            <h2>4. Autorización</h2>
+            <p>
+                Al marcar la casilla de aceptación en el formulario de contacto y enviarlo, autorizas
+                expresamente el tratamiento de tus datos personales para los fines descritos en esta
+                política, conforme a la Ley 1581 de 2012 y sus decretos reglamentarios.
+            </p>
+
+            <h2>5. Cuánto tiempo conservamos tus datos</h2>
+            <p>
+                Conservamos la información de tu solicitud mientras exista una relación o posible relación
+                comercial activa, y mientras sea necesaria para responder tu consulta o cumplir obligaciones
+                legales o contractuales. Puedes solicitar su eliminación en cualquier momento (ver sección 7).
+            </p>
+
+            <h2>6. Con quién compartimos tus datos</h2>
+            <p>
+                No compartimos tus datos con terceros, salvo que la ley lo exija (por ejemplo, un
+                requerimiento de una autoridad competente) o que sea estrictamente necesario para prestar el
+                servicio que solicitaste y lo hayas autorizado expresamente.
+            </p>
+
+            <h2>7. Tus derechos</h2>
+            <p>Como titular de tus datos personales, en Colombia tienes derecho a:</p>
+            <ul>
+                <li>Conocer, actualizar y rectificar tus datos personales.</li>
+                <li>Solicitar prueba de la autorización otorgada.</li>
+                <li>Ser informado sobre el uso que se le ha dado a tus datos.</li>
+                <li>Revocar la autorización y/o solicitar la supresión de tus datos.</li>
+                <li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC) por infracciones a la ley de protección de datos.</li>
+            </ul>
+            <p>
+                Para ejercer cualquiera de estos derechos, escríbenos a
+                <a href="mailto:hello@sruedadev.com">hello@sruedadev.com</a> indicando tu solicitud; te
+                responderemos en un plazo razonable.
+            </p>
+
+            <h2>8. Cookies</h2>
+            <p>
+                Este sitio usa únicamente cookies técnicas necesarias para su funcionamiento. Los detalles
+                están en nuestra <a href="{% url 'core:cookies' %}">Política de Cookies</a>.
+            </p>
+
+            <h2>9. Seguridad</h2>
+            <p>
+                Tomamos medidas razonables para proteger tus datos personales contra acceso no autorizado,
+                pérdida o alteración. Ningún sitio puede garantizar seguridad absoluta, pero no almacenamos
+                datos sensibles ni financieros a través de este formulario.
+            </p>
+
+            <h2>10. Cambios a esta política</h2>
+            <p>
+                Podemos actualizar esta Política de Privacidad cuando sea necesario. La fecha de "Última
+                actualización" al inicio de esta página indica la versión vigente.
+            </p>
+        </div>
+
+        <div class="legal-pie">
+            <a class="btn btn-fantasma" href="{% url 'core:terminos' %}">Términos y Condiciones</a>
+            <a class="btn btn-fantasma" href="{% url 'core:cookies' %}">Política de Cookies</a>
+            <a class="btn btn-primario" href="{% url 'core:home' %}#contacto">Contáctanos</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

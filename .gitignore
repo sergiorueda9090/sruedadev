@@ -18,6 +18,7 @@ db.sqlite3-journal
 # Variables de entorno / secretos
 .env
 .env.*
+!.env.example
 
 # Editores / IDE
 .vscode/

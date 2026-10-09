@@ -1,0 +1,100 @@
+{% extends "core/base.html" %}
+
+{% block title %}Política de Cookies | sruedadev.com{% endblock %}
+{% block description %}Qué cookies usa sruedadev.com y para qué, y cómo puedes controlarlas desde tu navegador.{% endblock %}
+{% block og_title %}Política de Cookies | sruedadev.com{% endblock %}
+{% block og_description %}Qué cookies usa sruedadev.com y para qué, y cómo puedes controlarlas desde tu navegador.{% endblock %}
+{% block twitter_title %}Política de Cookies | sruedadev.com{% endblock %}
+{% block twitter_description %}Qué cookies usa sruedadev.com y para qué, y cómo puedes controlarlas desde tu navegador.{% endblock %}
+{% block canonical %}https://sruedadev.com/cookies/{% endblock %}
+{% block og_url %}https://sruedadev.com/cookies/{% endblock %}
+
+{% block content %}
+<section class="hero-legal">
+    <div class="circuito" aria-hidden="true"></div>
+    <div class="contenedor">
+        <p class="miga">
+            <a href="{% url 'core:home' %}">Inicio</a> / Política de Cookies
+        </p>
+        <span class="etiqueta"><i class="punto"></i> Legal</span>
+        <h1>Política de Cookies</h1>
+        <p class="actualizado">Última actualización: 9 de octubre de 2026</p>
+    </div>
+</section>
+
+<section class="seccion legal">
+    <div class="contenedor contenedor-legal">
+
+        <div class="aviso-borrador">
+            <strong>Nota:</strong> este sitio hoy solo usa cookies técnicas, estrictamente necesarias. Si en
+            el futuro se agrega analítica (como Google Analytics) u otra herramienta de medición, esta
+            página debe actualizarse para reflejarlo, y probablemente se necesite un aviso de consentimiento
+            de cookies.
+        </div>
+
+        <div class="legal">
+            <h2>1. Qué es una cookie</h2>
+            <p>
+                Una cookie es un pequeño archivo que un sitio web guarda en tu navegador para recordar
+                información entre visitas o durante una misma sesión, como tus preferencias o datos técnicos
+                necesarios para que el sitio funcione correctamente.
+            </p>
+
+            <h2>2. Cookies que usa este sitio</h2>
+            <p>
+                sruedadev.com usa únicamente la cookie técnica que Django (el software con el que está
+                construido el sitio) necesita para proteger el formulario de contacto contra ataques
+                (<strong>cookie CSRF</strong>). Esta cookie:
+            </p>
+            <ul>
+                <li>Es estrictamente necesaria para que el formulario de contacto funcione de forma segura.</li>
+                <li>No se usa para rastrearte, perfilarte ni mostrarte publicidad.</li>
+                <li>Se elimina o expira automáticamente; no persiste de forma indefinida.</li>
+            </ul>
+            <p>
+                Actualmente <strong>no usamos</strong> cookies de analítica (como Google Analytics), de
+                publicidad ni de redes sociales en este sitio.
+            </p>
+
+            <h2>3. Cookies de terceros</h2>
+            <p>
+                Este sitio enlaza a WhatsApp y a redes sociales externas. Si haces clic en esos enlaces y
+                sales de sruedadev.com, esos sitios pueden instalar sus propias cookies según sus propias
+                políticas, que no controlamos. Te recomendamos revisar la política de cookies de cada
+                servicio externo que visites.
+            </p>
+
+            <h2>4. Cómo controlar o eliminar cookies</h2>
+            <p>
+                Puedes permitir, bloquear o eliminar las cookies desde la configuración de tu navegador.
+                Ten en cuenta que bloquear la cookie técnica de este sitio puede impedir que el formulario de
+                contacto funcione correctamente.
+            </p>
+            <ul>
+                <li><strong>Chrome:</strong> Configuración → Privacidad y seguridad → Cookies.</li>
+                <li><strong>Firefox:</strong> Opciones → Privacidad y seguridad → Cookies y datos del sitio.</li>
+                <li><strong>Safari:</strong> Preferencias → Privacidad.</li>
+                <li><strong>Edge:</strong> Configuración → Cookies y permisos del sitio.</li>
+            </ul>
+
+            <h2>5. Cambios a esta política</h2>
+            <p>
+                Si en el futuro incorporamos herramientas que usen cookies adicionales (por ejemplo, de
+                analítica), actualizaremos esta página y, de ser necesario, añadiremos un aviso de
+                consentimiento de cookies visible en el sitio.
+            </p>
+
+            <h2>6. Contacto</h2>
+            <p>
+                Dudas sobre esta política: <a href="mailto:hello@sruedadev.com">hello@sruedadev.com</a>.
+            </p>
+        </div>
+
+        <div class="legal-pie">
+            <a class="btn btn-fantasma" href="{% url 'core:terminos' %}">Términos y Condiciones</a>
+            <a class="btn btn-fantasma" href="{% url 'core:privacidad' %}">Política de Privacidad</a>
+            <a class="btn btn-primario" href="{% url 'core:home' %}#contacto">Contáctanos</a>
+        </div>
+    </div>
+</section>
+{% endblock %}

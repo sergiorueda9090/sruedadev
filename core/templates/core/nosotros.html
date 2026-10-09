@@ -1,0 +1,75 @@
+{% extends "core/base.html" %}
+
+{% block title %}Sobre nosotros | sruedadev.com{% endblock %}
+{% block description %}Conoce quién está detrás de sruedadev.com: desarrollo web, software a la medida e inteligencia artificial desde Floridablanca, Santander, Colombia.{% endblock %}
+{% block og_title %}Sobre nosotros | sruedadev.com{% endblock %}
+{% block og_description %}Conoce quién está detrás de sruedadev.com: desarrollo web, software a la medida e inteligencia artificial desde Floridablanca, Santander, Colombia.{% endblock %}
+{% block twitter_title %}Sobre nosotros | sruedadev.com{% endblock %}
+{% block twitter_description %}Conoce quién está detrás de sruedadev.com: desarrollo web, software a la medida e inteligencia artificial desde Floridablanca, Santander, Colombia.{% endblock %}
+{% block canonical %}https://sruedadev.com/nosotros/{% endblock %}
+{% block og_url %}https://sruedadev.com/nosotros/{% endblock %}
+
+{% block content %}
+<section class="hero-legal">
+    <div class="circuito" aria-hidden="true"></div>
+    <div class="contenedor">
+        <p class="miga">
+            <a href="{% url 'core:home' %}">Inicio</a> / Sobre nosotros
+        </p>
+        <span class="etiqueta"><i class="punto"></i> Sobre nosotros</span>
+        <h1>Detrás de sruedadev.com</h1>
+        <p class="actualizado">Floridablanca, Santander, Colombia</p>
+    </div>
+</section>
+
+<section class="seccion legal">
+    <div class="contenedor contenedor-legal">
+        <div class="legal">
+            <h2>Quién hace el trabajo</h2>
+            <p>
+                sruedadev.com es el nombre comercial bajo el que trabajo como desarrollador de software
+                independiente, construyendo páginas web, software a la medida y soluciones con inteligencia
+                artificial para empresas y emprendedores. No es una agencia grande con capas de intermediarios:
+                hablas directamente con la persona que diseña, programa y entrega tu proyecto.
+            </p>
+            <p>
+                Cada proyecto es una oportunidad para entender una necesidad real del negocio y convertirla en
+                una solución funcional, sin plantillas genéricas ni funcionalidades que no vas a usar.
+            </p>
+
+            <h2>Qué hago</h2>
+            <ul>
+                <li>Desarrollo web: sitios corporativos, landing pages y portales a la medida.</li>
+                <li>Software a tu medida: sistemas de inventario, facturación, citas y reportes.</li>
+                <li>AI Automatización: chatbots, procesamiento de documentos y agentes de IA.</li>
+                <li>Integración con APIs: pasarelas de pago, CRMs, facturación electrónica.</li>
+                <li>E-commerce: tiendas en línea con catálogo, carrito y control de stock.</li>
+            </ul>
+
+            <h2>Cómo trabajo</h2>
+            <ol>
+                {% for paso in proceso %}
+                <li><strong>{{ paso.titulo }}.</strong> {{ paso.descripcion }}</li>
+                {% endfor %}
+            </ol>
+
+            <h2>Principios que sigo</h2>
+            <ul>
+                <li><strong>Precio cerrado por escrito</strong> antes de empezar, sin sorpresas al final.</li>
+                <li><strong>Diseño propio</strong> para cada proyecto, nada de plantillas reempacadas.</li>
+                <li><strong>Acompañamiento después de la entrega</strong>, no desaparezco cuando el proyecto termina.</li>
+                <li><strong>Honestidad sobre el alcance:</strong> si algo no tiene sentido para tu negocio, te lo digo, aunque signifique un proyecto más pequeño.</li>
+            </ul>
+
+            <h2>Dónde estamos</h2>
+            <p>
+                Trabajo desde Floridablanca, Santander, Colombia, con clientes en Colombia y, por ser trabajo
+                remoto, en cualquier país que necesite estos servicios. Puedes escribirme a
+                <a href="mailto:hello@sruedadev.com">hello@sruedadev.com</a> o por WhatsApp.
+            </p>
+        </div>
+    </div>
+</section>
+
+{% include "core/partials/_cta_final.html" %}
+{% endblock %}

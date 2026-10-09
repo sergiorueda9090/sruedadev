@@ -115,9 +115,9 @@
                             <input type="checkbox" id="aceptaTerminos" name="aceptaTerminos" value="true" required aria-required="true">
                             <span>
                                 He leído y acepto los
-                                <a href="https://www.fyainnovation.com/terminos" target="_blank" rel="noopener">Términos y Condiciones</a>
+                                <a href="{% url 'core:terminos' %}" target="_blank" rel="noopener">Términos y Condiciones</a>
                                 y la
-                                <a href="https://www.fyainnovation.com/privacidad" target="_blank" rel="noopener">Política de Privacidad</a>.
+                                <a href="{% url 'core:privacidad' %}" target="_blank" rel="noopener">Política de Privacidad</a>.
                             </span>
                         </label>
                     </div>

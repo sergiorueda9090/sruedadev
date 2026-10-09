@@ -36,14 +36,15 @@
             <div>
                 <h3>Empresa</h3>
                 <ul>
-                    <li><a href="#nosotros">Sobre nosotros</a></li>
+                    <li><a href="{% url 'core:nosotros' %}">Sobre nosotros</a></li>
                     <li><a href="#proceso">Cómo trabajamos</a></li>
                     <li><a href="#portafolio">Portafolio</a></li>
                     <li><a href="#planes">Servicios</a></li>
                     <li><a href="#faq">Preguntas frecuentes</a></li>
                     <li><a href="#contacto">Contacto</a></li>
-                    <li><a href="https://www.fyainnovation.com/terminos">Términos y Condiciones</a></li>
-                    <li><a href="https://www.fyainnovation.com/privacidad">Política de Privacidad</a></li>
+                    <li><a href="{% url 'core:terminos' %}">Términos y Condiciones</a></li>
+                    <li><a href="{% url 'core:privacidad' %}">Política de Privacidad</a></li>
+                    <li><a href="{% url 'core:cookies' %}">Política de Cookies</a></li>
                 </ul>
             </div>
 

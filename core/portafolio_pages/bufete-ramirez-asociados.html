@@ -1,0 +1,1928 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Ramírez & Asociados – Bufete especializado en Derecho Corporativo y Empresarial. Asesoría legal para empresas en Colombia. Consulta tu caso hoy." />
+  <meta name="keywords" content="abogado corporativo, derecho empresarial, bufete de abogados, asesoría legal, contratos, fusiones, Colombia" />
+  <meta name="author" content="Ramírez & Asociados" />
+  <meta property="og:title" content="Ramírez & Asociados | Derecho Corporativo" />
+  <meta property="og:description" content="Soluciones legales estratégicas para empresas. Más de 15 años protegiendo negocios." />
+  <title>Ramírez & Asociados · Derecho Corporativo & Empresarial</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Google Fonts: Playfair Display + DM Sans -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       VARIABLES
+    ============================================= */
+    :root {
+      --olive:        #5c6b3a;
+      --olive-dark:   #3e4a26;
+      --olive-light:  #7a8f4e;
+      --olive-pale:   #e8edde;
+      --olive-mist:   #f4f6ef;
+      --white:        #ffffff;
+      --off-white:    #fafaf8;
+      --cream:        #f5f3ee;
+      --charcoal:     #1e2016;
+      --charcoal-mid: #3a3d2e;
+      --text-body:    #4a4e38;
+      --text-muted:   #7a7e68;
+      --gold-accent:  #c9a84c;
+      --border:       #dde3d0;
+
+      --font-display: 'Playfair Display', serif;
+      --font-body:    'DM Sans', sans-serif;
+      --shadow-sm:    0 2px 16px rgba(60, 70, 38, 0.08);
+      --shadow-md:    0 8px 40px rgba(60, 70, 38, 0.12);
+      --shadow-lg:    0 20px 60px rgba(60, 70, 38, 0.16);
+      --transition:   all 0.38s cubic-bezier(0.4, 0, 0.2, 1);
+      --radius:       2px;
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--off-white);
+      color: var(--text-body);
+      overflow-x: hidden;
+      font-weight: 400;
+      line-height: 1.7;
+    }
+
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-display);
+      color: var(--charcoal);
+      line-height: 1.15;
+    }
+
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    img { max-width: 100%; display: block; }
+    p { color: var(--text-body); }
+
+    /* Subtle grain overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9000;
+    }
+
+    /* =============================================
+       UTILITIES
+    ============================================= */
+    .section-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 1rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 2px;
+      background: var(--olive);
+    }
+
+    .section-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--charcoal);
+      margin-bottom: 1rem;
+    }
+    .section-title em {
+      font-style: italic;
+      color: var(--olive);
+    }
+    .section-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+      max-width: 540px;
+    }
+
+    /* Buttons */
+    .btn-law {
+      font-family: var(--font-body);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 14px 32px;
+      border-radius: var(--radius);
+      transition: var(--transition);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-law-primary {
+      background: var(--olive);
+      color: var(--white);
+    }
+    .btn-law-primary:hover {
+      background: var(--olive-dark);
+      color: var(--white);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(92, 107, 58, 0.35);
+    }
+    .btn-law-outline {
+      background: transparent;
+      color: var(--olive);
+      border: 2px solid var(--olive);
+    }
+    .btn-law-outline:hover {
+      background: var(--olive);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+    .btn-law-white {
+      background: var(--white);
+      color: var(--olive-dark);
+    }
+    .btn-law-white:hover {
+      background: var(--olive-pale);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+    }
+    .btn-law-white-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,0.6);
+    }
+    .btn-law-white-outline:hover {
+      background: rgba(255,255,255,0.12);
+      border-color: var(--white);
+      color: var(--white);
+      transform: translateY(-2px);
+    }
+
+    /* Scroll Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+    .reveal.left  { transform: translateX(-28px); }
+    .reveal.right { transform: translateX(28px); }
+    .reveal.visible { opacity: 1; transform: translate(0); }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1050;
+      padding: 18px 0;
+      transition: var(--transition);
+      background: transparent;
+    }
+    #navbar.scrolled {
+      background: rgba(250, 250, 248, 0.97);
+      backdrop-filter: blur(14px);
+      padding: 10px 0;
+      box-shadow: 0 2px 20px rgba(60,70,38,0.09);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--white);
+      letter-spacing: 0.02em;
+      transition: var(--transition);
+    }
+    .nav-logo span {
+      color: var(--olive-pale);
+      font-style: italic;
+      font-weight: 400;
+    }
+    #navbar.scrolled .nav-logo       { color: var(--charcoal); }
+    #navbar.scrolled .nav-logo span  { color: var(--olive); }
+
+    .nav-logo-badge {
+      font-family: var(--font-body);
+      font-size: 0.56rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      background: var(--olive);
+      color: var(--white);
+      padding: 2px 7px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+    #navbar.scrolled .nav-logo-badge { background: var(--olive); }
+
+    .navbar-nav .nav-link {
+      font-size: 0.76rem;
+      font-weight: 500;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.82) !important;
+      padding: 6px 14px !important;
+      transition: var(--transition);
+      position: relative;
+    }
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 14px; right: 14px;
+      height: 1px;
+      background: var(--olive-pale);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+    .navbar-nav .nav-link:hover::after { transform: scaleX(1); }
+    .navbar-nav .nav-link:hover        { color: var(--white) !important; }
+
+    #navbar.scrolled .navbar-nav .nav-link       { color: var(--text-body) !important; }
+    #navbar.scrolled .navbar-nav .nav-link::after { background: var(--olive); }
+    #navbar.scrolled .navbar-nav .nav-link:hover  { color: var(--olive) !important; }
+
+    .nav-wa-btn {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 20px;
+      background: #25D366;
+      color: var(--white) !important;
+      border-radius: var(--radius);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .nav-wa-btn:hover {
+      background: #1da851 !important;
+      color: var(--white) !important;
+      transform: translateY(-1px);
+    }
+
+    /* Hamburger */
+    .navbar-toggler { border: none; padding: 4px; }
+    .navbar-toggler:focus { box-shadow: none; }
+    .ham-icon { display: flex; flex-direction: column; gap: 5px; width: 22px; }
+    .ham-icon span { display: block; height: 1.5px; background: var(--white); transition: var(--transition); }
+    #navbar.scrolled .ham-icon span { background: var(--charcoal); }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--charcoal);
+    }
+
+    /* Split background */
+    .hero-bg-left {
+      position: absolute;
+      inset: 0 50% 0 0;
+      background:
+        linear-gradient(160deg, var(--olive-dark) 0%, var(--charcoal) 100%);
+    }
+    .hero-bg-right {
+      position: absolute;
+      inset: 0 0 0 40%;
+      background:
+        linear-gradient(to left, rgba(30,32,22,0.55) 0%, rgba(30,32,22,0.9) 100%),
+        url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1200&q=80')
+        center/cover no-repeat;
+    }
+
+    /* Geometric decorators */
+    .hero-geo-1 {
+      position: absolute;
+      top: 14%;
+      left: 44%;
+      width: 1px;
+      height: 180px;
+      background: linear-gradient(to bottom, transparent, rgba(201,168,76,0.5), transparent);
+    }
+    .hero-geo-2 {
+      position: absolute;
+      bottom: 15%;
+      right: 5%;
+      width: 140px;
+      height: 140px;
+      border: 1px solid rgba(201,168,76,0.18);
+      transform: rotate(45deg);
+    }
+    .hero-geo-3 {
+      position: absolute;
+      top: 10%;
+      left: 5%;
+      width: 80px;
+      height: 80px;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 50%;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      padding-top: 90px;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.67rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold-accent);
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeUp 0.7s 0.2s forwards;
+    }
+    .hero-tag::before {
+      content: '';
+      width: 36px;
+      height: 1px;
+      background: var(--gold-accent);
+    }
+
+    .hero-h1 {
+      font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 1.4rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--olive-pale);
+      display: block;
+    }
+
+    .hero-lead {
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
+      margin-bottom: 2.5rem;
+      line-height: 1.85;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+
+    /* Stats row */
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      opacity: 0;
+      animation: fadeIn 1s 1.1s forwards;
+    }
+    .hero-stat-item .num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .hero-stat-item .num span {
+      color: var(--gold-accent);
+    }
+    .hero-stat-item .lbl {
+      font-size: 0.72rem;
+      color: rgba(255,255,255,0.42);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-top: 4px;
+    }
+
+    /* Scroll indicator */
+    .hero-scroll-hint {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.58rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeIn 1s 1.5s forwards;
+    }
+    .scroll-bar {
+      width: 1px;
+      height: 44px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
+      animation: scrollAnim 2s ease-in-out infinite;
+    }
+    @keyframes scrollAnim {
+      0%,100% { transform: scaleY(1); opacity: 0.5; }
+      50%      { transform: scaleY(0.6); opacity: 1; }
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+
+    /* =============================================
+       SERVICIOS
+    ============================================= */
+    #servicios {
+      padding: 110px 0;
+      background: var(--off-white);
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 40px 32px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      cursor: default;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 3px;
+      height: 0;
+      background: linear-gradient(to bottom, var(--olive), var(--olive-light));
+      transition: height 0.4s ease;
+    }
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--olive-pale);
+    }
+    .service-card:hover::after { height: 100%; }
+
+    .service-icon-wrap {
+      width: 52px;
+      height: 52px;
+      background: var(--olive-mist);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.35rem;
+      color: var(--olive);
+      margin-bottom: 22px;
+      transition: var(--transition);
+    }
+    .service-card:hover .service-icon-wrap {
+      background: var(--olive);
+      color: var(--white);
+      border-color: var(--olive);
+    }
+
+    .service-card h4 {
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: var(--charcoal);
+    }
+    .service-card p {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+    .service-link {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--olive);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: var(--transition);
+    }
+    .service-link i { transition: transform 0.3s ease; }
+    .service-link:hover { color: var(--olive-dark); }
+    .service-link:hover i { transform: translateX(4px); }
+
+    /* =============================================
+       BENEFICIOS
+    ============================================= */
+    #beneficios {
+      padding: 110px 0;
+      background: var(--cream);
+      position: relative;
+      overflow: hidden;
+    }
+    #beneficios::before {
+      content: '';
+      position: absolute;
+      top: -80px; right: -80px;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(92,107,58,0.06) 0%, transparent 70%);
+    }
+
+    .benefit-item {
+      display: flex;
+      gap: 20px;
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      transition: var(--transition);
+      height: 100%;
+    }
+    .benefit-item:hover {
+      border-color: var(--olive);
+      box-shadow: var(--shadow-sm);
+      transform: translateY(-3px);
+    }
+    .benefit-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--olive-pale);
+      line-height: 1;
+      flex-shrink: 0;
+      width: 44px;
+    }
+    .benefit-item:hover .benefit-num { color: var(--olive-light); }
+    .benefit-item h5 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: var(--charcoal);
+    }
+    .benefit-item p {
+      font-size: 0.85rem;
+      line-height: 1.75;
+      margin: 0;
+    }
+
+    /* Image column */
+    .benefit-img-wrap {
+      position: relative;
+      height: 100%;
+      min-height: 420px;
+    }
+    .benefit-img-main {
+      width: 85%;
+      height: 90%;
+      object-fit: cover;
+      position: absolute;
+      top: 0; right: 0;
+    }
+    .benefit-img-card {
+      position: absolute;
+      bottom: 0; left: 0;
+      background: var(--olive);
+      color: var(--white);
+      padding: 24px 28px;
+      width: 58%;
+    }
+    .benefit-img-card .big {
+      font-family: var(--font-display);
+      font-size: 2.6rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1;
+    }
+    .benefit-img-card .small {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.65);
+      margin-top: 4px;
+    }
+
+    /* =============================================
+       TESTIMONIOS
+    ============================================= */
+    #testimonios {
+      padding: 110px 0;
+      background: var(--off-white);
+    }
+
+    .testi-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      padding: 40px 32px;
+      position: relative;
+      transition: var(--transition);
+      height: 100%;
+    }
+    .testi-card::before {
+      content: '"';
+      font-family: var(--font-display);
+      font-size: 5rem;
+      color: var(--olive-pale);
+      line-height: 0.6;
+      position: absolute;
+      top: 28px; left: 28px;
+    }
+    .testi-card:hover {
+      box-shadow: var(--shadow-md);
+      transform: translateY(-4px);
+      border-color: var(--olive-pale);
+    }
+    .testi-stars {
+      color: var(--gold-accent);
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin-bottom: 16px;
+    }
+    .testi-text {
+      font-size: 0.93rem;
+      line-height: 1.85;
+      color: var(--text-body);
+      font-style: italic;
+      margin-bottom: 28px;
+      padding-top: 24px;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+    }
+    .testi-avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--olive-pale);
+    }
+    .testi-name {
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: var(--charcoal);
+      margin: 0;
+    }
+    .testi-role {
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+    }
+
+    /* =============================================
+       PORTAFOLIO / CASOS
+    ============================================= */
+    #portafolio {
+      padding: 110px 0;
+      background: var(--charcoal);
+    }
+
+    .case-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 36px 30px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+    .case-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--olive), var(--gold-accent));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .case-card:hover {
+      background: rgba(255,255,255,0.07);
+      border-color: rgba(92,107,58,0.35);
+      transform: translateY(-4px);
+    }
+    .case-card:hover::before { transform: scaleX(1); }
+
+    .case-tag {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      background: rgba(92,107,58,0.2);
+      color: var(--olive-pale);
+      padding: 4px 12px;
+      margin-bottom: 16px;
+    }
+    .case-card h4 {
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: 12px;
+    }
+    .case-card p {
+      font-size: 0.87rem;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+    .case-result {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: var(--gold-accent);
+      letter-spacing: 0.06em;
+    }
+    .case-result i { font-size: 1rem; }
+
+    /* Grid with featured card */
+    .case-featured {
+      grid-column: span 2;
+    }
+    @media (max-width: 767px) {
+      .case-featured { grid-column: span 1; }
+    }
+
+    /* =============================================
+       UBICACIÓN
+    ============================================= */
+    #ubicacion {
+      padding: 110px 0;
+      background: var(--cream);
+    }
+
+    .map-wrapper {
+      position: relative;
+      overflow: hidden;
+      height: 420px;
+      border: 1px solid var(--border);
+    }
+    .map-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      filter: grayscale(20%) contrast(1.05);
+    }
+
+    .location-info-item {
+      display: flex;
+      gap: 16px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .location-info-item:last-child { border-bottom: none; }
+    .loc-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--olive-mist);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--olive);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .loc-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--olive);
+      margin-bottom: 4px;
+    }
+    .loc-value {
+      font-size: 0.93rem;
+      color: var(--text-body);
+      margin: 0;
+    }
+
+    /* =============================================
+       CTA SECTION
+    ============================================= */
+    #cta {
+      padding: 100px 0;
+      background: var(--olive-dark);
+      position: relative;
+      overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+    }
+    #cta::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 350px; height: 350px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,255,255,0.04) 0%, transparent 70%);
+    }
+
+    .cta-title {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+    }
+    .cta-title em {
+      font-style: italic;
+      color: rgba(232,237,222,0.7);
+    }
+    .cta-lead {
+      color: rgba(255,255,255,0.58);
+      font-size: 1.02rem;
+      line-height: 1.8;
+      max-width: 500px;
+      margin: 0 auto 2.5rem;
+    }
+
+    /* =============================================
+       FORMULARIO
+    ============================================= */
+    #contacto {
+      padding: 110px 0;
+      background: var(--off-white);
+    }
+
+    .form-law input,
+    .form-law select,
+    .form-law textarea {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      color: var(--charcoal);
+      padding: 13px 16px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      width: 100%;
+      transition: var(--transition);
+      outline: none;
+    }
+    .form-law input:focus,
+    .form-law select:focus,
+    .form-law textarea:focus {
+      border-color: var(--olive);
+      box-shadow: 0 0 0 3px rgba(92,107,58,0.1);
+    }
+    .form-law input::placeholder,
+    .form-law textarea::placeholder { color: #b0b5a0; }
+    .form-law label {
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+      display: block;
+    }
+    .form-law textarea { resize: vertical; min-height: 130px; }
+    .form-law select option { background: var(--white); color: var(--charcoal); }
+
+    .contact-side {
+      background: var(--charcoal);
+      padding: 48px 40px;
+      height: 100%;
+    }
+    .contact-side-item {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .contact-side-item:last-of-type { border-bottom: none; }
+    .cs-icon {
+      width: 40px;
+      height: 40px;
+      border: 1px solid rgba(92,107,58,0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--olive-light);
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+    .cs-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+      margin-bottom: 3px;
+    }
+    .cs-value {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+      margin: 0;
+    }
+
+    .social-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .soc-btn {
+      width: 38px;
+      height: 38px;
+      border: 1px solid rgba(255,255,255,0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .soc-btn:hover {
+      border-color: var(--olive-light);
+      color: var(--olive-light);
+      transform: translateY(-2px);
+    }
+
+    /* Form success */
+    #formOk {
+      display: none;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    #formOk i { font-size: 3rem; color: var(--olive); }
+    #formOk h4 { font-size: 1.6rem; margin: 16px 0 8px; }
+    #formOk p { color: var(--text-muted); font-size: 0.93rem; }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    #footer {
+      background: var(--charcoal);
+      padding: 70px 0 30px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+    }
+    .footer-logo span { font-style: italic; color: var(--olive-pale); font-weight: 400; }
+    .footer-desc {
+      font-size: 0.84rem;
+      color: rgba(255,255,255,0.35);
+      line-height: 1.8;
+      margin-top: 12px;
+      max-width: 240px;
+    }
+    .footer-head {
+      font-family: var(--font-body);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--olive-light);
+      margin-bottom: 18px;
+    }
+    .footer-links { list-style: none; padding: 0; margin: 0; }
+    .footer-links li { margin-bottom: 9px; }
+    .footer-links a {
+      font-size: 0.86rem;
+      color: rgba(255,255,255,0.36);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--olive-pale); }
+    .footer-bottom {
+      margin-top: 52px;
+      padding-top: 22px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-copy {
+      font-size: 0.73rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.05em;
+    }
+
+    /* =============================================
+       WHATSAPP FLOAT
+    ============================================= */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 9001;
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 1.5rem;
+      box-shadow: 0 6px 28px rgba(37,211,102,0.45);
+      transition: var(--transition);
+      animation: waPop 0.5s 2s both, waPulse 3s 2.5s ease-in-out infinite;
+    }
+    .wa-float:hover {
+      transform: scale(1.1);
+      color: #fff;
+      box-shadow: 0 8px 32px rgba(37,211,102,0.6);
+    }
+    .wa-tooltip {
+      position: absolute;
+      right: 66px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: var(--charcoal);
+      color: var(--white);
+      font-size: 0.75rem;
+      padding: 7px 14px;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      border-radius: var(--radius);
+    }
+    .wa-float:hover .wa-tooltip { opacity: 1; }
+    @keyframes waPop {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 6px 28px rgba(37,211,102,0.45); }
+      50%      { box-shadow: 0 6px 40px rgba(37,211,102,0.7); }
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 991px) {
+      .hero-bg-left  { display: none; }
+      .hero-bg-right { left: 0; }
+      .benefit-img-wrap { min-height: 300px; margin-bottom: 40px; }
+      .contact-side { margin-top: 32px; }
+    }
+    @media (max-width: 575px) {
+      .hero-actions { flex-direction: column; }
+      .hero-stats   { gap: 24px; }
+      .wa-tooltip   { display: none; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- =============================================
+     NAVBAR
+============================================= -->
+<nav id="navbar" class="navbar navbar-expand-lg">
+  <div class="container">
+
+    <a href="#inicio" class="navbar-brand nav-logo">
+      Ramírez<span> & Asociados</span>
+      <span class="nav-logo-badge">Est. 2009</span>
+    </a>
+
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse" data-bs-target="#navMenu"
+      aria-label="Abrir menú">
+      <div class="ham-icon">
+        <span></span><span></span><span></span>
+      </div>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center">
+        <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+        <li class="nav-item ms-lg-3">
+          <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20información%20sobre%20sus%20servicios%20legales"
+            class="nav-wa-btn" target="_blank" rel="noopener">
+            <i class="bi bi-whatsapp"></i> WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav>
+
+<!-- =============================================
+     HERO
+============================================= -->
+<section id="inicio">
+  <div id="hero">
+    <div class="hero-bg-left"></div>
+    <div class="hero-bg-right"></div>
+    <div class="hero-geo-1"></div>
+    <div class="hero-geo-2"></div>
+    <div class="hero-geo-3"></div>
+
+    <div class="container hero-content py-5">
+      <div class="row">
+        <div class="col-lg-7 col-xl-6">
+
+          <p class="hero-tag">Derecho Corporativo & Empresarial</p>
+
+          <h1 class="hero-h1">
+            Protegemos<em>su empresa con estrategia legal</em>
+          </h1>
+
+          <p class="hero-lead">
+            Asesoría jurídica especializada para empresas que necesitan seguridad legal, contratos sólidos y representación efectiva ante cualquier reto corporativo.
+          </p>
+
+          <div class="hero-actions">
+            <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20una%20consulta%20legal%20empresarial"
+              class="btn-law btn-law-primary" target="_blank" rel="noopener">
+              <i class="bi bi-whatsapp"></i> Consulta por WhatsApp
+            </a>
+            <a href="#contacto" class="btn-law btn-law-white-outline">
+              <i class="bi bi-calendar3"></i> Agendar Cita
+            </a>
+          </div>
+
+          <div class="hero-stats">
+            <div class="hero-stat-item">
+              <div class="num">15<span>+</span></div>
+              <div class="lbl">Años de experiencia</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="num">800<span>+</span></div>
+              <div class="lbl">Casos exitosos</div>
+            </div>
+            <div class="hero-stat-item">
+              <div class="num">98<span>%</span></div>
+              <div class="lbl">Clientes satisfechos</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll-hint">
+      <div class="scroll-bar"></div>
+      <span>Scroll</span>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SERVICIOS
+============================================= -->
+<section id="servicios">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow" style="justify-content:center">Áreas de Práctica</span>
+      <h2 class="section-title">Soluciones legales para <em>cada desafío</em></h2>
+      <p class="section-subtitle mx-auto text-center">
+        Contamos con especialistas en cada área del derecho corporativo para brindar asesoría integral a su empresa.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.08s">
+        <div class="service-card">
+          <div class="service-icon-wrap"><i class="bi bi-building"></i></div>
+          <h4>Constitución de Empresas</h4>
+          <p>Asesoría completa en la creación y estructuración jurídica de sociedades, selección del tipo societario más favorable y registro ante las entidades competentes.</p>
+          <a href="#contacto" class="service-link">Más información <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.16s">
+        <div class="service-card">
+          <div class="service-icon-wrap"><i class="bi bi-file-earmark-text"></i></div>
+          <h4>Contratos Comerciales</h4>
+          <p>Redacción, revisión y negociación de contratos mercantiles, acuerdos de confidencialidad, contratos de distribución, franquicias y alianzas estratégicas.</p>
+          <a href="#contacto" class="service-link">Más información <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.24s">
+        <div class="service-card">
+          <div class="service-icon-wrap"><i class="bi bi-shuffle"></i></div>
+          <h4>Fusiones & Adquisiciones</h4>
+          <p>Acompañamiento legal en procesos de M&A, due diligence jurídico, reestructuración corporativa y compraventa de activos o participaciones societarias.</p>
+          <a href="#contacto" class="service-link">Más información <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.08s">
+        <div class="service-card">
+          <div class="service-icon-wrap"><i class="bi bi-shield-check"></i></div>
+          <h4>Compliance Empresarial</h4>
+          <p>Diseño e implementación de programas de cumplimiento normativo, prevención de lavado de activos, gobierno corporativo y ética empresarial.</p>
+          <a href="#contacto" class="service-link">Más información <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.16s">
+        <div class="service-card">
+          <div class="service-icon-wrap"><i class="bi bi-bank"></i></div>
+          <h4>Derecho Financiero</h4>
+          <p>Asesoría en operaciones financieras, financiamiento corporativo, emisión de valores, créditos sindicados y relaciones con entidades del sector financiero.</p>
+          <a href="#contacto" class="service-link">Más información <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.24s">
+        <div class="service-card">
+          <div class="service-icon-wrap"><i class="bi bi-balance-scale"></i></div>
+          <h4>Litigios Corporativos</h4>
+          <p>Representación en disputas societarias, procesos arbitrales, acciones de responsabilidad y defensa ante autoridades administrativas y judiciales.</p>
+          <a href="#contacto" class="service-link">Más información <i class="bi bi-arrow-right"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     BENEFICIOS
+============================================= -->
+<section id="beneficios">
+  <div class="container">
+
+    <div class="row align-items-center g-5">
+
+      <!-- Imagen -->
+      <div class="col-lg-5 reveal left">
+        <div class="benefit-img-wrap">
+          <img class="benefit-img-main"
+            src="https://images.unsplash.com/photo-1521791136064-7986c2920216?w=800&q=80"
+            alt="Equipo de abogados Ramírez & Asociados" />
+          <div class="benefit-img-card">
+            <div class="big">15+</div>
+            <div class="small">Años de trayectoria<br>en derecho corporativo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Beneficios -->
+      <div class="col-lg-7 reveal right">
+        <span class="section-eyebrow">Por qué elegirnos</span>
+        <h2 class="section-title mb-2">Su éxito legal es <em>nuestra prioridad</em></h2>
+        <p class="mb-4" style="font-size:.93rem;color:var(--text-muted);max-width:500px;line-height:1.8;">
+          Combinamos experiencia, estrategia y compromiso para ofrecer soluciones legales que realmente protegen su negocio.
+        </p>
+
+        <div class="row g-3">
+          <div class="col-sm-6">
+            <div class="benefit-item">
+              <div class="benefit-num">01</div>
+              <div>
+                <h5>Experiencia Comprobada</h5>
+                <p>Más de 800 casos exitosos en derecho corporativo con resultados medibles y documentados.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="benefit-item">
+              <div class="benefit-num">02</div>
+              <div>
+                <h5>Enfoque Estratégico</h5>
+                <p>No solo asesoramos, diseñamos estrategias legales alineadas con sus objetivos empresariales.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="benefit-item">
+              <div class="benefit-num">03</div>
+              <div>
+                <h5>Respuesta Rápida</h5>
+                <p>Disponibilidad inmediata ante urgencias legales. Su empresa nunca se quedará sin respaldo.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <div class="benefit-item">
+              <div class="benefit-num">04</div>
+              <div>
+                <h5>Equipo Multidisciplinar</h5>
+                <p>Abogados especializados en cada área con formación nacional e internacional de primer nivel.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     TESTIMONIOS
+============================================= -->
+<section id="testimonios">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow" style="justify-content:center">Testimonios</span>
+      <h2 class="section-title">Lo que dicen <em>nuestros clientes</em></h2>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-4 reveal" style="transition-delay:.08s">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">
+            Ramírez & Asociados nos acompañó en la fusión de dos de nuestras empresas. Su manejo legal fue impecable, los plazos se cumplieron al pie de la letra y el proceso fue transparente en todo momento.
+          </p>
+          <div class="testi-author">
+            <img src="https://randomuser.me/api/portraits/men/52.jpg" class="testi-avatar" alt="Carlos M." />
+            <div>
+              <p class="testi-name">Carlos Mendoza</p>
+              <span class="testi-role">CEO · Grupo Mendoza Ltda.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal" style="transition-delay:.18s">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">
+            Cuando nos enfrentamos a un litigio corporativo que amenazaba nuestra operación, el equipo actuó con rapidez y una estrategia brillante. Ganamos el caso y protegimos el patrimonio de la empresa.
+          </p>
+          <div class="testi-author">
+            <img src="https://randomuser.me/api/portraits/women/61.jpg" class="testi-avatar" alt="Sofía R." />
+            <div>
+              <p class="testi-name">Sofía Rincón</p>
+              <span class="testi-role">Directora · Importadora Rincón</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal" style="transition-delay:.28s">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">
+            Llevamos 6 años trabajando con este bufete para toda nuestra asesoría en contratos comerciales. Su nivel de detalle, conocimiento del mercado y respuesta oportuna son simplemente insuperables.
+          </p>
+          <div class="testi-author">
+            <img src="https://randomuser.me/api/portraits/men/38.jpg" class="testi-avatar" alt="Andrés V." />
+            <div>
+              <p class="testi-name">Andrés Vargas</p>
+              <span class="testi-role">Gerente General · TechCargo S.A.S.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     PORTAFOLIO / CASOS DE ÉXITO
+============================================= -->
+<section id="portafolio">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow" style="color:var(--olive-pale);justify-content:center">
+        Casos de Éxito
+      </span>
+      <h2 class="section-title" style="color:var(--white)">
+        Resultados que <em style="color:var(--olive-pale)">hablan por sí solos</em>
+      </h2>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Caso destacado -->
+      <div class="col-lg-8 reveal" style="transition-delay:.08s">
+        <div class="case-card case-featured" style="padding:48px 40px;">
+          <span class="case-tag">Fusión & Adquisición</span>
+          <h4 style="font-size:1.5rem;">Fusión transfronteriza entre grupo colombiano y fondo de inversión europeo</h4>
+          <p>Coordinamos el proceso completo de due diligence, estructuración jurídica y negociación de los acuerdos de compraventa para una fusión valorada en USD 18 millones, con implicaciones legales en tres jurisdicciones.</p>
+          <div class="case-result">
+            <i class="bi bi-trophy-fill"></i>
+            Operación completada en 90 días · Sin litigios post-cierre
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 reveal" style="transition-delay:.18s">
+        <div class="case-card">
+          <span class="case-tag">Compliance</span>
+          <h4>Programa SARLAFT para grupo financiero</h4>
+          <p>Diseño e implementación completa del sistema de prevención y control de lavado de activos para un grupo con 5 filiales.</p>
+          <div class="case-result">
+            <i class="bi bi-check-circle-fill"></i>
+            Certificación aprobada en primera revisión
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 reveal" style="transition-delay:.08s">
+        <div class="case-card">
+          <span class="case-tag">Litigio Corporativo</span>
+          <h4>Defensa en disputa societaria de $4.2MM</h4>
+          <p>Representación en proceso arbitral por reclamación de socios minoritarios. Fallo favorable en todas las pretensiones.</p>
+          <div class="case-result">
+            <i class="bi bi-shield-fill-check"></i>
+            Fallo 100% favorable al cliente
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 reveal" style="transition-delay:.16s">
+        <div class="case-card">
+          <span class="case-tag">Contratos</span>
+          <h4>Estructuración de red de franquicias nacional</h4>
+          <p>Desarrollo del marco jurídico para la expansión de una marca de retail con 40+ franquiciados en todo el país.</p>
+          <div class="case-result">
+            <i class="bi bi-graph-up-arrow"></i>
+            40 contratos gestionados sin conflictos
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 reveal" style="transition-delay:.24s">
+        <div class="case-card">
+          <span class="case-tag">Derecho Financiero</span>
+          <h4>Emisión de bonos corporativos en BVC</h4>
+          <p>Acompañamiento legal integral en la estructuración y emisión de bonos corporativos por $20.000 millones ante la Bolsa de Valores de Colombia.</p>
+          <div class="case-result">
+            <i class="bi bi-currency-dollar"></i>
+            Emisión sobredemandada 3 veces
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     UBICACIÓN
+============================================= -->
+<section id="ubicacion">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow" style="justify-content:center">Visítenos</span>
+      <h2 class="section-title">Nuestra <em>Ubicación</em></h2>
+    </div>
+
+    <div class="row g-5 align-items-start">
+
+      <div class="col-lg-5 reveal left">
+        <div class="location-info-item">
+          <div class="loc-icon"><i class="bi bi-geo-alt-fill"></i></div>
+          <div>
+            <p class="loc-label">Dirección</p>
+            <p class="loc-value">Calle 72 No. 10-07, Piso 8<br>Bogotá, Colombia</p>
+          </div>
+        </div>
+        <div class="location-info-item">
+          <div class="loc-icon"><i class="bi bi-clock-fill"></i></div>
+          <div>
+            <p class="loc-label">Horario de Atención</p>
+            <p class="loc-value">Lunes a Viernes: 8:00 AM – 6:00 PM<br>Sábados: 9:00 AM – 1:00 PM</p>
+          </div>
+        </div>
+        <div class="location-info-item">
+          <div class="loc-icon"><i class="bi bi-telephone-fill"></i></div>
+          <div>
+            <p class="loc-label">Teléfonos</p>
+            <p class="loc-value">+57 (601) 321 4567<br>+57 300 123 4567 (WhatsApp)</p>
+          </div>
+        </div>
+        <div class="location-info-item">
+          <div class="loc-icon"><i class="bi bi-envelope-fill"></i></div>
+          <div>
+            <p class="loc-label">Correo</p>
+            <p class="loc-value">consultas@ramirezasociados.co<br>info@ramirezasociados.co</p>
+          </div>
+        </div>
+
+        <div class="mt-4">
+          <a href="https://wa.me/573001234567" class="btn-law btn-law-primary"
+            target="_blank" rel="noopener">
+            <i class="bi bi-whatsapp"></i> Contactar Ahora
+          </a>
+        </div>
+      </div>
+
+      <div class="col-lg-7 reveal right">
+        <div class="map-wrapper">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.6462513024!2d-74.05199492468624!3d4.660062241754882!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9a4c0f2a8c7d%3A0xabcdefabcdef1234!2sCalle%2072%2C%20Bogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2sco!4v1700000000000"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación Ramírez & Asociados">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     CTA
+============================================= -->
+<section id="cta">
+  <div class="container text-center position-relative" style="z-index:1">
+    <div class="reveal">
+      <span class="section-eyebrow" style="color:rgba(232,237,222,.55);justify-content:center">
+        Hablemos
+      </span>
+      <h2 class="cta-title">
+        ¿Listo para proteger <em>su empresa?</em>
+      </h2>
+      <p class="cta-lead mx-auto">
+        No espere a que los problemas legales se conviertan en crisis. Contáctenos hoy y reciba una consulta inicial sin costo.
+      </p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20una%20consulta%20gratuita"
+          class="btn-law btn-law-white" target="_blank" rel="noopener">
+          <i class="bi bi-whatsapp"></i> Consulta Gratuita
+        </a>
+        <a href="tel:+5763214567" class="btn-law btn-law-white-outline">
+          <i class="bi bi-telephone"></i> Llamar Ahora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FORMULARIO
+============================================= -->
+<section id="contacto">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <span class="section-eyebrow" style="justify-content:center">Contáctenos</span>
+      <h2 class="section-title">Agende su <em>consulta</em></h2>
+      <p class="section-subtitle mx-auto text-center">
+        Complete el formulario y uno de nuestros abogados se comunicará con usted en menos de 24 horas.
+      </p>
+    </div>
+
+    <div class="row g-0 align-items-stretch">
+
+      <!-- Formulario -->
+      <div class="col-lg-7 reveal left">
+        <div style="background:var(--white);border:1px solid var(--border);padding:48px 40px;">
+          <form class="form-law" id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-sm-6">
+                <label for="nombre">Nombre completo *</label>
+                <input type="text" id="nombre" placeholder="Su nombre y apellido" required />
+              </div>
+              <div class="col-sm-6">
+                <label for="empresa">Empresa</label>
+                <input type="text" id="empresa" placeholder="Nombre de su empresa" />
+              </div>
+              <div class="col-sm-6">
+                <label for="email">Correo electrónico *</label>
+                <input type="email" id="email" placeholder="correo@empresa.com" required />
+              </div>
+              <div class="col-sm-6">
+                <label for="telefono">Teléfono / WhatsApp *</label>
+                <input type="tel" id="telefono" placeholder="+57 300 000 0000" required />
+              </div>
+              <div class="col-12">
+                <label for="area">Área de consulta *</label>
+                <select id="area" required>
+                  <option value="" disabled selected>Seleccione el área</option>
+                  <option>Constitución de Empresas</option>
+                  <option>Contratos Comerciales</option>
+                  <option>Fusiones & Adquisiciones</option>
+                  <option>Compliance Empresarial</option>
+                  <option>Derecho Financiero</option>
+                  <option>Litigios Corporativos</option>
+                  <option>Otra consulta</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label for="mensaje">Descripción del caso *</label>
+                <textarea id="mensaje" placeholder="Describa brevemente su situación legal o consulta..." required></textarea>
+              </div>
+              <div class="col-12 mt-2">
+                <button type="submit" class="btn-law btn-law-primary w-100" style="justify-content:center;padding:16px;">
+                  <i class="bi bi-send-fill"></i> Enviar Consulta
+                </button>
+              </div>
+              <div class="col-12">
+                <p style="font-size:.75rem;color:var(--text-muted);text-align:center;margin:0;">
+                  <i class="bi bi-lock-fill me-1"></i>
+                  Su información es confidencial y está protegida por la Ley de Habeas Data.
+                </p>
+              </div>
+            </div>
+          </form>
+
+          <div id="formOk">
+            <i class="bi bi-check-circle-fill"></i>
+            <h4>¡Consulta recibida!</h4>
+            <p>Un abogado de nuestro equipo se comunicará con usted en las próximas 24 horas. También puede contactarnos por WhatsApp para una atención inmediata.</p>
+            <a href="https://wa.me/573001234567" class="btn-law btn-law-primary mt-3" target="_blank">
+              <i class="bi bi-whatsapp"></i> Contactar por WhatsApp
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info lateral -->
+      <div class="col-lg-5 reveal right">
+        <div class="contact-side">
+
+          <h4 style="color:var(--white);margin-bottom:8px;font-size:1.4rem;">
+            Atención <em style="color:var(--olive-pale);">personalizada</em>
+          </h4>
+          <p style="color:rgba(255,255,255,.45);font-size:.88rem;line-height:1.8;margin-bottom:28px;">
+            Cada caso es único. Nuestro equipo estudia su situación a fondo para ofrecerle la mejor estrategia legal.
+          </p>
+
+          <div class="contact-side-item">
+            <div class="cs-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <p class="cs-label">Dirección</p>
+              <p class="cs-value">Calle 72 No. 10-07, Piso 8<br>Bogotá, Colombia</p>
+            </div>
+          </div>
+          <div class="contact-side-item">
+            <div class="cs-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <p class="cs-label">Teléfono</p>
+              <p class="cs-value">+57 (601) 321 4567</p>
+            </div>
+          </div>
+          <div class="contact-side-item">
+            <div class="cs-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <p class="cs-label">Email</p>
+              <p class="cs-value">consultas@ramirezasociados.co</p>
+            </div>
+          </div>
+          <div class="contact-side-item">
+            <div class="cs-icon"><i class="bi bi-clock-fill"></i></div>
+            <div>
+              <p class="cs-label">Horario</p>
+              <p class="cs-value">Lun – Vie: 8:00AM – 6:00PM<br>Sáb: 9:00AM – 1:00PM</p>
+            </div>
+          </div>
+
+          <div class="social-row">
+            <a href="#" class="soc-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="soc-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+            <a href="#" class="soc-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+            <a href="#" class="soc-btn" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+============================================= -->
+<footer id="footer">
+  <div class="container">
+    <div class="row g-5">
+
+      <div class="col-lg-4">
+        <div class="footer-logo">Ramírez<span> & Asociados</span></div>
+        <p class="footer-desc">
+          Bufete especializado en derecho corporativo y empresarial. Más de 15 años protegiendo los intereses legales de las empresas colombianas.
+        </p>
+        <div class="social-row">
+          <a href="#" class="soc-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="soc-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" class="soc-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <p class="footer-head">Servicios</p>
+        <ul class="footer-links">
+          <li><a href="#servicios">Constitución de Empresas</a></li>
+          <li><a href="#servicios">Contratos Comerciales</a></li>
+          <li><a href="#servicios">Fusiones & Adquisiciones</a></li>
+          <li><a href="#servicios">Compliance</a></li>
+          <li><a href="#servicios">Derecho Financiero</a></li>
+          <li><a href="#servicios">Litigios</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <p class="footer-head">Navegar</p>
+        <ul class="footer-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#servicios">Servicios</a></li>
+          <li><a href="#beneficios">Nosotros</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#portafolio">Casos</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4">
+        <p class="footer-head">Contacto Rápido</p>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.35);line-height:1.8;margin-bottom:20px;">
+          ¿Necesita asesoría legal urgente? Contáctenos directamente por WhatsApp.
+        </p>
+        <a href="https://wa.me/573001234567?text=Hola%2C%20necesito%20asesoría%20legal%20urgente"
+          class="btn-law btn-law-primary" target="_blank" rel="noopener" style="width:100%;justify-content:center;">
+          <i class="bi bi-whatsapp"></i> Escribir por WhatsApp
+        </a>
+        <div style="margin-top:20px;">
+          <p style="font-size:.78rem;color:rgba(255,255,255,.25);margin:0;">
+            <i class="bi bi-geo-alt me-1"></i>
+            Calle 72 No. 10-07 · Bogotá, Colombia
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Ramírez & Asociados. Todos los derechos reservados.</p>
+      <p class="footer-copy">
+        Tarjeta Profesional No. 12345 del Consejo Superior de la Judicatura
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20información%20sobre%20sus%20servicios%20legales"
+  class="wa-float" target="_blank" rel="noopener" aria-label="Contactar por WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+  <span class="wa-tooltip">Consulta gratuita por WhatsApp</span>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  /* =============================================
+     NAVBAR SCROLL
+  ============================================= */
+  const nav = document.getElementById('navbar');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 50);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  /* =============================================
+     SCROLL REVEAL
+  ============================================= */
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  /* =============================================
+     SMOOTH SCROLL
+  ============================================= */
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', e => {
+      const target = document.querySelector(link.getAttribute('href'));
+      if (!target) return;
+      e.preventDefault();
+      window.scrollTo({ top: target.offsetTop - 75, behavior: 'smooth' });
+      const collapse = document.getElementById('navMenu');
+      if (collapse.classList.contains('show')) {
+        bootstrap.Collapse.getInstance(collapse)?.hide();
+      }
+    });
+  });
+
+  /* =============================================
+     COUNTER ANIMATION
+  ============================================= */
+  const counterObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.querySelectorAll('.hero-stat-item .num').forEach(el => {
+        const raw = el.textContent.replace(/\D/g, '');
+        const suffix = el.querySelector('span')?.textContent || '';
+        const end = parseInt(raw);
+        let start = 0;
+        const dur = 1800;
+        const t0 = performance.now();
+        const tick = (t) => {
+          const prog = Math.min((t - t0) / dur, 1);
+          const val = Math.floor(prog * end);
+          el.innerHTML = val + '<span>' + suffix + '</span>';
+          if (prog < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+      counterObs.unobserve(e.target);
+    });
+  }, { threshold: 0.5 });
+
+  const heroSection = document.getElementById('hero');
+  if (heroSection) counterObs.observe(heroSection);
+
+  /* =============================================
+     FORM SUBMIT
+  ============================================= */
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!this.checkValidity()) {
+      this.classList.add('was-validated');
+      return;
+    }
+    const btn = this.querySelector('[type=submit]');
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>Enviando...';
+    btn.disabled = true;
+    setTimeout(() => {
+      this.style.display = 'none';
+      document.getElementById('formOk').style.display = 'block';
+    }, 1600);
+  });
+
+  /* =============================================
+     ACTIVE NAV ON SCROLL
+  ============================================= */
+  const sections = document.querySelectorAll('section[id], div[id]');
+  const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+
+  const activeObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        navLinks.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.navbar-nav .nav-link[href="#${e.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { threshold: 0.4 });
+
+  sections.forEach(s => activeObs.observe(s));
+</script>
+
+</body>
+</html>

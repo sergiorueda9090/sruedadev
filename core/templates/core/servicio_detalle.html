@@ -1,0 +1,118 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}{{ servicio.titulo }} | sruedadev.com{% endblock %}
+{% block description %}{{ servicio.problema }}{% endblock %}
+{% block og_title %}{{ servicio.titulo }} | sruedadev.com{% endblock %}
+{% block og_description %}{{ servicio.problema }}{% endblock %}
+{% block twitter_title %}{{ servicio.titulo }} | sruedadev.com{% endblock %}
+{% block twitter_description %}{{ servicio.problema }}{% endblock %}
+{% block canonical %}https://sruedadev.com/servicios/{{ servicio.slug }}/{% endblock %}
+{% block og_url %}https://sruedadev.com/servicios/{{ servicio.slug }}/{% endblock %}
+
+{% block structured_data %}
+{{ block.super }}
+<script type="application/ld+json">{{ service_jsonld|safe }}</script>
+<script type="application/ld+json">{{ breadcrumb_jsonld|safe }}</script>
+{% endblock %}
+
+{% block content %}
+<section class="hero-proyecto hero-servicio">
+    <div class="circuito" aria-hidden="true"></div>
+    <div class="contenedor">
+        <p class="miga">
+            <a href="{% url 'core:home' %}">Inicio</a> /
+            <a href="{% url 'core:home' %}#planes">Servicios</a> /
+            {{ servicio.titulo }}
+        </p>
+
+        <span class="etiqueta"><i class="punto"></i> Servicio</span>
+
+        <h1>{{ servicio.titulo }}</h1>
+        <p class="bajada">{{ servicio.descripcion }}</p>
+
+        <div class="hero-acciones">
+            <a href="{% url 'core:home' %}#contacto" class="btn btn-primario">
+                {{ servicio.cta }}
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M13 6l6 6-6 6"></path>
+                </svg>
+            </a>
+            <a href="{% url 'core:home' %}#planes" class="btn btn-fantasma">Ver todos los servicios</a>
+        </div>
+    </div>
+</section>
+
+<section class="seccion seccion-detalle">
+    <div class="contenedor">
+        <div class="detalle-grid">
+            <div class="contenido-servicio">
+                <h2>¿Qué problema resuelve?</h2>
+                <p>{{ servicio.problema }}</p>
+
+                <h2>¿Para quién es este servicio?</h2>
+                <p>{{ servicio.para_quien }}</p>
+
+                <h2>Qué incluye</h2>
+                <ul class="lista-entregables">
+                    {% for item in servicio.funcionalidades %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h2>Cómo es el proceso</h2>
+                <ol>
+                    {% for paso in proceso %}
+                    <li><strong>{{ paso.titulo }}.</strong> {{ paso.descripcion }}</li>
+                    {% endfor %}
+                </ol>
+
+                <h2>Qué necesito de ti para empezar</h2>
+                <ul>
+                    {% for item in servicio.que_necesito %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+
+                <h2>Qué factores determinan el costo</h2>
+                <ul>
+                    {% for item in servicio.factores_costo %}
+                    <li>{{ item }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <aside class="ficha">
+                <img src="{% static servicio.imagen %}" alt="{{ servicio.titulo }}" loading="lazy">
+                <dl>
+                    <dt>Ideal para</dt>
+                    <dd>{{ servicio.descripcion }}</dd>
+                    <dt>Cómo empezar</dt>
+                    <dd>Cuéntame tu proyecto y te respondo con una primera orientación en menos de 24 horas.</dd>
+                </dl>
+                <a class="btn btn-primario btn-bloque" href="{% url 'core:home' %}#contacto">{{ servicio.cta }}</a>
+            </aside>
+        </div>
+    </div>
+</section>
+
+<section class="seccion seccion-alt" id="faq-servicio">
+    <div class="contenedor">
+        <div class="encabezado-seccion aparece">
+            <span class="kicker">Preguntas frecuentes</span>
+            <h2>Dudas comunes sobre este servicio</h2>
+        </div>
+
+        <div class="faq aparece">
+            {% for item in servicio.faq %}
+            <details class="faq-item">
+                <summary>{{ item.pregunta }}</summary>
+                <p>{{ item.respuesta }}</p>
+            </details>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% include "core/partials/_cta_final.html" %}
+{% endblock %}

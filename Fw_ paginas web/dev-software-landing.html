@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="DevCraft – Desarrollo web, software a medida, bots inteligentes y soluciones AWS. Convierte tu idea en realidad digital." />
+  <meta name="keywords" content="desarrollo web, software a medida, bots, AWS, aplicaciones, APIs, freelancer developer, Colombia" />
+  <meta name="author" content="DevCraft" />
+  <title>DevCraft · Desarrollo Web · Software · Bots · AWS</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <!-- Google Fonts: Clash Display + JetBrains Mono -->
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* =============================================
+       CSS VARIABLES
+    ============================================= */
+    :root {
+      --bg:           #050508;
+      --bg2:          #0a0a10;
+      --bg3:          #0f0f18;
+      --surface:      #12121e;
+      --surface2:     #1a1a2e;
+      --border:       rgba(255,255,255,0.07);
+      --border2:      rgba(99,255,180,0.15);
+
+      --neon:         #39ff8f;
+      --neon-dark:    #1dd66a;
+      --neon-dim:     rgba(57,255,143,0.15);
+      --cyan:         #00e5ff;
+      --cyan-dim:     rgba(0,229,255,0.12);
+      --violet:       #7c3aed;
+      --violet-dim:   rgba(124,58,237,0.15);
+      --orange:       #ff6b35;
+
+      --white:        #ffffff;
+      --white-80:     rgba(255,255,255,0.80);
+      --white-50:     rgba(255,255,255,0.50);
+      --white-25:     rgba(255,255,255,0.25);
+      --white-10:     rgba(255,255,255,0.10);
+      --white-06:     rgba(255,255,255,0.06);
+
+      --font-display: 'Exo 2', sans-serif;
+      --font-mono:    'JetBrains Mono', monospace;
+      --transition:   all 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+      --glow-neon:    0 0 20px rgba(57,255,143,0.4), 0 0 60px rgba(57,255,143,0.15);
+      --glow-cyan:    0 0 20px rgba(0,229,255,0.4), 0 0 60px rgba(0,229,255,0.15);
+    }
+
+    /* =============================================
+       RESET & BASE
+    ============================================= */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-display);
+      background: var(--bg);
+      color: var(--white-80);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    h1,h2,h3,h4 { font-family: var(--font-display); font-weight: 700; color: var(--white); line-height: 1.15; }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    img { max-width: 100%; display: block; }
+
+    /* scanline effect */
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0,0,0,0.03) 2px,
+        rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 9998;
+    }
+
+    /* =============================================
+       UTILITIES
+    ============================================= */
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--neon);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tag::before { content: '//'; color: var(--white-25); }
+
+    .sec-title {
+      font-size: clamp(1.9rem, 3.5vw, 2.8rem);
+      font-weight: 800;
+      color: var(--white);
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+    .sec-title .hl   { color: var(--neon); }
+    .sec-title .hlc  { color: var(--cyan); }
+
+    .sec-sub {
+      font-size: 1rem;
+      color: var(--white-50);
+      line-height: 1.8;
+      max-width: 520px;
+      font-weight: 300;
+    }
+
+    /* Buttons */
+    .btn-t {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      padding: 13px 28px;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      cursor: pointer;
+      border: none;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-t::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: rgba(255,255,255,0.05);
+      transform: translateX(-100%);
+      transition: transform 0.35s ease;
+    }
+    .btn-t:hover::before { transform: translateX(0); }
+
+    .btn-neon {
+      background: var(--neon);
+      color: var(--bg);
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+    .btn-neon:hover {
+      background: var(--neon-dark);
+      color: var(--bg);
+      box-shadow: var(--glow-neon);
+      transform: translateY(-2px);
+    }
+    .btn-outline-neon {
+      background: transparent;
+      color: var(--neon);
+      border: 1px solid var(--neon);
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+    .btn-outline-neon:hover {
+      background: var(--neon-dim);
+      box-shadow: var(--glow-neon);
+      transform: translateY(-2px);
+      color: var(--neon);
+    }
+    .btn-cyan {
+      background: var(--cyan);
+      color: var(--bg);
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+    .btn-cyan:hover {
+      background: #00c8e0;
+      color: var(--bg);
+      box-shadow: var(--glow-cyan);
+      transform: translateY(-2px);
+    }
+
+    /* Reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .reveal.rl  { transform: translateX(-28px); }
+    .reveal.rr  { transform: translateX(28px); }
+    .reveal.visible { opacity: 1 !important; transform: none !important; }
+
+    /* Grid lines bg */
+    .grid-bg {
+      background-image:
+        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 50px 50px;
+    }
+
+    /* Neon line divider */
+    .neon-line {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--neon), transparent);
+      margin-bottom: 16px;
+      box-shadow: var(--glow-neon);
+    }
+
+    /* =============================================
+       NAVBAR
+    ============================================= */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1050;
+      padding: 18px 0;
+      transition: var(--transition);
+      background: transparent;
+      border-bottom: 1px solid transparent;
+    }
+    #navbar.scrolled {
+      background: rgba(5,5,8,0.97);
+      backdrop-filter: blur(20px);
+      padding: 12px 0;
+      border-bottom-color: var(--border);
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav-logo .bracket { color: var(--neon); }
+    .nav-logo .dot     { width: 6px; height: 6px; border-radius: 50%; background: var(--neon); box-shadow: var(--glow-neon); animation: blinkDot 2s ease-in-out infinite; }
+    @keyframes blinkDot {
+      0%,100% { opacity: 1; } 50% { opacity: 0.2; }
+    }
+
+    .navbar-nav .nav-link {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 500;
+      color: var(--white-50) !important;
+      padding: 6px 14px !important;
+      transition: var(--transition);
+      letter-spacing: 0.06em;
+    }
+    .navbar-nav .nav-link:hover { color: var(--neon) !important; }
+
+    .nav-cta-btn {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 9px 20px;
+      background: transparent;
+      color: var(--neon) !important;
+      border: 1px solid var(--neon);
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+      transition: var(--transition);
+    }
+    .nav-cta-btn:hover {
+      background: var(--neon-dim) !important;
+      box-shadow: var(--glow-neon);
+      color: var(--neon) !important;
+    }
+
+    .ham { display: flex; flex-direction: column; gap: 5px; width: 22px; }
+    .ham span { display: block; height: 1.5px; background: var(--white-50); border-radius: 2px; transition: var(--transition); }
+    .navbar-toggler { border: none; } .navbar-toggler:focus { box-shadow: none; }
+
+    /* =============================================
+       HERO
+    ============================================= */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      background: var(--bg);
+    }
+
+    /* Radial glow spots */
+    .glow-spot {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      pointer-events: none;
+    }
+    .gs1 { width: 600px; height: 600px; background: rgba(57,255,143,0.055); top: -100px; left: -100px; }
+    .gs2 { width: 500px; height: 500px; background: rgba(0,229,255,0.045); bottom: -80px; right: -80px; }
+    .gs3 { width: 300px; height: 300px; background: rgba(124,58,237,0.06); top: 40%; left: 50%; }
+
+    .hero-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(57,255,143,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(57,255,143,0.03) 1px, transparent 1px);
+      background-size: 60px 60px;
+    }
+
+    .hero-content { position: relative; z-index: 2; padding-top: 90px; }
+
+    /* Terminal typing badge */
+    .terminal-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      padding: 7px 16px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      color: var(--neon);
+      margin-bottom: 2rem;
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+      opacity: 0;
+      animation: fadeUp 0.6s 0.2s forwards;
+    }
+    .terminal-badge .tb-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--neon); box-shadow: var(--glow-neon); animation: blinkDot 1.5s ease-in-out infinite; }
+
+    .hero-h1 {
+      font-size: clamp(2.6rem, 6vw, 5rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.4s forwards;
+    }
+    .hero-h1 .neon-word { color: var(--neon); text-shadow: var(--glow-neon); }
+    .hero-h1 .cyan-word { color: var(--cyan); }
+
+    .hero-sub {
+      font-size: 1.05rem;
+      color: var(--white-50);
+      max-width: 520px;
+      line-height: 1.85;
+      font-weight: 300;
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.6s forwards;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp 0.8s 0.8s forwards;
+    }
+
+    /* Terminal window */
+    .terminal-window {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+      overflow: hidden;
+      opacity: 0;
+      animation: fadeIn 1s 0.8s forwards;
+    }
+    .terminal-bar {
+      background: var(--surface2);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .tb-circle { width: 10px; height: 10px; border-radius: 50%; }
+    .tbc-r { background: #ff5f57; }
+    .tbc-y { background: #febc2e; }
+    .tbc-g { background: #28c840; }
+    .tb-title {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      color: var(--white-25);
+      margin-left: auto;
+    }
+    .terminal-body {
+      padding: 20px 20px 24px;
+      font-family: var(--font-mono);
+      font-size: 0.8rem;
+      line-height: 1.9;
+    }
+    .t-prompt { color: var(--neon); }
+    .t-cmd    { color: var(--white-80); }
+    .t-output { color: var(--white-25); padding-left: 16px; }
+    .t-key    { color: var(--cyan); }
+    .t-val    { color: var(--orange); }
+    .t-str    { color: #f0a500; }
+    .t-comment { color: rgba(255,255,255,0.2); }
+    .t-cursor {
+      display: inline-block;
+      width: 8px; height: 14px;
+      background: var(--neon);
+      vertical-align: middle;
+      margin-left: 2px;
+      animation: blink 1s step-end infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+    /* Tech pills row */
+    .tech-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 2.5rem;
+      opacity: 0;
+      animation: fadeUp 0.8s 1s forwards;
+    }
+    .tech-pill {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      font-weight: 500;
+      padding: 5px 12px;
+      background: var(--white-06);
+      border: 1px solid var(--border);
+      color: var(--white-50);
+      letter-spacing: 0.08em;
+      transition: var(--transition);
+    }
+    .tech-pill:hover {
+      border-color: var(--neon);
+      color: var(--neon);
+      background: var(--neon-dim);
+    }
+
+    @keyframes fadeUp  { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes fadeIn  { from{opacity:0} to{opacity:1} }
+
+    /* =============================================
+       STATS STRIP
+    ============================================= */
+    #stats-strip {
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      background: var(--bg2);
+      padding: 28px 0;
+    }
+    .stat-item { text-align: center; padding: 8px 0; }
+    .stat-num {
+      font-family: var(--font-mono);
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: var(--neon);
+      line-height: 1;
+    }
+    .stat-lbl { font-size: 0.7rem; color: var(--white-25); margin-top: 4px; font-family: var(--font-mono); letter-spacing: 0.1em; }
+    .stat-sep { width: 1px; height: 36px; background: var(--border); margin: auto; }
+
+    /* =============================================
+       SERVICIOS
+    ============================================= */
+    #servicios {
+      padding: 110px 0;
+      background: var(--bg);
+      position: relative;
+    }
+
+    .service-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+      transition: var(--transition);
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    }
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--neon), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .service-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 120%, var(--neon-dim), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .service-card:hover {
+      border-color: rgba(57,255,143,0.25);
+      transform: translateY(-4px);
+    }
+    .service-card:hover::before { transform: scaleX(1); }
+    .service-card:hover::after  { opacity: 1; }
+
+    .sc-num {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--white-25);
+      position: absolute;
+      top: 16px; right: 16px;
+    }
+    .sc-icon {
+      font-size: 1.8rem;
+      margin-bottom: 18px;
+      transition: var(--transition);
+    }
+    .sc-icon.neon  { color: var(--neon);   }
+    .sc-icon.cyan  { color: var(--cyan);   }
+    .sc-icon.vio   { color: #a78bfa;       }
+    .sc-icon.ora   { color: var(--orange); }
+
+    .service-card:hover .sc-icon { transform: scale(1.15) rotate(-5deg); filter: drop-shadow(0 0 8px currentColor); }
+
+    .service-card h4 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+      position: relative; z-index: 1;
+    }
+    .service-card p {
+      font-size: 0.85rem;
+      color: var(--white-50);
+      line-height: 1.8;
+      margin-bottom: 18px;
+      position: relative; z-index: 1;
+      font-weight: 300;
+    }
+    .sc-tags { display: flex; flex-wrap: wrap; gap: 6px; position: relative; z-index: 1; }
+    .sc-tag {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      padding: 3px 9px;
+      border: 1px solid var(--border);
+      color: var(--white-25);
+      background: transparent;
+      transition: var(--transition);
+    }
+    .service-card:hover .sc-tag { border-color: var(--border2); color: var(--neon); }
+
+    /* =============================================
+       TECH STACK
+    ============================================= */
+    #stack {
+      padding: 80px 0;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      overflow: hidden;
+    }
+    .stack-scroll {
+      display: flex;
+      gap: 0;
+      animation: scrollTech 30s linear infinite;
+      width: max-content;
+    }
+    .stack-scroll:hover { animation-play-state: paused; }
+    .stack-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 32px;
+      border-right: 1px solid var(--border);
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      color: var(--white-25);
+      white-space: nowrap;
+      transition: var(--transition);
+    }
+    .stack-item:hover { color: var(--white-80); }
+    .stack-item i  { font-size: 1.1rem; }
+    .si-neon  { color: var(--neon); }
+    .si-cyan  { color: var(--cyan); }
+    .si-vio   { color: #a78bfa; }
+    .si-ora   { color: var(--orange); }
+    .si-blue  { color: #60a5fa; }
+    .si-yel   { color: #fbbf24; }
+    @keyframes scrollTech {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* =============================================
+       BENEFICIOS
+    ============================================= */
+    #beneficios {
+      padding: 110px 0;
+      background: var(--bg);
+    }
+
+    /* Code block visual */
+    .code-block {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      clip-path: polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px));
+      padding: 28px;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      line-height: 2;
+      height: 100%;
+    }
+    .c-line { display: block; }
+    .c-indent { padding-left: 20px; }
+    .c-indent2 { padding-left: 40px; }
+    .k  { color: #c792ea; }   /* keyword */
+    .fn { color: var(--cyan); } /* function */
+    .s  { color: #f0a500; }   /* string */
+    .n2 { color: var(--neon); } /* neon var */
+    .cm { color: rgba(255,255,255,0.2); } /* comment */
+    .p  { color: var(--white-50); } /* punctuation */
+
+    .benefit-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 28px;
+      display: flex;
+      gap: 18px;
+      transition: var(--transition);
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    }
+    .benefit-item:hover {
+      border-color: rgba(57,255,143,0.2);
+      background: var(--surface2);
+      transform: translateX(5px);
+    }
+    .bi-icon {
+      font-size: 1.3rem;
+      color: var(--neon);
+      flex-shrink: 0;
+      margin-top: 2px;
+      transition: var(--transition);
+    }
+    .benefit-item:hover .bi-icon { text-shadow: var(--glow-neon); transform: scale(1.1); }
+    .benefit-item h5 { font-size: 0.95rem; font-weight: 700; color: var(--white); margin-bottom: 5px; }
+    .benefit-item p  { font-size: 0.83rem; color: var(--white-50); line-height: 1.75; margin: 0; font-weight: 300; }
+
+    /* =============================================
+       PORTAFOLIO
+    ============================================= */
+    #portafolio {
+      padding: 110px 0;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+
+    .project-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: var(--transition);
+      height: 100%;
+      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+    }
+    .project-card:hover {
+      border-color: rgba(57,255,143,0.25);
+      transform: translateY(-5px);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    }
+    .project-img-wrap {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+    }
+    .project-img-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7) saturate(0.8);
+      transition: transform 0.6s ease, filter 0.4s ease;
+    }
+    .project-card:hover .project-img-wrap img {
+      transform: scale(1.07);
+      filter: brightness(0.85) saturate(1);
+    }
+    .project-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(5,5,8,0.9) 0%, transparent 60%);
+    }
+    .project-type {
+      position: absolute;
+      top: 14px; left: 14px;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      background: var(--neon);
+      color: var(--bg);
+    }
+    .project-body { padding: 24px; }
+    .project-body h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 8px;
+    }
+    .project-body p {
+      font-size: 0.83rem;
+      color: var(--white-50);
+      line-height: 1.75;
+      margin-bottom: 16px;
+      font-weight: 300;
+    }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 0.58rem;
+      padding: 3px 8px;
+      border: 1px solid var(--border);
+      color: var(--white-25);
+    }
+    .project-link {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--neon);
+      margin-top: 16px;
+      transition: var(--transition);
+    }
+    .project-link:hover { color: var(--cyan); gap: 10px; }
+
+    /* =============================================
+       TESTIMONIOS
+    ============================================= */
+    #testimonios {
+      padding: 110px 0;
+      background: var(--bg);
+    }
+
+    .testi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 36px 28px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+      height: 100%;
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    }
+    .testi-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, var(--cyan), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+    .testi-card:hover { border-color: rgba(0,229,255,0.2); transform: translateY(-4px); }
+    .testi-card:hover::before { transform: scaleX(1); }
+
+    .t-quote-mark {
+      font-family: var(--font-mono);
+      font-size: 3rem;
+      color: var(--neon);
+      line-height: 0.5;
+      margin-bottom: 16px;
+      display: block;
+      opacity: 0.5;
+    }
+    .t-stars { color: #fbbf24; font-size: 0.8rem; margin-bottom: 14px; }
+    .t-text {
+      font-size: 0.88rem;
+      color: var(--white-50);
+      line-height: 1.85;
+      font-style: italic;
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+    .t-author { display: flex; align-items: center; gap: 12px; padding-top: 18px; border-top: 1px solid var(--border); }
+    .t-avatar { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; border: 2px solid var(--border2); }
+    .t-name  { font-size: 0.9rem; font-weight: 700; color: var(--white); margin: 0; }
+    .t-role  { font-family: var(--font-mono); font-size: 0.65rem; color: var(--neon); }
+
+    /* =============================================
+       PRECIOS
+    ============================================= */
+    #precios {
+      padding: 110px 0;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+
+    .price-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      transition: var(--transition);
+      height: 100%;
+      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+    }
+    .price-card:hover { border-color: rgba(57,255,143,0.2); transform: translateY(-5px); }
+    .price-card.featured {
+      border-color: rgba(57,255,143,0.4);
+      background: var(--surface2);
+    }
+
+    .price-header { padding: 32px 28px 24px; border-bottom: 1px solid var(--border); position: relative; }
+    .price-badge {
+      position: absolute;
+      top: -1px; right: 24px;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      font-weight: 700;
+      background: var(--neon);
+      color: var(--bg);
+      padding: 4px 14px;
+    }
+    .price-tier {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--neon);
+      letter-spacing: 0.16em;
+      margin-bottom: 8px;
+    }
+    .price-name { font-size: 1.3rem; font-weight: 800; color: var(--white); margin-bottom: 16px; letter-spacing: -0.02em; }
+    .price-num {
+      font-family: var(--font-mono);
+      font-size: 2.8rem;
+      font-weight: 600;
+      color: var(--white);
+      line-height: 1;
+    }
+    .price-num .currency { font-size: 1rem; vertical-align: super; color: var(--neon); }
+    .price-num .period   { font-size: 0.75rem; color: var(--white-25); }
+    .price-card.featured .price-num { color: var(--neon); text-shadow: var(--glow-neon); }
+
+    .price-body { padding: 24px 28px 32px; }
+    .price-features { list-style: none; padding: 0; margin: 0 0 28px; }
+    .price-features li {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 9px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--white-50);
+      font-weight: 300;
+    }
+    .price-features li:last-child { border-bottom: none; }
+    .price-features li i { color: var(--neon); font-size: 0.85rem; flex-shrink: 0; margin-top: 3px; }
+    .price-features li i.x-mark { color: rgba(255,255,255,0.15); }
+
+    /* =============================================
+       UBICACIÓN
+    ============================================= */
+    #ubicacion {
+      padding: 110px 0;
+      background: var(--bg);
+    }
+
+    .map-frame {
+      border: 1px solid var(--border2);
+      overflow: hidden;
+      height: 380px;
+      clip-path: polygon(0 0, calc(100% - 16px) 0, 100% 16px, 100% 100%, 16px 100%, 0 calc(100% - 16px));
+    }
+    .map-frame iframe { width: 100%; height: 100%; border: none; filter: invert(90%) hue-rotate(175deg) brightness(0.9) saturate(0.8); }
+
+    .loc-item {
+      display: flex;
+      gap: 16px;
+      padding: 18px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .loc-item:last-child { border-bottom: none; }
+    .loc-ic {
+      width: 38px; height: 38px; min-width: 38px;
+      border: 1px solid var(--border2);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--neon);
+      font-size: 0.95rem;
+      flex-shrink: 0;
+    }
+    .loc-lbl { font-family: var(--font-mono); font-size: 0.6rem; color: var(--neon); letter-spacing: 0.14em; margin-bottom: 3px; }
+    .loc-val { font-size: 0.88rem; color: var(--white-50); margin: 0; font-weight: 300; }
+
+    /* =============================================
+       CTA
+    ============================================= */
+    #cta {
+      padding: 100px 0;
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+    }
+    #cta::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 60% 80% at 50% 50%, rgba(57,255,143,0.04) 0%, transparent 60%);
+    }
+
+    .cta-inner { position: relative; z-index: 1; }
+    .cta-h2 {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 800;
+      color: var(--white);
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .cta-h2 .hl { color: var(--neon); text-shadow: var(--glow-neon); }
+    .cta-p { font-size: 1.05rem; color: var(--white-50); line-height: 1.8; max-width: 500px; margin: 0 auto 2.5rem; font-weight: 300; }
+
+    /* =============================================
+       FORMULARIO
+    ============================================= */
+    #contacto {
+      padding: 110px 0;
+      background: var(--bg);
+    }
+
+    .form-terminal {
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 18px 100%, 0 calc(100% - 18px));
+      overflow: hidden;
+    }
+    .form-terminal-bar {
+      background: var(--surface2);
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-bottom: 1px solid var(--border);
+    }
+    .form-terminal-bar .tb-title { font-family: var(--font-mono); font-size: 0.68rem; color: var(--neon); margin-left: auto; }
+    .form-body { padding: 36px 36px 40px; }
+
+    .f-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      color: var(--neon);
+      letter-spacing: 0.12em;
+      margin-bottom: 7px;
+      display: block;
+    }
+    .f-label::before { content: '> '; color: var(--white-25); }
+
+    .f-input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--white-80);
+      padding: 12px 16px;
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      outline: none;
+      transition: var(--transition);
+      clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+    }
+    .f-input:focus {
+      border-color: var(--neon);
+      box-shadow: 0 0 0 2px var(--neon-dim);
+    }
+    .f-input::placeholder { color: var(--white-25); }
+    .f-input option { background: var(--bg2); color: var(--white-80); }
+    textarea.f-input { resize: vertical; min-height: 120px; }
+
+    /* Side info */
+    .contact-side {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 36px 28px;
+      height: 100%;
+      clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
+    }
+    .cs-item {
+      padding: 16px 0;
+      border-bottom: 1px solid var(--border);
+    }
+    .cs-item:last-of-type { border-bottom: none; }
+    .cs-lbl { font-family: var(--font-mono); font-size: 0.6rem; color: var(--neon); letter-spacing: 0.14em; margin-bottom: 4px; }
+    .cs-val { font-size: 0.87rem; color: var(--white-50); margin: 0; font-weight: 300; }
+
+    .social-row { display: flex; gap: 10px; margin-top: 24px; }
+    .soc-ic {
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white-25);
+      font-size: 0.9rem;
+      transition: var(--transition);
+    }
+    .soc-ic:hover { border-color: var(--neon); color: var(--neon); transform: translateY(-2px); }
+
+    /* Form success */
+    #formOk {
+      display: none;
+      text-align: center;
+      padding: 48px 20px;
+    }
+    #formOk .ok-icon {
+      font-family: var(--font-mono);
+      font-size: 3rem;
+      color: var(--neon);
+      display: block;
+      margin-bottom: 16px;
+    }
+    #formOk h4 { color: var(--white); font-size: 1.4rem; margin-bottom: 8px; }
+    #formOk p  { font-size: 0.9rem; color: var(--white-50); font-weight: 300; }
+
+    /* =============================================
+       FOOTER
+    ============================================= */
+    #footer {
+      background: var(--bg2);
+      padding: 70px 0 28px;
+      border-top: 1px solid var(--border);
+    }
+    .f-brand {
+      font-family: var(--font-mono);
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .f-brand .bracket { color: var(--neon); }
+    .f-desc { font-size: 0.84rem; color: var(--white-25); line-height: 1.8; max-width: 240px; font-weight: 300; }
+    .f-head { font-family: var(--font-mono); font-size: 0.6rem; color: var(--neon); letter-spacing: 0.2em; margin-bottom: 16px; }
+    .f-links { list-style: none; padding: 0; margin: 0; }
+    .f-links li { margin-bottom: 8px; }
+    .f-links a { font-size: 0.85rem; color: var(--white-25); transition: color 0.3s; font-weight: 300; }
+    .f-links a:hover { color: var(--neon); }
+    .f-bottom {
+      margin-top: 48px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .f-copy { font-family: var(--font-mono); font-size: 0.7rem; color: var(--white-25); }
+
+    /* =============================================
+       WHATSAPP FLOAT
+    ============================================= */
+    .wa-float {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      z-index: 9999;
+      width: 56px; height: 56px;
+      background: #25D366;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--white);
+      font-size: 1.5rem;
+      box-shadow: 0 0 0 0 rgba(37,211,102,0.4);
+      transition: var(--transition);
+      clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+      animation: waPop 0.5s 2s both, waPulse 3s 2.5s ease-in-out infinite;
+    }
+    .wa-float:hover { transform: scale(1.1); color: var(--white); }
+    .wa-tip {
+      position: absolute;
+      right: 66px; top: 50%;
+      transform: translateY(-50%);
+      background: var(--surface);
+      border: 1px solid var(--border2);
+      color: var(--neon);
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      padding: 6px 12px;
+      white-space: nowrap;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .wa-float:hover .wa-tip { opacity: 1; }
+    @keyframes waPop {
+      from { transform: scale(0); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    @keyframes waPulse {
+      0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.35); }
+      50%      { box-shadow: 0 0 0 12px rgba(37,211,102,0); }
+    }
+
+    /* =============================================
+       RESPONSIVE
+    ============================================= */
+    @media (max-width: 991px) {
+      .terminal-window { margin-top: 40px; }
+    }
+    @media (max-width: 575px) {
+      .hero-btns { flex-direction: column; }
+      .wa-tip { display: none; }
+      .form-body { padding: 24px 20px 28px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- =============================================
+     NAVBAR
+============================================= -->
+<nav id="navbar" class="navbar navbar-expand-lg">
+  <div class="container">
+
+    <a href="#inicio" class="navbar-brand">
+      <div class="nav-logo">
+        <span class="bracket">[</span>DevCraft<span class="bracket">]</span>
+        <span class="dot"></span>
+      </div>
+    </a>
+
+    <button class="navbar-toggler" type="button"
+      data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="Menú">
+      <div class="ham"><span></span><span></span><span></span></div>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link" href="#inicio">inicio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#servicios">servicios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#portafolio">portafolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#precios">precios</a></li>
+        <li class="nav-item"><a class="nav-link" href="#testimonios">clientes</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contacto">contacto</a></li>
+        <li class="nav-item ms-lg-2">
+          <a href="#contacto" class="nav-cta-btn nav-link">
+            ./iniciar_proyecto
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- =============================================
+     HERO
+============================================= -->
+<section id="inicio">
+  <div id="hero">
+    <div class="glow-spot gs1"></div>
+    <div class="glow-spot gs2"></div>
+    <div class="glow-spot gs3"></div>
+    <div class="hero-grid-bg"></div>
+
+    <div class="container hero-content py-5">
+      <div class="row align-items-center g-5">
+
+        <!-- Copy -->
+        <div class="col-lg-6">
+          <div class="terminal-badge">
+            <span class="tb-dot"></span>
+            disponible para proyectos · remote-first
+          </div>
+
+          <h1 class="hero-h1">
+            Construyo<br>
+            <span class="neon-word">software</span> que<br>
+            <span class="cyan-word">escala</span>
+          </h1>
+
+          <p class="hero-sub">
+            Páginas web, sistemas a medida, bots inteligentes y arquitectura cloud en AWS. Transformo ideas en productos digitales que generan resultados reales para tu negocio.
+          </p>
+
+          <div class="hero-btns">
+            <a href="#contacto" class="btn-t btn-neon">
+              <i class="bi bi-terminal-fill"></i> Iniciar Proyecto
+            </a>
+            <a href="#portafolio" class="btn-t btn-outline-neon">
+              <i class="bi bi-code-slash"></i> Ver Portafolio
+            </a>
+          </div>
+
+          <div class="tech-pills">
+            <span class="tech-pill">JavaScript</span>
+            <span class="tech-pill">Python</span>
+            <span class="tech-pill">React</span>
+            <span class="tech-pill">Node.js</span>
+            <span class="tech-pill">AWS</span>
+            <span class="tech-pill">Docker</span>
+            <span class="tech-pill">ChatGPT API</span>
+            <span class="tech-pill">PostgreSQL</span>
+          </div>
+        </div>
+
+        <!-- Terminal -->
+        <div class="col-lg-6">
+          <div class="terminal-window">
+            <div class="terminal-bar">
+              <span class="tb-circle tbc-r"></span>
+              <span class="tb-circle tbc-y"></span>
+              <span class="tb-circle tbc-g"></span>
+              <span class="tb-title">devcraft ~ portfolio.js</span>
+            </div>
+            <div class="terminal-body">
+              <span class="c-line"><span class="cm">// DevCraft – Stack de servicios</span></span>
+              <span class="c-line">&nbsp;</span>
+              <span class="c-line"><span class="k">const</span> <span class="n2">DevCraft</span> <span class="p">= {</span></span>
+              <span class="c-line c-indent"><span class="t-key">nombre</span><span class="p">:</span> <span class="t-str">"Carlos Ruiz"</span><span class="p">,</span></span>
+              <span class="c-line c-indent"><span class="t-key">rol</span><span class="p">:</span>    <span class="t-str">"Full Stack Developer"</span><span class="p">,</span></span>
+              <span class="c-line c-indent"><span class="t-key">exp</span><span class="p">:</span>    <span class="t-str">"8+ años"</span><span class="p">,</span></span>
+              <span class="c-line c-indent"><span class="t-key">servicios</span><span class="p">: [</span></span>
+              <span class="c-line c-indent2"><span class="t-str">"Páginas Web"</span><span class="p">,</span></span>
+              <span class="c-line c-indent2"><span class="t-str">"Software a Medida"</span><span class="p">,</span></span>
+              <span class="c-line c-indent2"><span class="t-str">"Bots & IA"</span><span class="p">,</span></span>
+              <span class="c-line c-indent2"><span class="t-str">"AWS Cloud"</span><span class="p">,</span></span>
+              <span class="c-line c-indent2"><span class="t-str">"APIs & Integraciones"</span></span>
+              <span class="c-line c-indent"><span class="p">],</span></span>
+              <span class="c-line c-indent"><span class="fn">disponible</span><span class="p">:</span> <span class="n2">true</span><span class="p">,</span></span>
+              <span class="c-line c-indent"><span class="fn">iniciarProyecto</span><span class="p">:</span> <span class="k">async</span> <span class="p">() =></span> <span class="p">{</span></span>
+              <span class="c-line c-indent2"><span class="k">await</span> <span class="fn">contactar</span><span class="p">(</span><span class="t-str">"#contacto"</span><span class="p">);</span></span>
+              <span class="c-line c-indent"><span class="p">}</span></span>
+              <span class="c-line"><span class="p">};</span></span>
+              <span class="c-line">&nbsp;</span>
+              <span class="c-line"><span class="t-prompt">$</span> <span class="t-cmd">node deploy.js --prod</span></span>
+              <span class="c-line t-output">✓ Build completed in 1.2s</span>
+              <span class="c-line t-output">✓ Deployed to AWS Lambda</span>
+              <span class="c-line"><span class="t-prompt">$</span> <span class="t-cursor"></span></span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     STATS STRIP
+============================================= -->
+<section id="stats-strip">
+  <div class="container">
+    <div class="row g-0 text-center">
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-num" data-val="80">0</div>
+          <div class="stat-lbl">proyectos_entregados</div>
+        </div>
+      </div>
+      <div class="col-auto d-none d-md-flex align-items-center">
+        <div class="stat-sep"></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-num" data-val="8">0</div>
+          <div class="stat-lbl">años_experiencia</div>
+        </div>
+      </div>
+      <div class="col-auto d-none d-md-flex align-items-center">
+        <div class="stat-sep"></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-num" data-val="45">0</div>
+          <div class="stat-lbl">clientes_satisfechos</div>
+        </div>
+      </div>
+      <div class="col-auto d-none d-md-flex align-items-center">
+        <div class="stat-sep"></div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="stat-item">
+          <div class="stat-num" data-val="99">0</div>
+          <div class="stat-lbl">uptime_garantizado_%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     SERVICIOS
+============================================= -->
+<section id="servicios">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <div class="tag" style="justify-content:center">servicios.available()</div>
+      <h2 class="sec-title">¿Qué puedo <span class="hl">construir</span> para ti?</h2>
+      <p class="sec-sub mx-auto text-center">
+        Desde una landing page hasta una plataforma SaaS completa en la nube. Soluciones a medida para cada etapa de tu negocio.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.06s">
+        <div class="service-card">
+          <span class="sc-num">01</span>
+          <div class="sc-icon neon"><i class="bi bi-browser-chrome"></i></div>
+          <h4>Páginas Web & Landing Pages</h4>
+          <p>Diseño y desarrollo de sitios web modernos, rápidos y optimizados para conversión. Desde landing pages hasta portales corporativos completos.</p>
+          <div class="sc-tags">
+            <span class="sc-tag">React</span>
+            <span class="sc-tag">Next.js</span>
+            <span class="sc-tag">Bootstrap</span>
+            <span class="sc-tag">SEO</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.12s">
+        <div class="service-card">
+          <span class="sc-num">02</span>
+          <div class="sc-icon cyan"><i class="bi bi-cpu"></i></div>
+          <h4>Software a Medida</h4>
+          <p>Sistemas administrativos, CRMs, ERPs y plataformas SaaS construidos exactamente para tus procesos. Escalables y mantenibles a largo plazo.</p>
+          <div class="sc-tags">
+            <span class="sc-tag">Node.js</span>
+            <span class="sc-tag">Python</span>
+            <span class="sc-tag">PostgreSQL</span>
+            <span class="sc-tag">Redis</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.18s">
+        <div class="service-card">
+          <span class="sc-num">03</span>
+          <div class="sc-icon vio"><i class="bi bi-robot"></i></div>
+          <h4>Bots & Automatizaciones</h4>
+          <p>Chatbots con IA para WhatsApp, Telegram y web. Bots de scraping, automatización de procesos y agentes inteligentes con GPT-4 y Claude.</p>
+          <div class="sc-tags">
+            <span class="sc-tag">OpenAI</span>
+            <span class="sc-tag">LangChain</span>
+            <span class="sc-tag">Twilio</span>
+            <span class="sc-tag">n8n</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.06s">
+        <div class="service-card">
+          <span class="sc-num">04</span>
+          <div class="sc-icon ora"><i class="bi bi-cloud-arrow-up"></i></div>
+          <h4>Servicios AWS & Cloud</h4>
+          <p>Arquitectura, despliegue y gestión en Amazon Web Services. EC2, Lambda, RDS, S3, CloudFront, y DevOps con CI/CD pipelines automatizados.</p>
+          <div class="sc-tags">
+            <span class="sc-tag">Lambda</span>
+            <span class="sc-tag">EC2</span>
+            <span class="sc-tag">S3</span>
+            <span class="sc-tag">Docker</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.12s">
+        <div class="service-card">
+          <span class="sc-num">05</span>
+          <div class="sc-icon neon"><i class="bi bi-phone"></i></div>
+          <h4>Apps Móviles</h4>
+          <p>Aplicaciones móviles multiplataforma para iOS y Android con React Native. Desde MVPs hasta aplicaciones de producción con millones de usuarios.</p>
+          <div class="sc-tags">
+            <span class="sc-tag">React Native</span>
+            <span class="sc-tag">Expo</span>
+            <span class="sc-tag">Firebase</span>
+            <span class="sc-tag">App Store</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.18s">
+        <div class="service-card">
+          <span class="sc-num">06</span>
+          <div class="sc-icon cyan"><i class="bi bi-plug"></i></div>
+          <h4>APIs & Integraciones</h4>
+          <p>Desarrollo de APIs REST y GraphQL. Integración con pasarelas de pago, CRMs, ERPs, sistemas legacy y cualquier servicio de terceros.</p>
+          <div class="sc-tags">
+            <span class="sc-tag">REST</span>
+            <span class="sc-tag">GraphQL</span>
+            <span class="sc-tag">Stripe</span>
+            <span class="sc-tag">Webhooks</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     TECH STACK (SCROLLING)
+============================================= -->
+<section id="stack">
+  <div class="container-fluid px-0">
+    <div style="overflow:hidden;">
+      <div class="stack-scroll">
+        <!-- Set 1 -->
+        <div class="stack-item"><i class="bi bi-filetype-js si-yel"></i> JavaScript</div>
+        <div class="stack-item"><i class="bi bi-filetype-py si-cyan"></i> Python</div>
+        <div class="stack-item"><i class="bi bi-code-slash si-blue"></i> React</div>
+        <div class="stack-item"><i class="bi bi-server si-neon"></i> Node.js</div>
+        <div class="stack-item"><i class="bi bi-cloud si-ora"></i> AWS</div>
+        <div class="stack-item"><i class="bi bi-box si-cyan"></i> Docker</div>
+        <div class="stack-item"><i class="bi bi-robot si-vio"></i> OpenAI API</div>
+        <div class="stack-item"><i class="bi bi-database si-blue"></i> PostgreSQL</div>
+        <div class="stack-item"><i class="bi bi-lightning si-yel"></i> Next.js</div>
+        <div class="stack-item"><i class="bi bi-git si-ora"></i> Git / GitHub</div>
+        <div class="stack-item"><i class="bi bi-fire si-ora"></i> Firebase</div>
+        <div class="stack-item"><i class="bi bi-phone si-neon"></i> React Native</div>
+        <div class="stack-item"><i class="bi bi-stripe si-vio"></i> Stripe</div>
+        <div class="stack-item"><i class="bi bi-whatsapp si-neon"></i> WhatsApp API</div>
+        <div class="stack-item"><i class="bi bi-layers si-cyan"></i> GraphQL</div>
+        <div class="stack-item"><i class="bi bi-infinity si-blue"></i> CI/CD</div>
+        <!-- Set 2 (duplicate for seamless loop) -->
+        <div class="stack-item"><i class="bi bi-filetype-js si-yel"></i> JavaScript</div>
+        <div class="stack-item"><i class="bi bi-filetype-py si-cyan"></i> Python</div>
+        <div class="stack-item"><i class="bi bi-code-slash si-blue"></i> React</div>
+        <div class="stack-item"><i class="bi bi-server si-neon"></i> Node.js</div>
+        <div class="stack-item"><i class="bi bi-cloud si-ora"></i> AWS</div>
+        <div class="stack-item"><i class="bi bi-box si-cyan"></i> Docker</div>
+        <div class="stack-item"><i class="bi bi-robot si-vio"></i> OpenAI API</div>
+        <div class="stack-item"><i class="bi bi-database si-blue"></i> PostgreSQL</div>
+        <div class="stack-item"><i class="bi bi-lightning si-yel"></i> Next.js</div>
+        <div class="stack-item"><i class="bi bi-git si-ora"></i> Git / GitHub</div>
+        <div class="stack-item"><i class="bi bi-fire si-ora"></i> Firebase</div>
+        <div class="stack-item"><i class="bi bi-phone si-neon"></i> React Native</div>
+        <div class="stack-item"><i class="bi bi-stripe si-vio"></i> Stripe</div>
+        <div class="stack-item"><i class="bi bi-whatsapp si-neon"></i> WhatsApp API</div>
+        <div class="stack-item"><i class="bi bi-layers si-cyan"></i> GraphQL</div>
+        <div class="stack-item"><i class="bi bi-infinity si-blue"></i> CI/CD</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     BENEFICIOS
+============================================= -->
+<section id="beneficios">
+  <div class="container">
+    <div class="row g-5 align-items-start">
+
+      <!-- Code visual -->
+      <div class="col-lg-5 reveal rl">
+        <div class="code-block">
+          <span class="c-line"><span class="cm">/**</span></span>
+          <span class="c-line"><span class="cm"> * ¿Por qué elegir DevCraft?</span></span>
+          <span class="c-line"><span class="cm"> */</span></span>
+          <span class="c-line">&nbsp;</span>
+          <span class="c-line"><span class="k">function</span> <span class="fn">porQueElegirme</span><span class="p">() {</span></span>
+          <span class="c-line c-indent"><span class="k">return</span> <span class="p">{</span></span>
+          <span class="c-line c-indent2"><span class="t-key">calidad</span><span class="p">:</span> <span class="t-str">"código limpio"</span><span class="p">,</span></span>
+          <span class="c-line c-indent2"><span class="t-key">entrega</span><span class="p">:</span> <span class="t-str">"a tiempo"</span><span class="p">,</span></span>
+          <span class="c-line c-indent2"><span class="t-key">soporte</span><span class="p">:</span> <span class="t-str">"post-lanzamiento"</span><span class="p">,</span></span>
+          <span class="c-line c-indent2"><span class="t-key">comunicacion</span><span class="p">:</span> <span class="t-str">"transparente"</span><span class="p">,</span></span>
+          <span class="c-line c-indent2"><span class="t-key">escalabilidad</span><span class="p">:</span> <span class="n2">true</span><span class="p">,</span></span>
+          <span class="c-line c-indent2"><span class="t-key">tests</span><span class="p">:</span>          <span class="n2">true</span><span class="p">,</span></span>
+          <span class="c-line c-indent2"><span class="t-key">documentacion</span><span class="p">:</span> <span class="n2">true</span><span class="p">,</span></span>
+          <span class="c-line c-indent2"><span class="t-key">garantia</span><span class="p">:</span> <span class="t-str">"3 meses"</span></span>
+          <span class="c-line c-indent"><span class="p">};</span></span>
+          <span class="c-line"><span class="p">}</span></span>
+          <span class="c-line">&nbsp;</span>
+          <span class="c-line"><span class="cm">// Resultado esperado:</span></span>
+          <span class="c-line"><span class="t-output">// > Proyecto exitoso ✓</span></span>
+          <span class="c-line"><span class="t-output">// > ROI positivo ✓</span></span>
+          <span class="c-line"><span class="t-output">// > Cliente feliz ✓</span></span>
+        </div>
+      </div>
+
+      <!-- Lista de beneficios -->
+      <div class="col-lg-7 reveal rr">
+        <div class="tag">beneficios.map(b => b)</div>
+        <h2 class="sec-title mb-4">Por qué trabajar <span class="hl">conmigo</span></h2>
+
+        <div class="d-flex flex-column gap-3">
+          <div class="benefit-item">
+            <i class="bi bi-check2-circle bi-icon"></i>
+            <div>
+              <h5>Código limpio y documentado</h5>
+              <p>Entrego código mantenible, bien estructurado y con documentación técnica completa. Sin deuda técnica, sin sorpresas.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <i class="bi bi-clock-history bi-icon"></i>
+            <div>
+              <h5>Entrega puntual garantizada</h5>
+              <p>Trabajo con sprints semanales y reportes de avance diarios. Sabrás exactamente en qué punto está tu proyecto en todo momento.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <i class="bi bi-shield-lock bi-icon"></i>
+            <div>
+              <h5>Seguridad y buenas prácticas</h5>
+              <p>Implemento estándares OWASP, autenticación segura, cifrado de datos y auditorías de vulnerabilidades en cada proyecto.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <i class="bi bi-graph-up-arrow bi-icon"></i>
+            <div>
+              <h5>Arquitectura que escala</h5>
+              <p>Diseño sistemas que soportan desde 10 hasta 10 millones de usuarios sin cambiar la arquitectura base. Planificación para el futuro.</p>
+            </div>
+          </div>
+          <div class="benefit-item">
+            <i class="bi bi-headset bi-icon"></i>
+            <div>
+              <h5>Soporte post-lanzamiento</h5>
+              <p>3 meses de soporte gratuito después del lanzamiento. Monitoreo activo, corrección de bugs y optimizaciones incluidas.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     PORTAFOLIO
+============================================= -->
+<section id="portafolio">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <div class="tag" style="justify-content:center">git log --oneline --projects</div>
+      <h2 class="sec-title">Proyectos <span class="hlc">destacados</span></h2>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.06s">
+        <div class="project-card">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=70" alt="Dashboard SaaS" />
+            <div class="project-overlay"></div>
+            <span class="project-type">SaaS Platform</span>
+          </div>
+          <div class="project-body">
+            <h4>Dashboard Analytics SaaS</h4>
+            <p>Plataforma de analítica de datos en tiempo real para e-commerce. 10K+ usuarios activos, integración con 15 fuentes de datos.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">AWS</span>
+              <span class="project-tag">PostgreSQL</span>
+            </div>
+            <a href="#contacto" class="project-link">
+              <i class="bi bi-terminal"></i> Ver detalles <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.13s">
+        <div class="project-card">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=600&q=70" alt="Bot IA" />
+            <div class="project-overlay"></div>
+            <span class="project-type">Bot IA</span>
+          </div>
+          <div class="project-body">
+            <h4>Asistente Virtual WhatsApp + GPT-4</h4>
+            <p>Bot de atención al cliente con IA que resuelve el 80% de consultas automáticamente. Integrado con CRM y base de conocimiento.</p>
+            <div class="project-tags">
+              <span class="project-tag">Python</span>
+              <span class="project-tag">OpenAI</span>
+              <span class="project-tag">WhatsApp API</span>
+              <span class="project-tag">Lambda</span>
+            </div>
+            <a href="#contacto" class="project-link">
+              <i class="bi bi-terminal"></i> Ver detalles <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.20s">
+        <div class="project-card">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&q=70" alt="E-commerce" />
+            <div class="project-overlay"></div>
+            <span class="project-type">E-commerce</span>
+          </div>
+          <div class="project-body">
+            <h4>Plataforma E-commerce Multi-vendor</h4>
+            <p>Marketplace B2C con 200+ vendedores, pagos con Stripe, panel de admin completo y app móvil en React Native.</p>
+            <div class="project-tags">
+              <span class="project-tag">Next.js</span>
+              <span class="project-tag">Stripe</span>
+              <span class="project-tag">React Native</span>
+              <span class="project-tag">Firebase</span>
+            </div>
+            <a href="#contacto" class="project-link">
+              <i class="bi bi-terminal"></i> Ver detalles <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.06s">
+        <div class="project-card">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&q=70" alt="AWS Infrastructure" />
+            <div class="project-overlay"></div>
+            <span class="project-type">AWS Cloud</span>
+          </div>
+          <div class="project-body">
+            <h4>Migración Monolito → Microservicios</h4>
+            <p>Migración de sistema legacy a arquitectura de microservicios en AWS. Reducción del 65% en costos de infraestructura.</p>
+            <div class="project-tags">
+              <span class="project-tag">Docker</span>
+              <span class="project-tag">ECS</span>
+              <span class="project-tag">Terraform</span>
+              <span class="project-tag">CI/CD</span>
+            </div>
+            <a href="#contacto" class="project-link">
+              <i class="bi bi-terminal"></i> Ver detalles <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.13s">
+        <div class="project-card">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&q=70" alt="CRM Sistema" />
+            <div class="project-overlay"></div>
+            <span class="project-type">Software a Medida</span>
+          </div>
+          <div class="project-body">
+            <h4>CRM + ERP para empresa logística</h4>
+            <p>Sistema integral de gestión de clientes, pedidos, rutas y facturación. 50+ usuarios simultáneos con reportes en tiempo real.</p>
+            <div class="project-tags">
+              <span class="project-tag">React</span>
+              <span class="project-tag">Python</span>
+              <span class="project-tag">PostgreSQL</span>
+              <span class="project-tag">Redis</span>
+            </div>
+            <a href="#contacto" class="project-link">
+              <i class="bi bi-terminal"></i> Ver detalles <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.20s">
+        <div class="project-card">
+          <div class="project-img-wrap">
+            <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?w=600&q=70" alt="App móvil" />
+            <div class="project-overlay"></div>
+            <span class="project-type">App Móvil</span>
+          </div>
+          <div class="project-body">
+            <h4>App de Gestión de Turnos y Citas</h4>
+            <p>Aplicación móvil para clínicas con reservas online, recordatorios automáticos y telemedicina integrada. 4.8★ en stores.</p>
+            <div class="project-tags">
+              <span class="project-tag">React Native</span>
+              <span class="project-tag">Node.js</span>
+              <span class="project-tag">Twilio</span>
+              <span class="project-tag">Zoom API</span>
+            </div>
+            <a href="#contacto" class="project-link">
+              <i class="bi bi-terminal"></i> Ver detalles <i class="bi bi-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     TESTIMONIOS
+============================================= -->
+<section id="testimonios">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <div class="tag" style="justify-content:center">clientes.reviews.filter(r => r.stars === 5)</div>
+      <h2 class="sec-title">Lo que dicen mis <span class="hl">clientes</span></h2>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-4 reveal" style="transition-delay:.06s">
+        <div class="testi-card">
+          <span class="t-quote-mark">"</span>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">
+            Carlos construyó nuestro CRM desde cero en 6 semanas. El código es impecable, la documentación excelente y el soporte post-lanzamiento superó todas las expectativas. Sin duda el mejor developer con el que hemos trabajado.
+          </p>
+          <div class="t-author">
+            <img src="https://randomuser.me/api/portraits/men/55.jpg" class="t-avatar" alt="Diego M." />
+            <div>
+              <p class="t-name">Diego Montoya</p>
+              <span class="t-role">CEO · LogiTrack S.A.S.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal" style="transition-delay:.14s">
+        <div class="testi-card">
+          <span class="t-quote-mark">"</span>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">
+            Implementó un bot de WhatsApp con IA que literalmente cambió nuestra atención al cliente. Pasamos de responder 50 chats diarios manualmente a automatizar el 85%. La inversión se recuperó en 3 semanas.
+          </p>
+          <div class="t-author">
+            <img src="https://randomuser.me/api/portraits/women/41.jpg" class="t-avatar" alt="Natalia R." />
+            <div>
+              <p class="t-name">Natalia Restrepo</p>
+              <span class="t-role">Directora Comercial · StyleShop</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4 reveal" style="transition-delay:.22s">
+        <div class="testi-card">
+          <span class="t-quote-mark">"</span>
+          <div class="t-stars">★★★★★</div>
+          <p class="t-text">
+            Migró toda nuestra infraestructura a AWS en tiempo récord. Los costos bajaron un 60% y el tiempo de respuesta de la app mejoró 10x. La comunicación durante todo el proceso fue transparente y profesional.
+          </p>
+          <div class="t-author">
+            <img src="https://randomuser.me/api/portraits/men/29.jpg" class="t-avatar" alt="Mauricio V." />
+            <div>
+              <p class="t-name">Mauricio Vargas</p>
+              <span class="t-role">CTO · FinTech Pagos S.A.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     PRECIOS
+============================================= -->
+<section id="precios">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <div class="tag" style="justify-content:center">planes.getAll().sortBy('value')</div>
+      <h2 class="sec-title">Planes & <span class="hl">Precios</span></h2>
+      <p class="sec-sub mx-auto text-center">
+        Planes base orientativos. Cada proyecto se cotiza de forma personalizada según alcance, complejidad y tiempo de entrega.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <!-- Starter -->
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.06s">
+        <div class="price-card">
+          <div class="price-header">
+            <div class="price-tier">// PLAN_01</div>
+            <div class="price-name">Starter</div>
+            <div class="price-num">
+              <span class="currency">$</span>500
+              <span class="period"> USD</span>
+            </div>
+          </div>
+          <div class="price-body">
+            <ul class="price-features">
+              <li><i class="bi bi-check-lg"></i> Landing page o sitio web (5 páginas)</li>
+              <li><i class="bi bi-check-lg"></i> Diseño responsive mobile-first</li>
+              <li><i class="bi bi-check-lg"></i> Formulario de contacto funcional</li>
+              <li><i class="bi bi-check-lg"></i> SEO básico on-page</li>
+              <li><i class="bi bi-check-lg"></i> Despliegue en hosting incluido</li>
+              <li><i class="bi bi-check-lg"></i> 30 días de soporte</li>
+              <li><i class="x-mark bi bi-x-lg"></i> <span style="opacity:.3">Backend / Base de datos</span></li>
+              <li><i class="x-mark bi bi-x-lg"></i> <span style="opacity:.3">Integraciones de pago</span></li>
+            </ul>
+            <a href="#contacto" class="btn-t btn-outline-neon w-100" style="justify-content:center;">
+              <i class="bi bi-terminal"></i> Cotizar Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pro (featured) -->
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.13s">
+        <div class="price-card featured">
+          <div class="price-header">
+            <span class="price-badge">POPULAR</span>
+            <div class="price-tier">// PLAN_02</div>
+            <div class="price-name">Pro</div>
+            <div class="price-num">
+              <span class="currency">$</span>2,000
+              <span class="period"> USD</span>
+            </div>
+          </div>
+          <div class="price-body">
+            <ul class="price-features">
+              <li><i class="bi bi-check-lg"></i> Aplicación web completa (full stack)</li>
+              <li><i class="bi bi-check-lg"></i> API REST + base de datos</li>
+              <li><i class="bi bi-check-lg"></i> Panel de administración</li>
+              <li><i class="bi bi-check-lg"></i> Autenticación y roles de usuario</li>
+              <li><i class="bi bi-check-lg"></i> Despliegue en AWS</li>
+              <li><i class="bi bi-check-lg"></i> Integración de pagos (Stripe/PayU)</li>
+              <li><i class="bi bi-check-lg"></i> 3 meses de soporte</li>
+              <li><i class="bi bi-check-lg"></i> Documentación técnica completa</li>
+            </ul>
+            <a href="#contacto" class="btn-t btn-neon w-100" style="justify-content:center;">
+              <i class="bi bi-terminal"></i> Iniciar Proyecto
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Enterprise -->
+      <div class="col-md-6 col-lg-4 reveal" style="transition-delay:.20s">
+        <div class="price-card">
+          <div class="price-header">
+            <div class="price-tier">// PLAN_03</div>
+            <div class="price-name">Enterprise</div>
+            <div class="price-num">
+              <span class="currency">$</span>5,000
+              <span class="period">+ USD</span>
+            </div>
+          </div>
+          <div class="price-body">
+            <ul class="price-features">
+              <li><i class="bi bi-check-lg"></i> Sistema o plataforma a medida</li>
+              <li><i class="bi bi-check-lg"></i> Arquitectura de microservicios</li>
+              <li><i class="bi bi-check-lg"></i> Bot IA o automatización avanzada</li>
+              <li><i class="bi bi-check-lg"></i> Infraestructura AWS escalable</li>
+              <li><i class="bi bi-check-lg"></i> App móvil iOS + Android</li>
+              <li><i class="bi bi-check-lg"></i> CI/CD pipelines automatizados</li>
+              <li><i class="bi bi-check-lg"></i> 6 meses de soporte premium</li>
+              <li><i class="bi bi-check-lg"></i> SLA garantizado 99.9% uptime</li>
+            </ul>
+            <a href="#contacto" class="btn-t btn-outline-neon w-100" style="justify-content:center;">
+              <i class="bi bi-terminal"></i> Cotizar Ahora
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     UBICACIÓN
+============================================= -->
+<section id="ubicacion">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <div class="tag" style="justify-content:center">location.getCoords()</div>
+      <h2 class="sec-title">Dónde <span class="hlc">encontrarme</span></h2>
+    </div>
+
+    <div class="row g-5 align-items-start">
+
+      <div class="col-lg-5 reveal rl">
+        <div class="mb-4">
+          <div class="loc-item">
+            <div class="loc-ic"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <p class="loc-lbl">BASE_LOCATION</p>
+              <p class="loc-val">Medellín, Antioquia · Colombia<br><span style="color:var(--neon);font-size:.78rem;">Remote-first · Disponible globalmente</span></p>
+            </div>
+          </div>
+          <div class="loc-item">
+            <div class="loc-ic"><i class="bi bi-whatsapp"></i></div>
+            <div>
+              <p class="loc-lbl">WHATSAPP</p>
+              <p class="loc-val">+57 300 123 4567</p>
+            </div>
+          </div>
+          <div class="loc-item">
+            <div class="loc-ic"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <p class="loc-lbl">EMAIL</p>
+              <p class="loc-val">hola@devcraft.co</p>
+            </div>
+          </div>
+          <div class="loc-item">
+            <div class="loc-ic"><i class="bi bi-clock-fill"></i></div>
+            <div>
+              <p class="loc-lbl">TIMEZONE</p>
+              <p class="loc-val">UTC-5 · Colombia<br>Lun–Vie: 8AM – 8PM · Sáb: 9AM – 2PM</p>
+            </div>
+          </div>
+          <div class="loc-item">
+            <div class="loc-ic"><i class="bi bi-github"></i></div>
+            <div>
+              <p class="loc-lbl">GITHUB</p>
+              <p class="loc-val">github.com/devcraft-co</p>
+            </div>
+          </div>
+        </div>
+
+        <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20desarrollo"
+          class="btn-t btn-neon" target="_blank" rel="noopener">
+          <i class="bi bi-whatsapp"></i> Escribir por WhatsApp
+        </a>
+      </div>
+
+      <div class="col-lg-7 reveal rr">
+        <div class="map-frame">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d254508.3339689!2d-75.7180!3d6.2442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb5b7e7cd%3A0xabcdefab12345678!2sMedell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1700000000002"
+            allowfullscreen loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ubicación DevCraft">
+          </iframe>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     CTA
+============================================= -->
+<section id="cta">
+  <div class="container text-center cta-inner">
+    <div class="reveal">
+      <div class="tag" style="justify-content:center;margin-bottom:1.2rem;">
+        proyecto.status = "listo_para_iniciar"
+      </div>
+      <h2 class="cta-h2">
+        ¿Tienes una idea?<br>
+        La hacemos <span class="hl">realidad</span>
+      </h2>
+      <p class="cta-p mx-auto">
+        Escríbeme hoy y en menos de 24 horas tendrás una propuesta técnica detallada y un presupuesto sin compromiso.
+      </p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="#contacto" class="btn-t btn-neon">
+          <i class="bi bi-terminal-fill"></i> Iniciar Proyecto
+        </a>
+        <a href="https://wa.me/573001234567?text=Hola%2C%20tengo%20una%20idea%20para%20un%20proyecto"
+          class="btn-t btn-outline-neon" target="_blank" rel="noopener">
+          <i class="bi bi-whatsapp"></i> WhatsApp Directo
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FORMULARIO
+============================================= -->
+<section id="contacto">
+  <div class="container">
+
+    <div class="text-center mb-5 reveal">
+      <div class="tag" style="justify-content:center">new Project().init()</div>
+      <h2 class="sec-title">Cuéntame tu <span class="hl">proyecto</span></h2>
+      <p class="sec-sub mx-auto text-center">
+        Completa el formulario y te envío una propuesta técnica personalizada en menos de 24 horas.
+      </p>
+    </div>
+
+    <div class="row g-4 align-items-start">
+
+      <!-- Form terminal -->
+      <div class="col-lg-7 reveal rl">
+        <div class="form-terminal">
+          <div class="form-terminal-bar">
+            <span class="tb-circle tbc-r"></span>
+            <span class="tb-circle tbc-y"></span>
+            <span class="tb-circle tbc-g"></span>
+            <span class="tb-title">new_project_form.jsx</span>
+          </div>
+          <div class="form-body">
+
+            <form id="contactForm" novalidate>
+              <div class="row g-3">
+
+                <div class="col-sm-6">
+                  <label class="f-label" for="nombre">nombre</label>
+                  <input class="f-input" type="text" id="nombre" placeholder="Tu nombre completo" required />
+                </div>
+                <div class="col-sm-6">
+                  <label class="f-label" for="empresa">empresa</label>
+                  <input class="f-input" type="text" id="empresa" placeholder="Nombre de tu empresa (opcional)" />
+                </div>
+                <div class="col-sm-6">
+                  <label class="f-label" for="email">email</label>
+                  <input class="f-input" type="email" id="email" placeholder="tu@email.com" required />
+                </div>
+                <div class="col-sm-6">
+                  <label class="f-label" for="whatsapp">whatsapp</label>
+                  <input class="f-input" type="tel" id="whatsapp" placeholder="+57 300 000 0000" required />
+                </div>
+                <div class="col-12">
+                  <label class="f-label" for="servicio">tipo_de_proyecto</label>
+                  <select class="f-input" id="servicio" required>
+                    <option value="" disabled selected>Selecciona el tipo de proyecto</option>
+                    <option>Página Web / Landing Page</option>
+                    <option>Software / Sistema a Medida</option>
+                    <option>Bot IA / Automatización</option>
+                    <option>Servicios AWS / Cloud</option>
+                    <option>App Móvil</option>
+                    <option>API / Integración</option>
+                    <option>Consultoría Técnica</option>
+                    <option>Otro</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label class="f-label" for="presupuesto">presupuesto_estimado</label>
+                  <select class="f-input" id="presupuesto">
+                    <option value="" disabled selected>Rango de inversión</option>
+                    <option>Menos de $500 USD</option>
+                    <option>$500 – $2,000 USD</option>
+                    <option>$2,000 – $5,000 USD</option>
+                    <option>$5,000 – $10,000 USD</option>
+                    <option>Más de $10,000 USD</option>
+                    <option>Por definir</option>
+                  </select>
+                </div>
+                <div class="col-sm-6">
+                  <label class="f-label" for="plazo">plazo_deseado</label>
+                  <select class="f-input" id="plazo">
+                    <option value="" disabled selected>Tiempo de entrega</option>
+                    <option>Lo antes posible (urgente)</option>
+                    <option>1 – 2 semanas</option>
+                    <option>1 mes</option>
+                    <option>2 – 3 meses</option>
+                    <option>Más de 3 meses</option>
+                    <option>Sin prisa</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="f-label" for="descripcion">descripcion_del_proyecto</label>
+                  <textarea class="f-input" id="descripcion" placeholder="Describe tu idea: ¿qué quieres construir? ¿cuál es el problema que resuelve? ¿tienes referentes?" required></textarea>
+                </div>
+                <div class="col-12 mt-1">
+                  <button type="submit" class="btn-t btn-neon w-100" style="justify-content:center;padding:15px;font-size:.82rem;">
+                    <i class="bi bi-send-fill"></i> Enviar Propuesta
+                  </button>
+                </div>
+              </div>
+            </form>
+
+            <div id="formOk">
+              <span class="ok-icon">✓</span>
+              <h4>¡Propuesta enviada!</h4>
+              <p>Recibirás mi respuesta con una propuesta técnica detallada en menos de 24 horas. También puedes escribirme por WhatsApp para hablar ahora mismo.</p>
+              <a href="https://wa.me/573001234567?text=Hola%2C%20acabo%20de%20enviar%20mi%20proyecto%20por%20el%20formulario"
+                class="btn-t btn-neon mt-4" target="_blank" rel="noopener" style="display:inline-flex;margin:20px auto 0;">
+                <i class="bi bi-whatsapp"></i> Hablar Ahora
+              </a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Side info -->
+      <div class="col-lg-5 reveal rr">
+        <div class="contact-side">
+          <div class="tag">contacto.info</div>
+          <h4 style="font-size:1.3rem;color:var(--white);margin-bottom:6px;">Respondo <span style="color:var(--neon)">rápido</span></h4>
+          <p style="font-size:.87rem;color:var(--white-50);line-height:1.8;margin-bottom:24px;font-weight:300;">
+            Promedio de respuesta: <strong style="color:var(--neon)">menos de 4 horas</strong>. Escríbeme por el canal que prefieras.
+          </p>
+
+          <div class="cs-item">
+            <p class="cs-lbl">WHATSAPP</p>
+            <p class="cs-val">+57 300 123 4567</p>
+          </div>
+          <div class="cs-item">
+            <p class="cs-lbl">EMAIL</p>
+            <p class="cs-val">hola@devcraft.co</p>
+          </div>
+          <div class="cs-item">
+            <p class="cs-lbl">LINKEDIN</p>
+            <p class="cs-val">linkedin.com/in/devcraft-co</p>
+          </div>
+          <div class="cs-item">
+            <p class="cs-lbl">GITHUB</p>
+            <p class="cs-val">github.com/devcraft-co</p>
+          </div>
+          <div class="cs-item">
+            <p class="cs-lbl">UBICACIÓN</p>
+            <p class="cs-val">Medellín, Colombia · Remote global</p>
+          </div>
+
+          <div class="social-row mt-3">
+            <a href="#" class="soc-ic" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="#" class="soc-ic" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="#" class="soc-ic" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+            <a href="#" class="soc-ic" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          </div>
+
+          <!-- Disponibilidad badge -->
+          <div style="margin-top:28px;background:var(--neon-dim);border:1px solid var(--border2);padding:16px 18px;clip-path:polygon(0 0,calc(100% - 8px) 0,100% 8px,100% 100%,8px 100%,0 calc(100% - 8px));">
+            <p style="font-family:var(--font-mono);font-size:.65rem;color:var(--neon);letter-spacing:.12em;margin-bottom:4px;">DISPONIBILIDAD ACTUAL</p>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--neon);box-shadow:var(--glow-neon);animation:blinkDot 1.5s ease-in-out infinite;"></span>
+              <span style="font-size:.88rem;color:var(--white-80);font-weight:500;">Disponible para nuevos proyectos</span>
+            </div>
+            <p style="font-size:.78rem;color:var(--white-25);margin:4px 0 0;font-weight:300;">Slots abiertos para Q2 2026</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- =============================================
+     FOOTER
+============================================= -->
+<footer id="footer">
+  <div class="container">
+    <div class="row g-5">
+
+      <div class="col-lg-4">
+        <div class="f-brand">
+          <span class="bracket">[</span>DevCraft<span class="bracket">]</span>
+        </div>
+        <p class="f-desc">
+          Desarrollo web, software a medida, bots inteligentes y cloud AWS. Convirtiendo ideas en productos digitales desde Medellín para el mundo.
+        </p>
+        <div class="social-row mt-3">
+          <a href="#" class="soc-ic" aria-label="GitHub"><i class="bi bi-github"></i></a>
+          <a href="#" class="soc-ic" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" class="soc-ic" aria-label="Twitter"><i class="bi bi-twitter-x"></i></a>
+          <a href="#" class="soc-ic" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <p class="f-head">servicios</p>
+        <ul class="f-links">
+          <li><a href="#servicios">Páginas Web</a></li>
+          <li><a href="#servicios">Software a Medida</a></li>
+          <li><a href="#servicios">Bots & IA</a></li>
+          <li><a href="#servicios">AWS Cloud</a></li>
+          <li><a href="#servicios">Apps Móviles</a></li>
+          <li><a href="#servicios">APIs</a></li>
+        </ul>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <p class="f-head">navegar</p>
+        <ul class="f-links">
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#portafolio">Portafolio</a></li>
+          <li><a href="#testimonios">Clientes</a></li>
+          <li><a href="#precios">Precios</a></li>
+          <li><a href="#contacto">Contacto</a></li>
+        </ul>
+      </div>
+
+      <div class="col-lg-4">
+        <p class="f-head">contacto_rapido</p>
+        <p style="font-size:.84rem;color:var(--white-25);line-height:1.8;margin-bottom:18px;font-weight:300;">
+          ¿Tienes una idea? Escríbeme ahora y cuéntame todo.
+        </p>
+        <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20cotizar%20un%20proyecto"
+          class="btn-t btn-neon" target="_blank" rel="noopener" style="width:100%;justify-content:center;">
+          <i class="bi bi-whatsapp"></i> Iniciar conversación
+        </a>
+      </div>
+
+    </div>
+
+    <div class="f-bottom">
+      <p class="f-copy">© 2026 DevCraft · All rights reserved · Built with ❤️ + ☕</p>
+      <p class="f-copy">console.log("Hecho en Colombia 🇨🇴 para el mundo 🌍")</p>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20cotizar%20un%20proyecto%20de%20desarrollo"
+  class="wa-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+  <i class="bi bi-whatsapp"></i>
+  <span class="wa-tip">./cotizar_proyecto.sh</span>
+</a>
+
+<!-- Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+  /* =============================================
+     NAVBAR SCROLL
+  ============================================= */
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 50);
+  }, { passive: true });
+
+  /* =============================================
+     SCROLL REVEAL
+  ============================================= */
+  const revObs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        revObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+
+  /* =============================================
+     SMOOTH SCROLL
+  ============================================= */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (!t) return;
+      e.preventDefault();
+      window.scrollTo({ top: t.offsetTop - 72, behavior: 'smooth' });
+      const c = document.getElementById('navMenu');
+      if (c.classList.contains('show'))
+        bootstrap.Collapse.getInstance(c)?.hide();
+    });
+  });
+
+  /* =============================================
+     COUNTER ANIMATION (Stats strip)
+  ============================================= */
+  const cntObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      e.target.querySelectorAll('.stat-num[data-val]').forEach(el => {
+        const target = parseInt(el.getAttribute('data-val'));
+        const dur = 1800;
+        const t0  = performance.now();
+        const tick = now => {
+          const p  = Math.min((now - t0) / dur, 1);
+          const ez = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.floor(ez * target) + (target >= 99 ? '%' : '+');
+          if (p < 1) requestAnimationFrame(tick);
+        };
+        requestAnimationFrame(tick);
+      });
+      cntObs.unobserve(e.target);
+    });
+  }, { threshold: 0.5 });
+
+  const strip = document.getElementById('stats-strip');
+  if (strip) cntObs.observe(strip);
+
+  /* =============================================
+     FORM SUBMIT
+  ============================================= */
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    if (!this.checkValidity()) { this.classList.add('was-validated'); return; }
+    const btn = this.querySelector('[type=submit]');
+    btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span> Compiling...';
+    btn.disabled = true;
+    setTimeout(() => {
+      this.style.display = 'none';
+      document.getElementById('formOk').style.display = 'block';
+    }, 1800);
+  });
+
+  /* =============================================
+     TERMINAL TYPING EFFECT (relaunch on view)
+  ============================================= */
+  const lines = document.querySelectorAll('.terminal-body .c-line');
+  const termObs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (!e.isIntersecting) return;
+      lines.forEach((line, i) => {
+        line.style.opacity = '0';
+        line.style.transition = 'none';
+        setTimeout(() => {
+          line.style.transition = 'opacity 0.1s';
+          line.style.opacity = '1';
+        }, i * 80);
+      });
+      termObs.unobserve(e.target);
+    });
+  }, { threshold: 0.3 });
+
+  const tw = document.querySelector('.terminal-window');
+  if (tw) termObs.observe(tw);
+</script>
+
+</body>
+</html>

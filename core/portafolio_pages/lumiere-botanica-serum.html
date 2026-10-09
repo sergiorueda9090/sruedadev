@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="LUMIÈRE BOTANICA — Sérum facial de lanzamiento. Ingredientes 100% naturales, sin químicos, resultados visibles en 14 días. Para mujeres que cuidan su piel de forma consciente."/>
+  <meta name="keywords" content="serum facial natural, skincare organico, crema facial sin quimicos, serum antiedad, cuidado piel natural"/>
+  <title>LUMIÈRE BOTANICA | Sérum Facial Natural — Lanzamiento Exclusivo</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@200;300;400;500;600&family=Italiana&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ══════════════════════════════════
+       VARIABLES
+    ══════════════════════════════════ */
+    :root {
+      --sage:        #4a7c59;
+      --sage2:       #5a9268;
+      --sage-light:  #7ab48a;
+      --sage-pale:   #d4e8d8;
+      --sage-subtle: rgba(74,124,89,.08);
+      --sage-border: rgba(74,124,89,.2);
+      --cream:       #faf6ef;
+      --cream2:      #f2ebe0;
+      --cream3:      #e8dece;
+      --warm-white:  #fffdf9;
+      --charcoal:    #1e1e1e;
+      --brown:       #5c4a3a;
+      --brown2:      #7a6555;
+      --gold:        #c9a84c;
+      --gold2:       #e0be6a;
+      --blush:       #e8cfc4;
+      --blush2:      #f2e0d8;
+      --font-serif:  'Playfair Display', Georgia, serif;
+      --font-display:'Italiana', Georgia, serif;
+      --font-sans:   'Jost', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      background: var(--warm-white);
+      color: var(--charcoal);
+      font-family: var(--font-sans);
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width:3px; }
+    ::-webkit-scrollbar-track { background:var(--cream); }
+    ::-webkit-scrollbar-thumb { background:var(--sage); border-radius:2px; }
+
+    /* ── Cursor personalizado ── */
+    body { cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' viewBox='0 0 20 20'%3E%3Ccircle cx='10' cy='10' r='4' fill='%234a7c59' opacity='0.6'/%3E%3C/svg%3E") 10 10, auto; }
+
+    /* ── IMG helper ── */
+    .img-fit { width:100%; height:100%; object-fit:cover; object-position:center; display:block; opacity:0; transition:opacity .7s ease; }
+    .img-fit.loaded { opacity:1; }
+
+    /* ══════════════════════════════════
+       ANNOUNCEMENT BAR
+    ══════════════════════════════════ */
+    .announce-bar {
+      background: var(--sage);
+      padding: .55rem 0;
+      overflow: hidden;
+    }
+    .announce-inner {
+      display: inline-block;
+      white-space: nowrap;
+      animation: scrollLeft 25s linear infinite;
+    }
+    .announce-inner span {
+      font-family: var(--font-sans);
+      font-size: .7rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: rgba(255,255,255,.88);
+      margin: 0 3rem;
+    }
+    .announce-inner span::before { content: '✦ '; color: var(--gold2); }
+    @keyframes scrollLeft {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* ══════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════ */
+    #navbar {
+      position: fixed; top:32px; left:0; right:0; z-index:1000;
+      padding: 1.2rem 0;
+      transition: all .4s ease;
+    }
+    #navbar.scrolled {
+      top: 0;
+      background: rgba(255,253,249,.96);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--sage-border);
+      padding: .8rem 0;
+      box-shadow: 0 4px 30px rgba(74,124,89,.08);
+    }
+    .brand-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      letter-spacing: 4px;
+      color: var(--charcoal);
+      text-decoration: none;
+      display: flex; flex-direction: column;
+      line-height: 1;
+    }
+    .brand-sub {
+      font-family: var(--font-sans);
+      font-size: .52rem;
+      letter-spacing: 4px;
+      color: var(--sage);
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+    .nav-link-sk {
+      font-family: var(--font-sans);
+      font-size: .72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 400;
+      color: var(--brown2) !important;
+      text-decoration: none;
+      padding: .35rem .9rem !important;
+      transition: color .2s;
+    }
+    .nav-link-sk:hover { color: var(--sage) !important; }
+    .btn-nav-buy {
+      font-family: var(--font-sans);
+      font-size: .68rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: var(--sage);
+      color: var(--warm-white);
+      border: none;
+      padding: .6rem 1.6rem;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all .25s;
+      display: inline-flex; align-items: center; gap: 6px;
+    }
+    .btn-nav-buy:hover { background:var(--sage2); color:var(--warm-white); transform:translateY(-1px); box-shadow:0 6px 20px rgba(74,124,89,.25); }
+    #mobileMenu { background:var(--warm-white); border-top:1px solid var(--sage-border); padding:1rem 0; display:none; }
+
+    /* ══════════════════════════════════
+       HERO
+    ══════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: var(--cream);
+      padding-top: 110px;
+    }
+
+    /* Organic blob backgrounds */
+    .hero-blob-1 {
+      position: absolute;
+      width: 600px; height: 600px;
+      border-radius: 40% 60% 70% 30% / 40% 50% 60% 50%;
+      background: radial-gradient(circle, rgba(74,124,89,.12) 0%, transparent 70%);
+      top: -100px; right: -100px;
+      animation: blobFloat1 12s ease-in-out infinite;
+    }
+    .hero-blob-2 {
+      position: absolute;
+      width: 400px; height: 400px;
+      border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+      background: radial-gradient(circle, rgba(201,168,76,.1) 0%, transparent 70%);
+      bottom: -80px; left: 5%;
+      animation: blobFloat2 15s ease-in-out infinite;
+    }
+    .hero-blob-3 {
+      position: absolute;
+      width: 300px; height: 300px;
+      border-radius: 50% 50% 30% 70% / 50% 70% 30% 50%;
+      background: radial-gradient(circle, rgba(232,207,196,.4) 0%, transparent 70%);
+      top: 30%; left: 55%;
+      animation: blobFloat1 18s ease-in-out infinite reverse;
+    }
+    @keyframes blobFloat1 {
+      0%,100% { border-radius:40% 60% 70% 30%/40% 50% 60% 50%; transform:translate(0,0) rotate(0deg); }
+      33%     { border-radius:70% 30% 50% 50%/30% 60% 40% 70%; transform:translate(10px,-15px) rotate(5deg); }
+      66%     { border-radius:30% 70% 40% 60%/60% 40% 60% 40%; transform:translate(-10px,10px) rotate(-3deg); }
+    }
+    @keyframes blobFloat2 {
+      0%,100% { border-radius:60% 40% 30% 70%/60% 30% 70% 40%; transform:translate(0,0); }
+      50%     { border-radius:30% 70% 60% 40%/40% 70% 30% 60%; transform:translate(15px,-20px); }
+    }
+
+    /* Floating leaves */
+    .leaf {
+      position: absolute;
+      font-size: 1.5rem;
+      opacity: .12;
+      animation: leafDrift 20s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .leaf:nth-child(1)  { top:15%; left:5%;  animation-delay:0s;   font-size:2rem; }
+    .leaf:nth-child(2)  { top:70%; left:3%;  animation-delay:3s;   font-size:1.2rem; }
+    .leaf:nth-child(3)  { top:40%; right:3%; animation-delay:6s;   font-size:1.8rem; }
+    .leaf:nth-child(4)  { top:80%; right:8%; animation-delay:9s;   font-size:1rem; }
+    .leaf:nth-child(5)  { top:25%; right:12%;animation-delay:12s;  font-size:1.4rem; }
+    @keyframes leafDrift {
+      0%,100% { transform:translateY(0) rotate(0deg);   opacity:.12; }
+      50%     { transform:translateY(-20px) rotate(15deg); opacity:.2; }
+    }
+
+    .hero-content { position:relative; z-index:2; }
+
+    /* Left: product visual */
+    .hero-product-side { position:relative; }
+
+    .product-hero-img {
+      width: 100%;
+      max-width: 440px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .product-circle-bg {
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 40% 40%, var(--sage-pale), var(--cream2));
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: pulse-slow 4s ease-in-out infinite;
+    }
+    @keyframes pulse-slow {
+      0%,100% { transform:translate(-50%,-50%) scale(1); }
+      50%     { transform:translate(-50%,-50%) scale(1.04); }
+    }
+    .product-img-wrap {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+    .product-img-wrap img {
+      max-height: 420px;
+      width: auto;
+      max-width: 100%;
+      object-fit: contain;
+      filter: drop-shadow(0 30px 60px rgba(74,124,89,.25));
+      animation: floatProduct 5s ease-in-out infinite;
+    }
+    @keyframes floatProduct {
+      0%,100% { transform:translateY(0); }
+      50%     { transform:translateY(-16px); }
+    }
+
+    /* Floating badges around product */
+    .float-badge {
+      position: absolute;
+      background: var(--warm-white);
+      border: 1px solid var(--sage-border);
+      border-radius: 20px;
+      padding: .6rem 1rem;
+      display: flex; align-items: center; gap: 8px;
+      box-shadow: 0 8px 30px rgba(74,124,89,.12);
+      z-index: 3;
+      animation: badgeFloat 6s ease-in-out infinite;
+    }
+    .float-badge:nth-of-type(2) { animation-delay: 2s; }
+    .float-badge:nth-of-type(3) { animation-delay: 4s; }
+    @keyframes badgeFloat {
+      0%,100% { transform:translateY(0); }
+      50%     { transform:translateY(-6px); }
+    }
+    .fb-1 { top:10%; left:0%; }
+    .fb-2 { bottom:20%; right:-5%; }
+    .fb-3 { top:55%; left:-8%; }
+    .fb-icon { width:28px;height:28px;border-radius:50%;background:var(--sage-subtle);display:flex;align-items:center;justify-content:center;color:var(--sage);font-size:.85rem; }
+    .fb-text { font-family:var(--font-sans); }
+    .fb-title { font-size:.68rem;font-weight:600;color:var(--charcoal);letter-spacing:.5px; }
+    .fb-sub   { font-size:.6rem;color:var(--brown2);font-weight:300; }
+
+    /* Right: copy */
+    .hero-launch-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--sage-subtle);
+      border: 1px solid var(--sage-border);
+      border-radius: 30px;
+      padding: .4rem 1rem;
+      font-family: var(--font-sans);
+      font-size: .65rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--sage);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    .hero-launch-tag::before { content:''; width:7px;height:7px;border-radius:50%;background:var(--sage);animation:blink 1.5s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2.5rem, 5.5vw, 5rem);
+      color: var(--charcoal);
+      line-height: 1.1;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+    .hero-title em { color:var(--sage); font-style:italic; display:block; }
+    .hero-title .light-word { font-weight:300; color:var(--brown2); }
+
+    .hero-desc {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--brown2);
+      line-height: 1.8;
+      font-weight: 300;
+      max-width: 440px;
+      margin-bottom: 2rem;
+    }
+
+    /* Price block */
+    .price-block {
+      display: flex;
+      align-items: center;
+      gap: 1.2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    .price-old {
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      color: var(--brown2);
+      text-decoration: line-through;
+      font-weight: 300;
+    }
+    .price-new {
+      font-family: var(--font-serif);
+      font-size: 2.5rem;
+      color: var(--sage);
+      font-weight: 700;
+      line-height: 1;
+    }
+    .price-discount {
+      background: var(--sage);
+      color: var(--warm-white);
+      font-family: var(--font-sans);
+      font-size: .65rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: .3rem .8rem;
+      border-radius: 20px;
+    }
+    .price-note {
+      font-family: var(--font-sans);
+      font-size: .72rem;
+      color: var(--brown2);
+      font-weight: 300;
+    }
+
+    /* Stock bar */
+    .stock-bar {
+      margin-bottom: 2rem;
+    }
+    .stock-label {
+      font-family: var(--font-sans);
+      font-size: .68rem;
+      letter-spacing: 1px;
+      color: var(--brown2);
+      margin-bottom: .5rem;
+      display: flex; justify-content: space-between;
+    }
+    .stock-label strong { color: var(--sage); }
+    .stock-track {
+      height: 5px;
+      background: var(--cream3);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    .stock-fill {
+      height: 100%;
+      width: 73%;
+      background: linear-gradient(90deg, var(--sage), var(--sage-light));
+      border-radius: 10px;
+      animation: fillBar 1.5s ease-out .5s both;
+    }
+    @keyframes fillBar { from{width:0;} to{width:73%;} }
+
+    .btn-buy-hero {
+      font-family: var(--font-sans);
+      font-size: .82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: var(--sage);
+      color: var(--warm-white);
+      border: none;
+      padding: 1.1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: all .3s;
+      position: relative; overflow: hidden;
+    }
+    .btn-buy-hero::before {
+      content:'';
+      position:absolute; inset:0;
+      background: linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+      transform:translateX(-100%);
+      transition:transform .5s;
+    }
+    .btn-buy-hero:hover { background:var(--sage2); color:var(--warm-white); transform:translateY(-3px); box-shadow:0 15px 40px rgba(74,124,89,.3); }
+    .btn-buy-hero:hover::before { transform:translateX(100%); }
+
+    .btn-info-hero {
+      font-family: var(--font-sans);
+      font-size: .82rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      background: transparent;
+      color: var(--brown);
+      border: 1.5px solid var(--sage-border);
+      padding: 1.1rem 2.5rem;
+      border-radius: 50px;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: all .3s;
+    }
+    .btn-info-hero:hover { border-color:var(--sage); color:var(--sage); transform:translateY(-3px); }
+
+    /* Trust pills */
+    .trust-row {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.8rem;
+      padding-top: 1.8rem;
+      border-top: 1px solid var(--sage-border);
+    }
+    .trust-item {
+      display: flex; align-items: center; gap: 7px;
+      font-family: var(--font-sans);
+      font-size: .72rem;
+      color: var(--brown2);
+      font-weight: 400;
+    }
+    .trust-item i { color: var(--sage); font-size: .9rem; }
+
+    /* ══════════════════════════════════
+       INGREDIENTES (section wave)
+    ══════════════════════════════════ */
+    .wave-top {
+      width:100%; overflow:hidden; line-height:0;
+      background:var(--warm-white);
+    }
+    .wave-top svg { display:block; width:100%; }
+
+    #ingredientes { padding: 6rem 0; background: var(--sage); position:relative; overflow:hidden; }
+    #ingredientes::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image: radial-gradient(circle at 20% 50%, rgba(255,255,255,.06) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(255,255,255,.04) 0%, transparent 40%);
+    }
+
+    .ingr-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem,4vw,3.5rem);
+      color: var(--warm-white);
+      font-weight: 400;
+      line-height: 1.15;
+    }
+    .ingr-title em { font-style:italic; color:var(--gold2); }
+
+    .ingr-card {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.15);
+      border-radius: 20px;
+      padding: 1.8rem;
+      transition: all .3s;
+      height: 100%;
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+    .ingr-card::before {
+      content:'';
+      position:absolute;
+      top:-60px; right:-60px;
+      width:120px; height:120px;
+      border-radius:50%;
+      background:rgba(255,255,255,.04);
+    }
+    .ingr-card:hover { background:rgba(255,255,255,.14); transform:translateY(-6px); border-color:rgba(255,255,255,.3); }
+    .ingr-emoji { font-size:2.5rem; margin-bottom:1rem; display:block; }
+    .ingr-name {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      color: var(--warm-white);
+      font-weight: 400;
+      margin-bottom: .4rem;
+    }
+    .ingr-origin {
+      font-family: var(--font-sans);
+      font-size: .62rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--gold2);
+      font-weight: 500;
+      margin-bottom: .8rem;
+    }
+    .ingr-desc { font-size:.84rem;color:rgba(255,255,255,.75);line-height:1.7;font-weight:300; }
+    .ingr-benefit {
+      display:inline-block;
+      margin-top:.8rem;
+      background:rgba(255,255,255,.12);
+      border-radius:20px;
+      padding:.25rem .8rem;
+      font-size:.62rem;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.9);
+      font-weight:500;
+    }
+
+    /* ══════════════════════════════════
+       BENEFICIOS
+    ══════════════════════════════════ */
+    #beneficios { padding: 7rem 0; background: var(--warm-white); }
+
+    .before-after-wrap {
+      position: relative;
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 3/4;
+      box-shadow: 0 30px 80px rgba(74,124,89,.2);
+    }
+    .ba-img {
+      width:100%; height:100%;
+      object-fit:cover;
+      object-position:center;
+    }
+    .ba-label {
+      position:absolute;
+      font-family:var(--font-sans);
+      font-size:.6rem;
+      letter-spacing:2px;
+      text-transform:uppercase;
+      font-weight:700;
+      padding:.3rem .9rem;
+      border-radius:20px;
+    }
+    .ba-before { top:1rem;left:1rem; background:rgba(255,255,255,.9); color:var(--brown); }
+    .ba-after  { bottom:1rem;right:1rem; background:var(--sage); color:white; }
+
+    .benefit-item {
+      display:flex; gap:1.2rem; align-items:flex-start;
+      padding: 1.4rem 0;
+      border-bottom: 1px solid var(--sage-border);
+    }
+    .benefit-item:last-child { border-bottom:none; }
+    .benefit-icon-wrap {
+      width:50px; height:50px; min-width:50px;
+      border-radius:15px;
+      background: linear-gradient(135deg, var(--sage-pale), var(--cream2));
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.3rem;
+    }
+    .benefit-title {
+      font-family:var(--font-sans);
+      font-size:.88rem; font-weight:600;
+      color:var(--charcoal); letter-spacing:.3px;
+      margin-bottom:.3rem;
+    }
+    .benefit-text { font-size:.83rem; color:var(--brown2); line-height:1.6; font-weight:300; }
+
+    /* Resultado pill */
+    .result-pill {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--sage-subtle); border:1px solid var(--sage-border);
+      border-radius:30px; padding:.5rem 1.2rem;
+      font-family:var(--font-sans); font-size:.72rem;
+      color:var(--sage); font-weight:500;
+      letter-spacing:.5px; margin:.3rem;
+    }
+    .result-pill i { font-size:.8rem; }
+
+    /* ══════════════════════════════════
+       CÓMO USAR
+    ══════════════════════════════════ */
+    #como-usar { padding: 6rem 0; background: var(--cream); }
+
+    .uso-step {
+      text-align:center;
+      padding: 2rem 1.5rem;
+      position:relative;
+    }
+    .uso-step::after {
+      content:'→';
+      position:absolute;
+      right:-10px; top:50%;
+      transform:translateY(-50%);
+      font-size:1.5rem;
+      color:var(--sage-border);
+      font-family:var(--font-serif);
+    }
+    .uso-step:last-child::after { display:none; }
+    .uso-num {
+      width:56px; height:56px;
+      border-radius:50%;
+      background:var(--sage);
+      color:var(--warm-white);
+      font-family:var(--font-serif);
+      font-size:1.4rem;
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 1.2rem;
+      position:relative;
+    }
+    .uso-num::before {
+      content:'';
+      position:absolute; inset:-5px;
+      border-radius:50%;
+      border:1px dashed var(--sage-border);
+    }
+    .uso-emoji { font-size:2rem; margin-bottom:.8rem; display:block; }
+    .uso-title {
+      font-family:var(--font-serif);
+      font-size:1.1rem; color:var(--charcoal);
+      font-weight:400; margin-bottom:.5rem;
+    }
+    .uso-text { font-size:.82rem; color:var(--brown2); line-height:1.65; font-weight:300; }
+
+    /* ══════════════════════════════════
+       RESULTADOS / STATS
+    ══════════════════════════════════ */
+    #resultados {
+      padding: 5rem 0;
+      background: var(--cream2);
+      position:relative; overflow:hidden;
+    }
+    #resultados::before {
+      content:'';
+      position:absolute; inset:0;
+      background-image:
+        radial-gradient(circle at 10% 50%, rgba(74,124,89,.06) 0%, transparent 50%),
+        radial-gradient(circle at 90% 50%, rgba(201,168,76,.06) 0%, transparent 50%);
+    }
+
+    .stat-circle {
+      width:160px; height:160px;
+      border-radius:50%;
+      border:2px solid var(--sage-border);
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center;
+      margin:0 auto 1rem;
+      background: var(--warm-white);
+      position:relative;
+      transition: all .3s;
+    }
+    .stat-circle:hover { border-color:var(--sage); transform:scale(1.05); box-shadow:0 15px 40px rgba(74,124,89,.15); }
+    .stat-circle::before {
+      content:'';
+      position:absolute; inset:-8px;
+      border-radius:50%;
+      border:1px dashed var(--sage-border);
+    }
+    .stat-num {
+      font-family:var(--font-serif);
+      font-size:2.2rem; color:var(--sage);
+      font-weight:700; line-height:1;
+    }
+    .stat-lbl {
+      font-family:var(--font-sans);
+      font-size:.62rem; letter-spacing:1.5px;
+      text-transform:uppercase; color:var(--brown2);
+      font-weight:500; margin-top:4px; text-align:center;
+      padding:0 .5rem;
+    }
+    .stat-note { font-size:.72rem; color:var(--brown2); text-align:center; font-weight:300; }
+
+    /* ══════════════════════════════════
+       TESTIMONIOS
+    ══════════════════════════════════ */
+    #testimonios { padding: 7rem 0; background: var(--warm-white); }
+
+    .testi-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:1.5rem;
+    }
+    .testi-card {
+      background:var(--cream);
+      border:1px solid var(--sage-border);
+      border-radius:20px;
+      padding:2rem;
+      position:relative;
+      transition:all .3s;
+    }
+    .testi-card:hover { transform:translateY(-5px); box-shadow:0 20px 50px rgba(74,124,89,.12); }
+    .testi-card.featured {
+      background:var(--sage);
+      border-color:var(--sage);
+      grid-row:span 2;
+    }
+    .testi-stars { color:var(--gold); font-size:.85rem; margin-bottom:1rem; }
+    .testi-card.featured .testi-stars { color:var(--gold2); }
+    .testi-text {
+      font-family:var(--font-serif);
+      font-size:.98rem; font-style:italic;
+      color:var(--brown); line-height:1.8;
+      margin-bottom:1.2rem;
+    }
+    .testi-card.featured .testi-text { color:rgba(255,255,255,.9); font-size:1.1rem; }
+    .testi-result {
+      display:inline-block;
+      background:var(--sage-subtle);
+      border:1px solid var(--sage-border);
+      border-radius:20px;
+      padding:.25rem .8rem;
+      font-size:.62rem;
+      letter-spacing:1.5px;
+      text-transform:uppercase;
+      color:var(--sage);
+      font-weight:600;
+      margin-bottom:1.2rem;
+    }
+    .testi-card.featured .testi-result {
+      background:rgba(255,255,255,.15);
+      border-color:rgba(255,255,255,.3);
+      color:var(--warm-white);
+    }
+    .testi-author { display:flex; align-items:center; gap:.8rem; }
+    .testi-avatar {
+      width:42px;height:42px;border-radius:50%;overflow:hidden;
+      background:var(--sage-pale);
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-serif);font-size:1rem;color:var(--sage);
+    }
+    .testi-avatar img { width:100%;height:100%;object-fit:cover; }
+    .testi-name { font-family:var(--font-sans);font-size:.82rem;font-weight:600;color:var(--charcoal); }
+    .testi-card.featured .testi-name { color:var(--warm-white); }
+    .testi-age  { font-size:.72rem;color:var(--brown2);font-weight:300; }
+    .testi-card.featured .testi-age  { color:rgba(255,255,255,.6); }
+    .testi-verified {
+      position:absolute;top:1rem;right:1rem;
+      font-size:.65rem;color:var(--sage);
+      display:flex;align-items:center;gap:4px;
+    }
+    .testi-card.featured .testi-verified { color:var(--gold2); }
+
+    /* ══════════════════════════════════
+       PREGUNTAS FRECUENTES
+    ══════════════════════════════════ */
+    #faq { padding:6rem 0; background:var(--cream); }
+
+    .faq-item {
+      border-bottom:1px solid var(--sage-border);
+      overflow:hidden;
+    }
+    .faq-q {
+      font-family:var(--font-sans);
+      font-size:.92rem; font-weight:500;
+      color:var(--charcoal);
+      padding:1.2rem 1rem;
+      cursor:pointer;
+      display:flex; justify-content:space-between; align-items:center;
+      gap:1rem;
+      transition:color .2s;
+    }
+    .faq-q:hover { color:var(--sage); }
+    .faq-q .faq-icon { color:var(--sage); font-size:1rem; transition:transform .3s; flex-shrink:0; }
+    .faq-a {
+      font-size:.88rem; color:var(--brown2); line-height:1.75;
+      padding:0 1rem; max-height:0; overflow:hidden;
+      transition:max-height .4s ease, padding .3s;
+      font-weight:300;
+    }
+    .faq-item.open .faq-a { max-height:200px; padding-bottom:1.2rem; }
+    .faq-item.open .faq-icon { transform:rotate(45deg); }
+
+    /* ══════════════════════════════════
+       CTA FINAL — BUY
+    ══════════════════════════════════ */
+    #compra { padding:7rem 0; background:var(--warm-white); }
+
+    .buy-box {
+      background: linear-gradient(135deg, var(--cream2), var(--cream3));
+      border:1px solid var(--sage-border);
+      border-radius:30px;
+      padding:4rem;
+      position:relative;
+      overflow:hidden;
+    }
+    .buy-box::before {
+      content:'';
+      position:absolute;
+      top:-80px; right:-80px;
+      width:300px; height:300px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(74,124,89,.1) 0%,transparent 70%);
+    }
+    .buy-box::after {
+      content:'';
+      position:absolute;
+      bottom:-60px; left:-60px;
+      width:200px; height:200px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(201,168,76,.08) 0%,transparent 70%);
+    }
+
+    .kit-card {
+      background:var(--warm-white);
+      border:1px solid var(--sage-border);
+      border-radius:20px;
+      padding:2rem;
+      text-align:center;
+      transition:all .3s;
+      height:100%;
+      position:relative;
+    }
+    .kit-card.popular {
+      border-color:var(--sage);
+      box-shadow:0 20px 60px rgba(74,124,89,.18);
+      transform:scale(1.03);
+    }
+    .kit-card:hover { transform:scale(1.04); box-shadow:0 15px 40px rgba(74,124,89,.15); }
+    .kit-card.popular:hover { transform:scale(1.06); }
+    .kit-popular-badge {
+      position:absolute; top:-14px; left:50%; transform:translateX(-50%);
+      background:var(--sage); color:var(--warm-white);
+      font-family:var(--font-sans); font-size:.6rem;
+      letter-spacing:2px; text-transform:uppercase;
+      font-weight:700; padding:.3rem 1.2rem;
+      border-radius:20px; white-space:nowrap;
+    }
+    .kit-img {
+      width:100px; height:120px;
+      object-fit:contain; margin:0 auto 1rem;
+      display:block;
+      filter:drop-shadow(0 10px 20px rgba(74,124,89,.2));
+    }
+    .kit-name { font-family:var(--font-serif);font-size:1.2rem;color:var(--charcoal);margin-bottom:.3rem;font-weight:400; }
+    .kit-qty  { font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--sage);font-weight:500;margin-bottom:.8rem; }
+    .kit-price-old { font-size:.85rem;color:var(--brown2);text-decoration:line-through;margin-bottom:.2rem; }
+    .kit-price { font-family:var(--font-serif);font-size:2rem;color:var(--sage);font-weight:700;line-height:1;margin-bottom:1.2rem; }
+    .kit-features { list-style:none;padding:0;margin:0 0 1.5rem;text-align:left; }
+    .kit-features li {
+      font-size:.8rem;color:var(--brown2);padding:.3rem 0;
+      display:flex;align-items:center;gap:8px;border-bottom:1px solid var(--sage-border);
+    }
+    .kit-features li:last-child{border:none;}
+    .kit-features li i{color:var(--sage);font-size:.75rem;}
+    .btn-buy-kit {
+      font-family:var(--font-sans);font-size:.72rem;letter-spacing:2px;text-transform:uppercase;font-weight:600;
+      display:block;width:100%;padding:.85rem;border-radius:50px;text-decoration:none;text-align:center;transition:all .2s;
+    }
+    .btn-kit-outline { border:1.5px solid var(--sage);color:var(--sage);background:transparent; }
+    .btn-kit-outline:hover { background:var(--sage);color:var(--warm-white); }
+    .btn-kit-solid { background:var(--sage);color:var(--warm-white);border:1.5px solid var(--sage); box-shadow:0 8px 25px rgba(74,124,89,.3); }
+    .btn-kit-solid:hover { background:var(--sage2);color:var(--warm-white);transform:translateY(-2px); }
+
+    /* Garantía */
+    .garantia-bar {
+      display:flex;flex-wrap:wrap;gap:2rem;justify-content:center;
+      margin-top:3rem;padding-top:3rem;border-top:1px solid var(--sage-border);
+    }
+    .garantia-item {
+      display:flex;align-items:center;gap:10px;
+      font-family:var(--font-sans);font-size:.78rem;color:var(--brown2);font-weight:400;
+    }
+    .garantia-item i{color:var(--sage);font-size:1.1rem;}
+
+    /* ══════════════════════════════════
+       TIMER COUNTDOWN
+    ══════════════════════════════════ */
+    .countdown-wrap {
+      background:var(--sage);
+      border-radius:15px;
+      padding:1.5rem 2rem;
+      text-align:center;
+      margin-bottom:2.5rem;
+    }
+    .countdown-title {
+      font-family:var(--font-sans);font-size:.65rem;
+      letter-spacing:3px;text-transform:uppercase;
+      color:rgba(255,255,255,.75);font-weight:500;margin-bottom:.8rem;
+    }
+    .countdown-digits {
+      display:flex;gap:1rem;justify-content:center;align-items:center;
+    }
+    .cd-unit {
+      text-align:center;
+    }
+    .cd-num {
+      font-family:var(--font-serif);font-size:2.5rem;
+      color:var(--warm-white);line-height:1;font-weight:700;
+      background:rgba(255,255,255,.12);
+      border-radius:10px;padding:.3rem .8rem;
+      min-width:70px;display:block;
+    }
+    .cd-lbl {
+      font-family:var(--font-sans);font-size:.55rem;
+      letter-spacing:2px;text-transform:uppercase;
+      color:rgba(255,255,255,.6);margin-top:.3rem;
+    }
+    .cd-sep { font-family:var(--font-serif);font-size:2rem;color:rgba(255,255,255,.5);margin-bottom:1.2rem; }
+
+    /* ══════════════════════════════════
+       SECCIÓN COMMONS
+    ══════════════════════════════════ */
+    .s-tag {
+      display:inline-flex;align-items:center;gap:8px;
+      font-family:var(--font-sans);font-size:.62rem;
+      letter-spacing:4px;text-transform:uppercase;
+      color:var(--sage);font-weight:600;margin-bottom:1rem;
+    }
+    .s-tag::before{content:'';display:block;width:20px;height:1px;background:var(--sage);}
+    .s-title-sk {
+      font-family:var(--font-serif);
+      font-size:clamp(2rem,4vw,3.2rem);
+      color:var(--charcoal);line-height:1.15;font-weight:400;
+    }
+    .s-title-sk em{color:var(--sage);font-style:italic;}
+    .s-sub-sk {
+      font-family:var(--font-sans);font-size:.9rem;
+      color:var(--brown2);line-height:1.8;font-weight:300;
+    }
+    .sage-rule{width:40px;height:2px;background:var(--sage);margin:1.2rem 0 1.8rem;border-radius:1px;}
+    .sage-rule-c{margin:1.2rem auto 1.8rem;}
+
+    .reveal{opacity:0;transform:translateY(24px);transition:opacity .65s ease,transform .65s ease;}
+    .reveal.show{opacity:1;transform:none;}
+    .reveal-l{opacity:0;transform:translateX(-24px);transition:opacity .65s ease,transform .65s ease;}
+    .reveal-l.show{opacity:1;transform:none;}
+    .reveal-r{opacity:0;transform:translateX(24px);transition:opacity .65s ease,transform .65s ease;}
+    .reveal-r.show{opacity:1;transform:none;}
+    .d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.3s;} .d4{transition-delay:.4s;}
+
+    /* ══════════════════════════════════
+       FOOTER
+    ══════════════════════════════════ */
+    footer {
+      background:var(--charcoal);
+      padding:4rem 0 2rem;
+    }
+    .footer-brand-sk {
+      font-family:var(--font-display);
+      font-size:1.8rem;letter-spacing:4px;
+      color:var(--warm-white);
+    }
+    .footer-tagline-sk {
+      font-family:var(--font-sans);font-size:.58rem;
+      letter-spacing:4px;text-transform:uppercase;
+      color:var(--sage-light);margin-top:.3rem;
+    }
+    .footer-col-h { font-family:var(--font-sans);font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--brown2);font-weight:600;margin-bottom:1.2rem; }
+    .footer-lnk  { display:block;font-size:.85rem;color:var(--brown2);text-decoration:none;margin-bottom:.5rem;transition:color .2s;font-weight:300; }
+    .footer-lnk:hover { color:var(--sage-light); }
+    .footer-btm  { border-top:1px solid rgba(255,255,255,.06);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem; }
+    .footer-copy { font-size:.75rem;color:rgba(255,255,255,.2);font-family:var(--font-sans);font-weight:300; }
+    .s-icon { width:34px;height:34px;border:1px solid rgba(255,255,255,.1);display:inline-flex;align-items:center;justify-content:center;color:var(--brown2);text-decoration:none;font-size:.85rem;margin-left:.4rem;border-radius:50%;transition:all .2s; }
+    .s-icon:hover { border-color:var(--sage-light);color:var(--sage-light); }
+
+    /* WA */
+    .wa-sk { position:fixed;bottom:2rem;right:2rem;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;z-index:997;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s; }
+    .wa-sk:hover{transform:scale(1.1);color:white;}
+    .wa-ring-sk{position:absolute;inset:0;border-radius:50%;background:rgba(37,211,102,.3);animation:waR 2.2s ease-out infinite;}
+    @keyframes waR{0%{transform:scale(1);opacity:.8;}100%{transform:scale(1.8);opacity:0;}}
+
+    /* RESPONSIVE */
+    @media(max-width:991px){
+      #hero{flex-direction:column;}
+      .testi-grid{grid-template-columns:1fr;}
+      .testi-card.featured{grid-row:auto;}
+      .buy-box{padding:2.5rem 1.5rem;}
+    }
+    @media(max-width:767px){
+      .float-badge{display:none;}
+      .proceso-grid{grid-template-columns:1fr;}
+      #navbar{top:32px;}
+      #navbar.scrolled{top:0;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════
+     BARRA DE ANUNCIO
+══════════════════════════════════ -->
+<div class="announce-bar">
+  <div class="announce-inner">
+    <span>Lanzamiento exclusivo</span>
+    <span>30% descuento por tiempo limitado</span>
+    <span>Envío gratis en pedidos +$120.000</span>
+    <span>Resultados visibles en 14 días</span>
+    <span>100% ingredientes naturales</span>
+    <span>Sin parabenos · Sin sulfatos · Sin fragancias artificiales</span>
+    <span>Lanzamiento exclusivo</span>
+    <span>30% descuento por tiempo limitado</span>
+    <span>Envío gratis en pedidos +$120.000</span>
+    <span>Resultados visibles en 14 días</span>
+    <span>100% ingredientes naturales</span>
+    <span>Sin parabenos · Sin sulfatos · Sin fragancias artificiales</span>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════
+     NAVBAR
+══════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="#hero" class="brand-name">
+        LUMIÈRE
+        <span class="brand-sub">Botanica · Skincare Natural</span>
+      </a>
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a href="#ingredientes" class="nav-link-sk">Ingredientes</a>
+        <a href="#beneficios"   class="nav-link-sk">Beneficios</a>
+        <a href="#testimonios"  class="nav-link-sk">Reseñas</a>
+        <a href="#faq"          class="nav-link-sk">FAQ</a>
+        <a href="#compra" class="btn-nav-buy ms-3">
+          <i class="bi bi-bag-heart"></i> Comprar ahora
+        </a>
+      </div>
+      <button id="navToggle" class="btn d-lg-none" style="border:1px solid var(--sage-border);color:var(--sage);border-radius:20px;padding:.4rem .9rem;">
+        <i class="bi bi-list fs-5"></i>
+      </button>
+    </div>
+    <div id="mobileMenu">
+      <a href="#ingredientes" class="nav-link-sk d-block py-2">Ingredientes</a>
+      <a href="#beneficios"   class="nav-link-sk d-block py-2">Beneficios</a>
+      <a href="#testimonios"  class="nav-link-sk d-block py-2">Reseñas</a>
+      <a href="#faq"          class="nav-link-sk d-block py-2">FAQ</a>
+      <a href="#compra" class="btn-nav-buy d-inline-block mt-2">
+        <i class="bi bi-bag-heart"></i> Comprar ahora
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════
+     HERO
+══════════════════════════════════ -->
+<section id="hero">
+  <!-- Blobs -->
+  <div class="hero-blob-1"></div>
+  <div class="hero-blob-2"></div>
+  <div class="hero-blob-3"></div>
+  <!-- Hojas decorativas -->
+  <span class="leaf">🌿</span>
+  <span class="leaf">🍃</span>
+  <span class="leaf">🌱</span>
+  <span class="leaf">🍃</span>
+  <span class="leaf">🌿</span>
+
+  <div class="container hero-content py-5">
+    <div class="row align-items-center g-5">
+
+      <!-- Producto visual -->
+      <div class="col-lg-5 order-lg-2 reveal-r">
+        <div class="product-hero-img">
+          <div class="product-circle-bg"></div>
+          <div class="product-img-wrap">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=600&q=90&fit=crop&crop=center"
+                 alt="Lumière Botanica Sérum"
+                 loading="eager" id="productImg"/>
+          </div>
+
+          <!-- Badges flotantes -->
+          <div class="float-badge fb-1">
+            <div class="fb-icon"><i class="bi bi-leaf"></i></div>
+            <div class="fb-text">
+              <div class="fb-title">100% Natural</div>
+              <div class="fb-sub">Sin químicos</div>
+            </div>
+          </div>
+          <div class="float-badge fb-2">
+            <div class="fb-icon"><i class="bi bi-shield-check"></i></div>
+            <div class="fb-text">
+              <div class="fb-title">Dermatológicamente</div>
+              <div class="fb-sub">Probado</div>
+            </div>
+          </div>
+          <div class="float-badge fb-3">
+            <div class="fb-icon">⭐</div>
+            <div class="fb-text">
+              <div class="fb-title">4.9 / 5</div>
+              <div class="fb-sub">312 reseñas</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="col-lg-7 order-lg-1">
+        <div class="hero-launch-tag">🌿 Nuevo lanzamiento · Edición exclusiva</div>
+
+        <h1 class="hero-title">
+          Piel que brilla<br>
+          <span class="light-word">desde adentro,</span>
+          <em>naturalmente</em>
+        </h1>
+
+        <p class="hero-desc">
+          El primer sérum facial concentrado con <strong style="color:var(--sage);font-weight:500;">
+          extracto de rosa mosqueta, ácido hialurónico vegetal y bakuchiol orgánico.</strong>
+          Resultados visibles en 14 días. Sin parabenos. Sin químicos agresivos.
+          Hecho para mujeres que cuidan su piel de forma consciente.
+        </p>
+
+        <!-- Precio -->
+        <div class="price-block">
+          <span class="price-old">$189.900</span>
+          <span class="price-new">$132.900</span>
+          <span class="price-discount">-30% hoy</span>
+        </div>
+        <div class="price-note" style="margin-top:-.8rem;margin-bottom:1.5rem;">
+          <i class="bi bi-truck me-1" style="color:var(--sage);"></i>
+          Envío gratis · Pago contra entrega disponible
+        </div>
+
+        <!-- Stock -->
+        <div class="stock-bar">
+          <div class="stock-label">
+            <span>Disponibilidad en lanzamiento</span>
+            <strong>¡Solo quedan 68 unidades!</strong>
+          </div>
+          <div class="stock-track"><div class="stock-fill"></div></div>
+        </div>
+
+        <!-- CTAs -->
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#compra" class="btn-buy-hero">
+            <i class="bi bi-bag-heart-fill"></i> Quiero mi sérum
+          </a>
+          <a href="#beneficios" class="btn-info-hero">
+            Ver beneficios <i class="bi bi-arrow-down"></i>
+          </a>
+        </div>
+
+        <!-- Trust -->
+        <div class="trust-row">
+          <div class="trust-item"><i class="bi bi-arrow-counterclockwise"></i>Garantía 30 días</div>
+          <div class="trust-item"><i class="bi bi-patch-check"></i>Cruelty-free</div>
+          <div class="trust-item"><i class="bi bi-recycle"></i>Empaque sostenible</div>
+          <div class="trust-item"><i class="bi bi-award"></i>Certificado orgánico</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     INGREDIENTES
+══════════════════════════════════ -->
+<div class="wave-top" style="background:var(--cream);">
+  <svg viewBox="0 0 1200 80" preserveAspectRatio="none" style="height:60px;"><path d="M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,80 L0,80 Z" fill="#4a7c59"/></svg>
+</div>
+
+<section id="ingredientes">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="row align-items-end mb-5">
+      <div class="col-lg-6">
+        <div class="s-tag reveal" style="color:rgba(255,255,255,.6);">Lo que usamos</div>
+        <h2 class="ingr-title reveal">
+          Ingredientes que<br>
+          <em>la naturaleza perfeccionó</em>
+        </h2>
+      </div>
+      <div class="col-lg-5">
+        <p class="reveal" style="color:rgba(255,255,255,.65);font-size:.9rem;line-height:1.8;font-weight:300;">
+          Cada ingrediente fue seleccionado por su pureza, eficacia clínica y trazabilidad orgánica certificada.
+          Sin rellenos, sin atajos.
+        </p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="ingr-card">
+          <span class="ingr-emoji">🌹</span>
+          <div class="ingr-name">Rosa Mosqueta</div>
+          <div class="ingr-origin">Chile · Orgánica certificada</div>
+          <div class="ingr-desc">Rica en ácidos grasos esenciales y vitamina C natural. Regenera y unifica el tono, reduce manchas y cicatrices visibles.</div>
+          <span class="ingr-benefit">✨ Anti-manchas</span>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="ingr-card">
+          <span class="ingr-emoji">💧</span>
+          <div class="ingr-name">Ácido Hialurónico</div>
+          <div class="ingr-origin">Origen vegetal · Fermentación natural</div>
+          <div class="ingr-desc">Hidratación profunda de triple peso molecular. Rellena y plumifica desde la primera aplicación, piel visiblemente más joven.</div>
+          <span class="ingr-benefit">💦 Hidratación profunda</span>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="ingr-card">
+          <span class="ingr-emoji">🌿</span>
+          <div class="ingr-name">Bakuchiol Orgánico</div>
+          <div class="ingr-origin">India · Planta Psoralea corylifolia</div>
+          <div class="ingr-desc">El retinol vegetal. Estimula el colágeno y combate las líneas de expresión sin irritación. Apto para piel sensible.</div>
+          <span class="ingr-benefit">⏳ Anti-edad</span>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="ingr-card">
+          <span class="ingr-emoji">🫐</span>
+          <div class="ingr-name">Extracto de Arándano</div>
+          <div class="ingr-origin">Francia · Recolección sostenible</div>
+          <div class="ingr-desc">Súper antioxidante que neutraliza radicales libres y protege la piel del envejecimiento prematuro causado por contaminación.</div>
+          <span class="ingr-benefit">🛡️ Antioxidante</span>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="ingr-card">
+          <span class="ingr-emoji">🌻</span>
+          <div class="ingr-name">Aceite de Jojoba</div>
+          <div class="ingr-origin">México · Prensado en frío</div>
+          <div class="ingr-desc">Mimetiza el sebo natural de la piel. Equilibra la hidratación sin obstruir poros, ideal para todo tipo de piel.</div>
+          <span class="ingr-benefit">⚖️ Equilibrante</span>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="ingr-card">
+          <span class="ingr-emoji">🌾</span>
+          <div class="ingr-name">Niacinamida Natural</div>
+          <div class="ingr-origin">Origen botánico · 10% concentración</div>
+          <div class="ingr-desc">Reduce el tamaño de los poros, ilumina, controla el sebo y fortalece la barrera cutánea. El multibeneficio en uno.</div>
+          <span class="ingr-benefit">✦ Multipropósito</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div style="overflow:hidden;background:var(--cream);"><svg viewBox="0 0 1200 80" preserveAspectRatio="none" style="display:block;width:100%;height:60px;transform:rotate(180deg);"><path d="M0,40 C200,80 400,0 600,40 C800,80 1000,0 1200,40 L1200,80 L0,80 Z" fill="#4a7c59"/></svg></div>
+
+
+<!-- ══════════════════════════════════
+     BENEFICIOS
+══════════════════════════════════ -->
+<section id="beneficios">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Imagen antes/después -->
+      <div class="col-lg-5 reveal-l">
+        <div class="before-after-wrap">
+          <img src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=700&q=85&fit=crop&crop=face"
+               alt="Resultado Lumière Botanica" class="ba-img img-fit" loading="lazy"/>
+          <span class="ba-label ba-before">Antes — día 1</span>
+          <span class="ba-label ba-after">Después — día 14</span>
+        </div>
+
+        <!-- Pills de resultados -->
+        <div class="mt-3 text-center">
+          <span class="result-pill"><i class="bi bi-check-circle-fill"></i>Piel más luminosa</span>
+          <span class="result-pill"><i class="bi bi-check-circle-fill"></i>Menos arrugas</span>
+          <span class="result-pill"><i class="bi bi-check-circle-fill"></i>Manchas reducidas</span>
+          <span class="result-pill"><i class="bi bi-check-circle-fill"></i>Hidratación 72h</span>
+        </div>
+      </div>
+
+      <!-- Beneficios -->
+      <div class="col-lg-7">
+        <div class="s-tag reveal">Transformación real</div>
+        <h2 class="s-title-sk reveal">Lo que <em>sentirás</em><br>en tu piel</h2>
+        <div class="sage-rule reveal"></div>
+        <p class="s-sub-sk reveal d1" style="margin-bottom:2rem;">
+          Formulado específicamente para mujeres de 25 a 45 años que buscan resultados
+          reales sin comprometer la salud de su piel.
+        </p>
+
+        <div class="benefit-item reveal d1">
+          <div class="benefit-icon-wrap">🌟</div>
+          <div>
+            <div class="benefit-title">Luminosidad inmediata</div>
+            <div class="benefit-text">Desde la primera semana notarás un brillo natural que no viene del maquillaje sino de una piel sana e hidratada desde adentro.</div>
+          </div>
+        </div>
+        <div class="benefit-item reveal d2">
+          <div class="benefit-icon-wrap">⏳</div>
+          <div>
+            <div class="benefit-title">Reducción visible de líneas</div>
+            <div class="benefit-text">El bakuchiol + ácido hialurónico trabajan en sinergia para rellenar y suavizar arrugas de expresión en el área de ojos y frente.</div>
+          </div>
+        </div>
+        <div class="benefit-item reveal d3">
+          <div class="benefit-icon-wrap">🎯</div>
+          <div>
+            <div class="benefit-title">Manchas y tono uniforme</div>
+            <div class="benefit-text">La vitamina C de la rosa mosqueta actúa sobre la melanina para aclarar manchas oscuras y unificar el tono naturalmente.</div>
+          </div>
+        </div>
+        <div class="benefit-item reveal d4">
+          <div class="benefit-icon-wrap">🛡️</div>
+          <div>
+            <div class="benefit-title">Piel protegida y fuerte</div>
+            <div class="benefit-text">Fortalece la barrera cutánea para defender tu piel de la contaminación, el estrés y los cambios de clima del día a día.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     CÓMO USAR
+══════════════════════════════════ -->
+<section id="como-usar">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="s-tag justify-content-center reveal">Rutina diaria</div>
+      <h2 class="s-title-sk reveal">Tan simple como <em>3 pasos</em></h2>
+      <div class="sage-rule sage-rule-c reveal"></div>
+    </div>
+    <div class="row g-0">
+      <div class="col-md-4 reveal">
+        <div class="uso-step">
+          <div class="uso-num">1</div>
+          <span class="uso-emoji">🧼</span>
+          <div class="uso-title">Limpia tu rostro</div>
+          <div class="uso-text">Retira maquillaje e impurezas con un limpiador suave. La piel limpia absorbe mejor los activos del sérum.</div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal d1">
+        <div class="uso-step">
+          <div class="uso-num">2</div>
+          <span class="uso-emoji">💧</span>
+          <div class="uso-title">Aplica 3 gotas</div>
+          <div class="uso-text">Coloca 3 gotitas en la palma de tu mano, da pequeños toquecitos en mejillas, frente y cuello. Absorción en 60 segundos.</div>
+        </div>
+      </div>
+      <div class="col-md-4 reveal d2">
+        <div class="uso-step">
+          <div class="uso-num">3</div>
+          <span class="uso-emoji">🌙</span>
+          <div class="uso-title">Mañana y noche</div>
+          <div class="uso-text">Úsalo en tu rutina AM + PM para maximizar resultados. En AM aplica protector solar encima. Resultados en 14 días.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     STATS / RESULTADOS
+══════════════════════════════════ -->
+<section id="resultados">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="text-center mb-5">
+      <div class="s-tag justify-content-center reveal">Estudio clínico</div>
+      <h2 class="s-title-sk reveal">Los números <em>hablan solos</em></h2>
+      <div class="sage-rule sage-rule-c reveal"></div>
+      <p class="s-sub-sk mx-auto reveal" style="max-width:500px;">Resultados de un estudio con 248 mujeres de 25 a 45 años durante 30 días de uso continuo.</p>
+    </div>
+    <div class="row g-4 justify-content-center">
+      <div class="col-6 col-md-3 reveal">
+        <div class="stat-circle">
+          <div class="stat-num">97%</div>
+          <div class="stat-lbl">Piel más hidratada</div>
+        </div>
+        <div class="stat-note">desde el día 7</div>
+      </div>
+      <div class="col-6 col-md-3 reveal d1">
+        <div class="stat-circle">
+          <div class="stat-num">89%</div>
+          <div class="stat-lbl">Reducción arrugas</div>
+        </div>
+        <div class="stat-note">en 30 días</div>
+      </div>
+      <div class="col-6 col-md-3 reveal d2">
+        <div class="stat-circle">
+          <div class="stat-num">94%</div>
+          <div class="stat-lbl">Más luminosidad</div>
+        </div>
+        <div class="stat-note">percibida</div>
+      </div>
+      <div class="col-6 col-md-3 reveal d3">
+        <div class="stat-circle">
+          <div class="stat-num">100%</div>
+          <div class="stat-lbl">Sin irritación</div>
+        </div>
+        <div class="stat-note">apto piel sensible</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     TESTIMONIOS
+══════════════════════════════════ -->
+<section id="testimonios">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="s-tag justify-content-center reveal">Comunidad real</div>
+      <h2 class="s-title-sk reveal">Ellas ya lo <em>transformaron</em></h2>
+      <div class="sage-rule sage-rule-c reveal"></div>
+    </div>
+
+    <div class="testi-grid reveal">
+
+      <!-- Featured -->
+      <div class="testi-card featured">
+        <span class="testi-verified"><i class="bi bi-patch-check-fill"></i> Compra verificada</span>
+        <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+        <div class="testi-result">✨ Usándolo 3 meses</div>
+        <div class="testi-text">"Nunca pensé que un sérum natural podría superar a las marcas de farmacia que usé por años. A la semana mi piel cambió visiblemente. A las tres semanas mi esposo me preguntó qué me había hecho porque 'me veía diferente'. Es lo mejor que he comprado para mi piel en mi vida."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">
+            <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&q=80&fit=crop&crop=face" alt="Valentina"/>
+          </div>
+          <div>
+            <div class="testi-name">Valentina M.</div>
+            <div class="testi-age">38 años · Bogotá</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Normal 1 -->
+      <div class="testi-card">
+        <span class="testi-verified" style="color:var(--sage);"><i class="bi bi-patch-check-fill"></i> Verificada</span>
+        <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+        <div class="testi-result">💧 Piel sensible</div>
+        <div class="testi-text">"Tengo piel ultra sensible y rosacea. Ningún serum me aguantaba. Lumière es el primero que no me irrita y sí hidrata. ¡Milagro verde!"</div>
+        <div class="testi-author">
+          <div class="testi-avatar">C</div>
+          <div>
+            <div class="testi-name">Carolina R.</div>
+            <div class="testi-age">31 años · Medellín</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Normal 2 -->
+      <div class="testi-card">
+        <span class="testi-verified" style="color:var(--sage);"><i class="bi bi-patch-check-fill"></i> Verificada</span>
+        <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half-fill"></i></div>
+        <div class="testi-result">⏳ Anti-edad</div>
+        <div class="testi-text">"Lo compré por las manchas del sol y en dos semanas noté diferencia. El sérum huele delicioso y no deja residuo graso. ¡Lo recompré!"</div>
+        <div class="testi-author">
+          <div class="testi-avatar">L</div>
+          <div>
+            <div class="testi-name">Luciana P.</div>
+            <div class="testi-age">43 años · Cali</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Normal 3 -->
+      <div class="testi-card">
+        <span class="testi-verified" style="color:var(--sage);"><i class="bi bi-patch-check-fill"></i> Verificada</span>
+        <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+        <div class="testi-result">🌟 Luminosidad</div>
+        <div class="testi-text">"Trabajo frente a pantallas todo el día y mi piel estaba apagada. En 10 días recuperé ese brillo que no tenía desde los 25. Producto increíble."</div>
+        <div class="testi-author">
+          <div class="testi-avatar">A</div>
+          <div>
+            <div class="testi-name">Andrea S.</div>
+            <div class="testi-age">29 años · Barranquilla</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Rating summary -->
+    <div class="text-center mt-4 reveal">
+      <p style="font-family:var(--font-serif);font-size:1.1rem;color:var(--brown);font-style:italic;">
+        "4.9 de 5 estrellas · 312 reseñas verificadas"
+      </p>
+      <div style="color:var(--gold);font-size:1.2rem;margin-top:.5rem;">
+        ★★★★★
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     FAQ
+══════════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-5">
+          <div class="s-tag justify-content-center reveal">Preguntas frecuentes</div>
+          <h2 class="s-title-sk reveal">Todo lo que necesitas <em>saber</em></h2>
+          <div class="sage-rule sage-rule-c reveal"></div>
+        </div>
+
+        <div id="faqList">
+          <div class="faq-item reveal">
+            <div class="faq-q">¿Para qué tipo de piel es Lumière Botanica?<span class="faq-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a">Es apto para todo tipo de piel: seca, mixta, grasa y especialmente sensible. Sus ingredientes están formulados para no obstruir poros ni causar irritación. Ideal para mujeres de 25 a 45 años.</div>
+          </div>
+          <div class="faq-item reveal d1">
+            <div class="faq-q">¿En cuánto tiempo veré resultados?<span class="faq-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a">La mayoría de usuarias reportan piel más hidratada y luminosa desde el día 7. Los resultados más notorios (manchas, arrugas, textura) se ven entre el día 14 y el día 30 con uso continuo mañana y noche.</div>
+          </div>
+          <div class="faq-item reveal d2">
+            <div class="faq-q">¿Tiene efectos secundarios o causa irritación?<span class="faq-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a">No. En el estudio clínico con 248 mujeres, el 100% no reportó irritación. No contiene parabenos, sulfatos, fragancias artificiales ni alcohol. Si tienes alergia a algún ingrediente específico, consulta con tu dermatólogo.</div>
+          </div>
+          <div class="faq-item reveal d3">
+            <div class="faq-q">¿Lo puedo usar con mi protector solar o maquillaje?<span class="faq-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a">Sí. El sérum se aplica primero (después del limpiador), luego el protector solar y finalmente el maquillaje si usas. En la noche se usa solo o con tu crema hidratante.</div>
+          </div>
+          <div class="faq-item reveal d4">
+            <div class="faq-q">¿Cómo es la garantía?<span class="faq-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a">Ofrecemos garantía de satisfacción de 30 días. Si no ves resultados o no te gusta el producto, te devolvemos el 100% de tu dinero sin preguntas. Solo escríbenos al WhatsApp.</div>
+          </div>
+          <div class="faq-item reveal">
+            <div class="faq-q">¿Cuánto dura un frasco?<span class="faq-icon"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a">Cada frasco de 30ml dura aproximadamente 45 días con uso diario (mañana y noche). Recomendamos el Kit de 3 frascos para completar un ciclo de tratamiento completo de 3 meses.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     COMPRA / CTA FINAL
+══════════════════════════════════ -->
+<section id="compra">
+  <div class="container">
+    <div class="buy-box">
+      <div class="text-center mb-5" style="position:relative;z-index:1;">
+        <div class="s-tag justify-content-center reveal" style="color:var(--sage);">Oferta de lanzamiento</div>
+        <h2 class="s-title-sk reveal">Elige tu <em>kit ideal</em></h2>
+        <div class="sage-rule sage-rule-c reveal"></div>
+
+        <!-- Countdown -->
+        <div class="countdown-wrap mx-auto reveal" style="max-width:450px;">
+          <div class="countdown-title">⚡ Oferta de lanzamiento termina en</div>
+          <div class="countdown-digits">
+            <div class="cd-unit"><span class="cd-num" id="cdH">23</span><div class="cd-lbl">Horas</div></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-unit"><span class="cd-num" id="cdM">47</span><div class="cd-lbl">Min</div></div>
+            <span class="cd-sep">:</span>
+            <div class="cd-unit"><span class="cd-num" id="cdS">32</span><div class="cd-lbl">Seg</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-4 justify-content-center" style="position:relative;z-index:1;">
+
+        <!-- Kit 1 -->
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="kit-card">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&q=80&fit=crop"
+                 alt="Kit 1 frasco" class="kit-img" loading="lazy"/>
+            <div class="kit-name">Sérum Esencial</div>
+            <div class="kit-qty">1 frasco · 30ml</div>
+            <div class="kit-price-old">$189.900</div>
+            <div class="kit-price">$132.900</div>
+            <ul class="kit-features">
+              <li><i class="bi bi-check-lg"></i>1 mes de tratamiento</li>
+              <li><i class="bi bi-check-lg"></i>Envío gratis</li>
+              <li><i class="bi bi-check-lg"></i>Garantía 30 días</li>
+              <li><i class="bi bi-check-lg"></i>Guía de uso digital</li>
+            </ul>
+            <a href="https://wa.me/573000000000?text=Quiero%20el%20Kit%20de%201%20frasco%20Lumière%20Botanica"
+               target="_blank" class="btn-buy-kit btn-kit-outline">
+              <i class="bi bi-whatsapp me-1"></i> Pedir ahora
+            </a>
+          </div>
+        </div>
+
+        <!-- Kit 3 — Popular -->
+        <div class="col-md-6 col-lg-4 reveal d1">
+          <div class="kit-card popular">
+            <div class="kit-popular-badge">🌿 Más recomendado</div>
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&q=80&fit=crop"
+                 alt="Kit 3 frascos" class="kit-img" loading="lazy"
+                 style="filter:drop-shadow(0 15px 30px rgba(74,124,89,.35));"/>
+            <div class="kit-name">Kit Transformación</div>
+            <div class="kit-qty">3 frascos · 90ml total</div>
+            <div class="kit-price-old">$569.700</div>
+            <div class="kit-price" style="font-size:2.4rem;">$299.900</div>
+            <div style="color:var(--sage);font-size:.72rem;letter-spacing:1px;margin-bottom:1rem;font-weight:600;">¡Ahorras $269.800!</div>
+            <ul class="kit-features">
+              <li><i class="bi bi-check-lg"></i>3 meses de tratamiento</li>
+              <li><i class="bi bi-check-lg"></i>Envío gratis prioritario</li>
+              <li><i class="bi bi-check-lg"></i>Garantía extendida 60 días</li>
+              <li><i class="bi bi-check-lg"></i>Guía + rutina personalizada</li>
+              <li><i class="bi bi-check-lg"></i>Acceso a comunidad privada</li>
+            </ul>
+            <a href="https://wa.me/573000000000?text=Quiero%20el%20Kit%20Transformación%20de%203%20frascos%20Lumière%20Botanica"
+               target="_blank" class="btn-buy-kit btn-kit-solid">
+              <i class="bi bi-bag-heart-fill me-1"></i> Quiero este kit
+            </a>
+          </div>
+        </div>
+
+        <!-- Kit 2 -->
+        <div class="col-md-6 col-lg-4 reveal d2">
+          <div class="kit-card">
+            <img src="https://images.unsplash.com/photo-1620916566398-39f1143ab7be?w=300&q=80&fit=crop"
+                 alt="Kit 2 frascos" class="kit-img" loading="lazy"/>
+            <div class="kit-name">Dúo Botanical</div>
+            <div class="kit-qty">2 frascos · 60ml total</div>
+            <div class="kit-price-old">$379.800</div>
+            <div class="kit-price">$219.900</div>
+            <ul class="kit-features">
+              <li><i class="bi bi-check-lg"></i>2 meses de tratamiento</li>
+              <li><i class="bi bi-check-lg"></i>Envío gratis</li>
+              <li><i class="bi bi-check-lg"></i>Garantía 30 días</li>
+              <li><i class="bi bi-check-lg"></i>Guía de uso digital</li>
+            </ul>
+            <a href="https://wa.me/573000000000?text=Quiero%20el%20Dúo%20Botanical%20de%202%20frascos%20Lumière%20Botanica"
+               target="_blank" class="btn-buy-kit btn-kit-outline">
+              <i class="bi bi-whatsapp me-1"></i> Pedir ahora
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Garantías -->
+      <div class="garantia-bar">
+        <div class="garantia-item"><i class="bi bi-arrow-counterclockwise"></i>Garantía 30 días · Devolución sin preguntas</div>
+        <div class="garantia-item"><i class="bi bi-truck"></i>Envío gratis en todos los kits</div>
+        <div class="garantia-item"><i class="bi bi-shield-lock"></i>Pago 100% seguro</div>
+        <div class="garantia-item"><i class="bi bi-whatsapp"></i>Soporte por WhatsApp</div>
+        <div class="garantia-item"><i class="bi bi-patch-check"></i>Certificado orgánico</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════
+     FOOTER
+══════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand-sk">LUMIÈRE</div>
+        <div class="footer-tagline-sk">Botanica · Skincare Natural · Est. 2024</div>
+        <p style="font-size:.83rem;color:rgba(255,255,255,.3);font-family:var(--font-sans);line-height:1.8;margin-top:1rem;font-weight:300;">
+          Skincare natural para mujeres conscientes. Ingredientes orgánicos, sin químicos agresivos, con resultados comprobados.
+        </p>
+        <div class="mt-3">
+          <span style="font-size:.7rem;color:rgba(255,255,255,.2);font-family:var(--font-sans);letter-spacing:1px;">
+            🌿 Cruelty-free · 🌱 Orgánico certificado · ♻️ Empaque sostenible
+          </span>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-col-h">Producto</div>
+        <a href="#ingredientes" class="footer-lnk">Ingredientes</a>
+        <a href="#beneficios"   class="footer-lnk">Beneficios</a>
+        <a href="#como-usar"    class="footer-lnk">Cómo usar</a>
+        <a href="#resultados"   class="footer-lnk">Resultados</a>
+        <a href="#compra"       class="footer-lnk">Comprar</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-h">Soporte</div>
+        <a href="#faq"                            class="footer-lnk">Preguntas frecuentes</a>
+        <a href="https://wa.me/573000000000" target="_blank" class="footer-lnk">WhatsApp</a>
+        <a href="mailto:hola@lumierebotanica.co"  class="footer-lnk">Email</a>
+        <a href="#"                               class="footer-lnk">Política de devolución</a>
+        <a href="#"                               class="footer-lnk">Términos y condiciones</a>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-col-h">Contacto</div>
+        <a href="https://wa.me/573000000000" target="_blank" class="footer-lnk">
+          <i class="bi bi-whatsapp me-2" style="color:#25d366;"></i>+57 300 000 0000
+        </a>
+        <a href="mailto:hola@lumierebotanica.co" class="footer-lnk">
+          <i class="bi bi-envelope me-2" style="color:var(--sage-light);"></i>hola@lumierebotanica.co
+        </a>
+        <div style="margin-top:1.5rem;padding:1rem;border:1px solid rgba(74,124,89,.2);border-left:2px solid var(--sage);">
+          <div style="font-family:var(--font-sans);font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.4rem;">Envíos a todo el país</div>
+          <div style="font-size:.83rem;color:rgba(255,255,255,.4);font-weight:300;">3–5 días hábiles<br>Gratis en todos los kits</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-btm">
+      <div class="footer-copy">© 2024 LUMIÈRE BOTANICA. Todos los derechos reservados. · Imágenes: Unsplash</div>
+      <div>
+        <a href="#" class="s-icon" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="s-icon" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        <a href="#" class="s-icon" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="https://wa.me/573000000000" class="s-icon" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573000000000?text=Hola!%20Vi%20Lumière%20Botanica%20y%20quiero%20más%20información."
+   target="_blank" class="wa-sk" aria-label="WhatsApp">
+  <div class="wa-ring-sk"></div>
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* ── Navbar ── */
+  const nav = document.getElementById('navbar');
+  window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 60));
+
+  /* ── Mobile ── */
+  document.getElementById('navToggle').addEventListener('click', () => {
+    const m = document.getElementById('mobileMenu');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  });
+  document.getElementById('mobileMenu').querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('mobileMenu').style.display = 'none')
+  );
+
+  /* ── Images fade ── */
+  const heroImg = document.getElementById('productImg');
+  if (heroImg) {
+    if (heroImg.complete) heroImg.classList.add('loaded');
+    else heroImg.addEventListener('load', () => heroImg.classList.add('loaded'));
+  }
+  document.querySelectorAll('.img-fit').forEach(img => {
+    if (img.complete) img.classList.add('loaded');
+    else {
+      img.addEventListener('load',  () => img.classList.add('loaded'));
+      img.addEventListener('error', () => img.parentElement.style.background = 'var(--sage-pale)');
+    }
+  });
+
+  /* ── Reveal ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => io.observe(el));
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 90, behavior:'smooth' }); }
+    });
+  });
+
+  /* ── FAQ ── */
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* ── Countdown ── */
+  let totalSec = 23 * 3600 + 47 * 60 + 32;
+  function updateCd() {
+    if (totalSec <= 0) return;
+    totalSec--;
+    const h = Math.floor(totalSec / 3600);
+    const m = Math.floor((totalSec % 3600) / 60);
+    const s = totalSec % 60;
+    document.getElementById('cdH').textContent = String(h).padStart(2,'0');
+    document.getElementById('cdM').textContent = String(m).padStart(2,'0');
+    document.getElementById('cdS').textContent = String(s).padStart(2,'0');
+  }
+  setInterval(updateCd, 1000);
+
+  /* ── Favorito en hero ── */
+  // Stock bar initial animation handled by CSS
+</script>
+</body>
+</html>

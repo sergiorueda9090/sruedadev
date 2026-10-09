@@ -1,0 +1,26 @@
+{% load static %}
+<header class="cabecera" id="cabecera">
+    <div class="contenedor">
+
+        <a class="marca" href="{% url 'core:home' %}" aria-label="Inicio">
+            <img class="logo" src="{% static 'core/img/mascota-sr.png' %}" width="220" height="220" alt="sruedadev.com" data-respaldo="marca">
+            <span class="marca-texto">
+                <strong>sruedadev</strong>
+                <small>.com</small>
+            </span>
+        </a>
+
+        <nav class="menu" id="menu">
+            <a href="#servicios" data-ancla="servicios">Qué hacemos</a>
+            <a href="#proceso" data-ancla="proceso">Proceso</a>
+            <a href="#portafolio" data-ancla="portafolio">Portafolio</a>
+            <a href="#planes" data-ancla="planes">Servicios</a>
+            <a href="#nosotros" data-ancla="nosotros">Nosotros</a>
+            <a href="https://wa.me/{{ whatsapp_numero }}?text={{ whatsapp_texto }}" target="_blank" rel="noopener" class="btn btn-primario btn-menu">Cotizar por WhatsApp</a>
+        </nav>
+
+        <button class="hamburguesa" id="hamburguesa" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">
+            <span></span><span></span><span></span>
+        </button>
+    </div>
+</header>

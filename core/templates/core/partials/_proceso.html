@@ -1,0 +1,52 @@
+<section class="seccion" id="proceso">
+    <div class="contenedor">
+        <div class="encabezado-seccion aparece">
+            <span class="kicker">Cómo trabajamos</span>
+            <h2>Nuestro proceso de trabajo</h2>
+        </div>
+
+        <div class="carrusel aparece pausado" id="carrusel-proceso" data-autoplay="3500" tabindex="0">
+
+            <div class="carrusel-pista">
+                {% for paso in proceso %}
+                <article class="paso-card{% if forloop.first %} activa{% endif %}">
+
+                    <div class="paso-media">
+                        <img class="foto-paso foto-base" src="https://www.fyainnovation.com/img/proceso/{{ paso.foto }}-1.jpg" alt="{{ paso.titulo }}" loading="lazy">
+                        <img class="foto-paso foto-hover" src="https://www.fyainnovation.com/img/proceso/{{ paso.foto }}-2.jpg" alt="" aria-hidden="true" loading="lazy">
+                        <span class="paso-numero">{{ paso.numero }}</span>
+                        <span class="brillo"></span>
+                    </div>
+
+                    <div class="paso-panel">
+                        <span class="paso-etiqueta">{{ paso.etiqueta }}</span>
+                        <h3>
+                            <span>{{ paso.numero }}.</span>
+                            <span>{{ paso.titulo }}</span>
+                        </h3>
+                        <p>{{ paso.descripcion }}</p>
+                    </div>
+
+                </article>
+                {% endfor %}
+            </div>
+
+            <div class="carrusel-controles">
+                <button class="carrusel-flecha" type="button" data-dir="-1" aria-label="Etapa anterior">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M19 12H5M11 18l-6-6 6-6"></path>
+                    </svg>
+                </button>
+
+                <div class="carrusel-puntos" role="tablist" aria-label="Etapas del proceso"></div>
+
+                <button class="carrusel-flecha" type="button" data-dir="1" aria-label="Etapa siguiente">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M5 12h14M13 6l6 6-6 6"></path>
+                    </svg>
+                </button>
+            </div>
+
+        </div>
+    </div>
+</section>

@@ -1,0 +1,1907 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="VIALIDAD Centro Automovilístico — Aprende a conducir con los mejores instructores. Cursos de carros, motos y trámites de licencias en Colombia. ¡Inscríbete hoy!"/>
+  <meta name="keywords" content="centro automovilistico colombia, clases conduccion, licencia conducir, tramites licencia, escuela conduccion"/>
+  <title>VIALIDAD | Centro Automovilístico · Colombia</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,700&family=Nunito:wght@300;400;500;600;700;800&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ══════════════════════════════
+       VARIABLES
+    ══════════════════════════════ */
+    :root {
+      --green:        #1db954;
+      --green2:       #17a849;
+      --green-dark:   #0f7a34;
+      --green-pale:   #d4f5e2;
+      --green-subtle: rgba(29,185,84,.1);
+      --green-border: rgba(29,185,84,.25);
+      --blue:         #0ea5e9;
+      --blue2:        #0284c7;
+      --blue-dark:    #075985;
+      --blue-pale:    #e0f4fd;
+      --navy:         #0c1a2e;
+      --navy2:        #112238;
+      --dark:         #1a2535;
+      --surface:      #f0f9ff;
+      --white:        #ffffff;
+      --off-white:    #f8fffe;
+      --light:        #e8f5ff;
+      --gray:         #64748b;
+      --gray2:        #94a3b8;
+      --border:       rgba(14,165,233,.15);
+      --font-display: 'Exo 2', sans-serif;
+      --font-body:    'Nunito', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--white);
+      color:var(--navy);
+      font-family:var(--font-body);
+      font-weight:400;
+      overflow-x:hidden;
+    }
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:var(--light); }
+    ::-webkit-scrollbar-thumb { background:var(--green); border-radius:4px; }
+
+    .img-f { width:100%; height:100%; object-fit:cover; object-position:center; display:block; opacity:0; transition:opacity .65s; }
+    .img-f.on { opacity:1; }
+
+    /* ══════════════════════════════
+       TOPBAR
+    ══════════════════════════════ */
+    .topbar {
+      background:var(--navy);
+      padding:.45rem 0;
+    }
+    .topbar-inner {
+      display:flex; justify-content:space-between; align-items:center;
+      flex-wrap:wrap; gap:.5rem;
+    }
+    .topbar-item {
+      font-family:var(--font-body);
+      font-size:.72rem; color:rgba(255,255,255,.55);
+      display:flex; align-items:center; gap:6px;
+    }
+    .topbar-item i { color:var(--green); font-size:.78rem; }
+    .topbar-item a { color:rgba(255,255,255,.55); text-decoration:none; transition:color .2s; }
+    .topbar-item a:hover { color:var(--green); }
+
+    /* ══════════════════════════════
+       NAVBAR
+    ══════════════════════════════ */
+    #navbar {
+      position:sticky; top:0; z-index:1000;
+      background:var(--white);
+      border-bottom:2px solid var(--green);
+      padding:.9rem 0;
+      transition:all .3s;
+      box-shadow:0 2px 20px rgba(29,185,84,.1);
+    }
+    #navbar.elevated { box-shadow:0 4px 30px rgba(0,0,0,.12); }
+    .brand-v {
+      font-family:var(--font-display);
+      font-size:1.6rem; font-weight:900;
+      color:var(--navy); text-decoration:none;
+      display:flex; align-items:center; gap:10px;
+      letter-spacing:1px;
+    }
+    .brand-icon-v {
+      width:38px; height:38px;
+      background:linear-gradient(135deg, var(--green), var(--blue));
+      border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.1rem; color:var(--white);
+    }
+    .brand-v span { color:var(--green); }
+    .brand-sub-v {
+      font-family:var(--font-body);
+      font-size:.55rem; letter-spacing:2px;
+      color:var(--gray2); font-weight:500;
+      display:block; text-transform:uppercase; margin-top:-1px;
+    }
+    .nav-lnk-v {
+      font-family:var(--font-display);
+      font-size:.8rem; letter-spacing:1px;
+      text-transform:uppercase; font-weight:600;
+      color:var(--gray) !important; text-decoration:none;
+      padding:.35rem .85rem !important; transition:color .2s;
+    }
+    .nav-lnk-v:hover { color:var(--green) !important; }
+    .btn-inscribete {
+      font-family:var(--font-display);
+      font-size:.78rem; letter-spacing:1.5px;
+      text-transform:uppercase; font-weight:800;
+      background:linear-gradient(90deg, var(--green), var(--blue));
+      color:var(--white); border:none;
+      padding:.6rem 1.6rem; border-radius:25px;
+      text-decoration:none; transition:all .25s;
+      display:inline-flex; align-items:center; gap:6px;
+      box-shadow:0 4px 15px rgba(29,185,84,.3);
+    }
+    .btn-inscribete:hover { color:var(--white); transform:translateY(-2px); box-shadow:0 8px 25px rgba(29,185,84,.4); }
+    #mob-nav { background:var(--white); border-top:1px solid var(--green-border); padding:1rem 0; display:none; }
+
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+    #hero {
+      min-height:92vh;
+      background:var(--navy);
+      position:relative; overflow:hidden;
+      display:flex; align-items:center;
+    }
+
+    /* Animated road lines */
+    .road-lines {
+      position:absolute; bottom:0; left:0; right:0;
+      height:120px; overflow:hidden; pointer-events:none;
+    }
+    .road-lines::before {
+      content:'';
+      position:absolute; bottom:0; left:0; right:0; height:8px;
+      background:var(--gray);
+    }
+    .road-line {
+      position:absolute; bottom:4px;
+      height:3px; width:60px; background:var(--white);
+      border-radius:2px;
+      animation:roadMove 1.5s linear infinite;
+    }
+    .road-line:nth-child(1) { left:-100px; animation-delay:0s; }
+    .road-line:nth-child(2) { left:calc(25% - 30px); animation-delay:-.375s; }
+    .road-line:nth-child(3) { left:calc(50% - 30px); animation-delay:-.75s; }
+    .road-line:nth-child(4) { left:calc(75% - 30px); animation-delay:-1.125s; }
+    @keyframes roadMove {
+      from { transform:translateX(0); }
+      to   { transform:translateX(calc(100vw + 200px)); }
+    }
+
+    /* Speed lines bg */
+    .speed-lines {
+      position:absolute; inset:0; pointer-events:none;
+      background:repeating-linear-gradient(
+        -5deg,
+        transparent,
+        transparent 60px,
+        rgba(29,185,84,.03) 60px,
+        rgba(29,185,84,.03) 61px
+      );
+    }
+
+    /* Hero gradient overlay */
+    .hero-overlay {
+      position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(29,185,84,.15) 0%, transparent 55%),
+        radial-gradient(ellipse at 80% 30%, rgba(14,165,233,.12) 0%, transparent 50%),
+        linear-gradient(to right, rgba(12,26,46,.98) 40%, rgba(12,26,46,.7) 70%, rgba(12,26,46,.3) 100%);
+    }
+
+    /* Hero right image */
+    .hero-img-side {
+      position:absolute;
+      right:0; top:0; bottom:0;
+      width:55%;
+      overflow:hidden;
+    }
+    .hero-img-side img {
+      width:100%; height:100%;
+      object-fit:cover; object-position:center;
+      opacity:0; transition:opacity .9s;
+    }
+    .hero-img-side img.on { opacity:1; }
+    .hero-img-side::before {
+      content:'';
+      position:absolute; inset:0; z-index:1;
+      background:linear-gradient(to right, var(--navy) 0%, transparent 40%);
+    }
+
+    .hero-content { position:relative; z-index:2; padding-bottom:100px; }
+
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(29,185,84,.15);
+      border:1px solid var(--green-border);
+      border-radius:30px; padding:.4rem 1.1rem;
+      font-family:var(--font-body);
+      font-size:.7rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:700;
+      color:var(--green); margin-bottom:1.5rem;
+    }
+    .hero-badge::before {
+      content:''; width:8px; height:8px; border-radius:50%;
+      background:var(--green);
+      animation:blink 1.5s ease-in-out infinite;
+    }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.2;} }
+
+    .hero-h1 {
+      font-family:var(--font-display);
+      font-size:clamp(2.8rem,8vw,6.5rem);
+      font-weight:900; color:var(--white);
+      line-height:.95; margin-bottom:1.2rem;
+      letter-spacing:-1px;
+    }
+    .hero-h1 .green-word { color:var(--green); display:block; }
+    .hero-h1 .blue-word  { color:var(--blue);  display:block; }
+
+    .hero-desc {
+      font-family:var(--font-body);
+      font-size:1.05rem; font-weight:400;
+      color:rgba(255,255,255,.65);
+      line-height:1.75; max-width:460px;
+      margin-bottom:2rem;
+    }
+
+    /* Stats strip */
+    .hero-stats {
+      display:flex; gap:0; flex-wrap:wrap;
+      margin-bottom:2.2rem;
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:12px; overflow:hidden;
+      backdrop-filter:blur(8px);
+      background:rgba(255,255,255,.04);
+    }
+    .hs-item {
+      padding:.9rem 1.4rem;
+      border-right:1px solid rgba(255,255,255,.08);
+      flex:1; min-width:90px;
+    }
+    .hs-item:last-child { border:none; }
+    .hs-n {
+      font-family:var(--font-display);
+      font-size:1.8rem; font-weight:900;
+      color:var(--green); line-height:1;
+    }
+    .hs-n span { color:var(--blue); }
+    .hs-l {
+      font-family:var(--font-body);
+      font-size:.65rem; color:rgba(255,255,255,.4);
+      font-weight:500; text-transform:uppercase;
+      letter-spacing:1px; margin-top:2px;
+    }
+
+    .btn-hero-g {
+      font-family:var(--font-display);
+      font-size:.85rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:800;
+      background:linear-gradient(90deg,var(--green),var(--blue));
+      color:var(--white); border:none;
+      padding:1rem 2.5rem; border-radius:30px;
+      text-decoration:none;
+      display:inline-flex; align-items:center; gap:10px;
+      transition:all .3s; position:relative; overflow:hidden;
+      box-shadow:0 8px 30px rgba(29,185,84,.3);
+    }
+    .btn-hero-g::before {
+      content:''; position:absolute; inset:0;
+      background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);
+      transform:translateX(-100%); transition:transform .4s;
+    }
+    .btn-hero-g:hover { color:var(--white); transform:translateY(-3px); box-shadow:0 15px 40px rgba(29,185,84,.4); }
+    .btn-hero-g:hover::before { transform:translateX(100%); }
+
+    .btn-hero-outline {
+      font-family:var(--font-display);
+      font-size:.85rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:700;
+      background:transparent; color:rgba(255,255,255,.8);
+      border:1.5px solid rgba(255,255,255,.2);
+      padding:1rem 2.5rem; border-radius:30px;
+      text-decoration:none;
+      display:inline-flex; align-items:center; gap:10px;
+      transition:all .3s;
+    }
+    .btn-hero-outline:hover { border-color:var(--green); color:var(--green); }
+
+    /* Floating cards */
+    .hero-float-card {
+      position:absolute; right:3%; bottom:120px; z-index:3;
+      background:var(--white); border-radius:14px;
+      padding:1rem 1.4rem;
+      box-shadow:0 20px 60px rgba(0,0,0,.3);
+      display:flex; align-items:center; gap:12px;
+      animation:floatY 4s ease-in-out infinite;
+    }
+    @keyframes floatY { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+    .hfc-icon {
+      width:44px; height:44px; border-radius:12px;
+      background:linear-gradient(135deg,var(--green),var(--blue));
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.3rem; color:var(--white);
+    }
+    .hfc-title { font-family:var(--font-display); font-size:.88rem; font-weight:800; color:var(--navy); }
+    .hfc-sub   { font-size:.68rem; color:var(--gray); font-weight:400; }
+
+    /* ══════════════════════════════
+       COMMONS
+    ══════════════════════════════ */
+    section { position:relative; }
+    .tag-v {
+      font-family:var(--font-body);
+      font-size:.68rem; letter-spacing:3px;
+      text-transform:uppercase; font-weight:700;
+      color:var(--green); margin-bottom:.7rem;
+      display:flex; align-items:center; gap:8px;
+    }
+    .tag-v::before { content:''; display:block; width:20px; height:2px; background:linear-gradient(90deg,var(--green),var(--blue)); border-radius:2px; }
+    .title-v {
+      font-family:var(--font-display);
+      font-size:clamp(2rem,4vw,3.2rem);
+      font-weight:900; color:var(--navy);
+      line-height:1.1; letter-spacing:-.5px;
+    }
+    .title-v span { color:var(--green); }
+    .title-v-light { color:var(--white); }
+    .title-v-light span { color:var(--green); }
+    .sub-v { font-family:var(--font-body); font-size:.93rem; color:var(--gray); line-height:1.75; font-weight:400; }
+    .pill-v {
+      display:inline-block;
+      background:linear-gradient(90deg,var(--green-subtle),var(--blue-pale));
+      border:1px solid var(--green-border);
+      border-radius:20px; padding:.25rem .9rem;
+      font-size:.68rem; letter-spacing:1.5px;
+      text-transform:uppercase; font-weight:700;
+      color:var(--green);
+    }
+    .grad-rule {
+      width:50px; height:3px;
+      background:linear-gradient(90deg,var(--green),var(--blue));
+      border-radius:2px; margin:1rem 0 1.8rem;
+    }
+    .grad-rule-c { margin:1rem auto 1.8rem; }
+
+    .reveal { opacity:0; transform:translateY(22px); transition:opacity .6s,transform .6s; }
+    .reveal.on { opacity:1; transform:none; }
+    .rl { opacity:0; transform:translateX(-22px); transition:opacity .6s,transform .6s; }
+    .rl.on { opacity:1; transform:none; }
+    .rr { opacity:0; transform:translateX(22px); transition:opacity .6s,transform .6s; }
+    .rr.on { opacity:1; transform:none; }
+    .d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.3s;} .d4{transition-delay:.4s;}
+
+    /* ══════════════════════════════
+       NOSOTROS
+    ══════════════════════════════ */
+    #nosotros { padding:6rem 0; background:var(--off-white); }
+
+    .about-img-v {
+      border-radius:20px; overflow:hidden;
+      aspect-ratio:4/3; position:relative;
+      box-shadow:0 20px 60px rgba(29,185,84,.15);
+    }
+    .about-img-v::after {
+      content:'';
+      position:absolute; inset:0;
+      background:linear-gradient(to top,rgba(12,26,46,.5) 0%,transparent 50%);
+    }
+    .about-badge-v {
+      position:absolute; bottom:1.2rem; left:1.2rem; z-index:2;
+      background:linear-gradient(90deg,var(--green),var(--blue));
+      color:var(--white); border-radius:12px;
+      padding:1rem 1.4rem;
+    }
+    .abv-n { font-family:var(--font-display); font-size:2rem; font-weight:900; line-height:1; }
+    .abv-l { font-size:.65rem; font-weight:600; letter-spacing:1px; opacity:.9; }
+
+    .value-v {
+      display:flex; gap:1rem; align-items:flex-start;
+      padding:1.1rem 0; border-bottom:1px solid rgba(29,185,84,.12);
+    }
+    .value-v:last-child { border:none; }
+    .value-icon-v {
+      width:46px; height:46px; min-width:46px;
+      border-radius:12px;
+      background:linear-gradient(135deg,var(--green-subtle),var(--blue-pale));
+      border:1px solid var(--green-border);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.2rem; color:var(--green);
+    }
+    .vv-title { font-family:var(--font-display); font-size:.9rem; font-weight:800; color:var(--navy); margin-bottom:.2rem; }
+    .vv-text  { font-size:.84rem; color:var(--gray); line-height:1.6; }
+
+    /* ══════════════════════════════
+       CURSOS / PRECIOS
+    ══════════════════════════════ */
+    #cursos { padding:6rem 0; background:var(--white); }
+
+    .curso-card {
+      background:var(--white);
+      border:1.5px solid var(--border);
+      border-radius:18px; overflow:hidden;
+      transition:all .3s; height:100%;
+      position:relative;
+    }
+    .curso-card:hover { border-color:var(--green); transform:translateY(-8px); box-shadow:0 25px 60px rgba(29,185,84,.15); }
+    .curso-card.featured {
+      border-color:var(--green);
+      box-shadow:0 10px 40px rgba(29,185,84,.2);
+    }
+    .curso-header {
+      padding:2rem 2rem 1.5rem;
+      position:relative; overflow:hidden;
+    }
+    .curso-card:nth-child(1) .curso-header { background:linear-gradient(135deg,#e0f4fd,#f0fffe); }
+    .curso-card:nth-child(2) .curso-header { background:linear-gradient(135deg,var(--green-pale),#e0f4fd); }
+    .curso-card:nth-child(3) .curso-header { background:linear-gradient(135deg,#fef3c7,var(--green-pale)); }
+    .curso-card:nth-child(4) .curso-header { background:linear-gradient(135deg,#fce7f3,var(--blue-pale)); }
+
+    .curso-popular {
+      position:absolute; top:-1px; right:20px;
+      background:linear-gradient(90deg,var(--green),var(--blue));
+      color:var(--white); font-family:var(--font-display);
+      font-size:.6rem; letter-spacing:2px; text-transform:uppercase;
+      font-weight:800; padding:.3rem 1rem; border-radius:0 0 10px 10px;
+    }
+    .curso-icon {
+      font-size:2.5rem; margin-bottom:.8rem; display:block;
+    }
+    .curso-name {
+      font-family:var(--font-display);
+      font-size:1.4rem; font-weight:900;
+      color:var(--navy); margin-bottom:.3rem;
+    }
+    .curso-sub {
+      font-size:.8rem; color:var(--gray);
+      font-weight:400; margin-bottom:1rem;
+    }
+    .curso-price {
+      font-family:var(--font-display);
+      font-size:2.2rem; font-weight:900;
+      color:var(--green); line-height:1;
+    }
+    .curso-price sup { font-size:1rem; vertical-align:super; }
+    .curso-price-note { font-size:.72rem; color:var(--gray); margin-top:.2rem; }
+
+    .curso-body { padding:1.5rem 2rem 2rem; }
+    .curso-features { list-style:none; padding:0; margin:0 0 1.5rem; }
+    .curso-features li {
+      font-family:var(--font-body); font-size:.84rem;
+      color:var(--gray); padding:.4rem 0;
+      border-bottom:1px solid rgba(29,185,84,.08);
+      display:flex; align-items:center; gap:10px;
+    }
+    .curso-features li:last-child { border:none; }
+    .curso-features li i { color:var(--green); font-size:.78rem; }
+    .curso-features li.no { color:var(--gray2); text-decoration:line-through; }
+    .curso-features li.no i { color:var(--gray2); }
+    .btn-curso {
+      font-family:var(--font-display);
+      font-size:.78rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:800;
+      display:block; width:100%; text-align:center;
+      padding:.85rem; border-radius:30px;
+      text-decoration:none; transition:all .25s;
+    }
+    .btn-curso-solid {
+      background:linear-gradient(90deg,var(--green),var(--blue));
+      color:var(--white);
+      box-shadow:0 6px 20px rgba(29,185,84,.25);
+    }
+    .btn-curso-solid:hover { color:var(--white); transform:translateY(-2px); box-shadow:0 10px 30px rgba(29,185,84,.35); }
+    .btn-curso-outline {
+      border:1.5px solid var(--green); color:var(--green); background:transparent;
+    }
+    .btn-curso-outline:hover { background:var(--green); color:var(--white); }
+
+    /* Tramites section inside cursos */
+    .tramites-box {
+      background:linear-gradient(135deg,var(--navy),var(--navy2));
+      border-radius:20px; padding:3rem;
+      margin-top:3rem; position:relative; overflow:hidden;
+    }
+    .tramites-box::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at 80% 50%,rgba(29,185,84,.15) 0%,transparent 60%),
+                 radial-gradient(ellipse at 20% 80%,rgba(14,165,233,.1) 0%,transparent 50%);
+    }
+    .tramite-item {
+      display:flex; gap:1rem; align-items:center;
+      padding:.9rem 1.2rem;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:12px;
+      transition:all .2s;
+    }
+    .tramite-item:hover { background:rgba(29,185,84,.1); border-color:var(--green-border); }
+    .tramite-icon {
+      width:42px; height:42px; min-width:42px;
+      background:linear-gradient(135deg,var(--green),var(--blue));
+      border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.1rem; color:var(--white);
+    }
+    .tramite-name { font-family:var(--font-display); font-size:.9rem; font-weight:800; color:var(--white); }
+    .tramite-time { font-size:.72rem; color:var(--green); font-weight:600; }
+
+    /* ══════════════════════════════
+       PROCESO DE INSCRIPCIÓN
+    ══════════════════════════════ */
+    #proceso { padding:6rem 0; background:var(--surface); }
+
+    .paso-card {
+      background:var(--white);
+      border-radius:18px; padding:2rem;
+      text-align:center; position:relative;
+      transition:all .3s; height:100%;
+      border:1.5px solid transparent;
+    }
+    .paso-card:hover { border-color:var(--green); transform:translateY(-5px); box-shadow:0 15px 40px rgba(29,185,84,.12); }
+    .paso-num-wrap {
+      width:64px; height:64px; border-radius:50%;
+      background:linear-gradient(135deg,var(--green),var(--blue));
+      display:flex; align-items:center; justify-content:center;
+      margin:0 auto 1.2rem;
+      font-family:var(--font-display);
+      font-size:1.5rem; font-weight:900; color:var(--white);
+      position:relative;
+    }
+    .paso-num-wrap::before {
+      content:'';
+      position:absolute; inset:-6px; border-radius:50%;
+      border:2px dashed var(--green-border);
+    }
+    .paso-emoji { font-size:1.8rem; margin-bottom:.8rem; display:block; }
+    .paso-title { font-family:var(--font-display); font-size:1rem; font-weight:800; color:var(--navy); margin-bottom:.5rem; }
+    .paso-text  { font-size:.84rem; color:var(--gray); line-height:1.65; }
+
+    /* Arrow between steps */
+    .paso-arrow {
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.5rem; color:var(--green-border);
+      padding-top:1.5rem;
+    }
+
+    /* ══════════════════════════════
+       INSTRUCTORES
+    ══════════════════════════════ */
+    #instructores { padding:6rem 0; background:var(--white); }
+
+    .instructor-card {
+      background:var(--off-white);
+      border:1.5px solid var(--border);
+      border-radius:18px; overflow:hidden;
+      transition:all .3s; height:100%;
+    }
+    .instructor-card:hover { border-color:var(--green); transform:translateY(-5px); box-shadow:0 20px 50px rgba(29,185,84,.12); }
+    .instr-img {
+      width:100%; aspect-ratio:3/4; overflow:hidden; position:relative;
+    }
+    .instr-img img { width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s; }
+    .instructor-card:hover .instr-img img { transform:scale(1.04); }
+    .instr-img::after { content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(12,26,46,.8) 0%,transparent 50%); }
+    .instr-spec {
+      position:absolute; bottom:12px; left:12px; z-index:2;
+      background:linear-gradient(90deg,var(--green),var(--blue));
+      color:var(--white); font-family:var(--font-display);
+      font-size:.6rem; letter-spacing:2px; text-transform:uppercase;
+      font-weight:800; padding:.25rem .8rem; border-radius:20px;
+    }
+    .instr-stars { position:absolute; top:12px; right:12px; z-index:2; display:flex; gap:2px; }
+    .instr-stars i { font-size:.7rem; color:#fbbf24; }
+    .instr-body { padding:1.3rem; }
+    .instr-name { font-family:var(--font-display); font-size:1.15rem; font-weight:900; color:var(--navy); margin-bottom:.1rem; }
+    .instr-role { font-size:.72rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--green); font-weight:700; margin-bottom:.7rem; }
+    .instr-bio  { font-size:.83rem; color:var(--gray); line-height:1.6; margin-bottom:1rem; }
+    .instr-stats { display:flex; gap:1rem; border-top:1px solid var(--border); padding-top:.8rem; }
+    .is-n { font-family:var(--font-display); font-size:1.2rem; font-weight:900; color:var(--green); line-height:1; }
+    .is-l { font-size:.6rem; letter-spacing:1px; text-transform:uppercase; color:var(--gray2); }
+
+    /* ══════════════════════════════
+       GALERÍA
+    ══════════════════════════════ */
+    #galeria { padding:6rem 0; background:var(--surface); }
+
+    .gallery-v {
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      grid-template-rows:auto;
+      gap:12px;
+    }
+    .gv-item {
+      border-radius:14px; overflow:hidden;
+      position:relative; cursor:pointer;
+      transition:transform .3s;
+    }
+    .gv-item:hover { transform:scale(1.02); }
+    .gv-item img { width:100%;height:100%;object-fit:cover;transition:transform .5s; }
+    .gv-item:hover img { transform:scale(1.06); }
+    .gv-item::after {
+      content:''; position:absolute; inset:0;
+      background:rgba(29,185,84,0);
+      transition:background .3s;
+      display:flex; align-items:center; justify-content:center;
+    }
+    .gv-item:hover::after { background:rgba(29,185,84,.25); }
+    .gv-label {
+      position:absolute; bottom:10px; left:12px;
+      font-family:var(--font-display); font-size:.65rem;
+      letter-spacing:2px; text-transform:uppercase; font-weight:800;
+      color:var(--white); background:rgba(12,26,46,.7);
+      padding:.2rem .7rem; border-radius:20px;
+      backdrop-filter:blur(4px);
+    }
+
+    .gv-item:nth-child(1){grid-column:1/7;grid-row:1/3;min-height:280px;}
+    .gv-item:nth-child(2){grid-column:7/10;grid-row:1/2;min-height:135px;}
+    .gv-item:nth-child(3){grid-column:10/13;grid-row:1/2;min-height:135px;}
+    .gv-item:nth-child(4){grid-column:7/10;grid-row:2/3;min-height:135px;}
+    .gv-item:nth-child(5){grid-column:10/13;grid-row:2/3;min-height:135px;}
+    .gv-item:nth-child(6){grid-column:1/5;grid-row:3/4;min-height:170px;}
+    .gv-item:nth-child(7){grid-column:5/9;grid-row:3/4;min-height:170px;}
+    .gv-item:nth-child(8){grid-column:9/13;grid-row:3/4;min-height:170px;}
+
+    /* ══════════════════════════════
+       TESTIMONIOS
+    ══════════════════════════════ */
+    #testimonios { padding:6rem 0; background:var(--navy); overflow:hidden; position:relative; }
+    #testimonios::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at 30% 50%,rgba(29,185,84,.08) 0%,transparent 60%),
+                 radial-gradient(ellipse at 70% 80%,rgba(14,165,233,.06) 0%,transparent 50%);
+    }
+
+    .testi-v {
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.08);
+      border-radius:18px; padding:2rem;
+      height:100%; transition:all .3s;
+    }
+    .testi-v:hover { background:rgba(29,185,84,.08); border-color:var(--green-border); }
+    .testi-stars-v { font-size:.85rem; color:#fbbf24; margin-bottom:.8rem; }
+    .testi-text-v {
+      font-family:var(--font-body);
+      font-size:.95rem; color:rgba(255,255,255,.8);
+      line-height:1.75; font-style:italic; margin-bottom:1.2rem;
+    }
+    .testi-curso-tag {
+      display:inline-block;
+      background:rgba(29,185,84,.15); border:1px solid var(--green-border);
+      border-radius:20px; padding:.2rem .8rem;
+      font-size:.62rem; letter-spacing:2px; text-transform:uppercase;
+      font-weight:700; color:var(--green); margin-bottom:1rem;
+    }
+    .testi-author-v {
+      display:flex; align-items:center; gap:.8rem;
+      border-top:1px solid rgba(255,255,255,.06); padding-top:1rem;
+    }
+    .tav-v {
+      width:42px; height:42px; border-radius:50%;
+      background:linear-gradient(135deg,var(--green),var(--blue));
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-display); font-size:1rem; font-weight:900; color:var(--white);
+      overflow:hidden;
+    }
+    .tav-v img { width:100%;height:100%;object-fit:cover; }
+    .tav-name { font-family:var(--font-display); font-size:.88rem; font-weight:800; color:var(--white); }
+    .tav-city { font-size:.72rem; color:rgba(255,255,255,.4); }
+
+    /* ══════════════════════════════
+       FAQ
+    ══════════════════════════════ */
+    #faq { padding:6rem 0; background:var(--off-white); }
+
+    .faq-v {
+      border:1.5px solid var(--border);
+      border-radius:14px; overflow:hidden; margin-bottom:.7rem;
+      background:var(--white); transition:border-color .2s;
+    }
+    .faq-v:has(.faq-a-v[style*="max-height: 300px"]) { border-color:var(--green); }
+    .faq-q-v {
+      font-family:var(--font-display);
+      font-size:.95rem; font-weight:700; color:var(--navy);
+      padding:1.2rem 1.4rem;
+      cursor:pointer; display:flex; justify-content:space-between; align-items:center; gap:1rem;
+      transition:color .2s;
+    }
+    .faq-q-v:hover { color:var(--green); }
+    .faq-icon-v {
+      width:28px; height:28px; min-width:28px; border-radius:50%;
+      background:var(--green-subtle); border:1px solid var(--green-border);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--green); font-size:.8rem; transition:transform .3s, background .2s;
+    }
+    .faq-v.open .faq-icon-v { transform:rotate(45deg); background:var(--green); color:var(--white); }
+    .faq-a-v {
+      font-size:.88rem; color:var(--gray); line-height:1.75;
+      padding:0 1.4rem; max-height:0; overflow:hidden;
+      transition:max-height .4s ease, padding .3s;
+    }
+    .faq-v.open .faq-a-v { max-height:300px; padding-bottom:1.2rem; }
+
+    /* ══════════════════════════════
+       UBICACIÓN
+    ══════════════════════════════ */
+    #ubicacion { padding:6rem 0; background:var(--white); }
+
+    .map-v {
+      width:100%; height:380px;
+      border:2px solid var(--green-border);
+      border-radius:18px; overflow:hidden;
+      position:relative;
+    }
+    .map-placeholder-v {
+      width:100%; height:100%;
+      background:linear-gradient(135deg,var(--surface),var(--light));
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center; gap:1rem;
+    }
+    .map-placeholder-v i { font-size:4rem; color:var(--green); opacity:.4; }
+    .map-placeholder-v p { font-family:var(--font-display); font-size:.75rem; letter-spacing:2px; text-transform:uppercase; color:var(--gray); }
+
+    .contact-card-v {
+      background:linear-gradient(135deg,var(--navy),var(--navy2));
+      border-radius:18px; padding:2.5rem; height:100%;
+      position:relative; overflow:hidden;
+    }
+    .contact-card-v::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at 80% 20%,rgba(29,185,84,.12) 0%,transparent 50%);
+    }
+    .cc-item {
+      display:flex; gap:1rem; align-items:flex-start;
+      padding:1rem 0; border-bottom:1px solid rgba(255,255,255,.07);
+      position:relative; z-index:1;
+    }
+    .cc-item:last-child { border:none; }
+    .cc-icon {
+      width:40px; height:40px; min-width:40px;
+      background:rgba(29,185,84,.15); border:1px solid var(--green-border);
+      border-radius:10px;
+      display:flex; align-items:center; justify-content:center;
+      color:var(--green); font-size:1rem;
+    }
+    .cc-lbl { font-family:var(--font-body); font-size:.62rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:.2rem; font-weight:600; }
+    .cc-val  { font-size:.92rem; color:rgba(255,255,255,.8); font-weight:400; }
+
+    /* ══════════════════════════════
+       CTA
+    ══════════════════════════════ */
+    #cta { padding:7rem 0; background:var(--surface); }
+    .cta-box-v {
+      background:linear-gradient(135deg,var(--green),var(--blue-dark));
+      border-radius:24px; padding:4rem;
+      text-align:center; position:relative; overflow:hidden;
+    }
+    .cta-box-v::before {
+      content:''; position:absolute; inset:0;
+      background:repeating-linear-gradient(-30deg,transparent,transparent 20px,rgba(255,255,255,.03) 20px,rgba(255,255,255,.03) 21px);
+    }
+    /* Road dashes at bottom */
+    .cta-box-v::after {
+      content:''; position:absolute; bottom:0; left:0; right:0; height:6px;
+      background:repeating-linear-gradient(90deg,var(--white) 0px,var(--white) 40px,transparent 40px,transparent 70px);
+      opacity:.3;
+    }
+    .cta-title-v {
+      font-family:var(--font-display);
+      font-size:clamp(2rem,5vw,4rem);
+      font-weight:900; color:var(--white);
+      line-height:1.05; margin-bottom:1rem; position:relative; z-index:1;
+    }
+    .btn-cta-white {
+      font-family:var(--font-display);
+      font-size:.85rem; letter-spacing:2px; text-transform:uppercase; font-weight:900;
+      background:var(--white); color:var(--green);
+      border:none; padding:1.1rem 2.8rem; border-radius:30px;
+      text-decoration:none; display:inline-flex; align-items:center; gap:10px;
+      transition:all .3s; position:relative; z-index:1;
+      box-shadow:0 8px 30px rgba(0,0,0,.2);
+    }
+    .btn-cta-white:hover { color:var(--green-dark); transform:translateY(-3px); box-shadow:0 15px 40px rgba(0,0,0,.3); }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    footer { background:var(--navy); border-top:3px solid var(--green); padding:4rem 0 2rem; }
+    .footer-brand-v { font-family:var(--font-display); font-size:1.6rem; font-weight:900; letter-spacing:1px; color:var(--white); }
+    .footer-brand-v span { color:var(--green); }
+    .footer-tag-v { font-family:var(--font-body); font-size:.6rem; letter-spacing:3px; text-transform:uppercase; color:var(--green); margin-top:.2rem; font-weight:700; }
+    .footer-col-h-v { font-family:var(--font-display); font-size:.68rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.35); font-weight:700; margin-bottom:1.2rem; }
+    .footer-lnk-v   { display:block; font-size:.88rem; color:rgba(255,255,255,.4); text-decoration:none; margin-bottom:.5rem; transition:color .2s; font-weight:400; }
+    .footer-lnk-v:hover { color:var(--green); }
+    .footer-btm-v    { border-top:1px solid rgba(255,255,255,.06); margin-top:3rem; padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.8rem; }
+    .footer-copy-v   { font-size:.72rem; color:rgba(255,255,255,.2); font-family:var(--font-body); }
+    .soc-v { width:36px;height:36px;border:1px solid rgba(255,255,255,.1);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);text-decoration:none;font-size:.9rem;margin-left:.4rem;transition:all .2s; }
+    .soc-v:hover { border-color:var(--green); color:var(--green); }
+
+    /* WA float */
+    .wa-v { position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:white;text-decoration:none;z-index:997;box-shadow:0 4px 20px rgba(37,211,102,.5);transition:transform .2s; }
+    .wa-v:hover{transform:scale(1.1);color:white;}
+    .wa-ring-v{position:absolute;inset:0;border-radius:50%;background:rgba(37,211,102,.35);animation:waRv 2.2s ease-out infinite;}
+    @keyframes waRv{0%{transform:scale(1);opacity:.8;}100%{transform:scale(1.8);opacity:0;}}
+    .wa-v-label{position:absolute;right:66px;background:var(--white);color:var(--navy);font-family:var(--font-display);font-size:.7rem;letter-spacing:1px;white-space:nowrap;padding:.4rem .9rem;border-radius:20px;box-shadow:0 4px 15px rgba(0,0,0,.15);opacity:0;transform:translateX(10px);transition:all .3s;pointer-events:none;font-weight:700;}
+    .wa-v:hover .wa-v-label{opacity:1;transform:translateX(0);}
+
+    /* RESPONSIVE */
+    @media(max-width:991px){
+      .hero-img-side { display:none; }
+      .gallery-v { grid-template-columns:repeat(6,1fr); }
+      .gv-item:nth-child(1){grid-column:1/7;grid-row:1/2;min-height:220px;}
+      .gv-item:nth-child(2){grid-column:1/4;grid-row:2/3;min-height:150px;}
+      .gv-item:nth-child(3){grid-column:4/7;grid-row:2/3;min-height:150px;}
+      .gv-item:nth-child(4){grid-column:1/4;grid-row:3/4;min-height:150px;}
+      .gv-item:nth-child(5){grid-column:4/7;grid-row:3/4;min-height:150px;}
+      .gv-item:nth-child(6){grid-column:1/3;grid-row:4/5;min-height:130px;}
+      .gv-item:nth-child(7){grid-column:3/5;grid-row:4/5;min-height:130px;}
+      .gv-item:nth-child(8){grid-column:5/7;grid-row:4/5;min-height:130px;}
+      .cta-box-v { padding:2.5rem 1.5rem; }
+    }
+    @media(max-width:767px){
+      .hero-stats { flex-wrap:wrap; }
+      .hs-item { min-width:50%; }
+      .hero-float-card { display:none; }
+      .topbar { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     TOPBAR
+══════════════════════════════ -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div class="d-flex gap-3 flex-wrap">
+        <span class="topbar-item"><i class="bi bi-telephone-fill"></i><a href="tel:+573000000000">+57 300 000 0000</a></span>
+        <span class="topbar-item"><i class="bi bi-envelope-fill"></i><a href="mailto:info@vialidad.co">info@vialidad.co</a></span>
+        <span class="topbar-item"><i class="bi bi-geo-alt-fill"></i>Bogotá, Colombia</span>
+      </div>
+      <div class="d-flex gap-3 flex-wrap">
+        <span class="topbar-item"><i class="bi bi-clock-fill"></i>Lun–Sáb: 7am – 7pm</span>
+        <span class="topbar-item"><i class="bi bi-patch-check-fill"></i>Avalado por el Ministerio de Transporte</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════
+     NAVBAR
+══════════════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="#hero" class="brand-v">
+        <div class="brand-icon-v"><i class="bi bi-car-front-fill"></i></div>
+        <div>
+          VIA<span>LIDAD</span>
+          <span class="brand-sub-v">Centro Automovilístico · Colombia</span>
+        </div>
+      </a>
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a href="#nosotros"    class="nav-lnk-v">Nosotros</a>
+        <a href="#cursos"      class="nav-lnk-v">Cursos</a>
+        <a href="#proceso"     class="nav-lnk-v">Inscripción</a>
+        <a href="#instructores"class="nav-lnk-v">Instructores</a>
+        <a href="#testimonios" class="nav-lnk-v">Reseñas</a>
+        <a href="#ubicacion"   class="nav-lnk-v">Ubicación</a>
+        <a href="https://wa.me/573000000000" target="_blank" class="btn-inscribete ms-3">
+          <i class="bi bi-whatsapp"></i> Inscribirme
+        </a>
+      </div>
+      <button id="navToggle" class="btn d-lg-none" style="border:1.5px solid var(--green-border);color:var(--green);border-radius:10px;padding:.4rem .9rem;">
+        <i class="bi bi-list fs-5"></i>
+      </button>
+    </div>
+    <div id="mob-nav">
+      <a href="#nosotros"    class="nav-lnk-v d-block py-2">Nosotros</a>
+      <a href="#cursos"      class="nav-lnk-v d-block py-2">Cursos</a>
+      <a href="#proceso"     class="nav-lnk-v d-block py-2">Inscripción</a>
+      <a href="#instructores"class="nav-lnk-v d-block py-2">Instructores</a>
+      <a href="#testimonios" class="nav-lnk-v d-block py-2">Reseñas</a>
+      <a href="#ubicacion"   class="nav-lnk-v d-block py-2">Ubicación</a>
+      <a href="https://wa.me/573000000000" target="_blank" class="btn-inscribete d-inline-block mt-2">
+        <i class="bi bi-whatsapp"></i> Inscribirme ya
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<section id="hero">
+  <div class="speed-lines"></div>
+  <div class="hero-overlay"></div>
+
+  <!-- Imagen derecha -->
+  <div class="hero-img-side">
+    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85&fit=crop&crop=center"
+         alt="Conducción profesional" id="heroImg" loading="eager"/>
+  </div>
+
+  <!-- Road animation -->
+  <div class="road-lines">
+    <div class="road-line"></div>
+    <div class="road-line"></div>
+    <div class="road-line"></div>
+    <div class="road-line"></div>
+  </div>
+
+  <!-- Floating card -->
+  <div class="hero-float-card d-none d-lg-flex">
+    <div class="hfc-icon"><i class="bi bi-shield-check-fill"></i></div>
+    <div>
+      <div class="hfc-title">98% de aprobación</div>
+      <div class="hfc-sub">en examen de tránsito</div>
+    </div>
+  </div>
+
+  <div class="container hero-content">
+    <div class="row">
+      <div class="col-lg-7">
+        <div class="hero-badge">🇨🇴 Avalado · Ministerio de Transporte</div>
+        <h1 class="hero-h1">
+          APRENDE A
+          <span class="green-word">CONDUCIR</span>
+          <span class="blue-word">CON CONFIANZA</span>
+        </h1>
+        <p class="hero-desc">
+          El centro automovilístico más completo de la ciudad. Cursos de conducción
+          para carros y motos, trámites de licencias y transferencias.
+          <strong style="color:rgba(255,255,255,.85);font-weight:700;">
+          Instructores certificados · Horarios flexibles · Aprobación garantizada.
+          </strong>
+        </p>
+
+        <div class="hero-stats">
+          <div class="hs-item"><div class="hs-n">15<span>+</span></div><div class="hs-l">Años formando conductores</div></div>
+          <div class="hs-item"><div class="hs-n">12<span>K+</span></div><div class="hs-l">Estudiantes graduados</div></div>
+          <div class="hs-item"><div class="hs-n">98<span>%</span></div><div class="hs-l">Aprobación examen</div></div>
+          <div class="hs-item"><div class="hs-n">8<span>+</span></div><div class="hs-l">Instructores certificados</div></div>
+        </div>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#cursos" class="btn-hero-g">
+            <i class="bi bi-play-circle-fill"></i> Ver cursos y precios
+          </a>
+          <a href="#proceso" class="btn-hero-outline">
+            Cómo inscribirme <i class="bi bi-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     NOSOTROS
+══════════════════════════════ -->
+<section id="nosotros">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <div class="col-lg-5 rl">
+        <div class="about-img-v">
+          <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=800&q=80&fit=crop"
+               alt="Clases de conducción" class="img-f" loading="lazy"/>
+          <div class="about-badge-v">
+            <div class="abv-n">15+</div>
+            <div class="abv-l">Años formando conductores seguros</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-7">
+        <div class="tag-v reveal">Quiénes somos</div>
+        <h2 class="title-v reveal">La escuela de conducción<br>que <span>Colombia necesita</span></h2>
+        <div class="grad-rule reveal"></div>
+        <p class="sub-v reveal d1" style="margin-bottom:1.5rem;">
+          <strong style="color:var(--navy);font-weight:700;">VIALIDAD Centro Automovilístico</strong> es una institución
+          autorizada y avalada por el Ministerio de Transporte de Colombia. Llevamos más de 15 años
+          formando conductores responsables, seguros y preparados para enfrentar cualquier situación en la vía.
+        </p>
+        <p class="sub-v reveal d2" style="margin-bottom:2rem;">
+          Contamos con vehículos modernos, pista de práctica propia y simuladores de última generación.
+          Nuestro método pedagógico garantiza que aprenderás con confianza y a tu propio ritmo.
+        </p>
+
+        <div class="value-v reveal d1">
+          <div class="value-icon-v"><i class="bi bi-award-fill"></i></div>
+          <div><div class="vv-title">Certificados y avalados</div><div class="vv-text">Institución autorizada por el Ministerio de Transporte. Todos nuestros certificados tienen validez legal en Colombia.</div></div>
+        </div>
+        <div class="value-v reveal d2">
+          <div class="value-icon-v"><i class="bi bi-calendar-check-fill"></i></div>
+          <div><div class="vv-title">Horarios super flexibles</div><div class="vv-text">Clases de lunes a sábado, mañana, tarde y noche. Nos adaptamos a tu agenda sin comprometer tu trabajo ni estudio.</div></div>
+        </div>
+        <div class="value-v reveal d3">
+          <div class="value-icon-v"><i class="bi bi-car-front-fill"></i></div>
+          <div><div class="vv-title">Flota moderna y segura</div><div class="vv-text">Vehículos con doble mando en perfectas condiciones, revisión técnico-mecánica al día y pólizas de seguro vigentes.</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     CURSOS Y PRECIOS
+══════════════════════════════ -->
+<section id="cursos">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-v justify-content-center reveal">Cursos disponibles</div>
+      <h2 class="title-v reveal">Elige tu <span>curso ideal</span></h2>
+      <div class="grad-rule grad-rule-c reveal"></div>
+      <p class="sub-v mx-auto reveal" style="max-width:520px;">
+        Desde principiantes hasta conductores que quieren perfeccionar su técnica.
+        Todos los cursos incluyen clases teóricas y prácticas.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <!-- Curso 1: Carro básico -->
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="curso-card">
+          <div class="curso-header">
+            <span class="curso-icon">🚗</span>
+            <div class="curso-name">Carro Básico</div>
+            <div class="curso-sub">Para principiantes absolutos</div>
+            <div class="curso-price"><sup>$</sup>280.000</div>
+            <div class="curso-price-note">6 clases · 30h teóricas + 15h prácticas</div>
+          </div>
+          <div class="curso-body">
+            <ul class="curso-features">
+              <li><i class="bi bi-check-circle-fill"></i>Clases teóricas (normas de tránsito)</li>
+              <li><i class="bi bi-check-circle-fill"></i>Práctica en pista privada</li>
+              <li><i class="bi bi-check-circle-fill"></i>Práctica en vía pública</li>
+              <li><i class="bi bi-check-circle-fill"></i>Simulacro de examen</li>
+              <li><i class="bi bi-check-circle-fill"></i>Certificado de conducción</li>
+              <li class="no"><i class="bi bi-x-circle-fill"></i>Clases nocturnas</li>
+              <li class="no"><i class="bi bi-x-circle-fill"></i>Vehículo automático</li>
+            </ul>
+            <a href="https://wa.me/573000000000?text=Quiero%20inscribirme%20al%20curso%20de%20Carro%20Básico"
+               target="_blank" class="btn-curso btn-curso-outline">
+              <i class="bi bi-whatsapp me-1"></i> Inscribirme
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curso 2: Carro completo (featured) -->
+      <div class="col-md-6 col-lg-3 reveal d1">
+        <div class="curso-card featured">
+          <div class="curso-popular">⚡ Más popular</div>
+          <div class="curso-header">
+            <span class="curso-icon">🚙</span>
+            <div class="curso-name">Carro Completo</div>
+            <div class="curso-sub">Manual + automático + nocturno</div>
+            <div class="curso-price"><sup>$</sup>480.000</div>
+            <div class="curso-price-note">10 clases · 40h teóricas + 25h prácticas</div>
+          </div>
+          <div class="curso-body">
+            <ul class="curso-features">
+              <li><i class="bi bi-check-circle-fill"></i>Todo lo del curso básico</li>
+              <li><i class="bi bi-check-circle-fill"></i>Práctica nocturna incluida</li>
+              <li><i class="bi bi-check-circle-fill"></i>Mecánica básica del vehículo</li>
+              <li><i class="bi bi-check-circle-fill"></i>Conducción en autopista</li>
+              <li><i class="bi bi-check-circle-fill"></i>Vehículo manual y automático</li>
+              <li><i class="bi bi-check-circle-fill"></i>Gestión de emergencias viales</li>
+              <li><i class="bi bi-check-circle-fill"></i>Acompañamiento al examen</li>
+            </ul>
+            <a href="https://wa.me/573000000000?text=Quiero%20inscribirme%20al%20curso%20de%20Carro%20Completo"
+               target="_blank" class="btn-curso btn-curso-solid">
+              <i class="bi bi-whatsapp me-1"></i> Inscribirme
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curso 3: Moto -->
+      <div class="col-md-6 col-lg-3 reveal d2">
+        <div class="curso-card">
+          <div class="curso-header">
+            <span class="curso-icon">🏍️</span>
+            <div class="curso-name">Moto</div>
+            <div class="curso-sub">Licencia A1, A2 y C</div>
+            <div class="curso-price"><sup>$</sup>220.000</div>
+            <div class="curso-price-note">5 clases · 20h teóricas + 12h prácticas</div>
+          </div>
+          <div class="curso-body">
+            <ul class="curso-features">
+              <li><i class="bi bi-check-circle-fill"></i>Normativa motociclistas Colombia</li>
+              <li><i class="bi bi-check-circle-fill"></i>Control y equilibrio</li>
+              <li><i class="bi bi-check-circle-fill"></i>Práctica en circuito</li>
+              <li><i class="bi bi-check-circle-fill"></i>Maniobras de emergencia</li>
+              <li><i class="bi bi-check-circle-fill"></i>Certificado habilitante</li>
+              <li class="no"><i class="bi bi-x-circle-fill"></i>Práctica nocturna</li>
+              <li class="no"><i class="bi bi-x-circle-fill"></i>Cursos avanzados</li>
+            </ul>
+            <a href="https://wa.me/573000000000?text=Quiero%20inscribirme%20al%20curso%20de%20Moto"
+               target="_blank" class="btn-curso btn-curso-outline">
+              <i class="bi bi-whatsapp me-1"></i> Inscribirme
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Curso 4: Recategorizacion -->
+      <div class="col-md-6 col-lg-3 reveal d3">
+        <div class="curso-card">
+          <div class="curso-header">
+            <span class="curso-icon">🚚</span>
+            <div class="curso-name">Recategorización</div>
+            <div class="curso-sub">Vehículos pesados C2, C3</div>
+            <div class="curso-price"><sup>$</sup>650.000</div>
+            <div class="curso-price-note">12 clases · 50h teóricas + 30h prácticas</div>
+          </div>
+          <div class="curso-body">
+            <ul class="curso-features">
+              <li><i class="bi bi-check-circle-fill"></i>Vehículos de carga y pasajeros</li>
+              <li><i class="bi bi-check-circle-fill"></i>Manejo defensivo avanzado</li>
+              <li><i class="bi bi-check-circle-fill"></i>Normas mercancías peligrosas</li>
+              <li><i class="bi bi-check-circle-fill"></i>Revisión técnico-mecánica</li>
+              <li><i class="bi bi-check-circle-fill"></i>Acompañamiento al examen</li>
+              <li><i class="bi bi-check-circle-fill"></i>Certificado SIMIT</li>
+              <li class="no"><i class="bi bi-x-circle-fill"></i>Requiere licencia B1 vigente</li>
+            </ul>
+            <a href="https://wa.me/573000000000?text=Quiero%20información%20sobre%20Recategorización"
+               target="_blank" class="btn-curso btn-curso-outline">
+              <i class="bi bi-whatsapp me-1"></i> Consultar
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Trámites -->
+    <div class="tramites-box reveal mt-4">
+      <div class="row align-items-center g-4" style="position:relative;z-index:1;">
+        <div class="col-lg-4">
+          <div class="tag-v" style="color:var(--green);">Servicios adicionales</div>
+          <h3 style="font-family:var(--font-display);font-size:1.8rem;font-weight:900;color:var(--white);margin-bottom:.8rem;">
+            Trámites de <span style="color:var(--green);">Licencias</span>
+          </h3>
+          <p style="font-size:.88rem;color:rgba(255,255,255,.55);line-height:1.7;">
+            Te acompañamos en todos los trámites ante el organismo de tránsito. Sin filas, sin estrés.
+          </p>
+          <a href="https://wa.me/573000000000?text=Quiero%20información%20sobre%20trámites%20de%20licencia"
+             target="_blank" class="btn-inscribete mt-3 d-inline-flex">
+            <i class="bi bi-whatsapp"></i> Consultar trámites
+          </a>
+        </div>
+        <div class="col-lg-8">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <div class="tramite-item">
+                <div class="tramite-icon"><i class="bi bi-card-text"></i></div>
+                <div><div class="tramite-name">Obtención licencia nueva</div><div class="tramite-time">Categorías B1, A1, A2, C2</div></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="tramite-item">
+                <div class="tramite-icon"><i class="bi bi-arrow-repeat"></i></div>
+                <div><div class="tramite-name">Renovación de licencia</div><div class="tramite-time">Proceso ágil en 48h</div></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="tramite-item">
+                <div class="tramite-icon"><i class="bi bi-file-earmark-arrow-up"></i></div>
+                <div><div class="tramite-name">Recategorización</div><div class="tramite-time">Ampliación de categorías</div></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="tramite-item">
+                <div class="tramite-icon"><i class="bi bi-car-front"></i></div>
+                <div><div class="tramite-name">Transferencia de vehículos</div><div class="tramite-time">Carros, motos y más</div></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="tramite-item">
+                <div class="tramite-icon"><i class="bi bi-clipboard-check"></i></div>
+                <div><div class="tramite-name">Revisión técnico-mecánica</div><div class="tramite-time">Centro autorizado CDA</div></div>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="tramite-item">
+                <div class="tramite-icon"><i class="bi bi-shield-fill-check"></i></div>
+                <div><div class="tramite-name">SOAT y seguros</div><div class="tramite-time">Asesoría y gestión completa</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     PROCESO DE INSCRIPCIÓN
+══════════════════════════════ -->
+<section id="proceso">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-v justify-content-center reveal">Fácil y rápido</div>
+      <h2 class="title-v reveal">¿Cómo <span>inscribirme?</span></h2>
+      <div class="grad-rule grad-rule-c reveal"></div>
+      <p class="sub-v mx-auto reveal" style="max-width:500px;">
+        En solo 4 pasos estarás listo para comenzar tus clases. Todo el proceso puede hacerse desde tu celular.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-6 col-lg-3 reveal">
+        <div class="paso-card">
+          <div class="paso-num-wrap">1</div>
+          <span class="paso-emoji">📱</span>
+          <div class="paso-title">Contáctanos</div>
+          <div class="paso-text">Escríbenos por WhatsApp o llámanos. Te asesoramos sobre el curso ideal para ti sin ningún costo.</div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-auto d-none d-lg-flex align-items-center">
+        <div class="paso-arrow"><i class="bi bi-arrow-right-circle-fill" style="color:var(--green);"></i></div>
+      </div>
+      <div class="col-6 col-lg-3 reveal d1">
+        <div class="paso-card">
+          <div class="paso-num-wrap">2</div>
+          <span class="paso-emoji">📋</span>
+          <div class="paso-title">Documentos</div>
+          <div class="paso-text">Solo necesitas tu cédula de ciudadanía, grupo sanguíneo y foto. Te decimos exactamente qué traer.</div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-auto d-none d-lg-flex align-items-center">
+        <div class="paso-arrow"><i class="bi bi-arrow-right-circle-fill" style="color:var(--green);"></i></div>
+      </div>
+      <div class="col-6 col-lg-3 reveal d2">
+        <div class="paso-card">
+          <div class="paso-num-wrap">3</div>
+          <span class="paso-emoji">💳</span>
+          <div class="paso-title">Pago y agendamiento</div>
+          <div class="paso-text">Pago en efectivo, transferencia o tarjeta. Elige tus horarios preferidos y agenda tus clases.</div>
+        </div>
+      </div>
+      <div class="col-12 col-lg-auto d-none d-lg-flex align-items-center">
+        <div class="paso-arrow"><i class="bi bi-arrow-right-circle-fill" style="color:var(--green);"></i></div>
+      </div>
+      <div class="col-6 col-lg-3 reveal d3">
+        <div class="paso-card">
+          <div class="paso-num-wrap">4</div>
+          <span class="paso-emoji">🚗</span>
+          <div class="paso-title">¡A conducir!</div>
+          <div class="paso-text">Comienza tus clases con nuestros instructores certificados. En pocas semanas tendrás tu licencia.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Requisitos -->
+    <div class="row mt-5 g-4 align-items-center">
+      <div class="col-lg-6 reveal">
+        <div style="background:var(--white);border:1.5px solid var(--green-border);border-radius:18px;padding:2rem;">
+          <h4 style="font-family:var(--font-display);font-size:1.2rem;font-weight:900;color:var(--navy);margin-bottom:1.2rem;">
+            📋 Requisitos para inscribirse
+          </h4>
+          <div class="row g-2">
+            <div class="col-md-6">
+              <div style="display:flex;align-items:center;gap:8px;padding:.6rem;border-radius:10px;background:var(--green-subtle);">
+                <i class="bi bi-check-circle-fill" style="color:var(--green);"></i>
+                <span style="font-size:.84rem;color:var(--navy);">Cédula de ciudadanía</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div style="display:flex;align-items:center;gap:8px;padding:.6rem;border-radius:10px;background:var(--green-subtle);">
+                <i class="bi bi-check-circle-fill" style="color:var(--green);"></i>
+                <span style="font-size:.84rem;color:var(--navy);">Grupo sanguíneo (RH)</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div style="display:flex;align-items:center;gap:8px;padding:.6rem;border-radius:10px;background:var(--green-subtle);">
+                <i class="bi bi-check-circle-fill" style="color:var(--green);"></i>
+                <span style="font-size:.84rem;color:var(--navy);">Foto 3x4 fondo blanco</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div style="display:flex;align-items:center;gap:8px;padding:.6rem;border-radius:10px;background:var(--green-subtle);">
+                <i class="bi bi-check-circle-fill" style="color:var(--green);"></i>
+                <span style="font-size:.84rem;color:var(--navy);">Ser mayor de 16 años</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div style="display:flex;align-items:center;gap:8px;padding:.6rem;border-radius:10px;background:var(--green-subtle);">
+                <i class="bi bi-check-circle-fill" style="color:var(--green);"></i>
+                <span style="font-size:.84rem;color:var(--navy);">Examen médico (lo hacemos)</span>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div style="display:flex;align-items:center;gap:8px;padding:.6rem;border-radius:10px;background:var(--green-subtle);">
+                <i class="bi bi-check-circle-fill" style="color:var(--green);"></i>
+                <span style="font-size:.84rem;color:var(--navy);">Pago del curso</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 reveal d1">
+        <div style="background:linear-gradient(135deg,var(--green),var(--blue));border-radius:18px;padding:2rem;color:var(--white);">
+          <h4 style="font-family:var(--font-display);font-size:1.3rem;font-weight:900;margin-bottom:1rem;">
+            🎯 ¿Por qué elegirnos?
+          </h4>
+          <div style="display:flex;flex-direction:column;gap:.8rem;">
+            <div style="display:flex;gap:10px;align-items:center;">
+              <i class="bi bi-lightning-fill" style="font-size:1.1rem;color:var(--white);"></i>
+              <span style="font-size:.88rem;opacity:.9;">Aprobación del 98% en el examen de tránsito</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;">
+              <i class="bi bi-clock-fill" style="font-size:1.1rem;"></i>
+              <span style="font-size:.88rem;opacity:.9;">Clases en horarios de mañana, tarde y noche</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;">
+              <i class="bi bi-cash-stack" style="font-size:1.1rem;"></i>
+              <span style="font-size:.88rem;opacity:.9;">Pagos en cuotas sin intereses</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;">
+              <i class="bi bi-geo-alt-fill" style="font-size:1.1rem;"></i>
+              <span style="font-size:.88rem;opacity:.9;">Pista de práctica privada y vehículos modernos</span>
+            </div>
+            <div style="display:flex;gap:10px;align-items:center;">
+              <i class="bi bi-star-fill" style="font-size:1.1rem;color:#fbbf24;"></i>
+              <span style="font-size:.88rem;opacity:.9;">+12.000 conductores graduados con nosotros</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     INSTRUCTORES
+══════════════════════════════ -->
+<section id="instructores">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-v justify-content-center reveal">El equipo</div>
+      <h2 class="title-v reveal">Nuestros <span>instructores</span></h2>
+      <div class="grad-rule grad-rule-c reveal"></div>
+      <p class="sub-v mx-auto reveal" style="max-width:500px;">
+        Todos certificados por el Ministerio de Transporte con amplia experiencia en formación vial y manejo defensivo.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="instructor-card">
+          <div class="instr-img">
+            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&q=80&fit=crop&crop=top"
+                 alt="Instructor 1" loading="lazy"/>
+            <span class="instr-spec">Carros · Motos</span>
+            <div class="instr-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          </div>
+          <div class="instr-body">
+            <div class="instr-name">Carlos Herrera</div>
+            <div class="instr-role">Instructor Senior</div>
+            <div class="instr-bio">12 años formando conductores. Especialista en manejo defensivo y conducción en condiciones difíciles.</div>
+            <div class="instr-stats">
+              <div><div class="is-n">12+</div><div class="is-l">Años exp.</div></div>
+              <div><div class="is-n">2.4K</div><div class="is-l">Estudiantes</div></div>
+              <div><div class="is-n">99%</div><div class="is-l">Aprobación</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal d1">
+        <div class="instructor-card">
+          <div class="instr-img">
+            <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=500&q=80&fit=crop&crop=top"
+                 alt="Instructora 2" loading="lazy"/>
+            <span class="instr-spec">Carros</span>
+            <div class="instr-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          </div>
+          <div class="instr-body">
+            <div class="instr-name">Daniela Ospina</div>
+            <div class="instr-role">Instructora Certificada</div>
+            <div class="instr-bio">Especialista en primer contacto. Metódica y paciente, perfecta para quienes tienen miedo de conducir.</div>
+            <div class="instr-stats">
+              <div><div class="is-n">8+</div><div class="is-l">Años exp.</div></div>
+              <div><div class="is-n">1.8K</div><div class="is-l">Estudiantes</div></div>
+              <div><div class="is-n">98%</div><div class="is-l">Aprobación</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal d2">
+        <div class="instructor-card">
+          <div class="instr-img">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80&fit=crop&crop=top"
+                 alt="Instructor 3" loading="lazy"/>
+            <span class="instr-spec">Motos · Pesados</span>
+            <div class="instr-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          </div>
+          <div class="instr-body">
+            <div class="instr-name">Jhon Ramírez</div>
+            <div class="instr-role">Instructor Vehículos Pesados</div>
+            <div class="instr-bio">Ex conductor profesional con 15 años de experiencia en carretera. Licencia C2 y C3 vigentes.</div>
+            <div class="instr-stats">
+              <div><div class="is-n">15+</div><div class="is-l">Años exp.</div></div>
+              <div><div class="is-n">900+</div><div class="is-l">Estudiantes</div></div>
+              <div><div class="is-n">97%</div><div class="is-l">Aprobación</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3 reveal d3">
+        <div class="instructor-card">
+          <div class="instr-img">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80&fit=crop&crop=top"
+                 alt="Instructora 4" loading="lazy"/>
+            <span class="instr-spec">Carros · Trámites</span>
+            <div class="instr-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          </div>
+          <div class="instr-body">
+            <div class="instr-name">Valentina Torres</div>
+            <div class="instr-role">Instructora + Asesora</div>
+            <div class="instr-bio">Gestión de trámites y clases de conducción. Habla con ella si necesitas orientación completa.</div>
+            <div class="instr-stats">
+              <div><div class="is-n">7+</div><div class="is-l">Años exp.</div></div>
+              <div><div class="is-n">1.2K</div><div class="is-l">Estudiantes</div></div>
+              <div><div class="is-n">98%</div><div class="is-l">Aprobación</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     GALERÍA
+══════════════════════════════ -->
+<section id="galeria">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="tag-v reveal">Nuestras instalaciones</div>
+        <h2 class="title-v reveal">Conoce <span>VIALIDAD</span></h2>
+        <div class="grad-rule reveal"></div>
+      </div>
+      <div class="col-lg-6">
+        <p class="sub-v reveal">Pista privada, flota moderna, salones de teoría equipados y simuladores de última generación para garantizarte la mejor experiencia.</p>
+      </div>
+    </div>
+
+    <div class="gallery-v reveal">
+      <div class="gv-item">
+        <img src="https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=900&q=80&fit=crop"
+             alt="Práctica en vía" loading="lazy" class="img-f"/>
+        <div class="gv-label">Práctica en vía</div>
+      </div>
+      <div class="gv-item">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop"
+             alt="Clase de conducción" loading="lazy" class="img-f"/>
+        <div class="gv-label">Clases carro</div>
+      </div>
+      <div class="gv-item">
+        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=600&q=80&fit=crop"
+             alt="Flota de vehículos" loading="lazy" class="img-f"/>
+        <div class="gv-label">Nuestra flota</div>
+      </div>
+      <div class="gv-item">
+        <img src="https://images.unsplash.com/photo-1558618047-3c9c4e7e4e36?w=600&q=80&fit=crop"
+             alt="Curso de motos" loading="lazy" class="img-f"/>
+        <div class="gv-label">Curso motos</div>
+      </div>
+      <div class="gv-item">
+        <img src="https://images.unsplash.com/photo-1416339306562-f3d12fefd36f?w=600&q=80&fit=crop"
+             alt="Pista de práctica" loading="lazy" class="img-f"/>
+        <div class="gv-label">Pista privada</div>
+      </div>
+      <div class="gv-item">
+        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&q=80&fit=crop"
+             alt="Clases teóricas" loading="lazy" class="img-f"/>
+        <div class="gv-label">Salón teoría</div>
+      </div>
+      <div class="gv-item">
+        <img src="https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=600&q=80&fit=crop"
+             alt="Instructor" loading="lazy" class="img-f"/>
+        <div class="gv-label">Instructores</div>
+      </div>
+      <div class="gv-item">
+        <img src="https://images.unsplash.com/photo-1611952328952-a84de65e2c2a?w=600&q=80&fit=crop"
+             alt="Licencia entregada" loading="lazy" class="img-f"/>
+        <div class="gv-label">¡Tu licencia!</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     TESTIMONIOS
+══════════════════════════════ -->
+<section id="testimonios">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="text-center mb-5">
+      <div class="tag-v justify-content-center reveal" style="color:rgba(255,255,255,.5);">Historias reales</div>
+      <h2 class="title-v title-v-light reveal">Lo que dicen<br>nuestros <span>estudiantes</span></h2>
+      <div class="grad-rule grad-rule-c reveal"></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testi-v">
+          <div class="testi-stars-v"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-curso-tag">🚗 Carro Completo</div>
+          <div class="testi-text-v">"Aprendí en 3 semanas con el profe Carlos. Súper paciente, explicaba todo muy bien. A la primera pasé el examen de tránsito. 100% recomendado, no busquen más."</div>
+          <div class="testi-author-v">
+            <div class="tav-v">JG</div>
+            <div><div class="tav-name">Juan González</div><div class="tav-city">Bogotá · Graduado 2024</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="testi-v">
+          <div class="testi-stars-v"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-curso-tag">🏍️ Moto</div>
+          <div class="testi-text-v">"Tenía mucho miedo de las motos pero Jhon fue increíble. Me enseñó paso a paso y nunca me presionó. Saqué mi A2 al primer intento. El precio también es muy justo."</div>
+          <div class="testi-author-v">
+            <div class="tav-v">LM</div>
+            <div><div class="tav-name">Laura Morales</div><div class="tav-city">Bogotá · Graduada 2024</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="testi-v">
+          <div class="testi-stars-v"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-curso-tag">📋 Trámite Licencia</div>
+          <div class="testi-text-v">"Valentina me ayudó con todo el papeleo de mi licencia. Sin filas, sin vueltas. En 48 horas tenía todo listo. Además me explicaron todo para el examen teórico. Gracias!"</div>
+          <div class="testi-author-v">
+            <div class="tav-v">AC</div>
+            <div><div class="tav-name">Andrés Castillo</div><div class="tav-city">Bogotá · Cliente 2024</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testi-v">
+          <div class="testi-stars-v"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-curso-tag">🚗 Carro Básico</div>
+          <div class="testi-text-v">"Empecé de cero y en 4 semanas ya conducía sola por la ciudad. Los horarios de la tarde me quedaron perfectos porque trabajo en la mañana. Excelente servicio."</div>
+          <div class="testi-author-v">
+            <div class="tav-v">SP</div>
+            <div><div class="tav-name">Sara Pedraza</div><div class="tav-city">Bogotá · Graduada 2023</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="testi-v">
+          <div class="testi-stars-v"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half-fill"></i></div>
+          <div class="testi-curso-tag">🚚 Recategorización</div>
+          <div class="testi-text-v">"Necesitaba el C2 para mi trabajo y VIALIDAD fue la única escuela que me dio clase en fin de semana. Muy profesionales, buen material y las prácticas son de verdad completas."</div>
+          <div class="testi-author-v">
+            <div class="tav-v">MR</div>
+            <div><div class="tav-name">Miguel Rodríguez</div><div class="tav-city">Bogotá · Graduado 2023</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="testi-v">
+          <div class="testi-stars-v"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-curso-tag">🚗 Carro Completo</div>
+          <div class="testi-text-v">"La profe Daniela es lo mejor. Muy paciente con los que tienen miedo. Yo era de las que nunca había tocado un volante y aprendí rapidísimo. Facilidad de pago en cuotas también."</div>
+          <div class="testi-author-v">
+            <div class="tav-v">CV</div>
+            <div><div class="tav-name">Camila Vargas</div><div class="tav-city">Bogotá · Graduada 2024</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rating summary -->
+    <div class="text-center mt-5 reveal">
+      <div style="font-size:1.4rem;color:#fbbf24;margin-bottom:.5rem;">★★★★★</div>
+      <p style="font-family:var(--font-display);font-size:1.1rem;color:rgba(255,255,255,.5);font-weight:600;">
+        4.9 / 5 · Más de 3.200 reseñas verificadas
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     FAQ
+══════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-5">
+          <div class="tag-v justify-content-center reveal">Dudas frecuentes</div>
+          <h2 class="title-v reveal">Preguntas <span>frecuentes</span></h2>
+          <div class="grad-rule grad-rule-c reveal"></div>
+        </div>
+
+        <div id="faqList">
+          <div class="faq-v reveal">
+            <div class="faq-q-v">¿Cuánto tiempo dura el curso de conducción?<span class="faq-icon-v"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-v">Depende del curso elegido. El básico de carro dura aproximadamente 4 semanas con clases 3 veces por semana. El curso completo puede durar entre 6 y 8 semanas. Las clases de moto toman entre 3 y 4 semanas. Todo depende de tu disponibilidad y tu ritmo de aprendizaje.</div>
+          </div>
+          <div class="faq-v reveal d1">
+            <div class="faq-q-v">¿En cuántas cuotas puedo pagar?<span class="faq-icon-v"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-v">Ofrecemos facilidades de pago: puedes pagar en 2 cuotas sin intereses. La primera al momento de la inscripción y la segunda al comenzar las clases prácticas. Aceptamos efectivo, transferencia bancaria, Nequi, Daviplata y tarjetas de crédito o débito.</div>
+          </div>
+          <div class="faq-v reveal d2">
+            <div class="faq-q-v">¿Qué pasa si fallo el examen de tránsito?<span class="faq-icon-v"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-v">Si no apruebas el examen en el primer intento, te ofrecemos clases de refuerzo sin costo adicional para que te prepares mejor. Nuestro índice de aprobación es del 98%, así que la mayoría de nuestros estudiantes pasan a la primera.</div>
+          </div>
+          <div class="faq-v reveal d3">
+            <div class="faq-q-v">¿Puedo elegir el horario de mis clases?<span class="faq-icon-v"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-v">Sí, totalmente. Ofrecemos clases de lunes a sábado en horarios de mañana (6am–12pm), tarde (12pm–6pm) y noche (6pm–9pm). Al momento de inscribirte escoges los horarios que mejor se adapten a tu agenda.</div>
+          </div>
+          <div class="faq-v reveal">
+            <div class="faq-q-v">¿Cuánto tiempo toma obtener la licencia después del curso?<span class="faq-icon-v"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-v">Una vez termines el curso y apruebes los exámenes teórico y práctico, el trámite de la licencia toma entre 5 y 10 días hábiles. Nosotros te acompañamos en todo el proceso de radicación ante el organismo de tránsito.</div>
+          </div>
+          <div class="faq-v reveal d1">
+            <div class="faq-q-v">¿Los certificados tienen validez en toda Colombia?<span class="faq-icon-v"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-v">Sí. Somos un centro autorizado y avalado por el Ministerio de Transporte de Colombia (Resolución 1565 de 2014). Todos nuestros certificados y constancias de formación tienen validez nacional y son requisito para la obtención de la licencia de conducción.</div>
+          </div>
+          <div class="faq-v reveal d2">
+            <div class="faq-q-v">¿Hacen el examen médico en el centro?<span class="faq-icon-v"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-v">Sí. Contamos con alianza con un centro médico autorizado para la realización del examen de aptitud física, mental y de coordinación que exige el Ministerio de Transporte. El examen se hace en nuestras instalaciones o muy cerca, con cita previa.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     UBICACIÓN
+══════════════════════════════ -->
+<section id="ubicacion">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-v justify-content-center reveal">Encuéntranos</div>
+      <h2 class="title-v reveal">Nuestra <span>ubicación</span></h2>
+      <div class="grad-rule grad-rule-c reveal"></div>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-8 reveal">
+        <div class="map-v">
+          <!--
+            Para activar el mapa real:
+            1. Abre Google Maps y busca tu dirección
+            2. Clic en Compartir → Insertar mapa
+            3. Copia el <iframe> y reemplaza el div.map-placeholder-v
+          -->
+          <div class="map-placeholder-v">
+            <i class="bi bi-geo-alt-fill"></i>
+            <p>Reemplaza con tu iframe de Google Maps</p>
+            <p style="font-size:.6rem;opacity:.4;">Maps → Compartir → Insertar mapa</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 reveal d1">
+        <div class="contact-card-v">
+          <div style="position:relative;z-index:1;">
+            <div class="tag-v" style="color:var(--green);margin-bottom:1rem;">Datos de contacto</div>
+          </div>
+          <div class="cc-item">
+            <div class="cc-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div><div class="cc-lbl">Dirección</div><div class="cc-val">Cra 15 # 80-42<br>Tu ciudad, Colombia</div></div>
+          </div>
+          <div class="cc-item">
+            <div class="cc-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div><div class="cc-lbl">Teléfono</div><div class="cc-val">+57 (1) 000 0000</div></div>
+          </div>
+          <div class="cc-item">
+            <div class="cc-icon"><i class="bi bi-whatsapp"></i></div>
+            <div><div class="cc-lbl">WhatsApp</div><div class="cc-val">+57 300 000 0000</div></div>
+          </div>
+          <div class="cc-item">
+            <div class="cc-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div><div class="cc-lbl">Email</div><div class="cc-val">info@vialidad.co</div></div>
+          </div>
+          <div class="cc-item" style="border:none;">
+            <div class="cc-icon"><i class="bi bi-clock-fill"></i></div>
+            <div><div class="cc-lbl">Horario de atención</div><div class="cc-val">Lun – Vie: 7:00am – 7:00pm<br>Sáb: 8:00am – 4:00pm</div></div>
+          </div>
+
+          <a href="https://wa.me/573000000000?text=Hola%20VIALIDAD,%20quiero%20información%20sobre%20los%20cursos."
+             target="_blank"
+             class="btn-inscribete mt-3 d-flex justify-content-center" style="font-size:.75rem;">
+            <i class="bi bi-whatsapp"></i> Escribir ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     CTA FINAL
+══════════════════════════════ -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-box-v reveal">
+      <p style="font-family:var(--font-body);font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:1rem;font-weight:700;position:relative;z-index:1;">🚗 ¡PLAZAS LIMITADAS ESTE MES!</p>
+      <h2 class="cta-title-v">
+        ¿Listo para sacar<br>tu licencia?
+      </h2>
+      <p style="font-size:1rem;color:rgba(255,255,255,.85);max-width:480px;margin:0 auto 2rem;line-height:1.7;position:relative;z-index:1;">
+        Inscríbete hoy y comienza esta semana. Sin filas, sin complicaciones.
+        Nuestros asesores te atienden en minutos por WhatsApp.
+      </p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center" style="position:relative;z-index:1;">
+        <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20inscribirme%20a%20VIALIDAD%20Centro%20Automovilístico."
+           target="_blank" class="btn-cta-white">
+          <i class="bi bi-whatsapp" style="color:#25d366;"></i> Inscribirme por WhatsApp
+        </a>
+        <a href="tel:+573000000000"
+           style="font-family:var(--font-display);font-size:.85rem;letter-spacing:2px;text-transform:uppercase;font-weight:800;background:rgba(255,255,255,.15);color:var(--white);border:2px solid rgba(255,255,255,.3);padding:1.1rem 2rem;border-radius:30px;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:all .3s;"
+           onmouseover="this.style.background='rgba(255,255,255,.25)'"
+           onmouseout="this.style.background='rgba(255,255,255,.15)'">
+          <i class="bi bi-telephone-fill"></i> Llamar ahora
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand-v">VIA<span>LIDAD</span></div>
+        <div class="footer-tag-v">Centro Automovilístico · Avalado MinTransporte</div>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.3);font-family:var(--font-body);line-height:1.8;margin-top:1rem;font-weight:300;">
+          Formando conductores seguros y responsables en Colombia desde hace más de 15 años.
+          Cursos de carros, motos, vehículos pesados y trámites de licencias.
+        </p>
+        <div style="margin-top:1rem;display:inline-block;background:rgba(29,185,84,.1);border:1px solid var(--green-border);border-radius:10px;padding:.5rem 1rem;">
+          <span style="font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--green);font-weight:700;">✅ Res. 1565/2014 MinTransporte</span>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-col-h-v">Navegación</div>
+        <a href="#nosotros"    class="footer-lnk-v">Nosotros</a>
+        <a href="#cursos"      class="footer-lnk-v">Cursos</a>
+        <a href="#proceso"     class="footer-lnk-v">Inscripción</a>
+        <a href="#instructores"class="footer-lnk-v">Instructores</a>
+        <a href="#galeria"     class="footer-lnk-v">Galería</a>
+        <a href="#ubicacion"   class="footer-lnk-v">Ubicación</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-h-v">Cursos</div>
+        <a href="#cursos" class="footer-lnk-v">Carro Básico</a>
+        <a href="#cursos" class="footer-lnk-v">Carro Completo</a>
+        <a href="#cursos" class="footer-lnk-v">Motocicleta</a>
+        <a href="#cursos" class="footer-lnk-v">Recategorización</a>
+        <a href="#cursos" class="footer-lnk-v">Trámites licencias</a>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-col-h-v">Contacto</div>
+        <a href="https://wa.me/573000000000" target="_blank" class="footer-lnk-v">
+          <i class="bi bi-whatsapp me-2" style="color:#25d366;"></i>+57 300 000 0000
+        </a>
+        <a href="tel:+5710000000" class="footer-lnk-v">
+          <i class="bi bi-telephone me-2" style="color:var(--green);"></i>+57 (1) 000 0000
+        </a>
+        <a href="mailto:info@vialidad.co" class="footer-lnk-v">
+          <i class="bi bi-envelope me-2" style="color:var(--blue);"></i>info@vialidad.co
+        </a>
+        <span class="footer-lnk-v" style="cursor:default;">
+          <i class="bi bi-geo-alt me-2" style="color:var(--green);"></i>Tu ciudad, Colombia
+        </span>
+        <div style="margin-top:1rem;padding:.8rem;background:rgba(29,185,84,.08);border:1px solid var(--green-border);border-radius:10px;">
+          <div style="font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--green);margin-bottom:.3rem;font-weight:700;">Horario</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.35);">Lun–Vie: 7am–7pm · Sáb: 8am–4pm</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-btm-v">
+      <div class="footer-copy-v">© 2025 VIALIDAD Centro Automovilístico. Todos los derechos reservados. · Imágenes: Unsplash</div>
+      <div>
+        <a href="#" class="soc-v" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="soc-v" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="soc-v" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        <a href="https://wa.me/573000000000" class="soc-v" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573000000000?text=Hola%20VIALIDAD!%20Quiero%20información%20sobre%20los%20cursos%20de%20conducción."
+   target="_blank" class="wa-v" aria-label="WhatsApp">
+  <div class="wa-ring-v"></div>
+  <i class="bi bi-whatsapp"></i>
+  <div class="wa-v-label">¡Escríbenos! 🚗</div>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* ── Navbar scroll ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('elevated', window.scrollY > 40));
+
+  /* ── Mobile toggle ── */
+  document.getElementById('navToggle').addEventListener('click', () => {
+    const m = document.getElementById('mob-nav');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  });
+  document.getElementById('mob-nav').querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('mob-nav').style.display = 'none')
+  );
+
+  /* ── Hero image ── */
+  const heroImg = document.getElementById('heroImg');
+  if (heroImg) { if(heroImg.complete) heroImg.classList.add('on'); else heroImg.addEventListener('load',()=>heroImg.classList.add('on')); }
+
+  /* ── Lazy images ── */
+  document.querySelectorAll('.img-f').forEach(img => {
+    if(img.complete) img.classList.add('on');
+    else { img.addEventListener('load',()=>img.classList.add('on')); img.addEventListener('error',()=>{}); }
+  });
+
+  /* ── Reveal observer ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold:0.08 });
+  document.querySelectorAll('.reveal,.rl,.rr,.tl-item').forEach(el => io.observe(el));
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t){ e.preventDefault(); window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-70,behavior:'smooth'}); }
+    });
+  });
+
+  /* ── FAQ ── */
+  document.querySelectorAll('.faq-q-v').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-v').forEach(f => f.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* ── Counter animation ── */
+  function animateVal(el, target, suffix='') {
+    let cur = 0; const isFloat = target % 1 !== 0;
+    const dur = 1800; const step = 16;
+    const inc = target / (dur / step);
+    const timer = setInterval(() => {
+      cur += inc;
+      if(cur >= target){ cur = target; clearInterval(timer); }
+      el.querySelector('.hs-n').innerHTML = (isFloat ? cur.toFixed(1) : Math.floor(cur)) + suffix;
+    }, step);
+  }
+  const heroObs = new IntersectionObserver(entries => {
+    if(entries[0].isIntersecting) {
+      document.querySelectorAll('.hs-item').forEach((item, i) => {
+        const vals = [{n:15,s:'+'},{n:12,s:'K+'},{n:98,s:'%'},{n:8,s:'+'}];
+        if(vals[i]) animateVal(item, vals[i].n, vals[i].s);
+      });
+      heroObs.disconnect();
+    }
+  }, {threshold:.3});
+  const heroSection = document.getElementById('hero');
+  if(heroSection) heroObs.observe(heroSection);
+</script>
+</body>
+</html>

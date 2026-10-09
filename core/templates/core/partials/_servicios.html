@@ -1,0 +1,44 @@
+<section class="seccion seccion-servicios" id="servicios">
+
+    <div class="fondo-animado" aria-hidden="true">
+        <span class="capa capa-1"></span>
+        <span class="capa capa-2"></span>
+        <div class="fondo-video listo" data-video="https://www.fyainnovation.com/video/servicios-fondo.mp4" data-velocidad="1.6">
+            <video muted playsinline preload="auto" class="capa-video visible" src="https://www.fyainnovation.com/video/servicios-fondo.mp4"></video>
+            <video muted playsinline preload="auto" class="capa-video" src="https://www.fyainnovation.com/video/servicios-fondo.mp4"></video>
+        </div>
+    </div>
+
+    <div class="contenedor">
+        <div class="encabezado-seccion aparece">
+            <span class="kicker">Qué hacemos</span>
+            <h2>Creamos soluciones digitales que impulsan tu negocio.</h2>
+            <p>Desarrollamos sitios web, tiendas online, software a la medida y agentes de
+               inteligencia artificial para ayudarte a vender por internet, automatizar tareas
+               y optimizar procesos. Soluciones diseñadas según las necesidades reales de tu
+               negocio.</p>
+        </div>
+
+        <div class="rejilla rejilla-3">
+            {% for servicio in servicios %}
+            <a class="tarjeta tarjeta-enlace aparece" href="{% url 'core:servicio_detalle' servicio.detalle_slug %}">
+                <div class="icono">
+                    <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">{{ servicio.icono|safe }}</svg>
+                </div>
+                <h3>{{ servicio.titulo }}</h3>
+                <p>{{ servicio.descripcion }}</p>
+                <ul class="lista-entregables">
+                    {% for entregable in servicio.entregables %}
+                    <li>{{ entregable }}</li>
+                    {% endfor %}
+                </ul>
+                <span class="enlace-mas">Ver detalle →</span>
+            </a>
+            {% endfor %}
+        </div>
+
+        <p class="centro-enlace">
+            <a class="btn btn-fantasma" href="#planes">Ver todos los servicios</a>
+        </p>
+    </div>
+</section>

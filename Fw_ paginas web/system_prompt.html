@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prompt — Portfolio Web Developer</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Unbounded:wght@400;700;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap');
+
+:root {
+  --bg: #050810;
+  --surface: #0c1120;
+  --card: #101828;
+  --border: #1a2740;
+  --cyan: #00d4ff;
+  --cyan-dim: #00d4ff12;
+  --magenta: #ff2d78;
+  --yellow: #ffd60a;
+  --text: #e8edf5;
+  --muted: #4a6080;
+  --glow: 0 0 40px #00d4ff25;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.wrap { position: relative; z-index: 1; max-width: 980px; margin: 0 auto; padding: 0 28px; }
+
+header { padding: 80px 0 70px; text-align: center; }
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--cyan-dim);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  padding: 7px 20px;
+  border-radius: 100px;
+  margin-bottom: 30px;
+}
+.chip::before { content: '◆'; font-size: 7px; animation: spin 4s linear infinite; display: inline-block; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+h1 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: clamp(2rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -1px;
+  margin-bottom: 18px;
+}
+h1 em { font-style: normal; color: var(--cyan); }
+h1 .acc { color: var(--magenta); }
+
+.sub {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 540px;
+  margin: 0 auto 44px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.tabs {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 50px;
+  flex-wrap: wrap;
+}
+.tab {
+  background: var(--card);
+  border: 1px solid var(--border);
+  color: var(--muted);
+  padding: 10px 22px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  transition: all 0.25s;
+}
+.tab:hover { border-color: var(--cyan); color: var(--cyan); }
+.tab.active { background: var(--cyan-dim); border-color: var(--cyan); color: var(--cyan); }
+
+.section { display: none; }
+.section.active { display: block; }
+
+.codebox {
+  background: #07101f;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+  box-shadow: var(--glow);
+}
+.codebox-header {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 13px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.dots { display: flex; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dr { background: #ff5f56; } .dy { background: #ffbd2e; } .dg { background: #27c93f; }
+.fname { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; }
+.copy-btn {
+  background: var(--cyan-dim);
+  border: 1px solid var(--cyan);
+  color: var(--cyan);
+  font-size: 10px;
+  letter-spacing: 1px;
+  padding: 5px 14px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+.copy-btn:hover { background: var(--cyan); color: #000; font-weight: 700; }
+.code {
+  padding: 28px 32px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  line-height: 1.9;
+  color: #7090b0;
+  white-space: pre-wrap;
+  overflow-x: auto;
+}
+.kw { color: var(--cyan); font-weight: 700; }
+.str { color: var(--yellow); }
+.tag { color: var(--magenta); }
+.hi { color: #e8edf5; font-weight: 500; }
+.cm { color: #2a4060; font-style: italic; }
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+.info-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+  transition: border-color 0.3s;
+}
+.info-card:hover { border-color: var(--cyan); }
+.info-icon { font-size: 1.6rem; margin-bottom: 12px; }
+.info-card h4 {
+  font-family: 'Unbounded', sans-serif;
+  font-size: 0.72rem;
+  color: var(--cyan);
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+.info-card p { font-size: 0.85rem; color: #7090b0; line-height: 1.55; }
+.info-card code { background: var(--surface); padding: 1px 5px; border-radius: 4px; font-size: 0.8rem; color: var(--yellow); }
+
+.slabel {
+  font-size: 10px;
+  color: var(--cyan);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: 'DM Sans', sans-serif;
+}
+.slabel::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+.checklist { list-style: none; margin-bottom: 28px; }
+.checklist li {
+  padding: 10px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.88rem;
+  color: #94a3b8;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.checklist li::before { content: '→'; color: var(--cyan); font-weight: 700; flex-shrink: 0; margin-top: 1px; }
+
+/* PREVIEW */
+.preview-frame {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  margin-bottom: 32px;
+}
+.preview-bar {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.url-bar {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 6px 14px;
+  font-size: 11px;
+  color: var(--muted);
+  flex: 1;
+  font-family: monospace;
+}
+.mini-site {
+  background: #060c18;
+  min-height: 520px;
+  position: relative;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+.mini-nav {
+  background: rgba(5,8,16,0.95);
+  border-bottom: 1px solid #1a2740;
+  padding: 14px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
+}
+.mini-logo { font-family: 'Unbounded', sans-serif; font-size: 1rem; font-weight: 900; color: #00d4ff; }
+.mini-logo span { color: #ff2d78; }
+.mini-navlinks { display: flex; gap: 24px; list-style: none; }
+.mini-navlinks a { color: #4a6080; text-decoration: none; font-size: 0.78rem; letter-spacing: 0.5px; transition: color 0.2s; }
+.mini-navlinks a:hover { color: #00d4ff; }
+.mini-cta-btn {
+  background: #00d4ff; color: #000; border: none; padding: 8px 18px;
+  border-radius: 7px; font-size: 0.75rem; font-weight: 700; cursor: pointer;
+  letter-spacing: 0.5px; font-family: 'DM Sans', sans-serif;
+}
+.mini-hero { padding: 70px 40px 60px; position: relative; }
+.mini-hero::before {
+  content: ''; position: absolute; top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #00d4ff0a 0%, transparent 70%);
+  pointer-events: none;
+}
+.mini-eyebrow {
+  display: inline-block; background: rgba(0,212,255,0.1);
+  border: 1px solid rgba(0,212,255,0.3); color: #00d4ff;
+  font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 100px; margin-bottom: 18px;
+}
+.mini-h1 {
+  font-family: 'Unbounded', sans-serif; font-size: 2.2rem; font-weight: 900;
+  line-height: 1.1; letter-spacing: -0.5px; color: #e8edf5;
+  margin-bottom: 16px; max-width: 560px;
+}
+.mini-h1 em { font-style: normal; color: #00d4ff; }
+.mini-h1 .acc { color: #ff2d78; }
+.mini-desc { font-size: 0.88rem; color: #4a6080; max-width: 480px; line-height: 1.7; margin-bottom: 28px; }
+.mini-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.btn-p {
+  background: #00d4ff; color: #000; padding: 11px 24px; border-radius: 8px;
+  font-weight: 700; font-size: 0.8rem; cursor: pointer; border: none;
+  letter-spacing: 0.3px; font-family: 'DM Sans', sans-serif; transition: all 0.2s;
+}
+.btn-p:hover { background: #00b8e0; transform: translateY(-1px); }
+.btn-s {
+  background: transparent; color: #e8edf5; padding: 11px 24px; border-radius: 8px;
+  font-size: 0.8rem; cursor: pointer; border: 1px solid #1a2740;
+  font-family: 'DM Sans', sans-serif; transition: all 0.2s;
+}
+.btn-s:hover { border-color: #00d4ff; color: #00d4ff; }
+.mini-stats { display: flex; border-top: 1px solid #1a2740; }
+.stat { flex: 1; padding: 20px; text-align: center; border-right: 1px solid #1a2740; }
+.stat:last-child { border-right: none; }
+.stat-num { font-family: 'Unbounded', sans-serif; font-size: 1.4rem; font-weight: 900; color: #00d4ff; display: block; }
+.stat-label { font-size: 0.68rem; color: #4a6080; margin-top: 2px; }
+.mini-services { padding: 40px; background: #070f1e; border-top: 1px solid #1a2740; }
+.mini-services h3 { font-family: 'Unbounded', sans-serif; font-size: 0.65rem; color: #00d4ff; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 20px; }
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.srv-card { background: #0c1828; border: 1px solid #1a2740; border-radius: 10px; padding: 16px; transition: border-color 0.2s; }
+.srv-card:hover { border-color: #00d4ff30; }
+.srv-icon { font-size: 1.4rem; margin-bottom: 8px; }
+.srv-name { font-size: 0.75rem; font-weight: 600; color: #cbd5e1; margin-bottom: 4px; }
+.srv-desc { font-size: 0.68rem; color: #4a6080; line-height: 1.5; }
+
+footer {
+  text-align: center;
+  padding: 40px 0 60px;
+  color: var(--muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border);
+  margin-top: 20px;
+}
+footer span { color: var(--cyan); }
+
+@media (max-width: 600px) {
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .mini-h1 { font-size: 1.5rem; }
+  .mini-nav { padding: 14px 20px; }
+  .mini-navlinks { display: none; }
+}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <div class="chip">Portfolio Prompt System</div>
+    <h1>Prompt para tu <em>Web de</em><br><span class="acc">Desarrollador</span> Freelance</h1>
+    <p class="sub">System prompt completo para que Claude construya tu página web profesional. Con preview de cómo quedará, estructura recomendada y checklist de personalización.</p>
+  </header>
+
+  <div class="tabs">
+    <button class="tab active" onclick="showTab('prompt', this)">📋 El Prompt</button>
+    <button class="tab" onclick="showTab('preview', this)">🖥️ Preview Web</button>
+    <button class="tab" onclick="showTab('checklist', this)">✅ Checklist</button>
+    <button class="tab" onclick="showTab('tips', this)">💡 Tips SEO</button>
+  </div>
+
+  <!-- TAB: PROMPT -->
+  <div class="section active" id="tab-prompt">
+    <div class="slabel">System Prompt — Copia completo en Claude</div>
+    <div class="codebox">
+      <div class="codebox-header">
+        <div class="dots"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+        <span class="fname">system_prompt_portfolio_web.txt</span>
+        <button class="copy-btn" id="copy1" onclick="copyCode('prompt-code','copy1')">COPIAR</button>
+      </div>
+      <div class="code" id="prompt-code"><span class="cm"># ================================================================</span>
+<span class="cm"># SYSTEM PROMPT — CONSTRUCTOR DE PORTFOLIO WEB FREELANCE</span>
+<span class="cm"># ================================================================</span>
+
+<span class="kw">Eres un arquitecto frontend senior</span> especializado en crear sitios web de 
+portafolio para desarrolladores freelance que quieren conseguir clientes.
+Tu objetivo es construir una página web profesional, rápida y persuasiva
+usando <span class="hi">HTML5, CSS3, Bootstrap 5 y JavaScript vanilla</span>.
+
+<span class="tag">## DATOS DEL DESARROLLADOR</span>
+<span class="cm"># ← PERSONALIZA ESTOS DATOS ANTES DE USAR EL PROMPT</span>
+
+<span class="str">NOMBRE:</span>           [TU NOMBRE COMPLETO]
+<span class="str">ALIAS/MARCA:</span>      [TU NOMBRE COMERCIAL, ej: "CarlosDev" o tu nombre]
+<span class="str">TÍTULO:</span>          Full Stack Developer | Django · Python · PHP · IA
+<span class="str">TAGLINE:</span>         "Convierto tus ideas en software que genera dinero"
+<span class="str">CIUDAD/PAÍS:</span>     [TU CIUDAD, PAÍS]
+<span class="str">EMAIL:</span>           [TU EMAIL PROFESIONAL]
+<span class="str">WHATSAPP:</span>        [TU NÚMERO CON CÓDIGO DE PAÍS]
+<span class="str">LINKEDIN:</span>        [URL DE TU LINKEDIN]
+<span class="str">GITHUB:</span>          [URL DE TU GITHUB]
+<span class="str">AÑOS EXP:</span>        [X] años de experiencia
+<span class="str">PROYECTOS:</span>       +[X] proyectos entregados
+<span class="str">CLIENTES:</span>        +[X] clientes satisfechos
+
+<span class="tag">## SERVICIOS A DESTACAR</span>
+
+1. Desarrollo Web Django / Python (APIs REST, backends robustos)
+2. Desarrollo PHP / CodeIgniter (sistemas web, ERP, CRM)
+3. Ecommerce (tiendas online, carrito, pagos, inventario)
+4. Páginas corporativas (presentación, portafolio de empresas)
+5. Agentes Inteligentes con IA (chatbots, automatizaciones con LLMs)
+6. Integración de APIs (pasarelas de pago, WhatsApp, Google Maps, etc.)
+7. Creación de APIs REST (endpoints, autenticación, documentación)
+8. Automatizaciones y bots (procesos repetitivos, scraping, workflows)
+
+<span class="tag">## ESTRUCTURA DE LA PÁGINA</span>
+
+Construye el sitio con estas secciones en este orden exacto:
+
+<span class="kw">1. NAVBAR FIJO</span>
+   - Logo (nombre/marca) a la izquierda
+   - Links: Servicios · Tecnologías · Portafolio · Sobre mí · Contacto
+   - Botón CTA: "Contrátame" (abre WhatsApp con mensaje predefinido)
+   - Responsive con hamburger menu en móvil
+   - Efecto de transparencia que solidifica al hacer scroll
+
+<span class="kw">2. HERO SECTION</span>
+   - Eyebrow: "Desarrollador Web Freelance"
+   - H1 impactante con nombre y especialidad
+   - Descripción de 2 líneas: qué haces + beneficio para el cliente
+   - 2 botones: "Ver mis proyectos" y "Contactar por WhatsApp"
+   - Badge animado: "Disponible para proyectos"
+   - Stats en fila: proyectos, clientes, años de experiencia, tecnologías
+   - Fondo oscuro con efecto de partículas o gradiente animado
+
+<span class="kw">3. SERVICIOS</span>
+   - Grid de tarjetas (3 columnas desktop, 2 tablet, 1 móvil)
+   - Cada tarjeta: icono, título, descripción corta, lista de 3 beneficios
+   - Hover con borde iluminado y micro-animación
+   - CTA al final: "¿No encuentras lo que buscas? Hablemos"
+
+<span class="kw">4. TECNOLOGÍAS</span>
+   - Logos/badges de: Python, Django, PHP, CodeIgniter, JavaScript,
+     Bootstrap, MySQL, PostgreSQL, REST APIs, Docker, Git, OpenAI
+   - Efecto de scroll infinito o grid con hover tooltips
+
+<span class="kw">5. PROCESO DE TRABAJO</span>
+   - 4 pasos: Consulta gratis → Propuesta → Desarrollo → Entrega
+   - Timeline horizontal (o vertical en móvil)
+   - Descripción breve de cada paso
+   - Transmite confianza y profesionalismo
+
+<span class="kw">6. PORTAFOLIO</span>
+   - Grid de 6 proyectos (pueden ser placeholders con datos de ejemplo)
+   - Cada card: imagen del proyecto, nombre, tecnologías usadas,
+     descripción breve, botón "Ver proyecto"
+   - Filtros por categoría: Web · Ecommerce · API · IA · PHP
+   - Los proyectos de ejemplo deben ser realistas y variados
+
+<span class="kw">7. TESTIMONIOS</span>
+   - 3-4 testimonios de clientes (pueden ser ficticios realistas)
+   - Foto de avatar (usar iniciales con colores si no hay foto)
+   - Nombre, empresa, país, calificación en estrellas
+   - Carrusel automático con pausa en hover
+
+<span class="kw">8. SOBRE MÍ</span>
+   - Foto placeholder o avatar geométrico
+   - Párrafo personal que transmita pasión y experiencia
+   - Lista de habilidades con barra de progreso o badges
+   - Por qué elegirme (3 razones con iconos)
+
+<span class="kw">9. CTA FINAL</span>
+   - Fondo contrastante (oscuro con acento de color)
+   - Texto: "¿Listo para construir tu proyecto?"
+   - Botón grande: "Escribeme por WhatsApp ahora"
+   - Link alternativo: enviar email
+   - Garantía de respuesta en 24h
+
+<span class="kw">10. FOOTER</span>
+    - Logo + tagline breve
+    - Links rápidos
+    - Redes sociales
+    - Copyright
+    - Política de privacidad (link vacío por ahora)
+
+<span class="tag">## DISEÑO Y ESTÉTICA</span>
+
+<span class="str">TEMA:</span> Dark (fondo muy oscuro #050810 o similar)
+<span class="str">ACENTO PRIMARIO:</span> Azul eléctrico / cyan (#00d4ff)
+<span class="str">ACENTO SECUNDARIO:</span> Magenta/rosa (#ff2d78)
+<span class="str">TIPOGRAFÍA DISPLAY:</span> 'Unbounded' o 'Syne' (títulos impactantes)
+<span class="str">TIPOGRAFÍA BODY:</span> 'DM Sans' o 'Plus Jakarta Sans' (legible)
+<span class="str">ESTILO:</span> Tech profesional — limpio pero con personalidad
+
+Efectos a implementar:
+- Grid sutil de fondo (CSS puro)
+- Glow en elementos de acento
+- Animaciones de entrada con Intersection Observer
+- Hover con transiciones suaves
+- Gradientes en textos importantes
+- Scroll suave entre secciones
+
+<span class="tag">## FUNCIONALIDADES JAVASCRIPT</span>
+
+Implementa TODAS estas funciones:
+
+<span class="str">1. WhatsApp CTA dinámico</span>
+   URL: https://wa.me/[NÚMERO]?text=Hola+[NOMBRE],+vi+tu+web...
+
+<span class="str">2. Formulario de contacto</span>
+   - Validación en tiempo real (sin backend, usar EmailJS o Formspree)
+   - Campos: Nombre, Email, WhatsApp, Tipo de proyecto, Presupuesto, Mensaje
+   - Selector de presupuesto: Menos de $500 / $500-$2000 / $2000-$5000 / +$5000
+
+<span class="str">3. Navbar inteligente</span>
+   - Solidifica con blur al scrollear 80px
+   - Marca el link activo según la sección visible
+   - Cierra menú móvil al hacer clic en un link
+
+<span class="str">4. Animaciones de entrada</span>
+   - Intersection Observer para fade-in al hacer scroll
+   - Contador animado para las estadísticas del hero
+
+<span class="str">5. Filtros de portafolio</span>
+   - Filtrado por categoría con animación de transición
+
+<span class="str">6. Carrusel de testimonios</span>
+   - Auto-play cada 5 segundos, pausa en hover
+
+<span class="tag">## OPTIMIZACIÓN Y SEO</span>
+
+- Meta tags completos (title, description, OG tags)
+- Semantic HTML (header, main, section, article, footer)
+- Alt text en todas las imágenes
+- Título de página: "[NOMBRE] — Desarrollador Web Django Python PHP | Freelance"
+- Meta description: "Desarrollador web freelance especializado en Django, Python, PHP..."
+- Schema.org markup para Persona/Freelancer
+- Colores con contraste WCAG AA
+
+<span class="tag">## TECNOLOGÍAS PERMITIDAS</span>
+
+- Bootstrap 5 (CDN) para grid y componentes
+- Bootstrap Icons (CDN) para iconografía
+- Google Fonts para tipografía
+- Vanilla JavaScript únicamente (sin jQuery, sin frameworks)
+- CSS Custom Properties para theming
+
+<span class="tag">## ENTREGA</span>
+
+Entrega UN SOLO ARCHIVO index.html con:
+- Todo el CSS en &lt;style&gt; dentro del &lt;head&gt;
+- Todo el JavaScript en &lt;script&gt; antes del &lt;/body&gt;
+- Imágenes usando placeholder.co o unsplash para demos
+- Código limpio, comentado por secciones
+- Funcional al abrir directo en el navegador (sin servidor)
+
+Al terminar pregunta: "¿Quieres que ajuste colores, textos, secciones o agregue algo más?"
+
+<span class="cm"># ================================================================</span>
+<span class="cm"># FIN DEL SYSTEM PROMPT</span>
+<span class="cm"># ================================================================</span></div>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon">🎯</div>
+        <h4>Cómo usar este prompt</h4>
+        <p>Copia el prompt, reemplaza los valores entre [CORCHETES] con tus datos reales, luego pégalo al inicio de un chat nuevo con Claude y escribe: <em>"Construye mi web con estos datos."</em></p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">⚡</div>
+        <h4>Iteración rápida</h4>
+        <p>Cuando Claude entregue la primera versión, pide ajustes concretos: "Cambia el color del botón", "Agrega sección de precios", "Hazlo más minimalista".</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📁</div>
+        <h4>Un solo archivo</h4>
+        <p>El resultado será un <code>index.html</code> completo que puedes subir a cualquier hosting: GitHub Pages, Netlify, Hostinger, etc. Sin configuración extra.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: PREVIEW -->
+  <div class="section" id="tab-preview">
+    <div class="slabel">Así lucirá tu web — Vista previa</div>
+    <div class="preview-frame">
+      <div class="preview-bar">
+        <div class="dots"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+        <div class="url-bar">🔒 tudominio.com</div>
+      </div>
+      <div class="mini-site">
+        <nav class="mini-nav">
+          <div class="mini-logo">Tu<span>Dev</span></div>
+          <ul class="mini-navlinks">
+            <li><a href="#">Servicios</a></li>
+            <li><a href="#">Portafolio</a></li>
+            <li><a href="#">Sobre mí</a></li>
+            <li><a href="#">Contacto</a></li>
+          </ul>
+          <button class="mini-cta-btn">Contrátame</button>
+        </nav>
+        <div class="mini-hero">
+          <div class="mini-eyebrow">Disponible para proyectos ●</div>
+          <div class="mini-h1">Desarrollo web<br><em>que convierte</em><br>ideas en <span class="acc">resultados</span></div>
+          <p class="mini-desc">Django · Python · PHP · Ecommerce · Agentes IA · APIs. Soluciones a medida que hacen crecer tu negocio.</p>
+          <div class="mini-btns">
+            <button class="btn-p">Ver proyectos</button>
+            <button class="btn-s">WhatsApp →</button>
+          </div>
+        </div>
+        <div class="mini-stats">
+          <div class="stat"><span class="stat-num">+50</span><span class="stat-label">Proyectos</span></div>
+          <div class="stat"><span class="stat-num">+30</span><span class="stat-label">Clientes</span></div>
+          <div class="stat"><span class="stat-num">5+</span><span class="stat-label">Años exp.</span></div>
+          <div class="stat"><span class="stat-num">12</span><span class="stat-label">Tecnologías</span></div>
+        </div>
+        <div class="mini-services">
+          <h3>◆ Servicios</h3>
+          <div class="services-grid">
+            <div class="srv-card"><div class="srv-icon">🐍</div><div class="srv-name">Django / Python</div><div class="srv-desc">APIs REST, backends escalables, dashboards</div></div>
+            <div class="srv-card"><div class="srv-icon">🛒</div><div class="srv-name">Ecommerce</div><div class="srv-desc">Tiendas online con pagos y gestión de inventario</div></div>
+            <div class="srv-card"><div class="srv-icon">🤖</div><div class="srv-name">Agentes IA</div><div class="srv-desc">Chatbots, automatizaciones y agentes con LLMs</div></div>
+            <div class="srv-card"><div class="srv-icon">🔌</div><div class="srv-name">APIs REST</div><div class="srv-desc">Integración y creación de APIs documentadas</div></div>
+            <div class="srv-card"><div class="srv-icon">🏢</div><div class="srv-name">Corporativas</div><div class="srv-desc">Páginas empresariales que proyectan confianza</div></div>
+            <div class="srv-card"><div class="srv-icon">🐘</div><div class="srv-name">PHP / CodeIgniter</div><div class="srv-desc">Sistemas web, CRM, ERP a medida</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon">🎨</div>
+        <h4>Paleta oscura tech</h4>
+        <p>Fondo casi negro con acentos cyan y magenta. Transmite modernidad y expertise técnico. Funciona excelente para clientes de tecnología y empresas.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📱</div>
+        <h4>100% Responsive</h4>
+        <p>El código generado funciona perfecto en móvil, tablet y escritorio. Bootstrap 5 garantiza la adaptabilidad sin esfuerzo extra.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: CHECKLIST -->
+  <div class="section" id="tab-checklist">
+    <div class="slabel">Checklist — Personaliza antes de publicar</div>
+    <div class="codebox">
+      <div class="codebox-header">
+        <div class="dots"><span class="dot dr"></span><span class="dot dy"></span><span class="dot dg"></span></div>
+        <span class="fname">checklist_personalizacion.txt</span>
+        <button class="copy-btn" id="copy2" onclick="copyCode('checklist-code','copy2')">COPIAR</button>
+      </div>
+      <div class="code" id="checklist-code"><span class="cm"># PROMPT DE PERSONALIZACIÓN — úsalo después del prompt principal</span>
+<span class="cm"># Pídele a Claude que actualice tu web con estos datos reales:</span>
+
+<span class="kw">Actualiza mi web con los siguientes datos reales:</span>
+
+<span class="tag">DATOS PERSONALES:</span>
+- Nombre: [TU NOMBRE]
+- Título profesional: [TU TÍTULO]
+- Bio: "[ESCRIBE 2-3 ORACIONES SOBRE TI Y TU EXPERIENCIA]"
+- Años de experiencia: [X]
+- Proyectos completados: [X]
+- Clientes: [X]
+- WhatsApp: [+CÓDIGO PAÍS NÚMERO]
+- Email: [TU EMAIL]
+- LinkedIn: [URL]
+- GitHub: [URL]
+
+<span class="tag">PROYECTOS DEL PORTAFOLIO:</span>
+Proyecto 1:
+  - Nombre: [NOMBRE DEL PROYECTO]
+  - Tipo: [Web / Ecommerce / API / IA]
+  - Tecnologías: [Django, Python, PostgreSQL...]
+  - Descripción: [1-2 oraciones de qué hace]
+  - URL (si tiene): [URL o "en desarrollo"]
+
+[Repite para 3-6 proyectos]
+
+<span class="tag">TESTIMONIOS REALES (si tienes):</span>
+Cliente 1:
+  - Nombre: [NOMBRE]
+  - Empresa: [EMPRESA O "Emprendedor"]
+  - País: [PAÍS]
+  - Texto: "[LO QUE DIJO]"
+
+<span class="tag">AJUSTES DE DISEÑO:</span>
+- Color principal: [#color o descripción]
+- Quiero que el estilo sea más: [oscuro/claro/minimalista/vistoso]
+- Idioma: [Español / Inglés / Ambos]
+- ¿Sección de precios? [Sí mostrar rangos / No]
+
+<span class="tag">MENSAJE DE WHATSAPP PREDEFINIDO:</span>
+"Hola [NOMBRE], vi tu página web y me interesa contratar tus servicios 
+para [tipo de proyecto]. ¿Podemos hablar?"</div>
+    </div>
+  </div>
+
+  <!-- TAB: TIPS -->
+  <div class="section" id="tab-tips">
+    <div class="slabel">Tips para atraer clientes con tu web</div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-icon">🔍</div>
+        <h4>SEO Local</h4>
+        <p>Agrega tu ciudad en el título: "Desarrollador Web en [Ciudad] — Django Python PHP". Google posiciona mejor resultados locales para búsquedas de servicios.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">⚡</div>
+        <h4>WhatsApp como CTA principal</h4>
+        <p>Los clientes prefieren hablar por WhatsApp antes que llenar formularios. Pon el botón de WhatsApp visible en el hero, navbar y footer.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">💰</div>
+        <h4>Muestra rangos de precio</h4>
+        <p>Los clientes serios quieren saber si puedes estar dentro de su presupuesto. Una sección de "Desde $X" filtra leads y ahorra tiempo de negociación.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🏆</div>
+        <h4>Portafolio > Todo lo demás</h4>
+        <p>Si no tienes proyectos reales, crea 2-3 proyectos de demo con código en GitHub. Un proyecto funcional convence más que 10 testimonios.</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">📊</div>
+        <h4>Google Analytics</h4>
+        <p>Agrega GA4 para saber cuántos visitan tu web y qué secciones leen. Pídele a Claude: "Agrega el código de Google Analytics G-XXXXXXXXX".</p>
+      </div>
+      <div class="info-card">
+        <div class="info-icon">🚀</div>
+        <h4>Deploy gratis</h4>
+        <p>Sube tu <code>index.html</code> a GitHub Pages o Netlify. Es gratis, rápido y obtienes un dominio <code>tuusuario.github.io</code> en minutos.</p>
+      </div>
+    </div>
+
+    <div class="slabel">Prompts de mejora continua</div>
+    <ul class="checklist">
+      <li>Agrega una sección de precios con 3 paquetes: Básico, Profesional y Premium con sus características</li>
+      <li>Crea un blog section con 3 artículos placeholder sobre Django, PHP y IA para mejorar SEO</li>
+      <li>Agrega un chatbot flotante (widget) que simule responder preguntas frecuentes de clientes</li>
+      <li>Implementa modo claro/oscuro con un toggle en el navbar</li>
+      <li>Agrega animación de código que simule "typear" en el hero section</li>
+      <li>Crea una sección FAQ con las 5 preguntas más comunes de clientes (accordion)</li>
+      <li>Agrega un popup de "Consulta gratis" que aparezca después de 30 segundos en la página</li>
+      <li>Implementa un formulario de contacto real usando Formspree (gratis hasta 50 envíos/mes)</li>
+    </ul>
+  </div>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    Prompt para Portfolio Web Freelance · Tecnologías: <span>HTML · CSS · Bootstrap · JS</span>
+  </div>
+</footer>
+
+<script>
+  function showTab(name, el) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    el.classList.add('active');
+  }
+
+  function copyCode(id, btnId) {
+    const el = document.getElementById(id);
+    // Get text content without HTML tags
+    const text = el.innerText;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.getElementById(btnId);
+      const orig = btn.textContent;
+      btn.textContent = '✓ COPIADO';
+      btn.style.background = 'var(--cyan)';
+      btn.style.color = '#000';
+      setTimeout(() => {
+        btn.textContent = orig;
+        btn.style.background = 'var(--cyan-dim)';
+        btn.style.color = 'var(--cyan)';
+      }, 2000);
+    });
+  }
+</script>
+</body>
+</html>

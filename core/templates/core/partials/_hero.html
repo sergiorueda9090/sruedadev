@@ -1,0 +1,94 @@
+{% load static %}
+<section class="hero">
+    <div class="circuito"></div>
+    <div class="contenedor">
+        <div class="hero-grid">
+            <div>
+                <span class="etiqueta"><i class="punto"></i> Innovación Tecnológica</span>
+
+                <h1>
+                    Desarrollo web, software e inteligencia artificial<br>
+                    <span class="txt-degradado">para hacer crecer tu negocio.</span>
+                </h1>
+
+                <p class="hero-descriptor">
+                    Desarrollo de software a la medida y páginas web
+                    en Floridablanca, Santander, Colombia
+                </p>
+
+                <p class="bajada">
+                    Somos <strong class="txt-plata">sruedadev.com</strong>. Desarrollo landing
+                    pages, sitios web corporativos, tiendas online y software a la medida.
+                    Integro inteligencia artificial, APIs y automatizaciones para optimizar
+                    procesos y hacer crecer tu negocio.
+                </p>
+
+                <div class="hero-acciones">
+                    <a href="#contacto" class="btn btn-primario">
+                        Cotiza tu proyecto
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6"></path>
+                        </svg>
+                    </a>
+                    <a href="#portafolio" class="btn btn-fantasma">Ver nuestro trabajo</a>
+                </div>
+
+                <div class="metricas">
+                    <div class="metrica"><b>+30</b><span>Proyectos entregados</span></div>
+                </div>
+            </div>
+
+            <div class="hero-codigo aparece" aria-hidden="true">
+                <img class="hero-mascota" src="{% static 'core/img/mascota-sr.png' %}" width="220" height="220" alt="">
+                <div class="codigo-rejilla">
+                    <div class="ventana-codigo">
+                        <div class="ventana-barra"><i></i><i></i><i></i></div>
+                        <pre><code><span class="c">// autenticación</span>
+<span class="k">class</span> <span class="n">AuthService</span> {
+  <span class="k">async</span> login(correo, clave) {
+    <span class="k">const</span> token = <span class="k">await</span> api.<span class="f">post</span>(<span class="s">'/auth'</span>, {
+      correo, clave
+    });
+    <span class="k">return</span> token;
+  }
+}</code></pre>
+                    </div>
+                    <div class="ventana-codigo">
+                        <div class="ventana-barra"><i></i><i></i><i></i></div>
+                        <pre><code><span class="c"># reporte de ventas</span>
+<span class="k">def</span> <span class="f">generar_reporte</span>(ventas):
+    total = <span class="k">sum</span>(v.monto <span class="k">for</span> v <span class="k">in</span> ventas)
+    promedio = total / <span class="k">len</span>(ventas)
+    <span class="k">return</span> {
+        <span class="s">'total'</span>: total,
+        <span class="s">'promedio'</span>: promedio
+    }</code></pre>
+                    </div>
+                    <div class="ventana-codigo">
+                        <div class="ventana-barra"><i></i><i></i><i></i></div>
+                        <pre><code><span class="c">-- pedidos pagados</span>
+<span class="k">SELECT</span> p.id, c.nombre, p.total
+<span class="k">FROM</span> pedidos p
+<span class="k">JOIN</span> clientes c
+  <span class="k">ON</span> c.id = p.cliente_id
+<span class="k">WHERE</span> p.estado = <span class="s">'pagado'</span>
+<span class="k">ORDER</span> <span class="k">BY</span> p.creado <span class="k">DESC</span>;</code></pre>
+                    </div>
+                    <div class="ventana-codigo">
+                        <div class="ventana-barra"><i></i><i></i><i></i></div>
+                        <pre><code><span class="c">// panel de control</span>
+<span class="k">function</span> <span class="f">Dashboard</span>() {
+  <span class="k">const</span> [datos] = useState([]);
+
+  <span class="k">return</span> (
+    &lt;Tarjeta titulo=<span class="s">"Ventas"</span>&gt;
+      &lt;Grafico data={datos} /&gt;
+    &lt;/Tarjeta&gt;
+  );
+}</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

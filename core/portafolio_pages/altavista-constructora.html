@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="ALTAVISTA Constructora — Proyectos residenciales de lujo. Apartamentos y casas nuevas con la mejor calidad de construcción. Encuentra tu hogar ideal."/>
+  <meta name="keywords" content="constructora, proyectos nuevos, apartamentos nuevos, casas nuevas, inmobiliaria, vivienda"/>
+  <title>ALTAVISTA | Constructora de Proyectos Premium</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Montserrat:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ══════════════════════════════════════
+       VARIABLES
+    ══════════════════════════════════════ */
+    :root {
+      --cream:       #f5f0e8;
+      --cream2:      #ede6d6;
+      --warm-white:  #faf8f4;
+      --charcoal:    #1a1a1a;
+      --charcoal2:   #252525;
+      --charcoal3:   #2f2f2f;
+      --stone:       #7a7060;
+      --stone2:      #9a8e7e;
+      --gold:        #b8943f;
+      --gold2:       #d4aa55;
+      --gold-light:  #e8c97a;
+      --gold-subtle: rgba(184,148,63,0.1);
+      --gold-border: rgba(184,148,63,0.25);
+      --border-light:rgba(184,148,63,0.15);
+      --shadow-warm: rgba(26,26,26,0.12);
+      --font-serif:  'Cormorant Garamond', Georgia, serif;
+      --font-display:'DM Serif Display', Georgia, serif;
+      --font-sans:   'Montserrat', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--warm-white);
+      color: var(--charcoal);
+      font-family: var(--font-sans);
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar { width: 4px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 2px; }
+
+    /* ── IMAGE HELPERS ── */
+    .img-fill { width:100%; height:100%; object-fit:cover; object-position:center; display:block; opacity:0; transition:opacity .7s ease; }
+    .img-fill.loaded { opacity:1; }
+
+    /* ══════════════════════════════════════
+       NAVBAR
+    ══════════════════════════════════════ */
+    #navbar {
+      position: fixed; top:0; left:0; right:0; z-index:1000;
+      padding: 1.4rem 0;
+      transition: all .4s ease;
+    }
+    #navbar.scrolled {
+      background: rgba(250,248,244,.97);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--border-light);
+      padding: .8rem 0;
+      box-shadow: 0 4px 30px var(--shadow-warm);
+    }
+    .brand {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--charcoal);
+      text-decoration: none;
+      letter-spacing: 3px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .brand-logo {
+      width: 32px; height: 32px;
+      border: 1.5px solid var(--gold);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .brand-logo i { font-size: .9rem; color: var(--gold); }
+    .brand-sub {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: .55rem;
+      letter-spacing: 4px;
+      color: var(--stone);
+      font-weight: 500;
+      text-transform: uppercase;
+      margin-top: -2px;
+    }
+    .nav-item-link {
+      font-family: var(--font-sans);
+      font-size: .72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--stone) !important;
+      padding: .4rem .9rem !important;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-item-link:hover { color: var(--charcoal) !important; }
+    .btn-contact-nav {
+      font-family: var(--font-sans);
+      font-size: .7rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: var(--charcoal);
+      color: var(--cream) !important;
+      padding: .6rem 1.6rem;
+      border-radius: 1px;
+      text-decoration: none;
+      transition: all .25s;
+    }
+    .btn-contact-nav:hover { background: var(--gold); color: var(--charcoal) !important; }
+    #mobileNav {
+      background: var(--warm-white);
+      border-top: 1px solid var(--border-light);
+      padding: 1rem 0;
+      display: none;
+    }
+
+    /* ══════════════════════════════════════
+       HERO
+    ══════════════════════════════════════ */
+    #hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      position: relative;
+      overflow: hidden;
+    }
+    /* Left: dark panel with text */
+    .hero-left {
+      background: var(--charcoal);
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 10rem 4rem 6rem;
+      z-index: 2;
+    }
+    .hero-left::after {
+      content: '';
+      position: absolute;
+      top: 0; right: -60px; bottom: 0;
+      width: 120px;
+      background: var(--charcoal);
+      clip-path: polygon(0 0, 40% 0, 100% 100%, 0 100%);
+      z-index: 3;
+    }
+    /* Subtle diagonal lines on dark bg */
+    .hero-left::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 40px,
+        rgba(184,148,63,.04) 40px,
+        rgba(184,148,63,.04) 41px
+      );
+      pointer-events: none;
+    }
+    /* Right: full image */
+    .hero-right {
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-right img {
+      width:100%; height:100%;
+      object-fit:cover; object-position:center;
+      opacity:0; transition:opacity .9s ease;
+    }
+    .hero-right img.loaded { opacity:1; }
+    .hero-right::before {
+      content:'';
+      position:absolute;
+      inset:0;
+      background: linear-gradient(to right, rgba(26,26,26,.3) 0%, transparent 40%);
+      z-index:1;
+    }
+
+    /* Gold corner decorations */
+    .hero-corner-tl { position:absolute; top:2rem; left:2rem; width:40px; height:40px; border-top:1.5px solid var(--gold); border-left:1.5px solid var(--gold); z-index:4; }
+    .hero-corner-br { position:absolute; bottom:2rem; right:2rem; width:40px; height:40px; border-bottom:1.5px solid var(--gold); border-right:1.5px solid var(--gold); z-index:4; }
+
+    .hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: .65rem;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: 12px;
+    }
+    .hero-eyebrow::before { content:''; display:block; width:30px; height:1px; background:var(--gold); }
+
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 5vw, 5.5rem);
+      color: var(--cream);
+      line-height: 1.05;
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+    .hero-title em { color: var(--gold); font-style: italic; display: block; }
+
+    .hero-desc {
+      font-family: var(--font-sans);
+      font-size: .9rem;
+      color: var(--stone2);
+      line-height: 1.8;
+      max-width: 380px;
+      margin-bottom: 2.5rem;
+      font-weight: 300;
+    }
+
+    .hero-stats {
+      display: flex; gap: 2.5rem;
+      margin-bottom: 3rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid rgba(184,148,63,.2);
+    }
+    .h-stat-num {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .h-stat-lbl {
+      font-family: var(--font-sans);
+      font-size: .6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-top: 3px;
+    }
+
+    .btn-primary-re {
+      font-family: var(--font-sans);
+      font-size: .72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: var(--gold);
+      color: var(--charcoal);
+      border: none;
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: all .3s;
+    }
+    .btn-primary-re:hover { background: var(--gold2); color: var(--charcoal); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(184,148,63,.3); }
+    .btn-ghost-re {
+      font-family: var(--font-sans);
+      font-size: .72rem;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: transparent;
+      color: var(--cream2);
+      border: 1px solid rgba(184,148,63,.35);
+      padding: 1rem 2.5rem;
+      text-decoration: none;
+      display: inline-flex; align-items: center; gap: 10px;
+      transition: all .3s;
+    }
+    .btn-ghost-re:hover { border-color: var(--gold); color: var(--gold); transform: translateY(-2px); }
+
+    /* Floating badge on hero image */
+    .hero-img-badge {
+      position: absolute;
+      bottom: 3rem; left: 3rem;
+      background: var(--warm-white);
+      border-left: 3px solid var(--gold);
+      padding: 1.2rem 1.6rem;
+      z-index: 3;
+      box-shadow: 0 20px 60px rgba(26,26,26,.2);
+    }
+    .badge-tag {
+      font-family: var(--font-sans);
+      font-size: .58rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: .3rem;
+    }
+    .badge-val {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      color: var(--charcoal);
+      line-height: 1;
+    }
+    .badge-sub { font-size: .72rem; color: var(--stone); margin-top: .2rem; font-family: var(--font-sans); }
+
+    /* ══════════════════════════════════════
+       SEARCH BAR
+    ══════════════════════════════════════ */
+    #search-bar {
+      background: var(--charcoal);
+      padding: 0;
+    }
+    .search-inner {
+      display: flex;
+      align-items: stretch;
+    }
+    .search-field {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 1.2rem 1.8rem;
+      border-right: 1px solid rgba(255,255,255,.06);
+    }
+    .search-field label {
+      font-family: var(--font-sans);
+      font-size: .58rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--stone);
+      display: block;
+      margin-bottom: .2rem;
+      white-space: nowrap;
+    }
+    .search-field select,
+    .search-field input {
+      background: transparent;
+      border: none;
+      color: var(--cream);
+      font-family: var(--font-sans);
+      font-size: .85rem;
+      font-weight: 400;
+      padding: 0;
+      outline: none;
+      width: 100%;
+      cursor: pointer;
+    }
+    .search-field select option { background: var(--charcoal2); color: var(--cream); }
+    .search-field i { color: var(--gold); font-size: 1.1rem; }
+    .btn-search {
+      font-family: var(--font-sans);
+      font-size: .72rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      background: var(--gold);
+      color: var(--charcoal);
+      border: none;
+      padding: 0 2.5rem;
+      cursor: pointer;
+      display: flex; align-items: center; gap: 8px;
+      transition: background .2s;
+      white-space: nowrap;
+    }
+    .btn-search:hover { background: var(--gold2); }
+
+    /* ══════════════════════════════════════
+       SECTION COMMONS
+    ══════════════════════════════════════ */
+    section { position: relative; }
+
+    .s-eyebrow {
+      font-family: var(--font-sans);
+      font-size: .62rem;
+      letter-spacing: 5px;
+      color: var(--gold);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: .8rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .s-eyebrow::before { content:''; display:block; width:24px; height:1px; background:var(--gold); }
+    .s-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      color: var(--charcoal);
+      line-height: 1.1;
+      font-weight: 400;
+    }
+    .s-title em { color: var(--gold); font-style: italic; }
+    .s-title-light { color: var(--cream); }
+    .s-title-light em { color: var(--gold-light); }
+    .s-sub {
+      font-family: var(--font-sans);
+      font-size: .88rem;
+      color: var(--stone);
+      line-height: 1.8;
+      font-weight: 300;
+    }
+    .gold-rule { width: 50px; height: 1px; background: var(--gold); margin: 1.2rem 0 1.8rem; }
+    .gold-rule-center { margin: 1.2rem auto 1.8rem; }
+
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal.show { opacity:1; transform:none; }
+    .reveal-l { opacity:0; transform:translateX(-24px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal-l.show { opacity:1; transform:none; }
+    .reveal-r { opacity:0; transform:translateX(24px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal-r.show { opacity:1; transform:none; }
+    .d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.3s;} .d4{transition-delay:.4s;}
+
+    /* ══════════════════════════════════════
+       NOSOTROS
+    ══════════════════════════════════════ */
+    #nosotros { padding: 7rem 0; background: var(--warm-white); }
+
+    .nosotros-img-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 10px;
+      height: 560px;
+    }
+    .n-img-main { grid-column:1/2; grid-row:1/3; border-radius:2px; overflow:hidden; position:relative; }
+    .n-img-a    { grid-column:2/3; grid-row:1/2; border-radius:2px; overflow:hidden; }
+    .n-img-b    { grid-column:2/3; grid-row:2/3; border-radius:2px; overflow:hidden; position:relative; }
+    .n-img-badge {
+      position:absolute; bottom:1rem; left:1rem;
+      background:var(--gold);
+      color:var(--charcoal);
+      padding:.8rem 1.2rem;
+      font-family:var(--font-sans);
+    }
+    .n-img-badge-num { font-family:var(--font-display); font-size:1.8rem; line-height:1; }
+    .n-img-badge-txt { font-size:.58rem; letter-spacing:2px; text-transform:uppercase; font-weight:600; }
+
+    .value-item {
+      display:flex; gap:1rem; align-items:flex-start;
+      padding:1.2rem 0; border-bottom:1px solid var(--border-light);
+    }
+    .value-item:last-child { border-bottom:none; }
+    .value-icon {
+      width:42px; height:42px; min-width:42px;
+      border:1px solid var(--gold-border);
+      background:var(--gold-subtle);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--gold); font-size:1.1rem; border-radius:1px;
+    }
+    .value-title { font-family:var(--font-sans); font-size:.82rem; font-weight:600; letter-spacing:1px; color:var(--charcoal); text-transform:uppercase; margin-bottom:.2rem; }
+    .value-text  { font-size:.84rem; color:var(--stone); line-height:1.6; font-weight:300; }
+
+    /* ══════════════════════════════════════
+       PROYECTOS / PROPIEDADES
+    ══════════════════════════════════════ */
+    #proyectos { padding: 7rem 0; background: var(--cream); }
+
+    /* Filter tabs */
+    .filter-tabs { display:flex; flex-wrap:wrap; gap:.5rem; margin-bottom:2.5rem; }
+    .ftab {
+      font-family:var(--font-sans); font-size:.65rem;
+      letter-spacing:2px; text-transform:uppercase; font-weight:600;
+      padding:.5rem 1.4rem; border:1px solid var(--border-light);
+      background:transparent; color:var(--stone);
+      cursor:pointer; transition:all .2s; border-radius:1px;
+    }
+    .ftab.active, .ftab:hover { background:var(--charcoal); color:var(--cream); border-color:var(--charcoal); }
+
+    .prop-card {
+      background:var(--warm-white);
+      border-radius:3px;
+      overflow:hidden;
+      transition:all .35s ease;
+      height:100%;
+      box-shadow:0 2px 20px var(--shadow-warm);
+    }
+    .prop-card:hover { transform:translateY(-8px); box-shadow:0 20px 60px rgba(26,26,26,.15); }
+    .prop-img {
+      width:100%; aspect-ratio:4/3;
+      position:relative; overflow:hidden;
+    }
+    .prop-img img { width:100%;height:100%;object-fit:cover;transition:transform .6s ease; }
+    .prop-card:hover .prop-img img { transform:scale(1.07); }
+    .prop-status {
+      position:absolute; top:14px; left:14px;
+      font-family:var(--font-sans); font-size:.58rem;
+      letter-spacing:2px; text-transform:uppercase; font-weight:700;
+      padding:.3rem .9rem; border-radius:1px; z-index:2;
+    }
+    .status-new     { background:var(--gold); color:var(--charcoal); }
+    .status-selling { background:var(--charcoal); color:var(--cream); }
+    .status-sold    { background:var(--stone); color:var(--cream); }
+    .prop-fav {
+      position:absolute; top:14px; right:14px;
+      width:34px; height:34px;
+      background:rgba(250,248,244,.9); border-radius:50%;
+      display:flex; align-items:center; justify-content:center;
+      color:var(--stone); font-size:.9rem; cursor:pointer;
+      transition:all .2s; z-index:2;
+    }
+    .prop-fav:hover { background:var(--gold); color:var(--charcoal); }
+    .prop-overlay {
+      position:absolute; bottom:0; left:0; right:0;
+      background:linear-gradient(to top, rgba(26,26,26,.7) 0%, transparent 100%);
+      padding:1rem;
+    }
+    .prop-type {
+      font-family:var(--font-sans); font-size:.6rem;
+      letter-spacing:2px; text-transform:uppercase;
+      color:rgba(255,255,255,.8); font-weight:500;
+    }
+    .prop-body { padding:1.5rem; }
+    .prop-name {
+      font-family:var(--font-display); font-size:1.4rem;
+      color:var(--charcoal); line-height:1.1;
+      margin-bottom:.2rem; font-weight:400;
+    }
+    .prop-location {
+      font-family:var(--font-sans); font-size:.75rem;
+      color:var(--stone); margin-bottom:1rem;
+      display:flex; align-items:center; gap:5px;
+    }
+    .prop-location i { color:var(--gold); font-size:.7rem; }
+    .prop-specs {
+      display:flex; gap:1.2rem; flex-wrap:wrap;
+      padding:1rem 0; border-top:1px solid var(--border-light);
+      border-bottom:1px solid var(--border-light);
+      margin-bottom:1rem;
+    }
+    .prop-spec {
+      font-family:var(--font-sans); font-size:.72rem;
+      color:var(--stone); display:flex; align-items:center; gap:5px;
+    }
+    .prop-spec i { color:var(--gold); font-size:.78rem; }
+    .prop-spec strong { color:var(--charcoal); font-weight:600; }
+    .prop-price {
+      font-family:var(--font-display); font-size:1.6rem;
+      color:var(--gold); line-height:1;
+    }
+    .prop-price-from {
+      font-family:var(--font-sans); font-size:.6rem;
+      letter-spacing:2px; text-transform:uppercase;
+      color:var(--stone); font-weight:500; margin-bottom:.2rem;
+    }
+    .btn-prop {
+      font-family:var(--font-sans); font-size:.68rem;
+      letter-spacing:2px; text-transform:uppercase; font-weight:600;
+      background:var(--charcoal); color:var(--cream);
+      border:none; padding:.65rem 1.4rem;
+      text-decoration:none; display:inline-flex;
+      align-items:center; gap:7px; transition:all .2s;
+    }
+    .btn-prop:hover { background:var(--gold); color:var(--charcoal); }
+
+    /* ══════════════════════════════════════
+       CALCULADORA
+    ══════════════════════════════════════ */
+    #calculadora { padding: 7rem 0; background: var(--charcoal); }
+
+    .calc-box {
+      background: var(--charcoal2);
+      border: 1px solid rgba(184,148,63,.2);
+      border-radius: 3px;
+      padding: 2.5rem;
+    }
+    .calc-label {
+      font-family: var(--font-sans);
+      font-size: .6rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--stone2);
+      font-weight: 600;
+      margin-bottom: .5rem;
+      display: block;
+    }
+    .calc-input {
+      background: rgba(255,255,255,.04);
+      border: 1px solid rgba(184,148,63,.2);
+      border-radius: 1px;
+      color: var(--cream);
+      font-family: var(--font-sans);
+      font-size: .95rem;
+      padding: .8rem 1rem;
+      width: 100%;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .calc-input:focus { border-color: var(--gold); }
+    .calc-input[type=range] {
+      background: transparent; border: none; padding: .2rem 0;
+      accent-color: var(--gold); cursor: pointer;
+    }
+    .calc-result-box {
+      background: var(--gold);
+      border-radius: 2px;
+      padding: 2rem;
+      text-align: center;
+      height: 100%;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+    }
+    .calc-result-label {
+      font-family: var(--font-sans);
+      font-size: .62rem; letter-spacing: 3px;
+      text-transform: uppercase; font-weight: 600;
+      color: rgba(26,26,26,.7); margin-bottom: .6rem;
+    }
+    .calc-result-val {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      color: var(--charcoal);
+      line-height: 1;
+      margin-bottom: .3rem;
+    }
+    .calc-result-sub {
+      font-family: var(--font-sans);
+      font-size: .72rem; color: rgba(26,26,26,.6);
+      font-weight: 400;
+    }
+    .calc-detail {
+      margin-top: 1.5rem; padding-top: 1.5rem;
+      border-top: 1px solid rgba(26,26,26,.15);
+      width: 100%;
+    }
+    .calc-detail-row {
+      display: flex; justify-content: space-between;
+      font-family: var(--font-sans); font-size: .78rem;
+      color: rgba(26,26,26,.7); padding: .35rem 0;
+    }
+    .calc-detail-row strong { color: var(--charcoal); font-weight: 600; }
+    .range-val {
+      font-family: var(--font-display);
+      font-size: 1.1rem; color: var(--gold);
+      display: block; margin-top: .2rem;
+    }
+
+    /* ══════════════════════════════════════
+       PROCESO
+    ══════════════════════════════════════ */
+    #proceso { padding: 7rem 0; background: var(--warm-white); }
+
+    .proceso-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--border-light);
+    }
+    .proceso-step {
+      padding: 2.5rem 2rem;
+      border-right: 1px solid var(--border-light);
+      position: relative;
+      transition: background .3s;
+    }
+    .proceso-step:last-child { border-right: none; }
+    .proceso-step:hover { background: var(--cream); }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 4rem; color: rgba(184,148,63,.15);
+      line-height: 1; margin-bottom: 1rem;
+      transition: color .3s;
+    }
+    .proceso-step:hover .step-num { color: rgba(184,148,63,.3); }
+    .step-icon {
+      width: 44px; height: 44px;
+      border: 1px solid var(--gold-border);
+      background: var(--gold-subtle);
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gold); font-size: 1.1rem;
+      margin-bottom: 1rem;
+    }
+    .step-title {
+      font-family: var(--font-sans);
+      font-size: .8rem; letter-spacing: 1.5px;
+      text-transform: uppercase; font-weight: 700;
+      color: var(--charcoal); margin-bottom: .6rem;
+    }
+    .step-text {
+      font-size: .83rem; color: var(--stone);
+      line-height: 1.7; font-weight: 300;
+    }
+
+    /* ══════════════════════════════════════
+       AGENTES
+    ══════════════════════════════════════ */
+    #agentes { padding: 7rem 0; background: var(--cream); }
+
+    .agent-card {
+      background: var(--warm-white);
+      border: 1px solid var(--border-light);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: all .3s;
+      height: 100%;
+    }
+    .agent-card:hover { border-color: var(--gold); transform: translateY(-5px); box-shadow: 0 20px 50px var(--shadow-warm); }
+    .agent-img {
+      width: 100%; aspect-ratio: 3/4; position: relative; overflow: hidden;
+    }
+    .agent-img img { width:100%;height:100%;object-fit:cover;object-position:center top;transition:transform .5s ease; }
+    .agent-card:hover .agent-img img { transform:scale(1.04); }
+    .agent-img::after { content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(26,26,26,.6) 0%,transparent 45%); }
+    .agent-lang {
+      position:absolute;top:12px;right:12px;z-index:2;
+      background:var(--gold);color:var(--charcoal);
+      font-family:var(--font-sans);font-size:.58rem;
+      letter-spacing:2px;text-transform:uppercase;font-weight:700;
+      padding:.2rem .7rem;border-radius:1px;
+    }
+    .agent-body { padding: 1.4rem; }
+    .agent-name { font-family:var(--font-display);font-size:1.4rem;color:var(--charcoal);line-height:1.1;margin-bottom:.15rem;font-weight:400; }
+    .agent-role { font-family:var(--font-sans);font-size:.65rem;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:.8rem; }
+    .agent-bio  { font-size:.83rem;color:var(--stone);line-height:1.65;margin-bottom:1rem;font-weight:300; }
+    .agent-stats { display:flex;gap:1.2rem;border-top:1px solid var(--border-light);padding-top:1rem; }
+    .a-stat-n { font-family:var(--font-display);font-size:1.3rem;color:var(--gold);line-height:1; }
+    .a-stat-l { font-family:var(--font-sans);font-size:.58rem;letter-spacing:1px;text-transform:uppercase;color:var(--stone); }
+    .agent-contact {
+      display:flex;gap:.5rem;margin-top:1rem;
+    }
+    .btn-agent-wa {
+      flex:1;font-family:var(--font-sans);font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;
+      background:#25d366;color:white;border:none;padding:.55rem;
+      text-decoration:none;display:flex;align-items:center;justify-content:center;gap:5px;
+      border-radius:1px;transition:background .2s;
+    }
+    .btn-agent-wa:hover{background:#1da851;color:white;}
+    .btn-agent-mail {
+      flex:1;font-family:var(--font-sans);font-size:.65rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:600;
+      background:transparent;color:var(--charcoal);border:1px solid var(--border-light);padding:.55rem;
+      text-decoration:none;display:flex;align-items:center;justify-content:center;gap:5px;
+      border-radius:1px;transition:all .2s;
+    }
+    .btn-agent-mail:hover{border-color:var(--gold);color:var(--gold);}
+
+    /* ══════════════════════════════════════
+       TESTIMONIOS
+    ══════════════════════════════════════ */
+    #testimonios { padding: 7rem 0; background: var(--charcoal); overflow:hidden; position:relative; }
+    #testimonios::before {
+      content:'';position:absolute;top:-60px;right:-60px;
+      width:300px;height:300px;
+      border:1px solid rgba(184,148,63,.1);border-radius:50%;
+    }
+    #testimonios::after {
+      content:'';position:absolute;bottom:-80px;left:-80px;
+      width:400px;height:400px;
+      border:1px solid rgba(184,148,63,.06);border-radius:50%;
+    }
+
+    .testi-card {
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(184,148,63,.15);
+      border-radius: 2px;
+      padding: 2rem;
+      height: 100%;
+      position: relative;
+      transition: border-color .3s;
+    }
+    .testi-card:hover { border-color: rgba(184,148,63,.4); }
+    .testi-quote {
+      font-family: var(--font-display);
+      font-size: 5rem; color: var(--gold);
+      opacity: .2; line-height: .7; margin-bottom: 1rem;
+    }
+    .testi-stars { color: var(--gold); font-size: .78rem; margin-bottom: 1rem; }
+    .testi-text {
+      font-family: var(--font-serif);
+      font-size: 1rem; color: var(--cream2);
+      line-height: 1.8; font-style: italic;
+      margin-bottom: 1.5rem; font-weight: 300;
+    }
+    .testi-prop {
+      font-family: var(--font-sans);
+      font-size: .62rem; letter-spacing: 2px;
+      text-transform: uppercase; color: var(--gold);
+      font-weight: 600; margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .testi-prop::before { content:''; display:block; width:20px; height:1px; background:var(--gold); }
+    .testi-author {
+      display:flex;align-items:center;gap:.9rem;
+      border-top:1px solid rgba(184,148,63,.12);padding-top:1.2rem;
+    }
+    .testi-avatar {
+      width:44px;height:44px;border-radius:50%;
+      background:linear-gradient(135deg,var(--gold),var(--stone));
+      display:flex;align-items:center;justify-content:center;
+      font-family:var(--font-display);font-size:1.1rem;color:var(--charcoal);
+    }
+    .testi-name { font-family:var(--font-sans);font-size:.82rem;font-weight:600;color:var(--cream);letter-spacing:.5px; }
+    .testi-role { font-size:.72rem;color:var(--stone2); }
+
+    /* ══════════════════════════════════════
+       GALERÍA / LIFESTYLE
+    ══════════════════════════════════════ */
+    #galeria { padding: 0; background: var(--warm-white); }
+    .gallery-strip {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      height: 480px;
+    }
+    .gs-item {
+      position: relative; overflow: hidden; cursor: pointer;
+    }
+    .gs-item img { width:100%;height:100%;object-fit:cover;transition:transform .6s ease; }
+    .gs-item:hover img { transform:scale(1.06); }
+    .gs-overlay {
+      position:absolute;inset:0;
+      background:rgba(26,26,26,.0);
+      transition:background .3s;
+      display:flex;align-items:flex-end;padding:1.5rem;
+    }
+    .gs-item:hover .gs-overlay { background:rgba(26,26,26,.45); }
+    .gs-label {
+      font-family:var(--font-sans);font-size:.62rem;
+      letter-spacing:2px;text-transform:uppercase;font-weight:600;
+      color:transparent;transition:color .3s;
+    }
+    .gs-item:hover .gs-label { color:var(--cream); }
+    .gs-divider { width:1px; background:var(--warm-white); }
+
+    /* ══════════════════════════════════════
+       CTA
+    ══════════════════════════════════════ */
+    #cta { padding: 8rem 0; background: var(--cream); position:relative; overflow:hidden; }
+    #cta::before {
+      content:'ALTAVISTA';
+      position:absolute; bottom:-60px; right:-20px;
+      font-family:var(--font-display); font-size:200px;
+      color:rgba(184,148,63,.05); line-height:1;
+      user-select:none; pointer-events:none; letter-spacing:-5px;
+    }
+    .cta-inner {
+      border: 1px solid var(--gold-border);
+      padding: 5rem 4rem;
+      position: relative; text-align: center;
+    }
+    .cta-inner::before {
+      content:''; position:absolute; top:16px; left:16px;
+      width:40px; height:40px;
+      border-top:1px solid var(--gold); border-left:1px solid var(--gold);
+    }
+    .cta-inner::after {
+      content:''; position:absolute; bottom:16px; right:16px;
+      width:40px; height:40px;
+      border-bottom:1px solid var(--gold); border-right:1px solid var(--gold);
+    }
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem,5vw,4.5rem);
+      color: var(--charcoal); line-height:1.1; margin-bottom:1rem; font-weight:400;
+    }
+    .cta-title em { color:var(--gold); font-style:italic; }
+
+    /* ══════════════════════════════════════
+       CONTACTO
+    ══════════════════════════════════════ */
+    #contacto { padding: 7rem 0; background: var(--warm-white); }
+    .contact-form-wrap {
+      background: var(--cream);
+      border: 1px solid var(--border-light);
+      border-radius: 2px;
+      padding: 2.5rem;
+    }
+    .form-lbl {
+      font-family:var(--font-sans);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;
+      color:var(--stone);font-weight:600;margin-bottom:.4rem;display:block;
+    }
+    .form-ctrl {
+      background:var(--warm-white);border:1px solid var(--border-light);
+      border-radius:1px;color:var(--charcoal);
+      font-family:var(--font-sans);font-size:.88rem;
+      padding:.75rem 1rem;width:100%;outline:none;transition:border-color .2s;
+    }
+    .form-ctrl:focus { border-color:var(--gold); }
+    .form-ctrl::placeholder { color:var(--stone2); }
+    .form-ctrl option { background:var(--warm-white); }
+    .btn-submit-re {
+      font-family:var(--font-sans);font-size:.72rem;letter-spacing:2.5px;
+      text-transform:uppercase;font-weight:600;background:var(--charcoal);
+      color:var(--cream);border:none;padding:1rem;width:100%;
+      cursor:pointer;transition:all .25s;
+    }
+    .btn-submit-re:hover { background:var(--gold); color:var(--charcoal); }
+    .contact-info-card {
+      background:var(--charcoal);border-radius:2px;padding:2.5rem;height:100%;
+    }
+    .ci-item { display:flex;gap:1rem;align-items:flex-start;padding:1.2rem 0;border-bottom:1px solid rgba(184,148,63,.12); }
+    .ci-item:last-child { border-bottom:none; }
+    .ci-icon {
+      width:40px;height:40px;min-width:40px;
+      background:var(--gold-subtle);border:1px solid var(--gold-border);
+      display:flex;align-items:center;justify-content:center;
+      color:var(--gold);font-size:1rem;border-radius:1px;
+    }
+    .ci-label { font-family:var(--font-sans);font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--stone2);font-weight:600;margin-bottom:.2rem; }
+    .ci-val   { font-size:.9rem;color:var(--cream2);font-weight:300; }
+
+    /* ══════════════════════════════════════
+       FOOTER
+    ══════════════════════════════════════ */
+    footer { background:var(--charcoal); border-top:1px solid rgba(184,148,63,.12); padding:4rem 0 2rem; }
+    .footer-brand { font-family:var(--font-display);font-size:1.8rem;color:var(--cream);letter-spacing:3px; }
+    .footer-brand em { color:var(--gold);font-style:italic; }
+    .footer-tagline { font-family:var(--font-sans);font-size:.58rem;letter-spacing:4px;text-transform:uppercase;color:var(--stone);margin-top:.3rem; }
+    .footer-col-title { font-family:var(--font-sans);font-size:.6rem;letter-spacing:3px;text-transform:uppercase;color:var(--stone);font-weight:600;margin-bottom:1.2rem; }
+    .footer-link { display:block;font-family:var(--font-sans);font-size:.85rem;color:var(--stone);text-decoration:none;margin-bottom:.5rem;transition:color .2s;font-weight:300; }
+    .footer-link:hover { color:var(--gold); }
+    .footer-bottom { border-top:1px solid rgba(184,148,63,.1);margin-top:3rem;padding-top:1.5rem;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:.8rem; }
+    .footer-copy { font-size:.75rem;color:var(--stone);font-family:var(--font-sans);font-weight:300; }
+    .social-btn { width:34px;height:34px;border:1px solid rgba(184,148,63,.2);display:inline-flex;align-items:center;justify-content:center;color:var(--stone);text-decoration:none;font-size:.85rem;margin-left:.4rem;transition:all .2s; }
+    .social-btn:hover { border-color:var(--gold);color:var(--gold); }
+
+    /* WA float */
+    .wa-float { position:fixed;bottom:2rem;right:2rem;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;z-index:997;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s; }
+    .wa-float:hover { transform:scale(1.1);color:white; }
+    .wa-ring { position:absolute;inset:0;border-radius:50%;background:rgba(37,211,102,.3);animation:waRing 2.2s ease-out infinite; }
+    @keyframes waRing{0%{transform:scale(1);opacity:.8;}100%{transform:scale(1.75);opacity:0;}}
+
+    /* RESPONSIVE */
+    @media(max-width:991px){
+      #hero { grid-template-columns:1fr; min-height:auto; }
+      .hero-left { padding:8rem 2rem 4rem; }
+      .hero-left::after { display:none; }
+      .hero-right { height:400px; }
+      .proceso-grid { grid-template-columns:1fr 1fr; }
+      .proceso-step { border-bottom:1px solid var(--border-light); }
+      .gallery-strip { grid-template-columns:1fr 1fr; height:auto; }
+      .gs-item { height:200px; }
+      .cta-inner { padding:3rem 2rem; }
+    }
+    @media(max-width:767px){
+      .hero-stats { gap:1.5rem; }
+      .search-inner { flex-direction:column; }
+      .search-field { border-right:none; border-bottom:1px solid rgba(255,255,255,.06); }
+      .btn-search { padding:1.2rem; justify-content:center; }
+      .nosotros-img-grid { grid-template-columns:1fr; height:auto; }
+      .n-img-main { height:300px; }
+      .n-img-a,.n-img-b { height:180px; }
+      .proceso-grid { grid-template-columns:1fr; }
+      .gallery-strip { grid-template-columns:1fr; }
+      .gs-item { height:220px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     NAVBAR
+══════════════════════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="#hero" class="brand">
+        <div class="brand-logo"><i class="bi bi-building"></i></div>
+        <div>
+          ALTAVISTA
+          <span class="brand-sub">Constructora · Proyectos Premium</span>
+        </div>
+      </a>
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a href="#nosotros"   class="nav-item-link">Nosotros</a>
+        <a href="#proyectos"  class="nav-item-link">Proyectos</a>
+        <a href="#calculadora"class="nav-item-link">Calculadora</a>
+        <a href="#agentes"    class="nav-item-link">Asesores</a>
+        <a href="#contacto"   class="nav-item-link">Contacto</a>
+        <a href="https://wa.me/573000000000" target="_blank" class="btn-contact-nav ms-3">
+          <i class="bi bi-whatsapp me-1"></i> Agendar visita
+        </a>
+      </div>
+      <button id="navToggle" class="d-lg-none btn" style="border:1px solid var(--gold-border);color:var(--stone);border-radius:1px;">
+        <i class="bi bi-list fs-4"></i>
+      </button>
+    </div>
+    <div id="mobileNav">
+      <a href="#nosotros"    class="nav-item-link d-block py-2 border-bottom" style="border-color:var(--border-light)!important;">Nosotros</a>
+      <a href="#proyectos"   class="nav-item-link d-block py-2 border-bottom" style="border-color:var(--border-light)!important;">Proyectos</a>
+      <a href="#calculadora" class="nav-item-link d-block py-2 border-bottom" style="border-color:var(--border-light)!important;">Calculadora</a>
+      <a href="#agentes"     class="nav-item-link d-block py-2 border-bottom" style="border-color:var(--border-light)!important;">Asesores</a>
+      <a href="#contacto"    class="nav-item-link d-block py-2">Contacto</a>
+      <a href="https://wa.me/573000000000" target="_blank" class="btn-contact-nav d-inline-block mt-2">
+        <i class="bi bi-whatsapp me-1"></i> Agendar visita
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<section id="hero">
+  <!-- Panel izquierdo oscuro -->
+  <div class="hero-left">
+    <div class="hero-corner-tl"></div>
+    <div style="position:relative;z-index:2;">
+      <div class="hero-eyebrow">Proyectos residenciales premium</div>
+      <h1 class="hero-title">
+        Espacios que<br>
+        <em>elevan tu vida</em>
+      </h1>
+      <p class="hero-desc">
+        Construimos proyectos residenciales de alto estándar con arquitectura contemporánea,
+        materiales de primera y ubicaciones estratégicas. Más de 15 años creando hogares con propósito.
+      </p>
+      <div class="hero-stats">
+        <div>
+          <div class="h-stat-num">15+</div>
+          <div class="h-stat-lbl">Años de<br>experiencia</div>
+        </div>
+        <div>
+          <div class="h-stat-num">48</div>
+          <div class="h-stat-lbl">Proyectos<br>entregados</div>
+        </div>
+        <div>
+          <div class="h-stat-num">2.4K</div>
+          <div class="h-stat-lbl">Familias<br>felices</div>
+        </div>
+      </div>
+      <div class="d-flex flex-wrap gap-3">
+        <a href="#proyectos"   class="btn-primary-re">Ver proyectos <i class="bi bi-arrow-right"></i></a>
+        <a href="#calculadora" class="btn-ghost-re">Calcular crédito <i class="bi bi-calculator"></i></a>
+      </div>
+    </div>
+    <div class="hero-corner-br"></div>
+  </div>
+
+  <!-- Panel derecho: imagen -->
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1400&q=85&fit=crop&crop=center"
+         alt="Edificio residencial de lujo"
+         loading="eager" class="img-fill" id="heroImg"/>
+    <div class="hero-img-badge">
+      <div class="badge-tag">Entrega inmediata</div>
+      <div class="badge-val">Torre Élite</div>
+      <div class="badge-sub">Desde $285,000,000</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     BARRA DE BÚSQUEDA
+══════════════════════════════════════ -->
+<div id="search-bar">
+  <div class="container-fluid px-0">
+    <div class="search-inner">
+      <div class="search-field">
+        <i class="bi bi-geo-alt"></i>
+        <div style="flex:1;">
+          <label>Ciudad / Zona</label>
+          <select class="form-select p-0" style="background:transparent;border:none;color:var(--cream);font-family:var(--font-sans);font-size:.85rem;outline:none;">
+            <option>Todas las zonas</option>
+            <option>Norte de la ciudad</option>
+            <option>Zona Rosa</option>
+            <option>Sur Premium</option>
+            <option>Centro Histórico</option>
+          </select>
+        </div>
+      </div>
+      <div class="search-field">
+        <i class="bi bi-house-door"></i>
+        <div style="flex:1;">
+          <label>Tipo de proyecto</label>
+          <select style="background:transparent;border:none;color:var(--cream);font-family:var(--font-sans);font-size:.85rem;outline:none;width:100%;">
+            <option>Apartamentos</option>
+            <option>Casas</option>
+            <option>Lofts</option>
+            <option>Penthouses</option>
+          </select>
+        </div>
+      </div>
+      <div class="search-field">
+        <i class="bi bi-people"></i>
+        <div style="flex:1;">
+          <label>Habitaciones</label>
+          <select style="background:transparent;border:none;color:var(--cream);font-family:var(--font-sans);font-size:.85rem;outline:none;width:100%;">
+            <option>Cualquiera</option>
+            <option>1 habitación</option>
+            <option>2 habitaciones</option>
+            <option>3 habitaciones</option>
+            <option>4+ habitaciones</option>
+          </select>
+        </div>
+      </div>
+      <div class="search-field">
+        <i class="bi bi-cash"></i>
+        <div style="flex:1;">
+          <label>Presupuesto máximo</label>
+          <select style="background:transparent;border:none;color:var(--cream);font-family:var(--font-sans);font-size:.85rem;outline:none;width:100%;">
+            <option>Sin límite</option>
+            <option>Hasta $300M</option>
+            <option>Hasta $500M</option>
+            <option>Hasta $800M</option>
+            <option>Más de $800M</option>
+          </select>
+        </div>
+      </div>
+      <button class="btn-search" onclick="filterProjects()">
+        <i class="bi bi-search"></i> Buscar
+      </button>
+    </div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     NOSOTROS
+══════════════════════════════════════ -->
+<section id="nosotros">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Imágenes -->
+      <div class="col-lg-6 reveal-l">
+        <div class="nosotros-img-grid">
+          <div class="n-img-main">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80&fit=crop"
+                 alt="Casa moderna" class="img-fill" loading="lazy"/>
+          </div>
+          <div class="n-img-a">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=600&q=80&fit=crop"
+                 alt="Interior moderno" class="img-fill" loading="lazy"/>
+          </div>
+          <div class="n-img-b">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80&fit=crop"
+                 alt="Diseño exterior" class="img-fill" loading="lazy"/>
+            <div class="n-img-badge">
+              <div class="n-img-badge-num">15+</div>
+              <div class="n-img-badge-txt">Años de trayectoria</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Copy -->
+      <div class="col-lg-6">
+        <div class="s-eyebrow reveal">Quiénes somos</div>
+        <h2 class="s-title reveal">Construimos más que<br><em>viviendas</em></h2>
+        <div class="gold-rule reveal"></div>
+        <p class="s-sub reveal d1" style="margin-bottom:1.5rem;">
+          <strong style="color:var(--charcoal);font-weight:600;">ALTAVISTA Constructora</strong> nació con una visión clara:
+          crear proyectos residenciales que combinen diseño arquitectónico contemporáneo,
+          materiales de la más alta calidad y una experiencia de compra sin igual.
+        </p>
+
+        <div class="value-item reveal d1">
+          <div class="value-icon"><i class="bi bi-award"></i></div>
+          <div>
+            <div class="value-title">Calidad certificada</div>
+            <div class="value-text">Cada proyecto pasa por rigurosos controles de calidad y cumple con las más altas normas de construcción sismo-resistente.</div>
+          </div>
+        </div>
+        <div class="value-item reveal d2">
+          <div class="value-icon"><i class="bi bi-clock-history"></i></div>
+          <div>
+            <div class="value-title">Entregas a tiempo</div>
+            <div class="value-text">Cumplimos con los plazos de entrega prometidos. Tu inversión y planificación son nuestra responsabilidad.</div>
+          </div>
+        </div>
+        <div class="value-item reveal d3">
+          <div class="value-icon"><i class="bi bi-leaf"></i></div>
+          <div>
+            <div class="value-title">Construcción sostenible</div>
+            <div class="value-text">Diseñamos con criterios de sostenibilidad, eficiencia energética y respeto por el entorno natural.</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     PROYECTOS / PROPIEDADES
+══════════════════════════════════════ -->
+<section id="proyectos">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-4">
+      <div class="col-lg-5">
+        <div class="s-eyebrow reveal">Portafolio</div>
+        <h2 class="s-title reveal">Nuestros <em>proyectos</em></h2>
+        <div class="gold-rule reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="s-sub reveal">Explora nuestra selección de proyectos residenciales en las mejores zonas de la ciudad, diseñados para cada estilo de vida.</p>
+      </div>
+    </div>
+
+    <!-- Filtros -->
+    <div class="filter-tabs reveal" id="filterTabs">
+      <button class="ftab active" data-filter="all">Todos</button>
+      <button class="ftab" data-filter="apartamento">Apartamentos</button>
+      <button class="ftab" data-filter="casa">Casas</button>
+      <button class="ftab" data-filter="loft">Lofts</button>
+      <button class="ftab" data-filter="penthouse">Penthouses</button>
+    </div>
+
+    <div class="row g-4" id="propGrid">
+
+      <!-- Prop 1 -->
+      <div class="col-md-6 col-lg-4 reveal prop-item" data-type="apartamento">
+        <div class="prop-card">
+          <div class="prop-img">
+            <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=700&q=80&fit=crop"
+                 alt="Torre Élite" loading="lazy" class="img-fill"/>
+            <span class="prop-status status-new">Nuevo</span>
+            <div class="prop-fav"><i class="bi bi-heart"></i></div>
+            <div class="prop-overlay"><div class="prop-type">Apartamento</div></div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-name">Torre Élite</div>
+            <div class="prop-location"><i class="bi bi-geo-alt-fill"></i> Norte — Av. Las Palmas</div>
+            <div class="prop-specs">
+              <div class="prop-spec"><i class="bi bi-layout-split"></i><strong>85–140</strong> m²</div>
+              <div class="prop-spec"><i class="bi bi-door-open"></i><strong>2–3</strong> hab.</div>
+              <div class="prop-spec"><i class="bi bi-car-front"></i><strong>1–2</strong> parq.</div>
+            </div>
+            <div class="d-flex justify-content-between align-items-end">
+              <div>
+                <div class="prop-price-from">Desde</div>
+                <div class="prop-price">$285M</div>
+              </div>
+              <a href="#contacto" class="btn-prop">Ver proyecto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prop 2 -->
+      <div class="col-md-6 col-lg-4 reveal d1 prop-item" data-type="casa">
+        <div class="prop-card">
+          <div class="prop-img">
+            <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=700&q=80&fit=crop"
+                 alt="Villas del Bosque" loading="lazy" class="img-fill"/>
+            <span class="prop-status status-selling">En venta</span>
+            <div class="prop-fav"><i class="bi bi-heart"></i></div>
+            <div class="prop-overlay"><div class="prop-type">Casa</div></div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-name">Villas del Bosque</div>
+            <div class="prop-location"><i class="bi bi-geo-alt-fill"></i> Sur Premium — El Retiro</div>
+            <div class="prop-specs">
+              <div class="prop-spec"><i class="bi bi-layout-split"></i><strong>200–350</strong> m²</div>
+              <div class="prop-spec"><i class="bi bi-door-open"></i><strong>4</strong> hab.</div>
+              <div class="prop-spec"><i class="bi bi-car-front"></i><strong>2</strong> parq.</div>
+            </div>
+            <div class="d-flex justify-content-between align-items-end">
+              <div>
+                <div class="prop-price-from">Desde</div>
+                <div class="prop-price">$520M</div>
+              </div>
+              <a href="#contacto" class="btn-prop">Ver proyecto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prop 3 -->
+      <div class="col-md-6 col-lg-4 reveal d2 prop-item" data-type="loft">
+        <div class="prop-card">
+          <div class="prop-img">
+            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=700&q=80&fit=crop"
+                 alt="Urban Lofts 42" loading="lazy" class="img-fill"/>
+            <span class="prop-status status-new">Nuevo</span>
+            <div class="prop-fav"><i class="bi bi-heart"></i></div>
+            <div class="prop-overlay"><div class="prop-type">Loft</div></div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-name">Urban Lofts 42</div>
+            <div class="prop-location"><i class="bi bi-geo-alt-fill"></i> Centro — Zona Rosa</div>
+            <div class="prop-specs">
+              <div class="prop-spec"><i class="bi bi-layout-split"></i><strong>60–90</strong> m²</div>
+              <div class="prop-spec"><i class="bi bi-door-open"></i><strong>1</strong> hab.</div>
+              <div class="prop-spec"><i class="bi bi-car-front"></i><strong>1</strong> parq.</div>
+            </div>
+            <div class="d-flex justify-content-between align-items-end">
+              <div>
+                <div class="prop-price-from">Desde</div>
+                <div class="prop-price">$185M</div>
+              </div>
+              <a href="#contacto" class="btn-prop">Ver proyecto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prop 4 -->
+      <div class="col-md-6 col-lg-4 reveal prop-item" data-type="penthouse">
+        <div class="prop-card">
+          <div class="prop-img">
+            <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80&fit=crop"
+                 alt="Sky Residence" loading="lazy" class="img-fill"/>
+            <span class="prop-status status-selling">En venta</span>
+            <div class="prop-fav"><i class="bi bi-heart"></i></div>
+            <div class="prop-overlay"><div class="prop-type">Penthouse</div></div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-name">Sky Residence</div>
+            <div class="prop-location"><i class="bi bi-geo-alt-fill"></i> Norte — El Poblado</div>
+            <div class="prop-specs">
+              <div class="prop-spec"><i class="bi bi-layout-split"></i><strong>320</strong> m²</div>
+              <div class="prop-spec"><i class="bi bi-door-open"></i><strong>4+</strong> hab.</div>
+              <div class="prop-spec"><i class="bi bi-car-front"></i><strong>3</strong> parq.</div>
+            </div>
+            <div class="d-flex justify-content-between align-items-end">
+              <div>
+                <div class="prop-price-from">Desde</div>
+                <div class="prop-price">$1.2B</div>
+              </div>
+              <a href="#contacto" class="btn-prop">Ver proyecto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prop 5 -->
+      <div class="col-md-6 col-lg-4 reveal d1 prop-item" data-type="apartamento">
+        <div class="prop-card">
+          <div class="prop-img">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=700&q=80&fit=crop"
+                 alt="Parque Central" loading="lazy" class="img-fill"/>
+            <span class="prop-status status-new">Nuevo</span>
+            <div class="prop-fav"><i class="bi bi-heart"></i></div>
+            <div class="prop-overlay"><div class="prop-type">Apartamento</div></div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-name">Parque Central</div>
+            <div class="prop-location"><i class="bi bi-geo-alt-fill"></i> Centro — Av. Principal</div>
+            <div class="prop-specs">
+              <div class="prop-spec"><i class="bi bi-layout-split"></i><strong>70–110</strong> m²</div>
+              <div class="prop-spec"><i class="bi bi-door-open"></i><strong>2–3</strong> hab.</div>
+              <div class="prop-spec"><i class="bi bi-car-front"></i><strong>1</strong> parq.</div>
+            </div>
+            <div class="d-flex justify-content-between align-items-end">
+              <div>
+                <div class="prop-price-from">Desde</div>
+                <div class="prop-price">$220M</div>
+              </div>
+              <a href="#contacto" class="btn-prop">Ver proyecto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Prop 6 -->
+      <div class="col-md-6 col-lg-4 reveal d2 prop-item" data-type="casa">
+        <div class="prop-card">
+          <div class="prop-img">
+            <img src="https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=700&q=80&fit=crop"
+                 alt="Reserva Verde" loading="lazy" class="img-fill"/>
+            <span class="prop-status status-selling">Últimas unidades</span>
+            <div class="prop-fav"><i class="bi bi-heart"></i></div>
+            <div class="prop-overlay"><div class="prop-type">Casa</div></div>
+          </div>
+          <div class="prop-body">
+            <div class="prop-name">Reserva Verde</div>
+            <div class="prop-location"><i class="bi bi-geo-alt-fill"></i> Periferia — Chía</div>
+            <div class="prop-specs">
+              <div class="prop-spec"><i class="bi bi-layout-split"></i><strong>180–280</strong> m²</div>
+              <div class="prop-spec"><i class="bi bi-door-open"></i><strong>3–4</strong> hab.</div>
+              <div class="prop-spec"><i class="bi bi-car-front"></i><strong>2</strong> parq.</div>
+            </div>
+            <div class="d-flex justify-content-between align-items-end">
+              <div>
+                <div class="prop-price-from">Desde</div>
+                <div class="prop-price">$390M</div>
+              </div>
+              <a href="#contacto" class="btn-prop">Ver proyecto <i class="bi bi-arrow-right"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /row -->
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     CALCULADORA DE CRÉDITO
+══════════════════════════════════════ -->
+<section id="calculadora">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="s-eyebrow reveal" style="color:var(--gold-light);">Herramienta financiera</div>
+        <h2 class="s-title s-title-light reveal">Calcula tu <em>cuota</em><br>hipotecaria</h2>
+        <div class="gold-rule reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="s-sub reveal" style="color:var(--stone2);">Simula el valor de tu cuota mensual según el precio del inmueble, tu cuota inicial y el plazo del crédito. Resultado instantáneo.</p>
+      </div>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+
+      <!-- Inputs -->
+      <div class="col-lg-7">
+        <div class="calc-box reveal">
+          <div class="row g-4">
+
+            <div class="col-md-6">
+              <label class="calc-label">Valor del inmueble</label>
+              <input type="number" class="calc-input" id="cValor"
+                     value="300000000" min="50000000" step="5000000"
+                     oninput="calcular()"/>
+              <span class="range-val" id="displayValor">$300,000,000</span>
+            </div>
+
+            <div class="col-md-6">
+              <label class="calc-label">Cuota inicial (%)</label>
+              <input type="range" class="calc-input" id="cCuota"
+                     min="10" max="50" value="30" oninput="calcular()"/>
+              <span class="range-val" id="displayCuota">30% — $90,000,000</span>
+            </div>
+
+            <div class="col-md-6">
+              <label class="calc-label">Plazo del crédito</label>
+              <select class="calc-input" id="cPlazo" onchange="calcular()">
+                <option value="10">10 años</option>
+                <option value="15">15 años</option>
+                <option value="20" selected>20 años</option>
+                <option value="25">25 años</option>
+                <option value="30">30 años</option>
+              </select>
+            </div>
+
+            <div class="col-md-6">
+              <label class="calc-label">Tasa de interés anual (%)</label>
+              <input type="number" class="calc-input" id="cTasa"
+                     value="12" min="5" max="25" step="0.1"
+                     oninput="calcular()"/>
+              <span class="range-val" id="displayTasa">12% anual</span>
+            </div>
+
+            <div class="col-12">
+              <label class="calc-label">Tipo de crédito</label>
+              <select class="calc-input" id="cTipo" onchange="calcular()">
+                <option value="vivienda">Crédito de vivienda (UVR)</option>
+                <option value="libre" selected>Crédito libre inversión</option>
+                <option value="bis">Crédito VIS / VIP</option>
+              </select>
+            </div>
+
+          </div>
+
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(184,148,63,.15);">
+            <p style="font-family:var(--font-sans);font-size:.72rem;color:var(--stone);line-height:1.6;font-weight:300;">
+              <i class="bi bi-info-circle me-1" style="color:var(--gold);"></i>
+              Simulación de referencia. La cuota real puede variar según tu perfil crediticio, seguros y condiciones del banco.
+              Consulta con nuestro asesor financiero para una cotización personalizada.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resultado -->
+      <div class="col-lg-5">
+        <div class="calc-result-box reveal d2">
+          <div class="calc-result-label">Cuota mensual estimada</div>
+          <div class="calc-result-val" id="resultCuota">$2.754.000</div>
+          <div class="calc-result-sub">por mes durante <span id="resultPlazo">20 años</span></div>
+
+          <div class="calc-detail">
+            <div class="calc-detail-row">
+              <span>Valor inmueble</span>
+              <strong id="rValor">$300,000,000</strong>
+            </div>
+            <div class="calc-detail-row">
+              <span>Cuota inicial</span>
+              <strong id="rInicial">$90,000,000</strong>
+            </div>
+            <div class="calc-detail-row">
+              <span>Monto a financiar</span>
+              <strong id="rFinanciar">$210,000,000</strong>
+            </div>
+            <div class="calc-detail-row">
+              <span>Total pagado</span>
+              <strong id="rTotal">$660,960,000</strong>
+            </div>
+          </div>
+
+          <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20asesoría%20financiera%20para%20comprar%20un%20inmueble."
+             target="_blank"
+             style="display:block;width:100%;text-align:center;margin-top:1.5rem;font-family:var(--font-sans);font-size:.7rem;letter-spacing:2px;text-transform:uppercase;font-weight:700;background:var(--charcoal);color:var(--cream);padding:.9rem;text-decoration:none;transition:background .2s;border-radius:1px;"
+             onmouseover="this.style.background='rgba(26,26,26,.8)'"
+             onmouseout="this.style.background='var(--charcoal)'">
+            <i class="bi bi-whatsapp me-2"></i> Hablar con asesor
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     PROCESO DE COMPRA
+══════════════════════════════════════ -->
+<section id="proceso">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="s-eyebrow justify-content-center reveal">Simple y transparente</div>
+      <h2 class="s-title reveal">Tu camino hacia <em>tu nuevo hogar</em></h2>
+      <div class="gold-rule gold-rule-center reveal"></div>
+    </div>
+
+    <div class="proceso-grid reveal">
+      <div class="proceso-step">
+        <div class="step-num">01</div>
+        <div class="step-icon"><i class="bi bi-search"></i></div>
+        <div class="step-title">Explora proyectos</div>
+        <div class="step-text">Revisa nuestro portafolio, filtra por zona, tipo y presupuesto. Agenda una visita virtual o presencial sin compromiso.</div>
+      </div>
+      <div class="proceso-step">
+        <div class="step-num">02</div>
+        <div class="step-icon"><i class="bi bi-person-check"></i></div>
+        <div class="step-title">Asesoría personalizada</div>
+        <div class="step-text">Un asesor experto te acompañará en todo el proceso, desde la elección del inmueble hasta las opciones de financiación.</div>
+      </div>
+      <div class="proceso-step">
+        <div class="step-num">03</div>
+        <div class="step-icon"><i class="bi bi-file-earmark-check"></i></div>
+        <div class="step-title">Separación y trámites</div>
+        <div class="step-text">Separas con un valor mínimo, gestionamos todos los trámites legales y de crédito hipotecario de forma ágil y segura.</div>
+      </div>
+      <div class="proceso-step">
+        <div class="step-num">04</div>
+        <div class="step-icon"><i class="bi bi-key"></i></div>
+        <div class="step-title">Recibe tu hogar</div>
+        <div class="step-text">Hacemos entrega formal con escritura, registro y soporte post-venta garantizado. Tu hogar, listo para vivir.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     GALERÍA LIFESTYLE
+══════════════════════════════════════ -->
+<section id="galeria">
+  <div class="gallery-strip">
+    <div class="gs-item">
+      <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=900&q=80&fit=crop"
+           alt="Interior de lujo" loading="lazy"/>
+      <div class="gs-overlay"><div class="gs-label">Interiores premium</div></div>
+    </div>
+    <div class="gs-item">
+      <img src="https://images.unsplash.com/photo-1600210492493-0946911123ea?w=500&q=80&fit=crop"
+           alt="Cocina moderna" loading="lazy"/>
+      <div class="gs-overlay"><div class="gs-label">Cocinas diseñadas</div></div>
+    </div>
+    <div class="gs-item">
+      <img src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=500&q=80&fit=crop"
+           alt="Piscina" loading="lazy"/>
+      <div class="gs-overlay"><div class="gs-label">Zonas comunes</div></div>
+    </div>
+    <div class="gs-item">
+      <img src="https://images.unsplash.com/photo-1560185893-a55cbc8c57e8?w=500&q=80&fit=crop"
+           alt="Vista nocturna" loading="lazy"/>
+      <div class="gs-overlay"><div class="gs-label">Vistas exclusivas</div></div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     AGENTES / ASESORES
+══════════════════════════════════════ -->
+<section id="agentes">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="s-eyebrow justify-content-center reveal">Nuestro equipo</div>
+      <h2 class="s-title reveal">Asesores <em>expertos</em></h2>
+      <div class="gold-rule gold-rule-center reveal"></div>
+      <p class="s-sub mx-auto reveal" style="max-width:500px;">
+        Profesionales certificados que te guiarán en cada etapa del proceso,
+        desde la primera visita hasta la escrituración.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="agent-card">
+          <div class="agent-img">
+            <img src="https://images.unsplash.com/photo-1560250097-0dc05888820c?w=500&q=80&fit=crop&crop=top"
+                 alt="Asesor 1" loading="lazy"/>
+            <span class="agent-lang">Español · Inglés</span>
+          </div>
+          <div class="agent-body">
+            <div class="agent-name">Andrés Morales</div>
+            <div class="agent-role">Director Comercial</div>
+            <div class="agent-bio">12 años en el sector inmobiliario. Especialista en proyectos de lujo y negociaciones de alto valor.</div>
+            <div class="agent-stats">
+              <div><div class="a-stat-n">12+</div><div class="a-stat-l">Años exp.</div></div>
+              <div><div class="a-stat-n">180+</div><div class="a-stat-l">Ventas</div></div>
+              <div><div class="a-stat-n">5★</div><div class="a-stat-l">Rating</div></div>
+            </div>
+            <div class="agent-contact">
+              <a href="https://wa.me/573001111111" target="_blank" class="btn-agent-wa"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+              <a href="mailto:amorales@altavista.com" class="btn-agent-mail"><i class="bi bi-envelope"></i> Email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d1">
+        <div class="agent-card">
+          <div class="agent-img">
+            <img src="https://images.unsplash.com/photo-1573496799652-408c2ac9fe98?w=500&q=80&fit=crop&crop=top"
+                 alt="Asesora 2" loading="lazy"/>
+            <span class="agent-lang">Español · Francés</span>
+          </div>
+          <div class="agent-body">
+            <div class="agent-name">Camila Restrepo</div>
+            <div class="agent-role">Asesora Senior</div>
+            <div class="agent-bio">Especialista en apartamentos y lofts de diseño. Experta en financiación y procesos hipotecarios.</div>
+            <div class="agent-stats">
+              <div><div class="a-stat-n">8+</div><div class="a-stat-l">Años exp.</div></div>
+              <div><div class="a-stat-n">120+</div><div class="a-stat-l">Ventas</div></div>
+              <div><div class="a-stat-n">5★</div><div class="a-stat-l">Rating</div></div>
+            </div>
+            <div class="agent-contact">
+              <a href="https://wa.me/573002222222" target="_blank" class="btn-agent-wa"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+              <a href="mailto:crestrepo@altavista.com" class="btn-agent-mail"><i class="bi bi-envelope"></i> Email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d2">
+        <div class="agent-card">
+          <div class="agent-img">
+            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=500&q=80&fit=crop&crop=top"
+                 alt="Asesor 3" loading="lazy"/>
+            <span class="agent-lang">Español · Inglés</span>
+          </div>
+          <div class="agent-body">
+            <div class="agent-name">Felipe Cardona</div>
+            <div class="agent-role">Asesor Comercial</div>
+            <div class="agent-bio">Enfocado en casas y proyectos familiares. Conoce a la perfección cada zona y proyecto disponible.</div>
+            <div class="agent-stats">
+              <div><div class="a-stat-n">6+</div><div class="a-stat-l">Años exp.</div></div>
+              <div><div class="a-stat-n">95+</div><div class="a-stat-l">Ventas</div></div>
+              <div><div class="a-stat-n">5★</div><div class="a-stat-l">Rating</div></div>
+            </div>
+            <div class="agent-contact">
+              <a href="https://wa.me/573003333333" target="_blank" class="btn-agent-wa"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+              <a href="mailto:fcardona@altavista.com" class="btn-agent-mail"><i class="bi bi-envelope"></i> Email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d3">
+        <div class="agent-card">
+          <div class="agent-img">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500&q=80&fit=crop&crop=top"
+                 alt="Asesora 4" loading="lazy"/>
+            <span class="agent-lang">Español · Portugués</span>
+          </div>
+          <div class="agent-body">
+            <div class="agent-name">Valentina Cruz</div>
+            <div class="agent-role">Asesora de Lujo</div>
+            <div class="agent-bio">Especialista en penthouses y propiedades de alto valor. Atiende clientes internacionales e inversores.</div>
+            <div class="agent-stats">
+              <div><div class="a-stat-n">9+</div><div class="a-stat-l">Años exp.</div></div>
+              <div><div class="a-stat-n">140+</div><div class="a-stat-l">Ventas</div></div>
+              <div><div class="a-stat-n">5★</div><div class="a-stat-l">Rating</div></div>
+            </div>
+            <div class="agent-contact">
+              <a href="https://wa.me/573004444444" target="_blank" class="btn-agent-wa"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+              <a href="mailto:vcruz@altavista.com" class="btn-agent-mail"><i class="bi bi-envelope"></i> Email</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     TESTIMONIOS
+══════════════════════════════════════ -->
+<section id="testimonios">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="text-center mb-5">
+      <div class="s-eyebrow justify-content-center reveal" style="color:var(--gold-light);">Historias reales</div>
+      <h2 class="s-title s-title-light reveal">Lo que dicen<br>nuestros <em>propietarios</em></h2>
+      <div class="gold-rule gold-rule-center reveal"></div>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-text">Llevamos dos años viviendo en Torre Élite y la calidad supera todo lo que esperábamos. Los acabados, las zonas comunes y la atención post-venta han sido impecables.</div>
+          <div class="testi-prop">Torre Élite — Apto 1204</div>
+          <div class="testi-author">
+            <div class="testi-avatar">RM</div>
+            <div>
+              <div class="testi-name">Ricardo & María José</div>
+              <div class="testi-role">Propietarios desde 2022</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-text">El proceso fue muy transparente desde el principio. Camila nos acompañó en cada paso, desde elegir el apartamento hasta la firma de la escritura. Definitivamente volvería a comprar con ALTAVISTA.</div>
+          <div class="testi-prop">Parque Central — Apto 802</div>
+          <div class="testi-author">
+            <div class="testi-avatar">SG</div>
+            <div>
+              <div class="testi-name">Sofía Gutiérrez</div>
+              <div class="testi-role">Propietaria desde 2023</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="testi-card">
+          <div class="testi-quote">"</div>
+          <div class="testi-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-text">Invertí en Villas del Bosque pensando en el largo plazo y ha sido la mejor decisión. La valorización ha sido extraordinaria y la zona superó mis expectativas. Altamente recomendados.</div>
+          <div class="testi-prop">Villas del Bosque — Casa 14</div>
+          <div class="testi-author">
+            <div class="testi-avatar">JP</div>
+            <div>
+              <div class="testi-name">Jorge Palomino</div>
+              <div class="testi-role">Inversionista · Propietario 2021</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     CTA
+══════════════════════════════════════ -->
+<section id="cta">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="cta-inner reveal">
+      <div class="s-eyebrow justify-content-center mb-3">Da el primer paso</div>
+      <h2 class="cta-title">
+        Tu hogar ideal<br>te está <em>esperando</em>
+      </h2>
+      <p class="s-sub mx-auto mt-3 mb-4" style="max-width:480px;">
+        Agenda una visita sin costo ni compromiso. Nuestros asesores te mostrarán
+        el proyecto perfecto para tu estilo de vida y presupuesto.
+      </p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center">
+        <a href="https://wa.me/573000000000?text=Hola!%20Quiero%20agendar%20una%20visita%20a%20un%20proyecto%20ALTAVISTA." target="_blank" class="btn-primary-re">
+          <i class="bi bi-whatsapp"></i> Agendar visita gratis
+        </a>
+        <a href="#proyectos" class="btn-ghost-re" style="border-color:var(--gold-border);color:var(--charcoal);" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='var(--charcoal)'">
+          Ver proyectos <i class="bi bi-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     CONTACTO
+══════════════════════════════════════ -->
+<section id="contacto">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="s-eyebrow justify-content-center reveal">Estamos para ti</div>
+      <h2 class="s-title reveal">Contáctanos</h2>
+      <div class="gold-rule gold-rule-center reveal"></div>
+    </div>
+
+    <div class="row g-5">
+      <!-- Formulario -->
+      <div class="col-lg-7">
+        <div class="contact-form-wrap reveal">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-lbl">Nombre completo *</label>
+              <input type="text" class="form-ctrl" placeholder="Tu nombre"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl">Teléfono / WhatsApp *</label>
+              <input type="tel" class="form-ctrl" placeholder="+57 300 000 0000"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl">Correo electrónico *</label>
+              <input type="email" class="form-ctrl" placeholder="tu@correo.com"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl">Proyecto de interés</label>
+              <select class="form-ctrl">
+                <option disabled selected>Selecciona un proyecto...</option>
+                <option>Torre Élite</option>
+                <option>Villas del Bosque</option>
+                <option>Urban Lofts 42</option>
+                <option>Sky Residence</option>
+                <option>Parque Central</option>
+                <option>Reserva Verde</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl">Presupuesto aproximado</label>
+              <select class="form-ctrl">
+                <option disabled selected>Selecciona rango...</option>
+                <option>Hasta $200M</option>
+                <option>$200M – $400M</option>
+                <option>$400M – $700M</option>
+                <option>Más de $700M</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl">¿Cómo nos encontraste?</label>
+              <select class="form-ctrl">
+                <option disabled selected>Selecciona...</option>
+                <option>Google</option>
+                <option>Instagram / Facebook</option>
+                <option>Recomendación</option>
+                <option>Portal inmobiliario</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-lbl">Mensaje o requerimiento especial</label>
+              <textarea class="form-ctrl" rows="3" placeholder="Cuéntanos qué estás buscando..."></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn-submit-re" type="submit" onclick="submitForm(this)">
+                Enviar solicitud de visita
+              </button>
+            </div>
+            <div class="col-12" id="formOk" style="display:none;">
+              <div style="background:rgba(184,148,63,.1);border:1px solid var(--gold-border);padding:1rem;text-align:center;border-radius:1px;">
+                <i class="bi bi-check-circle" style="color:var(--gold);font-size:1.4rem;"></i>
+                <p style="font-family:var(--font-sans);font-size:.78rem;letter-spacing:1px;color:var(--gold);margin-top:.5rem;text-transform:uppercase;">¡Solicitud enviada! Te contactamos en menos de 24 horas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="col-lg-5">
+        <div class="contact-info-card reveal d2">
+          <div class="s-eyebrow" style="justify-content:flex-start;color:var(--gold-light);">Sala de ventas</div>
+          <h3 style="font-family:var(--font-display);font-size:1.6rem;color:var(--cream);margin-bottom:1.5rem;font-weight:400;">
+            Visítanos sin<br><em style="color:var(--gold);">cita previa</em>
+          </h3>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div><div class="ci-label">Dirección</div><div class="ci-val">Cra 43A # 1-50, El Poblado<br>Tu ciudad, Colombia</div></div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="bi bi-clock-fill"></i></div>
+            <div><div class="ci-label">Horario sala de ventas</div><div class="ci-val">Lun – Sáb: 9:00 am – 6:00 pm<br>Dom: 10:00 am – 3:00 pm</div></div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="bi bi-whatsapp"></i></div>
+            <div><div class="ci-label">WhatsApp</div><div class="ci-val">+57 300 000 0000</div></div>
+          </div>
+          <div class="ci-item">
+            <div class="ci-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div><div class="ci-label">Email</div><div class="ci-val">ventas@altavista.co</div></div>
+          </div>
+          <div class="ci-item" style="border:none;">
+            <div class="ci-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div><div class="ci-label">Línea directa</div><div class="ci-val">+57 (4) 000 0000</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand">ALTA<em>VISTA</em></div>
+        <div class="footer-tagline">Constructora · Proyectos Premium · Est. 2009</div>
+        <p style="font-size:.83rem;color:var(--stone);font-family:var(--font-sans);line-height:1.8;margin-top:1rem;font-weight:300;">
+          Construimos hogares que perduran. Calidad, diseño y transparencia en cada proyecto residencial que entregamos.
+        </p>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-col-title">Navegación</div>
+        <a href="#nosotros"    class="footer-link">Nosotros</a>
+        <a href="#proyectos"   class="footer-link">Proyectos</a>
+        <a href="#calculadora" class="footer-link">Calculadora</a>
+        <a href="#agentes"     class="footer-link">Asesores</a>
+        <a href="#contacto"    class="footer-link">Contacto</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-title">Proyectos</div>
+        <a href="#proyectos" class="footer-link">Torre Élite</a>
+        <a href="#proyectos" class="footer-link">Villas del Bosque</a>
+        <a href="#proyectos" class="footer-link">Urban Lofts 42</a>
+        <a href="#proyectos" class="footer-link">Sky Residence</a>
+        <a href="#proyectos" class="footer-link">Parque Central</a>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-col-title">Contacto rápido</div>
+        <a href="https://wa.me/573000000000" target="_blank" class="footer-link"><i class="bi bi-whatsapp me-2" style="color:#25d366;"></i>+57 300 000 0000</a>
+        <a href="mailto:ventas@altavista.co" class="footer-link"><i class="bi bi-envelope me-2" style="color:var(--gold);"></i>ventas@altavista.co</a>
+        <span class="footer-link" style="cursor:default;"><i class="bi bi-geo-alt me-2" style="color:var(--gold);"></i>El Poblado, Tu ciudad</span>
+        <div style="margin-top:1rem;padding:1rem;border:1px solid rgba(184,148,63,.15);border-left:2px solid var(--gold);">
+          <div style="font-family:var(--font-sans);font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:var(--stone);margin-bottom:.4rem;">Sala de ventas</div>
+          <div style="font-size:.83rem;color:var(--stone2);font-weight:300;">L–S: 9am–6pm · Dom: 10am–3pm</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copy">© 2025 ALTAVISTA Constructora. Todos los derechos reservados. · Imágenes: Unsplash (Licencia libre)</div>
+      <div>
+        <a href="#" class="social-btn" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="social-btn" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="social-btn" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://wa.me/573000000000" class="social-btn" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573000000000?text=Hola!%20Vi%20su%20página%20y%20quiero%20información%20sobre%20proyectos%20ALTAVISTA."
+   target="_blank" class="wa-float" aria-label="WhatsApp">
+  <div class="wa-ring"></div>
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* ── Navbar ── */
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 60));
+
+  /* ── Mobile nav ── */
+  const navToggle = document.getElementById('navToggle');
+  const mobileNav = document.getElementById('mobileNav');
+  navToggle.addEventListener('click', () => {
+    mobileNav.style.display = mobileNav.style.display === 'block' ? 'none' : 'block';
+  });
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.style.display = 'none'));
+
+  /* ── Hero image ── */
+  const heroImg = document.getElementById('heroImg');
+  if (heroImg.complete) heroImg.classList.add('loaded');
+  else heroImg.addEventListener('load', () => heroImg.classList.add('loaded'));
+
+  /* ── Lazy img fade ── */
+  document.querySelectorAll('.img-fill').forEach(img => {
+    if (img.complete) img.classList.add('loaded');
+    else {
+      img.addEventListener('load',  () => img.classList.add('loaded'));
+      img.addEventListener('error', () => { img.style.display='none'; });
+    }
+  });
+
+  /* ── Reveal ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('show'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal,.reveal-l,.reveal-r').forEach(el => io.observe(el));
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if (t) { e.preventDefault(); window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }
+    });
+  });
+
+  /* ── Filtros de proyectos ── */
+  document.getElementById('filterTabs').addEventListener('click', e => {
+    if (!e.target.classList.contains('ftab')) return;
+    document.querySelectorAll('.ftab').forEach(t => t.classList.remove('active'));
+    e.target.classList.add('active');
+    const filter = e.target.dataset.filter;
+    document.querySelectorAll('.prop-item').forEach(item => {
+      const match = filter === 'all' || item.dataset.type === filter;
+      item.style.display = match ? '' : 'none';
+      if (match) { item.style.animation = 'fadeIn .4s ease'; }
+    });
+  });
+
+  /* ── Favoritos (corazón) ── */
+  document.querySelectorAll('.prop-fav').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const icon = btn.querySelector('i');
+      if (icon.classList.contains('bi-heart')) {
+        icon.classList.replace('bi-heart','bi-heart-fill');
+        btn.style.background = 'var(--gold)';
+        btn.style.color = 'var(--charcoal)';
+      } else {
+        icon.classList.replace('bi-heart-fill','bi-heart');
+        btn.style.background = '';
+        btn.style.color = '';
+      }
+    });
+  });
+
+  /* ── Calculadora de crédito ── */
+  function fmt(n) {
+    return '$' + Math.round(n).toLocaleString('es-CO');
+  }
+  function calcular() {
+    const valor   = parseFloat(document.getElementById('cValor').value) || 0;
+    const pctCI   = parseFloat(document.getElementById('cCuota').value) / 100;
+    const plazo   = parseInt(document.getElementById('cPlazo').value);
+    const tasaA   = parseFloat(document.getElementById('cTasa').value) / 100;
+    const tasaM   = tasaA / 12;
+    const n       = plazo * 12;
+    const inicial = valor * pctCI;
+    const monto   = valor - inicial;
+    let cuota = 0;
+    if (tasaM > 0 && monto > 0) {
+      cuota = monto * (tasaM * Math.pow(1 + tasaM, n)) / (Math.pow(1 + tasaM, n) - 1);
+    }
+    const total = cuota * n;
+
+    document.getElementById('displayValor').textContent = fmt(valor);
+    document.getElementById('displayCuota').textContent = `${Math.round(pctCI*100)}% — ${fmt(inicial)}`;
+    document.getElementById('displayTasa').textContent  = `${(tasaA*100).toFixed(1)}% anual`;
+    document.getElementById('resultCuota').textContent  = fmt(cuota);
+    document.getElementById('resultPlazo').textContent  = `${plazo} años`;
+    document.getElementById('rValor').textContent       = fmt(valor);
+    document.getElementById('rInicial').textContent     = fmt(inicial);
+    document.getElementById('rFinanciar').textContent   = fmt(monto);
+    document.getElementById('rTotal').textContent       = fmt(total);
+  }
+  calcular(); // Init
+
+  /* ── Formulario ── */
+  function submitForm(btn) {
+    btn.textContent = 'Enviando...';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('formOk').style.display = 'block';
+      btn.textContent = 'Solicitud enviada ✓';
+      btn.style.background = 'var(--gold)';
+      btn.style.color = 'var(--charcoal)';
+    }, 1200);
+  }
+
+  /* ── filterProjects (search bar btn) ── */
+  function filterProjects() {
+    document.getElementById('proyectos').scrollIntoView({ behavior:'smooth', block:'start' });
+  }
+
+  /* ── keyframe fadeIn ── */
+  const st = document.createElement('style');
+  st.textContent = '@keyframes fadeIn{from{opacity:0;transform:translateY(12px);}to{opacity:1;transform:none;}}';
+  document.head.appendChild(st);
+</script>
+</body>
+</html>

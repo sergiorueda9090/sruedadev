@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="BrasakFire — Las mejores hamburguesas, alitas y papas fritas de la ciudad. Sabor que enciende tus sentidos.">
+    <title>BrasakFire 🔥 — Comida Rápida con Alma</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --fire-500: #FF4D00;
+            --fire-400: #FF6B2B;
+            --fire-600: #CC3D00;
+            --ember: #FFB800;
+            --charcoal-900: #0D0D0D;
+            --charcoal-800: #1A1A1A;
+            --charcoal-700: #2A2A2A;
+            --charcoal-600: #3A3A3A;
+            --smoke-100: #F5F0EB;
+            --smoke-200: #E8E0D8;
+            --smoke-300: #BDB3A8;
+            --cream: #FFF8F0;
+            --font-display: 'Bebas Neue', sans-serif;
+            --font-body: 'DM Sans', sans-serif;
+            --radius-sm: 8px;
+            --radius-md: 16px;
+            --radius-lg: 24px;
+            --shadow-card: 0 8px 32px rgba(0,0,0,0.3);
+            --shadow-glow: 0 0 40px rgba(255,77,0,0.15);
+        }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+        html { scroll-behavior:smooth; scroll-padding-top:80px; }
+        body {
+            font-family: var(--font-body);
+            background: var(--charcoal-900);
+            color: var(--smoke-100);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+        body::after {
+            content:'';position:fixed;top:0;left:0;width:100%;height:100%;
+            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+            pointer-events:none;z-index:9999;
+        }
+        h1,h2,h3,h4,h5{font-family:var(--font-display);letter-spacing:.03em;line-height:1.1}
+        a{text-decoration:none;color:inherit;transition:all .3s ease}
+        img{max-width:100%;height:auto}
+        ::-webkit-scrollbar{width:8px}
+        ::-webkit-scrollbar-track{background:var(--charcoal-900)}
+        ::-webkit-scrollbar-thumb{background:var(--fire-500);border-radius:4px}
+
+        @keyframes fadeInUp{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:translateY(0)}}
+        @keyframes fadeInRight{from{opacity:0;transform:translateX(40px)}to{opacity:1;transform:translateX(0)}}
+        @keyframes pulse-glow{0%,100%{box-shadow:0 0 20px rgba(255,77,0,.3)}50%{box-shadow:0 0 40px rgba(255,77,0,.6)}}
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+        @keyframes flame-flicker{0%,100%{text-shadow:0 0 10px rgba(255,77,0,.5),0 0 30px rgba(255,77,0,.2)}50%{text-shadow:0 0 20px rgba(255,77,0,.8),0 0 50px rgba(255,77,0,.4)}}
+
+        .reveal{opacity:0;transform:translateY(40px);transition:all .8s cubic-bezier(.16,1,.3,1)}
+        .reveal.active{opacity:1;transform:translateY(0)}
+        .reveal-delay-1{transition-delay:.1s}.reveal-delay-2{transition-delay:.2s}.reveal-delay-3{transition-delay:.3s}.reveal-delay-4{transition-delay:.4s}
+
+        /* NAVBAR */
+        .navbar-custom{background:rgba(13,13,13,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,77,0,.1);padding:12px 0;transition:all .4s ease;z-index:1000}
+        .navbar-custom.scrolled{background:rgba(13,13,13,.97);box-shadow:0 4px 30px rgba(0,0,0,.4)}
+        .navbar-brand-text{font-family:var(--font-display);font-size:2rem;color:var(--smoke-100);display:flex;align-items:center;gap:6px}
+        .navbar-brand-text .fire-accent{color:var(--fire-500);animation:flame-flicker 2s ease-in-out infinite}
+        .navbar-custom .nav-link{font-family:var(--font-body);font-weight:500;color:var(--smoke-300);padding:8px 16px!important;font-size:.95rem;position:relative;transition:color .3s ease}
+        .navbar-custom .nav-link::after{content:'';position:absolute;bottom:2px;left:16px;right:16px;height:2px;background:var(--fire-500);transform:scaleX(0);transition:transform .3s ease}
+        .navbar-custom .nav-link:hover,.navbar-custom .nav-link.active{color:var(--smoke-100)}
+        .navbar-custom .nav-link:hover::after,.navbar-custom .nav-link.active::after{transform:scaleX(1)}
+        .btn-order-nav{font-family:var(--font-display);font-size:1.05rem;letter-spacing:.05em;background:var(--fire-500);color:white;border:none;padding:8px 24px;border-radius:50px;transition:all .3s ease}
+        .btn-order-nav:hover{background:var(--fire-400);color:white;transform:translateY(-2px);box-shadow:0 6px 20px rgba(255,77,0,.4)}
+        .navbar-toggler{border:1px solid rgba(255,77,0,.3);padding:6px 10px}
+        .navbar-toggler-icon{background-image:url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FF4D00' stroke-linecap='round' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e")}
+
+        /* HERO */
+        .hero{min-height:100vh;display:flex;align-items:center;position:relative;overflow:hidden;padding-top:80px}
+        .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse at 20% 80%,rgba(255,77,0,.12) 0%,transparent 50%),radial-gradient(ellipse at 80% 20%,rgba(255,184,0,.08) 0%,transparent 50%),radial-gradient(ellipse at 50% 50%,rgba(13,13,13,1) 0%,var(--charcoal-900) 100%);z-index:0}
+        .hero-bg::before{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,77,0,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,77,0,.03) 1px,transparent 1px);background-size:60px 60px}
+        .hero .container{position:relative;z-index:2}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(255,77,0,.1);border:1px solid rgba(255,77,0,.25);padding:8px 20px;border-radius:50px;font-size:.85rem;font-weight:500;color:var(--fire-400);margin-bottom:24px;animation:fadeInUp .8s ease both}
+        .hero-title{font-size:clamp(3.5rem,9vw,8rem);color:var(--smoke-100);text-transform:uppercase;margin-bottom:8px;animation:fadeInUp .8s ease .15s both}
+        .hero-title .highlight{color:var(--fire-500);position:relative;display:inline-block}
+        .hero-title .highlight::after{content:'';position:absolute;bottom:5px;left:0;width:100%;height:6px;background:var(--fire-500);opacity:.3;border-radius:3px}
+        .hero-subtitle{font-family:'Bebas Neue',sans-serif;font-size:clamp(1.2rem,2.5vw,1.8rem);color:var(--smoke-300);letter-spacing:.15em;margin-bottom:20px;animation:fadeInUp .8s ease .3s both}
+        .hero-desc{font-size:1.1rem;color:var(--smoke-300);max-width:500px;margin-bottom:36px;line-height:1.7;animation:fadeInUp .8s ease .4s both}
+        .hero-actions{display:flex;gap:16px;flex-wrap:wrap;animation:fadeInUp .8s ease .5s both}
+        .btn-fire{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.08em;background:var(--fire-500);color:white;border:none;padding:16px 40px;border-radius:50px;display:inline-flex;align-items:center;gap:10px;transition:all .3s ease;position:relative;overflow:hidden}
+        .btn-fire::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transition:left .5s ease}
+        .btn-fire:hover{background:var(--fire-400);color:white;transform:translateY(-3px);box-shadow:0 8px 30px rgba(255,77,0,.4)}
+        .btn-fire:hover::before{left:100%}
+        .btn-ghost{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.08em;background:transparent;color:var(--smoke-100);border:2px solid var(--charcoal-600);padding:14px 36px;border-radius:50px;display:inline-flex;align-items:center;gap:10px;transition:all .3s ease}
+        .btn-ghost:hover{border-color:var(--fire-500);color:var(--fire-400);transform:translateY(-3px)}
+        .hero-visual{position:relative;animation:fadeInRight 1s ease .4s both}
+        .hero-emoji-float{font-size:6rem;display:block;text-align:center;animation:float 3s ease-in-out infinite;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+        .hero-emoji-float.delay-1{animation-delay:.5s}.hero-emoji-float.delay-2{animation-delay:1s}
+        .hero-stats{display:flex;gap:40px;margin-top:50px;animation:fadeInUp .8s ease .6s both}
+        .hero-stat-number{font-family:var(--font-display);font-size:2.5rem;color:var(--fire-500)}
+        .hero-stat-label{font-size:.85rem;color:var(--smoke-300);text-transform:uppercase;letter-spacing:.05em}
+        .hero-deco{position:absolute;border-radius:50%;filter:blur(60px);z-index:0}
+        .hero-deco-1{width:300px;height:300px;background:rgba(255,77,0,.08);top:20%;right:10%}
+        .hero-deco-2{width:200px;height:200px;background:rgba(255,184,0,.06);bottom:15%;left:5%}
+
+        /* SECTION TITLES */
+        .section-tag{font-family:var(--font-display);font-size:1rem;letter-spacing:.2em;color:var(--fire-500);text-transform:uppercase;margin-bottom:8px}
+        .section-title{font-size:clamp(2.5rem,5vw,4rem);text-transform:uppercase;margin-bottom:16px}
+        .section-desc{font-size:1.05rem;color:var(--smoke-300);max-width:550px;line-height:1.7}
+        .section-desc.centered{margin-left:auto;margin-right:auto}
+
+        /* MENU */
+        .menu-section{padding:100px 0 120px;position:relative}
+        .menu-section::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:radial-gradient(ellipse at 70% 0%,rgba(255,77,0,.05) 0%,transparent 50%)}
+        .menu-card{background:var(--charcoal-800);border:1px solid var(--charcoal-700);border-radius:var(--radius-md);padding:0;overflow:hidden;transition:all .4s cubic-bezier(.16,1,.3,1);position:relative;height:100%}
+        .menu-card:hover{transform:translateY(-8px);border-color:rgba(255,77,0,.3);box-shadow:var(--shadow-glow)}
+        .menu-card-img{height:220px;display:flex;align-items:center;justify-content:center;background:var(--charcoal-700);font-size:5rem;position:relative;overflow:hidden}
+        .menu-card-img::after{content:'';position:absolute;bottom:0;left:0;width:100%;height:60px;background:linear-gradient(transparent,var(--charcoal-800))}
+        .menu-card-body{padding:24px}
+        .menu-card-category{font-family:var(--font-display);font-size:.8rem;letter-spacing:.15em;color:var(--fire-500);text-transform:uppercase;margin-bottom:6px}
+        .menu-card-name{font-family:var(--font-display);font-size:1.6rem;margin-bottom:8px;color:var(--smoke-100)}
+        .menu-card-desc{font-size:.9rem;color:var(--smoke-300);margin-bottom:16px;line-height:1.5}
+        .menu-card-footer{display:flex;align-items:center;justify-content:space-between}
+        .menu-price{font-family:var(--font-display);font-size:1.8rem;color:var(--ember)}
+        .menu-price .currency{font-size:1rem;vertical-align:super}
+        .btn-add{width:44px;height:44px;border-radius:50%;background:var(--fire-500);color:white;border:none;display:flex;align-items:center;justify-content:center;font-size:1.3rem;transition:all .3s ease;cursor:pointer}
+        .btn-add:hover{background:var(--fire-400);transform:scale(1.1) rotate(90deg);box-shadow:0 4px 15px rgba(255,77,0,.4)}
+        .menu-badge-popular{position:absolute;top:16px;right:16px;background:var(--fire-500);color:white;font-family:var(--font-display);font-size:.75rem;letter-spacing:.1em;padding:6px 14px;border-radius:50px;z-index:2}
+
+        /* ABOUT */
+        .about-section{padding:100px 0;background:var(--charcoal-800);position:relative;overflow:hidden}
+        .about-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 0% 50%,rgba(255,77,0,.06) 0%,transparent 50%)}
+        .about-visual{position:relative;display:flex;align-items:center;justify-content:center}
+        .about-visual-box{width:100%;max-width:420px;aspect-ratio:4/5;background:var(--charcoal-700);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:8rem;position:relative;border:1px solid var(--charcoal-600)}
+        .about-visual-box::after{content:'';position:absolute;inset:-2px;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--fire-500),transparent,var(--ember));z-index:-1;opacity:.3}
+        .about-floating-badge{position:absolute;background:var(--fire-500);color:white;padding:16px 24px;border-radius:var(--radius-md);font-family:var(--font-display);font-size:1.3rem;letter-spacing:.05em;box-shadow:var(--shadow-card);z-index:3}
+        .about-floating-badge.top-right{top:-10px;right:-10px;animation:float 4s ease-in-out infinite}
+        .about-floating-badge.bottom-left{bottom:20px;left:-10px;background:var(--ember);color:var(--charcoal-900);animation:float 4s ease-in-out 1s infinite}
+        .about-features{list-style:none;padding:0;margin:24px 0 0;display:flex;flex-direction:column;gap:14px}
+        .about-features li{display:flex;align-items:center;gap:12px;font-size:1rem;color:var(--smoke-200)}
+        .about-features li .bi{color:var(--fire-500);font-size:1.2rem;flex-shrink:0}
+
+        /* PROMO BANNER */
+        .promo-banner{padding:80px 0;position:relative;overflow:hidden}
+        .promo-inner{background:linear-gradient(135deg,var(--fire-600),var(--fire-500),var(--ember));border-radius:var(--radius-lg);padding:60px;position:relative;overflow:hidden}
+        .promo-inner::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.1) 0%,transparent 40%),radial-gradient(circle at 20% 80%,rgba(0,0,0,.1) 0%,transparent 40%)}
+        .promo-inner::after{content:'🔥';position:absolute;right:40px;top:50%;transform:translateY(-50%);font-size:8rem;opacity:.2}
+        .promo-tag{font-family:var(--font-display);font-size:1rem;letter-spacing:.2em;color:rgba(255,255,255,.8)}
+        .promo-title{font-size:clamp(2.5rem,5vw,4rem);color:white;text-transform:uppercase;margin:8px 0 16px}
+        .promo-desc{font-size:1.1rem;color:rgba(255,255,255,.85);max-width:500px;margin-bottom:28px}
+        .btn-promo{font-family:var(--font-display);font-size:1.15rem;letter-spacing:.08em;background:var(--charcoal-900);color:white;border:none;padding:16px 40px;border-radius:50px;display:inline-flex;align-items:center;gap:10px;transition:all .3s ease}
+        .btn-promo:hover{background:var(--charcoal-800);color:white;transform:translateY(-3px);box-shadow:0 8px 30px rgba(0,0,0,.3)}
+
+        /* TESTIMONIALS */
+        .testimonials-section{padding:100px 0;background:var(--charcoal-800);position:relative}
+        .testimonial-card{background:var(--charcoal-900);border:1px solid var(--charcoal-700);border-radius:var(--radius-md);padding:32px;height:100%;transition:all .4s ease;position:relative}
+        .testimonial-card::before{content:'"';font-family:var(--font-display);font-size:5rem;color:var(--fire-500);opacity:.2;position:absolute;top:10px;right:24px;line-height:1}
+        .testimonial-card:hover{border-color:rgba(255,77,0,.2);transform:translateY(-4px)}
+        .testimonial-stars{color:var(--ember);font-size:.95rem;margin-bottom:16px;display:flex;gap:3px}
+        .testimonial-text{font-size:1rem;color:var(--smoke-200);line-height:1.7;margin-bottom:20px;font-style:italic}
+        .testimonial-author{display:flex;align-items:center;gap:12px}
+        .testimonial-avatar{width:44px;height:44px;border-radius:50%;background:var(--charcoal-700);display:flex;align-items:center;justify-content:center;font-size:1.2rem;font-weight:600;color:var(--fire-400);border:2px solid var(--charcoal-600)}
+        .testimonial-name{font-weight:600;font-size:.95rem;color:var(--smoke-100)}
+        .testimonial-role{font-size:.8rem;color:var(--smoke-300)}
+
+        /* LOCATION */
+        .location-section{padding:100px 0;position:relative}
+        .location-card{background:var(--charcoal-800);border:1px solid var(--charcoal-700);border-radius:var(--radius-md);padding:40px;height:100%}
+        .location-icon{width:56px;height:56px;background:rgba(255,77,0,.1);border:1px solid rgba(255,77,0,.2);border-radius:var(--radius-sm);display:flex;align-items:center;justify-content:center;font-size:1.4rem;color:var(--fire-500);margin-bottom:20px}
+        .location-card h4{font-size:1.5rem;margin-bottom:16px}
+        .location-detail{display:flex;align-items:flex-start;gap:12px;margin-bottom:14px;color:var(--smoke-300);font-size:.95rem}
+        .location-detail .bi{color:var(--fire-500);flex-shrink:0;margin-top:3px}
+        .hours-table{width:100%}
+        .hours-table tr{border-bottom:1px solid var(--charcoal-700)}
+        .hours-table tr:last-child{border-bottom:none}
+        .hours-table td{padding:10px 0;color:var(--smoke-300);font-size:.95rem}
+        .hours-table td:last-child{text-align:right;color:var(--smoke-100);font-weight:500}
+        .hours-table .today{color:var(--fire-400);font-weight:600}
+        .map-placeholder{width:100%;height:300px;background:var(--charcoal-700);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;font-size:3rem;margin-top:24px;border:1px solid var(--charcoal-600);position:relative;overflow:hidden}
+        .map-placeholder::after{content:'Haz click para ver el mapa';position:absolute;bottom:16px;font-size:.85rem;font-family:var(--font-body);color:var(--smoke-300)}
+
+        /* CTA */
+        .cta-section{padding:100px 0;text-align:center;position:relative;overflow:hidden}
+        .cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 100%,rgba(255,77,0,.1) 0%,transparent 50%)}
+        .cta-title{font-size:clamp(3rem,6vw,5rem);text-transform:uppercase;margin-bottom:16px}
+        .cta-title .highlight{color:var(--fire-500)}
+
+        /* FOOTER */
+        footer{background:var(--charcoal-800);border-top:1px solid var(--charcoal-700);padding:60px 0 30px}
+        .footer-brand{font-family:var(--font-display);font-size:2rem;color:var(--smoke-100);margin-bottom:12px}
+        .footer-brand .fire-accent{color:var(--fire-500)}
+        .footer-desc{color:var(--smoke-300);font-size:.9rem;max-width:300px;line-height:1.6}
+        .footer-title{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.1em;color:var(--smoke-100);margin-bottom:20px}
+        .footer-links{list-style:none;padding:0}
+        .footer-links li{margin-bottom:10px}
+        .footer-links a{color:var(--smoke-300);font-size:.9rem;transition:all .3s ease}
+        .footer-links a:hover{color:var(--fire-400);padding-left:4px}
+        .social-links{display:flex;gap:12px}
+        .social-link{width:42px;height:42px;border-radius:50%;background:var(--charcoal-700);border:1px solid var(--charcoal-600);display:flex;align-items:center;justify-content:center;color:var(--smoke-300);font-size:1.1rem;transition:all .3s ease}
+        .social-link:hover{background:var(--fire-500);border-color:var(--fire-500);color:white;transform:translateY(-3px)}
+        .footer-bottom{border-top:1px solid var(--charcoal-700);margin-top:40px;padding-top:24px;text-align:center;color:var(--smoke-300);font-size:.85rem}
+
+        /* RESPONSIVE */
+        @media(max-width:991px){
+            .hero-stats{gap:24px}.hero-visual{margin-top:40px;text-align:center}.hero-emoji-float{font-size:4.5rem}
+            .about-visual{margin-bottom:40px}.about-visual-box{max-width:320px;aspect-ratio:1;font-size:6rem}
+            .about-floating-badge{font-size:1.1rem;padding:12px 18px}.promo-inner{padding:40px 28px}
+            .promo-inner::after{font-size:5rem;right:10px;opacity:.1}
+        }
+        @media(max-width:767px){
+            .hero-stats{flex-wrap:wrap;gap:20px}.hero-stat-number{font-size:2rem}
+            .menu-card-img{height:180px}.promo-inner::after{display:none}
+        }
+        @media(max-width:575px){
+            .hero-actions{flex-direction:column}
+            .btn-fire,.btn-ghost,.btn-promo{justify-content:center;width:100%}
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand navbar-brand-text" href="#">BRASAK<span class="fire-accent">FIRE</span> 🔥</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Menú de navegación">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto me-3 align-items-lg-center">
+                    <li class="nav-item"><a class="nav-link active" href="#inicio">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#opiniones">Opiniones</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+                </ul>
+                <a href="#menu" class="btn btn-order-nav">PEDIR AHORA</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg"></div>
+        <div class="hero-deco hero-deco-1"></div>
+        <div class="hero-deco hero-deco-2"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-badge"><i class="bi bi-fire"></i> #1 Comida rápida de la ciudad</div>
+                    <h1 class="hero-title">SABOR QUE<br><span class="highlight">ENCIENDE</span></h1>
+                    <p class="hero-subtitle">Hamburguesas · Alitas · Papas Cargadas · Más</p>
+                    <p class="hero-desc">Ingredientes frescos, recetas de fuego y un toque que no vas a olvidar. Cada mordida es una experiencia.</p>
+                    <div class="hero-actions">
+                        <a href="#menu" class="btn-fire">VER MENÚ <i class="bi bi-arrow-right"></i></a>
+                        <a href="#ubicacion" class="btn-ghost"><i class="bi bi-geo-alt"></i> ENCUÉNTRANOS</a>
+                    </div>
+                    <div class="hero-stats">
+                        <div><div class="hero-stat-number">15K+</div><div class="hero-stat-label">Clientes felices</div></div>
+                        <div><div class="hero-stat-number">4.9 ★</div><div class="hero-stat-label">Calificación</div></div>
+                        <div><div class="hero-stat-number">30'</div><div class="hero-stat-label">Entrega rápida</div></div>
+                    </div>
+                </div>
+                <div class="col-lg-5 d-none d-lg-block">
+                    <div class="hero-visual">
+                        <span class="hero-emoji-float">🍔</span>
+                        <div class="d-flex justify-content-around mt-3">
+                            <span class="hero-emoji-float delay-1" style="font-size:3.5rem;">🍟</span>
+                            <span class="hero-emoji-float delay-2" style="font-size:3.5rem;">🍗</span>
+                            <span class="hero-emoji-float delay-1" style="font-size:3.5rem;">🥤</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU -->
+    <section class="menu-section" id="menu">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-tag reveal">— NUESTRO MENÚ —</p>
+                <h2 class="section-title reveal reveal-delay-1">LO MÁS PEDIDO</h2>
+                <p class="section-desc centered reveal reveal-delay-2">Cada plato es preparado al momento con ingredientes frescos y salsas hechas en casa.</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
+                    <div class="menu-card">
+                        <span class="menu-badge-popular">⭐ MÁS VENDIDA</span>
+                        <div class="menu-card-img">🍔</div>
+                        <div class="menu-card-body">
+                            <p class="menu-card-category">Hamburguesas</p>
+                            <h3 class="menu-card-name">BRASAK SMASH</h3>
+                            <p class="menu-card-desc">Doble carne smash, queso cheddar fundido, cebolla caramelizada, salsa BrasakFire y pan brioche tostado.</p>
+                            <div class="menu-card-footer">
+                                <span class="menu-price"><span class="currency">$</span>28.900</span>
+                                <button class="btn-add" aria-label="Agregar al pedido"><i class="bi bi-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
+                    <div class="menu-card">
+                        <div class="menu-card-img">🍗</div>
+                        <div class="menu-card-body">
+                            <p class="menu-card-category">Alitas</p>
+                            <h3 class="menu-card-name">ALITAS INFERNO x12</h3>
+                            <p class="menu-card-desc">12 alitas crujientes bañadas en salsa buffalo picante, acompañadas de dip de blue cheese y apio fresco.</p>
+                            <div class="menu-card-footer">
+                                <span class="menu-price"><span class="currency">$</span>24.500</span>
+                                <button class="btn-add" aria-label="Agregar al pedido"><i class="bi bi-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal reveal-delay-3">
+                    <div class="menu-card">
+                        <div class="menu-card-img">🍟</div>
+                        <div class="menu-card-body">
+                            <p class="menu-card-category">Acompañamientos</p>
+                            <h3 class="menu-card-name">PAPAS CARGADAS</h3>
+                            <p class="menu-card-desc">Papas fritas gruesas con queso cheddar, tocineta crocante, jalapeños y crema agria casera.</p>
+                            <div class="menu-card-footer">
+                                <span class="menu-price"><span class="currency">$</span>18.200</span>
+                                <button class="btn-add" aria-label="Agregar al pedido"><i class="bi bi-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
+                    <div class="menu-card">
+                        <div class="menu-card-img">🌮</div>
+                        <div class="menu-card-body">
+                            <p class="menu-card-category">Tacos</p>
+                            <h3 class="menu-card-name">TACOS STREET x3</h3>
+                            <p class="menu-card-desc">Tres tacos de tortilla de maíz con carne desmechada, pico de gallo, guacamole y salsa chipotle.</p>
+                            <div class="menu-card-footer">
+                                <span class="menu-price"><span class="currency">$</span>22.000</span>
+                                <button class="btn-add" aria-label="Agregar al pedido"><i class="bi bi-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
+                    <div class="menu-card">
+                        <span class="menu-badge-popular">🔥 NUEVA</span>
+                        <div class="menu-card-img">🥤</div>
+                        <div class="menu-card-body">
+                            <p class="menu-card-category">Bebidas</p>
+                            <h3 class="menu-card-name">MALTEADA OREO</h3>
+                            <p class="menu-card-desc">Malteada cremosa de vainilla con trozos de Oreo, crema batida y topping de chocolate belga.</p>
+                            <div class="menu-card-footer">
+                                <span class="menu-price"><span class="currency">$</span>14.500</span>
+                                <button class="btn-add" aria-label="Agregar al pedido"><i class="bi bi-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal reveal-delay-3">
+                    <div class="menu-card">
+                        <div class="menu-card-img">🌯</div>
+                        <div class="menu-card-body">
+                            <p class="menu-card-category">Wraps</p>
+                            <h3 class="menu-card-name">WRAP POLLO BBQ</h3>
+                            <p class="menu-card-desc">Tortilla de trigo con pollo grillado, salsa BBQ ahumada, lechuga crespa, tomate y queso mozzarella.</p>
+                            <div class="menu-card-footer">
+                                <span class="menu-price"><span class="currency">$</span>20.800</span>
+                                <button class="btn-add" aria-label="Agregar al pedido"><i class="bi bi-plus"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about-section" id="nosotros">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-5 reveal">
+                    <div class="about-visual">
+                        <div class="about-visual-box">👨‍🍳</div>
+                        <div class="about-floating-badge top-right">DESDE 2018 🔥</div>
+                        <div class="about-floating-badge bottom-left">100% FRESCOS</div>
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1 reveal reveal-delay-2">
+                    <p class="section-tag">— NUESTRA HISTORIA —</p>
+                    <h2 class="section-title">NACIMOS DEL FUEGO</h2>
+                    <p class="section-desc">BrasakFire nació en 2018 con una idea simple: comida rápida que no sacrifica la calidad. Empezamos con una parrilla, una receta secreta de salsa y mucha pasión. Hoy, miles de personas confían en nosotros para ese antojo que no puede esperar.</p>
+                    <ul class="about-features">
+                        <li><i class="bi bi-check-circle-fill"></i> Ingredientes frescos seleccionados cada día</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Salsas artesanales hechas en casa</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Carne 100% res premium, nunca congelada</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Entrega en menos de 30 minutos</li>
+                        <li><i class="bi bi-check-circle-fill"></i> Opciones vegetarianas y sin gluten disponibles</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROMO BANNER -->
+    <section class="promo-banner">
+        <div class="container">
+            <div class="promo-inner reveal">
+                <p class="promo-tag">OFERTA ESPECIAL</p>
+                <h2 class="promo-title">COMBO BRASAK POR<br>$39.900</h2>
+                <p class="promo-desc">Hamburguesa Brasak Smash + Papas Cargadas + Malteada. Solo por tiempo limitado. ¡No te lo pierdas!</p>
+                <a href="#menu" class="btn-promo">LO QUIERO <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials-section" id="opiniones">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-tag reveal">— OPINIONES —</p>
+                <h2 class="section-title reveal reveal-delay-1">LO QUE DICEN NUESTROS CLIENTES</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6 reveal reveal-delay-1">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="testimonial-text">"La mejor hamburguesa que he probado en la ciudad. La Brasak Smash es adictiva, y las papas cargadas son otro nivel."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">CA</div>
+                            <div><div class="testimonial-name">Camila Aristizábal</div><div class="testimonial-role">Cliente frecuente</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal reveal-delay-2">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                        <p class="testimonial-text">"Pedimos por delivery y llegó súper rápido y caliente. Las alitas Inferno están perfectas, picantes en su punto justo."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">SM</div>
+                            <div><div class="testimonial-name">Santiago Mejía</div><div class="testimonial-role">Vía Rappi</div></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 reveal reveal-delay-3">
+                    <div class="testimonial-card">
+                        <div class="testimonial-stars"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i></div>
+                        <p class="testimonial-text">"El ambiente del local es increíble, la atención de 10 y la comida ni se diga. Volveremos con toda la familia seguro."</p>
+                        <div class="testimonial-author">
+                            <div class="testimonial-avatar">VR</div>
+                            <div><div class="testimonial-name">Valentina Restrepo</div><div class="testimonial-role">Google Reviews</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCATION -->
+    <section class="location-section" id="ubicacion">
+        <div class="container">
+            <div class="text-center mb-5">
+                <p class="section-tag reveal">— ENCUÉNTRANOS —</p>
+                <h2 class="section-title reveal reveal-delay-1">DÓNDE ESTAMOS</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-lg-4 reveal reveal-delay-1">
+                    <div class="location-card">
+                        <div class="location-icon"><i class="bi bi-geo-alt-fill"></i></div>
+                        <h4>DIRECCIÓN</h4>
+                        <div class="location-detail"><i class="bi bi-pin-map"></i><span>Cra 15 #82-45, Zona G<br>Bogotá, Colombia</span></div>
+                        <div class="location-detail"><i class="bi bi-telephone"></i><span>(+57) 310 456 7890</span></div>
+                        <div class="location-detail"><i class="bi bi-whatsapp"></i><span>+57 310 456 7890</span></div>
+                        <div class="location-detail"><i class="bi bi-envelope"></i><span>hola@brasakfire.com</span></div>
+                    </div>
+                </div>
+                <div class="col-lg-4 reveal reveal-delay-2">
+                    <div class="location-card">
+                        <div class="location-icon"><i class="bi bi-clock-fill"></i></div>
+                        <h4>HORARIOS</h4>
+                        <table class="hours-table">
+                            <tr><td>Lunes - Jueves</td><td>11:00 AM – 10:00 PM</td></tr>
+                            <tr class="today"><td>Viernes</td><td>11:00 AM – 12:00 AM</td></tr>
+                            <tr><td>Sábado</td><td>11:00 AM – 12:00 AM</td></tr>
+                            <tr><td>Domingo</td><td>12:00 PM – 9:00 PM</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-lg-4 reveal reveal-delay-3">
+                    <div class="location-card">
+                        <div class="location-icon"><i class="bi bi-bicycle"></i></div>
+                        <h4>DELIVERY</h4>
+                        <div class="location-detail"><i class="bi bi-check2-circle"></i><span>Rappi — Envío gratis +$50.000</span></div>
+                        <div class="location-detail"><i class="bi bi-check2-circle"></i><span>iFood — Descuento primer pedido</span></div>
+                        <div class="location-detail"><i class="bi bi-check2-circle"></i><span>Domicilio propio — 30 min o gratis</span></div>
+                        <div class="location-detail"><i class="bi bi-check2-circle"></i><span>WhatsApp directo para pedidos</span></div>
+                    </div>
+                </div>
+            </div>
+            <div class="map-placeholder reveal" role="img" aria-label="Mapa de ubicación del restaurante">📍</div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 class="cta-title reveal">¿LISTO PARA<br><span class="highlight">ENCENDER TU ANTOJO?</span></h2>
+            <p class="section-desc centered reveal reveal-delay-1" style="margin-bottom:32px;">Haz tu pedido ahora y recíbelo en menos de 30 minutos. Sabor que no puede esperar.</p>
+            <div class="reveal reveal-delay-2">
+                <a href="#menu" class="btn-fire" style="animation:pulse-glow 2s ease-in-out infinite;">PEDIR AHORA <i class="bi bi-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4 col-md-6">
+                    <div class="footer-brand">BRASAK<span class="fire-accent">FIRE</span> 🔥</div>
+                    <p class="footer-desc">Comida rápida con alma. Ingredientes reales, sabor que enciende y una experiencia que enamora desde el primer bocado.</p>
+                    <div class="social-links mt-3">
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">MENÚ</h5>
+                    <ul class="footer-links">
+                        <li><a href="#menu">Hamburguesas</a></li>
+                        <li><a href="#menu">Alitas</a></li>
+                        <li><a href="#menu">Papas</a></li>
+                        <li><a href="#menu">Bebidas</a></li>
+                        <li><a href="#menu">Combos</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-title">NOSOTROS</h5>
+                    <ul class="footer-links">
+                        <li><a href="#nosotros">Historia</a></li>
+                        <li><a href="#opiniones">Opiniones</a></li>
+                        <li><a href="#">Trabaja con nosotros</a></li>
+                        <li><a href="#">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <h5 class="footer-title">NEWSLETTER</h5>
+                    <p style="color:var(--smoke-300);font-size:.9rem;margin-bottom:16px;">Suscríbete y recibe promos exclusivas y descuentos de fuego.</p>
+                    <div class="d-flex gap-2">
+                        <input type="email" class="form-control" placeholder="tu@email.com" aria-label="Email para newsletter" style="background:var(--charcoal-700);border:1px solid var(--charcoal-600);color:var(--smoke-100);border-radius:50px;padding:12px 20px;font-size:.9rem;">
+                        <button class="btn-fire" style="padding:12px 24px;font-size:1rem;flex-shrink:0;">UNIRME <i class="bi bi-send"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">© 2026 BrasakFire. Todos los derechos reservados. Hecho con 🔥 y mucho amor.</div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        const navbar = document.getElementById('mainNav');
+        window.addEventListener('scroll', () => navbar.classList.toggle('scrolled', window.scrollY > 50));
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-link, a[href^="#"]').forEach(link => {
+            link.addEventListener('click', () => {
+                const navCollapse = document.getElementById('navMenu');
+                if (navCollapse.classList.contains('show')) new bootstrap.Collapse(navCollapse).hide();
+            });
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.navbar-custom .nav-link');
+        const observerNav = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id));
+                }
+            });
+        }, { rootMargin: '-40% 0px -60% 0px' });
+        sections.forEach(s => observerNav.observe(s));
+
+        // Scroll reveal
+        const reveals = document.querySelectorAll('.reveal');
+        const observerReveal = new IntersectionObserver(entries => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('active'); });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        reveals.forEach(el => observerReveal.observe(el));
+
+        // Add-to-cart button interaction
+        document.querySelectorAll('.btn-add').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const original = this.innerHTML;
+                this.innerHTML = '<i class="bi bi-check"></i>';
+                this.style.background = '#22c55e';
+                setTimeout(() => { this.innerHTML = original; this.style.background = ''; }, 1200);
+            });
+        });
+    </script>
+</body>
+</html>

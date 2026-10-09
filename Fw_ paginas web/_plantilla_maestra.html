@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#1a4f7a" />
+
+  <!-- SEO -->
+  <title>DentalPro Smile · Odontología Especializada en Bucaramanga</title>
+  <meta name="description" content="Clínica dental especializada en Bucaramanga. Blanqueamiento, ortodoncia invisible, implantes y rehabilitación oral. +15 años cuidando sonrisas. Agenda tu cita hoy." />
+  <meta name="keywords" content="odontología, dentista Bucaramanga, ortodoncia invisible, implantes dentales, blanqueamiento, consultorio dental, Santander" />
+  <meta name="author" content="DentalPro Smile" />
+  <link rel="canonical" href="https://dentalprosmile.co/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="DentalPro Smile — Odontología Especializada en Bucaramanga" />
+  <meta property="og:description" content="+15 años devolviendo sonrisas. Tecnología 3D, sedación consciente, financiación hasta 24 meses." />
+  <meta property="og:url" content="https://dentalprosmile.co/" />
+  <meta property="og:image" content="https://dentalprosmile.co/og-cover.jpg" />
+  <meta property="og:locale" content="es_CO" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="DentalPro Smile — Odontología Especializada" />
+  <meta name="twitter:description" content="+15 años devolviendo sonrisas en Bucaramanga." />
+  <meta name="twitter:image" content="https://dentalprosmile.co/og-cover.jpg" />
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "DentalPro Smile",
+    "description": "Clínica odontológica especializada en ortodoncia invisible, implantes y rehabilitación oral en Bucaramanga.",
+    "url": "https://dentalprosmile.co",
+    "telephone": "+573001234567",
+    "email": "contacto@dentalprosmile.co",
+    "priceRange": "$$",
+    "image": "https://dentalprosmile.co/og-cover.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrera 35 #52-14, Cabecera",
+      "addressLocality": "Bucaramanga",
+      "addressRegion": "Santander",
+      "postalCode": "680003",
+      "addressCountry": "CO"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": "7.1193", "longitude": "-73.1227" },
+    "openingHoursSpecification": [{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "08:00", "closes": "18:00"
+    },{
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday",
+      "opens": "09:00", "closes": "13:00"
+    }],
+    "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "reviewCount": "187" }
+  }
+  </script>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;500;600;700;800&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    :root {
+      --primary:       #1a4f7a;
+      --primary-dark:  #0f3354;
+      --primary-light: #3a86c8;
+      --accent:        #17a2b8;
+      --accent-light:  #4ec9d8;
+
+      --bg:            #ffffff;
+      --surface:       #f8fbff;
+      --surface-2:     #f2f6fa;
+      --border:        #d8e8f3;
+
+      --text:          #1a2b3c;
+      --text-body:     #3d5166;
+      --text-muted:    #7a92a8;
+
+      --font-display:  'Lora', Georgia, serif;
+      --font-body:     'Nunito', system-ui, sans-serif;
+
+      --radius-sm:     8px;
+      --radius:        14px;
+      --radius-lg:     24px;
+      --shadow-sm:     0 2px 16px rgba(26, 79, 122, 0.08);
+      --shadow-md:     0 8px 40px rgba(26, 79, 122, 0.13);
+      --shadow-lg:     0 20px 60px rgba(26, 79, 122, 0.18);
+      --transition:    all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+
+      --nav-h:         76px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: var(--nav-h);
+      -webkit-text-size-adjust: 100%;
+      text-size-adjust: 100%;
+    }
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--text-body);
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+    }
+    /* Inputs: font-size 16px mínimo para evitar zoom en iOS */
+    input, textarea, select, button { font-family: inherit; font-size: 16px; }
+    h1, h2, h3, h4, h5 {
+      font-family: var(--font-display);
+      color: var(--text);
+      line-height: 1.2;
+      font-weight: 600;
+    }
+    a { text-decoration: none; color: inherit; transition: var(--transition); }
+    img { max-width: 100%; display: block; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--font-body);
+      font-size: .72rem; font-weight: 700; letter-spacing: .18em;
+      text-transform: uppercase; color: var(--accent); margin-bottom: .8rem;
+    }
+    .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+    .sec-title { font-size: clamp(1.85rem, 3.2vw, 2.6rem); margin-bottom: .8rem; }
+    .sec-title em { font-style: italic; color: var(--primary-light); }
+    .sec-sub { font-size: 1rem; color: var(--text-muted); line-height: 1.8; max-width: 560px; }
+    .section { padding: 100px 0; }
+    .section-sm { padding: 60px 0; }
+
+    .btn-m {
+      font-family: var(--font-body); font-size: .82rem; font-weight: 700;
+      letter-spacing: .06em; padding: 13px 28px; border-radius: 50px;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: var(--transition); cursor: pointer; border: none; white-space: nowrap;
+    }
+    .btn-m-primary {
+      background: linear-gradient(135deg, var(--primary-light), var(--primary));
+      color: #fff; box-shadow: 0 6px 20px rgba(0,0,0,.18);
+    }
+    .btn-m-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.28); color: #fff; }
+    .btn-m-accent {
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      color: #fff; box-shadow: 0 6px 20px rgba(0,0,0,.18);
+    }
+    .btn-m-accent:hover { transform: translateY(-2px); color: #fff; }
+    .btn-m-outline { background: transparent; color: var(--primary); border: 2px solid var(--primary); }
+    .btn-m-outline:hover { background: var(--primary); color: #fff; transform: translateY(-2px); }
+    .btn-m-white { background: #fff; color: var(--primary); box-shadow: 0 4px 16px rgba(0,0,0,.12); }
+    .btn-m-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,.2); }
+
+    .reveal { opacity: 0; transform: translateY(30px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 18px 0; transition: var(--transition);
+      background: transparent;
+    }
+    #navbar.scrolled {
+      background: rgba(255,255,255,0.96);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 20px rgba(0,0,0,.06);
+      padding: 12px 0;
+    }
+    .nav-brand { font-family: var(--font-display); font-weight: 700; font-size: 1.4rem; color: var(--text); }
+    .nav-brand span { color: var(--accent); }
+    #navbar:not(.scrolled) .nav-brand { color: #fff; }
+    #navbar:not(.scrolled) .nav-links a:not(.btn-m) { color: rgba(255,255,255,.92); }
+    .nav-links a {
+      font-size: .9rem; font-weight: 600; color: var(--text);
+      padding: 8px 14px; border-radius: 8px;
+    }
+    .nav-links a:hover { color: var(--primary); background: var(--surface); }
+    .nav-toggle { background: transparent; border: none; font-size: 1.5rem; color: var(--text); }
+    #navbar:not(.scrolled) .nav-toggle { color: #fff; }
+    @media (max-width: 991px) {
+      .nav-links {
+        position: fixed; top: var(--nav-h); left: 0; right: 0;
+        background: #fff; padding: 20px;
+        box-shadow: 0 10px 30px rgba(0,0,0,.1);
+        flex-direction: column; gap: 8px; align-items: stretch;
+        transform: translateY(-120%); transition: transform .3s ease;
+      }
+      #navbar:not(.scrolled) .nav-links a:not(.btn-m) { color: var(--text); }
+      .nav-links.open { transform: translateY(0); }
+      .nav-links a { padding: 14px 16px; }
+    }
+
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      padding: calc(var(--nav-h) + 40px) 0 60px;
+      background:
+        linear-gradient(135deg, rgba(15,51,84,.88), rgba(23,162,184,.75)),
+        url('https://picsum.photos/seed/dental-hero/1600/900') center/cover no-repeat;
+      color: #fff;
+      display: flex; align-items: center;
+    }
+    .hero h1 {
+      color: #fff;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      margin-bottom: 1.2rem;
+    }
+    .hero h1 em { color: var(--accent-light); font-style: italic; }
+    .hero p.lead { font-size: 1.15rem; color: rgba(255,255,255,.92); max-width: 560px; margin-bottom: 2rem; }
+    .hero .cta-row { display: flex; gap: 14px; flex-wrap: wrap; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: rgba(255,255,255,.15); backdrop-filter: blur(10px);
+      padding: 8px 16px; border-radius: 50px; margin-bottom: 1.5rem;
+      font-size: .85rem; font-weight: 600;
+    }
+
+    .trust-bar { background: var(--surface); padding: 50px 0; }
+    .trust-item { text-align: center; }
+    .trust-item .num {
+      font-family: var(--font-display); font-size: 2.4rem; font-weight: 700;
+      color: var(--primary); display: block;
+    }
+    .trust-item .lbl { font-size: .85rem; color: var(--text-muted); letter-spacing: .08em; text-transform: uppercase; }
+
+    .service-card {
+      background: #fff; border-radius: var(--radius); padding: 32px 28px;
+      box-shadow: var(--shadow-sm); height: 100%;
+      transition: var(--transition); border: 1px solid var(--border);
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); border-color: var(--accent); }
+    .service-card .icon {
+      width: 60px; height: 60px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-light), var(--accent));
+      color: #fff; display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; margin-bottom: 20px;
+    }
+    .service-card h3 { font-size: 1.25rem; margin-bottom: 10px; }
+    .service-card p { font-size: .95rem; color: var(--text-muted); }
+    .service-card .price-tag {
+      display: inline-block; margin-top: 14px;
+      font-size: .85rem; font-weight: 700; color: var(--accent);
+      letter-spacing: .04em;
+    }
+
+    .about-img { border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); overflow: hidden; }
+    .about-img img { width: 100%; height: 100%; object-fit: cover; }
+    .feature-row { display: flex; gap: 16px; margin-bottom: 20px; }
+    .feature-row .ficon {
+      flex-shrink: 0; width: 48px; height: 48px; border-radius: 12px;
+      background: var(--surface); color: var(--primary);
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+    }
+    .feature-row h4 { font-size: 1.05rem; margin-bottom: 4px; }
+    .feature-row p { font-size: .93rem; color: var(--text-muted); margin: 0; }
+
+    .team-card {
+      background: #fff; border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-sm); text-align: center;
+      transition: var(--transition);
+    }
+    .team-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-md); }
+    .team-card .photo { aspect-ratio: 1/1; overflow: hidden; background: var(--surface); }
+    .team-card .photo img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .team-card:hover .photo img { transform: scale(1.05); }
+    .team-card .info { padding: 20px; }
+    .team-card h4 { font-size: 1.1rem; margin-bottom: 4px; }
+    .team-card .role { font-size: .85rem; color: var(--accent); font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+    .team-card .bio { font-size: .85rem; color: var(--text-muted); margin-top: 8px; }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .gallery-grid .g-item {
+      aspect-ratio: 1/1; overflow: hidden; border-radius: var(--radius);
+      cursor: pointer; position: relative;
+    }
+    .gallery-grid .g-item img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .gallery-grid .g-item:hover img { transform: scale(1.08); }
+    .gallery-grid .g-item::after {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(15,51,84,.5), transparent 50%);
+      opacity: 0; transition: opacity .3s;
+    }
+    .gallery-grid .g-item:hover::after { opacity: 1; }
+    @media (max-width: 768px) { .gallery-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    .price-card {
+      background: #fff; border-radius: var(--radius); padding: 36px 30px;
+      box-shadow: var(--shadow-sm); height: 100%;
+      border: 2px solid var(--border); transition: var(--transition);
+    }
+    .price-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); }
+    .price-card.featured {
+      border-color: var(--accent);
+      background: linear-gradient(135deg, var(--surface), #fff);
+      position: relative;
+    }
+    .price-card.featured::before {
+      content: 'MÁS POPULAR'; position: absolute; top: -14px; left: 50%;
+      transform: translateX(-50%); background: var(--accent); color: #fff;
+      font-size: .7rem; font-weight: 700; padding: 6px 16px; border-radius: 50px;
+      letter-spacing: .1em;
+    }
+    .price-card h3 { font-size: 1.3rem; margin-bottom: 6px; }
+    .price-card .price {
+      font-family: var(--font-display); font-size: 2.6rem; font-weight: 700;
+      color: var(--primary); margin: 16px 0;
+    }
+    .price-card .price .cur { font-size: 1rem; vertical-align: top; color: var(--text-muted); }
+    .price-card .price .per { font-size: .9rem; color: var(--text-muted); font-weight: 400; }
+    .price-card ul { list-style: none; margin: 20px 0; }
+    .price-card ul li {
+      padding: 8px 0; color: var(--text-body); font-size: .95rem;
+      display: flex; align-items: center; gap: 10px;
+    }
+    .price-card ul li::before {
+      content: '\F26E'; font-family: 'bootstrap-icons';
+      color: var(--accent); font-size: 1.1rem;
+    }
+
+    .testimonial-card {
+      background: #fff; border-radius: var(--radius); padding: 30px;
+      box-shadow: var(--shadow-sm); height: 100%; position: relative;
+    }
+    .testimonial-card::before {
+      content: '\201C'; position: absolute; top: 10px; right: 24px;
+      font-size: 4rem; color: var(--accent); opacity: .2; line-height: 1;
+      font-family: Georgia, serif;
+    }
+    .testimonial-card .stars { color: #f5b700; margin-bottom: 12px; }
+    .testimonial-card p { font-style: italic; color: var(--text-body); }
+    .testimonial-card .author {
+      display: flex; align-items: center; gap: 12px; margin-top: 20px;
+      padding-top: 16px; border-top: 1px solid var(--border);
+    }
+    .testimonial-card .author img { width: 44px; height: 44px; border-radius: 50%; object-fit: cover; }
+    .testimonial-card .author .name { font-weight: 700; color: var(--text); }
+    .testimonial-card .author .role { font-size: .82rem; color: var(--text-muted); }
+
+    .faq-item {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+      margin-bottom: 12px; overflow: hidden; transition: var(--transition);
+    }
+    .faq-item.open { box-shadow: var(--shadow-sm); border-color: var(--accent); }
+    .faq-q {
+      width: 100%; text-align: left; padding: 20px 24px;
+      background: transparent; border: none; cursor: pointer;
+      display: flex; justify-content: space-between; align-items: center; gap: 20px;
+      font-weight: 700; color: var(--text); font-size: 1rem;
+    }
+    .faq-q .chev { transition: transform .3s ease; color: var(--accent); font-size: 1.2rem; }
+    .faq-item.open .chev { transform: rotate(180deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden; transition: max-height .4s ease;
+      color: var(--text-body); font-size: .95rem;
+    }
+    .faq-item.open .faq-a { max-height: 400px; }
+    .faq-a-inner { padding: 0 24px 22px; }
+
+    .cta-closing {
+      background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+      color: #fff; text-align: center; padding: 80px 0;
+    }
+    .cta-closing h2 { color: #fff; font-size: clamp(1.8rem, 4vw, 2.8rem); margin-bottom: 1rem; }
+    .cta-closing p { color: rgba(255,255,255,.88); max-width: 560px; margin: 0 auto 2rem; }
+
+    .contact-wrap { background: var(--surface); }
+    .contact-form { background: #fff; padding: 40px; border-radius: var(--radius); box-shadow: var(--shadow-sm); }
+    .contact-form .form-control, .contact-form .form-select {
+      border: 1px solid var(--border); border-radius: var(--radius-sm);
+      padding: 14px 18px; font-size: .95rem;
+    }
+    .contact-form .form-control:focus, .contact-form .form-select:focus {
+      border-color: var(--accent); box-shadow: 0 0 0 3px rgba(23,162,184,.15);
+    }
+    .contact-info-item {
+      display: flex; gap: 14px; margin-bottom: 20px;
+      padding: 18px; background: #fff; border-radius: var(--radius);
+      box-shadow: var(--shadow-sm);
+    }
+    .contact-info-item .ci-icon {
+      flex-shrink: 0; width: 46px; height: 46px; border-radius: 12px;
+      background: var(--surface); color: var(--primary);
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
+    }
+    .contact-info-item h5 { font-size: 1rem; margin-bottom: 2px; }
+    .contact-info-item p { font-size: .92rem; color: var(--text-muted); margin: 0; }
+    .map-wrap { border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-sm); height: 300px; margin-top: 20px; }
+    .map-wrap iframe { width: 100%; height: 100%; border: 0; }
+
+    footer.site-footer { background: var(--primary-dark); color: rgba(255,255,255,.75); padding: 70px 0 30px; }
+    footer.site-footer h5 { color: #fff; font-size: 1rem; margin-bottom: 18px; font-family: var(--font-body); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; }
+    footer.site-footer a { color: rgba(255,255,255,.75); font-size: .92rem; display: block; padding: 4px 0; }
+    footer.site-footer a:hover { color: var(--accent-light); }
+    footer .social { display: flex; gap: 12px; }
+    footer .social a {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: rgba(255,255,255,.08); color: #fff;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+      padding: 0;
+    }
+    footer .social a:hover { background: var(--accent); color: #fff; }
+    footer .copy { border-top: 1px solid rgba(255,255,255,.1); padding-top: 24px; margin-top: 40px; font-size: .85rem; text-align: center; }
+
+    .whatsapp-float, .scroll-top {
+      position: fixed; right: 24px; z-index: 999;
+      width: 56px; height: 56px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.6rem; color: #fff; box-shadow: 0 6px 20px rgba(0,0,0,.25);
+      transition: var(--transition); border: none; cursor: pointer;
+    }
+
+    /* ===== WHATSAPP FLOTANTE: flotar + ondas expansivas ===== */
+    .whatsapp-float {
+      bottom: 24px;
+      background: #25d366;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, .45);
+      animation: wa-float 3s ease-in-out infinite;
+    }
+    /* Icono con pequeña oscilación */
+    .whatsapp-float i {
+      animation: wa-wiggle 3s ease-in-out infinite;
+      display: inline-block;
+    }
+    /* Dos ondas (ripples) que se expanden */
+    .whatsapp-float::before,
+    .whatsapp-float::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: #25d366;
+      z-index: -1;
+      opacity: .6;
+      animation: wa-ripple 2.2s ease-out infinite;
+    }
+    .whatsapp-float::after { animation-delay: 1.1s; }
+
+    .whatsapp-float:hover {
+      transform: scale(1.12) translateY(-4px);
+      color: #fff;
+      box-shadow: 0 12px 32px rgba(37, 211, 102, .6);
+      animation-play-state: paused;
+    }
+    .whatsapp-float:hover i { animation-play-state: paused; }
+
+    @keyframes wa-float {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-8px); }
+    }
+    @keyframes wa-wiggle {
+      0%, 60%, 100% { transform: rotate(0); }
+      70%           { transform: rotate(-12deg); }
+      80%           { transform: rotate(12deg); }
+      90%           { transform: rotate(-6deg); }
+    }
+    @keyframes wa-ripple {
+      0%   { transform: scale(1);   opacity: .55; }
+      70%  { opacity: 0; }
+      100% { transform: scale(2.4); opacity: 0; }
+    }
+
+    .scroll-top { bottom: 94px; background: var(--primary); opacity: 0; pointer-events: none; }
+    .scroll-top.visible { opacity: 1; pointer-events: auto; }
+    .scroll-top:hover { transform: scale(1.08); }
+
+    /* =============================================================
+       RESPONSIVE — BREAKPOINTS ESCALONADOS
+       ============================================================= */
+
+    /* ≥ 1400px — Desktop grande */
+    @media (min-width: 1400px) {
+      .container { max-width: 1320px; }
+      .sec-title { font-size: 2.8rem; }
+      .hero h1 { font-size: 4.2rem; }
+    }
+
+    /* ≥ 1920px — Ultra-wide / 4K */
+    @media (min-width: 1920px) {
+      html { font-size: 17px; }
+      .container { max-width: 1500px; }
+      .hero { min-height: 900px; }
+    }
+
+    /* ≤ 1199px — Laptop pequeño */
+    @media (max-width: 1199.98px) {
+      .hero h1 { font-size: clamp(2rem, 4.5vw, 3.2rem); }
+      .price-card { padding: 32px 26px; }
+    }
+
+    /* ≤ 991px — Tablet (nav móvil ya se activa aquí) */
+    @media (max-width: 991.98px) {
+      .section { padding: 80px 0; }
+      .hero { min-height: 90vh; }
+      .hero p.lead { font-size: 1.05rem; }
+      .contact-form { padding: 32px; }
+      .service-card { padding: 28px 24px; }
+      .price-card { padding: 30px 24px; }
+      .about-img { max-height: 480px; }
+      .faq-q { font-size: .95rem; padding: 18px 20px; }
+    }
+
+    /* ≤ 767px — Móvil grande (tablet vertical) */
+    @media (max-width: 767.98px) {
+      .section { padding: 60px 0; }
+      .hero {
+        min-height: auto;
+        padding: calc(var(--nav-h) + 50px) 0 60px;
+        background-attachment: scroll;
+      }
+      .hero h1 { font-size: clamp(1.8rem, 7vw, 2.6rem); margin-bottom: 1rem; }
+      .hero p.lead { font-size: 1rem; margin-bottom: 1.5rem; }
+      .hero-badge { font-size: .78rem; padding: 6px 14px; }
+      .sec-title { font-size: clamp(1.6rem, 6vw, 2rem); }
+      .sec-sub { font-size: .95rem; }
+      .eyebrow { font-size: .68rem; letter-spacing: .14em; }
+      .btn-m { font-size: .78rem; padding: 12px 22px; }
+      .cta-row { flex-direction: column; align-items: stretch; }
+      .cta-row .btn-m { justify-content: center; width: 100%; }
+      .trust-bar { padding: 40px 0; }
+      .trust-item .num { font-size: 1.9rem; }
+      .trust-item .lbl { font-size: .72rem; }
+      .service-card { padding: 26px 22px; }
+      .service-card .icon { width: 52px; height: 52px; font-size: 1.35rem; }
+      .feature-row { gap: 12px; margin-bottom: 18px; }
+      .feature-row .ficon { width: 42px; height: 42px; font-size: 1.15rem; }
+      .team-card .info { padding: 18px; }
+      .price-card { padding: 28px 22px; }
+      .price-card .price { font-size: 2.2rem; }
+      .price-card.featured::before { font-size: .65rem; padding: 5px 12px; }
+      .testimonial-card { padding: 22px; }
+      .testimonial-card::before { font-size: 3rem; top: 4px; right: 18px; }
+      .faq-q { font-size: .92rem; padding: 16px 18px; gap: 14px; }
+      .faq-a-inner { padding: 0 18px 18px; }
+      .cta-closing { padding: 60px 0; }
+      .contact-form { padding: 24px; }
+      .contact-info-item { padding: 16px; }
+      .contact-info-item .ci-icon { width: 42px; height: 42px; font-size: 1.15rem; }
+      .map-wrap { height: 260px; }
+      footer.site-footer { padding: 50px 0 24px; text-align: center; }
+      footer.site-footer h5 { margin-top: 10px; }
+      footer .social { justify-content: center; }
+      footer.site-footer a { padding: 5px 0; }
+      .whatsapp-float, .scroll-top {
+        width: 52px; height: 52px; right: 16px; font-size: 1.45rem;
+      }
+      .whatsapp-float { bottom: calc(16px + env(safe-area-inset-bottom)); }
+      .scroll-top { bottom: calc(78px + env(safe-area-inset-bottom)); }
+    }
+
+    /* ≤ 575px — Móvil */
+    @media (max-width: 575.98px) {
+      html { font-size: 15px; }
+      .section { padding: 50px 0; }
+      .container { padding-left: 18px; padding-right: 18px; }
+      .hero h1 { font-size: 2rem; line-height: 1.15; }
+      .hero p.lead { font-size: .98rem; }
+      .nav-brand { font-size: 1.2rem; }
+      .gallery-grid { gap: 10px; }
+      .service-card h3 { font-size: 1.15rem; }
+      .price-card .price { font-size: 2rem; }
+      .price-card h3 { font-size: 1.2rem; }
+      .contact-form { padding: 20px; }
+      .testimonial-card p { font-size: .95rem; }
+      .team-card .photo { aspect-ratio: 4/3; }
+    }
+
+    /* ≤ 360px — Móviles muy pequeños (iPhone SE 1ª gen, Galaxy Fold cerrado) */
+    @media (max-width: 360px) {
+      html { font-size: 14px; }
+      .container { padding-left: 14px; padding-right: 14px; }
+      .hero h1 { font-size: 1.75rem; }
+      .btn-m { font-size: .74rem; padding: 11px 18px; }
+      .nav-brand { font-size: 1.1rem; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .trust-item .num { font-size: 1.6rem; }
+      .cta-closing h2 { font-size: 1.5rem; }
+    }
+
+    /* Landscape en móvil (altura limitada) */
+    @media (max-height: 500px) and (orientation: landscape) and (max-width: 991.98px) {
+      .hero {
+        min-height: auto;
+        padding: calc(var(--nav-h) + 30px) 0 40px;
+      }
+      .hero h1 { font-size: 1.8rem; margin-bottom: .7rem; }
+      .hero p.lead { margin-bottom: 1.2rem; font-size: .95rem; }
+      .section { padding: 50px 0; }
+    }
+
+    /* Pantallas de alta densidad — mejor anti-alias en tipografía */
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      body { -webkit-font-smoothing: subpixel-antialiased; }
+    }
+
+    /* Usuarios con preferencia de movimiento reducido */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+      .reveal { opacity: 1; transform: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* Impresión */
+    @media print {
+      #navbar, .whatsapp-float, .scroll-top, .cta-closing, .hero .cta-row { display: none !important; }
+      .hero { min-height: auto; background: #fff !important; color: #000 !important; padding: 40px 0; }
+      .hero h1, .hero p.lead { color: #000 !important; }
+      .section { padding: 30px 0; page-break-inside: avoid; }
+      a { color: #000 !important; text-decoration: underline; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav id="navbar">
+    <div class="container d-flex align-items-center justify-content-between">
+      <a href="#" class="nav-brand">Dental<span>Pro</span></a>
+
+      <div class="nav-links d-flex align-items-center gap-2" id="navLinks">
+        <a href="#inicio">Inicio</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#equipo">Equipo</a>
+        <a href="#precios">Precios</a>
+        <a href="#contacto">Contacto</a>
+        <a href="#contacto" class="btn-m btn-m-primary ms-2">
+          <i class="bi bi-calendar-check"></i> Agenda tu cita
+        </a>
+      </div>
+
+      <button class="nav-toggle d-lg-none" id="navToggle" aria-label="Menú">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+          <div class="hero-badge">
+            <i class="bi bi-star-fill" style="color:#ffd60a"></i>
+            +15 años cuidando sonrisas en Bucaramanga
+          </div>
+          <h1>Sonríe con <em>confianza</em> toda la vida</h1>
+          <p class="lead">
+            Odontología especializada con tecnología 3D, sedación consciente y
+            financiación hasta 24 meses. Primera consulta de valoración gratuita.
+          </p>
+          <div class="cta-row">
+            <a href="#contacto" class="btn-m btn-m-accent">
+              <i class="bi bi-calendar-check"></i> Agenda tu cita gratis
+            </a>
+            <a href="#servicios" class="btn-m btn-m-white">
+              <i class="bi bi-arrow-right"></i> Ver servicios
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <section class="trust-bar">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-6 col-md-3 trust-item reveal"><span class="num">+15</span><span class="lbl">Años de experiencia</span></div>
+        <div class="col-6 col-md-3 trust-item reveal"><span class="num">+8.500</span><span class="lbl">Pacientes felices</span></div>
+        <div class="col-6 col-md-3 trust-item reveal"><span class="num">4.9</span><span class="lbl">★ 187 reseñas Google</span></div>
+        <div class="col-6 col-md-3 trust-item reveal"><span class="num">6</span><span class="lbl">Especialistas certificados</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section id="servicios" class="section">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="eyebrow"><span class="dot"></span>Qué ofrecemos</span>
+        <h2 class="sec-title">Nuestros <em>servicios</em></h2>
+        <p class="sec-sub mx-auto">
+          Tratamientos integrales con tecnología de última generación y un equipo
+          especializado en cada área de la odontología moderna.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-brightness-high-fill"></i></div>
+            <h3>Blanqueamiento dental</h3>
+            <p>Recupera el blanco natural de tus dientes en una sola sesión con tecnología LED de última generación, sin sensibilidad.</p>
+            <span class="price-tag">Desde $280.000</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-emoji-smile-fill"></i></div>
+            <h3>Ortodoncia invisible</h3>
+            <p>Alineadores transparentes Invisalign® y ClearCorrect. Endereza tus dientes sin brackets visibles, en 6 a 18 meses.</p>
+            <span class="price-tag">Desde $6.900.000</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-gem"></i></div>
+            <h3>Implantes dentales</h3>
+            <p>Implantes de titanio Straumann® con garantía de por vida. Recupera la función y estética en una sola cirugía guiada por 3D.</p>
+            <span class="price-tag">Desde $2.400.000</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-hexagon-fill"></i></div>
+            <h3>Rehabilitación oral</h3>
+            <p>Coronas de porcelana, carillas estéticas y diseño digital de sonrisa con tecnología CAD/CAM e impresión 3D.</p>
+            <span class="price-tag">Desde $1.200.000</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-heart-pulse-fill"></i></div>
+            <h3>Endodoncia indolora</h3>
+            <p>Tratamiento de conductos con microscopio y sistema rotatorio. Salva tu diente natural sin dolor en una sola cita.</p>
+            <span class="price-tag">Desde $450.000</span>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="service-card">
+            <div class="icon"><i class="bi bi-balloon-heart-fill"></i></div>
+            <h3>Odontopediatría</h3>
+            <p>Atención especializada para niños en un ambiente amigable. Prevención, selladores y ortodoncia interceptiva desde los 3 años.</p>
+            <span class="price-tag">Desde $120.000</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- NOSOTROS -->
+  <section id="nosotros" class="section" style="background: var(--surface);">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-lg-6 reveal">
+          <div class="about-img">
+            <img src="https://picsum.photos/seed/dental-clinic/700/600" alt="Clínica DentalPro Smile" />
+          </div>
+        </div>
+        <div class="col-lg-6 reveal">
+          <span class="eyebrow"><span class="dot"></span>Sobre nosotros</span>
+          <h2 class="sec-title">Por qué elegir <em>DentalPro Smile</em></h2>
+          <p class="mb-4">
+            Desde 2009 somos la clínica de referencia en Cabecera. Combinamos
+            tecnología de punta (escáner intraoral 3D, láser diodo, CBCT) con
+            un trato humano que hace la diferencia. No somos una cadena: somos
+            un equipo que recuerda tu nombre y el de tu familia.
+          </p>
+
+          <div class="feature-row">
+            <div class="ficon"><i class="bi bi-award-fill"></i></div>
+            <div>
+              <h4>Especialistas certificados</h4>
+              <p>Todos nuestros doctores son postgraduados de la Javeriana, CES o universidades internacionales.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="ficon"><i class="bi bi-cpu-fill"></i></div>
+            <div>
+              <h4>Tecnología digital 3D</h4>
+              <p>Escáner intraoral, tomografía CBCT e impresión 3D para diagnósticos y tratamientos más precisos.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="ficon"><i class="bi bi-shield-check"></i></div>
+            <div>
+              <h4>Garantía por escrito</h4>
+              <p>Todos nuestros tratamientos tienen garantía. Implantes: de por vida. Coronas: 5 años. Blanqueamiento: 1 año.</p>
+            </div>
+          </div>
+          <div class="feature-row">
+            <div class="ficon"><i class="bi bi-credit-card-2-front-fill"></i></div>
+            <div>
+              <h4>Financiación hasta 24 meses</h4>
+              <p>Paga a cuotas sin intereses con tarjeta de crédito o plan interno con tu cédula.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EQUIPO -->
+  <section id="equipo" class="section">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="eyebrow"><span class="dot"></span>Profesionales</span>
+        <h2 class="sec-title">Nuestro <em>equipo</em></h2>
+        <p class="sec-sub mx-auto">
+          Cuatro especialistas con más de 60 años de experiencia combinada,
+          trabajando juntos para darte el mejor tratamiento.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="team-card">
+            <div class="photo"><img src="https://picsum.photos/seed/dentist-carolina/400/400" alt="Dra. Carolina Rueda" /></div>
+            <div class="info">
+              <h4>Dra. Carolina Rueda</h4>
+              <div class="role">Directora · Ortodoncista</div>
+              <p class="bio">Univ. Javeriana · Máster en Ortodoncia Invisible (UCLA)</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="team-card">
+            <div class="photo"><img src="https://picsum.photos/seed/dentist-andres/400/400" alt="Dr. Andrés Martínez" /></div>
+            <div class="info">
+              <h4>Dr. Andrés Martínez</h4>
+              <div class="role">Implantólogo oral</div>
+              <p class="bio">Univ. CES · Certificado Straumann® · +1.200 implantes</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="team-card">
+            <div class="photo"><img src="https://picsum.photos/seed/dentist-valentina/400/400" alt="Dra. Valentina Ortiz" /></div>
+            <div class="info">
+              <h4>Dra. Valentina Ortiz</h4>
+              <div class="role">Endodoncista</div>
+              <p class="bio">Univ. Nacional · Especialista en microscopía operatoria</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="team-card">
+            <div class="photo"><img src="https://picsum.photos/seed/dentist-juan/400/400" alt="Dr. Juan Pablo Gómez" /></div>
+            <div class="info">
+              <h4>Dr. Juan Pablo Gómez</h4>
+              <div class="role">Odontopediatra</div>
+              <p class="bio">Univ. El Bosque · Hospitales Niño Jesús y San Ignacio</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section id="galeria" class="section" style="background: var(--surface);">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="eyebrow"><span class="dot"></span>Resultados</span>
+        <h2 class="sec-title">Antes y <em>después</em></h2>
+        <p class="sec-sub mx-auto">
+          Casos reales de nuestros pacientes. Todas las imágenes se publican con
+          autorización firmada.
+        </p>
+      </div>
+
+      <div class="gallery-grid reveal">
+        <div class="g-item"><img src="https://picsum.photos/seed/smile1/600/600" alt="Caso blanqueamiento" /></div>
+        <div class="g-item"><img src="https://picsum.photos/seed/smile2/600/600" alt="Caso ortodoncia invisible" /></div>
+        <div class="g-item"><img src="https://picsum.photos/seed/smile3/600/600" alt="Caso carillas estéticas" /></div>
+        <div class="g-item"><img src="https://picsum.photos/seed/smile4/600/600" alt="Caso diseño de sonrisa" /></div>
+        <div class="g-item"><img src="https://picsum.photos/seed/smile5/600/600" alt="Caso implantes dentales" /></div>
+        <div class="g-item"><img src="https://picsum.photos/seed/smile6/600/600" alt="Caso rehabilitación completa" /></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIOS -->
+  <section id="precios" class="section">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="eyebrow"><span class="dot"></span>Planes</span>
+        <h2 class="sec-title">Planes y <em>precios</em></h2>
+        <p class="sec-sub mx-auto">
+          Tres planes pensados para que cuides tu salud bucal todo el año.
+          Sin letra pequeña y con descuentos en todos los tratamientos.
+        </p>
+      </div>
+
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="price-card">
+            <h3>Plan Esencial</h3>
+            <p class="text-muted">Ideal si solo necesitas chequeos preventivos.</p>
+            <div class="price"><span class="cur">$</span>180.000<span class="per">/año</span></div>
+            <ul>
+              <li>2 limpiezas profesionales al año</li>
+              <li>2 valoraciones con especialista</li>
+              <li>Radiografía panorámica anual</li>
+              <li>10% de descuento en tratamientos</li>
+              <li>Urgencias con prioridad</li>
+            </ul>
+            <a href="#contacto" class="btn-m btn-m-outline w-100 justify-content-center">Elegir plan</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="price-card featured">
+            <h3>Plan Familiar</h3>
+            <p class="text-muted">Hasta 4 miembros de la familia.</p>
+            <div class="price"><span class="cur">$</span>450.000<span class="per">/año</span></div>
+            <ul>
+              <li>Todo lo del plan Esencial</li>
+              <li>Hasta 4 personas incluidas</li>
+              <li>4 limpiezas por miembro al año</li>
+              <li>Fluorización para niños</li>
+              <li>20% de descuento en tratamientos</li>
+              <li>Cita de urgencia gratis (3/año)</li>
+            </ul>
+            <a href="#contacto" class="btn-m btn-m-primary w-100 justify-content-center">Elegir plan</a>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="price-card">
+            <h3>Plan Premium</h3>
+            <p class="text-muted">Para quien busca cuidado integral total.</p>
+            <div class="price"><span class="cur">$</span>890.000<span class="per">/año</span></div>
+            <ul>
+              <li>Todo lo del plan Familiar</li>
+              <li>1 blanqueamiento anual incluido</li>
+              <li>Tomografía CBCT incluida</li>
+              <li>30% de descuento en tratamientos</li>
+              <li>Urgencias ilimitadas</li>
+              <li>Kit de higiene premium anual</li>
+            </ul>
+            <a href="#contacto" class="btn-m btn-m-outline w-100 justify-content-center">Elegir plan</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIOS -->
+  <section id="testimonios" class="section" style="background: var(--surface);">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="eyebrow"><span class="dot"></span>Opiniones</span>
+        <h2 class="sec-title">Lo que dicen nuestros <em>pacientes</em></h2>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>"Llevaba años evitando al odontólogo por miedo. La Dra. Carolina me explicó todo con paciencia y me puse ortodoncia invisible. A los 10 meses ya tengo los dientes derechos y sin dolor. 100% recomendados."</p>
+            <div class="author">
+              <img src="https://picsum.photos/seed/patient-maria/100/100" alt="María Fernanda" />
+              <div>
+                <div class="name">María Fernanda López</div>
+                <div class="role">Arquitecta · Bucaramanga</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>"Perdí un molar y el Dr. Andrés me hizo un implante Straumann. Cero dolor, cirugía en 40 minutos y hoy mastico como si nunca lo hubiera perdido. La financiación a 18 meses me salvó."</p>
+            <div class="author">
+              <img src="https://picsum.photos/seed/patient-carlos/100/100" alt="Carlos Ramírez" />
+              <div>
+                <div class="name">Carlos Ramírez</div>
+                <div class="role">Ingeniero · Floridablanca</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="testimonial-card">
+            <div class="stars">
+              <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            </div>
+            <p>"Llevo a mis dos hijos (5 y 8 años) al Dr. Juan Pablo y es un genio con ellos. Van felices, no lloran, y la clínica tiene hasta zona de juegos. Los precios justos para la calidad que ofrecen."</p>
+            <div class="author">
+              <img src="https://picsum.photos/seed/patient-laura/100/100" alt="Laura Beltrán" />
+              <div>
+                <div class="name">Laura Beltrán</div>
+                <div class="role">Mamá · Girón</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 reveal">
+          <span class="eyebrow"><span class="dot"></span>Dudas comunes</span>
+          <h2 class="sec-title">Preguntas <em>frecuentes</em></h2>
+          <p class="sec-sub">
+            ¿No encuentras tu pregunta? Escríbenos por WhatsApp y te
+            respondemos en menos de 30 minutos en horario laboral.
+          </p>
+          <a href="https://wa.me/573001234567" class="btn-m btn-m-accent mt-3" target="_blank" rel="noopener">
+            <i class="bi bi-whatsapp"></i> Pregunta por WhatsApp
+          </a>
+        </div>
+        <div class="col-lg-8 reveal">
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              ¿Cuánto dura un tratamiento de ortodoncia invisible?
+              <i class="bi bi-chevron-down chev"></i>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">
+              Depende de la complejidad de cada caso. En promedio, los tratamientos
+              con Invisalign® duran entre 6 y 18 meses. En la primera valoración
+              te mostramos tu simulación 3D y sabrás exactamente cuántos meses
+              tomará y cómo se verá el resultado.
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              ¿Atienden con EPS o medicina prepagada?
+              <i class="bi bi-chevron-down chev"></i>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">
+              Somos particulares, pero tenemos convenios con Colsanitas, MedPlus
+              y Sura para coronas, ortodoncia y rehabilitación. Además emitimos
+              factura electrónica para que reclames tu reembolso de póliza.
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              ¿La primera valoración realmente es gratis?
+              <i class="bi bi-chevron-down chev"></i>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">
+              Sí, sin letra pequeña. Incluye examen clínico, radiografía
+              panorámica y plan de tratamiento detallado por escrito con varios
+              presupuestos. No hay compromiso de continuar con nosotros.
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              ¿Ofrecen financiación?
+              <i class="bi bi-chevron-down chev"></i>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">
+              Sí. Trabajamos con Sistecrédito y Credivalores para planes hasta
+              24 meses. También ofrecemos financiación directa con cédula hasta
+              12 cuotas sin intereses para tratamientos superiores a $2.000.000.
+            </div></div>
+          </div>
+          <div class="faq-item">
+            <button class="faq-q" type="button">
+              ¿Los implantes duelen?
+              <i class="bi bi-chevron-down chev"></i>
+            </button>
+            <div class="faq-a"><div class="faq-a-inner">
+              No durante la cirugía, porque se hace con anestesia local y
+              opcionalmente sedación consciente. Durante los 2-3 días siguientes
+              puede haber molestia leve controlable con ibuprofeno. El 92% de
+              nuestros pacientes vuelve a trabajar al día siguiente.
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA CIERRE -->
+  <section class="cta-closing">
+    <div class="container reveal">
+      <h2>¿Listo para tu mejor sonrisa?</h2>
+      <p>Agenda tu primera valoración gratis y recibe tu plan de tratamiento personalizado en menos de 24 horas.</p>
+      <div class="d-flex gap-3 justify-content-center flex-wrap">
+        <a href="#contacto" class="btn-m btn-m-white"><i class="bi bi-calendar-check"></i> Agenda tu cita gratis</a>
+        <a href="https://wa.me/573001234567" class="btn-m btn-m-accent" target="_blank" rel="noopener">
+          <i class="bi bi-whatsapp"></i> Escríbenos por WhatsApp
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACTO + MAPA -->
+  <section id="contacto" class="section contact-wrap">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <span class="eyebrow"><span class="dot"></span>Contacto</span>
+        <h2 class="sec-title">Agenda tu <em>cita</em></h2>
+        <p class="sec-sub mx-auto">
+          Déjanos tus datos y uno de nuestros asesores te contactará el mismo día
+          para confirmar la cita que más te convenga.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-lg-7 reveal">
+          <form class="contact-form" id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Nombre completo *</label>
+                <input type="text" class="form-control" name="nombre" placeholder="Ej: María López" required />
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Teléfono / WhatsApp *</label>
+                <input type="tel" class="form-control" name="telefono" placeholder="300 123 4567" required />
+              </div>
+              <div class="col-12">
+                <label class="form-label">Email *</label>
+                <input type="email" class="form-control" name="email" placeholder="tu@correo.com" required />
+              </div>
+              <div class="col-12">
+                <label class="form-label">Servicio de interés</label>
+                <select class="form-select" name="servicio">
+                  <option value="">Selecciona una opción...</option>
+                  <option>Blanqueamiento dental</option>
+                  <option>Ortodoncia invisible</option>
+                  <option>Implantes dentales</option>
+                  <option>Rehabilitación oral</option>
+                  <option>Endodoncia</option>
+                  <option>Odontopediatría</option>
+                  <option>Valoración general</option>
+                  <option>Otro</option>
+                </select>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Cuéntanos qué necesitas</label>
+                <textarea class="form-control" name="mensaje" rows="4" placeholder="Describe tu caso, preferencias de horario, etc."></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="acepto" required />
+                  <label class="form-check-label" for="acepto" style="font-size:.88rem; color: var(--text-muted);">
+                    Acepto la <a href="/privacidad" style="color: var(--primary); text-decoration: underline;">política de tratamiento de datos</a>.
+                  </label>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn-m btn-m-primary w-100 justify-content-center">
+                  <i class="bi bi-send"></i> Enviar solicitud
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+
+        <div class="col-lg-5 reveal">
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <h5>Ubicación</h5>
+              <p>Carrera 35 #52-14, Cabecera · Bucaramanga, Santander</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <h5>Teléfono</h5>
+              <p>+57 300 123 4567 · (607) 645 8899</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <h5>Email</h5>
+              <p>contacto@dentalprosmile.co</p>
+            </div>
+          </div>
+          <div class="contact-info-item">
+            <div class="ci-icon"><i class="bi bi-clock-fill"></i></div>
+            <div>
+              <h5>Horarios de atención</h5>
+              <p>Lun–Vie 8:00–18:00 · Sáb 9:00–13:00 · Dom cerrado</p>
+            </div>
+          </div>
+
+          <div class="map-wrap">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3967.8!2d-73.1227!3d7.1193!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zN8KwMDcnMDkuNSJOIDczwrAwNyczNy43Ilc!5e0!3m2!1ses!2sco!4v1700000000000"
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen
+              title="Ubicación DentalPro Smile"></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-5">
+          <div class="nav-brand text-white mb-3">Dental<span style="color: var(--accent-light)">Pro</span></div>
+          <p style="font-size:.92rem;">
+            Clínica odontológica especializada en Bucaramanga.
+            +15 años combinando tecnología digital 3D con un trato humano
+            cercano para darte la sonrisa que mereces.
+          </p>
+          <div class="social mt-3">
+            <a href="https://facebook.com/dentalprosmile" aria-label="Facebook" target="_blank" rel="noopener"><i class="bi bi-facebook"></i></a>
+            <a href="https://instagram.com/dentalprosmile" aria-label="Instagram" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+            <a href="https://wa.me/573001234567" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i></a>
+            <a href="https://tiktok.com/@dentalprosmile" aria-label="TikTok" target="_blank" rel="noopener"><i class="bi bi-tiktok"></i></a>
+          </div>
+        </div>
+        <div class="col-6 col-md-3">
+          <h5>Enlaces</h5>
+          <a href="#inicio">Inicio</a>
+          <a href="#servicios">Servicios</a>
+          <a href="#nosotros">Nosotros</a>
+          <a href="#equipo">Equipo</a>
+          <a href="#precios">Precios</a>
+          <a href="#contacto">Contacto</a>
+        </div>
+        <div class="col-6 col-md-4">
+          <h5>Contacto</h5>
+          <a href="tel:+573001234567"><i class="bi bi-telephone me-2"></i>+57 300 123 4567</a>
+          <a href="mailto:contacto@dentalprosmile.co"><i class="bi bi-envelope me-2"></i>contacto@dentalprosmile.co</a>
+          <a href="https://maps.google.com/?q=Carrera+35+%2352-14+Bucaramanga" target="_blank" rel="noopener"><i class="bi bi-geo-alt me-2"></i>Cra. 35 #52-14, Cabecera</a>
+          <a href="#"><i class="bi bi-clock me-2"></i>Lun–Vie 8:00–18:00</a>
+        </div>
+      </div>
+      <div class="copy">
+        © <span id="year"></span> DentalPro Smile SAS · NIT 900.123.456-7 · Todos los derechos reservados ·
+        <a href="/privacidad" style="display:inline;">Política de privacidad</a> ·
+        <a href="/terminos" style="display:inline;">Términos y condiciones</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOTANTES -->
+  <a href="https://wa.me/573001234567?text=Hola%2C%20quiero%20agendar%20una%20cita%20en%20DentalPro%20Smile"
+     class="whatsapp-float" target="_blank" rel="noopener" aria-label="WhatsApp">
+    <i class="bi bi-whatsapp"></i>
+  </a>
+  <button class="scroll-top" id="scrollTop" aria-label="Subir">
+    <i class="bi bi-arrow-up"></i>
+  </button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    const navbar = document.getElementById('navbar');
+    const scrollTop = document.getElementById('scrollTop');
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      navbar.classList.toggle('scrolled', y > 30);
+      scrollTop.classList.toggle('visible', y > 500);
+    });
+
+    const navToggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    navToggle?.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    document.querySelectorAll('.faq-q').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.parentElement;
+        const wasOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!wasOpen) item.classList.add('open');
+      });
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    document.getElementById('contactForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const form = e.target;
+      if (!form.checkValidity()) { form.classList.add('was-validated'); return; }
+      alert('¡Gracias! Recibimos tu solicitud. Te contactaremos en menos de 24 horas.');
+      form.reset();
+      form.classList.remove('was-validated');
+    });
+  </script>
+</body>
+</html>

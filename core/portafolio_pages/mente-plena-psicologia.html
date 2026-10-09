@@ -1,0 +1,1827 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="MENTE PLENA Consultorio de Psicología — Atención psicológica para adultos, niños, adolescentes y familias. Consulta presencial y virtual. Agenda tu cita hoy."/>
+  <meta name="keywords" content="consultorio psicologia, psicólogo, terapia psicológica, salud mental, ansiedad, depresión, terapia de pareja, psicología infantil"/>
+  <title>MENTE PLENA | Consultorio de Psicología</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Libre+Baskerville:ital@1&display=swap" rel="stylesheet"/>
+
+  <style>
+    /* ══════════════════════════════
+       VARIABLES
+    ══════════════════════════════ */
+    :root {
+      --blue-deep:    #1e3a5f;
+      --blue-mid:     #2d5282;
+      --blue-soft:    #3b82c4;
+      --blue-pale:    #dbeafe;
+      --blue-subtle:  rgba(59,130,196,.08);
+      --lavender:     #7c6fcf;
+      --lavender2:    #9b91d8;
+      --lavender-pale:#ede9ff;
+      --lavender-sub: rgba(124,111,207,.1);
+      --lavender-bdr: rgba(124,111,207,.2);
+      --warm-white:   #fdfcff;
+      --off-white:    #f7f5ff;
+      --cream:        #f0eef9;
+      --stone:        #6b7280;
+      --stone2:       #9ca3af;
+      --navy:         #0f172a;
+      --border:       rgba(124,111,207,.15);
+      --shadow:       rgba(30,58,95,.08);
+      --font-serif:   'Lora', Georgia, serif;
+      --font-body:    'DM Sans', sans-serif;
+      --font-italic:  'Libre Baskerville', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--warm-white);
+      color:var(--navy);
+      font-family:var(--font-body);
+      font-weight:400;
+      overflow-x:hidden;
+    }
+    ::-webkit-scrollbar { width:3px; }
+    ::-webkit-scrollbar-track { background:var(--cream); }
+    ::-webkit-scrollbar-thumb { background:var(--lavender); border-radius:3px; }
+
+    .img-f { width:100%; height:100%; object-fit:cover; object-position:center; display:block; opacity:0; transition:opacity .7s; }
+    .img-f.on { opacity:1; }
+
+    /* ══════════════════════════════
+       NAVBAR
+    ══════════════════════════════ */
+    #navbar {
+      position:fixed; top:0; left:0; right:0; z-index:1000;
+      background:rgba(253,252,255,.97);
+      backdrop-filter:blur(20px);
+      border-bottom:1px solid var(--border);
+      padding:.9rem 0;
+      transition:all .35s;
+      box-shadow:0 2px 20px var(--shadow);
+    }
+    .brand-mp {
+      font-family:var(--font-serif);
+      font-size:1.35rem; font-weight:700;
+      color:var(--blue-deep); text-decoration:none;
+      display:flex; align-items:center; gap:10px;
+    }
+    .brand-icon-mp {
+      width:36px; height:36px; border-radius:50%;
+      background:linear-gradient(135deg, var(--blue-mid), var(--lavender));
+      display:flex; align-items:center; justify-content:center;
+      font-size:.9rem; color:var(--warm-white);
+    }
+    .brand-sub-mp {
+      font-family:var(--font-body);
+      font-size:.52rem; letter-spacing:2.5px;
+      color:var(--stone2); font-weight:500;
+      display:block; text-transform:uppercase; margin-top:1px;
+    }
+    .nav-lnk-mp {
+      font-family:var(--font-body);
+      font-size:.78rem; letter-spacing:.5px;
+      font-weight:500; color:var(--stone) !important;
+      text-decoration:none; padding:.35rem .85rem !important;
+      transition:color .2s;
+    }
+    .nav-lnk-mp:hover { color:var(--lavender) !important; }
+    .btn-cita-nav {
+      font-family:var(--font-body);
+      font-size:.75rem; letter-spacing:.5px; font-weight:600;
+      background:var(--lavender); color:var(--warm-white);
+      border:none; padding:.6rem 1.5rem; border-radius:30px;
+      text-decoration:none; transition:all .25s;
+      display:inline-flex; align-items:center; gap:6px;
+      box-shadow:0 4px 15px rgba(124,111,207,.3);
+    }
+    .btn-cita-nav:hover { background:var(--lavender2); color:var(--warm-white); transform:translateY(-1px); }
+    #mob-mp { background:var(--warm-white); border-top:1px solid var(--border); padding:1rem 0; display:none; }
+
+    /* ══════════════════════════════
+       HERO
+    ══════════════════════════════ */
+    #hero {
+      min-height:100vh;
+      display:flex; align-items:center;
+      position:relative; overflow:hidden;
+      background:var(--off-white);
+      padding-top:80px;
+    }
+
+    /* Soft geometric background */
+    .hero-bg-shapes {
+      position:absolute; inset:0; pointer-events:none; overflow:hidden;
+    }
+    .shape-circle-1 {
+      position:absolute; width:600px; height:600px; border-radius:50%;
+      background:radial-gradient(circle, rgba(124,111,207,.08) 0%, transparent 70%);
+      top:-150px; right:-100px;
+      animation:shapeFloat 12s ease-in-out infinite;
+    }
+    .shape-circle-2 {
+      position:absolute; width:400px; height:400px; border-radius:50%;
+      background:radial-gradient(circle, rgba(59,130,196,.06) 0%, transparent 70%);
+      bottom:-100px; left:-80px;
+      animation:shapeFloat 16s ease-in-out infinite reverse;
+    }
+    .shape-circle-3 {
+      position:absolute; width:250px; height:250px; border-radius:50%;
+      background:radial-gradient(circle, rgba(124,111,207,.06) 0%, transparent 70%);
+      top:40%; left:50%;
+      animation:shapeFloat 10s ease-in-out infinite;
+    }
+    @keyframes shapeFloat {
+      0%,100%{transform:translate(0,0);}
+      50%{transform:translate(15px,-20px);}
+    }
+
+    /* Floating dots pattern */
+    .dots-pattern {
+      position:absolute; inset:0;
+      background-image:radial-gradient(circle, rgba(124,111,207,.12) 1px, transparent 1px);
+      background-size:32px 32px;
+      opacity:.6;
+    }
+
+    .hero-content { position:relative; z-index:2; }
+
+    .hero-label-mp {
+      display:inline-flex; align-items:center; gap:8px;
+      background:var(--lavender-pale);
+      border:1px solid var(--lavender-bdr);
+      border-radius:30px; padding:.4rem 1.1rem;
+      font-family:var(--font-body); font-size:.7rem;
+      letter-spacing:1.5px; text-transform:uppercase;
+      font-weight:600; color:var(--lavender);
+      margin-bottom:1.5rem;
+    }
+    .hero-label-mp i { font-size:.8rem; }
+
+    .hero-h1-mp {
+      font-family:var(--font-serif);
+      font-size:clamp(2.5rem,5vw,4.5rem);
+      font-weight:700; color:var(--blue-deep);
+      line-height:1.15; margin-bottom:1.2rem;
+    }
+    .hero-h1-mp em { color:var(--lavender); font-style:italic; display:block; }
+
+    .hero-desc-mp {
+      font-family:var(--font-body);
+      font-size:1rem; font-weight:300;
+      color:var(--stone); line-height:1.85;
+      max-width:460px; margin-bottom:2rem;
+    }
+
+    /* Trust badges */
+    .trust-row-mp {
+      display:flex; gap:1.2rem; flex-wrap:wrap;
+      margin-bottom:2.2rem;
+    }
+    .trust-badge-mp {
+      display:flex; align-items:center; gap:7px;
+      font-family:var(--font-body); font-size:.78rem;
+      color:var(--stone); font-weight:400;
+    }
+    .trust-badge-mp i { color:var(--lavender); font-size:.9rem; }
+
+    .btn-agenda-mp {
+      font-family:var(--font-body);
+      font-size:.82rem; letter-spacing:.5px; font-weight:600;
+      background:var(--lavender); color:var(--warm-white);
+      border:none; padding:1rem 2.4rem; border-radius:30px;
+      text-decoration:none; display:inline-flex;
+      align-items:center; gap:9px; transition:all .3s;
+      box-shadow:0 8px 25px rgba(124,111,207,.3);
+    }
+    .btn-agenda-mp:hover { background:var(--lavender2); color:var(--warm-white); transform:translateY(-2px); box-shadow:0 15px 35px rgba(124,111,207,.4); }
+
+    .btn-info-mp {
+      font-family:var(--font-body);
+      font-size:.82rem; font-weight:500;
+      background:transparent; color:var(--blue-mid);
+      border:1.5px solid var(--border);
+      padding:1rem 2.4rem; border-radius:30px;
+      text-decoration:none; display:inline-flex;
+      align-items:center; gap:9px; transition:all .3s;
+    }
+    .btn-info-mp:hover { border-color:var(--lavender); color:var(--lavender); }
+
+    /* Hero right visual */
+    .hero-visual-mp { position:relative; }
+    .hero-img-main-mp {
+      border-radius:30px; overflow:hidden;
+      aspect-ratio:3/4;
+      box-shadow:0 30px 80px rgba(30,58,95,.15);
+      position:relative;
+    }
+    .hero-img-main-mp::before {
+      content:''; position:absolute;
+      inset:0; z-index:1;
+      background:linear-gradient(to bottom, transparent 60%, rgba(30,58,95,.3));
+    }
+
+    /* Floating mood cards */
+    .mood-card {
+      position:absolute; background:var(--warm-white);
+      border-radius:16px; padding:1rem 1.2rem;
+      box-shadow:0 10px 40px var(--shadow);
+      border:1px solid var(--border);
+      animation:moodFloat 5s ease-in-out infinite;
+      z-index:3;
+    }
+    .mood-card:nth-child(2) { animation-delay:2s; }
+    .mood-card-top { top:2rem; left:-2rem; }
+    .mood-card-bot { bottom:5rem; right:-1.5rem; }
+    @keyframes moodFloat { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);} }
+    .mc-icon { font-size:1.5rem; margin-bottom:.3rem; display:block; }
+    .mc-label { font-family:var(--font-body); font-size:.72rem; font-weight:600; color:var(--navy); }
+    .mc-sub   { font-family:var(--font-body); font-size:.62rem; color:var(--stone2); }
+
+    /* Deco circle behind image */
+    .hero-deco-circle {
+      position:absolute;
+      width:110%; height:110%;
+      border-radius:50%;
+      border:2px dashed var(--lavender-bdr);
+      top:-5%; left:-5%; z-index:0;
+    }
+
+    /* ══════════════════════════════
+       COMMONS
+    ══════════════════════════════ */
+    section { position:relative; }
+    .tag-mp {
+      font-family:var(--font-body); font-size:.65rem;
+      letter-spacing:3px; text-transform:uppercase;
+      font-weight:600; color:var(--lavender);
+      display:flex; align-items:center; gap:8px;
+      margin-bottom:.7rem;
+    }
+    .tag-mp::before { content:''; display:block; width:18px; height:1.5px; background:var(--lavender); border-radius:1px; }
+    .title-mp {
+      font-family:var(--font-serif);
+      font-size:clamp(2rem,3.8vw,3rem);
+      font-weight:700; color:var(--blue-deep);
+      line-height:1.2;
+    }
+    .title-mp span { color:var(--lavender); }
+    .title-mp-light { color:var(--warm-white); }
+    .title-mp-light span { color:var(--lavender-pale); }
+    .sub-mp { font-family:var(--font-body); font-size:.92rem; color:var(--stone); line-height:1.8; font-weight:300; }
+    .lavender-rule { width:40px; height:2px; background:linear-gradient(90deg,var(--lavender),var(--blue-soft)); border-radius:1px; margin:1rem 0 1.8rem; }
+    .lavender-rule-c { margin:1rem auto 1.8rem; }
+
+    .reveal  { opacity:0; transform:translateY(20px); transition:opacity .65s,transform .65s; }
+    .reveal.on  { opacity:1; transform:none; }
+    .rl { opacity:0; transform:translateX(-20px); transition:opacity .65s,transform .65s; }
+    .rl.on { opacity:1; transform:none; }
+    .rr { opacity:0; transform:translateX(20px); transition:opacity .65s,transform .65s; }
+    .rr.on { opacity:1; transform:none; }
+    .d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.3s;} .d4{transition-delay:.4s;}
+
+    /* ══════════════════════════════
+       SERVICIOS
+    ══════════════════════════════ */
+    #servicios { padding:7rem 0; background:var(--warm-white); }
+
+    .srv-mp {
+      background:var(--off-white);
+      border:1.5px solid var(--border);
+      border-radius:20px; padding:2rem;
+      height:100%; transition:all .35s;
+      position:relative; overflow:hidden;
+    }
+    .srv-mp::before {
+      content:''; position:absolute; top:0; left:0; right:0;
+      height:3px; background:transparent;
+      transition:background .35s;
+    }
+    .srv-mp:hover { border-color:var(--lavender); transform:translateY(-6px); box-shadow:0 20px 50px var(--shadow); background:var(--warm-white); }
+    .srv-mp:hover::before { background:linear-gradient(90deg,var(--lavender),var(--blue-soft)); }
+    .srv-emoji { font-size:2.2rem; margin-bottom:1.2rem; display:block; }
+    .srv-title { font-family:var(--font-serif); font-size:1.15rem; font-weight:600; color:var(--blue-deep); margin-bottom:.5rem; }
+    .srv-desc  { font-size:.86rem; color:var(--stone); line-height:1.75; font-weight:300; margin-bottom:1.2rem; }
+    .srv-tags  { display:flex; flex-wrap:wrap; gap:.4rem; }
+    .srv-tag   {
+      font-family:var(--font-body); font-size:.62rem;
+      letter-spacing:1px; color:var(--lavender);
+      background:var(--lavender-sub);
+      border:1px solid var(--lavender-bdr);
+      border-radius:20px; padding:.2rem .75rem;
+      font-weight:500;
+    }
+
+    /* ══════════════════════════════
+       MODALIDADES
+    ══════════════════════════════ */
+    #modalidades { padding:7rem 0; background:var(--blue-deep); overflow:hidden; position:relative; }
+    #modalidades::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at 30% 50%,rgba(124,111,207,.15) 0%,transparent 60%),
+                 radial-gradient(ellipse at 70% 80%,rgba(59,130,196,.1) 0%,transparent 50%);
+    }
+
+    .modal-card-mp {
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:20px; padding:2.5rem;
+      height:100%; transition:all .3s;
+    }
+    .modal-card-mp:hover { background:rgba(255,255,255,.1); border-color:rgba(124,111,207,.4); transform:translateY(-5px); }
+    .modal-icon {
+      width:56px; height:56px; border-radius:16px;
+      background:rgba(124,111,207,.2); border:1px solid rgba(124,111,207,.3);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.5rem; margin-bottom:1.5rem;
+    }
+    .modal-title { font-family:var(--font-serif); font-size:1.4rem; font-weight:600; color:var(--warm-white); margin-bottom:.8rem; }
+    .modal-desc  { font-size:.88rem; color:rgba(255,255,255,.6); line-height:1.8; font-weight:300; margin-bottom:1.5rem; }
+    .modal-feat  { list-style:none; padding:0; margin:0; }
+    .modal-feat li {
+      font-size:.84rem; color:rgba(255,255,255,.7);
+      padding:.4rem 0; border-bottom:1px solid rgba(255,255,255,.06);
+      display:flex; align-items:center; gap:10px;
+    }
+    .modal-feat li:last-child { border:none; }
+    .modal-feat li i { color:var(--lavender2); font-size:.8rem; }
+    .price-pill {
+      display:inline-flex; align-items:center; gap:6px;
+      background:rgba(124,111,207,.2); border:1px solid rgba(124,111,207,.3);
+      border-radius:20px; padding:.3rem .9rem;
+      font-family:var(--font-body); font-size:.72rem;
+      font-weight:600; color:var(--lavender-pale); margin-top:1rem;
+    }
+    .price-pill i { font-size:.75rem; }
+
+    /* ══════════════════════════════
+       EQUIPO / PSICÓLOGOS
+    ══════════════════════════════ */
+    #equipo { padding:7rem 0; background:var(--off-white); }
+
+    .psi-card {
+      background:var(--warm-white);
+      border:1.5px solid var(--border);
+      border-radius:20px; overflow:hidden;
+      transition:all .35s; height:100%;
+    }
+    .psi-card:hover { border-color:var(--lavender); transform:translateY(-5px); box-shadow:0 20px 50px var(--shadow); }
+    .psi-img {
+      width:100%; aspect-ratio:3/4; overflow:hidden; position:relative;
+    }
+    .psi-img img { width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s; }
+    .psi-card:hover .psi-img img { transform:scale(1.04); }
+    .psi-img::after { content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(30,58,95,.75) 0%,transparent 50%); }
+    .psi-enf {
+      position:absolute; bottom:12px; left:12px; z-index:2;
+      background:var(--lavender); color:var(--warm-white);
+      font-family:var(--font-body); font-size:.6rem;
+      letter-spacing:1.5px; text-transform:uppercase;
+      font-weight:600; padding:.25rem .8rem; border-radius:20px;
+    }
+    .psi-body { padding:1.4rem; }
+    .psi-name { font-family:var(--font-serif); font-size:1.15rem; font-weight:600; color:var(--blue-deep); margin-bottom:.15rem; }
+    .psi-title-txt { font-family:var(--font-body); font-size:.68rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--lavender); font-weight:600; margin-bottom:.7rem; }
+    .psi-bio    { font-size:.84rem; color:var(--stone); line-height:1.65; font-weight:300; margin-bottom:1rem; }
+    .psi-certs  { display:flex; flex-wrap:wrap; gap:.3rem; margin-bottom:1rem; }
+    .psi-cert   { font-size:.62rem; color:var(--lavender); border:1px solid var(--lavender-bdr); background:var(--lavender-sub); padding:.15rem .55rem; border-radius:20px; }
+    .btn-psi {
+      font-family:var(--font-body); font-size:.72rem; font-weight:600;
+      display:block; width:100%; text-align:center;
+      padding:.7rem; border-radius:20px; text-decoration:none;
+      border:1.5px solid var(--lavender); color:var(--lavender);
+      background:transparent; transition:all .2s;
+    }
+    .btn-psi:hover { background:var(--lavender); color:var(--warm-white); }
+
+    /* ══════════════════════════════
+       TARIFAS
+    ══════════════════════════════ */
+    #tarifas { padding:7rem 0; background:var(--warm-white); }
+
+    .tarifa-card {
+      background:var(--off-white);
+      border:1.5px solid var(--border);
+      border-radius:20px; padding:2rem;
+      height:100%; transition:all .3s;
+      position:relative; overflow:hidden;
+    }
+    .tarifa-card::before {
+      content:''; position:absolute;
+      top:0; left:0; right:0; height:3px;
+      background:var(--border); transition:background .3s;
+    }
+    .tarifa-card.featured {
+      border-color:var(--lavender);
+      background:linear-gradient(160deg,var(--lavender-pale),var(--warm-white));
+      box-shadow:0 15px 40px rgba(124,111,207,.15);
+    }
+    .tarifa-card.featured::before { background:linear-gradient(90deg,var(--lavender),var(--blue-soft)); }
+    .tarifa-card:hover { border-color:var(--lavender); transform:translateY(-5px); box-shadow:0 20px 50px var(--shadow); }
+    .tarifa-card:hover::before { background:linear-gradient(90deg,var(--lavender),var(--blue-soft)); }
+    .tarifa-badge {
+      position:absolute; top:-1px; right:20px;
+      background:var(--lavender); color:var(--warm-white);
+      font-family:var(--font-body); font-size:.6rem;
+      letter-spacing:1.5px; text-transform:uppercase;
+      font-weight:700; padding:.25rem .9rem; border-radius:0 0 10px 10px;
+    }
+    .tarifa-icon { font-size:2rem; margin-bottom:1rem; display:block; }
+    .tarifa-name { font-family:var(--font-serif); font-size:1.2rem; font-weight:600; color:var(--blue-deep); margin-bottom:.3rem; }
+    .tarifa-desc { font-size:.8rem; color:var(--stone); margin-bottom:1.2rem; line-height:1.6; }
+    .tarifa-price {
+      font-family:var(--font-serif);
+      font-size:2.2rem; font-weight:700;
+      color:var(--lavender); line-height:1;
+      margin-bottom:.3rem;
+    }
+    .tarifa-price sup { font-size:1rem; vertical-align:super; }
+    .tarifa-period { font-size:.72rem; color:var(--stone2); margin-bottom:1.5rem; }
+    .tarifa-feats { list-style:none; padding:0; margin:0 0 1.5rem; }
+    .tarifa-feats li {
+      font-size:.84rem; color:var(--stone); padding:.4rem 0;
+      border-bottom:1px solid var(--border);
+      display:flex; align-items:center; gap:8px;
+    }
+    .tarifa-feats li:last-child { border:none; }
+    .tarifa-feats li i { color:var(--lavender); font-size:.78rem; }
+    .tarifa-feats li.no { color:var(--stone2); text-decoration:line-through; }
+    .tarifa-feats li.no i { color:var(--stone2); }
+    .btn-tarifa {
+      font-family:var(--font-body); font-size:.78rem; font-weight:600;
+      display:block; width:100%; text-align:center;
+      padding:.85rem; border-radius:30px; text-decoration:none; transition:all .2s;
+    }
+    .btn-t-solid { background:var(--lavender); color:var(--warm-white); box-shadow:0 6px 20px rgba(124,111,207,.25); }
+    .btn-t-solid:hover { background:var(--lavender2); color:var(--warm-white); transform:translateY(-1px); }
+    .btn-t-outline { border:1.5px solid var(--lavender); color:var(--lavender); background:transparent; }
+    .btn-t-outline:hover { background:var(--lavender); color:var(--warm-white); }
+
+    /* Convenios box */
+    .convenios-box {
+      background:linear-gradient(135deg,var(--blue-pale),var(--lavender-pale));
+      border:1px solid var(--border);
+      border-radius:16px; padding:2rem;
+      margin-top:3rem; text-align:center;
+    }
+    .conv-title { font-family:var(--font-serif); font-size:1.2rem; color:var(--blue-deep); margin-bottom:.5rem; }
+    .conv-sub   { font-size:.85rem; color:var(--stone); margin-bottom:1rem; }
+    .conv-pills { display:flex; flex-wrap:wrap; gap:.5rem; justify-content:center; }
+    .conv-pill  {
+      background:var(--warm-white); border:1px solid var(--border);
+      border-radius:20px; padding:.3rem 1rem;
+      font-size:.72rem; font-weight:500; color:var(--blue-mid);
+    }
+
+    /* ══════════════════════════════
+       AGENDAR CITA
+    ══════════════════════════════ */
+    #agendar { padding:7rem 0; background:var(--off-white); }
+
+    .agenda-visual {
+      background:linear-gradient(145deg,var(--blue-mid),var(--lavender));
+      border-radius:24px; padding:3rem;
+      height:100%; position:relative; overflow:hidden;
+    }
+    .agenda-visual::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at 80% 20%,rgba(255,255,255,.1) 0%,transparent 50%);
+    }
+    .av-quote {
+      font-family:var(--font-italic);
+      font-size:1.15rem; color:rgba(255,255,255,.9);
+      font-style:italic; line-height:1.8;
+      margin-bottom:2rem; position:relative; z-index:1;
+    }
+    .av-quote::before {
+      content:'"'; font-family:var(--font-serif);
+      font-size:4rem; color:rgba(255,255,255,.2);
+      line-height:.5; display:block; margin-bottom:.5rem;
+    }
+    .av-steps { position:relative; z-index:1; }
+    .av-step {
+      display:flex; gap:1rem; align-items:flex-start;
+      padding:.8rem 0; border-bottom:1px solid rgba(255,255,255,.1);
+    }
+    .av-step:last-child { border:none; }
+    .av-step-n {
+      width:28px; height:28px; min-width:28px; border-radius:50%;
+      background:rgba(255,255,255,.15); border:1px solid rgba(255,255,255,.3);
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-body); font-size:.75rem;
+      font-weight:700; color:var(--warm-white);
+    }
+    .av-step-text { font-size:.84rem; color:rgba(255,255,255,.8); line-height:1.5; }
+    .av-step-text strong { color:var(--warm-white); font-weight:600; }
+
+    .contact-form-mp {
+      background:var(--warm-white);
+      border:1.5px solid var(--border);
+      border-radius:24px; padding:2.5rem;
+      height:100%;
+    }
+    .form-lbl-mp {
+      font-family:var(--font-body); font-size:.68rem;
+      letter-spacing:1.5px; text-transform:uppercase;
+      color:var(--stone); font-weight:600;
+      display:block; margin-bottom:.4rem;
+    }
+    .form-ctrl-mp {
+      background:var(--off-white);
+      border:1.5px solid var(--border); border-radius:12px;
+      color:var(--navy); font-family:var(--font-body);
+      font-size:.9rem; font-weight:300;
+      padding:.75rem 1rem; width:100%; outline:none;
+      transition:border-color .2s, box-shadow .2s;
+    }
+    .form-ctrl-mp:focus { border-color:var(--lavender); box-shadow:0 0 0 3px rgba(124,111,207,.12); }
+    .form-ctrl-mp::placeholder { color:var(--stone2); }
+    .btn-form-mp {
+      font-family:var(--font-body); font-size:.82rem; font-weight:600;
+      background:var(--lavender); color:var(--warm-white);
+      border:none; padding:1rem; width:100%;
+      border-radius:30px; cursor:pointer; transition:all .25s;
+      box-shadow:0 6px 20px rgba(124,111,207,.3);
+    }
+    .btn-form-mp:hover { background:var(--lavender2); transform:translateY(-1px); }
+
+    /* WA option */
+    .wa-option {
+      display:flex; align-items:center; gap:1rem;
+      background:rgba(37,211,102,.08);
+      border:1px solid rgba(37,211,102,.2);
+      border-radius:14px; padding:1rem 1.2rem;
+      margin-top:1rem; text-decoration:none;
+      transition:all .2s;
+    }
+    .wa-option:hover { background:rgba(37,211,102,.15); transform:translateY(-1px); }
+    .wa-option-icon { width:42px;height:42px;min-width:42px;border-radius:50%;background:#25d366;display:flex;align-items:center;justify-content:center;font-size:1.2rem;color:white; }
+    .wa-option-text .wot-title { font-family:var(--font-body);font-size:.84rem;font-weight:600;color:var(--navy); }
+    .wa-option-text .wot-sub   { font-size:.72rem;color:var(--stone); }
+
+    /* ══════════════════════════════
+       TESTIMONIOS
+    ══════════════════════════════ */
+    #testimonios { padding:7rem 0; background:var(--cream); }
+
+    .testi-mp {
+      background:var(--warm-white);
+      border:1.5px solid var(--border);
+      border-radius:20px; padding:2rem;
+      height:100%; transition:all .3s;
+      position:relative;
+    }
+    .testi-mp:hover { border-color:var(--lavender); box-shadow:0 15px 40px var(--shadow); }
+    .testi-mp::before {
+      content:'"'; font-family:var(--font-serif);
+      font-size:5rem; color:var(--lavender-pale);
+      line-height:.7; display:block; margin-bottom:.6rem;
+    }
+    .testi-stars-mp { font-size:.8rem; color:#f59e0b; margin-bottom:.8rem; }
+    .testi-text-mp {
+      font-family:var(--font-body); font-size:.92rem;
+      color:var(--navy); line-height:1.8;
+      font-style:italic; margin-bottom:1.2rem; font-weight:300;
+    }
+    .testi-serv-mp {
+      display:inline-block; background:var(--lavender-sub);
+      border:1px solid var(--lavender-bdr); border-radius:20px;
+      padding:.2rem .8rem; font-size:.62rem; letter-spacing:1.5px;
+      text-transform:uppercase; font-weight:600; color:var(--lavender);
+      margin-bottom:1rem;
+    }
+    .testi-auth-mp {
+      display:flex; align-items:center; gap:.8rem;
+      border-top:1px solid var(--border); padding-top:1rem;
+    }
+    .tav-mp {
+      width:40px; height:40px; border-radius:50%;
+      background:linear-gradient(135deg,var(--lavender),var(--blue-soft));
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-serif); font-size:.95rem;
+      font-weight:700; color:var(--warm-white);
+      overflow:hidden;
+    }
+    .tav-mp img { width:100%;height:100%;object-fit:cover; }
+    .tav-name-mp { font-family:var(--font-body); font-size:.84rem; font-weight:600; color:var(--navy); }
+    .tav-sub-mp  { font-size:.72rem; color:var(--stone2); }
+
+    /* Disclaimer note */
+    .privacy-note {
+      background:var(--blue-pale); border:1px solid rgba(59,130,196,.2);
+      border-radius:12px; padding:1rem 1.2rem;
+      display:flex; gap:.8rem; align-items:flex-start;
+      margin-top:3rem;
+    }
+    .privacy-note i { color:var(--blue-mid); font-size:1rem; margin-top:2px; }
+    .privacy-note p { font-size:.78rem; color:var(--blue-mid); line-height:1.6; margin:0; }
+
+    /* ══════════════════════════════
+       FAQ
+    ══════════════════════════════ */
+    #faq { padding:7rem 0; background:var(--off-white); }
+
+    .faq-mp {
+      border:1.5px solid var(--border); border-radius:14px;
+      overflow:hidden; margin-bottom:.6rem;
+      background:var(--warm-white); transition:border-color .2s;
+    }
+    .faq-mp.open { border-color:var(--lavender); }
+    .faq-q-mp {
+      font-family:var(--font-body); font-size:.92rem;
+      font-weight:500; color:var(--navy);
+      padding:1.2rem 1.4rem; cursor:pointer;
+      display:flex; justify-content:space-between;
+      align-items:center; gap:1rem; transition:color .2s;
+    }
+    .faq-q-mp:hover { color:var(--lavender); }
+    .faq-ic-mp {
+      width:26px; height:26px; min-width:26px; border-radius:50%;
+      background:var(--lavender-sub); border:1px solid var(--lavender-bdr);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--lavender); font-size:.78rem; transition:all .3s;
+    }
+    .faq-mp.open .faq-ic-mp { transform:rotate(45deg); background:var(--lavender); color:var(--warm-white); }
+    .faq-a-mp {
+      font-size:.88rem; color:var(--stone); line-height:1.75;
+      padding:0 1.4rem; max-height:0; overflow:hidden;
+      transition:max-height .4s ease, padding .3s; font-weight:300;
+    }
+    .faq-mp.open .faq-a-mp { max-height:300px; padding-bottom:1.2rem; }
+
+    /* ══════════════════════════════
+       UBICACIÓN
+    ══════════════════════════════ */
+    #ubicacion { padding:7rem 0; background:var(--warm-white); }
+
+    .map-mp {
+      width:100%; height:360px;
+      border:1.5px solid var(--border); border-radius:20px;
+      overflow:hidden; position:relative;
+    }
+    .map-ph {
+      width:100%; height:100%;
+      background:linear-gradient(135deg,var(--off-white),var(--lavender-pale));
+      display:flex; flex-direction:column;
+      align-items:center; justify-content:center; gap:1rem;
+    }
+    .map-ph i { font-size:3.5rem; color:var(--lavender); opacity:.4; }
+    .map-ph p { font-size:.72rem; letter-spacing:2px; text-transform:uppercase; color:var(--stone2); }
+
+    .contact-info-mp {
+      background:linear-gradient(145deg,var(--blue-deep),var(--blue-mid));
+      border-radius:20px; padding:2.5rem; height:100%;
+      position:relative; overflow:hidden;
+    }
+    .contact-info-mp::before {
+      content:''; position:absolute; inset:0;
+      background:radial-gradient(ellipse at 80% 20%,rgba(124,111,207,.2) 0%,transparent 55%);
+    }
+    .ci-mp-item {
+      display:flex; gap:1rem; align-items:flex-start;
+      padding:1rem 0; border-bottom:1px solid rgba(255,255,255,.08);
+      position:relative; z-index:1;
+    }
+    .ci-mp-item:last-child { border:none; }
+    .ci-mp-icon {
+      width:40px; height:40px; min-width:40px; border-radius:12px;
+      background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.12);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--lavender2); font-size:1rem;
+    }
+    .ci-mp-lbl { font-size:.6rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.35); margin-bottom:.2rem; font-weight:600; }
+    .ci-mp-val { font-size:.9rem; color:rgba(255,255,255,.8); font-weight:300; }
+
+    /* ══════════════════════════════
+       CTA FINAL
+    ══════════════════════════════ */
+    #cta { padding:7rem 0; background:var(--cream); }
+    .cta-mp {
+      background:linear-gradient(135deg,var(--blue-deep),var(--lavender));
+      border-radius:28px; padding:5rem 4rem;
+      text-align:center; position:relative; overflow:hidden;
+    }
+    .cta-mp::before {
+      content:''; position:absolute; inset:0;
+      background:repeating-linear-gradient(45deg,transparent,transparent 30px,rgba(255,255,255,.02) 30px,rgba(255,255,255,.02) 31px);
+    }
+    .cta-mp-title {
+      font-family:var(--font-serif);
+      font-size:clamp(2rem,4vw,3.5rem);
+      font-weight:700; color:var(--warm-white);
+      line-height:1.15; margin-bottom:1rem;
+      position:relative; z-index:1;
+    }
+    .cta-mp-title em { font-style:italic; color:var(--lavender-pale); }
+    .btn-cta-mp-white {
+      font-family:var(--font-body); font-size:.85rem; font-weight:600;
+      background:var(--warm-white); color:var(--lavender);
+      border:none; padding:1.1rem 2.8rem; border-radius:30px;
+      text-decoration:none; display:inline-flex; align-items:center; gap:9px;
+      transition:all .3s; box-shadow:0 8px 30px rgba(0,0,0,.2);
+      position:relative; z-index:1;
+    }
+    .btn-cta-mp-white:hover { color:var(--blue-mid); transform:translateY(-2px); box-shadow:0 15px 40px rgba(0,0,0,.25); }
+
+    /* Salud mental disclaimer */
+    .health-note {
+      background:rgba(255,255,255,.1); border:1px solid rgba(255,255,255,.15);
+      border-radius:14px; padding:1.2rem 1.5rem;
+      max-width:560px; margin:2.5rem auto 0;
+      position:relative; z-index:1;
+    }
+    .health-note p {
+      font-size:.78rem; color:rgba(255,255,255,.7);
+      line-height:1.65; margin:0;
+    }
+
+    /* ══════════════════════════════
+       FOOTER
+    ══════════════════════════════ */
+    footer { background:var(--navy); padding:4rem 0 2rem; border-top:3px solid var(--lavender); }
+    .footer-brand-mp { font-family:var(--font-serif); font-size:1.5rem; font-weight:700; color:var(--warm-white); }
+    .footer-brand-mp span { color:var(--lavender2); }
+    .footer-tag-mp { font-size:.58rem; letter-spacing:3px; text-transform:uppercase; color:var(--lavender2); margin-top:.2rem; font-weight:500; }
+    .footer-col-h-mp { font-size:.62rem; letter-spacing:2.5px; text-transform:uppercase; color:rgba(255,255,255,.3); font-weight:600; margin-bottom:1.2rem; }
+    .footer-lnk-mp   { display:block; font-size:.86rem; color:rgba(255,255,255,.35); text-decoration:none; margin-bottom:.5rem; transition:color .2s; font-weight:300; }
+    .footer-lnk-mp:hover { color:var(--lavender2); }
+    .footer-btm-mp    { border-top:1px solid rgba(255,255,255,.06); margin-top:3rem; padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.8rem; }
+    .footer-copy-mp   { font-size:.72rem; color:rgba(255,255,255,.15); }
+    .soc-mp { width:34px;height:34px;border:1px solid rgba(255,255,255,.1);border-radius:50%;display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);text-decoration:none;font-size:.85rem;margin-left:.4rem;transition:all .2s; }
+    .soc-mp:hover { border-color:var(--lavender2); color:var(--lavender2); }
+
+    /* WA float */
+    .wa-float-mp { position:fixed;bottom:2rem;right:2rem;width:54px;height:54px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;color:white;text-decoration:none;z-index:997;box-shadow:0 4px 20px rgba(37,211,102,.4);transition:transform .2s; }
+    .wa-float-mp:hover{transform:scale(1.1);color:white;}
+    .wa-ring-mp{position:absolute;inset:0;border-radius:50%;background:rgba(37,211,102,.3);animation:waRmp 2.2s ease-out infinite;}
+    @keyframes waRmp{0%{transform:scale(1);opacity:.8;}100%{transform:scale(1.8);opacity:0;}}
+
+    /* CRISIS BANNER */
+    .crisis-bar {
+      background:linear-gradient(90deg,var(--blue-pale),var(--lavender-pale));
+      border-bottom:1px solid var(--border); padding:.6rem 0;
+      text-align:center;
+    }
+    .crisis-bar p {
+      font-size:.72rem; color:var(--blue-mid); margin:0;
+      display:flex; align-items:center; justify-content:center; gap:.5rem; flex-wrap:wrap;
+    }
+    .crisis-bar a { color:var(--lavender); font-weight:600; text-decoration:none; }
+    .crisis-bar a:hover { text-decoration:underline; }
+
+    /* RESPONSIVE */
+    @media(max-width:991px){
+      .mood-card { display:none; }
+      .cta-mp { padding:3rem 2rem; }
+    }
+    @media(max-width:767px){
+      .hero-deco-circle { display:none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════
+     CRISIS BAR — Salud mental
+══════════════════════════════ -->
+<div class="crisis-bar">
+  <p>
+    <i class="bi bi-heart-pulse-fill" style="color:var(--lavender);"></i>
+    ¿Estás en crisis? Línea de salud mental Colombia:
+    <a href="tel:106">106</a> — disponible 24/7 — o escríbenos:
+    <a href="https://wa.me/573000000000">WhatsApp</a>
+  </p>
+</div>
+
+<!-- ══════════════════════════════
+     NAVBAR
+══════════════════════════════ -->
+<nav id="navbar">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="#hero" class="brand-mp">
+        <div class="brand-icon-mp"><i class="bi bi-heart-pulse-fill"></i></div>
+        <div>
+          Mente Plena
+          <span class="brand-sub-mp">Consultorio de Psicología</span>
+        </div>
+      </a>
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a href="#servicios"   class="nav-lnk-mp">Servicios</a>
+        <a href="#modalidades" class="nav-lnk-mp">Modalidades</a>
+        <a href="#equipo"      class="nav-lnk-mp">Equipo</a>
+        <a href="#tarifas"     class="nav-lnk-mp">Tarifas</a>
+        <a href="#testimonios" class="nav-lnk-mp">Reseñas</a>
+        <a href="#faq"         class="nav-lnk-mp">FAQ</a>
+        <a href="#agendar" class="btn-cita-nav ms-3">
+          <i class="bi bi-calendar-heart"></i> Agendar cita
+        </a>
+      </div>
+      <button id="navToggle" class="btn d-lg-none" style="border:1.5px solid var(--border);color:var(--lavender);border-radius:10px;padding:.4rem .9rem;">
+        <i class="bi bi-list fs-5"></i>
+      </button>
+    </div>
+    <div id="mob-mp">
+      <a href="#servicios"   class="nav-lnk-mp d-block py-2">Servicios</a>
+      <a href="#modalidades" class="nav-lnk-mp d-block py-2">Modalidades</a>
+      <a href="#equipo"      class="nav-lnk-mp d-block py-2">Equipo</a>
+      <a href="#tarifas"     class="nav-lnk-mp d-block py-2">Tarifas</a>
+      <a href="#testimonios" class="nav-lnk-mp d-block py-2">Reseñas</a>
+      <a href="#faq"         class="nav-lnk-mp d-block py-2">FAQ</a>
+      <a href="#agendar" class="btn-cita-nav d-inline-flex mt-2">
+        <i class="bi bi-calendar-heart"></i> Agendar cita
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══════════════════════════════
+     HERO
+══════════════════════════════ -->
+<section id="hero">
+  <div class="hero-bg-shapes">
+    <div class="shape-circle-1"></div>
+    <div class="shape-circle-2"></div>
+    <div class="shape-circle-3"></div>
+  </div>
+  <div class="dots-pattern"></div>
+
+  <div class="container hero-content py-5">
+    <div class="row align-items-center g-5">
+
+      <!-- Copy -->
+      <div class="col-lg-6">
+        <div class="hero-label-mp">
+          <i class="bi bi-shield-heart-fill"></i>
+          Atención psicológica profesional
+        </div>
+        <h1 class="hero-h1-mp">
+          Tu bienestar mental<br>
+          <em>merece atención</em><br>
+          <span style="font-size:.6em;font-weight:400;color:var(--blue-mid);font-style:normal;">profesional y compasiva</span>
+        </h1>
+        <p class="hero-desc-mp">
+          En Mente Plena acompañamos tu proceso de crecimiento personal, sanación y bienestar.
+          Atención psicológica para adultos, niños, adolescentes y familias.
+          <strong style="color:var(--blue-deep);font-weight:500;">Presencial y online.</strong>
+        </p>
+
+        <div class="trust-row-mp">
+          <div class="trust-badge-mp"><i class="bi bi-patch-check-fill"></i>Psicólogos certificados</div>
+          <div class="trust-badge-mp"><i class="bi bi-lock-fill"></i>Confidencialidad total</div>
+          <div class="trust-badge-mp"><i class="bi bi-camera-video-fill"></i>Consulta online</div>
+          <div class="trust-badge-mp"><i class="bi bi-clock-fill"></i>Horarios flexibles</div>
+        </div>
+
+        <div class="d-flex flex-wrap gap-3">
+          <a href="#agendar" class="btn-agenda-mp">
+            <i class="bi bi-calendar-heart-fill"></i> Agendar mi primera cita
+          </a>
+          <a href="#servicios" class="btn-info-mp">
+            Ver servicios <i class="bi bi-arrow-down"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Visual -->
+      <div class="col-lg-6">
+        <div class="hero-visual-mp">
+          <div class="hero-deco-circle"></div>
+          <div class="hero-img-main-mp">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800&q=85&fit=crop&crop=center"
+                 alt="Psicóloga en consulta" class="img-f" id="heroImg" loading="eager"/>
+          </div>
+
+          <!-- Mood cards -->
+          <div class="mood-card mood-card-top">
+            <span class="mc-icon">🤝</span>
+            <div class="mc-label">Ambiente seguro</div>
+            <div class="mc-sub">Sin juicios · Solo apoyo</div>
+          </div>
+          <div class="mood-card mood-card-bot">
+            <span class="mc-icon">⭐</span>
+            <div class="mc-label">4.9 / 5 estrellas</div>
+            <div class="mc-sub">+850 pacientes atendidos</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     SERVICIOS
+══════════════════════════════ -->
+<section id="servicios">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="tag-mp reveal">Especialidades</div>
+        <h2 class="title-mp reveal">Áreas de <span>atención</span></h2>
+        <div class="lavender-rule reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="sub-mp reveal">Nuestro equipo está formado para acompañarte en diferentes etapas y situaciones de la vida, con un enfoque humanista, empático y basado en evidencia.</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="srv-mp">
+          <span class="srv-emoji">😔</span>
+          <div class="srv-title">Ansiedad y Depresión</div>
+          <div class="srv-desc">Acompañamiento terapéutico para el manejo de la ansiedad, depresión, ataques de pánico y trastornos del estado de ánimo. Herramientas prácticas para el día a día.</div>
+          <div class="srv-tags">
+            <span class="srv-tag">Ansiedad generalizada</span>
+            <span class="srv-tag">Depresión</span>
+            <span class="srv-tag">Ataques de pánico</span>
+            <span class="srv-tag">Fobias</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="srv-mp">
+          <span class="srv-emoji">💑</span>
+          <div class="srv-title">Terapia de Pareja</div>
+          <div class="srv-desc">Espacio seguro para trabajar la comunicación, resolver conflictos, sanar heridas y fortalecer el vínculo. Para parejas en cualquier etapa de su relación.</div>
+          <div class="srv-tags">
+            <span class="srv-tag">Comunicación</span>
+            <span class="srv-tag">Conflictos</span>
+            <span class="srv-tag">Infidelidad</span>
+            <span class="srv-tag">Crisis de pareja</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="srv-mp">
+          <span class="srv-emoji">👨‍👩‍👧</span>
+          <div class="srv-title">Terapia Familiar</div>
+          <div class="srv-desc">Intervención sistémica para mejorar la dinámica familiar, resolver conflictos generacionales y fortalecer los vínculos afectivos entre todos los miembros.</div>
+          <div class="srv-tags">
+            <span class="srv-tag">Dinámica familiar</span>
+            <span class="srv-tag">Crianza</span>
+            <span class="srv-tag">Separación</span>
+            <span class="srv-tag">Duelo</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="srv-mp">
+          <span class="srv-emoji">🧒</span>
+          <div class="srv-title">Psicología Infantil</div>
+          <div class="srv-desc">Atención especializada para niños y niñas. Abordamos dificultades emocionales, conductuales, de aprendizaje y problemas de adaptación en el hogar y la escuela.</div>
+          <div class="srv-tags">
+            <span class="srv-tag">TDAH</span>
+            <span class="srv-tag">Conducta</span>
+            <span class="srv-tag">Aprendizaje</span>
+            <span class="srv-tag">Emociones</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="srv-mp">
+          <span class="srv-emoji">🧑‍🎓</span>
+          <div class="srv-title">Psicología Adolescente</div>
+          <div class="srv-desc">Acompañamiento en la etapa de la adolescencia: identidad, autoestima, relaciones sociales, presión académica, cambios corporales y emocionales.</div>
+          <div class="srv-tags">
+            <span class="srv-tag">Autoestima</span>
+            <span class="srv-tag">Identidad</span>
+            <span class="srv-tag">Bullying</span>
+            <span class="srv-tag">Redes sociales</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="srv-mp">
+          <span class="srv-emoji">🌱</span>
+          <div class="srv-title">Desarrollo Personal</div>
+          <div class="srv-desc">Para quienes no atraviesan una crisis pero desean conocerse mejor, mejorar sus relaciones, aumentar su bienestar y vivir con mayor propósito y claridad.</div>
+          <div class="srv-tags">
+            <span class="srv-tag">Autoconocimiento</span>
+            <span class="srv-tag">Límites</span>
+            <span class="srv-tag">Propósito</span>
+            <span class="srv-tag">Mindfulness</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Nota importante -->
+    <div class="privacy-note reveal mt-4">
+      <i class="bi bi-shield-lock-fill"></i>
+      <p><strong style="color:var(--blue-mid);">Confidencialidad garantizada.</strong> Todo lo que compartes en sesión está protegido por el secreto profesional. Ninguna información es compartida con terceros sin tu consentimiento explícito, salvo en situaciones de riesgo vital según la ley colombiana.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     MODALIDADES
+══════════════════════════════ -->
+<section id="modalidades">
+  <div class="container" style="position:relative;z-index:1;">
+    <div class="text-center mb-5">
+      <div class="tag-mp justify-content-center reveal" style="color:rgba(255,255,255,.5);">Cómo trabajamos</div>
+      <h2 class="title-mp title-mp-light reveal">Modalidades de <span>consulta</span></h2>
+      <div class="lavender-rule lavender-rule-c reveal"></div>
+      <p class="sub-mp mx-auto reveal" style="max-width:520px;color:rgba(255,255,255,.55);">
+        Nos adaptamos a tu vida, tu horario y tu preferencia. Misma calidad terapéutica, total comodidad.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="modal-card-mp">
+          <div class="modal-icon">🏢</div>
+          <div class="modal-title">Consulta Presencial</div>
+          <div class="modal-desc">Un espacio cálido, privado y diseñado para que te sientas seguro/a. Nuestro consultorio cuenta con sala de espera, ambiente tranquilo y total privacidad.</div>
+          <ul class="modal-feat">
+            <li><i class="bi bi-check-circle-fill"></i>Consultorio privado y acogedor</li>
+            <li><i class="bi bi-check-circle-fill"></i>Sesiones de 50 minutos</li>
+            <li><i class="bi bi-check-circle-fill"></i>Lun–Sáb, 7am–8pm</li>
+            <li><i class="bi bi-check-circle-fill"></i>Parqueadero disponible</li>
+          </ul>
+          <div class="price-pill"><i class="bi bi-clock"></i>50 min · Desde $120.000</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="modal-card-mp">
+          <div class="modal-icon">💻</div>
+          <div class="modal-title">Consulta Online</div>
+          <div class="modal-desc">Sesiones por videollamada con la misma efectividad que la consulta presencial. Desde la comodidad de tu hogar, oficina o donde estés en Colombia o el exterior.</div>
+          <ul class="modal-feat">
+            <li><i class="bi bi-check-circle-fill"></i>Videollamada segura y privada</li>
+            <li><i class="bi bi-check-circle-fill"></i>Disponible desde cualquier lugar</li>
+            <li><i class="bi bi-check-circle-fill"></i>Horarios extendidos</li>
+            <li><i class="bi bi-check-circle-fill"></i>Enlace único por sesión</li>
+          </ul>
+          <div class="price-pill"><i class="bi bi-clock"></i>50 min · Desde $100.000</div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="modal-card-mp">
+          <div class="modal-icon">📱</div>
+          <div class="modal-title">Seguimiento Mensajería</div>
+          <div class="modal-desc">Apoyo entre sesiones por WhatsApp o chat para momentos donde necesitas orientación rápida. Disponible para pacientes activos del consultorio.</div>
+          <ul class="modal-feat">
+            <li><i class="bi bi-check-circle-fill"></i>Respuesta en máx. 24h hábiles</li>
+            <li><i class="bi bi-check-circle-fill"></i>Apoyo entre sesiones</li>
+            <li><i class="bi bi-check-circle-fill"></i>Recursos y tareas terapéuticas</li>
+            <li><i class="bi bi-check-circle-fill"></i>Solo pacientes activos</li>
+          </ul>
+          <div class="price-pill"><i class="bi bi-info-circle"></i>Incluido en planes mensuales</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     EQUIPO DE PSICÓLOGOS
+══════════════════════════════ -->
+<section id="equipo">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-mp justify-content-center reveal">Profesionales</div>
+      <h2 class="title-mp reveal">Nuestro <span>equipo</span></h2>
+      <div class="lavender-rule lavender-rule-c reveal"></div>
+      <p class="sub-mp mx-auto reveal" style="max-width:520px;">
+        Psicólogos y psicólogas con formación especializada, experiencia clínica comprobada
+        y un compromiso genuino con el bienestar de cada paciente.
+      </p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="psi-card">
+          <div class="psi-img">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&q=80&fit=crop&crop=top"
+                 alt="Psicóloga clínica" loading="lazy"/>
+            <span class="psi-enf">Clínica adultos</span>
+          </div>
+          <div class="psi-body">
+            <div class="psi-name">Dra. Laura Jiménez</div>
+            <div class="psi-title-txt">Psicóloga Clínica · Directora</div>
+            <div class="psi-bio">Especialista en TCC y mindfulness. 10 años acompañando procesos de ansiedad, depresión y crecimiento personal.</div>
+            <div class="psi-certs">
+              <span class="psi-cert">Mg. Psicología Clínica</span>
+              <span class="psi-cert">TCC Certificada</span>
+              <span class="psi-cert">MBSR</span>
+            </div>
+            <a href="https://wa.me/573000000000?text=Quiero%20una%20cita%20con%20la%20Dra.%20Laura%20Jiménez"
+               target="_blank" class="btn-psi">
+              <i class="bi bi-calendar2-heart me-1"></i> Agendar cita
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d1">
+        <div class="psi-card">
+          <div class="psi-img">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=500&q=80&fit=crop&crop=top"
+                 alt="Psicólogo de pareja" loading="lazy"/>
+            <span class="psi-enf">Pareja · Familia</span>
+          </div>
+          <div class="psi-body">
+            <div class="psi-name">Psi. Carlos Medina</div>
+            <div class="psi-title-txt">Psicólogo Sistémico</div>
+            <div class="psi-bio">Especialista en terapia sistémica y de pareja. 8 años trabajando con familias y relaciones en crisis y en transición.</div>
+            <div class="psi-certs">
+              <span class="psi-cert">Terapia Sistémica</span>
+              <span class="psi-cert">Terapia Pareja</span>
+              <span class="psi-cert">Mediación</span>
+            </div>
+            <a href="https://wa.me/573000000000?text=Quiero%20una%20cita%20con%20el%20Psi.%20Carlos%20Medina"
+               target="_blank" class="btn-psi">
+              <i class="bi bi-calendar2-heart me-1"></i> Agendar cita
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d2">
+        <div class="psi-card">
+          <div class="psi-img">
+            <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?w=500&q=80&fit=crop&crop=top"
+                 alt="Psicóloga infantil" loading="lazy"/>
+            <span class="psi-enf">Infantil · Adolesc.</span>
+          </div>
+          <div class="psi-body">
+            <div class="psi-name">Psi. Valentina Ríos</div>
+            <div class="psi-title-txt">Psicóloga Infantojuvenil</div>
+            <div class="psi-bio">Especialista en niños y adolescentes. Manejo de TDAH, dificultades emocionales, conducta y problemas de aprendizaje.</div>
+            <div class="psi-certs">
+              <span class="psi-cert">Neuropsicología</span>
+              <span class="psi-cert">Psicología Escolar</span>
+              <span class="psi-cert">TDAH</span>
+            </div>
+            <a href="https://wa.me/573000000000?text=Quiero%20una%20cita%20con%20la%20Psi.%20Valentina%20Ríos"
+               target="_blank" class="btn-psi">
+              <i class="bi bi-calendar2-heart me-1"></i> Agendar cita
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d3">
+        <div class="psi-card">
+          <div class="psi-img">
+            <img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=500&q=80&fit=crop&crop=top"
+                 alt="Psicólogo adultos" loading="lazy"/>
+            <span class="psi-enf">Adultos · Duelo</span>
+          </div>
+          <div class="psi-body">
+            <div class="psi-name">Psi. Andrés Gómez</div>
+            <div class="psi-title-txt">Psicólogo Humanista</div>
+            <div class="psi-bio">Enfoque humanista existencial. Acompaña procesos de duelo, cambios vitales, crisis de identidad y desarrollo personal.</div>
+            <div class="psi-certs">
+              <span class="psi-cert">Terapia Gestalt</span>
+              <span class="psi-cert">Duelo y Pérdida</span>
+              <span class="psi-cert">Existencial</span>
+            </div>
+            <a href="https://wa.me/573000000000?text=Quiero%20una%20cita%20con%20el%20Psi.%20Andrés%20Gómez"
+               target="_blank" class="btn-psi">
+              <i class="bi bi-calendar2-heart me-1"></i> Agendar cita
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     TARIFAS
+══════════════════════════════ -->
+<section id="tarifas">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-mp justify-content-center reveal">Inversión en ti</div>
+      <h2 class="title-mp reveal">Tarifas <span>transparentes</span></h2>
+      <div class="lavender-rule lavender-rule-c reveal"></div>
+      <p class="sub-mp mx-auto reveal" style="max-width:500px;">
+        Sin letra pequeña. Invertir en tu salud mental es una de las mejores decisiones que puedes tomar.
+      </p>
+    </div>
+
+    <div class="row g-4 justify-content-center">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="tarifa-card">
+          <span class="tarifa-icon">🌱</span>
+          <div class="tarifa-name">Consulta individual</div>
+          <div class="tarifa-desc">Sesión única, sin compromiso de continuidad. Ideal para explorar si la terapia es para ti.</div>
+          <div class="tarifa-price"><sup>$</sup>120.000</div>
+          <div class="tarifa-period">por sesión de 50 minutos</div>
+          <ul class="tarifa-feats">
+            <li><i class="bi bi-check-lg"></i>Presencial u online</li>
+            <li><i class="bi bi-check-lg"></i>1 sesión de 50 min</li>
+            <li><i class="bi bi-check-lg"></i>Evaluación inicial</li>
+            <li><i class="bi bi-check-lg"></i>Plan terapéutico</li>
+            <li class="no"><i class="bi bi-x-lg"></i>Seguimiento por chat</li>
+            <li class="no"><i class="bi bi-x-lg"></i>Recursos digitales</li>
+          </ul>
+          <a href="#agendar" class="btn-tarifa btn-t-outline">Agendar sesión</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="tarifa-card featured">
+          <div class="tarifa-badge">💜 Más elegido</div>
+          <span class="tarifa-icon">🌿</span>
+          <div class="tarifa-name">Plan mensual</div>
+          <div class="tarifa-desc">4 sesiones mensuales con seguimiento continuo. La frecuencia recomendada para avanzar en el proceso.</div>
+          <div class="tarifa-price"><sup>$</sup>420.000</div>
+          <div class="tarifa-period">por mes · 4 sesiones de 50 min</div>
+          <ul class="tarifa-feats">
+            <li><i class="bi bi-check-lg"></i>4 sesiones mensuales</li>
+            <li><i class="bi bi-check-lg"></i>Presencial u online</li>
+            <li><i class="bi bi-check-lg"></i>Seguimiento por WhatsApp</li>
+            <li><i class="bi bi-check-lg"></i>Recursos y tareas terapéuticas</li>
+            <li><i class="bi bi-check-lg"></i>Informe de avance mensual</li>
+            <li><i class="bi bi-check-lg"></i>Cambio de psicólogo sin costo</li>
+          </ul>
+          <a href="#agendar" class="btn-tarifa btn-t-solid">Comenzar ahora</a>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="tarifa-card">
+          <span class="tarifa-icon">👨‍👩‍👧</span>
+          <div class="tarifa-name">Pareja / Familia</div>
+          <div class="tarifa-desc">Sesión especial para pareja o grupo familiar con psicólogo especializado en terapia sistémica.</div>
+          <div class="tarifa-price"><sup>$</sup>180.000</div>
+          <div class="tarifa-period">por sesión de 60 minutos</div>
+          <ul class="tarifa-feats">
+            <li><i class="bi bi-check-lg"></i>60 minutos de sesión</li>
+            <li><i class="bi bi-check-lg"></i>Psicólogo especializado</li>
+            <li><i class="bi bi-check-lg"></i>Presencial u online</li>
+            <li><i class="bi bi-check-lg"></i>Plan de trabajo conjunto</li>
+            <li class="no"><i class="bi bi-x-lg"></i>Seguimiento individual</li>
+            <li class="no"><i class="bi bi-x-lg"></i>Incluido en plan mensual</li>
+          </ul>
+          <a href="#agendar" class="btn-tarifa btn-t-outline">Agendar sesión</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Convenios -->
+    <div class="convenios-box reveal">
+      <div class="conv-title">🏥 Convenios y facilidades de pago</div>
+      <div class="conv-sub">Trabajamos con algunas EPS y ofrecemos facilidades de pago para que el costo nunca sea un obstáculo para tu bienestar.</div>
+      <div class="conv-pills">
+        <span class="conv-pill">Sura</span>
+        <span class="conv-pill">Sanitas</span>
+        <span class="conv-pill">Nueva EPS</span>
+        <span class="conv-pill">Compensar</span>
+        <span class="conv-pill">Pago en cuotas</span>
+        <span class="conv-pill">Transferencia PSE</span>
+        <span class="conv-pill">Nequi / Daviplata</span>
+        <span class="conv-pill">Efectivo</span>
+      </div>
+      <p style="font-size:.75rem;color:var(--stone);margin-top:1rem;">
+        <i class="bi bi-info-circle me-1" style="color:var(--lavender);"></i>
+        Consulta disponibilidad de cobertura EPS. No todas las modalidades están cubiertas.
+        <a href="https://wa.me/573000000000" target="_blank" style="color:var(--lavender);">Escríbenos</a> para verificar.
+      </p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     TESTIMONIOS
+══════════════════════════════ -->
+<section id="testimonios">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-mp justify-content-center reveal">Historias de cambio</div>
+      <h2 class="title-mp reveal">Lo que dicen<br><span>nuestros pacientes</span></h2>
+      <div class="lavender-rule lavender-rule-c reveal"></div>
+      <p class="sub-mp mx-auto reveal" style="max-width:480px;">Testimonios reales, compartidos con permiso. Los nombres son modificados para proteger la privacidad.</p>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testi-mp">
+          <div class="testi-stars-mp"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-serv-mp">🌱 Ansiedad · Plan mensual</div>
+          <div class="testi-text-mp">"Llegué al consultorio sin poder dormir y con ataques de pánico constantes. Después de 3 meses con la Dra. Laura aprendí a entender mi ansiedad y hoy la manejo. Es un espacio sin juicios donde me sentí escuchada desde el primer día."</div>
+          <div class="testi-auth-mp">
+            <div class="tav-mp">M</div>
+            <div>
+              <div class="tav-name-mp">Mariana C.</div>
+              <div class="tav-sub-mp">32 años · Paciente activa</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="testi-mp">
+          <div class="testi-stars-mp"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-serv-mp">💑 Terapia de pareja</div>
+          <div class="testi-text-mp">"Mi esposa y yo estábamos al borde de la separación. Carlos nos ayudó a comunicarnos de una forma que no sabíamos que era posible. Llevamos 6 meses en terapia y nuestra relación es completamente diferente. Gracias de corazón."</div>
+          <div class="testi-auth-mp">
+            <div class="tav-mp">RP</div>
+            <div>
+              <div class="tav-name-mp">R. y P. — Bogotá</div>
+              <div class="tav-sub-mp">Pareja · Proceso de 6 meses</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="testi-mp">
+          <div class="testi-stars-mp"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-serv-mp">🧒 Psicología infantil</div>
+          <div class="testi-text-mp">"Mi hijo de 9 años tenía berrinches incontrolables y problemas en el colegio. Valentina trabajó con él y con nosotros como familia. En 2 meses el cambio fue increíble. Ojalá hubiéramos venido antes."</div>
+          <div class="testi-auth-mp">
+            <div class="tav-mp">A</div>
+            <div>
+              <div class="tav-name-mp">Andrea T. — Mamá</div>
+              <div class="tav-sub-mp">Paciente infantil · 2 meses</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testi-mp">
+          <div class="testi-stars-mp"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-serv-mp">💻 Online · Desarrollo personal</div>
+          <div class="testi-text-mp">"Vivo en el exterior y encontrar un psicólogo colombiano de calidad online fue difícil hasta que llegué a Mente Plena. Las sesiones virtuales funcionan igual que presenciales. Me ha cambiado la forma de verme a mí misma."</div>
+          <div class="testi-auth-mp">
+            <div class="tav-mp">S</div>
+            <div>
+              <div class="tav-name-mp">Sara F. — España</div>
+              <div class="tav-sub-mp">Consulta online · 4 meses</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="testi-mp">
+          <div class="testi-stars-mp"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half-fill"></i></div>
+          <div class="testi-serv-mp">😔 Duelo · Plan mensual</div>
+          <div class="testi-text-mp">"Perdí a mi papá hace un año y no sabía cómo seguir. Andrés me acompañó en ese duelo con una paciencia y una humanidad que no esperaba. Aprendí que el duelo no se supera, se transforma. Gracias."</div>
+          <div class="testi-auth-mp">
+            <div class="tav-mp">J</div>
+            <div>
+              <div class="tav-name-mp">Julián M.</div>
+              <div class="tav-sub-mp">38 años · Proceso de duelo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="testi-mp">
+          <div class="testi-stars-mp"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-serv-mp">🧑‍🎓 Adolescente</div>
+          <div class="testi-text-mp">"Mi hija de 16 años no quería hablar con nadie. Valentina logró conectar con ella de una forma increíble. Ahora tiene herramientas para manejar sus emociones y nuestra relación como familia mejoró mucho."</div>
+          <div class="testi-auth-mp">
+            <div class="tav-mp">LV</div>
+            <div>
+              <div class="tav-name-mp">Lorena V. — Mamá</div>
+              <div class="tav-sub-mp">Paciente adolescente · 3 meses</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     AGENDAR CITA
+══════════════════════════════ -->
+<section id="agendar">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-mp justify-content-center reveal">El primer paso</div>
+      <h2 class="title-mp reveal">Agenda tu <span>primera cita</span></h2>
+      <div class="lavender-rule lavender-rule-c reveal"></div>
+      <p class="sub-mp mx-auto reveal" style="max-width:480px;">
+        Dar el primer paso es lo más difícil. Nosotros hacemos el resto fácil. Sin listas de espera largas, respuesta en menos de 2 horas hábiles.
+      </p>
+    </div>
+
+    <div class="row g-5 align-items-stretch">
+
+      <!-- Info + proceso -->
+      <div class="col-lg-5">
+        <div class="agenda-visual">
+          <div class="av-quote">
+            "Pedir ayuda no es señal de debilidad. Es uno de los actos más valientes que puedes hacer por ti mismo."
+          </div>
+          <div class="av-steps">
+            <div class="av-step">
+              <div class="av-step-n">1</div>
+              <div class="av-step-text"><strong>Escríbenos o llena el formulario</strong> — cuéntanos brevemente qué te trae y qué tipo de atención buscas.</div>
+            </div>
+            <div class="av-step">
+              <div class="av-step-n">2</div>
+              <div class="av-step-text"><strong>Te asignamos el psicólogo ideal</strong> — según tu necesidad, horario y preferencia de género del profesional.</div>
+            </div>
+            <div class="av-step">
+              <div class="av-step-n">3</div>
+              <div class="av-step-text"><strong>Confirmas tu cita y pagas</strong> — online, transferencia o en el consultorio. Recibes recordatorio el día anterior.</div>
+            </div>
+            <div class="av-step">
+              <div class="av-step-n">4</div>
+              <div class="av-step-text"><strong>Llegas y comenzamos</strong> — presencial u online. Desde el primer momento en un ambiente seguro y confidencial.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Formulario -->
+      <div class="col-lg-7">
+        <div class="contact-form-mp reveal">
+          <h4 style="font-family:var(--font-serif);font-size:1.2rem;color:var(--blue-deep);margin-bottom:1.5rem;font-weight:600;">
+            Solicitar mi primera cita 💜
+          </h4>
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-lbl-mp">Nombre *</label>
+              <input type="text" class="form-ctrl-mp" placeholder="Tu nombre"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl-mp">Teléfono / WhatsApp *</label>
+              <input type="tel" class="form-ctrl-mp" placeholder="+57 300 000 0000"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl-mp">Correo electrónico</label>
+              <input type="email" class="form-ctrl-mp" placeholder="tu@correo.com"/>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl-mp">Modalidad preferida</label>
+              <select class="form-ctrl-mp">
+                <option disabled selected>Selecciona...</option>
+                <option>Presencial</option>
+                <option>Online (videollamada)</option>
+                <option>Sin preferencia</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl-mp">Motivo de consulta</label>
+              <select class="form-ctrl-mp">
+                <option disabled selected>Selecciona...</option>
+                <option>Ansiedad / Depresión</option>
+                <option>Terapia de pareja</option>
+                <option>Terapia familiar</option>
+                <option>Niños / Adolescentes</option>
+                <option>Desarrollo personal</option>
+                <option>Duelo y pérdida</option>
+                <option>Otro / No sé aún</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="form-lbl-mp">Horario preferido</label>
+              <select class="form-ctrl-mp">
+                <option disabled selected>Selecciona...</option>
+                <option>Mañana (7am – 12pm)</option>
+                <option>Tarde (12pm – 6pm)</option>
+                <option>Noche (6pm – 8pm)</option>
+                <option>Fin de semana</option>
+                <option>Sin preferencia</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="form-lbl-mp">Cuéntanos un poco más (opcional)</label>
+              <textarea class="form-ctrl-mp" rows="3" placeholder="¿Qué te trae al consultorio? Solo si te sientes cómodo/a compartiendo..."></textarea>
+            </div>
+            <div class="col-12" style="font-size:.72rem;color:var(--stone2);display:flex;align-items:flex-start;gap:6px;">
+              <i class="bi bi-shield-lock-fill" style="color:var(--lavender);margin-top:1px;"></i>
+              Tu información está protegida por el secreto profesional y nuestra política de privacidad.
+            </div>
+            <div class="col-12">
+              <button class="btn-form-mp" onclick="submitForm(this)">
+                <i class="bi bi-calendar-heart me-2"></i> Solicitar mi cita
+              </button>
+            </div>
+            <div id="formOk" style="display:none;">
+              <div style="background:var(--lavender-pale);border:1px solid var(--lavender-bdr);border-radius:14px;padding:1rem;text-align:center;">
+                <span style="font-size:1.5rem;">💜</span>
+                <p style="font-family:var(--font-body);font-size:.82rem;color:var(--lavender);margin-top:.4rem;font-weight:500;">
+                  ¡Tu solicitud fue recibida! Te contactamos en menos de 2 horas hábiles.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- O por WhatsApp -->
+          <div style="text-align:center;margin:1.2rem 0;font-size:.75rem;color:var(--stone2);">— o si prefieres —</div>
+          <a href="https://wa.me/573000000000?text=Hola%20Mente%20Plena,%20quiero%20agendar%20mi%20primera%20cita."
+             target="_blank" class="wa-option">
+            <div class="wa-option-icon"><i class="bi bi-whatsapp"></i></div>
+            <div class="wa-option-text">
+              <div class="wot-title">Agendar por WhatsApp</div>
+              <div class="wot-sub">Respuesta inmediata · Atención personalizada</div>
+            </div>
+            <i class="bi bi-arrow-right ms-auto" style="color:var(--stone2);"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     FAQ
+══════════════════════════════ -->
+<section id="faq">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="text-center mb-5">
+          <div class="tag-mp justify-content-center reveal">Resolvemos tus dudas</div>
+          <h2 class="title-mp reveal">Preguntas <span>frecuentes</span></h2>
+          <div class="lavender-rule lavender-rule-c reveal"></div>
+        </div>
+
+        <div id="faqList">
+          <div class="faq-mp reveal">
+            <div class="faq-q-mp">¿Cómo sé si necesito ir a un psicólogo?<span class="faq-ic-mp"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-mp">No tienes que estar en crisis para ir a psicología. Si sientes que algo no está bien, que tus emociones te desbordan, que no duermes bien, que tus relaciones se deterioran, o simplemente quieres conocerte mejor, esos son motivos suficientes. La psicología es para todas las personas, en cualquier momento de la vida.</div>
+          </div>
+          <div class="faq-mp reveal d1">
+            <div class="faq-q-mp">¿Las sesiones online son tan efectivas como las presenciales?<span class="faq-ic-mp"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-mp">Sí. La evidencia científica muestra que la terapia online tiene los mismos resultados que la presencial. Lo más importante es el vínculo terapéutico y la consistencia del proceso, no el canal. Miles de personas en el mundo hacen terapia online con excelentes resultados.</div>
+          </div>
+          <div class="faq-mp reveal d2">
+            <div class="faq-q-mp">¿Todo lo que le cuento al psicólogo es confidencial?<span class="faq-ic-mp"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-mp">Sí. El secreto profesional es un principio ético y legal fundamental en psicología. Ninguna información es compartida con terceros (familia, empleadores, parejas) sin tu consentimiento explícito. Solo en situaciones de riesgo vital inminente (propio o de terceros) existen excepciones, según la ley colombiana.</div>
+          </div>
+          <div class="faq-mp reveal d3">
+            <div class="faq-q-mp">¿Cuántas sesiones voy a necesitar?<span class="faq-ic-mp"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-mp">Depende de cada persona y de sus objetivos terapéuticos. Procesos de desarrollo personal pueden tomar entre 3 y 6 meses. Situaciones más complejas como traumas o trastornos crónicos pueden requerir más tiempo. Tu psicólogo/a te dará una estimación en la primera sesión y el plan se ajusta según tu evolución.</div>
+          </div>
+          <div class="faq-mp reveal">
+            <div class="faq-q-mp">¿Puedo cambiar de psicólogo si no me siento cómodo/a?<span class="faq-ic-mp"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-mp">Absolutamente. El vínculo terapéutico es fundamental para que la terapia funcione. Si en algún momento sientes que necesitas un profesional diferente, te asignamos otro sin costo adicional y sin ningún juicio. Tu comodidad y confianza son lo primero.</div>
+          </div>
+          <div class="faq-mp reveal d1">
+            <div class="faq-q-mp">¿Atienden niños y para qué edades?<span class="faq-ic-mp"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-mp">Sí, atendemos niños desde los 4 años. La terapia infantil utiliza técnicas adaptadas a cada edad: juego terapéutico, dibujo, narrativas y otras herramientas lúdicas. Siempre trabajamos también con los padres o cuidadores como parte del proceso.</div>
+          </div>
+          <div class="faq-mp reveal d2">
+            <div class="faq-q-mp">¿Cómo funcionan los convenios con EPS?<span class="faq-ic-mp"><i class="bi bi-plus-lg"></i></span></div>
+            <div class="faq-a-mp">Trabajamos con algunas EPS de manera directa. Escríbenos indicando tu EPS y te confirmamos si hay cobertura disponible. En algunos casos puedes usar tu póliza de salud complementaria para reembolso parcial de las sesiones.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     UBICACIÓN
+══════════════════════════════ -->
+<section id="ubicacion">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-mp justify-content-center reveal">Visítanos</div>
+      <h2 class="title-mp reveal">Nuestra <span>ubicación</span></h2>
+      <div class="lavender-rule lavender-rule-c reveal"></div>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <div class="col-lg-8 reveal">
+        <div class="map-mp">
+          <!--
+            Para activar el mapa real:
+            1. Google Maps → busca tu dirección
+            2. Compartir → Insertar mapa → copia el iframe
+            3. Reemplaza este div.map-ph con el iframe
+          -->
+          <div class="map-ph">
+            <i class="bi bi-geo-heart-fill"></i>
+            <p>Reemplaza con tu iframe de Google Maps</p>
+            <p style="font-size:.58rem;opacity:.4;">Maps → Compartir → Insertar mapa</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-4 reveal d1">
+        <div class="contact-info-mp">
+          <div style="position:relative;z-index:1;margin-bottom:1.5rem;">
+            <div style="font-family:var(--font-serif);font-size:1.2rem;font-weight:600;color:var(--warm-white);">Consultorio Mente Plena</div>
+            <div style="font-size:.62rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.35);margin-top:.2rem;">Información de contacto</div>
+          </div>
+          <div class="ci-mp-item">
+            <div class="ci-mp-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div><div class="ci-mp-lbl">Dirección</div><div class="ci-mp-val">Cra 15 # 85-20, Of. 304<br>Tu ciudad, Colombia</div></div>
+          </div>
+          <div class="ci-mp-item">
+            <div class="ci-mp-icon"><i class="bi bi-whatsapp"></i></div>
+            <div><div class="ci-mp-lbl">WhatsApp</div><div class="ci-mp-val">+57 300 000 0000</div></div>
+          </div>
+          <div class="ci-mp-item">
+            <div class="ci-mp-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div><div class="ci-mp-lbl">Teléfono</div><div class="ci-mp-val">+57 (1) 000 0000</div></div>
+          </div>
+          <div class="ci-mp-item">
+            <div class="ci-mp-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div><div class="ci-mp-lbl">Email</div><div class="ci-mp-val">hola@menteplena.co</div></div>
+          </div>
+          <div class="ci-mp-item" style="border:none;">
+            <div class="ci-mp-icon"><i class="bi bi-clock-fill"></i></div>
+            <div><div class="ci-mp-lbl">Horario de atención</div><div class="ci-mp-val">Lun – Vie: 7:00am – 8:00pm<br>Sáb: 8:00am – 4:00pm</div></div>
+          </div>
+          <a href="https://wa.me/573000000000?text=Hola%20Mente%20Plena,%20quiero%20agendar%20una%20cita."
+             target="_blank"
+             class="btn-cita-nav mt-3 d-flex justify-content-center" style="font-size:.75rem;">
+            <i class="bi bi-calendar-heart"></i> Agendar cita ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     CTA FINAL
+══════════════════════════════ -->
+<section id="cta">
+  <div class="container">
+    <div class="cta-mp reveal">
+      <p style="font-size:.72rem;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:1rem;font-weight:600;position:relative;z-index:1;">Tu bienestar importa</p>
+      <h2 class="cta-mp-title">
+        El mejor momento para<br>
+        cuidar tu mente<br>
+        <em>es ahora</em>
+      </h2>
+      <p style="font-size:1rem;color:rgba(255,255,255,.7);max-width:480px;margin:0 auto 2.5rem;line-height:1.8;position:relative;z-index:1;">
+        No esperes a estar en el piso para pedir ayuda. Mereces apoyo, acompañamiento
+        y las herramientas para vivir mejor, ya.
+      </p>
+      <div class="d-flex flex-wrap gap-3 justify-content-center" style="position:relative;z-index:1;">
+        <a href="#agendar" class="btn-cta-mp-white">
+          <i class="bi bi-calendar-heart-fill" style="color:var(--lavender);"></i>
+          Agendar mi primera cita
+        </a>
+        <a href="https://wa.me/573000000000?text=Hola%20Mente%20Plena,%20tengo%20una%20consulta."
+           target="_blank"
+           style="font-family:var(--font-body);font-size:.85rem;font-weight:600;background:rgba(255,255,255,.12);color:var(--warm-white);border:1.5px solid rgba(255,255,255,.25);padding:1.1rem 2.4rem;border-radius:30px;text-decoration:none;display:inline-flex;align-items:center;gap:9px;transition:all .3s;position:relative;z-index:1;"
+           onmouseover="this.style.background='rgba(255,255,255,.2)'"
+           onmouseout="this.style.background='rgba(255,255,255,.12)'">
+          <i class="bi bi-whatsapp"></i> Escribir por WhatsApp
+        </a>
+      </div>
+
+      <!-- Nota de salud mental -->
+      <div class="health-note">
+        <p>
+          <i class="bi bi-heart-pulse me-2" style="color:var(--lavender-pale);"></i>
+          Si estás en una situación de crisis o pensando en hacerte daño, por favor llama a la <strong style="color:var(--warm-white);">Línea 106</strong> (Colombia, 24/7) o ve a la urgencia del hospital más cercano. Estamos aquí para acompañarte, pero en emergencias llama al 123.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════════════
+     FOOTER
+══════════════════════════════ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand-mp">Mente <span>Plena</span></div>
+        <div class="footer-tag-mp">Consultorio de Psicología · Est. 2018</div>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.25);font-family:var(--font-body);line-height:1.8;margin-top:1rem;font-weight:300;">
+          Acompañamos tu proceso de bienestar con profesionalismo, empatía y confidencialidad. Porque tu salud mental importa tanto como tu salud física.
+        </p>
+        <div style="margin-top:1rem;display:flex;gap:.4rem;flex-wrap:wrap;">
+          <span style="font-size:.6rem;letter-spacing:1px;color:rgba(124,111,207,.5);border:1px solid rgba(124,111,207,.2);padding:.15rem .5rem;border-radius:20px;">Colpsic</span>
+          <span style="font-size:.6rem;letter-spacing:1px;color:rgba(124,111,207,.5);border:1px solid rgba(124,111,207,.2);padding:.15rem .5rem;border-radius:20px;">Secretaría Salud</span>
+          <span style="font-size:.6rem;letter-spacing:1px;color:rgba(124,111,207,.5);border:1px solid rgba(124,111,207,.2);padding:.15rem .5rem;border-radius:20px;">RETHUS</span>
+        </div>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-col-h-mp">Navegación</div>
+        <a href="#servicios"   class="footer-lnk-mp">Servicios</a>
+        <a href="#modalidades" class="footer-lnk-mp">Modalidades</a>
+        <a href="#equipo"      class="footer-lnk-mp">Psicólogos</a>
+        <a href="#tarifas"     class="footer-lnk-mp">Tarifas</a>
+        <a href="#testimonios" class="footer-lnk-mp">Testimonios</a>
+        <a href="#faq"         class="footer-lnk-mp">FAQ</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-h-mp">Servicios</div>
+        <a href="#servicios" class="footer-lnk-mp">Ansiedad · Depresión</a>
+        <a href="#servicios" class="footer-lnk-mp">Terapia de pareja</a>
+        <a href="#servicios" class="footer-lnk-mp">Terapia familiar</a>
+        <a href="#servicios" class="footer-lnk-mp">Psicología infantil</a>
+        <a href="#servicios" class="footer-lnk-mp">Adolescentes</a>
+        <a href="#servicios" class="footer-lnk-mp">Desarrollo personal</a>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-col-h-mp">Contacto</div>
+        <a href="https://wa.me/573000000000" target="_blank" class="footer-lnk-mp">
+          <i class="bi bi-whatsapp me-2" style="color:#25d366;"></i>+57 300 000 0000
+        </a>
+        <a href="tel:+5710000000" class="footer-lnk-mp">
+          <i class="bi bi-telephone me-2" style="color:var(--lavender2);"></i>+57 (1) 000 0000
+        </a>
+        <a href="mailto:hola@menteplena.co" class="footer-lnk-mp">
+          <i class="bi bi-envelope me-2" style="color:var(--lavender2);"></i>hola@menteplena.co
+        </a>
+        <div style="margin-top:1.2rem;padding:1rem;border:1px solid rgba(124,111,207,.15);border-left:2px solid var(--lavender);border-radius:0 8px 8px 0;">
+          <div style="font-size:.58rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.25);margin-bottom:.4rem;">Crisis · Emergencias</div>
+          <a href="tel:106" style="font-size:.88rem;color:rgba(255,255,255,.4);text-decoration:none;display:flex;align-items:center;gap:6px;"><i class="bi bi-telephone-fill" style="color:var(--lavender2);"></i>Línea 106 · 24/7</a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-btm-mp">
+      <div class="footer-copy-mp">© 2025 Mente Plena Consultorio de Psicología. Todos los derechos reservados.</div>
+      <div>
+        <a href="#" class="soc-mp" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="soc-mp" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="soc-mp" aria-label="TikTok"><i class="bi bi-tiktok"></i></a>
+        <a href="https://wa.me/573000000000" class="soc-mp" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp float -->
+<a href="https://wa.me/573000000000?text=Hola%20Mente%20Plena,%20quiero%20agendar%20una%20cita."
+   target="_blank" class="wa-float-mp" aria-label="WhatsApp">
+  <div class="wa-ring-mp"></div>
+  <i class="bi bi-whatsapp"></i>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* ── Navbar ── */
+  document.getElementById('navToggle').addEventListener('click', () => {
+    const m = document.getElementById('mob-mp');
+    m.style.display = m.style.display === 'block' ? 'none' : 'block';
+  });
+  document.getElementById('mob-mp').querySelectorAll('a').forEach(a =>
+    a.addEventListener('click', () => document.getElementById('mob-mp').style.display = 'none')
+  );
+
+  /* ── Images ── */
+  const heroImg = document.getElementById('heroImg');
+  if(heroImg){ if(heroImg.complete) heroImg.classList.add('on'); else heroImg.addEventListener('load',()=>heroImg.classList.add('on')); }
+  document.querySelectorAll('.img-f').forEach(img => {
+    if(img.complete) img.classList.add('on');
+    else { img.addEventListener('load',()=>img.classList.add('on')); img.addEventListener('error',()=>{}); }
+  });
+
+  /* ── Reveal ── */
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if(e.isIntersecting){ e.target.classList.add('on'); io.unobserve(e.target); } });
+  }, { threshold:0.08 });
+  document.querySelectorAll('.reveal,.rl,.rr').forEach(el => io.observe(el));
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const t = document.querySelector(a.getAttribute('href'));
+      if(t){ e.preventDefault(); window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-80,behavior:'smooth'}); }
+    });
+  });
+
+  /* ── FAQ ── */
+  document.querySelectorAll('.faq-q-mp').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-mp').forEach(f => f.classList.remove('open'));
+      if(!wasOpen) item.classList.add('open');
+    });
+  });
+
+  /* ── Form ── */
+  function submitForm(btn) {
+    btn.innerHTML = '<i class="bi bi-hourglass me-2"></i>Enviando...';
+    btn.disabled = true;
+    setTimeout(() => {
+      document.getElementById('formOk').style.display = 'block';
+      btn.innerHTML = '💜 Solicitud enviada';
+      btn.style.background = 'var(--blue-mid)';
+    }, 1400);
+  }
+</script>
+</body>
+</html>

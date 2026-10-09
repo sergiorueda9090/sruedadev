@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguros.com - Tu Seguridad Digital al Instante</title>
+    
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Distinctive Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&family=Archivo+Black&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <style>
+        :root {
+            --primary-deep: #0A2540;
+            --primary-vibrant: #00D4FF;
+            --accent-coral: #FF6B6B;
+            --accent-gold: #FFD700;
+            --neutral-light: #F8FAFC;
+            --neutral-dark: #1E293B;
+            --gradient-hero: linear-gradient(135deg, #0A2540 0%, #1E4976 50%, #00D4FF 100%);
+            --gradient-card: linear-gradient(145deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Outfit', sans-serif;
+            overflow-x: hidden;
+            background-color: var(--neutral-light);
+            color: var(--neutral-dark);
+        }
+        
+        /* Typography System */
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 900;
+            line-height: 1.1;
+        }
+        
+        .display-title {
+            font-family: 'Archivo Black', sans-serif;
+            letter-spacing: -0.02em;
+        }
+        
+        /* Navigation */
+        .navbar-custom {
+            background: rgba(10, 37, 64, 0.95);
+            backdrop-filter: blur(20px);
+            padding: 1.2rem 0;
+            border-bottom: 1px solid rgba(0, 212, 255, 0.2);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .navbar-custom.scrolled {
+            padding: 0.8rem 0;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.15);
+        }
+        
+        .navbar-brand {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.8rem;
+            color: var(--primary-vibrant) !important;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+        
+        .navbar-brand:hover {
+            transform: scale(1.05);
+            color: #fff !important;
+        }
+        
+        .nav-link {
+            color: rgba(255, 255, 255, 0.85) !important;
+            font-weight: 500;
+            margin: 0 0.5rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: var(--primary-vibrant);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        
+        .nav-link:hover::after {
+            width: 80%;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-vibrant) !important;
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: var(--gradient-hero);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(0, 212, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 107, 107, 0.1) 0%, transparent 50%);
+            animation: pulseGlow 8s ease-in-out infinite;
+        }
+        
+        @keyframes pulseGlow {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hero-title {
+            font-size: clamp(2.5rem, 8vw, 5.5rem);
+            color: white;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(1.1rem, 3vw, 1.5rem);
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2.5rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.4s both;
+        }
+        
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-top: 3rem;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2.5rem;
+            color: var(--primary-vibrant);
+            display: block;
+            line-height: 1;
+        }
+        
+        .stat-label {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+        
+        .hero-image {
+            position: relative;
+            animation: floatAnimation 6s ease-in-out infinite;
+        }
+        
+        @keyframes floatAnimation {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .hero-image img {
+            filter: drop-shadow(0 20px 60px rgba(0, 212, 255, 0.4));
+        }
+        
+        /* CTA Buttons */
+        .btn-custom-primary {
+            background: linear-gradient(135deg, var(--primary-vibrant) 0%, #0099CC 100%);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: none;
+            border-radius: 50px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+        }
+        
+        .btn-custom-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn-custom-primary:hover::before {
+            left: 100%;
+        }
+        
+        .btn-custom-primary:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+        }
+        
+        .btn-custom-secondary {
+            background: transparent;
+            color: white;
+            padding: 1rem 2.5rem;
+            font-weight: 600;
+            font-size: 1.1rem;
+            border: 2px solid white;
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .btn-custom-secondary:hover {
+            background: white;
+            color: var(--primary-deep);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.3);
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 8rem 0;
+            background: var(--neutral-light);
+            position: relative;
+        }
+        
+        .section-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-deep);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: #64748b;
+            font-size: 1.2rem;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem 2rem;
+            height: 100%;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            border: 1px solid rgba(0, 212, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-vibrant), var(--accent-coral));
+            transform: scaleX(0);
+            transition: transform 0.5s ease;
+            transform-origin: left;
+        }
+        
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.2);
+            border-color: var(--primary-vibrant);
+        }
+        
+        .service-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-hero);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+            transition: all 0.5s ease;
+        }
+        
+        .service-card:hover .service-icon {
+            transform: rotate(360deg) scale(1.1);
+        }
+        
+        .service-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-deep);
+        }
+        
+        .service-description {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-features li {
+            padding: 0.5rem 0;
+            color: #475569;
+            display: flex;
+            align-items: center;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            color: var(--primary-vibrant);
+            font-weight: bold;
+            margin-right: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        /* Features Section */
+        .features-section {
+            padding: 8rem 0;
+            background: var(--primary-deep);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .features-section::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+            top: -250px;
+            right: -250px;
+            animation: rotateGlow 20s linear infinite;
+        }
+        
+        @keyframes rotateGlow {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .feature-icon {
+            width: 100px;
+            height: 100px;
+            background: var(--gradient-card);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 212, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            transition: all 0.5s ease;
+        }
+        
+        .feature-item:hover .feature-icon {
+            background: var(--primary-vibrant);
+            border-color: var(--primary-vibrant);
+            transform: rotateY(360deg);
+        }
+        
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .feature-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+        
+        /* Testimonials Section */
+        .testimonials-section {
+            padding: 8rem 0;
+            background: linear-gradient(180deg, var(--neutral-light) 0%, white 100%);
+        }
+        
+        .testimonial-card {
+            background: white;
+            border-radius: 24px;
+            padding: 3rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.05);
+            height: 100%;
+            transition: all 0.4s ease;
+            border: 1px solid rgba(0, 212, 255, 0.1);
+        }
+        
+        .testimonial-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0, 212, 255, 0.15);
+        }
+        
+        .testimonial-rating {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .testimonial-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #475569;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .author-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: var(--gradient-hero);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .author-info h5 {
+            margin: 0;
+            font-size: 1.1rem;
+            color: var(--primary-deep);
+        }
+        
+        .author-info p {
+            margin: 0;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 8rem 0;
+            background: var(--gradient-hero);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            opacity: 0.5;
+        }
+        
+        .cta-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-title {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-text {
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.9;
+        }
+        
+        .app-badges {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            align-items: center;
+            margin-top: 2rem;
+        }
+        
+        .app-badge {
+            transition: transform 0.3s ease;
+        }
+        
+        .app-badge:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--primary-deep);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+        
+        .footer-brand {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 2rem;
+            color: var(--primary-vibrant);
+            margin-bottom: 1rem;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        
+        .footer-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--primary-vibrant);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--primary-vibrant);
+            transform: translateX(5px);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .social-link {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-vibrant);
+            transform: translateY(-5px);
+            color: white;
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 3rem;
+            padding-top: 2rem;
+            text-align: center;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .trust-badges {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .trust-badge {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        .trust-badge i {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+        }
+        
+        /* Animations on Scroll */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+        
+        .animate-on-scroll.animated {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-stats {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .stat-item {
+                text-align: left;
+            }
+            
+            .app-badges {
+                flex-direction: column;
+            }
+            
+            .service-card {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">Seguros.com</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border: 1px solid rgba(255,255,255,0.3);">
+                <span style="color: white;">☰</span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#beneficios">Beneficios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#testimonios">Testimonios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#app">App</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 hero-content">
+                    <h1 class="hero-title display-title">Tu Seguro Digital en 5 Minutos</h1>
+                    <p class="hero-subtitle">Protección inmediata, 100% online. Sin papeleos, sin esperas. La revolución de los seguros en Colombia.</p>
+                    
+                    <div class="d-flex gap-3 flex-wrap">
+                        <button class="btn btn-custom-primary">Cotizar Ahora</button>
+                        <button class="btn btn-custom-secondary">Ver Cobertura</button>
+                    </div>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">+500K</span>
+                            <span class="stat-label">Clientes Felices</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">4.9/5</span>
+                            <span class="stat-label">Calificación</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">24/7</span>
+                            <span class="stat-label">Soporte</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 hero-image text-center mt-5 mt-lg-0">
+                    <svg width="500" height="500" viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="250" cy="250" r="200" fill="url(#gradient1)" opacity="0.3"/>
+                        <circle cx="250" cy="250" r="160" fill="url(#gradient2)" opacity="0.4"/>
+                        <path d="M250 100 L300 200 L250 250 L200 200 Z" fill="#00D4FF" opacity="0.8"/>
+                        <circle cx="250" cy="250" r="80" fill="white" opacity="0.9"/>
+                        <path d="M230 250 L245 265 L270 235" stroke="#0A2540" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+                        <defs>
+                            <linearGradient id="gradient1" x1="250" y1="50" x2="250" y2="450">
+                                <stop offset="0%" stop-color="#00D4FF"/>
+                                <stop offset="100%" stop-color="#0A2540"/>
+                            </linearGradient>
+                            <linearGradient id="gradient2" x1="250" y1="90" x2="250" y2="410">
+                                <stop offset="0%" stop-color="#FF6B6B"/>
+                                <stop offset="100%" stop-color="#00D4FF"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="servicios">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Nuestros Seguros</h2>
+            <p class="section-subtitle animate-on-scroll">Cobertura completa para cada necesidad. Simples, transparentes y al mejor precio.</p>
+            
+            <div class="row mt-5">
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-car-front"></i>
+                        </div>
+                        <h3 class="service-title">SOAT Digital</h3>
+                        <p class="service-description">Seguro obligatorio en minutos. Descarga inmediata, precios oficiales con descuento de ley.</p>
+                        <ul class="service-features">
+                            <li>Entrega instantánea por email</li>
+                            <li>Pago con PSE o tarjeta</li>
+                            <li>Respaldado por aseguradoras líderes</li>
+                            <li>Renovación automática opcional</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-house-heart"></i>
+                        </div>
+                        <h3 class="service-title">Seguro de Hogar</h3>
+                        <p class="service-description">Protege tu patrimonio con coberturas flexibles. Desde $15.000/mes.</p>
+                        <ul class="service-features">
+                            <li>Cobertura por incendio y robo</li>
+                            <li>Responsabilidad civil incluida</li>
+                            <li>Asistencia 24/7 en el hogar</li>
+                            <li>Sin deducibles altos</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-heart-pulse"></i>
+                        </div>
+                        <h3 class="service-title">Seguro de Vida</h3>
+                        <p class="service-description">Tranquilidad para ti y tu familia. Cobertura desde $20.000/mes.</p>
+                        <ul class="service-features">
+                            <li>Muerte por cualquier causa</li>
+                            <li>Incapacidad total y permanente</li>
+                            <li>Enfermedades graves</li>
+                            <li>Sin exámenes médicos iniciales</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <h3 class="service-title">Todo Riesgo</h3>
+                        <p class="service-description">Protección completa para tu vehículo. Las mejores coberturas del mercado.</p>
+                        <ul class="service-features">
+                            <li>Daños propios y terceros</li>
+                            <li>Hurto total y parcial</li>
+                            <li>Asistencia vial 24/7</li>
+                            <li>Conductor elegido incluido</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                        <h3 class="service-title">Seguro de Celular</h3>
+                        <p class="service-description">Protege tu smartphone contra robo y daños. Desde $8.000/mes.</p>
+                        <ul class="service-features">
+                            <li>Robo con y sin violencia</li>
+                            <li>Daños por caídas y líquidos</li>
+                            <li>Reposición rápida</li>
+                            <li>Sin franquicia en primer siniestro</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-bicycle"></i>
+                        </div>
+                        <h3 class="service-title">Seguro de Bicicleta</h3>
+                        <p class="service-description">Para ciclistas urbanos y deportivos. Cobertura total desde $12.000/mes.</p>
+                        <ul class="service-features">
+                            <li>Robo y hurto calificado</li>
+                            <li>Daños accidentales</li>
+                            <li>Responsabilidad civil</li>
+                            <li>Asistencia en ruta</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section" id="beneficios">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll" style="color: white;">¿Por qué Seguros.com?</h2>
+            <p class="section-subtitle animate-on-scroll" style="color: rgba(255,255,255,0.8);">La forma más inteligente de proteger lo que más valoras</p>
+            
+            <div class="row mt-5">
+                <div class="col-lg-3 col-md-6 mb-4 animate-on-scroll">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-lightning-charge"></i>
+                        </div>
+                        <h4 class="feature-title">Instantáneo</h4>
+                        <p class="feature-description">Cotiza, compra y descarga tu póliza en menos de 5 minutos. Sin trámites engorrosos.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 animate-on-scroll">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-piggy-bank"></i>
+                        </div>
+                        <h4 class="feature-title">Mejor Precio</h4>
+                        <p class="feature-description">Comparamos entre las mejores aseguradoras para ofrecerte el precio más competitivo.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 animate-on-scroll">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                        <h4 class="feature-title">100% Seguro</h4>
+                        <p class="feature-description">Respaldados por las aseguradoras más confiables, vigiladas por la Superfinanciera.</p>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6 mb-4 animate-on-scroll">
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="bi bi-headset"></i>
+                        </div>
+                        <h4 class="feature-title">Soporte 24/7</h4>
+                        <p class="feature-description">Estamos aquí cuando nos necesites. Chat, teléfono y WhatsApp siempre disponibles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section" id="testimonios">
+        <div class="container">
+            <h2 class="section-title animate-on-scroll">Lo que dicen nuestros clientes</h2>
+            <p class="section-subtitle animate-on-scroll">Más de 500.000 personas confían en nosotros</p>
+            
+            <div class="row mt-5">
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-text">"Increíble lo rápido que obtuve mi SOAT. En menos de 3 minutos ya lo tenía en mi correo. La app es súper útil para recordarme las fechas de vencimiento."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">MC</div>
+                            <div class="author-info">
+                                <h5>María Camila Rodríguez</h5>
+                                <p>Bogotá</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-text">"Ahorré más de $200.000 en mi seguro todo riesgo comparado con mi aseguradora anterior. El proceso fue transparente y sin letra pequeña."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">JS</div>
+                            <div class="author-info">
+                                <h5>Javier Silva</h5>
+                                <p>Medellín</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4 col-md-6 mb-4 animate-on-scroll">
+                    <div class="testimonial-card">
+                        <div class="testimonial-rating">★★★★★</div>
+                        <p class="testimonial-text">"La atención al cliente es excepcional. Tuve una duda sobre mi póliza y me respondieron en menos de 5 minutos por WhatsApp. Muy recomendado."</p>
+                        <div class="testimonial-author">
+                            <div class="author-avatar">LG</div>
+                            <div class="author-info">
+                                <h5>Laura Gómez</h5>
+                                <p>Cali</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="trust-badges mt-5">
+                <div class="trust-badge">
+                    <i class="bi bi-shield-check"></i>
+                    <span>Vigilados Superfinanciera</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="bi bi-award"></i>
+                    <span>4.9/5 Calificación</span>
+                </div>
+                <div class="trust-badge">
+                    <i class="bi bi-people"></i>
+                    <span>+500K Clientes</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="app">
+        <div class="container">
+            <div class="cta-content">
+                <h2 class="cta-title animate-on-scroll">Descarga nuestra App</h2>
+                <p class="cta-text animate-on-scroll">Gestiona todos tus seguros desde tu celular. Recordatorios automáticos, alertas y mucho más.</p>
+                
+                <div class="app-badges animate-on-scroll">
+                    <a href="#" class="app-badge">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" alt="Google Play" height="60">
+                    </a>
+                    <a href="#" class="app-badge">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Download_on_the_App_Store_Badge.svg" alt="App Store" height="60">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="contacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <div class="footer-brand">Seguros.com</div>
+                    <p class="footer-description">Revolucionando los seguros en Colombia. Rápido, fácil y 100% digital. Tu tranquilidad es nuestra prioridad.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-twitter-x"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-linkedin"></i></a>
+                        <a href="#" class="social-link"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-title">Productos</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">SOAT</a></li>
+                        <li><a href="#">Todo Riesgo</a></li>
+                        <li><a href="#">Seguro de Hogar</a></li>
+                        <li><a href="#">Seguro de Vida</a></li>
+                        <li><a href="#">Seguro de Celular</a></li>
+                        <li><a href="#">Seguro de Bicicleta</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-title">Compañía</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Sobre Nosotros</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Trabaja con Nosotros</a></li>
+                        <li><a href="#">Prensa</a></li>
+                        <li><a href="#">Ayuda</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Términos y Condiciones</a></li>
+                        <li><a href="#">Política de Privacidad</a></li>
+                        <li><a href="#">Política de Cookies</a></li>
+                        <li><a href="#">Tratamiento de Datos</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h4 class="footer-title">Contacto</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+576012345678"><i class="bi bi-telephone"></i> (601) 234 5678</a></li>
+                        <li><a href="mailto:hola@seguros.com"><i class="bi bi-envelope"></i> hola@seguros.com</a></li>
+                        <li><a href="#"><i class="bi bi-whatsapp"></i> WhatsApp</a></li>
+                        <li><a href="#"><i class="bi bi-chat-dots"></i> Chat en Vivo</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2026 Seguros.com - Todos los derechos reservados | Bogotá, Colombia</p>
+                <p style="font-size: 0.85rem; margin-top: 1rem;">Seguros.com es una plataforma digital de intermediación de seguros. Trabajamos con las principales aseguradoras de Colombia vigiladas por la Superfinanciera.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar-custom');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Animate on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animated');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="MUVIT — Empresa de mudanzas y logística en Colombia. Mudanzas residenciales, empresariales, fletes y transporte de mercancías. Cotiza gratis hoy."/>
+  <meta name="keywords" content="empresa mudanzas colombia, mudanzas bogota, fletes, transporte mercancias, logistica colombia"/>
+  <title>MUVIT | Mudanzas & Logística · Colombia</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Big+Shoulders+Display:wght@400;600;700;800;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --orange:      #f05a1a;
+      --orange2:     #ff6d2e;
+      --orange-dark: #c04010;
+      --orange-pale: #fff0ea;
+      --orange-sub:  rgba(240,90,26,.09);
+      --orange-bdr:  rgba(240,90,26,.25);
+      --black:       #0a0a0a;
+      --black2:      #111111;
+      --dark:        #1a1a1a;
+      --surface:     #222222;
+      --white:       #ffffff;
+      --off-white:   #f8f8f6;
+      --cream:       #f2f0eb;
+      --gray:        #6b7280;
+      --gray2:       #9ca3af;
+      --light:       #e5e5e0;
+      --border:      rgba(240,90,26,.15);
+      --border-dark: rgba(255,255,255,.08);
+      --shadow:      rgba(10,10,10,.15);
+      --yellow:      #f5c518;
+      --font-display:'Big Shoulders Display', sans-serif;
+      --font-body:   'Familjen Grotesk', sans-serif;
+      --font-mono:   'Space Mono', monospace;
+    }
+
+    *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
+    html { scroll-behavior:smooth; }
+    body {
+      background:var(--white);
+      color:var(--black);
+      font-family:var(--font-body);
+      font-weight:400;
+      overflow-x:hidden;
+    }
+    ::-webkit-scrollbar { width:4px; }
+    ::-webkit-scrollbar-track { background:var(--cream); }
+    ::-webkit-scrollbar-thumb { background:var(--orange); border-radius:2px; }
+
+    .img-f { width:100%; height:100%; object-fit:cover; display:block; opacity:0; transition:opacity .7s; }
+    .img-f.on { opacity:1; }
+
+    /* ══ TOPBAR ══ */
+    .topbar { background:var(--orange); padding:.45rem 0; }
+    .tb-inner { display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem; }
+    .tb-i { font-family:var(--font-mono); font-size:.62rem; color:rgba(255,255,255,.85); display:flex; align-items:center; gap:5px; }
+    .tb-i a { color:rgba(255,255,255,.85); text-decoration:none; transition:color .2s; }
+    .tb-i a:hover { color:var(--white); }
+    .tb-pill { background:rgba(0,0,0,.2); color:var(--white); font-family:var(--font-mono); font-size:.58rem; padding:.15rem .6rem; letter-spacing:1px; border-radius:2px; }
+
+    /* ══ NAVBAR ══ */
+    #nav {
+      position:sticky; top:0; z-index:1000;
+      background:var(--black);
+      border-bottom:3px solid var(--orange);
+      padding:.85rem 0;
+      box-shadow:0 4px 20px rgba(0,0,0,.4);
+      transition:all .3s;
+    }
+    .brand-mv {
+      font-family:var(--font-display);
+      font-size:2rem; font-weight:900;
+      color:var(--white); text-decoration:none;
+      display:flex; align-items:center; gap:10px;
+      letter-spacing:2px;
+    }
+    .brand-icon-mv {
+      width:40px; height:40px;
+      background:var(--orange);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.1rem; color:var(--white);
+      clip-path:polygon(0 0,100% 0,85% 100%,0 100%);
+    }
+    .brand-sub-mv { font-family:var(--font-mono); font-size:.5rem; letter-spacing:2px; color:var(--gray2); display:block; text-transform:uppercase; margin-top:1px; }
+    .nav-l-mv { font-family:var(--font-display); font-size:.82rem; letter-spacing:2px; text-transform:uppercase; font-weight:600; color:rgba(255,255,255,.55) !important; text-decoration:none; padding:.35rem .85rem !important; transition:color .2s; }
+    .nav-l-mv:hover { color:var(--orange) !important; }
+    .btn-cotizar-mv {
+      font-family:var(--font-display); font-size:.78rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:700;
+      background:var(--orange); color:var(--white);
+      border:none; padding:.6rem 1.6rem;
+      clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
+      text-decoration:none; transition:all .2s;
+      display:inline-flex; align-items:center; gap:6px;
+    }
+    .btn-cotizar-mv:hover { background:var(--orange2); color:var(--white); transform:translateY(-1px); }
+    #mob-mv { background:var(--black2); border-top:1px solid var(--border-dark); padding:1rem 0; display:none; }
+
+    /* ══ HERO ══ */
+    #hero {
+      min-height:100vh; background:var(--black);
+      position:relative; overflow:hidden;
+      display:flex; align-items:center;
+    }
+
+    /* Animated grid */
+    .hero-grid {
+      position:absolute; inset:0; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(240,90,26,.07) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(240,90,26,.07) 1px,transparent 1px);
+      background-size:60px 60px;
+      animation:gridScroll 20s linear infinite;
+    }
+    @keyframes gridScroll { from{background-position:0 0;} to{background-position:60px 60px;} }
+
+    /* Orange glow */
+    .hero-glow {
+      position:absolute; top:-150px; right:-100px;
+      width:600px; height:600px; border-radius:50%;
+      background:radial-gradient(circle,rgba(240,90,26,.2) 0%,transparent 65%);
+      pointer-events:none;
+    }
+    .hero-glow-2 {
+      position:absolute; bottom:-100px; left:-80px;
+      width:400px; height:400px; border-radius:50%;
+      background:radial-gradient(circle,rgba(240,90,26,.1) 0%,transparent 65%);
+      pointer-events:none;
+    }
+
+    /* Big truck silhouette */
+    .hero-truck-bg {
+      position:absolute; right:-5%; bottom:0;
+      width:65%; height:80%;
+      opacity:.04; pointer-events:none;
+      display:flex; align-items:flex-end;
+    }
+    .hero-truck-bg i { font-size:clamp(300px,45vw,600px); color:var(--white); line-height:1; }
+
+    .hero-content { position:relative; z-index:2; padding-top:20px; }
+
+    .hero-tag-mv {
+      display:inline-flex; align-items:center; gap:8px;
+      background:rgba(240,90,26,.15); border:1px solid var(--orange-bdr);
+      padding:.35rem 1rem; font-family:var(--font-mono);
+      font-size:.62rem; letter-spacing:2px; color:var(--orange2);
+      margin-bottom:1.5rem; text-transform:uppercase;
+    }
+    .hero-tag-mv::before { content:''; width:7px; height:7px; border-radius:50%; background:var(--orange); animation:blink 1.5s ease-in-out infinite; }
+    @keyframes blink { 0%,100%{opacity:1;} 50%{opacity:.2;} }
+
+    .hero-h1-mv {
+      font-family:var(--font-display);
+      font-size:clamp(3.5rem,10vw,9.5rem);
+      font-weight:900; color:var(--white);
+      line-height:.88; letter-spacing:-2px; margin-bottom:1.2rem;
+    }
+    .hero-h1-mv .ora { color:var(--orange); display:block; }
+    .hero-h1-mv .out { -webkit-text-stroke:1px rgba(255,255,255,.2); color:transparent; display:block; }
+
+    .hero-desc-mv { font-size:1rem; color:rgba(255,255,255,.55); line-height:1.8; max-width:480px; margin-bottom:2rem; font-weight:400; }
+
+    /* Quick quote strip */
+    .hero-quick-quote {
+      background:rgba(255,255,255,.05); border:1px solid rgba(255,255,255,.1);
+      border-left:4px solid var(--orange);
+      padding:1.4rem; max-width:540px; margin-bottom:2rem;
+    }
+    .hqq-title { font-family:var(--font-mono); font-size:.62rem; letter-spacing:2px; color:var(--orange2); text-transform:uppercase; margin-bottom:1rem; }
+    .hqq-lbl   { font-family:var(--font-mono); font-size:.6rem; letter-spacing:1px; color:rgba(255,255,255,.4); display:block; margin-bottom:.3rem; text-transform:uppercase; }
+    .hqq-inp   {
+      background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.12);
+      color:var(--white); font-family:var(--font-body); font-size:.9rem;
+      padding:.65rem 1rem; width:100%; outline:none;
+      transition:border-color .2s; border-radius:2px;
+    }
+    .hqq-inp:focus { border-color:var(--orange); }
+    .hqq-inp::placeholder { color:rgba(255,255,255,.25); }
+    .hqq-inp option { background:var(--dark); }
+    .btn-quote-mv {
+      font-family:var(--font-display); font-size:.82rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:800;
+      background:var(--orange); color:var(--white); border:none;
+      padding:.85rem; width:100%; cursor:pointer;
+      clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
+      transition:background .2s; display:flex; align-items:center; justify-content:center; gap:8px;
+    }
+    .btn-quote-mv:hover { background:var(--orange2); }
+
+    /* Hero stats */
+    .hero-stats-mv { display:flex; gap:0; flex-wrap:wrap; border:1px solid rgba(255,255,255,.08); max-width:480px; }
+    .hst { flex:1; min-width:90px; padding:.85rem 1.2rem; border-right:1px solid rgba(255,255,255,.08); }
+    .hst:last-child { border:none; }
+    .hst-n { font-family:var(--font-display); font-size:1.8rem; font-weight:900; color:var(--orange); line-height:1; }
+    .hst-n sup { font-size:.9rem; }
+    .hst-l { font-family:var(--font-mono); font-size:.55rem; letter-spacing:1px; color:rgba(255,255,255,.35); text-transform:uppercase; margin-top:2px; }
+
+    /* ══ COMMONS ══ */
+    section { position:relative; }
+    .tag-mv {
+      font-family:var(--font-mono); font-size:.62rem; letter-spacing:3px;
+      text-transform:uppercase; color:var(--orange);
+      display:flex; align-items:center; gap:8px; margin-bottom:.7rem;
+    }
+    .tag-mv::before { content:'//'; color:var(--yellow); margin-right:2px; font-weight:700; }
+    .title-mv {
+      font-family:var(--font-display); font-size:clamp(2.2rem,4vw,3.8rem);
+      font-weight:900; color:var(--black); line-height:1; letter-spacing:-1px;
+    }
+    .title-mv span { color:var(--orange); }
+    .title-mv-light { color:var(--white); }
+    .title-mv-light span { color:var(--orange); }
+    .sub-mv { font-size:.92rem; color:var(--gray); line-height:1.75; font-weight:400; }
+    .oran-rule { width:40px; height:4px; background:var(--orange); margin:1rem 0 1.8rem; }
+    .oran-rule-c { margin:1rem auto 1.8rem; }
+
+    .btn-pri-mv {
+      font-family:var(--font-display); font-size:.82rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:800;
+      background:var(--orange); color:var(--white); border:none;
+      padding:1rem 2.4rem;
+      clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);
+      text-decoration:none; display:inline-flex; align-items:center; gap:9px;
+      transition:all .3s; box-shadow:0 6px 20px rgba(240,90,26,.35);
+    }
+    .btn-pri-mv:hover { background:var(--orange2); color:var(--white); transform:translateY(-2px); box-shadow:0 12px 30px rgba(240,90,26,.5); }
+
+    .btn-ghost-mv {
+      font-family:var(--font-display); font-size:.82rem; letter-spacing:2px;
+      text-transform:uppercase; font-weight:700;
+      background:transparent; color:var(--black);
+      border:2px solid rgba(10,10,10,.2); padding:1rem 2.4rem;
+      clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);
+      text-decoration:none; display:inline-flex; align-items:center; gap:9px; transition:all .3s;
+    }
+    .btn-ghost-mv:hover { border-color:var(--orange); color:var(--orange); }
+
+    .reveal  { opacity:0; transform:translateY(22px); transition:opacity .6s,transform .6s; }
+    .reveal.on  { opacity:1; transform:none; }
+    .rl { opacity:0; transform:translateX(-22px); transition:opacity .6s,transform .6s; }
+    .rl.on { opacity:1; transform:none; }
+    .rr { opacity:0; transform:translateX(22px); transition:opacity .6s,transform .6s; }
+    .rr.on { opacity:1; transform:none; }
+    .d1{transition-delay:.1s;} .d2{transition-delay:.2s;} .d3{transition-delay:.3s;} .d4{transition-delay:.4s;}
+
+    /* ══ NOSOTROS ══ */
+    #nosotros { padding:6rem 0; background:var(--off-white); }
+
+    .nos-img-mv {
+      position:relative;
+    }
+    .nos-img-main {
+      border-radius:4px; overflow:hidden;
+      aspect-ratio:4/3; position:relative;
+      box-shadow:0 20px 60px var(--shadow);
+      border-left:6px solid var(--orange);
+    }
+    .nos-badge-mv {
+      position:absolute; bottom:-1.5rem; right:-1.5rem;
+      background:var(--orange); color:var(--white);
+      padding:1.2rem 1.5rem; border-radius:4px;
+      box-shadow:0 10px 30px rgba(240,90,26,.4); z-index:2;
+    }
+    .nbmv-n { font-family:var(--font-display); font-size:2.2rem; font-weight:900; line-height:1; }
+    .nbmv-l { font-family:var(--font-mono); font-size:.58rem; letter-spacing:2px; text-transform:uppercase; opacity:.85; margin-top:2px; }
+
+    .cert-mv {
+      display:inline-flex; align-items:center; gap:7px;
+      border:1px solid var(--border); background:var(--orange-sub);
+      padding:.45rem 1rem; font-family:var(--font-mono); font-size:.6rem;
+      letter-spacing:1.5px; color:var(--orange-dark); text-transform:uppercase; margin:.3rem;
+    }
+    .cert-mv i { color:var(--orange); }
+
+    /* ══ SERVICIOS ══ */
+    #servicios { padding:6rem 0; background:var(--black); }
+
+    .srv-mv-card {
+      background:var(--surface); border:1px solid var(--border-dark);
+      padding:2rem; height:100%; position:relative; overflow:hidden;
+      transition:all .3s;
+    }
+    .srv-mv-card::before {
+      content:''; position:absolute; top:0; left:0; right:0;
+      height:3px; background:var(--border-dark); transition:background .3s;
+    }
+    .srv-mv-card:hover { border-color:rgba(240,90,26,.4); transform:translateY(-5px); }
+    .srv-mv-card:hover::before { background:var(--orange); }
+
+    .srv-num-mv { font-family:var(--font-display); font-size:5rem; font-weight:900; color:rgba(255,255,255,.04); line-height:1; position:absolute; top:0; right:1rem; }
+    .srv-icon-mv {
+      width:54px; height:54px; background:var(--orange);
+      display:flex; align-items:center; justify-content:center;
+      font-size:1.4rem; color:var(--white); margin-bottom:1.4rem;
+      clip-path:polygon(0 0,100% 0,85% 100%,0 100%);
+    }
+    .srv-title-mv { font-family:var(--font-display); font-size:1.2rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--white); margin-bottom:.5rem; }
+    .srv-desc-mv  { font-size:.87rem; color:rgba(255,255,255,.5); line-height:1.7; margin-bottom:1.2rem; }
+    .srv-price-mv {
+      font-family:var(--font-display); font-size:1.5rem; font-weight:900;
+      color:var(--orange); line-height:1; margin-bottom:.2rem;
+    }
+    .srv-price-note { font-family:var(--font-mono); font-size:.58rem; letter-spacing:1px; color:rgba(255,255,255,.3); text-transform:uppercase; }
+    .srv-feats-mv { list-style:none; padding:0; margin:1rem 0 0; }
+    .srv-feats-mv li { font-family:var(--font-mono); font-size:.65rem; color:rgba(255,255,255,.45); padding:.3rem 0; border-bottom:1px solid rgba(255,255,255,.06); display:flex; align-items:center; gap:7px; }
+    .srv-feats-mv li:last-child { border:none; }
+    .srv-feats-mv li::before { content:'→'; color:var(--orange); font-size:.65rem; }
+
+    /* ══ PROCESO ══ */
+    #proceso { padding:6rem 0; background:var(--cream); }
+
+    .proceso-grid-mv {
+      display:grid; grid-template-columns:repeat(4,1fr);
+      gap:0; border:1px solid var(--border);
+    }
+    .paso-mv {
+      padding:2.5rem 2rem; border-right:1px solid var(--border);
+      position:relative; transition:background .3s;
+    }
+    .paso-mv:last-child { border-right:none; }
+    .paso-mv:hover { background:var(--orange-pale); }
+    .paso-n-mv {
+      font-family:var(--font-display); font-size:5rem; font-weight:900;
+      color:rgba(240,90,26,.12); line-height:1; margin-bottom:.8rem;
+      transition:color .3s;
+    }
+    .paso-mv:hover .paso-n-mv { color:rgba(240,90,26,.25); }
+    .paso-icon-mv {
+      width:48px; height:48px; background:var(--black);
+      display:flex; align-items:center; justify-content:center;
+      color:var(--orange); font-size:1.2rem; margin-bottom:1rem;
+    }
+    .paso-title-mv { font-family:var(--font-display); font-size:1rem; font-weight:800; text-transform:uppercase; letter-spacing:.5px; color:var(--black); margin-bottom:.5rem; }
+    .paso-text-mv  { font-size:.86rem; color:var(--gray); line-height:1.65; }
+
+    /* ══ FLOTA ══ */
+    #flota { padding:6rem 0; background:var(--off-white); }
+
+    .flota-mv-card {
+      background:var(--white); border:1.5px solid var(--border);
+      border-radius:4px; overflow:hidden; transition:all .3s; height:100%;
+    }
+    .flota-mv-card:hover { border-color:var(--orange); transform:translateY(-5px); box-shadow:0 20px 50px var(--shadow); }
+    .flota-img-mv { width:100%; aspect-ratio:16/9; overflow:hidden; position:relative; background:var(--dark); }
+    .flota-img-mv img { width:100%;height:100%;object-fit:cover;transition:transform .5s; }
+    .flota-mv-card:hover .flota-img-mv img { transform:scale(1.05); }
+    .flota-cat-mv {
+      position:absolute; top:12px; left:12px; z-index:2;
+      font-family:var(--font-mono); font-size:.58rem; letter-spacing:2px; text-transform:uppercase;
+      background:var(--black); color:var(--orange); padding:.2rem .65rem;
+    }
+    .flota-body-mv { padding:1.4rem; }
+    .flota-name-mv { font-family:var(--font-display); font-size:1.2rem; font-weight:900; color:var(--black); margin-bottom:.5rem; text-transform:uppercase; }
+    .flota-specs-mv { display:flex; gap:1.2rem; flex-wrap:wrap; padding:.8rem 0; border-top:1px solid var(--border); border-bottom:1px solid var(--border); margin-bottom:1rem; }
+    .fsp { font-size:.75rem; color:var(--gray); display:flex; align-items:center; gap:5px; }
+    .fsp i { color:var(--orange); }
+    .fsp strong { color:var(--black); font-weight:600; }
+    .flota-uses { display:flex; flex-wrap:wrap; gap:.3rem; }
+    .fu-tag { font-family:var(--font-mono); font-size:.58rem; letter-spacing:1px; color:var(--orange-dark); background:var(--orange-sub); border:1px solid var(--orange-bdr); padding:.15rem .5rem; }
+
+    /* ══ COBERTURA ══ */
+    #cobertura { padding:6rem 0; background:var(--black); }
+
+    .cobertura-map {
+      background:var(--surface); border:1px solid var(--border-dark);
+      border-radius:4px; padding:3rem;
+      position:relative; overflow:hidden; min-height:420px;
+    }
+    .cobertura-map::before {
+      content:''; position:absolute; inset:0;
+      background:
+        radial-gradient(ellipse at 30% 40%,rgba(240,90,26,.08) 0%,transparent 50%),
+        radial-gradient(ellipse at 70% 60%,rgba(240,90,26,.05) 0%,transparent 40%);
+    }
+    /* Colombia simplified map dots */
+    .cmap-dot {
+      position:absolute; z-index:2;
+      display:flex; flex-direction:column; align-items:center; gap:4px;
+      cursor:pointer;
+    }
+    .cmap-circle {
+      width:12px; height:12px; border-radius:50%;
+      border:2px solid var(--orange);
+      box-shadow:0 0 10px rgba(240,90,26,.6);
+      background:var(--orange);
+      animation:dotPulse 2s ease-in-out infinite;
+    }
+    .cmap-circle.secondary { background:rgba(240,90,26,.5); width:8px; height:8px; }
+    @keyframes dotPulse { 0%,100%{box-shadow:0 0 6px rgba(240,90,26,.5);} 50%{box-shadow:0 0 18px rgba(240,90,26,.9);} }
+    .cmap-name { font-family:var(--font-mono); font-size:.52rem; letter-spacing:1px; color:rgba(255,255,255,.7); text-align:center; white-space:nowrap; }
+
+    .city-card {
+      background:var(--surface); border:1px solid var(--border-dark);
+      padding:1rem 1.2rem; margin-bottom:.5rem; transition:all .2s;
+      display:flex; align-items:center; gap:.8rem;
+    }
+    .city-card:hover { border-color:rgba(240,90,26,.4); background:rgba(240,90,26,.05); }
+    .city-dot { width:8px; height:8px; min-width:8px; border-radius:50%; background:var(--orange); }
+    .city-dot.sec { background:rgba(240,90,26,.5); width:6px; height:6px; }
+    .city-name { font-family:var(--font-display); font-size:.88rem; font-weight:700; color:var(--white); text-transform:uppercase; letter-spacing:.5px; }
+    .city-tag  { font-family:var(--font-mono); font-size:.55rem; letter-spacing:1px; color:rgba(255,255,255,.35); text-transform:uppercase; margin-left:auto; }
+
+    /* ══ CALCULADORA ══ */
+    #calculadora { padding:6rem 0; background:var(--off-white); }
+
+    .calc-mv-box {
+      background:var(--white); border:1.5px solid var(--border);
+      border-radius:4px; padding:2.5rem;
+      border-top:4px solid var(--orange);
+    }
+    .clbl { font-family:var(--font-mono); font-size:.6rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray); display:block; margin-bottom:.4rem; }
+    .cinp {
+      background:var(--off-white); border:1.5px solid rgba(10,10,10,.12);
+      border-radius:2px; color:var(--black); font-family:var(--font-body);
+      font-size:.9rem; padding:.7rem 1rem; width:100%; outline:none;
+      transition:border-color .2s;
+    }
+    .cinp:focus { border-color:var(--orange); }
+    .cinp option { background:var(--white); }
+    .cinp[type=range] { background:transparent; border:none; padding:.2rem 0; accent-color:var(--orange); cursor:pointer; }
+    .range-val-mv { font-family:var(--font-display); font-size:1.3rem; font-weight:900; color:var(--orange); line-height:1; display:block; margin-top:.2rem; }
+
+    .calc-result-mv {
+      background:var(--orange); padding:2rem; text-align:center;
+      border-radius:4px; height:100%;
+      display:flex; flex-direction:column; align-items:center; justify-content:center;
+    }
+    .crm-lbl { font-family:var(--font-mono); font-size:.62rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.7); margin-bottom:.5rem; }
+    .crm-val  { font-family:var(--font-display); font-size:3rem; font-weight:900; color:var(--white); line-height:1; margin-bottom:.3rem; }
+    .crm-sub  { font-family:var(--font-mono); font-size:.62rem; color:rgba(255,255,255,.6); }
+    .crm-detail { margin-top:1.5rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.2); width:100%; }
+    .crm-row { display:flex; justify-content:space-between; font-family:var(--font-mono); font-size:.72rem; color:rgba(255,255,255,.7); padding:.3rem 0; }
+    .crm-row strong { color:var(--white); font-weight:700; }
+
+    /* ══ TESTIMONIOS ══ */
+    #testimonios { padding:6rem 0; background:var(--black); }
+
+    .testi-mv {
+      background:var(--surface); border:1px solid var(--border-dark);
+      padding:2rem; height:100%; transition:all .3s;
+    }
+    .testi-mv:hover { border-color:rgba(240,90,26,.35); transform:translateY(-4px); }
+    .testi-stars-mv { font-size:.85rem; color:var(--yellow); margin-bottom:.8rem; }
+    .testi-text-mv { font-size:.93rem; color:rgba(255,255,255,.75); line-height:1.75; margin-bottom:1.2rem; font-weight:400; }
+    .testi-srv-mv {
+      font-family:var(--font-mono); font-size:.6rem; letter-spacing:1.5px;
+      text-transform:uppercase; color:var(--orange);
+      display:flex; align-items:center; gap:6px; margin-bottom:1rem;
+    }
+    .testi-srv-mv::before { content:'//'; color:var(--yellow); }
+    .testi-auth-mv { display:flex; align-items:center; gap:.8rem; border-top:1px solid var(--border-dark); padding-top:1rem; }
+    .tav-mv { width:42px; height:42px; background:linear-gradient(135deg,var(--orange),var(--orange-dark)); clip-path:polygon(0 0,100% 0,85% 100%,0 100%); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:1rem; font-weight:900; color:var(--white); }
+    .tav-name-mv { font-family:var(--font-display); font-size:.9rem; font-weight:800; color:var(--white); text-transform:uppercase; letter-spacing:.3px; }
+    .tav-sub-mv  { font-size:.72rem; color:rgba(255,255,255,.35); }
+
+    /* ══ CONTACTO ══ */
+    #contacto { padding:6rem 0; background:var(--cream); }
+
+    .contact-form-mv {
+      background:var(--white); border:1.5px solid var(--border);
+      border-top:4px solid var(--orange); padding:2.5rem;
+    }
+    .flbl-mv { font-family:var(--font-mono); font-size:.6rem; letter-spacing:1.5px; text-transform:uppercase; color:var(--gray); display:block; margin-bottom:.35rem; }
+    .fctrl-mv { background:var(--off-white); border:1.5px solid rgba(10,10,10,.12); color:var(--black); font-family:var(--font-body); font-size:.9rem; padding:.7rem 1rem; width:100%; outline:none; transition:border-color .2s; border-radius:2px; }
+    .fctrl-mv:focus { border-color:var(--orange); }
+    .fctrl-mv::placeholder { color:var(--gray2); }
+    .btn-submit-mv { font-family:var(--font-display); font-size:.82rem; letter-spacing:2px; text-transform:uppercase; font-weight:800; background:var(--black); color:var(--white); border:none; padding:1rem; width:100%; cursor:pointer; transition:all .2s; clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%); }
+    .btn-submit-mv:hover { background:var(--orange); }
+
+    .contact-info-mv { background:var(--black); padding:2.5rem; height:100%; position:relative; overflow:hidden; }
+    .contact-info-mv::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 80% 20%,rgba(240,90,26,.12) 0%,transparent 55%); }
+    .ci-mv-item { display:flex; gap:1rem; align-items:flex-start; padding:1rem 0; border-bottom:1px solid var(--border-dark); position:relative; z-index:1; }
+    .ci-mv-item:last-child { border:none; }
+    .ci-mv-icon { width:40px; height:40px; min-width:40px; background:rgba(240,90,26,.15); border:1px solid var(--orange-bdr); display:flex; align-items:center; justify-content:center; color:var(--orange); font-size:1rem; clip-path:polygon(0 0,100% 0,85% 100%,0 100%); }
+    .ci-mv-lbl { font-family:var(--font-mono); font-size:.55rem; letter-spacing:2px; text-transform:uppercase; color:rgba(255,255,255,.3); margin-bottom:.2rem; }
+    .ci-mv-val { font-size:.9rem; color:rgba(255,255,255,.7); font-weight:400; }
+
+    /* ══ CTA ══ */
+    #cta { padding:7rem 0; background:var(--orange); position:relative; overflow:hidden; }
+    #cta::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(-45deg,transparent,transparent 20px,rgba(0,0,0,.08) 20px,rgba(0,0,0,.08) 21px); }
+    .cta-h-mv { font-family:var(--font-display); font-size:clamp(2.5rem,7vw,6rem); font-weight:900; color:var(--white); line-height:.95; letter-spacing:-2px; margin-bottom:1rem; position:relative; z-index:1; }
+    .cta-h-mv span { color:var(--black); }
+    .btn-cta-black { font-family:var(--font-display); font-size:.88rem; letter-spacing:2px; text-transform:uppercase; font-weight:800; background:var(--black); color:var(--white); border:none; padding:1.1rem 2.8rem; clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%); text-decoration:none; display:inline-flex; align-items:center; gap:10px; transition:all .3s; position:relative; z-index:1; box-shadow:0 8px 30px rgba(0,0,0,.3); }
+    .btn-cta-black:hover { background:var(--dark); color:var(--white); transform:translateY(-2px); }
+
+    /* ══ FOOTER ══ */
+    footer { background:var(--black2); border-top:3px solid var(--orange); padding:4rem 0 2rem; }
+    .footer-brand-mv { font-family:var(--font-display); font-size:2rem; font-weight:900; letter-spacing:3px; color:var(--white); }
+    .footer-brand-mv span { color:var(--orange); }
+    .footer-tag-mv   { font-family:var(--font-mono); font-size:.52rem; letter-spacing:3px; color:var(--gray2); text-transform:uppercase; margin-top:.2rem; }
+    .footer-col-h-mv { font-family:var(--font-mono); font-size:.6rem; letter-spacing:2.5px; text-transform:uppercase; color:rgba(255,255,255,.25); font-weight:400; margin-bottom:1.2rem; }
+    .footer-lnk-mv   { display:block; font-size:.87rem; color:rgba(255,255,255,.3); text-decoration:none; margin-bottom:.5rem; transition:color .2s; }
+    .footer-lnk-mv:hover { color:var(--orange); }
+    .footer-btm-mv   { border-top:1px solid rgba(255,255,255,.06); margin-top:3rem; padding-top:1.5rem; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.8rem; }
+    .footer-copy-mv  { font-size:.72rem; color:rgba(255,255,255,.15); font-family:var(--font-mono); }
+    .soc-mv { width:34px;height:34px;border:1px solid rgba(255,255,255,.1);display:inline-flex;align-items:center;justify-content:center;color:rgba(255,255,255,.3);text-decoration:none;font-size:.85rem;margin-left:.4rem;transition:all .2s; }
+    .soc-mv:hover { border-color:var(--orange); color:var(--orange); }
+
+    /* WA float */
+    .wa-mv { position:fixed;bottom:2rem;right:2rem;width:56px;height:56px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:white;text-decoration:none;z-index:997;box-shadow:0 4px 20px rgba(37,211,102,.45);transition:transform .2s; }
+    .wa-mv:hover{transform:scale(1.1);color:white;}
+    .wa-ring-mv{position:absolute;inset:0;border-radius:50%;background:rgba(37,211,102,.3);animation:waRmv 2.2s ease-out infinite;}
+    @keyframes waRmv{0%{transform:scale(1);opacity:.8;}100%{transform:scale(1.75);opacity:0;}}
+    .wa-lbl-mv{position:absolute;right:66px;background:var(--white);color:var(--black);font-family:var(--font-display);font-size:.72rem;letter-spacing:.5px;white-space:nowrap;padding:.4rem .9rem;box-shadow:0 4px 15px rgba(0,0,0,.12);opacity:0;transform:translateX(10px);transition:all .3s;pointer-events:none;font-weight:700;}
+    .wa-mv:hover .wa-lbl-mv{opacity:1;transform:translateX(0);}
+
+    /* RESPONSIVE */
+    @media(max-width:991px){
+      .proceso-grid-mv { grid-template-columns:1fr 1fr; }
+      .paso-mv { border-bottom:1px solid var(--border); }
+      .cta-h-mv { font-size:clamp(2.2rem,6vw,4.5rem); }
+    }
+    @media(max-width:767px){
+      .topbar { display:none; }
+      .hero-truck-bg { display:none; }
+      .proceso-grid-mv { grid-template-columns:1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══ TOPBAR ══ -->
+<div class="topbar">
+  <div class="container">
+    <div class="tb-inner">
+      <div class="d-flex gap-3 flex-wrap">
+        <span class="tb-i"><a href="tel:+573000000000">📞 +57 300 000 0000</a></span>
+        <span class="tb-i"><a href="mailto:info@muvit.co">✉ info@muvit.co</a></span>
+      </div>
+      <div class="d-flex gap-3 flex-wrap align-items-center">
+        <span class="tb-i">🕐 Lun–Sáb 6am – 8pm · Dom 8am – 2pm</span>
+        <span class="tb-pill">Servicio 24/7 disponible</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NAVBAR ══ -->
+<nav id="nav">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-center">
+      <a href="#hero" class="brand-mv">
+        <div class="brand-icon-mv"><i class="bi bi-truck-front-fill"></i></div>
+        <div>
+          MU<span style="color:var(--orange);">VIT</span>
+          <span class="brand-sub-mv">Mudanzas & Logística · Colombia</span>
+        </div>
+      </a>
+      <div class="d-none d-lg-flex align-items-center gap-1">
+        <a href="#servicios"   class="nav-l-mv">Servicios</a>
+        <a href="#proceso"     class="nav-l-mv">Proceso</a>
+        <a href="#flota"       class="nav-l-mv">Flota</a>
+        <a href="#cobertura"   class="nav-l-mv">Cobertura</a>
+        <a href="#calculadora" class="nav-l-mv">Cotizador</a>
+        <a href="#contacto"    class="nav-l-mv">Contacto</a>
+        <a href="#calculadora" class="btn-cotizar-mv ms-3">
+          <i class="bi bi-calculator-fill"></i> Cotizar ahora
+        </a>
+      </div>
+      <button id="navToggle" class="btn d-lg-none" style="border:1px solid rgba(255,255,255,.2);color:rgba(255,255,255,.6);border-radius:2px;padding:.4rem .8rem;">
+        <i class="bi bi-list fs-5"></i>
+      </button>
+    </div>
+    <div id="mob-mv">
+      <a href="#servicios"   class="nav-l-mv d-block py-2">Servicios</a>
+      <a href="#proceso"     class="nav-l-mv d-block py-2">Proceso</a>
+      <a href="#flota"       class="nav-l-mv d-block py-2">Flota</a>
+      <a href="#cobertura"   class="nav-l-mv d-block py-2">Cobertura</a>
+      <a href="#calculadora" class="nav-l-mv d-block py-2">Cotizador</a>
+      <a href="#contacto"    class="nav-l-mv d-block py-2">Contacto</a>
+      <a href="#calculadora" class="btn-cotizar-mv d-inline-flex mt-2">
+        <i class="bi bi-calculator-fill"></i> Cotizar ahora
+      </a>
+    </div>
+  </div>
+</nav>
+
+
+<!-- ══ HERO ══ -->
+<section id="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-truck-bg"><i class="bi bi-truck-front-fill"></i></div>
+
+  <div class="container hero-content">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="hero-tag-mv">Empresa de confianza · Colombia</div>
+        <h1 class="hero-h1-mv">
+          TU MUDANZA
+          <span class="ora">SIN ESTRÉS.</span>
+          <span class="out">GARANTIZADO.</span>
+        </h1>
+        <p class="hero-desc-mv">
+          Mudanzas residenciales y empresariales, fletes y logística de última milla en todo Colombia.
+          Más de 15 años moviendo lo que más importa con seguridad, puntualidad y cuidado absoluto.
+        </p>
+
+        <!-- Quick quote -->
+        <div class="hero-quick-quote">
+          <div class="hqq-title">// Cotización instantánea</div>
+          <div class="row g-2">
+            <div class="col-md-4">
+              <label class="hqq-lbl">Ciudad origen</label>
+              <select class="hqq-inp">
+                <option disabled selected>Selecciona...</option>
+                <option>Bogotá</option><option>Medellín</option>
+                <option>Cali</option><option>Bucaramanga</option>
+                <option>Barranquilla</option><option>Cartagena</option>
+                <option>Pereira</option><option>Manizales</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="hqq-lbl">Ciudad destino</label>
+              <select class="hqq-inp">
+                <option disabled selected>Selecciona...</option>
+                <option>Bogotá</option><option>Medellín</option>
+                <option>Cali</option><option>Bucaramanga</option>
+                <option>Barranquilla</option><option>Cartagena</option>
+                <option>Pereira</option><option>Manizales</option>
+              </select>
+            </div>
+            <div class="col-md-4">
+              <label class="hqq-lbl">Tipo de mudanza</label>
+              <select class="hqq-inp">
+                <option>Residencial</option>
+                <option>Empresarial</option>
+                <option>Flete express</option>
+                <option>Mercancías</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <button class="btn-quote-mv" onclick="goCalculadora()">
+                <i class="bi bi-calculator-fill"></i> Ver precio estimado
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="hero-stats-mv">
+          <div class="hst"><div class="hst-n">15<sup>+</sup></div><div class="hst-l">Años</div></div>
+          <div class="hst"><div class="hst-n">8K<sup>+</sup></div><div class="hst-l">Mudanzas</div></div>
+          <div class="hst"><div class="hst-n">25<sup>+</sup></div><div class="hst-l">Ciudades</div></div>
+          <div class="hst"><div class="hst-n">99<sup>%</sup></div><div class="hst-l">Sin daños</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ NOSOTROS ══ -->
+<section id="nosotros">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5 rl">
+        <div class="nos-img-mv">
+          <div class="nos-img-main">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80&fit=crop"
+                 alt="Equipo MUVIT" class="img-f" loading="lazy"/>
+          </div>
+          <div class="nos-badge-mv">
+            <div class="nbmv-n">15+</div>
+            <div class="nbmv-l">Años de experiencia</div>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="tag-mv reveal">Quiénes somos</div>
+        <h2 class="title-mv reveal">MOVEMOS <span>TU MUNDO</span><br>CON CUIDADO</h2>
+        <div class="oran-rule reveal"></div>
+        <p class="sub-mv reveal d1" style="margin-bottom:1.2rem;">
+          <strong style="color:var(--black);font-weight:700;">MUVIT</strong> es la empresa de mudanzas y logística más confiable de Colombia. Desde 2010, hemos realizado más de 8.000 mudanzas sin una sola queja mayor. Nuestro equipo de profesionales capacitados garantiza que cada objeto llegue en perfecto estado.
+        </p>
+        <p class="sub-mv reveal d2" style="margin-bottom:2rem;">
+          Operamos en 25 ciudades con flota propia, materiales de embalaje de alta calidad y tecnología GPS en todos nuestros vehículos para que sigas tu mudanza en tiempo real.
+        </p>
+        <div class="reveal d3">
+          <span class="cert-mv"><i class="bi bi-patch-check-fill"></i>Cámara de Comercio</span>
+          <span class="cert-mv"><i class="bi bi-patch-check-fill"></i>RUT activo</span>
+          <span class="cert-mv"><i class="bi bi-patch-check-fill"></i>Seguros todo riesgo</span>
+          <span class="cert-mv"><i class="bi bi-patch-check-fill"></i>GPS en flota</span>
+          <span class="cert-mv"><i class="bi bi-patch-check-fill"></i>Personal uniformado</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ SERVICIOS ══ -->
+<section id="servicios">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="tag-mv reveal" style="color:rgba(255,255,255,.4);">Lo que hacemos</div>
+        <h2 class="title-mv title-mv-light reveal">SERVICIOS <span>COMPLETOS</span></h2>
+        <div class="oran-rule reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="sub-mv reveal" style="color:rgba(255,255,255,.45);">Desde una mudanza de apartamento hasta la logística de una empresa. Tenemos el servicio y el vehículo indicado para cada necesidad.</p>
+      </div>
+    </div>
+
+    <div class="row g-3">
+
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="srv-mv-card">
+          <div class="srv-num-mv">01</div>
+          <div class="srv-icon-mv"><i class="bi bi-house-fill"></i></div>
+          <div class="srv-title-mv">Mudanza Residencial</div>
+          <div class="srv-desc-mv">Mudamos apartamentos, casas y fincas con el máximo cuidado. Embalamos, cargamos, transportamos y desembalamos en el destino.</div>
+          <div class="srv-price-mv">Desde $180.000</div>
+          <div class="srv-price-note">/ según volumen y distancia</div>
+          <ul class="srv-feats-mv">
+            <li>Embalaje profesional incluido</li>
+            <li>Desmontaje y montaje de muebles</li>
+            <li>Seguro de daños incluido</li>
+            <li>Disponible fin de semana</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="srv-mv-card">
+          <div class="srv-num-mv">02</div>
+          <div class="srv-icon-mv"><i class="bi bi-building-fill"></i></div>
+          <div class="srv-title-mv">Mudanza Empresarial</div>
+          <div class="srv-desc-mv">Traslado completo de oficinas, bodegas y locales comerciales. Minimizamos el tiempo de inactividad de tu empresa.</div>
+          <div class="srv-price-mv">Desde $380.000</div>
+          <div class="srv-price-note">/ según inventario y distancia</div>
+          <ul class="srv-feats-mv">
+            <li>Inventario previo detallado</li>
+            <li>Traslado de equipos tecnológicos</li>
+            <li>Servicio nocturno disponible</li>
+            <li>Coordinador de proyecto asignado</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="srv-mv-card">
+          <div class="srv-num-mv">03</div>
+          <div class="srv-icon-mv"><i class="bi bi-lightning-charge-fill"></i></div>
+          <div class="srv-title-mv">Flete Express</div>
+          <div class="srv-desc-mv">Necesitas mover algo rápido y puntual. Carros de estacas, camionetas y camiones disponibles para servicio inmediato en tu ciudad.</div>
+          <div class="srv-price-mv">Desde $80.000</div>
+          <div class="srv-price-note">/ por hora o distancia</div>
+          <ul class="srv-feats-mv">
+            <li>Disponible en 1–2 horas</li>
+            <li>Personal de cargue incluido</li>
+            <li>Rastreo GPS en tiempo real</li>
+            <li>Pago contra entrega</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="srv-mv-card">
+          <div class="srv-num-mv">04</div>
+          <div class="srv-icon-mv"><i class="bi bi-box-seam-fill"></i></div>
+          <div class="srv-title-mv">Transporte de Mercancías</div>
+          <div class="srv-desc-mv">Transporte terrestre de carga general, perecedera y especializada en todo el territorio colombiano con trazabilidad total.</div>
+          <div class="srv-price-mv">Cotización</div>
+          <div class="srv-price-note">/ según peso, volumen y ruta</div>
+          <ul class="srv-feats-mv">
+            <li>Carga general y especializada</li>
+            <li>Planillas de movilización</li>
+            <li>Seguimiento en tiempo real</li>
+            <li>Flota refrigerada disponible</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="srv-mv-card">
+          <div class="srv-num-mv">05</div>
+          <div class="srv-icon-mv"><i class="bi bi-archive-fill"></i></div>
+          <div class="srv-title-mv">Bodegaje Temporal</div>
+          <div class="srv-desc-mv">¿Necesitas guardar tus muebles o mercancía mientras termina la obra o el nuevo contrato? Bodega segura con acceso 24/7.</div>
+          <div class="srv-price-mv">Desde $60.000</div>
+          <div class="srv-price-note">/ por día de almacenamiento</div>
+          <ul class="srv-feats-mv">
+            <li>Bodega vigilada 24/7</li>
+            <li>Control de humedad y temperatura</li>
+            <li>Inventario digital</li>
+            <li>Sin permanencia mínima</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-4 reveal d3">
+        <div class="srv-mv-card">
+          <div class="srv-num-mv">06</div>
+          <div class="srv-icon-mv"><i class="bi bi-geo-alt-fill"></i></div>
+          <div class="srv-title-mv">Última Milla</div>
+          <div class="srv-desc-mv">Distribución urbana de pedidos, paquetería y e-commerce. Optimizamos las rutas de entrega para que tus clientes reciban a tiempo.</div>
+          <div class="srv-price-mv">Cotización</div>
+          <div class="srv-price-note">/ según volumen de envíos</div>
+          <ul class="srv-feats-mv">
+            <li>Plataforma de seguimiento</li>
+            <li>Notificación al destinatario</li>
+            <li>Prueba de entrega digital</li>
+            <li>Integración con tu sistema</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ PROCESO ══ -->
+<section id="proceso">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-mv justify-content-center reveal">Simple y sin estrés</div>
+      <h2 class="title-mv reveal">¿CÓMO <span>FUNCIONA?</span></h2>
+      <div class="oran-rule oran-rule-c reveal"></div>
+      <p class="sub-mv mx-auto reveal" style="max-width:520px;">En solo 4 pasos tu mudanza estará lista. Sin complicaciones, sin sorpresas, sin estrés.</p>
+    </div>
+
+    <div class="proceso-grid-mv reveal">
+      <div class="paso-mv">
+        <div class="paso-n-mv">01</div>
+        <div class="paso-icon-mv"><i class="bi bi-calculator-fill"></i></div>
+        <div class="paso-title-mv">Cotiza gratis</div>
+        <div class="paso-text-mv">Usa nuestro calculador online o llámanos. Te damos un precio exacto en menos de 10 minutos, sin letra pequeña ni costos ocultos.</div>
+      </div>
+      <div class="paso-mv">
+        <div class="paso-n-mv">02</div>
+        <div class="paso-icon-mv"><i class="bi bi-calendar-check-fill"></i></div>
+        <div class="paso-title-mv">Agenda tu fecha</div>
+        <div class="paso-text-mv">Elige el día y hora que mejor te convenga. Confirmamos 24 horas antes y te asignamos tu equipo y vehículo dedicado.</div>
+      </div>
+      <div class="paso-mv">
+        <div class="paso-n-mv">03</div>
+        <div class="paso-icon-mv"><i class="bi bi-box-seam-fill"></i></div>
+        <div class="paso-title-mv">Embalamos y cargamos</div>
+        <div class="paso-text-mv">Nuestro equipo llega puntual, protege cada objeto con materiales profesionales y carga el camión de forma organizada y segura.</div>
+      </div>
+      <div class="paso-mv">
+        <div class="paso-n-mv">04</div>
+        <div class="paso-icon-mv"><i class="bi bi-house-check-fill"></i></div>
+        <div class="paso-title-mv">Entrega y listo</div>
+        <div class="paso-text-mv">Desempacamos, armamos los muebles y dejamos todo en su lugar. Tú solo tienes que decirnos dónde va cada cosa.</div>
+      </div>
+    </div>
+
+    <div class="text-center mt-5 reveal">
+      <p class="sub-mv mb-3">¿Tienes una mudanza pronto? Reserva ahora y asegura tu fecha.</p>
+      <a href="#calculadora" class="btn-pri-mv">
+        <i class="bi bi-calculator-fill"></i> Calcular precio ahora
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FLOTA ══ -->
+<section id="flota">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="tag-mv reveal">Vehículos</div>
+        <h2 class="title-mv reveal">NUESTRA <span>FLOTA</span></h2>
+        <div class="oran-rule reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="sub-mv reveal">Flota propia y certificada con GPS en tiempo real. El vehículo correcto para cada tipo de mudanza.</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-md-6 col-lg-3 reveal">
+        <div class="flota-mv-card">
+          <div class="flota-img-mv">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80&fit=crop"
+                 alt="Camioneta" loading="lazy" class="img-f"/>
+            <span class="flota-cat-mv">Urbano</span>
+          </div>
+          <div class="flota-body-mv">
+            <div class="flota-name-mv">Camioneta Express</div>
+            <div class="flota-specs-mv">
+              <div class="fsp"><i class="bi bi-box-fill"></i><strong>1.5</strong> ton</div>
+              <div class="fsp"><i class="bi bi-people-fill"></i><strong>2</strong> operarios</div>
+              <div class="fsp"><i class="bi bi-geo-alt-fill"></i>Local</div>
+            </div>
+            <div class="flota-uses">
+              <span class="fu-tag">Flete urbano</span>
+              <span class="fu-tag">Estudio/habitación</span>
+              <span class="fu-tag">Paquetería</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d1">
+        <div class="flota-mv-card">
+          <div class="flota-img-mv">
+            <img src="https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=600&q=80&fit=crop"
+                 alt="Camión mediano" loading="lazy" class="img-f"/>
+            <span class="flota-cat-mv">Residencial</span>
+          </div>
+          <div class="flota-body-mv">
+            <div class="flota-name-mv">Camión Mediano</div>
+            <div class="flota-specs-mv">
+              <div class="fsp"><i class="bi bi-box-fill"></i><strong>5</strong> ton</div>
+              <div class="fsp"><i class="bi bi-people-fill"></i><strong>3</strong> operarios</div>
+              <div class="fsp"><i class="bi bi-arrow-left-right"></i>Inter</div>
+            </div>
+            <div class="flota-uses">
+              <span class="fu-tag">Apt. 2–3 hab.</span>
+              <span class="fu-tag">Oficina pequeña</span>
+              <span class="fu-tag">Intermunicipal</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d2">
+        <div class="flota-mv-card">
+          <div class="flota-img-mv">
+            <img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=600&q=80&fit=crop"
+                 alt="Camión grande" loading="lazy" class="img-f"/>
+            <span class="flota-cat-mv">Casas</span>
+          </div>
+          <div class="flota-body-mv">
+            <div class="flota-name-mv">Camión Grande</div>
+            <div class="flota-specs-mv">
+              <div class="fsp"><i class="bi bi-box-fill"></i><strong>10</strong> ton</div>
+              <div class="fsp"><i class="bi bi-people-fill"></i><strong>4</strong> operarios</div>
+              <div class="fsp"><i class="bi bi-arrow-left-right"></i>Nacional</div>
+            </div>
+            <div class="flota-uses">
+              <span class="fu-tag">Casa completa</span>
+              <span class="fu-tag">Oficina mediana</span>
+              <span class="fu-tag">Carga general</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6 col-lg-3 reveal d3">
+        <div class="flota-mv-card">
+          <div class="flota-img-mv">
+            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80&fit=crop"
+                 alt="Tractomula" loading="lazy" class="img-f"/>
+            <span class="flota-cat-mv">Industrial</span>
+          </div>
+          <div class="flota-body-mv">
+            <div class="flota-name-mv">Tractomula</div>
+            <div class="flota-specs-mv">
+              <div class="fsp"><i class="bi bi-box-fill"></i><strong>30</strong> ton</div>
+              <div class="fsp"><i class="bi bi-people-fill"></i><strong>2</strong> conductores</div>
+              <div class="fsp"><i class="bi bi-arrow-left-right"></i>Nacional</div>
+            </div>
+            <div class="flota-uses">
+              <span class="fu-tag">Carga pesada</span>
+              <span class="fu-tag">Empresarial</span>
+              <span class="fu-tag">Mercancías</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Certificaciones de flota -->
+    <div style="margin-top:3rem;background:var(--off-white);border:1.5px solid var(--border);padding:2rem;border-left:4px solid var(--orange);" class="reveal">
+      <div class="row align-items-center g-3">
+        <div class="col-lg-4">
+          <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:900;color:var(--black);text-transform:uppercase;letter-spacing:-.3px;margin-bottom:.3rem;">Flota certificada</div>
+          <div style="font-size:.85rem;color:var(--gray);">Todos nuestros vehículos cuentan con documentación al día.</div>
+        </div>
+        <div class="col-lg-8">
+          <div class="d-flex flex-wrap gap-2">
+            <span class="cert-mv"><i class="bi bi-patch-check-fill"></i>SOAT vigente</span>
+            <span class="cert-mv"><i class="bi bi-patch-check-fill"></i>Revisión técnico-mecánica</span>
+            <span class="cert-mv"><i class="bi bi-patch-check-fill"></i>GPS satelital</span>
+            <span class="cert-mv"><i class="bi bi-patch-check-fill"></i>Seguro de carga</span>
+            <span class="cert-mv"><i class="bi bi-patch-check-fill"></i>Conductores certificados</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ COBERTURA ══ -->
+<section id="cobertura">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="tag-mv reveal" style="color:rgba(255,255,255,.4);">Dónde llegamos</div>
+        <h2 class="title-mv title-mv-light reveal">COBERTURA <span>NACIONAL</span></h2>
+        <div class="oran-rule reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="sub-mv reveal" style="color:rgba(255,255,255,.45);">Operamos en 25 ciudades de Colombia. Si tu destino no aparece en la lista, consúltanos — lo más probable es que también lleguemos.</p>
+      </div>
+    </div>
+
+    <div class="row g-4">
+      <!-- Mapa visual -->
+      <div class="col-lg-7 reveal">
+        <div class="cobertura-map">
+          <!-- Puntos de ciudades en mapa estilizado -->
+          <div class="cmap-dot" style="left:42%;top:18%;">
+            <div class="cmap-circle"></div>
+            <span class="cmap-name">Barranquilla</span>
+          </div>
+          <div class="cmap-dot" style="left:32%;top:22%;">
+            <div class="cmap-circle"></div>
+            <span class="cmap-name">Cartagena</span>
+          </div>
+          <div class="cmap-dot" style="left:60%;top:20%;">
+            <div class="cmap-circle secondary"></div>
+            <span class="cmap-name">Valledupar</span>
+          </div>
+          <div class="cmap-dot" style="left:68%;top:28%;">
+            <div class="cmap-circle"></div>
+            <span class="cmap-name">Cúcuta</span>
+          </div>
+          <div class="cmap-dot" style="left:55%;top:38%;">
+            <div class="cmap-circle"></div>
+            <span class="cmap-name">Bucaramanga</span>
+          </div>
+          <div class="cmap-dot" style="left:30%;top:44%;">
+            <div class="cmap-circle"></div>
+            <span class="cmap-name">Medellín</span>
+          </div>
+          <div class="cmap-dot" style="left:55%;top:55%;">
+            <div class="cmap-circle" style="width:16px;height:16px;border-width:3px;"></div>
+            <span class="cmap-name" style="font-weight:700;color:var(--orange);">Bogotá ⭐</span>
+          </div>
+          <div class="cmap-dot" style="left:38%;top:62%;">
+            <div class="cmap-circle secondary"></div>
+            <span class="cmap-name">Pereira</span>
+          </div>
+          <div class="cmap-dot" style="left:28%;top:68%;">
+            <div class="cmap-circle"></div>
+            <span class="cmap-name">Cali</span>
+          </div>
+          <div class="cmap-dot" style="left:42%;top:72%;">
+            <div class="cmap-circle secondary"></div>
+            <span class="cmap-name">Ibagué</span>
+          </div>
+          <div class="cmap-dot" style="left:55%;top:75%;">
+            <div class="cmap-circle secondary"></div>
+            <span class="cmap-name">Villavicencio</span>
+          </div>
+          <div class="cmap-dot" style="left:25%;top:80%;">
+            <div class="cmap-circle secondary"></div>
+            <span class="cmap-name">Pasto</span>
+          </div>
+
+          <!-- Leyenda -->
+          <div style="position:absolute;bottom:1.5rem;left:1.5rem;z-index:3;background:rgba(10,10,10,.7);padding:.8rem 1rem;backdrop-filter:blur(8px);">
+            <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:.3rem;">
+              <div style="width:10px;height:10px;border-radius:50%;background:var(--orange);"></div>
+              <span style="font-family:var(--font-mono);font-size:.55rem;color:rgba(255,255,255,.7);letter-spacing:1px;text-transform:uppercase;">Ciudad principal</span>
+            </div>
+            <div style="display:flex;align-items:center;gap:.5rem;">
+              <div style="width:7px;height:7px;border-radius:50%;background:rgba(240,90,26,.5);"></div>
+              <span style="font-family:var(--font-mono);font-size:.55rem;color:rgba(255,255,255,.5);letter-spacing:1px;text-transform:uppercase;">Ciudad secundaria</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Lista de ciudades -->
+      <div class="col-lg-5 reveal d1">
+        <div style="font-family:var(--font-mono);font-size:.6rem;letter-spacing:2px;text-transform:uppercase;color:var(--orange);margin-bottom:1rem;">// Ciudades con servicio</div>
+        <div class="city-card"><div class="city-dot"></div><div class="city-name">Bogotá D.C.</div><span class="city-tag">Sede principal</span></div>
+        <div class="city-card"><div class="city-dot"></div><div class="city-name">Medellín</div><span class="city-tag">Sede regional</span></div>
+        <div class="city-card"><div class="city-dot"></div><div class="city-name">Cali</div><span class="city-tag">Sede regional</span></div>
+        <div class="city-card"><div class="city-dot"></div><div class="city-name">Bucaramanga</div><span class="city-tag">Disponible</span></div>
+        <div class="city-card"><div class="city-dot"></div><div class="city-name">Barranquilla</div><span class="city-tag">Disponible</span></div>
+        <div class="city-card"><div class="city-dot"></div><div class="city-name">Cartagena</div><span class="city-tag">Disponible</span></div>
+        <div class="city-card"><div class="city-dot sec"></div><div class="city-name" style="font-size:.82rem;">Pereira · Manizales · Armenia</div><span class="city-tag">Disponible</span></div>
+        <div class="city-card"><div class="city-dot sec"></div><div class="city-name" style="font-size:.82rem;">Villavicencio · Ibagué · Pasto</div><span class="city-tag">Disponible</span></div>
+        <div class="city-card" style="border-color:rgba(240,90,26,.25);">
+          <div class="city-dot"></div>
+          <div>
+            <div class="city-name" style="font-size:.82rem;">¿Tu ciudad no aparece?</div>
+            <div style="font-size:.68rem;color:rgba(255,255,255,.4);">Consúltanos, probablemente llegamos</div>
+          </div>
+          <a href="https://wa.me/573000000000" target="_blank" style="margin-left:auto;font-family:var(--font-mono);font-size:.6rem;letter-spacing:1px;background:var(--orange);color:var(--white);padding:.25rem .7rem;text-decoration:none;white-space:nowrap;">Consultar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CALCULADORA ══ -->
+<section id="calculadora">
+  <div class="container">
+    <div class="row justify-content-between align-items-end mb-5">
+      <div class="col-lg-5">
+        <div class="tag-mv reveal">Herramienta</div>
+        <h2 class="title-mv reveal">CALCULA EL <span>PRECIO</span><br>DE TU MUDANZA</h2>
+        <div class="oran-rule reveal"></div>
+      </div>
+      <div class="col-lg-5">
+        <p class="sub-mv reveal">Precio estimado al instante. Sin llamadas, sin esperas. Ingresa los datos básicos y te damos un rango de precio preciso.</p>
+      </div>
+    </div>
+
+    <div class="row g-4 align-items-stretch">
+      <!-- Inputs -->
+      <div class="col-lg-7">
+        <div class="calc-mv-box reveal">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="clbl">Tipo de servicio</label>
+              <select class="cinp" id="cTipo" onchange="calcular()">
+                <option value="residencial">Mudanza residencial</option>
+                <option value="empresarial">Mudanza empresarial</option>
+                <option value="flete">Flete express</option>
+                <option value="mercancias">Transporte mercancías</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="clbl">Tamaño del inmueble</label>
+              <select class="cinp" id="cTamano" onchange="calcular()">
+                <option value="1">Habitación / estudio</option>
+                <option value="2">Apartamento 1–2 hab.</option>
+                <option value="3" selected>Apartamento 3 hab.</option>
+                <option value="4">Casa pequeña</option>
+                <option value="5">Casa grande / oficina</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="clbl">Ciudad origen</label>
+              <select class="cinp" id="cOrigen" onchange="calcular()">
+                <option value="local">Misma ciudad (local)</option>
+                <option value="cercana">Ciudad cercana (&lt;200km)</option>
+                <option value="lejana">Ciudad lejana (200–500km)</option>
+                <option value="nacional">Nacional (&gt;500km)</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="clbl">Piso origen</label>
+              <select class="cinp" id="cPiso" onchange="calcular()">
+                <option value="0">Piso 1 o con ascensor</option>
+                <option value="1">Piso 2–3 sin ascensor</option>
+                <option value="2">Piso 4–6 sin ascensor</option>
+                <option value="3">Piso 7+ sin ascensor</option>
+              </select>
+            </div>
+            <div class="col-12">
+              <label class="clbl">Servicios adicionales incluidos</label>
+              <div style="display:flex;flex-wrap:wrap;gap:.5rem;margin-top:.3rem;">
+                <label style="display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.62rem;color:var(--gray);cursor:pointer;">
+                  <input type="checkbox" id="cEmbalaje" onchange="calcular()" style="accent-color:var(--orange);"/> Embalaje profesional
+                </label>
+                <label style="display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.62rem;color:var(--gray);cursor:pointer;">
+                  <input type="checkbox" id="cDesmontaje" onchange="calcular()" style="accent-color:var(--orange);"/> Desmontaje/montaje muebles
+                </label>
+                <label style="display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.62rem;color:var(--gray);cursor:pointer;">
+                  <input type="checkbox" id="cSeguro" onchange="calcular()" style="accent-color:var(--orange);"/> Seguro adicional todo riesgo
+                </label>
+                <label style="display:flex;align-items:center;gap:6px;font-family:var(--font-mono);font-size:.62rem;color:var(--gray);cursor:pointer;">
+                  <input type="checkbox" id="cNoche" onchange="calcular()" style="accent-color:var(--orange);"/> Servicio nocturno
+                </label>
+              </div>
+            </div>
+          </div>
+          <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border);">
+            <p style="font-family:var(--font-mono);font-size:.62rem;color:var(--gray2);line-height:1.6;">
+              <span style="color:var(--orange);">//</span> Estimación de referencia. El precio final se confirma con visita técnica o inventario detallado. Llámanos para una cotización exacta.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Resultado -->
+      <div class="col-lg-5">
+        <div class="calc-result-mv reveal d2">
+          <div class="crm-lbl">Precio estimado</div>
+          <div class="crm-val" id="calcResult">$380.000</div>
+          <div class="crm-sub">COP · precio base</div>
+
+          <div class="crm-detail">
+            <div class="crm-row"><span>Servicio base</span><strong id="crBase">$320.000</strong></div>
+            <div class="crm-row"><span>Distancia</span><strong id="crDist">incluida</strong></div>
+            <div class="crm-row"><span>Adicionales</span><strong id="crAd">$0</strong></div>
+            <div class="crm-row" style="border-top:1px solid rgba(255,255,255,.2);padding-top:.5rem;margin-top:.3rem;"><span style="font-weight:700;">Total estimado</span><strong id="crTotal">$380.000</strong></div>
+          </div>
+
+          <a href="https://wa.me/573000000000?text=Hola%20MUVIT,%20quiero%20confirmar%20la%20cotización%20de%20mi%20mudanza."
+             target="_blank"
+             style="display:block;width:100%;text-align:center;margin-top:1.5rem;font-family:var(--font-display);font-size:.78rem;letter-spacing:2px;text-transform:uppercase;font-weight:800;background:var(--black);color:var(--white);padding:.9rem;text-decoration:none;transition:background .2s;"
+             onmouseover="this.style.background='#111'"
+             onmouseout="this.style.background='var(--black)'">
+            <i class="bi bi-whatsapp me-2"></i> Confirmar cotización
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ TESTIMONIOS ══ -->
+<section id="testimonios">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-mv justify-content-center reveal" style="color:rgba(255,255,255,.4);">Clientes reales</div>
+      <h2 class="title-mv title-mv-light reveal">LO QUE DICEN <span>DE MUVIT</span></h2>
+      <div class="oran-rule oran-rule-c reveal"></div>
+    </div>
+
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4 reveal">
+        <div class="testi-mv">
+          <div class="testi-stars-mv"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-srv-mv">Mudanza residencial · Bogotá</div>
+          <div class="testi-text-mv">"Tenía terror de la mudanza. MUVIT llegó puntual, embalaron TODO con tanto cuidado que hasta el cuadro más frágil llegó intacto. El precio fue exactamente el cotizado. 10/10 sin dudarlo."</div>
+          <div class="testi-auth-mv">
+            <div class="tav-mv">CM</div>
+            <div><div class="tav-name-mv">Carolina M.</div><div class="tav-sub-mv">Bogotá · Apt 3 hab. al norte</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d1">
+        <div class="testi-mv">
+          <div class="testi-stars-mv"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-srv-mv">Mudanza empresarial · Bogotá–Medellín</div>
+          <div class="testi-text-mv">"Mudamos nuestra oficina de 40 personas de Bogotá a Medellín. MUVIT coordinó todo en 2 días de fin de semana. El lunes estábamos operando normalmente. Increíble eficiencia."</div>
+          <div class="testi-auth-mv">
+            <div class="tav-mv">JP</div>
+            <div><div class="tav-name-mv">Jorge P.</div><div class="tav-sub-mv">Gerente Operaciones · TechCo S.A.</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4 reveal d2">
+        <div class="testi-mv">
+          <div class="testi-stars-mv"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+          <div class="testi-srv-mv">Transporte mercancías · Nacional</div>
+          <div class="testi-text-mv">"Enviamos carga desde Bogotá a Barranquilla cada semana. MUVIT es el único que cumple los tiempos prometidos y con el seguimiento en tiempo real no tenemos que preocuparnos por nada."</div>
+          <div class="testi-auth-mv">
+            <div class="tav-mv">LR</div>
+            <div><div class="tav-name-mv">Laura R.</div><div class="tav-sub-mv">Directora Logística · Distribuidora</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="text-center mt-4 reveal" style="font-family:var(--font-mono);font-size:.72rem;color:rgba(255,255,255,.3);">
+      ⭐ 4.9 / 5 · Más de 1.200 reseñas verificadas en Google
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CTA ══ -->
+<section id="cta">
+  <div class="container text-center" style="position:relative;z-index:1;">
+    <p style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:3px;color:rgba(255,255,255,.7);margin-bottom:1rem;text-transform:uppercase;">🚛 15 años moviendo Colombia</p>
+    <h2 class="cta-h-mv">
+      TU MUDANZA.<br>
+      NUESTRO <span>TRABAJO.</span>
+    </h2>
+    <p style="font-size:1rem;color:rgba(255,255,255,.75);max-width:500px;margin:0 auto 2.5rem;line-height:1.8;position:relative;z-index:1;">
+      Sin estrés, sin sorpresas, sin daños. Cotiza gratis hoy y agenda tu mudanza con la empresa más confiable de Colombia.
+    </p>
+    <div class="d-flex flex-wrap gap-3 justify-content-center" style="position:relative;z-index:1;">
+      <a href="#calculadora" class="btn-cta-black">
+        <i class="bi bi-calculator-fill"></i> Cotizar gratis ahora
+      </a>
+      <a href="https://wa.me/573000000000?text=Hola%20MUVIT,%20necesito%20una%20mudanza."
+         target="_blank"
+         style="font-family:var(--font-display);font-size:.82rem;letter-spacing:2px;text-transform:uppercase;font-weight:800;background:rgba(255,255,255,.15);color:var(--white);border:2px solid rgba(255,255,255,.3);padding:1.1rem 2rem;text-decoration:none;display:inline-flex;align-items:center;gap:10px;clip-path:polygon(12px 0,100% 0,calc(100% - 12px) 100%,0 100%);transition:all .3s;"
+         onmouseover="this.style.background='rgba(255,255,255,.25)'"
+         onmouseout="this.style.background='rgba(255,255,255,.15)'">
+        <i class="bi bi-whatsapp"></i> WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ CONTACTO ══ -->
+<section id="contacto">
+  <div class="container">
+    <div class="text-center mb-5">
+      <div class="tag-mv justify-content-center reveal">Hablemos</div>
+      <h2 class="title-mv reveal">CONTÁCTANOS</h2>
+      <div class="oran-rule oran-rule-c reveal"></div>
+    </div>
+
+    <div class="row g-5">
+      <div class="col-lg-7">
+        <div class="contact-form-mv reveal">
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="flbl-mv">Nombre completo *</label>
+              <input type="text" class="fctrl-mv" placeholder="Tu nombre"/>
+            </div>
+            <div class="col-md-6">
+              <label class="flbl-mv">Teléfono / WhatsApp *</label>
+              <input type="tel" class="fctrl-mv" placeholder="+57 300 000 0000"/>
+            </div>
+            <div class="col-md-6">
+              <label class="flbl-mv">Ciudad origen</label>
+              <input type="text" class="fctrl-mv" placeholder="¿Desde dónde te mudas?"/>
+            </div>
+            <div class="col-md-6">
+              <label class="flbl-mv">Ciudad destino</label>
+              <input type="text" class="fctrl-mv" placeholder="¿Hacia dónde?"/>
+            </div>
+            <div class="col-md-6">
+              <label class="flbl-mv">Tipo de servicio</label>
+              <select class="fctrl-mv">
+                <option disabled selected>Selecciona...</option>
+                <option>Mudanza residencial</option>
+                <option>Mudanza empresarial</option>
+                <option>Flete express</option>
+                <option>Transporte mercancías</option>
+                <option>Bodegaje temporal</option>
+                <option>Última milla</option>
+              </select>
+            </div>
+            <div class="col-md-6">
+              <label class="flbl-mv">Fecha deseada</label>
+              <input type="date" class="fctrl-mv"/>
+            </div>
+            <div class="col-12">
+              <label class="flbl-mv">Descripción del servicio</label>
+              <textarea class="fctrl-mv" rows="3" placeholder="Cuéntanos: ¿qué necesitas mover? ¿Hay muebles grandes? ¿Cuántos pisos?..."></textarea>
+            </div>
+            <div class="col-12">
+              <button class="btn-submit-mv" onclick="submitForm(this)">
+                <i class="bi bi-send me-2"></i> Enviar solicitud
+              </button>
+            </div>
+            <div id="formOk" style="display:none;">
+              <div style="background:rgba(240,90,26,.1);border:1px solid var(--orange-bdr);padding:1rem;text-align:center;">
+                <i class="bi bi-check-circle" style="color:var(--orange);font-size:1.4rem;"></i>
+                <p style="font-family:var(--font-mono);font-size:.65rem;letter-spacing:1.5px;color:var(--orange);margin-top:.5rem;text-transform:uppercase;">// Solicitud recibida · Te contactamos en máx. 2 horas hábiles</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-5 reveal d2">
+        <div class="contact-info-mv">
+          <div style="position:relative;z-index:1;font-family:var(--font-display);font-size:1rem;font-weight:900;color:var(--white);text-transform:uppercase;letter-spacing:.5px;margin-bottom:1.5rem;">Canales de atención</div>
+          <div class="ci-mv-item">
+            <div class="ci-mv-icon"><i class="bi bi-whatsapp"></i></div>
+            <div><div class="ci-mv-lbl">WhatsApp</div><div class="ci-mv-val">+57 300 000 0000<br><span style="font-size:.72rem;color:rgba(255,255,255,.3);">Respuesta inmediata · 24/7</span></div></div>
+          </div>
+          <div class="ci-mv-item">
+            <div class="ci-mv-icon"><i class="bi bi-telephone-fill"></i></div>
+            <div><div class="ci-mv-lbl">Teléfono</div><div class="ci-mv-val">+57 (1) 000 0000<br><span style="font-size:.72rem;color:rgba(255,255,255,.3);">Lun–Sáb 6am – 8pm</span></div></div>
+          </div>
+          <div class="ci-mv-item">
+            <div class="ci-mv-icon"><i class="bi bi-envelope-fill"></i></div>
+            <div><div class="ci-mv-lbl">Email</div><div class="ci-mv-val">info@muvit.co</div></div>
+          </div>
+          <div class="ci-mv-item">
+            <div class="ci-mv-icon"><i class="bi bi-geo-alt-fill"></i></div>
+            <div><div class="ci-mv-lbl">Sede principal</div><div class="ci-mv-val">Tu ciudad, Colombia</div></div>
+          </div>
+          <div class="ci-mv-item" style="border:none;">
+            <div class="ci-mv-icon"><i class="bi bi-clock-fill"></i></div>
+            <div><div class="ci-mv-lbl">Atención</div><div class="ci-mv-val">Lun–Sáb: 6am – 8pm<br>Dom: 8am – 2pm<br><span style="color:var(--orange);">Servicio 24/7 disponible</span></div></div>
+          </div>
+
+          <a href="https://wa.me/573000000000?text=Hola%20MUVIT,%20necesito%20cotizar%20una%20mudanza."
+             target="_blank" class="btn-cotizar-mv mt-3 d-flex justify-content-center"
+             style="font-size:.75rem;clip-path:none;border-radius:2px;">
+            <i class="bi bi-whatsapp me-1"></i> Escribir ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="footer-brand-mv">MU<span>VIT</span></div>
+        <div class="footer-tag-mv">Mudanzas & Logística · Colombia · Est. 2010</div>
+        <p style="font-size:.84rem;color:rgba(255,255,255,.25);line-height:1.8;margin-top:1rem;font-weight:400;">
+          La empresa de mudanzas y logística más confiable de Colombia. 15 años, 8.000+ mudanzas, 99% sin daños.
+        </p>
+      </div>
+      <div class="col-6 col-lg-2 offset-lg-1">
+        <div class="footer-col-h-mv">Servicios</div>
+        <a href="#servicios" class="footer-lnk-mv">Mudanza residencial</a>
+        <a href="#servicios" class="footer-lnk-mv">Mudanza empresarial</a>
+        <a href="#servicios" class="footer-lnk-mv">Flete express</a>
+        <a href="#servicios" class="footer-lnk-mv">Transporte mercancías</a>
+        <a href="#servicios" class="footer-lnk-mv">Bodegaje</a>
+        <a href="#servicios" class="footer-lnk-mv">Última milla</a>
+      </div>
+      <div class="col-6 col-lg-2">
+        <div class="footer-col-h-mv">Empresa</div>
+        <a href="#nosotros"    class="footer-lnk-mv">Nosotros</a>
+        <a href="#flota"       class="footer-lnk-mv">Nuestra flota</a>
+        <a href="#cobertura"   class="footer-lnk-mv">Cobertura</a>
+        <a href="#calculadora" class="footer-lnk-mv">Calculadora</a>
+        <a href="#testimonios" class="footer-lnk-mv">Testimonios</a>
+        <a href="#contacto"    class="footer-lnk-mv">Contacto</a>
+      </div>
+      <div class="col-lg-3">
+        <div class="footer-col-h-mv">Contacto</div>
+        <a href="https://wa.me/573000000000" target="_blank" class="footer-lnk-mv"><i class="bi bi-whatsapp me-2" style="color:#25d366;"></i>+57 300 000 0000</a>
+        <a href="tel:+5710000000" class="footer-lnk-mv"><i class="bi bi-telephone me-2" style="color:var(--orange);"></i>+57 (1) 000 0000</a>
+        <a href="mailto:info@muvit.co" class="footer-lnk-mv"><i class="bi bi-envelope me-2" style="color:var(--orange);"></i>info@muvit.co</a>
+        <span class="footer-lnk-mv" style="cursor:default;"><i class="bi bi-geo-alt me-2" style="color:var(--orange);"></i>Tu ciudad, Colombia</span>
+        <div style="margin-top:1rem;padding:.8rem;border:1px solid rgba(240,90,26,.2);border-left:3px solid var(--orange);">
+          <div style="font-family:var(--font-mono);font-size:.55rem;letter-spacing:2px;text-transform:uppercase;color:rgba(255,255,255,.2);margin-bottom:.3rem;">Horario</div>
+          <div style="font-size:.82rem;color:rgba(255,255,255,.3);">Lun–Sáb: 6am–8pm · Dom: 8am–2pm<br><span style="color:var(--orange);">Urgencias: 24/7</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-btm-mv">
+      <div class="footer-copy-mv">© 2025 MUVIT Mudanzas & Logística S.A.S. · Todos los derechos reservados. · Imágenes: Unsplash</div>
+      <div>
+        <a href="#" class="soc-mv" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="soc-mv" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="soc-mv" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+        <a href="https://wa.me/573000000000" class="soc-mv" aria-label="WhatsApp"><i class="bi bi-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WhatsApp flotante -->
+<a href="https://wa.me/573000000000?text=Hola%20MUVIT!%20Necesito%20cotizar%20una%20mudanza."
+   target="_blank" class="wa-mv" aria-label="WhatsApp">
+  <div class="wa-ring-mv"></div>
+  <i class="bi bi-whatsapp"></i>
+  <div class="wa-lbl-mv">🚛 Cotizar ahora</div>
+</a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  /* ── Mobile nav ── */
+  document.getElementById('navToggle').addEventListener('click',()=>{
+    const m=document.getElementById('mob-mv');
+    m.style.display=m.style.display==='block'?'none':'block';
+  });
+  document.getElementById('mob-mv').querySelectorAll('a').forEach(a=>
+    a.addEventListener('click',()=>document.getElementById('mob-mv').style.display='none')
+  );
+
+  /* ── Images ── */
+  document.querySelectorAll('.img-f').forEach(img=>{
+    if(img.complete)img.classList.add('on');
+    else{img.addEventListener('load',()=>img.classList.add('on'));img.addEventListener('error',()=>{});}
+  });
+
+  /* ── Reveal ── */
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('on');io.unobserve(e.target);}});
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal,.rl,.rr').forEach(el=>io.observe(el));
+
+  /* ── Smooth scroll ── */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-75,behavior:'smooth'});}
+    });
+  });
+
+  /* ── Go calculadora ── */
+  function goCalculadora(){
+    const t=document.getElementById('calculadora');
+    if(t)window.scrollTo({top:t.getBoundingClientRect().top+window.scrollY-75,behavior:'smooth'});
+  }
+
+  /* ── Calculadora ── */
+  const precios = {
+    base: { residencial:{1:120000,2:200000,3:320000,4:480000,5:700000}, empresarial:{1:250000,2:380000,3:550000,4:780000,5:1100000}, flete:{1:80000,2:130000,3:200000,4:300000,5:450000}, mercancias:{1:150000,2:220000,3:350000,4:500000,5:750000} },
+    dist: { local:0, cercana:0.25, lejana:0.6, nacional:1.2 },
+    piso: { 0:0, 1:30000, 2:60000, 3:100000 },
+    embalaje:80000, desmontaje:60000, seguro:50000, noche:100000
+  };
+
+  function fmt(n){ return '$'+Math.round(n).toLocaleString('es-CO'); }
+
+  function calcular(){
+    const tipo    = document.getElementById('cTipo').value;
+    const tamano  = parseInt(document.getElementById('cTamano').value);
+    const origen  = document.getElementById('cOrigen').value;
+    const piso    = parseInt(document.getElementById('cPiso').value);
+    const emb     = document.getElementById('cEmbalaje').checked;
+    const desm    = document.getElementById('cDesmontaje').checked;
+    const seg     = document.getElementById('cSeguro').checked;
+    const noche   = document.getElementById('cNoche').checked;
+
+    const base    = precios.base[tipo][tamano];
+    const distAdd = base * precios.dist[origen];
+    const pisoAdd = precios.piso[piso];
+    let adicional = 0;
+    if(emb)   adicional += precios.embalaje;
+    if(desm)  adicional += precios.desmontaje;
+    if(seg)   adicional += precios.seguro;
+    if(noche) adicional += precios.noche;
+
+    const total = base + distAdd + pisoAdd + adicional;
+
+    document.getElementById('calcResult').textContent = fmt(total);
+    document.getElementById('crBase').textContent     = fmt(base);
+    document.getElementById('crDist').textContent     = distAdd > 0 ? fmt(distAdd) : 'incluida';
+    document.getElementById('crAd').textContent       = fmt(adicional);
+    document.getElementById('crTotal').textContent    = fmt(total);
+  }
+  calcular();
+
+  /* ── Counter ── */
+  const cObs=new IntersectionObserver(entries=>{
+    if(!entries[0].isIntersecting)return;
+    document.querySelectorAll('.hst-n').forEach(el=>{
+      const txt=el.innerHTML;
+      const num=parseFloat(txt);
+      if(isNaN(num))return;
+      const suffix=txt.replace(/[\d.]/g,'');
+      let cur=0;const dur=1800;const step=16;const inc=num/(dur/step);
+      const timer=setInterval(()=>{cur+=inc;if(cur>=num){cur=num;clearInterval(timer);}el.innerHTML=Math.floor(cur)+suffix;},step);
+    });
+    cObs.disconnect();
+  },{threshold:.3});
+  const heroS=document.getElementById('hero');
+  if(heroS)cObs.observe(heroS);
+
+  /* ── Form submit ── */
+  function submitForm(btn){
+    btn.innerHTML='<i class="bi bi-hourglass me-2"></i>Enviando...';
+    btn.disabled=true;
+    setTimeout(()=>{
+      document.getElementById('formOk').style.display='block';
+      btn.innerHTML='// Solicitud enviada correctamente';
+      btn.style.background='var(--orange)';
+    },1400);
+  }
+</script>
+</body>
+</html>

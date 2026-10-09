@@ -1,0 +1,48 @@
+{% load static %}
+<section class="seccion seccion-planes" id="planes">
+
+    <div class="fondo-video listo" data-video="https://www.fyainnovation.com/video/planes-fondo.mp4" aria-hidden="true">
+        <video muted playsinline preload="auto" class="capa-video visible" src="https://www.fyainnovation.com/video/planes-fondo.mp4"></video>
+        <video muted playsinline preload="auto" class="capa-video" src="https://www.fyainnovation.com/video/planes-fondo.mp4"></video>
+    </div>
+
+    <div class="contenedor">
+        <div class="encabezado-seccion aparece">
+            <span class="kicker">Servicios</span>
+            <h2>Soluciones digitales para tu negocio</h2>
+            <p>Desarrollo sitios web, tiendas online, software a la medida y soluciones de inteligencia
+               artificial para ayudarte a digitalizar tu negocio, automatizar procesos y fortalecer tu
+               presencia en internet. Cada solución se adapta a las necesidades y objetivos de tu proyecto.</p>
+        </div>
+
+        <div class="planes">
+            {% for plan in planes %}
+            <article class="plan aparece">
+                <a class="plan-imagen" href="{% url 'core:servicio_detalle' plan.slug %}">
+                    <img src="{% static plan.imagen %}" alt="{{ plan.titulo }}" loading="lazy">
+                </a>
+
+                <div class="plan-contenido">
+                    <h3>
+                        <span class="plan-numero">{{ forloop.counter }}.</span>
+                        <a href="{% url 'core:servicio_detalle' plan.slug %}">{{ plan.titulo }}</a>
+                    </h3>
+                    <p class="plan-desc">{{ plan.descripcion }}</p>
+
+                    <a class="plan-cta" href="{% url 'core:servicio_detalle' plan.slug %}">
+                        {{ plan.cta }}
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6"></path>
+                        </svg>
+                    </a>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+
+        <p class="nota-precios">
+            ¿Tu proyecto no encaja en ningún plan?
+            <a href="#contacto">Cuéntanos qué necesitas</a> y armamos una propuesta a tu medida.
+        </p>
+    </div>
+</section>

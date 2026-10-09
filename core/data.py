@@ -676,4 +676,4 @@ PRESUPUESTOS = [
 ]
 
 WHATSAPP_NUMERO = "573506240534"
-WHATSAPP_TEXTO = "Hola+F+%26+A%2C+quiero+informaci%C3%B3n+sobre+sus+servicios+de+desarrollo."
+WHATSAPP_TEXTO = "Hola+sruedadev.com%2C+quiero+informaci%C3%B3n+sobre+sus+servicios+de+desarrollo."

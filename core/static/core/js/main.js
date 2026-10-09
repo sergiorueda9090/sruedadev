@@ -648,7 +648,35 @@
             zonaAviso.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
-        function mostrarExito(texto) {
+        /* Arma el texto que se envía por WhatsApp con los datos ya escritos en
+           el formulario, para que la confirmación sea un solo toque. */
+        function construirUrlWhatsApp(datosFormulario) {
+            var numero = (form.dataset.whatsapp || '').trim();
+            if (!numero) { return null; }
+
+            var campo = function (nombre) {
+                var valor = (datosFormulario.get(nombre) || '').toString().trim();
+                return valor || '—';
+            };
+
+            var lineas = [
+                'Nueva solicitud desde sruedadev.com',
+                '',
+                'Nombre: ' + campo('nombre'),
+                'Correo: ' + campo('email'),
+                'Teléfono: ' + campo('telefono'),
+                'Servicio de interés: ' + campo('servicioInteres'),
+                'Presupuesto: ' + campo('presupuesto'),
+                '',
+                'Mensaje:',
+                campo('mensaje')
+            ];
+
+            return 'https://wa.me/' + encodeURIComponent(numero)
+                 + '?text=' + encodeURIComponent(lineas.join('\n'));
+        }
+
+        function mostrarExito(texto, urlWhatsApp) {
             form.reset();
             if (!zonaAviso) { return; }
             zonaAviso.innerHTML =
@@ -656,8 +684,22 @@
               + '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b63f6" '
               + 'stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icono-fijo">'
               + '<circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5L16 9.5"/></svg>'
-              + '<span></span></div>';
+              + '<div class="alerta-contenido"><span></span></div></div>';
             zonaAviso.querySelector('span').textContent = texto;
+
+            if (urlWhatsApp) {
+                var cta = document.createElement('a');
+                cta.href = urlWhatsApp;
+                cta.target = '_blank';
+                cta.rel = 'noopener';
+                cta.className = 'btn btn-primario';
+                cta.style.display = 'flex';
+                cta.style.width = 'fit-content';
+                cta.style.marginTop = '14px';
+                cta.textContent = 'Confirmar también por WhatsApp (opcional)';
+                zonaAviso.querySelector('.alerta-contenido').appendChild(cta);
+            }
+
             zonaAviso.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
@@ -665,17 +707,20 @@
             limpiarErrores();
             cargando(true);
 
+            var datosFormulario = new FormData(form);
+            var urlWhatsApp = construirUrlWhatsApp(datosFormulario);
+
             pedir(form.action, {
                 method: 'POST',
                 headers: { 'Accept': 'application/json' },
-                body: new URLSearchParams(new FormData(form))
+                body: new URLSearchParams(datosFormulario)
             }).then(function (r) {
                 return r.json().catch(function () { return {}; })
                         .then(function (datos) { return { estado: r.status, datos: datos }; });
             }).then(function (res) {
                 cargando(false);
                 if (res.estado === 200 && res.datos.ok) {
-                    mostrarExito(res.datos.mensaje || '¡Gracias! Recibimos tu solicitud.');
+                    mostrarExito(res.datos.mensaje || '¡Gracias! Recibimos tu solicitud.', urlWhatsApp);
                     return;
                 }
                 if (res.estado === 400 && res.datos.errores) {

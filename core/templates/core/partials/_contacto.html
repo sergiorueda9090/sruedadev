@@ -61,7 +61,7 @@
 
                 <div id="aviso-formulario"></div>
 
-                <form id="form-contacto" action="{% url 'core:contacto' %}" method="post" novalidate>
+                <form id="form-contacto" action="{% url 'core:contacto' %}" method="post" novalidate data-whatsapp="{{ whatsapp_numero }}">
                     {% csrf_token %}
                     <div class="dos-columnas">
                         <div class="campo">

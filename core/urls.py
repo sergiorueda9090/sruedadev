@@ -8,6 +8,7 @@ urlpatterns = [
     path("", views.home, name="home"),
     path("contacto", views.contacto, name="contacto"),
     path("nosotros/", views.nosotros, name="nosotros"),
+    path("salud/", views.salud, name="salud"),
     path("terminos/", views.terminos, name="terminos"),
     path("privacidad/", views.privacidad, name="privacidad"),
     path("cookies/", views.cookies, name="cookies"),

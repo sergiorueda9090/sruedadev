@@ -1,5 +1,6 @@
 import json
 from pathlib import Path
+from urllib.parse import quote_plus
 
 from django.http import Http404, HttpResponse, JsonResponse
 from django.shortcuts import render
@@ -20,6 +21,15 @@ DOMINIO = "https://sruedadev.com"
 # Solo estos slugs tienen una página propia servida por Django.
 PROYECTOS_SLUGS = {p["slug"] for p in data.PROYECTOS}
 PLANES_POR_SLUG = {p["slug"]: p for p in data.PLANES}
+
+# Mensaje precargado del botón de WhatsApp en /salud/. El número sigue
+# viniendo de data.WHATSAPP_NUMERO vía el context processor: aquí solo se
+# codifica el texto para el enlace wa.me.
+SALUD_WHATSAPP_MENSAJE = (
+    "Hola Sergio, vi la página de salud y quiero información sobre la "
+    "Landing Salud Express"
+)
+SALUD_WHATSAPP_TEXTO = quote_plus(SALUD_WHATSAPP_MENSAJE)
 
 
 def _proyectos_paginados():
@@ -56,6 +66,21 @@ def portafolio_detalle(request, slug):
     archivo = PORTAFOLIO_PAGES_DIR / ("%s.html" % slug)
     contenido = archivo.read_text(encoding="utf-8")
     return HttpResponse(contenido)
+
+
+def salud(request):
+    caso_exito = next(
+        (dict(p) for p in data.PROYECTOS if p["slug"] == "dentalsmile-consultorio"),
+        None,
+    )
+    if caso_exito is not None:
+        caso_exito["url"] = reverse("core:portafolio_detalle", args=[caso_exito["slug"]])
+
+    contexto = {
+        "whatsapp_texto_salud": SALUD_WHATSAPP_TEXTO,
+        "caso_exito": caso_exito,
+    }
+    return render(request, "core/salud.html", contexto)
 
 
 def nosotros(request):
@@ -173,6 +198,7 @@ def sitemap_xml(request):
         DOMINIO + reverse(nombre)
         for nombre in (
             "core:nosotros", "core:terminos", "core:privacidad", "core:cookies",
+            "core:salud",
         )
     ]
     urls += [

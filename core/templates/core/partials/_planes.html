@@ -19,7 +19,7 @@
             {% for plan in planes %}
             <article class="plan aparece">
                 <a class="plan-imagen" href="{% url 'core:servicio_detalle' plan.slug %}">
-                    <img src="{% static plan.imagen %}" alt="{{ plan.titulo }}" loading="lazy">
+                    <img src="{% static plan.imagen %}" width="{{ plan.imagen_w }}" height="{{ plan.imagen_h }}" alt="{{ plan.titulo }}" loading="lazy" decoding="async">
                 </a>
 
                 <div class="plan-contenido">

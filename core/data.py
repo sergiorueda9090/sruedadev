@@ -110,7 +110,9 @@ PROYECTOS = [
     {
         "slug": "bufete-ramirez-asociados",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/bufete-ramirez-asociados.jpg",
+        "imagen": "core/img/portafolio/bufete-ramirez-asociados.webp",
+        "imagen_w": 960,
+        "imagen_h": 516,
         "nombre": "Ramírez & Asociados — Derecho Corporativo",
         "resumen": "Landing page corporativa para un bufete de derecho empresarial: áreas de práctica, equipo y formulario de consulta.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -118,7 +120,9 @@ PROYECTOS = [
     {
         "slug": "colombia-viva-viajes",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/colombia-viva-viajes.jpg",
+        "imagen": "core/img/portafolio/colombia-viva-viajes.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Colombia Viva — Turismo Nacional",
         "resumen": "Landing page para una agencia de turismo nacional, con destinos destacados y paquetes de viaje.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -126,7 +130,9 @@ PROYECTOS = [
     {
         "slug": "altavista-constructora",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/altavista-constructora.jpg",
+        "imagen": "core/img/portafolio/altavista-constructora.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Altavista — Constructora de Proyectos Premium",
         "resumen": "Landing page para una constructora de proyectos residenciales premium, con catálogo de apartamentos y casas.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -134,7 +140,9 @@ PROYECTOS = [
     {
         "slug": "dentalsmile-consultorio",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/dentalsmile-consultorio.jpg",
+        "imagen": "core/img/portafolio/dentalsmile-consultorio.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "DentalSmile — Consultorio Odontológico",
         "resumen": "Landing page para un consultorio odontológico: servicios de blanqueamiento, ortodoncia e implantes, y agendamiento de citas.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -142,7 +150,9 @@ PROYECTOS = [
     {
         "slug": "portafolio-desarrollador-freelance",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/portafolio-desarrollador-freelance.jpg",
+        "imagen": "core/img/portafolio/portafolio-desarrollador-freelance.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Portafolio — Desarrollador Web Freelance",
         "resumen": "Sitio de presentación personal para un desarrollador freelance especializado en Django, Python, PHP e IA.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -150,7 +160,9 @@ PROYECTOS = [
     {
         "slug": "devcraft-desarrollo-software",
         "categoria": "Software",
-        "imagen": "core/img/portafolio/devcraft-desarrollo-software.jpg",
+        "imagen": "core/img/portafolio/devcraft-desarrollo-software.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "DevCraft — Desarrollo Web y Software",
         "resumen": "Landing page para una marca de desarrollo de software, bots inteligentes y soluciones en AWS.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -158,7 +170,9 @@ PROYECTOS = [
     {
         "slug": "ironforge-gym",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/ironforge-gym.jpg",
+        "imagen": "core/img/portafolio/ironforge-gym.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Ironforge Gym",
         "resumen": "Landing page para un gimnasio: disciplinas (musculación, CrossFit, boxeo, spinning) y planes de membresía.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -166,7 +180,9 @@ PROYECTOS = [
     {
         "slug": "brasakfire-hamburgueseria",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/brasakfire-hamburgueseria.jpg",
+        "imagen": "core/img/portafolio/brasakfire-hamburgueseria.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "BrasakFire — Hamburguesería",
         "resumen": "Landing page para una hamburguesería, con menú destacado y pedidos por WhatsApp.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -174,7 +190,9 @@ PROYECTOS = [
     {
         "slug": "lumiere-botanica-serum",
         "categoria": "E-commerce",
-        "imagen": "core/img/portafolio/lumiere-botanica-serum.jpg",
+        "imagen": "core/img/portafolio/lumiere-botanica-serum.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Lumière Botanica — Sérum Facial",
         "resumen": "Landing page de lanzamiento para un sérum facial natural, orientada a preventa y captura de interesados.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -182,7 +200,9 @@ PROYECTOS = [
     {
         "slug": "mente-plena-psicologia",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/mente-plena-psicologia.jpg",
+        "imagen": "core/img/portafolio/mente-plena-psicologia.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Mente Plena — Consultorio de Psicología",
         "resumen": "Landing page para un consultorio de psicología con atención presencial y virtual para adultos, niños y familias.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -190,7 +210,9 @@ PROYECTOS = [
     {
         "slug": "muvit-mudanzas-logistica",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/muvit-mudanzas-logistica.jpg",
+        "imagen": "core/img/portafolio/muvit-mudanzas-logistica.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Muvit — Mudanzas & Logística",
         "resumen": "Landing page para una empresa de mudanzas y logística, con cotización de fletes y transporte.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -198,7 +220,9 @@ PROYECTOS = [
     {
         "slug": "patitas-vet-clinica",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/patitas-vet-clinica.jpg",
+        "imagen": "core/img/portafolio/patitas-vet-clinica.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Patitas Vet — Clínica Veterinaria & Pet Shop",
         "resumen": "Landing page para una clínica veterinaria con pet shop y peluquería, mostrando servicios y agendamiento.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -206,7 +230,9 @@ PROYECTOS = [
     {
         "slug": "seguros-com-digital",
         "categoria": "Software",
-        "imagen": "core/img/portafolio/seguros-com-digital.jpg",
+        "imagen": "core/img/portafolio/seguros-com-digital.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Seguros.com — Seguridad Digital",
         "resumen": "Landing page para una plataforma digital de seguros, enfocada en cotización rápida en línea.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -214,7 +240,9 @@ PROYECTOS = [
     {
         "slug": "bella-spa-centro-belleza",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/bella-spa-centro-belleza.jpg",
+        "imagen": "core/img/portafolio/bella-spa-centro-belleza.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Bella Spa — Centro de Belleza & Bienestar",
         "resumen": "Landing page para un spa de bienestar: masajes, tratamientos faciales y reserva de citas.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -222,7 +250,9 @@ PROYECTOS = [
     {
         "slug": "clinica-aurora-medicina-estetica",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/clinica-aurora-medicina-estetica.jpg",
+        "imagen": "core/img/portafolio/clinica-aurora-medicina-estetica.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Clínica Aurora — Medicina Estética",
         "resumen": "Landing page para una clínica de medicina estética y cirugía plástica en Medellín, con paquetes de turismo médico.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -230,7 +260,9 @@ PROYECTOS = [
     {
         "slug": "structura-construccion-industrial",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/structura-construccion-industrial.jpg",
+        "imagen": "core/img/portafolio/structura-construccion-industrial.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Structura — Construcción Comercial & Industrial",
         "resumen": "Landing page para una constructora especializada en proyectos comerciales e industriales de gran escala.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -238,7 +270,9 @@ PROYECTOS = [
     {
         "slug": "vialidad-centro-automovilistico",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/vialidad-centro-automovilistico.jpg",
+        "imagen": "core/img/portafolio/vialidad-centro-automovilistico.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Vialidad — Centro Automovilístico",
         "resumen": "Landing page para una autoescuela: cursos de conducción para carros y motos, y trámite de licencias.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -246,7 +280,9 @@ PROYECTOS = [
     {
         "slug": "wanderlust-agencia-viajes",
         "categoria": "Web",
-        "imagen": "core/img/portafolio/wanderlust-agencia-viajes.jpg",
+        "imagen": "core/img/portafolio/wanderlust-agencia-viajes.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
         "nombre": "Wanderlust — Agencia de Viajes",
         "resumen": "Landing page para una agencia de viajes con destinos nacionales e internacionales y paquetes a medida.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
@@ -259,7 +295,9 @@ PLANES = [
         "titulo": "Landing pages",
         "descripcion": "Para captar clientes y promocionar servicios, productos o campañas.",
         "cta": "Crear mi landing page",
-        "imagen": "core/img/servicios/landing-pages.jpg",
+        "imagen": "core/img/servicios/landing-pages.webp",
+        "imagen_w": 680,
+        "imagen_h": 680,
         "problema": (
             "Necesitas una página enfocada en un solo objetivo —vender un producto, captar "
             "contactos de una campaña o promocionar un servicio puntual— sin la distracción de "
@@ -307,7 +345,9 @@ PLANES = [
         "titulo": "Páginas web corporativas",
         "descripcion": "Para presentar la empresa, sus servicios y su propuesta de valor.",
         "cta": "Crear mi página web",
-        "imagen": "core/img/servicios/paginas-corporativas.jpg",
+        "imagen": "core/img/servicios/paginas-corporativas.webp",
+        "imagen_w": 900,
+        "imagen_h": 900,
         "problema": (
             "Tu negocio no tiene una presencia digital que refleje lo que realmente ofrece: te "
             "buscan en Google y no encuentran nada propio, solo redes sociales."
@@ -355,7 +395,9 @@ PLANES = [
         "titulo": "Tiendas e-commerce",
         "descripcion": "Para vender productos, administrar pedidos y recibir pagos en línea.",
         "cta": "Crear mi tienda online",
-        "imagen": "core/img/servicios/tiendas-ecommerce.jpg",
+        "imagen": "core/img/servicios/tiendas-ecommerce.webp",
+        "imagen_w": 900,
+        "imagen_h": 900,
         "problema": (
             "Vendes por redes sociales o WhatsApp y cada vez es más difícil controlar "
             "inventario, pedidos y pagos a medida que creces."
@@ -401,7 +443,9 @@ PLANES = [
         "titulo": "Software a la medida",
         "descripcion": "Para digitalizar operaciones y desarrollar sistemas adaptados a cada empresa.",
         "cta": "Desarrollar mi software",
-        "imagen": "core/img/servicios/software-medida.jpg",
+        "imagen": "core/img/servicios/software-medida.webp",
+        "imagen_w": 900,
+        "imagen_h": 675,
         "problema": (
             "Tu operación depende de hojas de cálculo, cuadernos o sistemas genéricos que no se "
             "ajustan a cómo realmente trabajas, y eso te hace perder tiempo y cometer errores."
@@ -448,7 +492,9 @@ PLANES = [
         "titulo": "Agentes de IA y automatización",
         "descripcion": "Para automatizar tareas, conectar herramientas y trabajar con información.",
         "cta": "Automatizar mi negocio",
-        "imagen": "core/img/servicios/agentes-ia.jpg",
+        "imagen": "core/img/servicios/agentes-ia.webp",
+        "imagen_w": 900,
+        "imagen_h": 900,
         "problema": (
             "Tu equipo pierde horas en tareas repetitivas —responder las mismas preguntas, "
             "copiar datos entre sistemas, revisar documentos— que podrían resolverse solas."
@@ -495,7 +541,9 @@ PLANES = [
         "titulo": "Desarrollo e integración de APIs",
         "descripcion": "Para conectar aplicaciones, pasarelas de pago y servicios externos.",
         "cta": "Conectar mis sistemas",
-        "imagen": "core/img/servicios/apis.jpg",
+        "imagen": "core/img/servicios/apis.webp",
+        "imagen_w": 900,
+        "imagen_h": 600,
         "problema": (
             "Tus sistemas no se hablan entre sí: cargas los mismos datos en varias plataformas "
             "a mano, o necesitas conectar tu sitio con una pasarela de pagos, un CRM o un "

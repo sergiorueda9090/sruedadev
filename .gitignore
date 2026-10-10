@@ -31,3 +31,6 @@ desktop.ini
 
 # Logs
 *.log
+
+# Backups de imágenes originales (fuera de static, no van al historial)
+/respaldo-imagenes-*/

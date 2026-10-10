@@ -64,7 +64,7 @@
                         <a class="proyecto-card aparece" href="{{ proyecto.url }}" data-cat="{{ proyecto.categoria }}" target="_blank" rel="noopener">
                             <div class="proyecto-img">
                                 {% if proyecto.imagen %}
-                                <img src="{% static proyecto.imagen %}" alt="{{ proyecto.nombre }}" loading="lazy">
+                                <img src="{% static proyecto.imagen %}" width="{{ proyecto.imagen_w }}" height="{{ proyecto.imagen_h }}" alt="{{ proyecto.nombre }}" loading="lazy" decoding="async">
                                 {% else %}
                                 <div class="ph"><span>sruedadev</span></div>
                                 {% endif %}

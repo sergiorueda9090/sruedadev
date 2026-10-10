@@ -1,3 +1,7 @@
+{% load static %}
+{# Fotos servidas localmente desde core/static/core/img/proceso/ (Fase 1 de
+   rendimiento, 2026-10-10): antes se hotlinkeaban desde fyainnovation.com, un
+   dominio ajeno fuera de nuestro control. #}
 <section class="seccion" id="proceso">
     <div class="contenedor">
         <div class="encabezado-seccion aparece">
@@ -12,8 +16,8 @@
                 <article class="paso-card{% if forloop.first %} activa{% endif %}">
 
                     <div class="paso-media">
-                        <img class="foto-paso foto-base" src="https://www.fyainnovation.com/img/proceso/{{ paso.foto }}-1.jpg" alt="{{ paso.titulo }}" loading="lazy">
-                        <img class="foto-paso foto-hover" src="https://www.fyainnovation.com/img/proceso/{{ paso.foto }}-2.jpg" alt="" aria-hidden="true" loading="lazy">
+                        <img class="foto-paso foto-base" src="{% static 'core/img/proceso/'|add:paso.foto|add:'-1.webp' %}" width="848" height="636" alt="{{ paso.titulo }}" loading="lazy" decoding="async">
+                        <img class="foto-paso foto-hover" src="{% static 'core/img/proceso/'|add:paso.foto|add:'-2.webp' %}" width="848" height="636" alt="" aria-hidden="true" loading="lazy" decoding="async">
                         <span class="paso-numero">{{ paso.numero }}</span>
                         <span class="brillo"></span>
                     </div>

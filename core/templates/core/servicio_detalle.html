@@ -83,7 +83,7 @@
             </div>
 
             <aside class="ficha">
-                <img src="{% static servicio.imagen %}" alt="{{ servicio.titulo }}" loading="lazy">
+                <img src="{% static servicio.imagen %}" width="{{ servicio.imagen_w }}" height="{{ servicio.imagen_h }}" alt="{{ servicio.titulo }}" loading="lazy" decoding="async">
                 <dl>
                     <dt>Ideal para</dt>
                     <dd>{{ servicio.descripcion }}</dd>

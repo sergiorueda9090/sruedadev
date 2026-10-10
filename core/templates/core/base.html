@@ -12,30 +12,31 @@
     <meta property="og:title" content="{% block og_title %}Desarrollo de Software y Páginas Web en Floridablanca, Santander | sruedadev.com{% endblock %}">
     <meta property="og:description" content="{% block og_description %}Desarrollamos software a la medida y páginas web para empresas en Floridablanca, Santander. Diseño propio, precio cerrado por escrito y acompañamiento después de la entrega.{% endblock %}">
 
-    <meta property="og:image" content="https://sruedadev.com{% static 'core/img/logo.png' %}">
-    <meta property="og:image:width" content="1767">
-    <meta property="og:image:height" content="890">
+    <meta property="og:image" content="https://sruedadev.com{% static 'core/img/logo-og.png' %}">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="604">
     <meta property="og:image:alt" content="sruedadev.com">
-    <meta name="twitter:image" content="https://sruedadev.com{% static 'core/img/logo.png' %}">
+    <meta name="twitter:image" content="https://sruedadev.com{% static 'core/img/logo-og.png' %}">
 
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{% block twitter_title %}Desarrollo de Software y Páginas Web en Floridablanca, Santander | sruedadev.com{% endblock %}">
     <meta name="twitter:description" content="{% block twitter_description %}Desarrollamos software a la medida y páginas web para empresas en Floridablanca, Santander. Diseño propio, precio cerrado por escrito y acompañamiento después de la entrega.{% endblock %}">
     <meta property="og:site_name" content="sruedadev.com">
 
-    <link rel="icon" type="image/png" href="{% static 'core/img/logo.png' %}">
-    <link rel="apple-touch-icon" href="{% static 'core/img/logo.png' %}">
+    <link rel="icon" type="image/png" href="{% static 'core/img/favicon.png' %}">
+    <link rel="apple-touch-icon" href="{% static 'core/img/apple-touch-icon.png' %}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'core/css/estilo.css' %}">
+    <link rel="preload" as="image" href="{% static 'core/img/mascota-sr.webp' %}" fetchpriority="high">
 
     <link rel="canonical" href="{% block canonical %}https://sruedadev.com/{% endblock %}">
     <meta property="og:url" content="{% block og_url %}https://sruedadev.com/{% endblock %}">
     <meta property="og:locale" content="es_CO">
 
     {% block structured_data %}
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://sruedadev.com/#empresa","name":"sruedadev.com","description":"Desarrollo web, software a tu medida y soluciones digitales","url":"https://sruedadev.com","image":"https://sruedadev.com{% static 'core/img/logo.png' %}","logo":"https://sruedadev.com{% static 'core/img/logo.png' %}","email":"hello@sruedadev.com","telephone":"+57 3506240534","additionalType":["https://schema.org/SoftwareApplication","https://www.wikidata.org/wiki/Q638608"],"knowsAbout":["Desarrollo web","Desarrollo de software a medida","Tiendas en línea","Sistemas de gestión empresarial","Páginas web para empresas"],"priceRange":"$$","currenciesAccepted":"COP","address":{"@type":"PostalAddress","addressLocality":"Floridablanca","addressRegion":"Santander","addressCountry":"CO"},"areaServed":[{"@type":"Place","name":"Floridablanca, Santander, Colombia"},{"@type":"Country","name":"Colombia"}],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"20:00"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Servicios de desarrollo","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Desarrollo Web","description":"Sitios corporativos, landing pages y portales rápidos, responsivos y optimizados para aparecer en Google. Diseño propio, nada de plantillas genéricas."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Software a tu Medida","description":"Sistemas de gestión hechos para tu operación real: inventario, facturación, citas, reportes. Automatizamos lo que hoy haces en papel o en Excel."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Automatización","description":"Automatizamos tareas repetitivas y flujos de trabajo con inteligencia artificial: chatbots, procesamiento de documentos y agentes que trabajan por ti."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Integración con APIs","description":"Conectamos tu sistema con pasarelas de pago, CRMs, facturación electrónica y cualquier servicio externo que tu operación necesite."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"E-commerce","description":"Tiendas en línea con catálogo, carrito, pasarela de pagos y control de stock, integradas con tus redes sociales."}}]}}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://sruedadev.com/#empresa","name":"sruedadev.com","description":"Desarrollo web, software a tu medida y soluciones digitales","url":"https://sruedadev.com","image":"https://sruedadev.com{% static 'core/img/logo-og.png' %}","logo":"https://sruedadev.com{% static 'core/img/logo-og.png' %}","email":"hello@sruedadev.com","telephone":"+57 3506240534","additionalType":["https://schema.org/SoftwareApplication","https://www.wikidata.org/wiki/Q638608"],"knowsAbout":["Desarrollo web","Desarrollo de software a medida","Tiendas en línea","Sistemas de gestión empresarial","Páginas web para empresas"],"priceRange":"$$","currenciesAccepted":"COP","address":{"@type":"PostalAddress","addressLocality":"Floridablanca","addressRegion":"Santander","addressCountry":"CO"},"areaServed":[{"@type":"Place","name":"Floridablanca, Santander, Colombia"},{"@type":"Country","name":"Colombia"}],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"20:00"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Servicios de desarrollo","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Desarrollo Web","description":"Sitios corporativos, landing pages y portales rápidos, responsivos y optimizados para aparecer en Google. Diseño propio, nada de plantillas genéricas."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Software a tu Medida","description":"Sistemas de gestión hechos para tu operación real: inventario, facturación, citas, reportes. Automatizamos lo que hoy haces en papel o en Excel."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Automatización","description":"Automatizamos tareas repetitivas y flujos de trabajo con inteligencia artificial: chatbots, procesamiento de documentos y agentes que trabajan por ti."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Integración con APIs","description":"Conectamos tu sistema con pasarelas de pago, CRMs, facturación electrónica y cualquier servicio externo que tu operación necesite."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"E-commerce","description":"Tiendas en línea con catálogo, carrito, pasarela de pagos y control de stock, integradas con tus redes sociales."}}]}}</script>
     {% endblock %}
 </head>
 

@@ -881,4 +881,17 @@
         secciones.forEach(function (s) { espia.observe(s); });
     }
 
+    /* --- Evento de GA4 al hacer clic en cualquier enlace de WhatsApp ---
+       Delegado en document: funciona para los botones que ya existen al
+       cargar la pagina y para los que agregue el JS mas tarde. Si no hay
+       GA_MEASUREMENT_ID configurado, gtag no existe y el click no hace nada
+       mas que seguir el enlace. */
+    document.addEventListener('click', function (e) {
+        var enlace = e.target.closest('.js-whatsapp-cta');
+        if (!enlace) { return; }
+        if (typeof window.gtag === 'function') {
+            window.gtag('event', 'whatsapp_click', { page_path: location.pathname });
+        }
+    });
+
 })();

@@ -35,6 +35,16 @@
     <meta property="og:url" content="{% block og_url %}https://sruedadev.com/{% endblock %}">
     <meta property="og:locale" content="es_CO">
 
+    {% if ga_measurement_id %}
+    <script async src="https://www.googletagmanager.com/gtag/js?id={{ ga_measurement_id }}"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', '{{ ga_measurement_id }}');
+    </script>
+    {% endif %}
+
     {% block structured_data %}
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","@id":"https://sruedadev.com/#empresa","name":"sruedadev.com","description":"Desarrollo web, software a tu medida y soluciones digitales","url":"https://sruedadev.com","image":"https://sruedadev.com{% static 'core/img/logo-og.png' %}","logo":"https://sruedadev.com{% static 'core/img/logo-og.png' %}","email":"hello@sruedadev.com","telephone":"+57 3506240534","additionalType":["https://schema.org/SoftwareApplication","https://www.wikidata.org/wiki/Q638608"],"knowsAbout":["Desarrollo web","Desarrollo de software a medida","Tiendas en línea","Sistemas de gestión empresarial","Páginas web para empresas"],"priceRange":"$$","currenciesAccepted":"COP","address":{"@type":"PostalAddress","addressLocality":"Floridablanca","addressRegion":"Santander","addressCountry":"CO"},"areaServed":[{"@type":"Place","name":"Floridablanca, Santander, Colombia"},{"@type":"Country","name":"Colombia"}],"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],"opens":"07:00","closes":"20:00"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Servicios de desarrollo","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Desarrollo Web","description":"Sitios corporativos, landing pages y portales rápidos, responsivos y optimizados para aparecer en Google. Diseño propio, nada de plantillas genéricas."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Software a tu Medida","description":"Sistemas de gestión hechos para tu operación real: inventario, facturación, citas, reportes. Automatizamos lo que hoy haces en papel o en Excel."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"AI Automatización","description":"Automatizamos tareas repetitivas y flujos de trabajo con inteligencia artificial: chatbots, procesamiento de documentos y agentes que trabajan por ti."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Integración con APIs","description":"Conectamos tu sistema con pasarelas de pago, CRMs, facturación electrónica y cualquier servicio externo que tu operación necesite."}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"E-commerce","description":"Tiendas en línea con catálogo, carrito, pasarela de pagos y control de stock, integradas con tus redes sociales."}}]}}</script>
     {% endblock %}

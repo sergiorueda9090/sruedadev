@@ -41,6 +41,10 @@ ALLOWED_HOSTS = [
     h.strip() for h in os.environ.get('ALLOWED_HOSTS', '').split(',') if h.strip()
 ]
 
+# ID de medición de Google Analytics 4. Vacío en local si no está en .env;
+# la plantilla base solo carga gtag.js cuando esto tiene un valor.
+GA_MEASUREMENT_ID = os.environ.get('GA_MEASUREMENT_ID', '')
+
 
 # Application definition
 

@@ -331,17 +331,29 @@ p { margin: 0 0 1.1em; }
 }
 
 .punto {
+    position: relative;
     width: 7px; height: 7px;
     border-radius: 50%;
     background: var(--azul);
-    box-shadow: 0 0 0 0 rgba(11, 99, 246, .45);
+}
+
+/* Mismo anillo que antes (antes animaba box-shadow, que fuerza pintado en
+   cada fotograma: PageSpeed lo marcaba como "animación no compuesta"). Un
+   pseudo-elemento que escala y se desvanece con transform/opacity logra el
+   mismo efecto pero corre en el compositor, sin tocar el hilo principal. */
+.punto::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    background: rgba(11, 99, 246, .45);
     animation: pulso 2.4s infinite;
 }
 
 @keyframes pulso {
-    0%   { box-shadow: 0 0 0 0 rgba(11, 99, 246, .45); }
-    70%  { box-shadow: 0 0 0 12px rgba(11, 99, 246, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(11, 99, 246, 0); }
+    0%   { transform: scale(1); opacity: .45; }
+    70%  { transform: scale(4.4); opacity: 0; }
+    100% { transform: scale(4.4); opacity: 0; }
 }
 
 .bajada {
@@ -2327,7 +2339,7 @@ p { margin: 0 0 1.1em; }
 
 @media (prefers-reduced-motion: reduce) {
     .aparece { opacity: 1; transform: none; transition: none; }
-    .punto { animation: none; }
+    .punto::after { animation: none; }
     html { scroll-behavior: auto; }
 
     /* El carrusel deja de avanzar solo y las ilustraciones se quedan quietas.

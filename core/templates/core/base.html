@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'core/css/estilo.css' %}">
+    <link rel="stylesheet" href="{% static 'core/css/estilo.min.css' %}">
     <link rel="preload" as="image" href="{% static 'core/img/mascota-sr.webp' %}" fetchpriority="high">
 
     <link rel="canonical" href="{% block canonical %}https://sruedadev.com/{% endblock %}">
@@ -51,7 +51,7 @@
 {% include "core/partials/_footer.html" %}
 {% include "core/partials/_flotantes.html" %}
 
-<script src="{% static 'core/js/main.js' %}" defer></script>
+<script src="{% static 'core/js/main.min.js' %}" defer></script>
 {% block extra_js %}{% endblock %}
 
 </body>

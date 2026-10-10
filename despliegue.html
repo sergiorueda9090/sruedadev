@@ -1,0 +1,729 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Despliegue sruedadev.com</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0b0f14; --surface:#121820; --surface-2:#1a222c; --surface-3:#0e141b;
+    --border:#243140; --border-soft:#1a2430;
+    --fg:#e7edf3; --fg-muted:#90a0b0; --fg-faint:#5b6b7a;
+    --accent:#f2a93b; --accent-fg:#1a1203; --accent-soft:#3a2c13;
+    --ok:#4caf7d; --ok-soft:#132b20;
+    --warn:#ef6b5e; --warn-soft:#3a1a16;
+    --info:#5ea8d9; --info-soft:#122838;
+    --radius:10px; --radius-lg:16px;
+    --font-sans:'IBM Plex Sans',-apple-system,'Segoe UI',sans-serif;
+    --font-mono:'IBM Plex Mono','SFMono-Regular',Consolas,monospace;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0; background:var(--bg); color:var(--fg); font-family:var(--font-sans); line-height:1.55; -webkit-font-smoothing:antialiased;}
+  h1,h2,h3{font-family:var(--font-sans); margin:0;}
+  p{margin:0 0 .9em;}
+  a{color:var(--accent);}
+  code{font-family:var(--font-mono);}
+  ::selection{background:var(--accent); color:var(--accent-fg);}
+
+  .wrap{max-width:760px; margin:0 auto; padding:0 20px 80px;}
+
+  .topbar{position:sticky; top:0; z-index:50; background:rgba(18,24,32,.92); backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px); border-bottom:1px solid var(--border);}
+  .topbar-inner{max-width:760px; margin:0 auto; padding:12px 20px; display:flex; align-items:center; gap:14px;}
+  .topbar-title{font-weight:700; font-size:.95rem; letter-spacing:-.01em; white-space:nowrap;}
+  .topbar-title span{color:var(--accent);}
+  .progress-track{flex:1; height:6px; border-radius:999px; background:var(--surface-3); overflow:hidden; border:1px solid var(--border-soft);}
+  .progress-fill{height:100%; width:0%; background:var(--accent); transition:width .25s ease;}
+  .progress-label{font-size:.72rem; color:var(--fg-muted); font-variant-numeric:tabular-nums; white-space:nowrap;}
+
+  .hero{padding:40px 0 8px;}
+  .eyebrow{display:inline-flex; align-items:center; gap:8px; font-size:.72rem; font-weight:600; letter-spacing:.14em; text-transform:uppercase; color:var(--accent); margin-bottom:14px;}
+  .eyebrow::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);}
+  .hero h1{font-size:clamp(1.6rem,1.3rem + 1.5vw,2.2rem); font-weight:700; margin-bottom:10px;}
+  .hero .lead{color:var(--fg-muted); font-size:1rem; max-width:58ch;}
+
+  .facts{display:grid; grid-template-columns:repeat(auto-fit,minmax(140px,1fr)); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:var(--radius-lg); overflow:hidden; margin:24px 0 8px;}
+  .fact{background:var(--surface); padding:14px 16px;}
+  .fact b{display:block; font-size:.68rem; text-transform:uppercase; letter-spacing:.08em; color:var(--fg-faint); margin-bottom:5px; font-weight:600;}
+  .fact span{font-family:var(--font-mono); font-size:.88rem; word-break:break-word;}
+
+  .callout{border-radius:var(--radius); padding:13px 16px; margin:16px 0; border:1px solid; font-size:.92rem; display:flex; gap:10px;}
+  .callout .ctag{flex-shrink:0; font-size:.66rem; font-weight:700; letter-spacing:.06em; text-transform:uppercase; padding:2px 7px; border-radius:5px; height:fit-content;}
+  .callout p:last-child{margin-bottom:0;}
+  .callout-tip{background:var(--ok-soft); border-color:#1d4634;}
+  .callout-tip .ctag{background:var(--ok); color:#05170f;}
+  .callout-warn{background:var(--warn-soft); border-color:#5a2e28;}
+  .callout-warn .ctag{background:var(--warn); color:#2a0704;}
+  .callout-info{background:var(--info-soft); border-color:#1f3f55;}
+  .callout-info .ctag{background:var(--info); color:#07141f;}
+  .callout-fix{background:#1a2a12; border-color:#3a5a22;}
+  .callout-fix .ctag{background:#8fd24a; color:#0d1a05;}
+
+  .toc{background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:18px 18px 10px; margin:28px 0;}
+  .toc h2{font-size:.78rem; text-transform:uppercase; letter-spacing:.1em; color:var(--fg-faint); margin-bottom:12px;}
+  .toc ol{margin:0; padding:0; list-style:none; columns:2; column-gap:20px;}
+  .toc li{break-inside:avoid; margin-bottom:8px;}
+  .toc a{color:var(--fg-muted); text-decoration:none; font-size:.86rem; display:flex; gap:8px; align-items:baseline;}
+  .toc a:hover{color:var(--accent);}
+  .toc a b{color:var(--fg-faint); font-family:var(--font-mono); font-weight:600; font-size:.78rem;}
+  @media (max-width:560px){.toc ol{columns:1;}}
+
+  .group-title{margin:46px 0 18px; padding-bottom:10px; border-bottom:1px solid var(--border); font-size:.72rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--fg-faint);}
+
+  .step{scroll-margin-top:72px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:22px 22px 24px; margin-bottom:16px;}
+  .step-head{display:flex; align-items:flex-start; gap:14px; margin-bottom:6px;}
+  .step-num{flex-shrink:0; width:34px; height:34px; border-radius:9px; background:var(--accent-soft); color:var(--accent); border:1px solid #5a4420; display:flex; align-items:center; justify-content:center; font-family:var(--font-mono); font-weight:600; font-size:.92rem;}
+  .step h3{font-size:1.08rem; font-weight:700; margin-bottom:3px; padding-top:4px;}
+  .step-sub{color:var(--fg-muted); font-size:.84rem;}
+  .step-body{margin-top:14px; padding-left:48px;}
+  .step-body > p:first-child{margin-top:0;}
+  .step-check{margin-left:auto; display:flex; align-items:center; gap:6px; flex-shrink:0; padding-top:6px;}
+  .step-check label{display:flex; align-items:center; gap:6px; font-size:.76rem; color:var(--fg-faint); cursor:pointer; user-select:none;}
+  .step-check input{width:16px; height:16px; accent-color:var(--ok); cursor:pointer;}
+
+  .code-block{margin:14px 0; border-radius:var(--radius); overflow:hidden; border:1px solid var(--border-soft);}
+  .code-head{display:flex; align-items:center; justify-content:space-between; gap:10px; background:var(--surface-3); padding:7px 12px; border-bottom:1px solid var(--border-soft);}
+  .code-label{font-size:.68rem; font-weight:700; letter-spacing:.07em; text-transform:uppercase; color:var(--fg-muted); display:flex; align-items:center; gap:7px;}
+  .code-label::before{content:'';width:7px;height:7px;border-radius:50%;}
+  .code-label.loc::before{background:var(--info);}
+  .code-label.srv::before{background:var(--accent);}
+  .code-label.aws::before{background:var(--ok);}
+  .copy-btn{font-family:var(--font-sans); font-size:.7rem; font-weight:600; color:var(--fg-muted); background:transparent; border:1px solid var(--border); border-radius:6px; padding:4px 9px; cursor:pointer;}
+  .copy-btn:hover{color:var(--fg); border-color:var(--accent);}
+  .copy-btn.copied{color:var(--ok); border-color:var(--ok);}
+  pre{margin:0; padding:13px 14px; overflow-x:auto; background:var(--surface-2);}
+  pre code{font-family:var(--font-mono); font-size:.82rem; line-height:1.6; color:var(--fg); white-space:pre; tab-size:2;}
+
+  .filebox{border:1px dashed var(--border); border-radius:var(--radius); padding:10px 13px; font-family:var(--font-mono); font-size:.8rem; color:var(--fg-muted); margin:12px 0; display:flex; align-items:center; gap:8px; background:var(--surface-2);}
+  .filebox b{color:var(--fg); font-weight:600;}
+
+  ul.steplist, ol.steplist{padding-left:1.25em; margin:0 0 .9em;}
+  ul.steplist li, ol.steplist li{margin-bottom:6px;}
+  .kbd{font-family:var(--font-mono); font-size:.82rem; background:var(--surface-2); border:1px solid var(--border); border-radius:5px; padding:1px 6px;}
+
+  table.simple{width:100%; border-collapse:collapse; margin:12px 0; font-size:.86rem;}
+  table.simple th, table.simple td{text-align:left; padding:8px 10px; border-bottom:1px solid var(--border-soft); vertical-align:top;}
+  table.simple th{color:var(--fg-faint); font-size:.7rem; text-transform:uppercase; letter-spacing:.06em; font-weight:600;}
+  table.simple td code{font-size:.8rem;}
+
+  .checklist-final{display:flex; flex-direction:column; gap:10px;}
+  .checklist-final label{display:flex; align-items:flex-start; gap:10px; font-size:.92rem; background:var(--surface-2); border:1px solid var(--border-soft); border-radius:9px; padding:11px 13px; cursor:pointer;}
+  .checklist-final input{margin-top:3px; width:16px; height:16px; accent-color:var(--ok); flex-shrink:0;}
+
+  footer{margin-top:60px; padding-top:20px; border-top:1px solid var(--border); color:var(--fg-faint); font-size:.8rem;}
+
+  @media (max-width:520px){.step-body{padding-left:0;} .topbar-title{display:none;}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-title">sruedadev<span>.com</span> → EC2</div>
+    <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+    <div class="progress-label" id="progressLabel">0 / 16</div>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <div class="hero">
+    <div class="eyebrow">Guía de despliegue — v2, probada en el servidor real</div>
+    <h1>Subir sruedadev.com a un EC2 económico con Apache2</h1>
+    <p class="lead">Versión actualizada con las correcciones encontradas durante el despliegue real: compatibilidad de Django con Python nuevo, permisos de carpeta, el conflicto de Certbot con mod_wsgi, y el problema de git con los permisos de archivo.</p>
+  </div>
+
+  <div class="facts">
+    <div class="fact"><b>Repositorio</b><span>github.com/sergiorueda9090/sruedadev</span></div>
+    <div class="fact"><b>Dominio</b><span>sruedadev.com</span></div>
+    <div class="fact"><b>Instancia</b><span>t2.micro / t3.micro — capa gratuita</span></div>
+    <div class="fact"><b>Sistema operativo</b><span>Ubuntu Server</span></div>
+    <div class="fact"><b>Servidor web</b><span>Apache2 + mod_wsgi</span></div>
+    <div class="fact"><b>Django</b><span>5.2 LTS (requirements.txt)</span></div>
+  </div>
+
+  <div class="callout callout-fix">
+    <span class="ctag">Ya corregido aquí</span>
+    <p>Esta versión de la guía ya incorpora las tres correcciones que surgieron al desplegar por primera vez: Django 5.2 en <code>requirements.txt</code> (Paso 7), permisos mínimos + <code>core.fileMode false</code> (Pasos 6 y 10), y <code>WSGIDaemonProcess</code> a nivel de archivo en vez de dentro del <code>VirtualHost</code> (Paso 11), para que Certbot no choque en el Paso 15. Si sigues esta guía de cero, no deberías encontrarte ninguno de los tres errores.</p>
+  </div>
+
+  <div class="toc">
+    <h2>Índice</h2>
+    <ol>
+      <li><a href="#paso-1"><b>01</b> Subir los cambios a GitHub</a></li>
+      <li><a href="#paso-2"><b>02</b> Crear la instancia EC2</a></li>
+      <li><a href="#paso-3"><b>03</b> Asignar una IP elástica</a></li>
+      <li><a href="#paso-4"><b>04</b> Conectarte por SSH</a></li>
+      <li><a href="#paso-5"><b>05</b> Instalar dependencias del servidor</a></li>
+      <li><a href="#paso-6"><b>06</b> Clonar el repositorio</a></li>
+      <li><a href="#paso-7"><b>07</b> Entorno virtual + dependencias Python</a></li>
+      <li><a href="#paso-8"><b>08</b> Variables de entorno de producción</a></li>
+      <li><a href="#paso-9"><b>09</b> Base de datos y estáticos</a></li>
+      <li><a href="#paso-10"><b>10</b> Permisos de archivos</a></li>
+      <li><a href="#paso-11"><b>11</b> Configurar Apache + mod_wsgi</a></li>
+      <li><a href="#paso-12"><b>12</b> Verificar por IP antes del dominio</a></li>
+      <li><a href="#paso-13"><b>13</b> Apuntar el dominio en Route 53</a></li>
+      <li><a href="#paso-14"><b>14</b> Confirmar que sruedadev.com carga</a></li>
+      <li><a href="#paso-15"><b>15</b> Certificado SSL gratis (HTTPS)</a></li>
+      <li><a href="#paso-16"><b>16</b> Verificación final</a></li>
+    </ol>
+  </div>
+
+  <div class="group-title">Antes de entrar a AWS</div>
+
+  <section class="step" id="paso-1">
+    <div class="step-head">
+      <div class="step-num">01</div>
+      <div><h3>Sube los cambios locales a GitHub</h3><div class="step-sub">En tu computador, antes de tocar AWS</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="1"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <p>El servidor va a descargar el código directamente del repositorio. Confirma que <code>requirements.txt</code>, <code>.env.example</code> y <code>srueda/settings.py</code> estén subidos y actualizados.</p>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label loc">Local — carpeta del proyecto</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>git add -A
+git commit -m "Preparar proyecto para despliegue en producción"
+git push origin main</code></pre>
+      </div>
+      <div class="callout callout-tip">
+        <span class="ctag">Verifica</span>
+        <p>Entra a <a href="https://github.com/sergiorueda9090/sruedadev" target="_blank" rel="noopener">github.com/sergiorueda9090/sruedadev</a> y confirma que ves <span class="kbd">requirements.txt</span> y <span class="kbd">.env.example</span> en la raíz. Si el repositorio es privado, en el Paso 6 necesitas un token de acceso para clonarlo.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="group-title">Crear y preparar el servidor en AWS</div>
+
+  <section class="step" id="paso-2">
+    <div class="step-head">
+      <div class="step-num">02</div>
+      <div><h3>Crea la instancia EC2</h3><div class="step-sub">Consola de AWS → EC2 → Instancias</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="2"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <p>En la consola de AWS, busca <b>EC2</b> → <b>Launch Instance</b>. Completa así:</p>
+      <ol class="steplist">
+        <li><b>Nombre:</b> <span class="kbd">sruedadev-prod</span>.</li>
+        <li><b>Imagen (AMI):</b> Ubuntu Server (LTS), la que diga "Free tier eligible".</li>
+        <li><b>Tipo de instancia:</b> <span class="kbd">t2.micro</span> o <span class="kbd">t3.micro</span> (lo que diga "Free tier eligible" en tu región).</li>
+        <li><b>Par de claves:</b> <b>Create new key pair</b> → nómbralo <span class="kbd">sruedadev-key</span>, tipo RSA, formato <b>.pem</b>. Descárgalo, es la única vez que lo entregan.</li>
+        <li><b>Network settings → Edit:</b> crea un Security Group con las tres reglas de la tabla.</li>
+      </ol>
+      <table class="simple">
+        <tr><th>Tipo</th><th>Puerto</th><th>Origen</th><th>Para qué</th></tr>
+        <tr><td><code>SSH</code></td><td>22</td><td>My IP (recomendado)</td><td>Conectarte por terminal</td></tr>
+        <tr><td><code>HTTP</code></td><td>80</td><td>0.0.0.0/0</td><td>Tráfico web normal</td></tr>
+        <tr><td><code>HTTPS</code></td><td>443</td><td>0.0.0.0/0</td><td>Tráfico cifrado (SSL)</td></tr>
+      </table>
+      <p><b>Almacenamiento:</b> 8-20 GB gp3 está bien dentro de la capa gratuita. Luego <b>Launch Instance</b> y espera a <b>Running</b>.</p>
+      <div class="callout callout-warn">
+        <span class="ctag">Atención</span>
+        <p>No pierdas el archivo <code>.pem</code>: es la única llave para entrar por SSH.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="paso-3">
+    <div class="step-head">
+      <div class="step-num">03</div>
+      <div><h3>Asigna una IP elástica (Elastic IP)</h3><div class="step-sub">Consola de AWS → EC2 → Elastic IPs</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="3"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <p>La IP pública por defecto cambia si reinicias la instancia. Necesitas una fija para el dominio.</p>
+      <ol class="steplist">
+        <li><b>Network &amp; Security → Elastic IPs → Allocate Elastic IP address → Allocate.</b></li>
+        <li>Selecciona la IP → <b>Actions → Associate Elastic IP address</b>.</li>
+        <li>Elige <span class="kbd">sruedadev-prod</span> → <b>Associate</b>.</li>
+      </ol>
+      <p>Anota esa IP — la llamamos <code>TU_IP_ELASTICA</code> en el resto de la guía.</p>
+    </div>
+  </section>
+
+  <section class="step" id="paso-4">
+    <div class="step-head">
+      <div class="step-num">04</div>
+      <div><h3>Conéctate por SSH</h3><div class="step-sub">Terminal de tu computador</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="4"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <div class="code-block">
+        <div class="code-head"><span class="code-label loc">Local — PowerShell o Git Bash</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>ssh -i "ruta\a\sruedadev-key.pem" ubuntu@TU_IP_ELASTICA</code></pre>
+      </div>
+      <div class="callout callout-warn">
+        <span class="ctag">Error común</span>
+        <p>Si da <code>UNPROTECTED PRIVATE KEY FILE</code>: <code>chmod 400 "ruta\a\sruedadev-key.pem"</code> y reintenta. Cuando pregunte por el fingerprint, escribe <span class="kbd">yes</span>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="paso-5">
+    <div class="step-head">
+      <div class="step-num">05</div>
+      <div><h3>Instala las dependencias del servidor</h3><div class="step-sub">Por SSH, dentro de la instancia</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="5"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>sudo apt update && sudo apt upgrade -y
+sudo apt install -y python3-pip python3-venv apache2 libapache2-mod-wsgi-py3 git</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="paso-6">
+    <div class="step-head">
+      <div class="step-num">06</div>
+      <div><h3>Clona el repositorio</h3><div class="step-sub">Por SSH, dentro de la instancia</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="6"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>cd ~
+git clone https://github.com/sergiorueda9090/sruedadev.git
+cd sruedadev
+git config core.fileMode false</code></pre>
+      </div>
+      <p>El proyecto queda en <code>/home/ubuntu/sruedadev</code>.</p>
+      <div class="callout callout-fix">
+        <span class="ctag">Corrección</span>
+        <p><code>git config core.fileMode false</code> evita un problema real que apareció al desplegar: cuando más adelante (Paso 10) se cambian permisos de archivos para que Apache pueda escribir la base de datos, git detecta ese cambio de permisos como si fuera una modificación de contenido — y <code>git status</code> termina mostrando <b>todos</b> los archivos del repositorio como "modified" sin que hayas tocado nada, bloqueando futuros <code>git pull</code>. Este comando le dice a git que ignore los permisos del archivo y solo mire el contenido real.</p>
+      </div>
+      <div class="callout callout-info">
+        <span class="ctag">Si el repositorio es privado</span>
+        <p>GitHub pedirá usuario y un <b>Personal Access Token</b> como contraseña (Settings → Developer settings → Personal access tokens), no tu contraseña normal.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="paso-7">
+    <div class="step-head">
+      <div class="step-num">07</div>
+      <div><h3>Crea el entorno virtual e instala las dependencias</h3><div class="step-sub">Por SSH, dentro de <code>~/sruedadev</code></div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="7"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>python3 -m venv env
+source env/bin/activate
+pip install --upgrade pip
+pip install -r requirements.txt</code></pre>
+      </div>
+      <p>Verás <code>(env)</code> al inicio del prompt mientras esté activo.</p>
+      <div class="callout callout-fix">
+        <span class="ctag">Corrección</span>
+        <p><code>requirements.txt</code> fija <b>Django==5.2.18</b> (LTS), no Django 4.0. Algunas imágenes recientes de Ubuntu traen <code>python3</code> apuntando a una versión muy nueva de Python (3.13+), que eliminó el módulo <code>cgi</code> — Django 4.0 todavía lo necesitaba internamente y fallaba con <code>ModuleNotFoundError: No module named 'cgi'</code> al correr <code>migrate</code>. Django 5.2 ya no depende de ese módulo. Mientras uses el <code>requirements.txt</code> del repositorio tal cual, no deberías ver ese error.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="paso-8">
+    <div class="step-head">
+      <div class="step-num">08</div>
+      <div><h3>Configura las variables de entorno de producción</h3><div class="step-sub">Por SSH, con el entorno virtual activo</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="8"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <p>Genera una clave secreta nueva para este servidor:</p>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>python3 -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"</code></pre>
+      </div>
+      <p>Copia el valor. Crea el <code>.env</code>:</p>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>cp .env.example .env
+nano .env</code></pre>
+      </div>
+      <div class="filebox"><b>.env</b></div>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Contenido del archivo</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>SECRET_KEY=pega-aqui-la-clave-que-generaste
+DEBUG=False
+ALLOWED_HOSTS=sruedadev.com,www.sruedadev.com,TU_IP_ELASTICA</code></pre>
+      </div>
+      <p>Guarda con <span class="kbd">Ctrl+O</span>, <span class="kbd">Enter</span>, sal con <span class="kbd">Ctrl+X</span>.</p>
+      <div class="callout callout-warn">
+        <span class="ctag">Importante</span>
+        <p><code>DEBUG=False</code> es obligatorio en producción.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="paso-9">
+    <div class="step-head">
+      <div class="step-num">09</div>
+      <div><h3>Prepara la base de datos y los archivos estáticos</h3><div class="step-sub">Por SSH, con el entorno virtual activo</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="9"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>python manage.py migrate
+python manage.py collectstatic --noinput</code></pre>
+      </div>
+      <p>Opcional, para entrar a <code>/admin/</code>:</p>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>python manage.py createsuperuser</code></pre>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="paso-10">
+    <div class="step-head">
+      <div class="step-num">10</div>
+      <div><h3>Da los permisos correctos a la carpeta del proyecto</h3><div class="step-sub">Por SSH — puedes salir del entorno virtual con <code>deactivate</code></div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="10"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <p>Apache corre como <code>www-data</code>. Como la base de datos es SQLite, <code>www-data</code> necesita poder <b>escribir</b> en la carpeta raíz del proyecto (SQLite crea archivos temporales junto a <code>db.sqlite3</code>) y en el propio archivo.</p>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>sudo usermod -aG www-data ubuntu
+sudo chown -R ubuntu:www-data /home/ubuntu/sruedadev
+sudo chmod 775 /home/ubuntu/sruedadev
+sudo chmod 664 /home/ubuntu/sruedadev/db.sqlite3
+sudo chmod o+x /home/ubuntu</code></pre>
+      </div>
+      <div class="callout callout-fix">
+        <span class="ctag">Corrección</span>
+        <p>Antes este paso usaba <code>chmod -R 775</code> (recursivo, sobre <b>todo</b> el proyecto). Eso cambia el permiso de cada archivo tracked por git y, aunque ya corriste <code>git config core.fileMode false</code> en el Paso 6, es innecesario: solo la <b>carpeta raíz</b> necesita ser escribible, para que SQLite pueda crear su archivo de journal junto a <code>db.sqlite3</code>. El resto de archivos (plantillas, CSS, imágenes) no necesitan cambiar de permiso.</p>
+      </div>
+      <div class="callout callout-warn">
+        <span class="ctag">El paso que más se olvida</span>
+        <p>Por defecto, Ubuntu crea <code>/home/ubuntu</code> con permisos <code>750</code>: solo el usuario <code>ubuntu</code> puede entrar ahí, sin importar los permisos de <code>sruedadev</code> por dentro. Apache (como <code>www-data</code>) necesita permiso de <b>búsqueda</b> (<code>+x</code>) en <i>cada carpeta del camino</i>. Sin el <code>chmod o+x /home/ubuntu</code> de arriba, Apache responde <code>403 Forbidden</code> con <code>Permission denied... search permissions are missing on a component of the path</code> en el log de errores, aunque todo lo demás esté bien.</p>
+      </div>
+      <div class="callout callout-info">
+        <span class="ctag">Nota</span>
+        <p>Si <code>usermod</code> no surte efecto en tu sesión actual, cierra la conexión SSH (<code>exit</code>) y vuelve a entrar. Los <code>chmod</code> sí aplican de inmediato.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="paso-11">
+    <div class="step-head">
+      <div class="step-num">11</div>
+      <div><h3>Configura Apache con mod_wsgi</h3><div class="step-sub">Por SSH</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="11"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <p>Crea el archivo de configuración del sitio:</p>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>sudo nano /etc/apache2/sites-available/sruedadev.conf</code></pre>
+      </div>
+      <p>Pega este contenido completo:</p>
+      <div class="filebox"><b>/etc/apache2/sites-available/sruedadev.conf</b></div>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Contenido del archivo</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>WSGIDaemonProcess sruedadev python-home=/home/ubuntu/sruedadev/env python-path=/home/ubuntu/sruedadev
+WSGIProcessGroup sruedadev
+
+&lt;VirtualHost *:80&gt;
+    ServerName sruedadev.com
+    ServerAlias www.sruedadev.com
+
+    Alias /static/ /home/ubuntu/sruedadev/staticfiles/
+    &lt;Directory /home/ubuntu/sruedadev/staticfiles&gt;
+        Require all granted
+    &lt;/Directory&gt;
+
+    &lt;Directory /home/ubuntu/sruedadev/srueda&gt;
+        &lt;Files wsgi.py&gt;
+            Require all granted
+        &lt;/Files&gt;
+    &lt;/Directory&gt;
+
+    WSGIScriptAlias / /home/ubuntu/sruedadev/srueda/wsgi.py
+
+    ErrorLog ${APACHE_LOG_DIR}/sruedadev-error.log
+    CustomLog ${APACHE_LOG_DIR}/sruedadev-access.log combined
+&lt;/VirtualHost&gt;</code></pre>
+      </div>
+      <div class="callout callout-fix">
+        <span class="ctag">Corrección — importante</span>
+        <p><code>WSGIDaemonProcess</code> y <code>WSGIProcessGroup</code> van <b>antes</b> del bloque <code>&lt;VirtualHost&gt;</code>, no dentro. En la primera versión de esta guía estaban dentro del bloque <code>:80</code>, y al instalar el certificado SSL en el Paso 15, Certbot <b>clona</b> todo lo que hay dentro del <code>VirtualHost</code> hacia un nuevo bloque <code>:443</code> — duplicando <code>WSGIDaemonProcess sruedadev</code> y rompiendo Apache con <code>Name duplicates previous WSGI daemon definition</code>. Declarándolo una sola vez, fuera del bloque, Certbot nunca lo copia y el Paso 15 funciona sin fricción.</p>
+      </div>
+      <p>Guarda y activa el sitio:</p>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>sudo a2dissite 000-default.conf
+sudo a2ensite sruedadev.conf
+sudo apache2ctl configtest
+sudo systemctl restart apache2</code></pre>
+      </div>
+      <p><code>apache2ctl configtest</code> debe responder <code>Syntax OK</code>.</p>
+    </div>
+  </section>
+
+  <section class="step" id="paso-12">
+    <div class="step-head">
+      <div class="step-num">12</div>
+      <div><h3>Verifica el sitio por IP, antes de tocar el dominio</h3><div class="step-sub">Navegador</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="12"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <p>Abre <code>http://TU_IP_ELASTICA</code>. Debería cargar la página de inicio con normalidad.</p>
+      <div class="callout callout-warn">
+        <span class="ctag">Si no carga</span>
+        <p>Revisa el log exacto:</p>
+        <div class="code-block">
+          <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+          <pre><code>sudo tail -n 50 /var/log/apache2/sruedadev-error.log</code></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="group-title">Conectar el dominio</div>
+
+  <section class="step" id="paso-13">
+    <div class="step-head">
+      <div class="step-num">13</div>
+      <div><h3>Apunta sruedadev.com a la IP elástica en Route 53</h3><div class="step-sub">Consola de AWS → Route 53 → Hosted zones</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="13"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <p>Abre la zona <code>sruedadev.com</code>.</p>
+      <p><b>Registro raíz:</b> Create record → Record name vacío → Type <code>A</code> → Value: tu IP elástica → Create records.</p>
+      <p><b>Registro www:</b> Create record → Record name <code>www</code> → Type <code>A</code> → misma IP → Create records.</p>
+      <div class="callout callout-info">
+        <span class="ctag">Propagación</span>
+        <p>Puede tardar minutos a un par de horas en propagar del todo.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="step" id="paso-14">
+    <div class="step-head">
+      <div class="step-num">14</div>
+      <div><h3>Confirma que sruedadev.com carga</h3><div class="step-sub">Navegador</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="14"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <p>Abre <code>http://sruedadev.com</code> y <code>http://www.sruedadev.com</code>.</p>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label loc">Local — PowerShell</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>nslookup sruedadev.com</code></pre>
+      </div>
+      <p>Debe devolver tu IP elástica.</p>
+    </div>
+  </section>
+
+  <section class="step" id="paso-15">
+    <div class="step-head">
+      <div class="step-num">15</div>
+      <div><h3>Instala el certificado SSL gratuito (HTTPS)</h3><div class="step-sub">Por SSH — solo después de que el Paso 14 funcione</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="15"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>sudo apt install -y certbot python3-certbot-apache
+sudo certbot --apache -d sruedadev.com -d www.sruedadev.com</code></pre>
+      </div>
+      <p>Da un correo, acepta términos, y cuando pregunte por redirigir HTTP a HTTPS, elige <b>redirigir</b>.</p>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>sudo apache2ctl configtest
+sudo systemctl restart apache2</code></pre>
+      </div>
+      <p>Abre <code>https://sruedadev.com</code> y confirma el candado.</p>
+      <div class="callout callout-tip">
+        <span class="ctag">Renovación automática</span>
+        <div class="code-block">
+          <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+          <pre><code>sudo certbot renew --dry-run</code></pre>
+        </div>
+      </div>
+      <div class="callout callout-warn">
+        <span class="ctag">Si aparece "Name duplicates previous WSGI daemon definition"</span>
+        <p>Significa que <code>WSGIDaemonProcess</code> quedó dentro del bloque <code>&lt;VirtualHost&gt;</code> (revisa el Paso 11). Edita <code>/etc/apache2/sites-available/sruedadev-le-ssl.conf</code> si ya tiene contenido y borra ahí la línea duplicada, o reescribe <code>sruedadev.conf</code> con <code>WSGIDaemonProcess</code> fuera del bloque como en el Paso 11 y vuelve a correr <code>certbot --apache</code>.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="group-title">Verificación final</div>
+
+  <section class="step" id="paso-16">
+    <div class="step-head">
+      <div class="step-num">16</div>
+      <div><h3>Checklist de cierre</h3><div class="step-sub">Marca cada punto antes de dar el despliegue por terminado</div></div>
+      <div class="step-check"><label><input type="checkbox" data-step="16"> Hecho</label></div>
+    </div>
+    <div class="step-body">
+      <div class="checklist-final" id="finalChecklist">
+        <label><input type="checkbox" data-final="1"> <span><code>https://sruedadev.com</code> carga con el candado de seguridad, sin advertencias.</span></label>
+        <label><input type="checkbox" data-final="2"> <span><code>https://www.sruedadev.com</code> también carga (o redirige al dominio raíz).</span></label>
+        <label><input type="checkbox" data-final="3"> <span>Imágenes, CSS e iconos se ven bien (<code>collectstatic</code> corrió sin errores).</span></label>
+        <label><input type="checkbox" data-final="4"> <span>El botón de WhatsApp abre con el mensaje correcto (sin restos de la marca anterior).</span></label>
+        <label><input type="checkbox" data-final="5"> <span>El formulario de contacto envía correctamente.</span></label>
+        <label><input type="checkbox" data-final="6"> <span><code>.env</code> en el servidor tiene <code>DEBUG=False</code>.</span></label>
+        <label><input type="checkbox" data-final="7"> <span>Guardaste en lugar seguro: el <code>.pem</code>, la IP elástica y el <code>SECRET_KEY</code> de producción.</span></label>
+      </div>
+    </div>
+  </section>
+
+  <div class="group-title">Mantenimiento</div>
+
+  <section class="step">
+    <div class="step-head">
+      <div class="step-num">＋</div>
+      <div><h3>Cómo subir cambios nuevos al sitio ya desplegado</h3><div class="step-sub">Cada vez que edites el proyecto localmente</div></div>
+    </div>
+    <div class="step-body">
+      <div class="code-block">
+        <div class="code-head"><span class="code-label loc">Local</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>git add -A
+git commit -m "Describe aquí el cambio"
+git push origin main</code></pre>
+      </div>
+      <div class="code-block">
+        <div class="code-head"><span class="code-label srv">Servidor — SSH</span><button class="copy-btn" type="button">Copiar</button></div>
+        <pre><code>cd ~/sruedadev
+git pull origin main
+source env/bin/activate
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py collectstatic --noinput
+deactivate
+sudo systemctl restart apache2</code></pre>
+      </div>
+      <p>Si el cambio es solo en plantillas, CSS o <code>data.py</code>, puedes saltarte <code>pip install</code> y <code>migrate</code> — pero <code>collectstatic</code> y el reinicio de Apache siempre son necesarios.</p>
+      <div class="callout callout-fix">
+        <span class="ctag">Si <code>git pull</code> dice que hay cambios locales en archivos que no tocaste</span>
+        <p>Confirma que corriste <code>git config core.fileMode false</code> (Paso 6). Si no lo hiciste y ya tienes decenas de archivos "modified" sin razón, corre ese comando ahora y <code>git status</code> debería quedar limpio sin perder nada.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="group-title">Solución de problemas (errores reales encontrados)</div>
+
+  <section class="step">
+    <div class="step-head">
+      <div class="step-num">！</div>
+      <div><h3>Si algo falla</h3><div class="step-sub">Diagnóstico por síntoma, con los errores que ya aparecieron en este despliegue</div></div>
+    </div>
+    <div class="step-body">
+      <table class="simple">
+        <tr><th>Síntoma</th><th>Causa</th><th>Qué hacer</th></tr>
+        <tr>
+          <td><code>ModuleNotFoundError: No module named 'cgi'</code> al correr <code>migrate</code></td>
+          <td>Python del servidor es 3.13+ (eliminó el módulo <code>cgi</code>) y Django está en una versión vieja que aún lo usa</td>
+          <td>Confirma que <code>requirements.txt</code> tiene <code>Django==5.2.18</code> (o superior) y vuelve a <code>pip install -r requirements.txt</code>.</td>
+        </tr>
+        <tr>
+          <td><code>403 Forbidden</code> / <code>Permission denied ... search permissions are missing on a component of the path</code></td>
+          <td>Falta permiso de búsqueda en <code>/home/ubuntu</code> (se crea en <code>750</code> por defecto)</td>
+          <td><code>sudo chmod o+x /home/ubuntu</code> (Paso 10).</td>
+        </tr>
+        <tr>
+          <td><code>git pull</code> dice "local changes would be overwritten" y <code>git status</code> muestra <b>todos</b> los archivos como modified</td>
+          <td>Un <code>chmod -R</code> previo cambió el modo de cada archivo y git lo interpreta como contenido modificado</td>
+          <td><code>git config core.fileMode false</code> (Paso 6), luego <code>git status</code> debe quedar limpio y <code>git pull</code> funciona normal.</td>
+        </tr>
+        <tr>
+          <td>Certbot: <code>Error while running apache2ctl configtest</code> / <code>Name duplicates previous WSGI daemon definition</code></td>
+          <td><code>WSGIDaemonProcess</code> está dentro del <code>&lt;VirtualHost :80&gt;</code> y Certbot lo duplicó al clonar el bloque hacia <code>:443</code></td>
+          <td>Mueve <code>WSGIDaemonProcess</code> y <code>WSGIProcessGroup</code> fuera del bloque <code>VirtualHost</code>, a nivel de archivo (Paso 11), luego <code>sudo apache2ctl configtest &amp;&amp; sudo systemctl restart apache2</code> y vuelve a correr <code>certbot --apache</code>.</td>
+        </tr>
+        <tr>
+          <td>El HTML carga pero sin estilos</td>
+          <td>No corriste <code>collectstatic</code>, o la ruta <code>Alias /static/</code> no coincide</td>
+          <td>Repite el Paso 9 y confirma que <code>staticfiles/</code> existe en <code>~/sruedadev</code>.</td>
+        </tr>
+        <tr>
+          <td><code>DisallowedHost at /</code></td>
+          <td>El dominio o la IP no están en <code>ALLOWED_HOSTS</code></td>
+          <td>Edita <code>.env</code> (Paso 8) y agrega el host que falta, separado por coma, sin espacios.</td>
+        </tr>
+        <tr>
+          <td>El sitio carga por IP pero no por dominio</td>
+          <td>DNS aún no propagó</td>
+          <td>Espera y confirma con <code>nslookup sruedadev.com</code>.</td>
+        </tr>
+      </table>
+      <p>Para cualquier cambio en <code>sruedadev.conf</code>, siempre corre <code>sudo apache2ctl configtest</code> antes de reiniciar.</p>
+    </div>
+  </section>
+
+  <footer>
+    Guía actualizada con las correcciones reales encontradas al desplegar sruedadev.com en EC2. La IP elástica, las rutas y el dominio son específicos de esta instancia.
+  </footer>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  document.querySelectorAll('.copy-btn').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var block = btn.closest('.code-block');
+      var code = block.querySelector('code');
+      var text = code.textContent;
+      function marcarCopiado(){
+        var original = btn.textContent;
+        btn.textContent = 'Copiado';
+        btn.classList.add('copied');
+        setTimeout(function(){ btn.textContent = original; btn.classList.remove('copied'); }, 1600);
+      }
+      function selectFallback(el){
+        var range = document.createRange();
+        range.selectNodeContents(el);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      }
+      if(navigator.clipboard && navigator.clipboard.writeText){
+        navigator.clipboard.writeText(text).then(marcarCopiado, function(){ selectFallback(code); });
+      } else {
+        selectFallback(code);
+      }
+    });
+  });
+
+  var STORAGE_KEY = 'sruedadev-deploy-progress-v2';
+  var stepBoxes = Array.prototype.slice.call(document.querySelectorAll('.step-check input[type="checkbox"]'));
+  var total = stepBoxes.length;
+  var fill = document.getElementById('progressFill');
+  var label = document.getElementById('progressLabel');
+
+  function loadProgress(){
+    try{ var raw = localStorage.getItem(STORAGE_KEY); return raw ? JSON.parse(raw) : {}; }catch(e){ return {}; }
+  }
+  function saveProgress(data){ try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); }catch(e){} }
+  function updateBar(){
+    var done = stepBoxes.filter(function(b){ return b.checked; }).length;
+    var pct = total ? Math.round((done/total)*100) : 0;
+    fill.style.width = pct + '%';
+    label.textContent = done + ' / ' + total;
+  }
+
+  var progress = loadProgress();
+  stepBoxes.forEach(function(box){
+    var key = box.getAttribute('data-step');
+    if(progress[key]){ box.checked = true; }
+    box.addEventListener('change', function(){ progress[key] = box.checked; saveProgress(progress); updateBar(); });
+  });
+  updateBar();
+
+  var FINAL_KEY = 'sruedadev-deploy-final-v2';
+  var finalBoxes = Array.prototype.slice.call(document.querySelectorAll('#finalChecklist input[type="checkbox"]'));
+  var finalProgress = {};
+  try{ var rawFinal = localStorage.getItem(FINAL_KEY); finalProgress = rawFinal ? JSON.parse(rawFinal) : {}; }catch(e){}
+  finalBoxes.forEach(function(box){
+    var key = box.getAttribute('data-final');
+    if(finalProgress[key]){ box.checked = true; }
+    box.addEventListener('change', function(){ finalProgress[key] = box.checked; try{ localStorage.setItem(FINAL_KEY, JSON.stringify(finalProgress)); }catch(e){} });
+  });
+})();
+</script>
+</body>
+</html>

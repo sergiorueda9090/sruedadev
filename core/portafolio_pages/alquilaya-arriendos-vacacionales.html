@@ -1,0 +1,3388 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AlquilaYa | Casas, fincas y apartamentos para tu próxima escapada</title>
+  <meta name="description" content="AlquilaYa: descubre y simula reservas de apartamentos, casas y fincas vacacionales en Colombia. Demostración frontend.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+/* ==========================================================================
+   AlquilaYa — estilos personalizados
+   1. Tokens   2. Base   3. Botones   4. Header   5. Hero y buscador
+   6. Secciones   7. Catálogo   8. Beneficios   9. Testimonios
+   10. Contacto y footer   11. Modales   12. Reservas   13. Utilidades
+   14. Responsive   15. Movimiento reducido
+   ========================================================================== */
+
+/* 1. Tokens ---------------------------------------------------------------- */
+:root {
+  --ay-ink: #173B57;
+  --ay-ink-deep: #0F2B41;
+  --ay-blue: #2878A8;
+  --ay-blue-soft: #E9F2F8;
+  --ay-green: #2F855A;
+  --ay-green-hover: #276C4A;
+  --ay-green-soft: #E8F4EE;
+  --ay-bg: #F7F9FC;
+  --ay-surface: #FFFFFF;
+  --ay-text: #243447;
+  --ay-muted: #5F6B7A;
+  --ay-border: #E5EAF0;
+  --ay-border-strong: #D3DCE6;
+  --ay-danger: #B42318;
+  --ay-danger-soft: #FDECEA;
+  --ay-star: #D99A1E;
+
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "Figtree", "Segoe UI", system-ui, sans-serif;
+
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 22px;
+  --r-pill: 999px;
+
+  --shadow-sm: 0 1px 2px rgba(23, 59, 87, .06);
+  --shadow-md: 0 10px 30px -12px rgba(23, 59, 87, .22);
+  --shadow-lg: 0 24px 60px -24px rgba(15, 43, 65, .35);
+
+  --header-h: 72px;
+  --ease: cubic-bezier(.2, .7, .2, 1);
+
+  /* Bootstrap overrides */
+  --bs-body-font-family: var(--font-body);
+  --bs-body-color: var(--ay-text);
+  --bs-body-bg: var(--ay-bg);
+  --bs-link-color: var(--ay-blue);
+  --bs-link-color-rgb: 40, 120, 168;
+  --bs-link-hover-color: var(--ay-ink);
+  --bs-border-color: var(--ay-border);
+  --bs-border-radius: var(--r-sm);
+  --bs-focus-ring-color: rgba(40, 120, 168, .35);
+}
+
+/* 2. Base ------------------------------------------------------------------ */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ay-text);
+  background: var(--ay-bg);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, .modal-title {
+  font-family: var(--font-display);
+  color: var(--ay-ink);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.12;
+}
+
+img { max-width: 100%; }
+
+a { text-underline-offset: 3px; }
+
+:focus-visible {
+  outline: 3px solid var(--ay-blue);
+  outline-offset: 2px;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus {
+  border-color: var(--ay-blue);
+  box-shadow: 0 0 0 .2rem rgba(40, 120, 168, .2);
+}
+
+section[id], main[id] { scroll-margin-top: var(--header-h); }
+
+.skip-link {
+  position: absolute;
+  left: 1rem;
+  top: -100px;
+  z-index: 2000;
+  padding: .6rem 1rem;
+  border-radius: var(--r-sm);
+  background: var(--ay-ink);
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+}
+.skip-link:focus { top: 1rem; color: #fff; }
+
+/* 3. Botones --------------------------------------------------------------- */
+.btn {
+  --bs-btn-font-weight: 600;
+  --bs-btn-border-radius: var(--r-sm);
+  --bs-btn-padding-y: .6rem;
+  --bs-btn-padding-x: 1.1rem;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .45rem;
+  transition: background-color .18s var(--ease), color .18s var(--ease), border-color .18s var(--ease), box-shadow .18s var(--ease), transform .18s var(--ease);
+}
+.btn-lg { --bs-btn-padding-y: .8rem; --bs-btn-font-size: 1rem; --bs-btn-border-radius: var(--r-sm); }
+
+.btn-brand {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--ay-green);
+  --bs-btn-border-color: var(--ay-green);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--ay-green-hover);
+  --bs-btn-hover-border-color: var(--ay-green-hover);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--ay-green-hover);
+  --bs-btn-active-border-color: var(--ay-green-hover);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--ay-green);
+  --bs-btn-disabled-border-color: var(--ay-green);
+  box-shadow: 0 6px 16px -8px rgba(47, 133, 90, .7);
+}
+.btn-brand:hover { transform: translateY(-1px); }
+.btn-brand:active { transform: translateY(0); }
+
+.btn-outline-brand {
+  --bs-btn-color: var(--ay-ink);
+  --bs-btn-border-color: var(--ay-border-strong);
+  --bs-btn-bg: var(--ay-surface);
+  --bs-btn-hover-color: var(--ay-ink);
+  --bs-btn-hover-bg: var(--ay-blue-soft);
+  --bs-btn-hover-border-color: var(--ay-blue);
+  --bs-btn-active-color: var(--ay-ink);
+  --bs-btn-active-bg: var(--ay-blue-soft);
+  --bs-btn-active-border-color: var(--ay-blue);
+}
+
+.btn-ghost {
+  --bs-btn-color: var(--ay-ink);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-color: var(--ay-ink);
+  --bs-btn-hover-bg: var(--ay-blue-soft);
+  --bs-btn-active-bg: var(--ay-blue-soft);
+  --bs-btn-active-color: var(--ay-ink);
+}
+
+.btn-danger-soft {
+  --bs-btn-color: var(--ay-danger);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: #F2C4BF;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--ay-danger);
+  --bs-btn-hover-border-color: var(--ay-danger);
+  --bs-btn-active-bg: var(--ay-danger);
+  --bs-btn-active-color: #fff;
+}
+.btn-danger-soft.is-confirming {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--ay-danger);
+  --bs-btn-border-color: var(--ay-danger);
+}
+
+.btn-link-muted {
+  --bs-btn-color: var(--ay-muted);
+  --bs-btn-hover-color: var(--ay-ink);
+  --bs-btn-bg: transparent;
+  --bs-btn-border-color: transparent;
+  --bs-btn-hover-bg: transparent;
+  --bs-btn-hover-border-color: transparent;
+  --bs-btn-padding-x: .5rem;
+  font-weight: 500;
+}
+
+.link-button {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.round-btn {
+  width: 44px;
+  height: 44px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--ay-border-strong);
+  background: var(--ay-surface);
+  color: var(--ay-ink);
+  font-size: 1.05rem;
+  text-decoration: none;
+  transition: background-color .18s var(--ease), border-color .18s var(--ease), color .18s var(--ease);
+}
+.round-btn:hover { background: var(--ay-blue-soft); border-color: var(--ay-blue); color: var(--ay-ink); }
+
+.spinner-border-sm { --bs-spinner-border-width: .15em; }
+
+/* 4. Header ---------------------------------------------------------------- */
+.site-header {
+  background: rgba(255, 255, 255, .92);
+  backdrop-filter: saturate(160%) blur(10px);
+  -webkit-backdrop-filter: saturate(160%) blur(10px);
+  border-bottom: 1px solid var(--ay-border);
+}
+.site-header .navbar { min-height: var(--header-h); padding: .5rem 0; }
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: .55rem;
+  text-decoration: none;
+  color: var(--ay-ink);
+}
+.brand__mark {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 11px 11px 11px 3px;
+  background: var(--ay-ink);
+  color: #fff;
+  font-size: 1.05rem;
+}
+.brand__name {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.45rem;
+  letter-spacing: -0.03em;
+  color: var(--ay-ink);
+}
+.brand__name span { color: var(--ay-green); }
+.brand--light .brand__mark { background: #fff; color: var(--ay-ink); }
+.brand--light .brand__name { color: #fff; }
+.brand--light .brand__name span { color: #8FD3AE; }
+
+.navbar-toggler {
+  border: 1px solid var(--ay-border-strong);
+  border-radius: var(--r-sm);
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  font-size: 1.5rem;
+  color: var(--ay-ink);
+}
+.navbar-toggler:focus { box-shadow: 0 0 0 .2rem rgba(40, 120, 168, .25); }
+
+.navbar-nav .nav-link {
+  color: var(--ay-text);
+  font-weight: 500;
+  padding: .5rem .85rem;
+  border-radius: var(--r-sm);
+  position: relative;
+}
+.navbar-nav .nav-link:hover { color: var(--ay-ink); }
+.navbar-nav .nav-link.active { color: var(--ay-ink); font-weight: 600; }
+.navbar-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  left: .85rem;
+  right: .85rem;
+  bottom: .25rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--ay-green);
+}
+
+.nav-actions { display: flex; align-items: center; gap: .35rem; }
+
+.count-badge {
+  min-width: 1.35rem;
+  height: 1.35rem;
+  padding: 0 .35rem;
+  border-radius: var(--r-pill);
+  background: var(--ay-green);
+  color: #fff;
+  font-size: .75rem;
+  font-weight: 700;
+  display: inline-grid;
+  place-items: center;
+}
+.count-badge[hidden] { display: none; }
+
+/* 5. Hero y buscador ------------------------------------------------------- */
+.hero {
+  position: relative;
+  padding: clamp(5rem, 14vh, 9rem) 0 0;
+  min-height: min(82vh, 760px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  isolation: isolate;
+}
+.hero__media {
+  position: absolute;
+  inset: 0 0 64px 0;
+  z-index: -1;
+  background-color: var(--ay-ink);
+  background-image:
+    linear-gradient(90deg, rgba(15, 43, 65, .82) 0%, rgba(15, 43, 65, .55) 45%, rgba(15, 43, 65, .12) 100%),
+    linear-gradient(0deg, rgba(15, 43, 65, .55) 0%, rgba(15, 43, 65, 0) 40%),
+    url("https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=2000&q=75");
+  background-size: cover;
+  background-position: center 60%;
+}
+.hero__content { padding-bottom: 2.5rem; }
+.hero__title {
+  color: #fff;
+  font-size: clamp(2.6rem, 6.4vw, 5.25rem);
+  font-weight: 700;
+  line-height: .98;
+  letter-spacing: -0.035em;
+  max-width: 11ch;
+  margin-bottom: 1.1rem;
+}
+.hero__lead {
+  color: rgba(255, 255, 255, .9);
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  max-width: 44ch;
+  margin: 0;
+}
+
+.search-bar {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr 1fr 1fr .8fr auto;
+  align-items: stretch;
+  background: var(--ay-surface);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+  border: 1px solid var(--ay-border);
+  padding: .5rem;
+  animation: search-rise .7s var(--ease) .1s both;
+}
+@keyframes search-rise {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.search-field {
+  position: relative;
+  padding: .55rem 1rem .5rem;
+  border-radius: var(--r-md);
+  transition: background-color .15s var(--ease);
+}
+.search-field + .search-field::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 22%;
+  bottom: 22%;
+  width: 1px;
+  background: var(--ay-border);
+}
+.search-field:hover,
+.search-field:focus-within { background: var(--ay-bg); }
+.search-field label {
+  display: block;
+  font-size: .78rem;
+  font-weight: 700;
+  color: var(--ay-ink);
+  margin-bottom: .1rem;
+}
+.search-field .form-control,
+.search-field .form-select {
+  border: 0;
+  background-color: transparent;
+  padding: .1rem 0;
+  min-height: 32px;
+  font-size: .98rem;
+  color: var(--ay-text);
+  box-shadow: none;
+}
+.search-field .form-select { padding-right: 1.75rem; background-position: right 0 center; }
+.search-field .form-control::placeholder { color: #8A94A3; }
+.search-field .form-control:focus,
+.search-field .form-select:focus { box-shadow: none; }
+.search-field:has(.is-invalid) { background: var(--ay-danger-soft); }
+.search-field .form-control.is-invalid { background-image: none; padding-right: 0; }
+.search-field .invalid-feedback { font-size: .78rem; margin-top: .1rem; }
+
+.search-submit { display: flex; align-items: stretch; padding-left: .35rem; }
+.search-submit .btn { border-radius: var(--r-md); white-space: nowrap; }
+
+.search-error {
+  grid-column: 1 / -1;
+  margin: .5rem .5rem .25rem;
+  padding: .6rem .85rem;
+  border-radius: var(--r-sm);
+  background: var(--ay-danger-soft);
+  color: var(--ay-danger);
+  font-size: .92rem;
+  font-weight: 500;
+}
+
+/* 6. Secciones ------------------------------------------------------------- */
+.section { padding: clamp(4rem, 8vw, 6.5rem) 0; }
+.section--white { background: var(--ay-surface); border-block: 1px solid var(--ay-border); }
+.section-title { font-size: clamp(1.9rem, 3.4vw, 2.75rem); margin-bottom: .75rem; }
+.section-title:focus { outline: none; }
+.section-lead { color: var(--ay-muted); font-size: 1.08rem; max-width: 60ch; margin-bottom: 0; }
+
+/* 7. Catálogo -------------------------------------------------------------- */
+#propiedades { padding-top: clamp(4.5rem, 8vw, 6rem); }
+
+.catalog-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 1.5rem;
+  margin-bottom: 1.75rem;
+}
+.results-count {
+  margin: 0;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--ay-ink);
+  font-size: .98rem;
+}
+
+.catalog-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: .75rem;
+  padding-bottom: 1.25rem;
+  margin-bottom: 1.75rem;
+  border-bottom: 1px solid var(--ay-border);
+}
+.type-chips, .toolbar-actions { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; }
+
+.chip {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .45rem 1rem;
+  border-radius: var(--r-pill);
+  border: 1px solid var(--ay-border-strong);
+  background: var(--ay-surface);
+  color: var(--ay-text);
+  font-weight: 500;
+  font-size: .94rem;
+  cursor: pointer;
+  transition: background-color .15s var(--ease), border-color .15s var(--ease), color .15s var(--ease);
+}
+.chip:hover { border-color: var(--ay-ink); }
+.chip.is-active,
+.chip[aria-pressed="true"] { background: var(--ay-ink); border-color: var(--ay-ink); color: #fff; }
+
+.active-filters {
+  margin: -0.75rem 0 1.5rem;
+  color: var(--ay-muted);
+  font-size: .94rem;
+}
+
+/* Tarjeta de propiedad */
+.property-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: var(--ay-surface);
+  border: 1px solid var(--ay-border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+  transition: box-shadow .25s var(--ease), transform .25s var(--ease), border-color .25s var(--ease);
+}
+.property-card:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); border-color: transparent; }
+
+.property-card__media {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: linear-gradient(135deg, #DCE6EF, #EEF3F8);
+}
+.property-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .6s var(--ease);
+}
+.property-card:hover .property-card__media img { transform: scale(1.04); }
+.img-fallback { display: grid; place-items: center; color: var(--ay-ink); }
+.img-fallback img { opacity: 0; }
+
+.card-badge {
+  position: absolute;
+  top: .85rem;
+  left: .85rem;
+  padding: .3rem .7rem;
+  border-radius: var(--r-pill);
+  background: rgba(255, 255, 255, .95);
+  color: var(--ay-ink);
+  font-size: .8rem;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  box-shadow: var(--shadow-sm);
+}
+.card-badge i { color: var(--ay-green); }
+
+.fav-btn {
+  position: absolute;
+  top: .6rem;
+  right: .6rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, .95);
+  color: var(--ay-ink);
+  font-size: 1.15rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform .18s var(--ease), color .18s var(--ease);
+}
+.fav-btn:hover { transform: scale(1.08); }
+.fav-btn[aria-pressed="true"] { color: #D64545; }
+.fav-btn.is-popping i { animation: fav-pop .35s var(--ease); }
+@keyframes fav-pop {
+  0% { transform: scale(1); }
+  45% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.property-card__body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 1.1rem 1.15rem 1.2rem;
+}
+.card-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: .5rem;
+  margin-bottom: .35rem;
+  font-size: .86rem;
+}
+.type-label { color: var(--ay-blue); font-weight: 700; }
+.property-card__title { font-size: 1.22rem; margin-bottom: .2rem; }
+.property-card__location { color: var(--ay-muted); font-size: .94rem; margin-bottom: .8rem; }
+.property-card__location i { margin-right: .2rem; }
+
+.stars { display: inline-flex; align-items: center; gap: .1rem; color: var(--ay-star); font-size: .85rem; }
+.rating-inline { display: inline-flex; align-items: center; gap: .35rem; color: var(--ay-text); font-weight: 600; }
+.rating-inline small { color: var(--ay-muted); font-weight: 500; }
+
+.spec-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 .75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .25rem 1rem;
+  font-size: .9rem;
+  color: var(--ay-text);
+}
+.spec-list i { color: var(--ay-muted); margin-right: .3rem; }
+
+.feature-tags { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+.feature-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .3rem;
+  padding: .2rem .6rem;
+  border-radius: var(--r-pill);
+  font-size: .8rem;
+  font-weight: 600;
+  background: var(--ay-blue-soft);
+  color: var(--ay-ink);
+}
+.feature-tag--green { background: var(--ay-green-soft); color: #22603F; }
+.feature-tag--muted { background: var(--ay-bg); color: var(--ay-muted); border: 1px solid var(--ay-border); }
+
+.property-card__footer {
+  margin-top: auto;
+  padding-top: .9rem;
+  border-top: 1px solid var(--ay-border);
+}
+.price { margin-bottom: .8rem; color: var(--ay-muted); font-size: .92rem; }
+.price strong {
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  color: var(--ay-ink);
+  letter-spacing: -0.02em;
+  margin-right: .2rem;
+}
+.card-actions { display: grid; grid-template-columns: 1fr 1fr; gap: .5rem; }
+
+/* Esqueleto de carga */
+.skeleton-card { border: 1px solid var(--ay-border); border-radius: var(--r-md); overflow: hidden; background: var(--ay-surface); }
+.skeleton-card .sk-media { aspect-ratio: 4 / 3; }
+.skeleton-card .sk-line { height: 14px; margin: 1rem 1.15rem 0; border-radius: 6px; }
+.skeleton-card .sk-line:last-child { margin-bottom: 1.25rem; width: 45%; }
+.skeleton-card .sk-line.w-70 { width: 70%; }
+.sk-media, .sk-line {
+  background: linear-gradient(90deg, #EDF1F6 0%, #F7F9FC 50%, #EDF1F6 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.2s linear infinite;
+}
+@keyframes shimmer { from { background-position: 200% 0; } to { background-position: -200% 0; } }
+
+/* Estado vacío */
+.empty-state {
+  text-align: center;
+  padding: 3.5rem 1.5rem;
+  border: 1px dashed var(--ay-border-strong);
+  border-radius: var(--r-lg);
+  background: var(--ay-surface);
+}
+.empty-state[hidden] { display: none; }
+.empty-state__icon {
+  width: 64px;
+  height: 64px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ay-blue-soft);
+  color: var(--ay-ink);
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+.empty-state h3 { font-size: 1.35rem; margin-bottom: .4rem; }
+.empty-state p { color: var(--ay-muted); max-width: 46ch; margin: 0 auto 1.25rem; }
+.empty-state--compact { padding: 2.5rem 1rem; }
+
+/* 8. Beneficios ------------------------------------------------------------ */
+.benefits {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border-top: 1px solid var(--ay-border);
+}
+.benefit {
+  padding: 1.75rem 1.5rem 1.75rem 0;
+  border-bottom: 1px solid var(--ay-border);
+}
+.benefit:nth-child(odd) { padding-right: 2rem; border-right: 1px solid var(--ay-border); }
+.benefit:nth-child(even) { padding-left: 2rem; }
+.benefit__icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px 14px 14px 4px;
+  background: var(--ay-green-soft);
+  color: var(--ay-green);
+  font-size: 1.35rem;
+  margin-bottom: 1rem;
+}
+.benefit h3 { font-size: 1.2rem; margin-bottom: .4rem; }
+.benefit p { color: var(--ay-muted); margin: 0; }
+
+/* 9. Testimonios ----------------------------------------------------------- */
+.testimonials-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.demo-note {
+  margin: 0;
+  color: var(--ay-muted);
+  font-size: .92rem;
+  max-width: 46ch;
+}
+.testimonial-carousel {
+  background: var(--ay-surface);
+  border: 1px solid var(--ay-border);
+  border-radius: var(--r-lg);
+  padding: clamp(1.75rem, 4vw, 3.25rem);
+}
+.testimonial { margin: 0; }
+.testimonial__quote p {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: clamp(1.3rem, 2.4vw, 1.85rem);
+  line-height: 1.32;
+  letter-spacing: -0.015em;
+  color: var(--ay-ink);
+  max-width: 34em;
+  margin-bottom: 1.75rem;
+}
+.testimonial__quote p::before { content: "“"; }
+.testimonial__quote p::after { content: "”"; }
+.testimonial__author {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .9rem;
+}
+.testimonial__author img {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: var(--ay-blue-soft);
+}
+.testimonial__author strong { display: block; color: var(--ay-ink); }
+.testimonial__meta { display: block; color: var(--ay-muted); font-size: .92rem; }
+.demo-tag {
+  margin-left: auto;
+  padding: .25rem .7rem;
+  border-radius: var(--r-pill);
+  border: 1px dashed var(--ay-border-strong);
+  color: var(--ay-muted);
+  font-size: .8rem;
+  font-weight: 600;
+}
+.carousel-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--ay-border);
+}
+.testimonial-indicators {
+  position: static;
+  margin: 0;
+  justify-content: flex-start;
+  gap: .4rem;
+}
+.testimonial-indicators [data-bs-target] {
+  width: 28px;
+  height: 6px;
+  border-radius: var(--r-pill);
+  background-color: var(--ay-border-strong);
+  border: 0;
+  margin: 0;
+  opacity: 1;
+  transition: background-color .2s var(--ease), width .2s var(--ease);
+}
+.testimonial-indicators .active { background-color: var(--ay-ink); width: 44px; }
+.carousel-arrows { display: flex; gap: .5rem; }
+.testimonial-carousel:focus-visible { outline-offset: 4px; }
+
+/* 10. Contacto y footer ---------------------------------------------------- */
+.contact-list { list-style: none; padding: 0; margin: 2rem 0 1.5rem; display: grid; gap: .9rem; }
+.contact-list li { display: flex; align-items: center; gap: .75rem; font-weight: 500; }
+.contact-list i {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ay-blue-soft);
+  color: var(--ay-ink);
+}
+.contact-list a { color: var(--ay-ink); }
+.social { display: flex; gap: .5rem; }
+
+.panel {
+  background: var(--ay-bg);
+  border: 1px solid var(--ay-border);
+  border-radius: var(--r-lg);
+  padding: clamp(1.25rem, 3vw, 2rem);
+}
+
+.form-label { font-weight: 600; color: var(--ay-ink); font-size: .94rem; margin-bottom: .35rem; }
+.form-control, .form-select {
+  min-height: 46px;
+  border-radius: var(--r-sm);
+  border-color: var(--ay-border-strong);
+  background-color: var(--ay-surface);
+}
+textarea.form-control { min-height: auto; }
+.form-check-input { width: 1.2em; height: 1.2em; margin-top: .2em; }
+.form-check-input:checked { background-color: var(--ay-green); border-color: var(--ay-green); }
+.text-muted-2 { color: var(--ay-muted); font-weight: 400; }
+
+.form-result:empty { display: none; }
+.form-result { margin-top: 1rem; }
+.result-box {
+  display: flex;
+  gap: .75rem;
+  align-items: flex-start;
+  padding: .9rem 1rem;
+  border-radius: var(--r-md);
+  font-size: .95rem;
+}
+.result-box i { font-size: 1.2rem; line-height: 1.3; }
+.result-box--success { background: var(--ay-green-soft); color: #1F5A3C; }
+.result-box--error { background: var(--ay-danger-soft); color: var(--ay-danger); }
+.result-box--info { background: var(--ay-blue-soft); color: var(--ay-ink); }
+
+.site-footer { background: var(--ay-ink); color: rgba(255, 255, 255, .78); padding: 4rem 0 2rem; }
+.footer-text { margin-top: 1rem; max-width: 36ch; }
+.footer-title { color: #fff; font-family: var(--font-body); font-size: 1rem; font-weight: 700; letter-spacing: 0; margin-bottom: 1rem; }
+.footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; }
+.footer-links a, .footer-links .link-button { color: rgba(255, 255, 255, .78); text-decoration: none; text-align: left; }
+.footer-links a:hover, .footer-links .link-button:hover { color: #fff; text-decoration: underline; }
+.site-footer :focus-visible { outline-color: #fff; }
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 255, 255, .15);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: .75rem;
+  font-size: .9rem;
+}
+.footer-bottom p { margin: 0; }
+
+.back-to-top {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1030;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--ay-ink);
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-md);
+  display: grid;
+  place-items: center;
+  transition: transform .2s var(--ease), background-color .2s var(--ease);
+}
+.back-to-top[hidden] { display: none; }
+.back-to-top:hover { transform: translateY(-2px); background: var(--ay-ink-deep); }
+
+/* Toasts */
+.toast-container { z-index: 1090; }
+.ay-toast {
+  border: 0;
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-lg);
+  background: var(--ay-surface);
+  overflow: hidden;
+}
+.ay-toast .toast-body { display: flex; gap: .7rem; align-items: flex-start; padding: .9rem 1rem; }
+.ay-toast .toast-body i { font-size: 1.2rem; line-height: 1.3; }
+.ay-toast--success { border-left: 4px solid var(--ay-green); }
+.ay-toast--success i { color: var(--ay-green); }
+.ay-toast--error { border-left: 4px solid var(--ay-danger); }
+.ay-toast--error i { color: var(--ay-danger); }
+.ay-toast--info { border-left: 4px solid var(--ay-blue); }
+.ay-toast--info i { color: var(--ay-blue); }
+
+/* 11. Modales -------------------------------------------------------------- */
+.modal-content {
+  border: 0;
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg);
+}
+.modal-header { border-bottom: 1px solid var(--ay-border); padding: 1.15rem 1.5rem; align-items: flex-start; }
+.modal-title { font-size: 1.5rem; margin: 0; }
+.modal-subtitle { margin: .2rem 0 0; color: var(--ay-muted); font-size: .95rem; }
+.modal-body { padding: 1.5rem; }
+.modal-footer { border-top: 1px solid var(--ay-border); }
+.modal-backdrop.show { opacity: .55; }
+.modal-backdrop { --bs-backdrop-bg: var(--ay-ink-deep); }
+.btn-close { width: 44px; height: 44px; padding: 0; margin: -.4rem -.6rem 0 auto; border-radius: 50%; }
+
+/* Galería */
+.gallery { display: grid; gap: .6rem; }
+.gallery__main {
+  aspect-ratio: 16 / 7;
+  max-height: 440px;
+  border-radius: var(--r-md);
+  overflow: hidden;
+  background: linear-gradient(135deg, #DCE6EF, #EEF3F8);
+}
+.gallery__main img { width: 100%; height: 100%; object-fit: cover; }
+.gallery__main img.is-swapping { animation: img-fade .35s var(--ease); }
+@keyframes img-fade { from { opacity: .3; } to { opacity: 1; } }
+.gallery__thumbs { display: flex; gap: .5rem; }
+.thumb-btn {
+  width: 96px;
+  aspect-ratio: 4 / 3;
+  padding: 0;
+  border: 2px solid transparent;
+  border-radius: var(--r-sm);
+  overflow: hidden;
+  background: var(--ay-blue-soft);
+  opacity: .7;
+  transition: opacity .15s var(--ease), border-color .15s var(--ease);
+}
+.thumb-btn img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.thumb-btn:hover { opacity: 1; }
+.thumb-btn[aria-current="true"] { opacity: 1; border-color: var(--ay-ink); }
+
+.pm-rating { display: flex; flex-wrap: wrap; gap: .5rem 1rem; align-items: center; margin-bottom: 1rem; }
+.facts {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  border: 1px solid var(--ay-border);
+  border-radius: var(--r-md);
+}
+.facts li { padding: .85rem 1rem; display: grid; gap: .1rem; }
+.facts li + li { border-left: 1px solid var(--ay-border); }
+.facts i { color: var(--ay-blue); font-size: 1.15rem; }
+.facts strong { font-family: var(--font-display); font-size: 1.25rem; color: var(--ay-ink); line-height: 1.2; }
+.facts span { color: var(--ay-muted); font-size: .86rem; }
+
+.pm-heading { font-size: 1.15rem; margin: 1.75rem 0 .75rem; }
+.pm-description { color: var(--ay-text); max-width: 65ch; }
+
+.amenities {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .7rem 1.25rem;
+}
+.amenities li { display: flex; align-items: center; gap: .65rem; }
+.amenities i { font-size: 1.15rem; color: var(--ay-ink); width: 1.4rem; text-align: center; }
+
+.policies, .blocked-dates { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+.policies li, .blocked-dates li { display: flex; align-items: flex-start; gap: .6rem; }
+.policies i, .blocked-dates i { margin-top: .15rem; }
+.policy-yes i { color: var(--ay-green); }
+.policy-no i { color: var(--ay-muted); }
+.blocked-dates li { font-size: .94rem; }
+.blocked-dates i { color: var(--ay-muted); }
+.blocked-dates .is-mine i { color: var(--ay-green); }
+
+/* Tarjeta de reserva */
+.booking-card {
+  position: sticky;
+  top: 0;
+  background: var(--ay-surface);
+  border: 1px solid var(--ay-border);
+  border-radius: var(--r-lg);
+  padding: 1.35rem;
+  box-shadow: var(--shadow-md);
+}
+.booking-card__price { margin-bottom: 1rem; color: var(--ay-muted); }
+.booking-card__price strong {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  color: var(--ay-ink);
+  letter-spacing: -0.02em;
+}
+.booking-card .form-text { color: var(--ay-muted); font-size: .84rem; }
+
+.breakdown { margin: 1.25rem 0 .75rem; display: grid; gap: .45rem; }
+.breakdown div { display: flex; justify-content: space-between; gap: 1rem; }
+.breakdown dt { font-weight: 400; color: var(--ay-muted); }
+.breakdown dd { margin: 0; font-weight: 600; color: var(--ay-text); text-align: right; font-variant-numeric: tabular-nums; }
+.breakdown__total { border-top: 1px solid var(--ay-border); padding-top: .7rem; margin-top: .3rem; }
+.breakdown__total dt { color: var(--ay-ink); font-weight: 700; }
+.breakdown__total dd { font-family: var(--font-display); font-size: 1.3rem; color: var(--ay-ink); }
+
+.booking-feedback { min-height: 1.5rem; margin: 0 0 .85rem; font-size: .92rem; color: var(--ay-muted); }
+.booking-feedback.is-error { color: var(--ay-danger); font-weight: 500; }
+.booking-feedback.is-ok { color: #22603F; font-weight: 500; }
+.booking-note { margin: .85rem 0 0; font-size: .82rem; color: var(--ay-muted); line-height: 1.5; }
+
+/* Confirmación */
+.confirmation { text-align: center; padding: 2rem 1.75rem 1.75rem; }
+.confirmation__icon {
+  width: 68px;
+  height: 68px;
+  display: inline-grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--ay-green);
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  animation: confirm-pop .45s var(--ease);
+}
+@keyframes confirm-pop { from { transform: scale(.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.confirmation h2 { font-size: 1.7rem; margin-bottom: .3rem; }
+.confirmation__lead { color: var(--ay-muted); }
+.confirmation__data {
+  text-align: left;
+  margin: 1.5rem 0;
+  border: 1px solid var(--ay-border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.confirmation__data div { display: flex; justify-content: space-between; gap: 1rem; padding: .65rem 1rem; }
+.confirmation__data div + div { border-top: 1px solid var(--ay-border); }
+.confirmation__data dt { font-weight: 400; color: var(--ay-muted); }
+.confirmation__data dd { margin: 0; font-weight: 600; text-align: right; }
+#cfCode { font-family: var(--font-display); letter-spacing: .04em; color: var(--ay-ink); }
+.confirmation__total { background: var(--ay-green-soft); }
+.confirmation__total dd { color: #1F5A3C; font-size: 1.15rem; }
+
+.legal h3 { font-size: 1.1rem; margin-top: 1.25rem; }
+.legal p { color: var(--ay-text); }
+
+/* 12. Mis reservas --------------------------------------------------------- */
+.notice {
+  display: flex;
+  gap: .65rem;
+  padding: .85rem 1rem;
+  border-radius: var(--r-md);
+  background: var(--ay-blue-soft);
+  color: var(--ay-ink);
+  font-size: .92rem;
+  margin-bottom: 1.25rem;
+}
+.reservation-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .85rem; }
+.reservation {
+  display: grid;
+  grid-template-columns: 112px 1fr;
+  gap: 1rem;
+  padding: .85rem;
+  border: 1px solid var(--ay-border);
+  border-radius: var(--r-md);
+  background: var(--ay-surface);
+}
+.reservation__img {
+  width: 112px;
+  aspect-ratio: 1;
+  border-radius: var(--r-sm);
+  object-fit: cover;
+  background: var(--ay-blue-soft);
+}
+.reservation__head { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .25rem .75rem; align-items: baseline; }
+.reservation__title { font-size: 1.08rem; margin: 0; }
+.reservation__code { font-family: var(--font-display); font-weight: 600; color: var(--ay-blue); font-size: .92rem; letter-spacing: .03em; }
+.reservation__meta { color: var(--ay-muted); font-size: .9rem; margin: .2rem 0 .5rem; }
+.reservation__details { display: flex; flex-wrap: wrap; gap: .25rem 1.25rem; font-size: .92rem; margin-bottom: .75rem; }
+.reservation__details strong { color: var(--ay-ink); }
+.reservation__actions { display: flex; flex-wrap: wrap; gap: .5rem; }
+.reservation__actions .btn { min-height: 40px; --bs-btn-padding-y: .4rem; --bs-btn-font-size: .9rem; }
+.status-pill {
+  display: inline-block;
+  padding: .1rem .55rem;
+  border-radius: var(--r-pill);
+  font-size: .76rem;
+  font-weight: 700;
+  background: var(--ay-green-soft);
+  color: #22603F;
+  margin-left: .35rem;
+}
+.status-pill--past { background: var(--ay-bg); color: var(--ay-muted); border: 1px solid var(--ay-border); }
+
+/* 13. Utilidades ----------------------------------------------------------- */
+.is-loading { pointer-events: none; }
+
+/* 14. Responsive ----------------------------------------------------------- */
+@media (max-width: 1199.98px) {
+  .search-bar { grid-template-columns: repeat(6, minmax(0, 1fr)); row-gap: .25rem; }
+  .search-field { grid-column: span 2; }
+  .search-field--destination { grid-column: span 4; }
+  .search-field--type { grid-column: span 2; }
+  .search-field--guests { grid-column: span 2; }
+  .search-submit { grid-column: 1 / -1; padding-left: 0; }
+  .search-field + .search-field::before { display: none; }
+  .search-field { background: var(--ay-bg); }
+  .search-bar { gap: .4rem; }
+}
+
+@media (max-width: 991.98px) {
+  .navbar-collapse {
+    margin-top: .75rem;
+    padding: .75rem 0 1rem;
+    border-top: 1px solid var(--ay-border);
+  }
+  .navbar-nav .nav-link { padding: .7rem .25rem; }
+  .navbar-nav .nav-link.active::after { left: .25rem; right: auto; width: 24px; bottom: .35rem; }
+  .nav-actions { flex-direction: column; align-items: stretch; margin-top: .5rem; gap: .5rem; }
+  .nav-actions .btn { justify-content: flex-start; }
+  .nav-actions .btn-brand { justify-content: center; }
+
+  .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .facts li:nth-child(3) { border-left: 0; }
+  .facts li:nth-child(n+3) { border-top: 1px solid var(--ay-border); }
+  .booking-card { position: static; }
+  .gallery__main { aspect-ratio: 16 / 10; }
+}
+
+@media (max-width: 767.98px) {
+  .hero { min-height: auto; padding-top: 4.5rem; }
+  .hero__media { bottom: 120px; }
+  .hero__content { padding-bottom: 2rem; }
+  .search-bar { grid-template-columns: repeat(2, minmax(0, 1fr)); padding: .6rem; }
+  /* Tipo y huéspedes comparten fila; las dos fechas quedan juntas. */
+  .search-field--type { order: 1; }
+  .search-field--guests { order: 2; }
+  .search-field--destination { order: 3; }
+  .search-field:not(.search-field--type):not(.search-field--guests):not(.search-field--destination) { order: 4; }
+  .search-submit { order: 5; }
+  .search-error { order: 6; }
+  .search-field, .search-field--type, .search-field--guests { grid-column: span 1; }
+  .search-field--destination, .search-submit { grid-column: 1 / -1; }
+
+  .catalog-head { flex-direction: column; align-items: flex-start; gap: .75rem; }
+  .catalog-toolbar { align-items: flex-start; }
+  .type-chips { flex-wrap: nowrap; overflow-x: auto; max-width: 100%; padding-bottom: .25rem; scrollbar-width: none; }
+  .type-chips::-webkit-scrollbar { display: none; }
+  .chip { flex-shrink: 0; }
+
+  .benefits { grid-template-columns: 1fr; }
+  .benefit:nth-child(odd), .benefit:nth-child(even) { padding: 1.5rem 0; border-right: 0; }
+
+  .demo-tag { margin-left: 0; }
+  .amenities { grid-template-columns: 1fr; }
+  .modal-body { padding: 1.15rem; }
+  .modal-header { padding: 1rem 1.15rem; }
+  .thumb-btn { width: 76px; }
+  .reservation { grid-template-columns: 76px 1fr; }
+  .reservation__img { width: 76px; }
+  .footer-bottom { flex-direction: column; }
+}
+
+@media (max-width: 399.98px) {
+  .card-actions { grid-template-columns: 1fr; }
+  .search-field--type, .search-field--guests { grid-column: span 1; }
+}
+
+/* 15. Movimiento reducido -------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .property-card:hover, .btn-brand:hover { transform: none; }
+  .property-card:hover .property-card__media img { transform: none; }
+}
+
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-root-margin="0px 0px -55%">
+
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+      <div class="container">
+        <a class="brand" href="#inicio" aria-label="AlquilaYa, ir al inicio">
+          <span class="brand__mark" aria-hidden="true"><i class="bi bi-house-door-fill"></i></span>
+          <span class="brand__name">Alquila<span>Ya</span></span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav mx-lg-auto" id="mainNav">
+            <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#propiedades">Propiedades</a></li>
+            <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button type="button" class="btn btn-ghost" id="openReservationsBtn" data-bs-toggle="modal" data-bs-target="#reservationsModal">
+              <i class="bi bi-calendar2-check" aria-hidden="true"></i>
+              Mis reservas
+              <span class="count-badge" id="reservationsBadge" hidden>0</span>
+            </button>
+            <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#loginModal">
+              <i class="bi bi-person-circle" aria-hidden="true"></i> Iniciar sesión
+            </button>
+            <button type="button" class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#publishModal">
+              Publicar propiedad
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO + BUSCADOR ============ -->
+    <section class="hero" id="inicio" aria-labelledby="heroTitle">
+      <div class="hero__media" role="img" aria-label="Casa vacacional moderna con piscina rodeada de vegetación"></div>
+      <div class="container hero__content">
+        <h1 class="hero__title" id="heroTitle">Tu próxima escapada comienza aquí</h1>
+        <p class="hero__lead">Descubre casas, fincas y apartamentos únicos para disfrutar cada destino a tu manera.</p>
+      </div>
+
+      <div class="container">
+        <form class="search-bar" id="searchForm" novalidate aria-label="Buscar alojamientos">
+          <div class="search-field search-field--type">
+            <label for="searchType">Tipo</label>
+            <select id="searchType" name="type" class="form-select">
+              <option value="all">Todos</option>
+              <option value="apartamento">Apartamento</option>
+              <option value="casa">Casa</option>
+              <option value="finca">Finca</option>
+            </select>
+          </div>
+          <div class="search-field search-field--destination">
+            <label for="searchDestination">Destino</label>
+            <input id="searchDestination" name="destination" type="text" class="form-control"
+                   placeholder="¿A dónde quieres ir?" autocomplete="off" maxlength="60">
+          </div>
+          <div class="search-field">
+            <label for="searchCheckIn">Llegada</label>
+            <input id="searchCheckIn" name="checkIn" type="date" class="form-control" aria-describedby="searchCheckInError">
+            <div class="invalid-feedback" id="searchCheckInError"></div>
+          </div>
+          <div class="search-field">
+            <label for="searchCheckOut">Salida</label>
+            <input id="searchCheckOut" name="checkOut" type="date" class="form-control" aria-describedby="searchCheckOutError">
+            <div class="invalid-feedback" id="searchCheckOutError"></div>
+          </div>
+          <div class="search-field search-field--guests">
+            <label for="searchGuests">Huéspedes</label>
+            <input id="searchGuests" name="guests" type="number" class="form-control" min="1" max="30" value="2" inputmode="numeric" aria-describedby="searchGuestsError">
+            <div class="invalid-feedback" id="searchGuestsError"></div>
+          </div>
+          <div class="search-submit">
+            <button type="submit" class="btn btn-brand btn-lg w-100" id="searchSubmitBtn">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <span>Buscar alojamientos</span>
+            </button>
+          </div>
+          <p class="search-error" id="searchError" role="alert" hidden></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ CATÁLOGO ============ -->
+    <section class="section" id="propiedades" aria-labelledby="catalogTitle">
+      <div class="container">
+        <div class="catalog-head">
+          <div>
+            <h2 class="section-title" id="catalogTitle" tabindex="-1">Encuentra tu próximo lugar favorito</h2>
+            <p class="section-lead">Apartamentos con vista, casas con historia y fincas para reunir a toda la familia. Elige el tipo de plan y ajusta la búsqueda a tus fechas.</p>
+          </div>
+          <p class="results-count" id="resultsCount" aria-live="polite">6 alojamientos disponibles</p>
+        </div>
+
+        <div class="catalog-toolbar">
+          <div class="type-chips" role="group" aria-label="Filtrar por tipo de alojamiento">
+            <button type="button" class="chip is-active" data-type="all" aria-pressed="true">Todos</button>
+            <button type="button" class="chip" data-type="apartamento" aria-pressed="false"><i class="bi bi-building" aria-hidden="true"></i> Apartamentos</button>
+            <button type="button" class="chip" data-type="casa" aria-pressed="false"><i class="bi bi-house" aria-hidden="true"></i> Casas</button>
+            <button type="button" class="chip" data-type="finca" aria-pressed="false"><i class="bi bi-tree" aria-hidden="true"></i> Fincas</button>
+          </div>
+          <div class="toolbar-actions">
+            <button type="button" class="chip" id="favoritesToggle" aria-pressed="false">
+              <i class="bi bi-heart" aria-hidden="true"></i> Solo favoritos
+            </button>
+            <button type="button" class="btn btn-link-muted" id="resetFiltersBtn">
+              <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Restablecer filtros
+            </button>
+          </div>
+        </div>
+
+        <p class="active-filters" id="activeFilters" hidden></p>
+
+        <div class="row g-4 property-grid" id="propertyGrid" aria-live="polite" aria-busy="false"></div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <span class="empty-state__icon" aria-hidden="true"><i class="bi bi-map"></i></span>
+          <h3>No encontramos alojamientos con esos filtros</h3>
+          <p id="emptyStateText">Prueba con otras fechas, menos huéspedes o un destino diferente.</p>
+          <button type="button" class="btn btn-outline-brand" id="emptyResetBtn">Limpiar filtros</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BENEFICIOS ============ -->
+    <section class="section section--white" id="beneficios" aria-labelledby="benefitsTitle">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-start">
+          <div class="col-lg-4">
+            <h2 class="section-title" id="benefitsTitle">Pensado para que viajar sea lo fácil</h2>
+            <p class="section-lead">Estas son las ventajas que AlquilaYa propone ofrecer a viajeros y anfitriones. En esta demostración se muestran como concepto de producto.</p>
+          </div>
+          <div class="col-lg-8">
+            <ul class="benefits">
+              <li class="benefit">
+                <span class="benefit__icon" aria-hidden="true"><i class="bi bi-calendar2-check"></i></span>
+                <h3>Reservas fáciles</h3>
+                <p>Eliges fechas, ves el total con la limpieza incluida y confirmas en un solo paso, sin cargos escondidos.</p>
+              </li>
+              <li class="benefit">
+                <span class="benefit__icon" aria-hidden="true"><i class="bi bi-shield-lock"></i></span>
+                <h3>Pagos protegidos en plataformas compatibles</h3>
+                <p>La propuesta es integrar pasarelas de pago reconocidas. Esta demostración no procesa pagos.</p>
+              </li>
+              <li class="benefit">
+                <span class="benefit__icon" aria-hidden="true"><i class="bi bi-headset"></i></span>
+                <h3>Atención al viajero</h3>
+                <p>Un canal de ayuda pensado para resolver dudas antes y durante la estadía, en español y con horario local.</p>
+              </li>
+              <li class="benefit">
+                <span class="benefit__icon" aria-hidden="true"><i class="bi bi-house-check"></i></span>
+                <h3>Alojamientos cuidadosamente seleccionados</h3>
+                <p>Un catálogo curado con fotos, amenidades y reglas claras para que sepas qué esperar al llegar.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIOS ============ -->
+    <section class="section" id="testimonios" aria-labelledby="testimonialsTitle">
+      <div class="container">
+        <div class="testimonials-head">
+          <h2 class="section-title" id="testimonialsTitle">Lo que cuentan los viajeros</h2>
+          <p class="demo-note"><i class="bi bi-info-circle" aria-hidden="true"></i> Testimonios ficticios creados para esta demostración. No son opiniones de clientes reales.</p>
+        </div>
+
+        <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-touch="true" data-bs-keyboard="true"
+             tabindex="0" aria-roledescription="carrusel" aria-label="Testimonios de demostración. Usa las flechas del teclado para navegar.">
+          <div class="carousel-inner">
+            <div class="carousel-item active" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+              <figure class="testimonial">
+                <blockquote class="testimonial__quote">
+                  <p>Fuimos ocho personas a una finca en el Quindío. El total que vimos al reservar fue exactamente lo que pagamos, y la piscina con vista a los cafetales valió cada peso.</p>
+                </blockquote>
+                <figcaption class="testimonial__author">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&h=160&q=70" alt="Foto de perfil de Laura Gómez (ejemplo)" width="56" height="56" loading="lazy">
+                  <span>
+                    <strong>Laura Gómez</strong>
+                    <span class="testimonial__meta">Bogotá. Reservó una finca</span>
+                    <span class="stars" role="img" aria-label="Calificación 5 de 5"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                  </span>
+                  <span class="demo-tag">Testimonio de demostración</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+              <figure class="testimonial">
+                <blockquote class="testimonial__quote">
+                  <p>Necesitaba trabajar unos días desde Medellín y el loft tenía escritorio, buen internet y una terraza para cerrar el día. Repetiría sin pensarlo.</p>
+                </blockquote>
+                <figcaption class="testimonial__author">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&h=160&q=70" alt="Foto de perfil de Andrés Restrepo (ejemplo)" width="56" height="56" loading="lazy">
+                  <span>
+                    <strong>Andrés Restrepo</strong>
+                    <span class="testimonial__meta">Cali. Reservó un apartamento</span>
+                    <span class="stars" role="img" aria-label="Calificación 5 de 5"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                  </span>
+                  <span class="demo-tag">Testimonio de demostración</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+              <figure class="testimonial">
+                <blockquote class="testimonial__quote">
+                  <p>Llevamos a nuestro perro a la casa de Barichara y nos recibieron con todo listo. Las calles de piedra, el patio y la calma del pueblo: justo lo que buscábamos.</p>
+                </blockquote>
+                <figcaption class="testimonial__author">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=160&h=160&q=70" alt="Foto de perfil de Camila Duarte (ejemplo)" width="56" height="56" loading="lazy">
+                  <span>
+                    <strong>Camila Duarte</strong>
+                    <span class="testimonial__meta">Bucaramanga. Reservó una casa</span>
+                    <span class="stars" role="img" aria-label="Calificación 4 de 5"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
+                  </span>
+                  <span class="demo-tag">Testimonio de demostración</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="carousel-nav">
+            <div class="carousel-indicators testimonial-indicators">
+              <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonio 1"></button>
+              <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Testimonio 2"></button>
+              <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Testimonio 3"></button>
+            </div>
+            <div class="carousel-arrows">
+              <button class="round-btn" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev" aria-label="Testimonio anterior">
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button class="round-btn" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next" aria-label="Testimonio siguiente">
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="section section--white" id="contacto" aria-labelledby="contactTitle">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-5">
+            <h2 class="section-title" id="contactTitle">¿Hablamos?</h2>
+            <p class="section-lead">Escríbenos si quieres publicar tu propiedad o tienes preguntas sobre un alojamiento. Los datos de contacto son de ejemplo.</p>
+            <ul class="contact-list">
+              <li><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:hola@alquilaya.example">hola@alquilaya.example</a></li>
+              <li><i class="bi bi-telephone" aria-hidden="true"></i><a href="tel:+576010000000">+57 601 000 0000</a></li>
+              <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Medellín, Colombia</span></li>
+            </ul>
+            <div class="social" aria-label="Redes sociales">
+              <a class="round-btn" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (se abre en una pestaña nueva)"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+              <a class="round-btn" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook (se abre en una pestaña nueva)"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+              <a class="round-btn" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok (se abre en una pestaña nueva)"><i class="bi bi-tiktok" aria-hidden="true"></i></a>
+              <a class="round-btn" href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp (se abre en una pestaña nueva)"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <form class="panel" id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="contactName" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="contactName" name="name" required minlength="2" maxlength="80" autocomplete="name">
+                  <div class="invalid-feedback">Escribe tu nombre (mínimo 2 caracteres).</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="contactEmail" class="form-label">Correo electrónico</label>
+                  <input type="email" class="form-control" id="contactEmail" name="email" required maxlength="120" autocomplete="email">
+                  <div class="invalid-feedback">Escribe un correo válido, por ejemplo nombre@correo.com.</div>
+                </div>
+                <div class="col-12">
+                  <label for="contactMessage" class="form-label">Mensaje</label>
+                  <textarea class="form-control" id="contactMessage" name="message" rows="5" required minlength="10" maxlength="1000"></textarea>
+                  <div class="invalid-feedback">Cuéntanos en qué te ayudamos (mínimo 10 caracteres).</div>
+                </div>
+                <div class="col-12 d-flex flex-wrap align-items-center gap-3">
+                  <button type="submit" class="btn btn-brand" data-loading-text="Preparando...">Enviar mensaje</button>
+                  <small class="text-muted-2">Simulación: no se envía ningún correo.</small>
+                </div>
+              </div>
+              <div class="form-result" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="brand brand--light" href="#inicio" aria-label="AlquilaYa, ir al inicio">
+            <span class="brand__mark" aria-hidden="true"><i class="bi bi-house-door-fill"></i></span>
+            <span class="brand__name">Alquila<span>Ya</span></span>
+          </a>
+          <p class="footer-text">Apartamentos, casas y fincas para vacaciones, puentes festivos y viajes en familia por Colombia.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="footer-title">Explorar</h2>
+          <ul class="footer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#propiedades">Propiedades</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="footer-title">Contacto</h2>
+          <ul class="footer-links">
+            <li><a href="mailto:hola@alquilaya.example">hola@alquilaya.example</a></li>
+            <li><a href="tel:+576010000000">+57 601 000 0000</a></li>
+            <li>Medellín, Colombia</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><button type="button" class="link-button" data-bs-toggle="modal" data-bs-target="#termsModal">Términos y condiciones</button></li>
+            <li><button type="button" class="link-button" data-bs-toggle="modal" data-bs-target="#privacyModal">Política de privacidad</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p><i class="bi bi-info-circle" aria-hidden="true"></i> AlquilaYa es una demostración de interfaz. No procesa pagos ni reservas reales; los datos se guardan solo en este navegador.</p>
+        <p>&copy; <span id="currentYear">2026</span> AlquilaYa. Fotografías de Unsplash.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Volver al inicio" hidden>
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- ============ MODAL: DETALLE DE PROPIEDAD ============ -->
+  <div class="modal fade" id="propertyModal" tabindex="-1" aria-labelledby="pmTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable modal-fullscreen-lg-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title" id="pmTitle">Alojamiento</h2>
+            <p class="modal-subtitle" id="pmLocation"></p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="gallery">
+            <div class="gallery__main">
+              <img id="pmMainImage" src="" alt="" width="1200" height="675">
+            </div>
+            <div class="gallery__thumbs" id="pmThumbs" role="group" aria-label="Fotos del alojamiento"></div>
+          </div>
+
+          <div class="row g-4 g-xl-5 mt-1">
+            <div class="col-lg-7">
+              <div class="pm-rating" id="pmRating"></div>
+              <ul class="facts" id="pmFacts" aria-label="Capacidad y distribución"></ul>
+              <h3 class="pm-heading">Sobre este lugar</h3>
+              <p class="pm-description" id="pmDescription"></p>
+              <h3 class="pm-heading">Lo que ofrece</h3>
+              <ul class="amenities" id="pmAmenities"></ul>
+              <h3 class="pm-heading">Políticas</h3>
+              <ul class="policies" id="pmPolicies"></ul>
+              <h3 class="pm-heading">Fechas ocupadas</h3>
+              <ul class="blocked-dates" id="pmBlocked"></ul>
+            </div>
+
+            <div class="col-lg-5">
+              <form class="booking-card" id="bookingForm" novalidate aria-labelledby="bookingTitle">
+                <div class="booking-card__price">
+                  <h3 id="bookingTitle" class="visually-hidden">Reserva este alojamiento</h3>
+                  <strong id="pmPrice">$0</strong> <span>por noche</span>
+                </div>
+                <div class="row g-2">
+                  <div class="col-6">
+                    <label for="bookCheckIn" class="form-label">Llegada</label>
+                    <input type="date" class="form-control" id="bookCheckIn" name="checkIn" required aria-describedby="bookCheckInError">
+                    <div class="invalid-feedback" id="bookCheckInError"></div>
+                  </div>
+                  <div class="col-6">
+                    <label for="bookCheckOut" class="form-label">Salida</label>
+                    <input type="date" class="form-control" id="bookCheckOut" name="checkOut" required aria-describedby="bookCheckOutError">
+                    <div class="invalid-feedback" id="bookCheckOutError"></div>
+                  </div>
+                  <div class="col-12">
+                    <label for="bookGuests" class="form-label">Huéspedes</label>
+                    <input type="number" class="form-control" id="bookGuests" name="guests" min="1" value="2" inputmode="numeric" required aria-describedby="bookGuestsHint bookGuestsError">
+                    <div class="form-text" id="bookGuestsHint"></div>
+                    <div class="invalid-feedback" id="bookGuestsError"></div>
+                  </div>
+                </div>
+
+                <dl class="breakdown" aria-live="polite">
+                  <div><dt>Noches</dt><dd id="bkNights">—</dd></div>
+                  <div><dt>Precio por noche</dt><dd id="bkPrice">—</dd></div>
+                  <div><dt id="bkSubtotalLabel">Subtotal del alojamiento</dt><dd id="bkSubtotal">—</dd></div>
+                  <div><dt>Tarifa de limpieza</dt><dd id="bkCleaning">—</dd></div>
+                  <div class="breakdown__total"><dt>Total estimado</dt><dd id="bkTotal">—</dd></div>
+                </dl>
+
+                <p class="booking-feedback" id="bookingFeedback" role="status" aria-live="polite"></p>
+
+                <button type="submit" class="btn btn-brand btn-lg w-100" id="confirmBookingBtn">
+                  <span class="btn-label">Confirmar reserva</span>
+                </button>
+                <p class="booking-note">Disponibilidad orientativa: la reserva se guarda solo en este navegador y no existe un servidor que garantice la exclusividad de las fechas. No se realiza ningún cobro.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: CONFIRMACIÓN ============ -->
+  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="cfTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body confirmation">
+          <span class="confirmation__icon" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+          <h2 id="cfTitle">Reserva confirmada</h2>
+          <p class="confirmation__lead">Guardamos tu reserva de prueba en este navegador.</p>
+          <dl class="confirmation__data">
+            <div><dt>Código</dt><dd id="cfCode"></dd></div>
+            <div><dt>Alojamiento</dt><dd id="cfProperty"></dd></div>
+            <div><dt>Fechas</dt><dd id="cfDates"></dd></div>
+            <div><dt>Noches</dt><dd id="cfNights"></dd></div>
+            <div><dt>Huéspedes</dt><dd id="cfGuests"></dd></div>
+            <div class="confirmation__total"><dt>Total</dt><dd id="cfTotal"></dd></div>
+          </dl>
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-brand" id="cfViewReservations">Ver mis reservas</button>
+            <button type="button" class="btn btn-ghost" data-bs-dismiss="modal">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: MIS RESERVAS ============ -->
+  <div class="modal fade" id="reservationsModal" tabindex="-1" aria-labelledby="reservationsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable modal-fullscreen-md-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title" id="reservationsTitle">Mis reservas</h2>
+            <p class="modal-subtitle">Reservas de prueba guardadas en este navegador</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p class="notice"><i class="bi bi-hdd" aria-hidden="true"></i> Estos datos viven en el almacenamiento local de tu navegador. No se sincronizan con otros dispositivos ni con otras personas, y se pierden si borras los datos del sitio.</p>
+          <ul class="reservation-list" id="reservationsList"></ul>
+          <div class="empty-state empty-state--compact" id="reservationsEmpty" hidden>
+            <span class="empty-state__icon" aria-hidden="true"><i class="bi bi-calendar2-plus"></i></span>
+            <h3>Aún no tienes reservas</h3>
+            <p>Elige un alojamiento y tus fechas: la reserva de prueba aparecerá aquí.</p>
+            <button type="button" class="btn btn-brand" id="exploreFromReservations">Explorar alojamientos</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: INICIAR SESIÓN ============ -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title" id="loginTitle">Iniciar sesión</h2>
+            <p class="modal-subtitle">Acceso de demostración</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm" novalidate>
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="loginEmail" required maxlength="120" autocomplete="email">
+              <div class="invalid-feedback">Escribe un correo válido, por ejemplo nombre@correo.com.</div>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="loginPassword" required minlength="6" maxlength="64" autocomplete="current-password">
+              <div class="invalid-feedback">La contraseña debe tener al menos 6 caracteres.</div>
+            </div>
+            <button type="submit" class="btn btn-brand w-100" data-loading-text="Validando...">Iniciar sesión</button>
+            <p class="booking-note mt-3">Esta demostración no tiene cuentas de usuario: solo revisa el formato de los campos. No se guarda ni se envía tu contraseña.</p>
+            <div class="form-result" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: PUBLICAR PROPIEDAD ============ -->
+  <div class="modal fade" id="publishModal" tabindex="-1" aria-labelledby="publishTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable modal-fullscreen-md-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title" id="publishTitle">Publica tu propiedad</h2>
+            <p class="modal-subtitle">Formulario de demostración</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="publishForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="pubName" class="form-label">Nombre del anfitrión</label>
+                <input type="text" class="form-control" id="pubName" required minlength="2" maxlength="80" autocomplete="name">
+                <div class="invalid-feedback">Escribe tu nombre.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="pubEmail" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="pubEmail" required maxlength="120" autocomplete="email">
+                <div class="invalid-feedback">Escribe un correo válido.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="pubType" class="form-label">Tipo de alojamiento</label>
+                <select class="form-select" id="pubType" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="apartamento">Apartamento</option>
+                  <option value="casa">Casa</option>
+                  <option value="finca">Finca</option>
+                </select>
+                <div class="invalid-feedback">Elige el tipo de alojamiento.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="pubCity" class="form-label">Ciudad o municipio</label>
+                <input type="text" class="form-control" id="pubCity" required minlength="2" maxlength="80">
+                <div class="invalid-feedback">Indica dónde está la propiedad.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="pubCapacity" class="form-label">Capacidad (huéspedes)</label>
+                <input type="number" class="form-control" id="pubCapacity" required min="1" max="40" inputmode="numeric">
+                <div class="invalid-feedback">Indica entre 1 y 40 huéspedes.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="pubPrice" class="form-label">Precio por noche (COP)</label>
+                <input type="number" class="form-control" id="pubPrice" required min="50000" max="20000000" step="1000" inputmode="numeric">
+                <div class="invalid-feedback">Indica un precio entre $50.000 y $20.000.000.</div>
+              </div>
+              <div class="col-12">
+                <label for="pubDescription" class="form-label">Descripción breve <span class="text-muted-2">(opcional)</span></label>
+                <textarea class="form-control" id="pubDescription" rows="3" maxlength="500"></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="pubConsent" required>
+                  <label class="form-check-label" for="pubConsent">Entiendo que esto es una demostración y que la propiedad no se publicará.</label>
+                  <div class="invalid-feedback">Marca la casilla para continuar.</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-brand" data-loading-text="Revisando...">Enviar propuesta</button>
+              </div>
+            </div>
+            <div class="form-result" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: TÉRMINOS ============ -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="termsTitle">Términos y condiciones (ejemplo)</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body legal">
+          <p>Este texto es un ejemplo para la demostración de AlquilaYa y no constituye un acuerdo legal.</p>
+          <h3>1. Naturaleza del servicio</h3>
+          <p>AlquilaYa es un prototipo de interfaz. Los alojamientos, precios, calificaciones y testimonios son ficticios y sirven solo para ilustrar el producto.</p>
+          <h3>2. Reservas de prueba</h3>
+          <p>Las reservas que confirmes se guardan en el almacenamiento local de tu navegador. No generan obligaciones, cobros ni comunicaciones con anfitriones.</p>
+          <h3>3. Disponibilidad</h3>
+          <p>La disponibilidad mostrada es orientativa y se calcula en tu dispositivo. Al no existir un servidor, no hay garantía de exclusividad de fechas.</p>
+          <h3>4. Pagos</h3>
+          <p>Esta demostración no solicita ni procesa información de pago.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-brand" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: PRIVACIDAD ============ -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="privacyTitle">Política de privacidad (ejemplo)</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body legal">
+          <p>Este texto es un ejemplo para la demostración de AlquilaYa.</p>
+          <h3>Qué datos se guardan</h3>
+          <p>Solo tus reservas de prueba y tus favoritos, en las claves <code>alquilaya.v1.reservations</code> y <code>alquilaya.v1.favorites</code> del almacenamiento local de este navegador.</p>
+          <h3>Qué datos no se guardan</h3>
+          <p>Los formularios de contacto, acceso y publicación se validan en pantalla y no se almacenan ni se envían. Las contraseñas nunca se guardan.</p>
+          <h3>Cómo borrar tus datos</h3>
+          <p>Cancela tus reservas desde «Mis reservas», quita tus favoritos o borra los datos del sitio desde la configuración de tu navegador.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-brand" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer>
+/* ==========================================================================
+   AlquilaYa — lógica de la demostración
+   Todo el estado vive en el navegador (LocalStorage). No hay backend.
+   ========================================================================== */
+'use strict';
+
+(() => {
+  /* ========================================================================
+     1. DATOS DE PROPIEDADES
+     ======================================================================== */
+  const unsplash = (id, width = 1200) =>
+    `https://images.unsplash.com/photo-${id}?auto=format&fit=crop&w=${width}&q=75`;
+
+  const PROPERTIES = [
+    {
+      id: 'apto-poblado',
+      title: 'Loft con terraza en El Poblado',
+      type: 'apartamento',
+      city: 'Medellín',
+      department: 'Antioquia',
+      location: 'El Poblado, a 5 minutos del Parque Lleras',
+      description: 'Loft luminoso de dos niveles con terraza privada y vista a las montañas del valle de Aburrá. Ideal para escapadas de fin de semana o para trabajar unos días desde la ciudad de la eterna primavera, con cafés, restaurantes y la estación Poblado a poca distancia.',
+      pricePerNight: 320000,
+      cleaningFee: 60000,
+      capacity: 4,
+      bedrooms: 2,
+      beds: 2,
+      bathrooms: 2,
+      rating: 4.9,
+      reviewCount: 128,
+      featured: true,
+      superhost: true,
+      petFriendly: false,
+      pool: true,
+      amenities: ['wifi', 'kitchen', 'ac', 'pool', 'workspace', 'tv', 'hotWater', 'parking'],
+      images: [
+        { photo: '1502672260266-1c1ef2d93688', alt: 'Sala del loft con sofá claro y ventanales amplios' },
+        { photo: '1522708323590-d24dbb6b0267', alt: 'Zona social abierta con comedor y cocina integrada' },
+        { photo: '1505693416388-ac5ce068fe85', alt: 'Habitación principal con cama doble y luz natural' }
+      ]
+    },
+    {
+      id: 'apto-rodadero',
+      title: 'Apartamento frente al mar en El Rodadero',
+      type: 'apartamento',
+      city: 'Santa Marta',
+      department: 'Magdalena',
+      location: 'El Rodadero, a una cuadra de la playa',
+      description: 'Apartamento fresco y amplio con balcón hacia el mar Caribe. Bajas a la playa en un minuto, tienes piscina en el edificio y quedas a media hora del Parque Tayrona y del centro histórico de Santa Marta.',
+      pricePerNight: 280000,
+      cleaningFee: 50000,
+      capacity: 5,
+      bedrooms: 2,
+      beds: 3,
+      bathrooms: 2,
+      rating: 4.7,
+      reviewCount: 86,
+      featured: false,
+      superhost: false,
+      petFriendly: false,
+      pool: true,
+      amenities: ['wifi', 'kitchen', 'ac', 'pool', 'tv', 'parking'],
+      images: [
+        { photo: '1560448204-e02f11c3d0e2', alt: 'Sala del apartamento con decoración costera' },
+        { photo: '1493809842364-78817add7ffb', alt: 'Espacio abierto con muebles de madera y plantas' },
+        { photo: '1540518614846-7eded433c457', alt: 'Habitación con cama doble y ropa de cama blanca' }
+      ]
+    },
+    {
+      id: 'casa-salento',
+      title: 'Casa colonial en Salento',
+      type: 'casa',
+      city: 'Salento',
+      department: 'Quindío',
+      location: 'Eje Cafetero, a 10 minutos del Valle del Cocora',
+      description: 'Casa de bahareque con balcones de colores, patio interior y chimenea para las noches frescas del Quindío. Caminas a la calle Real y al mirador, y llegas en pocos minutos al Valle del Cocora y sus palmas de cera.',
+      pricePerNight: 390000,
+      cleaningFee: 70000,
+      capacity: 6,
+      bedrooms: 3,
+      beds: 4,
+      bathrooms: 2,
+      rating: 4.8,
+      reviewCount: 64,
+      featured: true,
+      superhost: false,
+      petFriendly: true,
+      pool: false,
+      amenities: ['wifi', 'kitchen', 'tv', 'hotWater', 'pets', 'outdoor', 'parking'],
+      images: [
+        { photo: '1564013799919-ab600027ffc6', alt: 'Fachada de la casa con jardín y entrada amplia' },
+        { photo: '1586023492125-27b2c045efd7', alt: 'Sala acogedora con sillones y luz cálida' },
+        { photo: '1556909114-f6e7ad7d3136', alt: 'Cocina equipada con isla central' }
+      ]
+    },
+    {
+      id: 'casa-barichara',
+      title: 'Casa con piscina en Barichara',
+      type: 'casa',
+      city: 'Barichara',
+      department: 'Santander',
+      location: 'Centro histórico, a 3 cuadras del parque principal',
+      description: 'Casa amplia y luminosa, con techos altos, jardín y piscina rodeada de buganvilias. Perfecta para recorrer el Camino Real hacia Guane y volver a descansar en uno de los pueblos más bonitos de Colombia.',
+      pricePerNight: 450000,
+      cleaningFee: 80000,
+      capacity: 8,
+      bedrooms: 4,
+      beds: 5,
+      bathrooms: 3,
+      rating: 4.9,
+      reviewCount: 41,
+      featured: false,
+      superhost: true,
+      petFriendly: true,
+      pool: true,
+      amenities: ['wifi', 'kitchen', 'pool', 'hotWater', 'pets', 'outdoor', 'workspace', 'tv'],
+      images: [
+        { photo: '1600596542815-ffad4c1539a9', alt: 'Exterior de la casa con piscina y zonas verdes' },
+        { photo: '1600607687939-ce8a6c25118c', alt: 'Sala con techos altos y grandes ventanales' },
+        { photo: '1600566753190-17f0baa2a6c3', alt: 'Cocina abierta con comedor de madera' }
+      ]
+    },
+    {
+      id: 'finca-montenegro',
+      title: 'Finca cafetera La Esperanza',
+      type: 'finca',
+      city: 'Montenegro',
+      department: 'Quindío',
+      location: 'Eje Cafetero, a 15 minutos del Parque del Café',
+      description: 'Finca tradicional entre cafetales con corredores amplios, hamacas, piscina y zona de BBQ. Espacio para que toda la familia se reúna, recorra el cultivo de café y visite el Parque del Café y Panaca.',
+      pricePerNight: 650000,
+      cleaningFee: 120000,
+      capacity: 12,
+      bedrooms: 5,
+      beds: 8,
+      bathrooms: 4,
+      rating: 4.8,
+      reviewCount: 97,
+      featured: true,
+      superhost: true,
+      petFriendly: true,
+      pool: true,
+      amenities: ['wifi', 'kitchen', 'pool', 'parking', 'tv', 'hotWater', 'pets', 'outdoor', 'bbq'],
+      images: [
+        { photo: '1449844908441-8829872d2607', alt: 'Casa de la finca rodeada de vegetación' },
+        { photo: '1470770841072-f978cf4d019e', alt: 'Paisaje de montañas y lago cerca de la finca' },
+        { photo: '1500382017468-9049fed747ef', alt: 'Campos de cultivo al atardecer' }
+      ]
+    },
+    {
+      id: 'finca-santafe',
+      title: 'Finca El Tamarindo',
+      type: 'finca',
+      city: 'Santa Fe de Antioquia',
+      department: 'Antioquia',
+      location: 'Vereda El Tunal, a 1 hora y media de Medellín',
+      description: 'Finca de clima cálido con piscina grande, kiosco con hamacas y amplias zonas verdes. Un plan clásico de puente festivo a hora y media de Medellín, cerca del Puente de Occidente y del centro colonial.',
+      pricePerNight: 580000,
+      cleaningFee: 100000,
+      capacity: 10,
+      bedrooms: 4,
+      beds: 7,
+      bathrooms: 3,
+      rating: 4.6,
+      reviewCount: 52,
+      featured: false,
+      superhost: false,
+      petFriendly: true,
+      pool: true,
+      amenities: ['wifi', 'kitchen', 'ac', 'pool', 'parking', 'tv', 'pets', 'outdoor', 'bbq'],
+      images: [
+        { photo: '1613490493576-7fde63acd811', alt: 'Casa principal de la finca con piscina iluminada' },
+        { photo: '1512917774080-9991f1c4c750', alt: 'Vista exterior de la casa con jardín' },
+        { photo: '1571896349842-33c89424de2d', alt: 'Piscina con zona de descanso al aire libre' }
+      ]
+    }
+  ];
+
+  /* ========================================================================
+     2. CONFIGURACIÓN Y CONSTANTES
+     ======================================================================== */
+  const STORAGE_KEYS = Object.freeze({
+    reservations: 'alquilaya.v1.reservations',
+    favorites: 'alquilaya.v1.favorites'
+  });
+
+  const PROPERTY_MAP = new Map(PROPERTIES.map((p) => [p.id, p]));
+
+  const TYPE_LABELS = Object.freeze({ apartamento: 'Apartamento', casa: 'Casa', finca: 'Finca' });
+  const TYPE_PLURALS = Object.freeze({ apartamento: 'apartamentos', casa: 'casas', finca: 'fincas' });
+
+  const AMENITIES = Object.freeze({
+    wifi: { label: 'Wi-Fi', icon: 'bi-wifi' },
+    kitchen: { label: 'Cocina equipada', icon: 'bi-egg-fried' },
+    ac: { label: 'Aire acondicionado', icon: 'bi-snow' },
+    pool: { label: 'Piscina', icon: 'bi-water' },
+    parking: { label: 'Parqueadero', icon: 'bi-p-square' },
+    workspace: { label: 'Zona de trabajo', icon: 'bi-laptop' },
+    tv: { label: 'Televisión', icon: 'bi-tv' },
+    hotWater: { label: 'Agua caliente', icon: 'bi-thermometer-sun' },
+    pets: { label: 'Admite mascotas', icon: 'bi-house-heart' },
+    outdoor: { label: 'Zonas exteriores', icon: 'bi-tree' },
+    bbq: { label: 'Zona de BBQ', icon: 'bi-fire' }
+  });
+
+  const DEFAULT_FILTERS = Object.freeze({ type: 'all', destination: '', checkIn: '', checkOut: '', guests: 2 });
+  const MAX_NIGHTS = 60;
+  const MAX_SEARCH_GUESTS = 30;
+  const MS_PER_DAY = 86400000;
+  const SEARCH_DELAY_MS = 380;
+  const BOOKING_DELAY_MS = 550;
+  const FORM_DELAY_MS = 650;
+  const CANCEL_CONFIRM_MS = 4000;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+  /* ========================================================================
+     3. UTILIDADES DE FORMATO, FECHAS Y DOM
+     ======================================================================== */
+  const currencyFormatter = new Intl.NumberFormat('es-CO', {
+    style: 'currency',
+    currency: 'COP',
+    maximumFractionDigits: 0
+  });
+  const dateFormatter = new Intl.DateTimeFormat('es-CO', {
+    day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC'
+  });
+  const shortDateFormatter = new Intl.DateTimeFormat('es-CO', {
+    weekday: 'short', day: 'numeric', month: 'short', timeZone: 'UTC'
+  });
+  const ratingFormatter = new Intl.NumberFormat('es-CO', { minimumFractionDigits: 1, maximumFractionDigits: 1 });
+
+  const formatCOP = (value) => currencyFormatter.format(value);
+  const pluralize = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+
+  /** Convierte "AAAA-MM-DD" en milisegundos UTC (medianoche). Devuelve null si no es una fecha real. */
+  function parseISODate(value) {
+    if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+    const [y, m, d] = value.split('-').map(Number);
+    const time = Date.UTC(y, m - 1, d);
+    const check = new Date(time);
+    if (check.getUTCFullYear() !== y || check.getUTCMonth() !== m - 1 || check.getUTCDate() !== d) return null;
+    return time;
+  }
+
+  const toISODate = (timeUTC) => new Date(timeUTC).toISOString().slice(0, 10);
+
+  /** Fecha local de hoy como "AAAA-MM-DD" (sin horas, inmune a cambios de horario). */
+  function todayISO() {
+    const now = new Date();
+    return toISODate(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  }
+
+  const addDays = (iso, days) => toISODate(parseISODate(iso) + days * MS_PER_DAY);
+
+  /** Noches entre dos fechas de calendario: 10 → 13 son 3 noches. */
+  const nightsBetween = (checkIn, checkOut) =>
+    Math.round((parseISODate(checkOut) - parseISODate(checkIn)) / MS_PER_DAY);
+
+  const formatDate = (iso) => dateFormatter.format(new Date(parseISODate(iso)));
+  const formatShortDate = (iso) => shortDateFormatter.format(new Date(parseISODate(iso)));
+  const formatRange = (checkIn, checkOut) => `${formatDate(checkIn)} al ${formatDate(checkOut)}`;
+
+  /** Intervalos semiabiertos [llegada, salida): el día de salida queda libre para otra llegada. */
+  const rangesOverlap = (aIn, aOut, bIn, bOut) => aIn < bOut && bIn < aOut;
+
+  /** Minúsculas y sin tildes, para comparar destinos. */
+  const normalizeText = (text) =>
+    String(text).normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+
+  /** Crea nodos de forma segura: todo el texto se asigna con textContent. */
+  function el(tag, options = {}, children = []) {
+    const node = document.createElement(tag);
+    const { className, text, attrs, dataset } = options;
+    if (className) node.className = className;
+    if (text !== undefined && text !== null) node.textContent = text;
+    if (attrs) {
+      Object.entries(attrs).forEach(([name, value]) => {
+        if (value === false || value === null || value === undefined) return;
+        node.setAttribute(name, value === true ? '' : String(value));
+      });
+    }
+    if (dataset) Object.assign(node.dataset, dataset);
+    children.forEach((child) => {
+      if (child !== null && child !== undefined && child !== false) node.append(child);
+    });
+    return node;
+  }
+
+  const icon = (name, extraClass = '') =>
+    el('i', { className: `bi ${name} ${extraClass}`.trim(), attrs: { 'aria-hidden': 'true' } });
+
+  function renderStars(rating) {
+    const label = `Calificación ${ratingFormatter.format(rating)} de 5`;
+    const wrapper = el('span', { className: 'stars', attrs: { role: 'img', 'aria-label': label } });
+    for (let i = 1; i <= 5; i += 1) {
+      let name = 'bi-star';
+      if (rating >= i - 0.25) name = 'bi-star-fill';
+      else if (rating >= i - 0.75) name = 'bi-star-half';
+      wrapper.append(icon(name));
+    }
+    return wrapper;
+  }
+
+  /** Muestra un fondo neutro si una foto de Unsplash no carga. */
+  function attachImageFallback(img) {
+    img.addEventListener('error', () => {
+      const holder = img.parentElement;
+      if (holder) holder.classList.add('img-fallback');
+    }, { once: true });
+  }
+
+  function generateReservationCode(existing) {
+    const alphabet = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    const randomChars = () => {
+      const bytes = new Uint8Array(6);
+      if (window.crypto && window.crypto.getRandomValues) window.crypto.getRandomValues(bytes);
+      else bytes.forEach((_, i) => { bytes[i] = Math.floor(Math.random() * 256); });
+      return Array.from(bytes, (b) => alphabet[b % alphabet.length]).join('');
+    };
+    const used = new Set(existing.map((r) => r.id));
+    let code;
+    do { code = `AY-${randomChars()}`; } while (used.has(code));
+    return code;
+  }
+
+  function scrollToElement(element) {
+    element.scrollIntoView({ behavior: prefersReducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+  }
+
+  function setButtonLoading(button, isLoading, loadingText) {
+    if (isLoading) {
+      button.dataset.originalLabel = button.textContent.trim();
+      button.disabled = true;
+      button.classList.add('is-loading');
+      button.replaceChildren(
+        el('span', { className: 'spinner-border spinner-border-sm', attrs: { 'aria-hidden': 'true' } }),
+        el('span', { text: loadingText || 'Procesando...' })
+      );
+    } else {
+      button.disabled = false;
+      button.classList.remove('is-loading');
+      button.replaceChildren(el('span', { className: 'btn-label', text: button.dataset.originalLabel || '' }));
+    }
+  }
+
+  /* ========================================================================
+     4. PERSISTENCIA EN LOCALSTORAGE
+     ======================================================================== */
+  const storage = {
+    read(key, fallback) {
+      try {
+        const raw = window.localStorage.getItem(key);
+        return raw === null ? fallback : JSON.parse(raw);
+      } catch (error) {
+        console.warn(`AlquilaYa: no se pudo leer "${key}".`, error);
+        return fallback;
+      }
+    },
+    write(key, value) {
+      try {
+        window.localStorage.setItem(key, JSON.stringify(value));
+        return true;
+      } catch (error) {
+        console.warn(`AlquilaYa: no se pudo guardar "${key}".`, error);
+        return false;
+      }
+    }
+  };
+
+  function isValidReservation(r) {
+    return Boolean(r) && typeof r === 'object'
+      && typeof r.id === 'string' && /^AY-[A-Z0-9]{6}$/.test(r.id)
+      && PROPERTY_MAP.has(r.propertyId)
+      && parseISODate(r.checkIn) !== null
+      && parseISODate(r.checkOut) !== null
+      && r.checkIn < r.checkOut
+      && Number.isInteger(r.guests) && r.guests >= 1
+      && Number.isInteger(r.nights) && r.nights === nightsBetween(r.checkIn, r.checkOut)
+      && Number.isFinite(r.total) && r.total > 0;
+  }
+
+  function loadReservations() {
+    const data = storage.read(STORAGE_KEYS.reservations, []);
+    if (!Array.isArray(data)) return [];
+    const seen = new Set();
+    return data.filter((r) => {
+      if (!isValidReservation(r) || seen.has(r.id)) return false;
+      seen.add(r.id);
+      return true;
+    });
+  }
+
+  const saveReservations = (list) => storage.write(STORAGE_KEYS.reservations, list);
+
+  function loadFavorites() {
+    const data = storage.read(STORAGE_KEYS.favorites, []);
+    if (!Array.isArray(data)) return new Set();
+    return new Set(data.filter((id) => typeof id === 'string' && PROPERTY_MAP.has(id)));
+  }
+
+  const saveFavorites = (set) => storage.write(STORAGE_KEYS.favorites, Array.from(set));
+
+  /* ========================================================================
+     ESTADO Y REFERENCIAS AL DOM
+     ======================================================================== */
+  const state = {
+    reservations: [],
+    favorites: new Set(),
+    filters: { ...DEFAULT_FILTERS },
+    onlyFavorites: false,
+    activePropertyId: null,
+    focusBookingOnOpen: false,
+    isBooking: false,
+    seededBlocks: []
+  };
+
+  const modalFocus = { returnTo: null, switching: false };
+  let dom = {};
+
+  function cacheDom() {
+    const $ = (id) => document.getElementById(id);
+    dom = {
+      searchForm: $('searchForm'),
+      searchType: $('searchType'),
+      searchDestination: $('searchDestination'),
+      searchCheckIn: $('searchCheckIn'),
+      searchCheckOut: $('searchCheckOut'),
+      searchGuests: $('searchGuests'),
+      searchError: $('searchError'),
+      searchSubmitBtn: $('searchSubmitBtn'),
+      catalogSection: $('propiedades'),
+      catalogTitle: $('catalogTitle'),
+      grid: $('propertyGrid'),
+      resultsCount: $('resultsCount'),
+      activeFilters: $('activeFilters'),
+      emptyState: $('emptyState'),
+      emptyStateText: $('emptyStateText'),
+      emptyResetBtn: $('emptyResetBtn'),
+      resetFiltersBtn: $('resetFiltersBtn'),
+      favoritesToggle: $('favoritesToggle'),
+      typeChips: Array.from(document.querySelectorAll('.type-chips .chip')),
+      // modal de propiedad
+      propertyModal: $('propertyModal'),
+      pmTitle: $('pmTitle'),
+      pmLocation: $('pmLocation'),
+      pmMainImage: $('pmMainImage'),
+      pmThumbs: $('pmThumbs'),
+      pmRating: $('pmRating'),
+      pmFacts: $('pmFacts'),
+      pmDescription: $('pmDescription'),
+      pmAmenities: $('pmAmenities'),
+      pmPolicies: $('pmPolicies'),
+      pmBlocked: $('pmBlocked'),
+      pmPrice: $('pmPrice'),
+      bookingForm: $('bookingForm'),
+      bookCheckIn: $('bookCheckIn'),
+      bookCheckOut: $('bookCheckOut'),
+      bookGuests: $('bookGuests'),
+      bookGuestsHint: $('bookGuestsHint'),
+      bkNights: $('bkNights'),
+      bkPrice: $('bkPrice'),
+      bkSubtotal: $('bkSubtotal'),
+      bkSubtotalLabel: $('bkSubtotalLabel'),
+      bkCleaning: $('bkCleaning'),
+      bkTotal: $('bkTotal'),
+      bookingFeedback: $('bookingFeedback'),
+      confirmBookingBtn: $('confirmBookingBtn'),
+      // confirmación
+      confirmationModal: $('confirmationModal'),
+      cfCode: $('cfCode'),
+      cfProperty: $('cfProperty'),
+      cfDates: $('cfDates'),
+      cfNights: $('cfNights'),
+      cfGuests: $('cfGuests'),
+      cfTotal: $('cfTotal'),
+      cfViewReservations: $('cfViewReservations'),
+      // mis reservas
+      reservationsModal: $('reservationsModal'),
+      reservationsList: $('reservationsList'),
+      reservationsEmpty: $('reservationsEmpty'),
+      reservationsBadge: $('reservationsBadge'),
+      exploreFromReservations: $('exploreFromReservations'),
+      // formularios auxiliares
+      loginForm: $('loginForm'),
+      publishForm: $('publishForm'),
+      contactForm: $('contactForm'),
+      // otros
+      navMenu: $('navMenu'),
+      backToTop: $('backToTop'),
+      toastContainer: $('toastContainer'),
+      currentYear: $('currentYear')
+    };
+  }
+
+  const getModal = (element) => bootstrap.Modal.getOrCreateInstance(element);
+
+  /** Abre un modal desde JavaScript recordando qué elemento debe recuperar el foco. */
+  function showModal(element, trigger) {
+    if (trigger) modalFocus.returnTo = trigger;
+    getModal(element).show();
+  }
+
+  /** Cierra un modal y abre otro cuando el primero termina de ocultarse (Bootstrap no apila modales). */
+  function switchModal(fromElement, toElement) {
+    if (!fromElement.classList.contains('show')) {
+      getModal(toElement).show();
+      return;
+    }
+    modalFocus.switching = true;
+    fromElement.addEventListener('hidden.bs.modal', () => {
+      getModal(toElement).show();
+      window.setTimeout(() => { modalFocus.switching = false; }, 0);
+    }, { once: true });
+    getModal(fromElement).hide();
+  }
+
+  function restoreFocusAfterModal() {
+    if (modalFocus.switching || document.querySelector('.modal.show')) return;
+    const target = modalFocus.returnTo;
+    modalFocus.returnTo = null;
+    if (!target) return;
+    if (document.body.contains(target)) target.focus();
+    else dom.catalogTitle.focus();
+  }
+
+  function showToast(message, variant = 'success') {
+    const icons = { success: 'bi-check-circle-fill', error: 'bi-exclamation-octagon-fill', info: 'bi-info-circle-fill' };
+    const toast = el('div', {
+      className: `toast ay-toast ay-toast--${variant}`,
+      attrs: { role: variant === 'error' ? 'alert' : 'status', 'aria-atomic': 'true' }
+    }, [
+      el('div', { className: 'd-flex' }, [
+        el('div', { className: 'toast-body' }, [icon(icons[variant] || icons.info), el('span', { text: message })]),
+        el('button', {
+          className: 'btn-close me-2 m-auto',
+          attrs: { type: 'button', 'data-bs-dismiss': 'toast', 'aria-label': 'Cerrar notificación' }
+        })
+      ])
+    ]);
+    dom.toastContainer.append(toast);
+    toast.addEventListener('hidden.bs.toast', () => toast.remove(), { once: true });
+    bootstrap.Toast.getOrCreateInstance(toast, { delay: 5000 }).show();
+  }
+
+  function renderResultBox(container, variant, message) {
+    const icons = { success: 'bi-check-circle-fill', error: 'bi-exclamation-octagon-fill', info: 'bi-info-circle-fill' };
+    container.replaceChildren(
+      el('div', { className: `result-box result-box--${variant}` }, [icon(icons[variant]), el('p', { className: 'mb-0', text: message })])
+    );
+  }
+
+  /* ========================================================================
+     DISPONIBILIDAD SIMULADA
+     ======================================================================== */
+
+  /** Fechas ya ocupadas "por otros huéspedes", relativas a hoy para que la demo siempre tenga ejemplos. */
+  function buildSeededBlocks(today) {
+    return [
+      { propertyId: 'finca-montenegro', checkIn: addDays(today, 5), checkOut: addDays(today, 9) },
+      { propertyId: 'apto-poblado', checkIn: addDays(today, 12), checkOut: addDays(today, 15) },
+      { propertyId: 'casa-barichara', checkIn: addDays(today, 2), checkOut: addDays(today, 4) },
+      { propertyId: 'finca-santafe', checkIn: addDays(today, 20), checkOut: addDays(today, 23) }
+    ];
+  }
+
+  function getBlockedRanges(propertyId) {
+    const external = state.seededBlocks
+      .filter((b) => b.propertyId === propertyId)
+      .map((b) => ({ checkIn: b.checkIn, checkOut: b.checkOut, mine: false }));
+    const mine = state.reservations
+      .filter((r) => r.propertyId === propertyId)
+      .map((r) => ({ checkIn: r.checkIn, checkOut: r.checkOut, mine: true, id: r.id }));
+    return [...external, ...mine].sort((a, b) => a.checkIn.localeCompare(b.checkIn));
+  }
+
+  const findConflict = (propertyId, checkIn, checkOut) =>
+    getBlockedRanges(propertyId).find((r) => rangesOverlap(checkIn, checkOut, r.checkIn, r.checkOut)) || null;
+
+  /* ========================================================================
+     5. RENDERIZADO DE TARJETAS
+     ======================================================================== */
+  function getCardBadge(property) {
+    if (property.superhost) return { text: 'Superanfitrión', icon: 'bi-award-fill' };
+    if (property.featured) return { text: 'Destacado', icon: 'bi-stars' };
+    if (property.rating >= 4.8) return { text: 'Favorito', icon: 'bi-heart-fill' };
+    return null;
+  }
+
+  function createFavoriteButton(property) {
+    const isFav = state.favorites.has(property.id);
+    const button = el('button', {
+      className: 'fav-btn',
+      attrs: { type: 'button', 'aria-pressed': String(isFav), 'aria-label': `Guardar ${property.title} en favoritos` },
+      dataset: { action: 'favorite', id: property.id }
+    }, [icon(isFav ? 'bi-heart-fill' : 'bi-heart')]);
+    return button;
+  }
+
+  function createPropertyCard(property) {
+    const badge = getCardBadge(property);
+    const cover = property.images[0];
+
+    const img = el('img', {
+      attrs: { src: unsplash(cover.photo, 800), alt: cover.alt, loading: 'lazy', width: 800, height: 600 }
+    });
+    attachImageFallback(img);
+
+    const media = el('div', { className: 'property-card__media' }, [
+      img,
+      badge ? el('span', { className: 'card-badge' }, [icon(badge.icon), el('span', { text: badge.text })]) : null,
+      createFavoriteButton(property)
+    ]);
+
+    const specs = el('ul', { className: 'spec-list', attrs: { 'aria-label': 'Capacidad' } }, [
+      el('li', {}, [icon('bi-people'), el('span', { text: pluralize(property.capacity, 'huésped', 'huéspedes') })]),
+      el('li', {}, [icon('bi-door-closed'), el('span', { text: pluralize(property.bedrooms, 'habitación', 'habitaciones') })]),
+      el('li', {}, [icon('bi-droplet'), el('span', { text: pluralize(property.bathrooms, 'baño', 'baños') })])
+    ]);
+
+    const features = el('div', { className: 'feature-tags' }, [
+      property.pool
+        ? el('span', { className: 'feature-tag' }, [icon('bi-water'), el('span', { text: 'Piscina' })])
+        : el('span', { className: 'feature-tag feature-tag--muted' }, [icon('bi-dash-circle'), el('span', { text: 'Sin piscina' })]),
+      property.petFriendly
+        ? el('span', { className: 'feature-tag feature-tag--green' }, [icon('bi-house-heart'), el('span', { text: 'Pet-friendly' })])
+        : el('span', { className: 'feature-tag feature-tag--muted' }, [icon('bi-slash-circle'), el('span', { text: 'No admite mascotas' })])
+    ]);
+
+    const body = el('div', { className: 'property-card__body' }, [
+      el('div', { className: 'card-topline' }, [
+        el('span', { className: 'type-label', text: TYPE_LABELS[property.type] }),
+        el('span', { className: 'rating-inline' }, [
+          renderStars(property.rating),
+          el('span', { text: ratingFormatter.format(property.rating) }),
+          el('small', { text: `(${property.reviewCount})` })
+        ])
+      ]),
+      el('h3', { className: 'property-card__title', text: property.title }),
+      el('p', { className: 'property-card__location' }, [icon('bi-geo-alt'), el('span', { text: `${property.city}, ${property.department}` })]),
+      specs,
+      features,
+      el('div', { className: 'property-card__footer' }, [
+        el('p', { className: 'price' }, [el('strong', { text: formatCOP(property.pricePerNight) }), el('span', { text: 'por noche' })]),
+        el('div', { className: 'card-actions' }, [
+          el('button', {
+            className: 'btn btn-outline-brand',
+            text: 'Ver detalles',
+            attrs: { type: 'button', 'aria-label': `Ver detalles de ${property.title}` },
+            dataset: { action: 'details', id: property.id }
+          }),
+          el('button', {
+            className: 'btn btn-brand',
+            text: 'Reservar',
+            attrs: { type: 'button', 'aria-label': `Reservar ${property.title}` },
+            dataset: { action: 'book', id: property.id }
+          })
+        ])
+      ])
+    ]);
+
+    const article = el('article', { className: 'property-card', attrs: { 'aria-label': property.title } }, [media, body]);
+    return el('div', { className: 'col-12 col-md-6 col-lg-4' }, [article]);
+  }
+
+  function renderSkeletons(count = 3) {
+    const skeletons = Array.from({ length: count }, () =>
+      el('div', { className: 'col-12 col-md-6 col-lg-4', attrs: { 'aria-hidden': 'true' } }, [
+        el('div', { className: 'skeleton-card' }, [
+          el('div', { className: 'sk-media' }),
+          el('div', { className: 'sk-line w-70' }),
+          el('div', { className: 'sk-line' }),
+          el('div', { className: 'sk-line' })
+        ])
+      ])
+    );
+    dom.grid.setAttribute('aria-busy', 'true');
+    dom.emptyState.hidden = true;
+    dom.grid.replaceChildren(...skeletons);
+    dom.resultsCount.textContent = 'Buscando alojamientos...';
+  }
+
+  function renderCatalog() {
+    const results = filterProperties(state.filters);
+    dom.grid.setAttribute('aria-busy', 'false');
+    dom.grid.replaceChildren(...results.map(createPropertyCard));
+
+    const count = results.length;
+    dom.resultsCount.textContent = count === 0
+      ? 'Sin resultados'
+      : `${pluralize(count, 'alojamiento disponible', 'alojamientos disponibles')}`;
+
+    dom.emptyState.hidden = count !== 0;
+    if (count === 0) {
+      dom.emptyStateText.textContent = state.onlyFavorites && state.favorites.size === 0
+        ? 'Todavía no has guardado favoritos. Toca el corazón de un alojamiento para guardarlo aquí.'
+        : 'Prueba con otras fechas, menos huéspedes o un destino diferente.';
+    }
+    renderActiveFilters();
+  }
+
+  function renderActiveFilters() {
+    const f = state.filters;
+    const parts = [];
+    if (f.type !== 'all') parts.push(TYPE_PLURALS[f.type]);
+    if (f.destination) parts.push(`en «${f.destination}»`);
+    if (f.checkIn && f.checkOut) parts.push(`del ${formatRange(f.checkIn, f.checkOut)}`);
+    if (f.guests !== DEFAULT_FILTERS.guests) parts.push(`para ${pluralize(f.guests, 'huésped', 'huéspedes')}`);
+    if (state.onlyFavorites) parts.push('solo favoritos');
+    dom.activeFilters.hidden = parts.length === 0;
+    dom.activeFilters.textContent = parts.length ? `Mostrando ${parts.join(', ')}.` : '';
+  }
+
+  /* ========================================================================
+     6. BÚSQUEDA Y FILTROS
+     ======================================================================== */
+  function filterProperties(filters) {
+    const query = normalizeText(filters.destination);
+    const hasDates = Boolean(filters.checkIn && filters.checkOut);
+    return PROPERTIES.filter((p) => {
+      if (filters.type !== 'all' && p.type !== filters.type) return false;
+      if (query) {
+        const haystack = normalizeText(`${p.city} ${p.department} ${p.location} ${p.title}`);
+        if (!haystack.includes(query)) return false;
+      }
+      if (p.capacity < filters.guests) return false;
+      if (hasDates && findConflict(p.id, filters.checkIn, filters.checkOut)) return false;
+      if (state.onlyFavorites && !state.favorites.has(p.id)) return false;
+      return true;
+    });
+  }
+
+  function setFieldError(input, errorElement, message) {
+    input.classList.toggle('is-invalid', Boolean(message));
+    input.setAttribute('aria-invalid', message ? 'true' : 'false');
+    if (errorElement) errorElement.textContent = message || '';
+  }
+
+  const errorElementFor = (input) => document.getElementById(`${input.id}Error`);
+
+  function readSearchForm() {
+    return {
+      type: dom.searchType.value,
+      destination: dom.searchDestination.value.trim(),
+      checkIn: dom.searchCheckIn.value,
+      checkOut: dom.searchCheckOut.value,
+      guestsRaw: dom.searchGuests.value.trim()
+    };
+  }
+
+  function validateSearch(values) {
+    const errors = {};
+    const today = todayISO();
+    const guests = Number(values.guestsRaw);
+
+    if (values.checkIn && parseISODate(values.checkIn) === null) errors.checkIn = 'Fecha de llegada no válida.';
+    else if (values.checkIn && values.checkIn < today) errors.checkIn = 'La llegada no puede ser anterior a hoy.';
+
+    if (values.checkOut && parseISODate(values.checkOut) === null) errors.checkOut = 'Fecha de salida no válida.';
+
+    if (values.checkIn && !values.checkOut && !errors.checkIn) errors.checkOut = 'Elige también la fecha de salida.';
+    if (!values.checkIn && values.checkOut) errors.checkIn = 'Elige también la fecha de llegada.';
+
+    if (values.checkIn && values.checkOut && !errors.checkIn && !errors.checkOut && values.checkOut <= values.checkIn) {
+      errors.checkOut = 'La salida debe ser posterior a la llegada.';
+    }
+
+    if (values.guestsRaw === '' || !Number.isInteger(guests) || guests < 1) errors.guests = 'Indica al menos 1 huésped.';
+    else if (guests > MAX_SEARCH_GUESTS) errors.guests = `Máximo ${MAX_SEARCH_GUESTS} huéspedes por búsqueda.`;
+
+    return { errors, guests };
+  }
+
+  function showSearchErrors(errors) {
+    setFieldError(dom.searchCheckIn, errorElementFor(dom.searchCheckIn), errors.checkIn);
+    setFieldError(dom.searchCheckOut, errorElementFor(dom.searchCheckOut), errors.checkOut);
+    setFieldError(dom.searchGuests, errorElementFor(dom.searchGuests), errors.guests);
+    const messages = Object.values(errors);
+    dom.searchError.hidden = messages.length === 0;
+    dom.searchError.textContent = messages.length ? `Revisa la búsqueda: ${messages.join(' ')}` : '';
+  }
+
+  function handleSearchSubmit(event) {
+    event.preventDefault();
+    if (dom.searchSubmitBtn.disabled) return;
+
+    const values = readSearchForm();
+    const { errors, guests } = validateSearch(values);
+    showSearchErrors(errors);
+    if (Object.keys(errors).length) {
+      const firstInvalid = dom.searchForm.querySelector('.is-invalid');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    state.filters = {
+      type: values.type,
+      destination: values.destination,
+      checkIn: values.checkIn,
+      checkOut: values.checkOut,
+      guests
+    };
+    syncTypeChips();
+
+    setButtonLoading(dom.searchSubmitBtn, true, 'Buscando...');
+    renderSkeletons(3);
+    scrollToElement(dom.catalogSection);
+
+    window.setTimeout(() => {
+      renderCatalog();
+      setButtonLoading(dom.searchSubmitBtn, false);
+      dom.searchSubmitBtn.prepend(icon('bi-search'));
+    }, SEARCH_DELAY_MS);
+  }
+
+  function syncTypeChips() {
+    dom.typeChips.forEach((chip) => {
+      const active = chip.dataset.type === state.filters.type;
+      chip.classList.toggle('is-active', active);
+      chip.setAttribute('aria-pressed', String(active));
+    });
+  }
+
+  function handleTypeChip(event) {
+    const chip = event.target.closest('.chip[data-type]');
+    if (!chip) return;
+    state.filters.type = chip.dataset.type;
+    dom.searchType.value = chip.dataset.type;
+    syncTypeChips();
+    renderCatalog();
+  }
+
+  function syncFavoritesToggle() {
+    dom.favoritesToggle.setAttribute('aria-pressed', String(state.onlyFavorites));
+    const toggleIcon = dom.favoritesToggle.querySelector('i');
+    toggleIcon.className = `bi ${state.onlyFavorites ? 'bi-heart-fill' : 'bi-heart'}`;
+  }
+
+  function resetFilters() {
+    dom.searchForm.reset();
+    showSearchErrors({});
+    state.filters = { ...DEFAULT_FILTERS };
+    state.onlyFavorites = false;
+    syncTypeChips();
+    syncFavoritesToggle();
+    syncDateMins(dom.searchCheckIn, dom.searchCheckOut);
+    renderCatalog();
+    showToast('Filtros restablecidos. Ves todos los alojamientos.', 'info');
+  }
+
+  /* ========================================================================
+     7. GESTIÓN DE FAVORITOS
+     ======================================================================== */
+  function toggleFavorite(propertyId, button) {
+    const property = PROPERTY_MAP.get(propertyId);
+    if (!property) return;
+
+    const willBeFavorite = !state.favorites.has(propertyId);
+    if (willBeFavorite) state.favorites.add(propertyId);
+    else state.favorites.delete(propertyId);
+
+    if (!saveFavorites(state.favorites)) {
+      showToast('No pudimos guardar tus favoritos en este navegador. Seguirán marcados hasta que recargues.', 'error');
+    }
+
+    if (state.onlyFavorites) {
+      renderCatalog();
+    } else if (button) {
+      button.setAttribute('aria-pressed', String(willBeFavorite));
+      button.replaceChildren(icon(willBeFavorite ? 'bi-heart-fill' : 'bi-heart'));
+      button.classList.remove('is-popping');
+      void button.offsetWidth; // reinicia la animación
+      button.classList.add('is-popping');
+    }
+    showToast(willBeFavorite ? `Guardado en favoritos: ${property.title}.` : `Quitado de favoritos: ${property.title}.`, 'info');
+  }
+
+  function handleGridClick(event) {
+    const button = event.target.closest('button[data-action]');
+    if (!button) return;
+    const { action, id } = button.dataset;
+    if (!PROPERTY_MAP.has(id)) return;
+
+    if (action === 'favorite') toggleFavorite(id, button);
+    if (action === 'details') openPropertyModal(id, { trigger: button, focusBooking: false });
+    if (action === 'book') openPropertyModal(id, { trigger: button, focusBooking: true });
+  }
+
+  /* ========================================================================
+     8. MODAL DE DETALLES
+     ======================================================================== */
+  function renderGallery(property) {
+    const setMain = (index) => {
+      const image = property.images[index];
+      dom.pmMainImage.classList.remove('is-swapping');
+      void dom.pmMainImage.offsetWidth;
+      dom.pmMainImage.classList.add('is-swapping');
+      dom.pmMainImage.src = unsplash(image.photo);
+      dom.pmMainImage.alt = image.alt;
+      dom.pmThumbs.querySelectorAll('.thumb-btn').forEach((thumb, i) => {
+        thumb.setAttribute('aria-current', String(i === index));
+      });
+    };
+
+    const thumbs = property.images.map((image, index) => {
+      const thumbImg = el('img', {
+        attrs: { src: unsplash(image.photo, 240), alt: '', loading: 'lazy', width: 96, height: 72 }
+      });
+      const btn = el('button', {
+        className: 'thumb-btn',
+        attrs: { type: 'button', 'aria-label': `Ver foto ${index + 1} de ${property.images.length}: ${image.alt}`, 'aria-current': String(index === 0) }
+      }, [thumbImg]);
+      btn.addEventListener('click', () => setMain(index));
+      return btn;
+    });
+
+    dom.pmMainImage.parentElement.classList.remove('img-fallback');
+    dom.pmMainImage.src = unsplash(property.images[0].photo);
+    dom.pmMainImage.alt = property.images[0].alt;
+    dom.pmThumbs.replaceChildren(...thumbs);
+  }
+
+  function renderPropertyFacts(property) {
+    const fact = (iconName, value, label) =>
+      el('li', {}, [icon(iconName), el('strong', { text: String(value) }), el('span', { text: label })]);
+    dom.pmFacts.replaceChildren(
+      fact('bi-people', property.capacity, property.capacity === 1 ? 'huésped máx.' : 'huéspedes máx.'),
+      fact('bi-door-closed', property.bedrooms, property.bedrooms === 1 ? 'habitación' : 'habitaciones'),
+      fact('bi-moon-stars', property.beds, property.beds === 1 ? 'cama' : 'camas'),
+      fact('bi-droplet', property.bathrooms, property.bathrooms === 1 ? 'baño' : 'baños')
+    );
+  }
+
+  function renderAmenities(property) {
+    const items = property.amenities
+      .filter((key) => AMENITIES[key])
+      .map((key) => el('li', {}, [icon(AMENITIES[key].icon), el('span', { text: AMENITIES[key].label })]));
+    dom.pmAmenities.replaceChildren(...items);
+  }
+
+  function renderPolicies(property) {
+    const policy = (ok, iconOk, textOk, textNo) =>
+      el('li', { className: ok ? 'policy-yes' : 'policy-no' }, [icon(ok ? iconOk : 'bi-x-circle'), el('span', { text: ok ? textOk : textNo })]);
+    dom.pmPolicies.replaceChildren(
+      policy(property.pool, 'bi-check-circle-fill', 'Tiene piscina para uso de los huéspedes.', 'No tiene piscina.'),
+      policy(property.petFriendly, 'bi-check-circle-fill', 'Admite mascotas. Avisa al anfitrión al reservar.', 'No se admiten mascotas.'),
+      el('li', { className: 'policy-yes' }, [icon('bi-clock'), el('span', { text: 'Llegada desde las 3:00 p. m. y salida hasta las 11:00 a. m.' })])
+    );
+  }
+
+  function renderBlockedDates(property) {
+    const today = todayISO();
+    const upcoming = getBlockedRanges(property.id).filter((r) => r.checkOut > today);
+    if (upcoming.length === 0) {
+      dom.pmBlocked.replaceChildren(el('li', {}, [icon('bi-calendar-check'), el('span', { text: 'Sin fechas ocupadas próximamente.' })]));
+      return;
+    }
+    dom.pmBlocked.replaceChildren(...upcoming.map((r) =>
+      el('li', { className: r.mine ? 'is-mine' : '' }, [
+        icon(r.mine ? 'bi-calendar-check-fill' : 'bi-calendar-x'),
+        el('span', { text: `${formatRange(r.checkIn, r.checkOut)}${r.mine ? ' (tu reserva de prueba)' : ' (ocupado)'}` })
+      ])
+    ));
+  }
+
+  function fillPropertyModal(property) {
+    dom.pmTitle.textContent = property.title;
+    dom.pmLocation.textContent = `${property.location}. ${property.city}, ${property.department}`;
+    renderGallery(property);
+
+    dom.pmRating.replaceChildren(
+      el('span', { className: 'rating-inline' }, [
+        renderStars(property.rating),
+        el('span', { text: ratingFormatter.format(property.rating) }),
+        el('small', { text: `${property.reviewCount} reseñas` })
+      ]),
+      property.superhost ? el('span', { className: 'feature-tag feature-tag--green' }, [icon('bi-award-fill'), el('span', { text: 'Superanfitrión' })]) : null,
+      property.featured ? el('span', { className: 'feature-tag' }, [icon('bi-stars'), el('span', { text: 'Destacado' })]) : null
+    );
+
+    renderPropertyFacts(property);
+    dom.pmDescription.textContent = property.description;
+    renderAmenities(property);
+    renderPolicies(property);
+    renderBlockedDates(property);
+    dom.pmPrice.textContent = formatCOP(property.pricePerNight);
+  }
+
+  function prepareBookingForm(property) {
+    const today = todayISO();
+    const f = state.filters;
+    const searchDatesUsable = f.checkIn && f.checkOut && f.checkIn >= today
+      && !findConflict(property.id, f.checkIn, f.checkOut);
+
+    dom.bookingForm.reset();
+    dom.bookCheckIn.value = searchDatesUsable ? f.checkIn : '';
+    dom.bookCheckOut.value = searchDatesUsable ? f.checkOut : '';
+    dom.bookGuests.value = String(Math.min(Math.max(f.guests, 1), property.capacity));
+    dom.bookGuests.max = String(property.capacity);
+    dom.bookGuestsHint.textContent = `Máximo ${pluralize(property.capacity, 'huésped', 'huéspedes')}.`;
+    syncDateMins(dom.bookCheckIn, dom.bookCheckOut);
+
+    [dom.bookCheckIn, dom.bookCheckOut, dom.bookGuests].forEach((input) => setFieldError(input, errorElementFor(input), ''));
+    state.isBooking = false;
+    dom.confirmBookingBtn.disabled = false;
+    updateBookingQuote({ showAll: false });
+  }
+
+  function openPropertyModal(propertyId, { trigger = null, focusBooking = false } = {}) {
+    const property = PROPERTY_MAP.get(propertyId);
+    if (!property) return;
+    state.activePropertyId = propertyId;
+    state.focusBookingOnOpen = focusBooking;
+    fillPropertyModal(property);
+    prepareBookingForm(property);
+    showModal(dom.propertyModal, trigger);
+  }
+
+  function handlePropertyModalShown() {
+    const body = dom.propertyModal.querySelector('.modal-body');
+    if (state.focusBookingOnOpen) {
+      dom.bookingForm.scrollIntoView({ behavior: prefersReducedMotion.matches ? 'auto' : 'smooth', block: 'start' });
+      const target = dom.bookCheckIn.value ? dom.confirmBookingBtn : dom.bookCheckIn;
+      target.focus({ preventScroll: true });
+    } else {
+      body.scrollTop = 0;
+    }
+  }
+
+  /* ========================================================================
+     9. CALCULADORA DE RESERVAS
+     ======================================================================== */
+  function readBookingForm() {
+    return {
+      checkIn: dom.bookCheckIn.value,
+      checkOut: dom.bookCheckOut.value,
+      guestsRaw: dom.bookGuests.value.trim()
+    };
+  }
+
+  /**
+   * Evalúa la reserva y devuelve errores por campo, un error general (solapamiento)
+   * y la cotización cuando todo es válido.
+   */
+  function evaluateBooking(property, values) {
+    const errors = {};
+    const today = todayISO();
+    const guests = Number(values.guestsRaw);
+
+    if (!values.checkIn) errors.checkIn = 'Selecciona la fecha de llegada.';
+    else if (parseISODate(values.checkIn) === null) errors.checkIn = 'Fecha de llegada no válida.';
+    else if (values.checkIn < today) errors.checkIn = 'La llegada no puede ser anterior a hoy.';
+
+    if (!values.checkOut) errors.checkOut = 'Selecciona la fecha de salida.';
+    else if (parseISODate(values.checkOut) === null) errors.checkOut = 'Fecha de salida no válida.';
+    else if (values.checkIn && !errors.checkIn && values.checkOut <= values.checkIn) {
+      errors.checkOut = 'La salida debe ser posterior a la llegada.';
+    }
+
+    if (values.guestsRaw === '' || !Number.isInteger(guests) || guests < 1) {
+      errors.guests = 'Indica al menos 1 huésped.';
+    } else if (guests > property.capacity) {
+      errors.guests = `Este alojamiento admite máximo ${pluralize(property.capacity, 'huésped', 'huéspedes')}.`;
+    }
+
+    let generalError = '';
+    let nights = 0;
+    if (!errors.checkIn && !errors.checkOut) {
+      nights = nightsBetween(values.checkIn, values.checkOut);
+      if (nights > MAX_NIGHTS) {
+        errors.checkOut = `La estancia máxima en esta demostración es de ${MAX_NIGHTS} noches.`;
+      } else {
+        const conflict = findConflict(property.id, values.checkIn, values.checkOut);
+        if (conflict) {
+          generalError = conflict.mine
+            ? `Ya tienes una reserva de prueba aquí del ${formatRange(conflict.checkIn, conflict.checkOut)}. Elige otras fechas.`
+            : `Estas fechas se cruzan con una estadía ocupada del ${formatRange(conflict.checkIn, conflict.checkOut)}. Elige otras fechas.`;
+        }
+      }
+    }
+
+    const ok = Object.keys(errors).length === 0 && !generalError;
+    const datesOk = !errors.checkIn && !errors.checkOut && nights > 0;
+    const quote = datesOk ? buildQuote(property, nights) : null;
+    return { ok, errors, generalError, quote, guests, values };
+  }
+
+  /** Total = (noches × precio por noche) + tarifa de limpieza. */
+  function buildQuote(property, nights) {
+    const subtotal = nights * property.pricePerNight;
+    return {
+      nights,
+      pricePerNight: property.pricePerNight,
+      subtotal,
+      cleaningFee: property.cleaningFee,
+      total: subtotal + property.cleaningFee
+    };
+  }
+
+  function renderQuote(property, quote) {
+    dom.bkPrice.textContent = formatCOP(property.pricePerNight);
+    dom.bkCleaning.textContent = formatCOP(property.cleaningFee);
+    if (!quote) {
+      dom.bkNights.textContent = '—';
+      dom.bkSubtotal.textContent = '—';
+      dom.bkSubtotalLabel.textContent = 'Subtotal del alojamiento';
+      dom.bkTotal.textContent = '—';
+      return;
+    }
+    dom.bkNights.textContent = pluralize(quote.nights, 'noche', 'noches');
+    dom.bkSubtotalLabel.textContent = `Subtotal (${quote.nights} × ${formatCOP(quote.pricePerNight)})`;
+    dom.bkSubtotal.textContent = formatCOP(quote.subtotal);
+    dom.bkTotal.textContent = formatCOP(quote.total);
+  }
+
+  function setBookingFeedback(message, tone) {
+    dom.bookingFeedback.textContent = message;
+    dom.bookingFeedback.classList.toggle('is-error', tone === 'error');
+    dom.bookingFeedback.classList.toggle('is-ok', tone === 'ok');
+  }
+
+  /**
+   * Recalcula y muestra errores. Con showAll=false solo marca campos que ya tienen valor,
+   * para no llenar de rojo un formulario recién abierto.
+   */
+  function updateBookingQuote({ showAll }) {
+    const property = PROPERTY_MAP.get(state.activePropertyId);
+    if (!property) return null;
+    const result = evaluateBooking(property, readBookingForm());
+
+    // Las fechas vacías solo se marcan al intentar confirmar; los huéspedes vienen precargados.
+    const dateError = (input, message) => (showAll || input.value !== '' ? message : '');
+    setFieldError(dom.bookCheckIn, errorElementFor(dom.bookCheckIn), dateError(dom.bookCheckIn, result.errors.checkIn));
+    setFieldError(dom.bookCheckOut, errorElementFor(dom.bookCheckOut), dateError(dom.bookCheckOut, result.errors.checkOut));
+    setFieldError(dom.bookGuests, errorElementFor(dom.bookGuests), result.errors.guests);
+
+    renderQuote(property, result.generalError ? null : result.quote);
+
+    if (result.generalError) {
+      setBookingFeedback(result.generalError, 'error');
+    } else if (result.ok) {
+      setBookingFeedback(`Fechas disponibles: ${pluralize(result.quote.nights, 'noche', 'noches')} por ${formatCOP(result.quote.total)} en total.`, 'ok');
+    } else if (showAll) {
+      setBookingFeedback('Revisa los campos marcados para confirmar la reserva.', 'error');
+    } else if (!dom.bookCheckIn.value || !dom.bookCheckOut.value) {
+      setBookingFeedback('Elige tus fechas para ver el total de la estadía.', '');
+    } else {
+      setBookingFeedback('Corrige los campos marcados para poder confirmar.', 'error');
+    }
+    return result;
+  }
+
+  /* ========================================================================
+     10. VALIDACIÓN Y CONFIRMACIÓN
+     ======================================================================== */
+  function handleConfirmBooking(event) {
+    event.preventDefault();
+    if (state.isBooking) return; // evita dobles envíos
+
+    const property = PROPERTY_MAP.get(state.activePropertyId);
+    if (!property) return;
+
+    const result = updateBookingQuote({ showAll: true });
+    if (!result || !result.ok) {
+      const firstInvalid = dom.bookingForm.querySelector('.is-invalid');
+      (firstInvalid || dom.bookCheckIn).focus();
+      return;
+    }
+
+    state.isBooking = true;
+    setButtonLoading(dom.confirmBookingBtn, true, 'Confirmando...');
+
+    window.setTimeout(() => {
+      try {
+        finalizeReservation(property, result);
+      } finally {
+        state.isBooking = false;
+        setButtonLoading(dom.confirmBookingBtn, false);
+      }
+    }, BOOKING_DELAY_MS);
+  }
+
+  function finalizeReservation(property, result) {
+    // Releemos LocalStorage: otra pestaña pudo reservar las mismas fechas mientras tanto.
+    state.reservations = loadReservations();
+    const { checkIn, checkOut } = result.values;
+    const conflict = findConflict(property.id, checkIn, checkOut);
+    if (conflict) {
+      setBookingFeedback(`Otra reserva tomó estas fechas (${formatRange(conflict.checkIn, conflict.checkOut)}) mientras confirmabas. Elige otras fechas.`, 'error');
+      renderBlockedDates(property);
+      renderCatalog();
+      updateReservationsBadge();
+      return;
+    }
+
+    const quote = buildQuote(property, nightsBetween(checkIn, checkOut));
+    const reservation = {
+      id: generateReservationCode(state.reservations),
+      propertyId: property.id,
+      checkIn,
+      checkOut,
+      guests: result.guests,
+      nights: quote.nights,
+      pricePerNight: quote.pricePerNight,
+      cleaningFee: quote.cleaningFee,
+      subtotal: quote.subtotal,
+      total: quote.total,
+      createdAt: new Date().toISOString()
+    };
+
+    const next = [...state.reservations, reservation];
+    if (!saveReservations(next)) {
+      setBookingFeedback('No pudimos guardar la reserva en este navegador (almacenamiento lleno o bloqueado). Intenta de nuevo.', 'error');
+      showToast('La reserva no se guardó. Revisa que tu navegador permita el almacenamiento local.', 'error');
+      return;
+    }
+
+    state.reservations = next;
+    renderCatalog();
+    updateReservationsBadge();
+    fillConfirmation(reservation, property);
+    modalFocus.returnTo = modalFocus.returnTo && document.body.contains(modalFocus.returnTo) ? modalFocus.returnTo : dom.catalogTitle;
+    switchModal(dom.propertyModal, dom.confirmationModal);
+  }
+
+  function fillConfirmation(reservation, property) {
+    dom.cfCode.textContent = reservation.id;
+    dom.cfProperty.textContent = property.title;
+    dom.cfDates.textContent = `${formatShortDate(reservation.checkIn)} al ${formatShortDate(reservation.checkOut)}`;
+    dom.cfNights.textContent = pluralize(reservation.nights, 'noche', 'noches');
+    dom.cfGuests.textContent = pluralize(reservation.guests, 'huésped', 'huéspedes');
+    dom.cfTotal.textContent = formatCOP(reservation.total);
+  }
+
+  /* ========================================================================
+     11. GESTIÓN DE MIS RESERVAS
+     ======================================================================== */
+  function updateReservationsBadge() {
+    const today = todayISO();
+    const upcoming = state.reservations.filter((r) => r.checkOut >= today).length;
+    dom.reservationsBadge.hidden = upcoming === 0;
+    dom.reservationsBadge.textContent = String(upcoming);
+    dom.reservationsBadge.setAttribute('aria-label', `${upcoming} próximas`);
+  }
+
+  function createReservationItem(reservation) {
+    const property = PROPERTY_MAP.get(reservation.propertyId);
+    const isPast = reservation.checkOut < todayISO();
+    const thumb = el('img', {
+      className: 'reservation__img',
+      attrs: { src: unsplash(property.images[0].photo, 240), alt: property.images[0].alt, loading: 'lazy', width: 112, height: 112 }
+    });
+
+    const cancelBtn = el('button', {
+      className: 'btn btn-danger-soft',
+      attrs: { type: 'button', 'aria-label': `Cancelar la reserva ${reservation.id}` },
+      dataset: { action: 'cancel', id: reservation.id }
+    }, [icon('bi-x-circle'), el('span', { text: isPast ? 'Eliminar del historial' : 'Cancelar reserva' })]);
+
+    return el('li', { className: 'reservation' }, [
+      thumb,
+      el('div', {}, [
+        el('div', { className: 'reservation__head' }, [
+          el('h3', { className: 'reservation__title', text: property.title }),
+          el('span', { className: 'reservation__code' }, [
+            el('span', { text: reservation.id }),
+            el('span', { className: `status-pill ${isPast ? 'status-pill--past' : ''}`, text: isPast ? 'Finalizada' : 'Confirmada' })
+          ])
+        ]),
+        el('p', { className: 'reservation__meta', text: `${property.city}, ${property.department}` }),
+        el('div', { className: 'reservation__details' }, [
+          el('span', {}, [el('strong', { text: 'Fechas: ' }), el('span', { text: formatRange(reservation.checkIn, reservation.checkOut) })]),
+          el('span', {}, [el('strong', { text: 'Noches: ' }), el('span', { text: String(reservation.nights) })]),
+          el('span', {}, [el('strong', { text: 'Huéspedes: ' }), el('span', { text: String(reservation.guests) })]),
+          el('span', {}, [el('strong', { text: 'Total: ' }), el('span', { text: formatCOP(reservation.total) })])
+        ]),
+        el('div', { className: 'reservation__actions' }, [
+          el('button', {
+            className: 'btn btn-outline-brand',
+            attrs: { type: 'button' },
+            dataset: { action: 'view', id: reservation.propertyId }
+          }, [icon('bi-house'), el('span', { text: 'Ver alojamiento' })]),
+          cancelBtn
+        ])
+      ])
+    ]);
+  }
+
+  function renderReservationsList() {
+    const sorted = [...state.reservations].sort((a, b) => a.checkIn.localeCompare(b.checkIn));
+    dom.reservationsList.replaceChildren(...sorted.map(createReservationItem));
+    dom.reservationsEmpty.hidden = sorted.length > 0;
+  }
+
+  function cancelReservation(reservationId) {
+    const latest = loadReservations();
+    const target = latest.find((r) => r.id === reservationId);
+    if (!target) {
+      state.reservations = latest;
+      renderReservationsList();
+      showToast('Esa reserva ya no existe en este navegador.', 'info');
+      return;
+    }
+    const next = latest.filter((r) => r.id !== reservationId);
+    if (!saveReservations(next)) {
+      showToast('No pudimos cancelar la reserva: el almacenamiento local no respondió.', 'error');
+      return;
+    }
+    state.reservations = next;
+    renderReservationsList();
+    renderCatalog();
+    updateReservationsBadge();
+    showToast(`Reserva ${reservationId} cancelada. Esas fechas vuelven a estar disponibles.`, 'success');
+    const firstAction = dom.reservationsList.querySelector('button') || dom.exploreFromReservations;
+    firstAction.focus();
+  }
+
+  /** Cancelar pide un segundo clic de confirmación para evitar cancelaciones accidentales. */
+  function handleReservationsClick(event) {
+    const button = event.target.closest('button[data-action]');
+    if (!button) return;
+    const { action, id } = button.dataset;
+
+    if (action === 'view' && PROPERTY_MAP.has(id)) {
+      state.activePropertyId = id;
+      state.focusBookingOnOpen = false;
+      fillPropertyModal(PROPERTY_MAP.get(id));
+      prepareBookingForm(PROPERTY_MAP.get(id));
+      modalFocus.returnTo = dom.catalogTitle;
+      switchModal(dom.reservationsModal, dom.propertyModal);
+      return;
+    }
+
+    if (action === 'cancel') {
+      if (button.classList.contains('is-confirming')) {
+        window.clearTimeout(Number(button.dataset.timer));
+        cancelReservation(id);
+        return;
+      }
+      button.classList.add('is-confirming');
+      const label = button.querySelector('span');
+      const originalText = label.textContent;
+      label.textContent = 'Toca otra vez para confirmar';
+      const timer = window.setTimeout(() => {
+        button.classList.remove('is-confirming');
+        label.textContent = originalText;
+      }, CANCEL_CONFIRM_MS);
+      button.dataset.timer = String(timer);
+    }
+  }
+
+  /* ========================================================================
+     12. FORMULARIOS AUXILIARES (acceso, publicar, contacto)
+     ======================================================================== */
+  /**
+   * Valida con la API nativa del navegador + estilos de Bootstrap,
+   * simula una breve espera y muestra un resultado honesto sobre lo que ocurrió.
+   */
+  function setupDemoForm(form, { onSuccess, resetOnSuccess = true }) {
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const resultBox = form.querySelector('.form-result');
+
+    form.addEventListener('input', (event) => {
+      const field = event.target;
+      if (typeof field.setCustomValidity === 'function') field.setCustomValidity('');
+      if (form.classList.contains('was-validated')) field.setAttribute('aria-invalid', String(!field.checkValidity()));
+    });
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (submitBtn.disabled) return;
+
+      // Evita valores de solo espacios en campos de texto obligatorios.
+      form.querySelectorAll('input[type="text"], textarea').forEach((field) => {
+        field.setCustomValidity(field.required && field.value.trim() === '' && field.value !== '' ? 'Campo vacío' : '');
+      });
+
+      form.classList.add('was-validated');
+      form.querySelectorAll('input, select, textarea').forEach((field) => {
+        field.setAttribute('aria-invalid', String(!field.checkValidity()));
+      });
+
+      if (!form.checkValidity()) {
+        renderResultBox(resultBox, 'error', 'Revisa los campos marcados en rojo.');
+        const firstInvalid = form.querySelector(':invalid');
+        if (firstInvalid) firstInvalid.focus();
+        return;
+      }
+
+      resultBox.replaceChildren();
+      setButtonLoading(submitBtn, true, submitBtn.dataset.loadingText);
+      window.setTimeout(() => {
+        setButtonLoading(submitBtn, false);
+        const message = onSuccess(form);
+        if (resetOnSuccess) {
+          form.reset();
+          form.classList.remove('was-validated');
+          form.querySelectorAll('[aria-invalid]').forEach((field) => field.removeAttribute('aria-invalid'));
+        }
+        renderResultBox(resultBox, 'success', message);
+      }, FORM_DELAY_MS);
+    });
+  }
+
+  function resetDemoForm(form) {
+    form.reset();
+    form.classList.remove('was-validated');
+    form.querySelectorAll('[aria-invalid]').forEach((field) => field.removeAttribute('aria-invalid'));
+    const resultBox = form.querySelector('.form-result');
+    if (resultBox) resultBox.replaceChildren();
+  }
+
+  function setupAuxiliaryForms() {
+    setupDemoForm(dom.loginForm, {
+      onSuccess: () => {
+        dom.loginForm.querySelector('#loginPassword').value = '';
+        return 'Los datos tienen un formato válido, pero esta es una demostración local: no se inició sesión, no existe ninguna cuenta y tu contraseña no se guardó.';
+      },
+      resetOnSuccess: false
+    });
+
+    setupDemoForm(dom.publishForm, {
+      onSuccess: (form) => {
+        const city = form.querySelector('#pubCity').value.trim();
+        return `Propuesta revisada para ${city}. Como es una demostración, la propiedad no se publicó ni se envió a ningún servidor.`;
+      }
+    });
+
+    setupDemoForm(dom.contactForm, {
+      onSuccess: (form) => {
+        const name = form.querySelector('#contactName').value.trim().split(/\s+/)[0];
+        return `Gracias, ${name}. Tu mensaje pasó la validación, pero es una simulación: no se envió ningún correo.`;
+      }
+    });
+
+    document.getElementById('loginModal').addEventListener('hidden.bs.modal', () => resetDemoForm(dom.loginForm));
+    document.getElementById('publishModal').addEventListener('hidden.bs.modal', () => resetDemoForm(dom.publishForm));
+  }
+
+  /* ========================================================================
+     13. INICIALIZACIÓN DE EVENTOS
+     ======================================================================== */
+
+  /** Mantiene min de llegada = hoy y min de salida = llegada + 1 día. */
+  function syncDateMins(checkInInput, checkOutInput) {
+    const today = todayISO();
+    checkInInput.min = today;
+    const base = checkInInput.value && parseISODate(checkInInput.value) !== null && checkInInput.value >= today
+      ? checkInInput.value
+      : today;
+    checkOutInput.min = addDays(base, 1);
+  }
+
+  function bindSearchEvents() {
+    dom.searchForm.addEventListener('submit', handleSearchSubmit);
+    dom.searchCheckIn.addEventListener('change', () => {
+      syncDateMins(dom.searchCheckIn, dom.searchCheckOut);
+      // Si la salida quedó antes de la nueva llegada, se propone la noche siguiente.
+      if (dom.searchCheckIn.value && (!dom.searchCheckOut.value || dom.searchCheckOut.value <= dom.searchCheckIn.value)) {
+        dom.searchCheckOut.value = addDays(dom.searchCheckIn.value, 1);
+      }
+    });
+    [dom.searchCheckIn, dom.searchCheckOut, dom.searchGuests].forEach((input) => {
+      input.addEventListener('input', () => {
+        if (input.classList.contains('is-invalid')) setFieldError(input, errorElementFor(input), '');
+        if (!dom.searchForm.querySelector('.is-invalid')) showSearchErrors({});
+      });
+    });
+
+    document.querySelector('.type-chips').addEventListener('click', handleTypeChip);
+    dom.favoritesToggle.addEventListener('click', () => {
+      state.onlyFavorites = !state.onlyFavorites;
+      syncFavoritesToggle();
+      renderCatalog();
+    });
+    dom.resetFiltersBtn.addEventListener('click', resetFilters);
+    dom.emptyResetBtn.addEventListener('click', () => {
+      resetFilters();
+      dom.catalogTitle.focus();
+    });
+    dom.grid.addEventListener('click', handleGridClick);
+  }
+
+  function bindBookingEvents() {
+    dom.bookingForm.addEventListener('submit', handleConfirmBooking);
+    dom.bookCheckIn.addEventListener('change', () => {
+      syncDateMins(dom.bookCheckIn, dom.bookCheckOut);
+      if (dom.bookCheckIn.value && dom.bookCheckOut.value && dom.bookCheckOut.value <= dom.bookCheckIn.value) {
+        dom.bookCheckOut.value = addDays(dom.bookCheckIn.value, 1);
+      }
+    });
+    ['input', 'change'].forEach((type) => {
+      [dom.bookCheckIn, dom.bookCheckOut, dom.bookGuests].forEach((input) => {
+        input.addEventListener(type, () => updateBookingQuote({ showAll: false }));
+      });
+    });
+
+    dom.propertyModal.addEventListener('shown.bs.modal', handlePropertyModalShown);
+    dom.propertyModal.addEventListener('hidden.bs.modal', () => { state.activePropertyId = state.isBooking ? state.activePropertyId : null; });
+    attachImageFallback(dom.pmMainImage);
+    dom.pmMainImage.addEventListener('load', () => dom.pmMainImage.parentElement.classList.remove('img-fallback'));
+  }
+
+  function bindReservationEvents() {
+    dom.reservationsModal.addEventListener('show.bs.modal', () => {
+      state.reservations = loadReservations();
+      renderReservationsList();
+    });
+    dom.reservationsList.addEventListener('click', handleReservationsClick);
+    dom.exploreFromReservations.addEventListener('click', () => {
+      dom.reservationsModal.addEventListener('hidden.bs.modal', () => scrollToElement(dom.catalogSection), { once: true });
+      getModal(dom.reservationsModal).hide();
+    });
+    dom.cfViewReservations.addEventListener('click', () => switchModal(dom.confirmationModal, dom.reservationsModal));
+
+    // Sincroniza cambios hechos en otra pestaña del mismo navegador.
+    window.addEventListener('storage', (event) => {
+      if (event.key === STORAGE_KEYS.reservations) {
+        state.reservations = loadReservations();
+        renderCatalog();
+        updateReservationsBadge();
+        if (dom.reservationsModal.classList.contains('show')) renderReservationsList();
+        if (state.activePropertyId && dom.propertyModal.classList.contains('show')) {
+          renderBlockedDates(PROPERTY_MAP.get(state.activePropertyId));
+          updateBookingQuote({ showAll: false });
+        }
+      }
+      if (event.key === STORAGE_KEYS.favorites) {
+        state.favorites = loadFavorites();
+        renderCatalog();
+      }
+    });
+  }
+
+  function bindNavigationEvents() {
+    // Cierra el menú móvil al elegir una sección.
+    const collapse = bootstrap.Collapse.getOrCreateInstance(dom.navMenu, { toggle: false });
+    dom.navMenu.addEventListener('click', (event) => {
+      const isNavAction = event.target.closest('a.nav-link, .nav-actions .btn');
+      if (isNavAction && dom.navMenu.classList.contains('show')) collapse.hide();
+    });
+
+    const toggleBackToTop = () => { dom.backToTop.hidden = window.scrollY < 600; };
+    window.addEventListener('scroll', toggleBackToTop, { passive: true });
+    toggleBackToTop();
+    dom.backToTop.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: prefersReducedMotion.matches ? 'auto' : 'smooth' });
+      document.querySelector('.brand').focus({ preventScroll: true });
+    });
+
+    document.addEventListener('hidden.bs.modal', restoreFocusAfterModal);
+  }
+
+  function init() {
+    if (typeof bootstrap === 'undefined') {
+      console.error('AlquilaYa: Bootstrap no se cargó. Revisa tu conexión a internet.');
+      return;
+    }
+    cacheDom();
+    state.seededBlocks = buildSeededBlocks(todayISO());
+    state.reservations = loadReservations();
+    state.favorites = loadFavorites();
+
+    dom.currentYear.textContent = String(new Date().getFullYear());
+    syncDateMins(dom.searchCheckIn, dom.searchCheckOut);
+
+    bindSearchEvents();
+    bindBookingEvents();
+    bindReservationEvents();
+    bindNavigationEvents();
+    setupAuxiliaryForms();
+
+    renderCatalog();
+    updateReservationsBadge();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+
+  </script>
+</body>
+</html>

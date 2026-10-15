@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Hotel Aurea | Habitaciones, bienestar y descanso</title>
+  <meta name="description" content="Hotel Aurea: habitaciones y suites para descansar entre naturaleza y detalles cuidados. Consulta disponibilidad para tus fechas por WhatsApp.">
+  <meta name="theme-color" content="#3E4632">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Hotel Aurea | Tu próximo descanso comienza aquí">
+  <meta property="og:description" content="Habitaciones y suites para descansar entre naturaleza y detalles cuidados. Consulta disponibilidad por WhatsApp.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=1200&h=630&q=75">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%233E4632'/%3E%3Crect x='14' y='20' width='24' height='24' fill='none' stroke='%23E3C98F' stroke-width='3'/%3E%3Cpath d='M38 44 A24 24 0 0 0 14 20' fill='none' stroke='%23E3C98F' stroke-width='3'/%3E%3Crect x='38' y='20' width='14' height='24' fill='none' stroke='%23E3C98F' stroke-width='3'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Marcellus&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- ============ NAVBAR ============ -->
+  <header class="site-header" id="siteHeader">
+    <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+      <div class="container">
+        <a class="logo" href="#inicio" aria-label="Hotel Aurea, ir al inicio">
+          <svg class="logo__mark" viewBox="0 0 42 26" aria-hidden="true" focusable="false">
+            <rect x="1" y="1" width="24" height="24" />
+            <rect x="25" y="1" width="16" height="24" />
+            <path d="M25 25 A24 24 0 0 0 1 1" />
+          </svg>
+          <span class="logo__text">Hotel Aurea</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav mx-lg-auto">
+            <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#habitaciones">Habitaciones</a></li>
+            <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#experiencias">Experiencias</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          </ul>
+          <a class="btn btn-gold" href="#disponibilidad">Consultar disponibilidad</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio" aria-labelledby="heroTitle">
+      <img class="hero__img" src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?auto=format&fit=crop&w=2200&q=75"
+           alt="Piscina de un hotel rodeada de palmeras con montañas al fondo" fetchpriority="high" width="2200" height="1467">
+      <div class="container hero__inner">
+        <p class="hero__label" data-reveal="fade-up">UNA EXPERIENCIA PARA RECORDAR</p>
+        <h1 class="hero__title" data-reveal="fade-up" data-reveal-delay="100">Tu próximo descanso comienza aquí</h1>
+        <p class="hero__lead" data-reveal="fade-up" data-reveal-delay="200">Habitaciones serenas, jardines para caminar sin prisa y un equipo atento a los detalles. Llega, respira y deja que el tiempo pase más despacio.</p>
+        <div class="hero__actions" data-reveal="fade-up" data-reveal-delay="300">
+          <a class="btn btn-light-solid btn-lg" href="#habitaciones">Explorar habitaciones</a>
+          <button type="button" class="btn btn-glass btn-lg" data-wa="default">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i> Consultar por WhatsApp
+          </button>
+        </div>
+      </div>
+      <a class="scroll-cue" href="#disponibilidad" aria-label="Ir a consultar disponibilidad">
+        <span class="scroll-cue__line" aria-hidden="true"></span>
+      </a>
+    </section>
+
+    <!-- ============ BUSCADOR DE DISPONIBILIDAD ============ -->
+    <section class="booking" id="disponibilidad" aria-labelledby="bookingTitle">
+      <div class="container">
+        <form class="booking__form" id="bookingForm" novalidate>
+          <div class="booking__intro">
+            <h2 class="booking__title" id="bookingTitle">Consulta tu estadía</h2>
+            <p>Te respondemos por WhatsApp con disponibilidad y tarifas para tus fechas.</p>
+          </div>
+          <div class="booking__fields">
+            <div class="field">
+              <label class="form-label" for="checkIn">Llegada</label>
+              <input class="form-control" type="date" id="checkIn" name="checkIn" required aria-describedby="checkInError">
+              <div class="invalid-feedback" id="checkInError"></div>
+            </div>
+            <div class="field">
+              <label class="form-label" for="checkOut">Salida</label>
+              <input class="form-control" type="date" id="checkOut" name="checkOut" required aria-describedby="checkOutError">
+              <div class="invalid-feedback" id="checkOutError"></div>
+            </div>
+            <div class="field field--small">
+              <label class="form-label" for="adults">Adultos</label>
+              <input class="form-control" type="number" id="adults" name="adults" min="1" max="20" value="2" inputmode="numeric" required aria-describedby="adultsError">
+              <div class="invalid-feedback" id="adultsError"></div>
+            </div>
+            <div class="field field--small">
+              <label class="form-label" for="children">Niños</label>
+              <input class="form-control" type="number" id="children" name="children" min="0" max="10" value="0" inputmode="numeric" aria-describedby="childrenError">
+              <div class="invalid-feedback" id="childrenError"></div>
+            </div>
+            <div class="field field--room">
+              <label class="form-label" for="roomInterest">Habitación</label>
+              <select class="form-select" id="roomInterest" name="roomInterest">
+                <option value="">Sin preferencia</option>
+              </select>
+            </div>
+            <div class="booking__submit">
+              <p class="booking__nights" id="nightsSummary" aria-live="polite">Elige tus fechas</p>
+              <button type="submit" class="btn btn-olive btn-lg" id="bookingSubmit">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Consultar disponibilidad
+              </button>
+            </div>
+          </div>
+          <p class="booking__status" id="bookingStatus" role="status" aria-live="polite"></p>
+          <p class="booking__note">Esta consulta no reserva ni confirma disponibilidad: el equipo del hotel te responderá por WhatsApp.</p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ PRESENTACIÓN ============ -->
+    <section class="section" id="hotel" aria-labelledby="aboutTitle">
+      <div class="container">
+        <div class="golden-split">
+          <figure class="about__photo" data-reveal="fade-right">
+            <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?auto=format&fit=crop&w=1400&q=75"
+                 alt="Edificio de madera del hotel junto a la piscina y tumbonas al atardecer" loading="lazy" width="1400" height="933">
+          </figure>
+          <div class="about__text" data-reveal="fade-left">
+            <h2 class="section-title" id="aboutTitle">Más que una estadía, una experiencia</h2>
+            <p class="lead-text">En Aurea creemos que descansar es un arte que se cuida en los detalles: una cama que invita a quedarse, un desayuno sin prisa y alguien que recuerda cómo te gusta el café.</p>
+            <p>Diseñamos cada espacio para que te desconectes de la rutina y te reencuentres con lo que importa. Aquí la hospitalidad es cercana, la naturaleza está a pocos pasos y cada día puede ser tan tranquilo o tan activo como quieras.</p>
+            <ul class="attributes" id="aboutAttributes"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ HABITACIONES ============ -->
+    <section class="section section--sand" id="habitaciones" aria-labelledby="roomsTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="roomsTitle">Habitaciones y suites</h2>
+          <p class="section-lead" id="roomsLead">Espacios amplios, luz natural y camas pensadas para dormir bien. Consulta la habitación que prefieras y te confirmamos disponibilidad y tarifa.</p>
+        </div>
+        <div class="rooms" id="roomsGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS ============ -->
+    <section class="section" id="servicios" aria-labelledby="servicesTitle">
+      <div class="container">
+        <div class="golden-split golden-split--text">
+          <div>
+            <h2 class="section-title" id="servicesTitle">Servicios e instalaciones</h2>
+            <p class="section-lead" id="servicesLead">Todo lo necesario para que tu estadía sea cómoda.</p>
+          </div>
+          <ul class="services" id="servicesList"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCIAS ============ -->
+    <section class="section section--olive" id="experiencias" aria-labelledby="experiencesTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="experiencesTitle">Experiencias para descubrir</h2>
+          <p class="section-lead">Ideas para aprovechar tu estadía. Consulta con el hotel cuáles están disponibles en tus fechas.</p>
+        </div>
+
+        <div class="experiences" id="experiences">
+          <div class="experiences__tabs" role="tablist" aria-label="Experiencias">
+            <button class="exp-tab" role="tab" type="button" id="tab-gastronomia" aria-controls="panel-gastronomia" aria-selected="true">
+              <i class="bi bi-cup-hot" aria-hidden="true"></i> Gastronomía
+            </button>
+            <button class="exp-tab" role="tab" type="button" id="tab-bienestar" aria-controls="panel-bienestar" aria-selected="false" tabindex="-1">
+              <i class="bi bi-flower2" aria-hidden="true"></i> Bienestar y relajación
+            </button>
+            <button class="exp-tab" role="tab" type="button" id="tab-naturaleza" aria-controls="panel-naturaleza" aria-selected="false" tabindex="-1">
+              <i class="bi bi-tree" aria-hidden="true"></i> Naturaleza y actividades
+            </button>
+            <button class="exp-tab" role="tab" type="button" id="tab-momentos" aria-controls="panel-momentos" aria-selected="false" tabindex="-1">
+              <i class="bi bi-stars" aria-hidden="true"></i> Momentos especiales
+            </button>
+          </div>
+
+          <div class="experiences__panels">
+            <article class="exp-panel" role="tabpanel" id="panel-gastronomia" aria-labelledby="tab-gastronomia" tabindex="0">
+              <figure class="exp-panel__photo">
+                <img src="https://images.unsplash.com/photo-1533777857889-4be7c70b33f7?auto=format&fit=crop&w=1200&q=75" alt="Persona disfrutando un plato junto a una mesa con flores y luz cálida" loading="lazy" width="1200" height="800">
+              </figure>
+              <div class="exp-panel__text">
+                <h3>Gastronomía</h3>
+                <p>Desayunos sin reloj, sabores locales y cenas largas para conversar. La cocina como parte del descanso.</p>
+              </div>
+            </article>
+            <article class="exp-panel" role="tabpanel" id="panel-bienestar" aria-labelledby="tab-bienestar" tabindex="0">
+              <figure class="exp-panel__photo">
+                <img src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&w=1200&q=75" alt="Persona recibiendo un masaje relajante con aceites" loading="lazy" width="1200" height="800">
+              </figure>
+              <div class="exp-panel__text">
+                <h3>Bienestar y relajación</h3>
+                <p>Un masaje, un rato junto al agua o una mañana sin planes. Tiempo para recuperar energía.</p>
+              </div>
+            </article>
+            <article class="exp-panel" role="tabpanel" id="panel-naturaleza" aria-labelledby="tab-naturaleza" tabindex="0">
+              <figure class="exp-panel__photo">
+                <img src="https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=1200&q=75" alt="Caminante con mochila avanzando por un valle verde entre montañas" loading="lazy" width="1200" height="800">
+              </figure>
+              <div class="exp-panel__text">
+                <h3>Naturaleza y actividades</h3>
+                <p>Caminatas, aire limpio y paisajes para mirar sin prisa. Pregunta por planes cerca del hotel.</p>
+              </div>
+            </article>
+            <article class="exp-panel" role="tabpanel" id="panel-momentos" aria-labelledby="tab-momentos" tabindex="0">
+              <figure class="exp-panel__photo">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=1200&q=75" alt="Mesa larga decorada con flores, copas y velas para una celebración" loading="lazy" width="1200" height="800">
+              </figure>
+              <div class="exp-panel__text">
+                <h3>Momentos especiales</h3>
+                <p>Aniversarios, cumpleaños o una sorpresa para alguien que quieres. Cuéntanos qué celebras.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERÍA ============ -->
+    <section class="section" id="galeria" aria-labelledby="galleryTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="galleryTitle">Galería</h2>
+          <p class="section-lead">Habitaciones, piscina, jardines, mesa y bienestar. Toca una foto para verla en grande.</p>
+        </div>
+        <div class="gallery" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIOS ============ -->
+    <section class="section section--sand" id="testimonios" aria-labelledby="reviewsTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="reviewsTitle">Lo que cuentan los huéspedes</h2>
+          <p class="section-lead" id="reviewsNote"></p>
+        </div>
+        <div class="reviews" id="reviewsList"></div>
+      </div>
+    </section>
+
+    <!-- ============ PREGUNTAS FRECUENTES ============ -->
+    <section class="section" id="preguntas" aria-labelledby="faqTitle">
+      <div class="container">
+        <div class="golden-split golden-split--text">
+          <div>
+            <h2 class="section-title" id="faqTitle">Preguntas frecuentes</h2>
+            <p class="section-lead" id="faqNote"></p>
+          </div>
+          <div class="accordion faq" id="faqAccordion"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ UBICACIÓN Y CONTACTO ============ -->
+    <section class="section section--sand" id="contacto" aria-labelledby="contactTitle">
+      <div class="container">
+        <div class="golden-split golden-split--reverse">
+          <div class="contact__info">
+            <h2 class="section-title" id="contactTitle">Ubicación y contacto</h2>
+            <dl class="contact-list" id="contactList"></dl>
+            <button type="button" class="btn btn-olive btn-lg" data-wa="default">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp
+            </button>
+          </div>
+          <div class="map" id="mapContainer"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="cta" id="planear" aria-labelledby="ctaTitle">
+      <img class="cta__img" src="https://images.unsplash.com/photo-1561501900-3701fa6a0864?auto=format&fit=crop&w=2000&q=75"
+           alt="Piscina infinita frente al mar al atardecer con nubes rosadas" loading="lazy" width="2000" height="1333">
+      <div class="container cta__inner" data-reveal="fade-up">
+        <h2 class="cta__title" id="ctaTitle">Regálate una pausa. Nosotros nos encargamos de los detalles</h2>
+        <button type="button" class="btn btn-light-solid btn-lg" data-wa="plan">
+          <i class="bi bi-whatsapp" aria-hidden="true"></i> Planear mi estadía
+        </button>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <a class="logo logo--footer" href="#inicio" aria-label="Hotel Aurea, ir al inicio">
+            <svg class="logo__mark" viewBox="0 0 42 26" aria-hidden="true" focusable="false">
+              <rect x="1" y="1" width="24" height="24" />
+              <rect x="25" y="1" width="16" height="24" />
+              <path d="M25 25 A24 24 0 0 0 1 1" />
+            </svg>
+            <span class="logo__text">Hotel Aurea</span>
+          </a>
+          <p class="footer-text">Descanso, hospitalidad y naturaleza con detalles cuidados. Hotel Aurea es una marca ficticia creada para esta página de demostración.</p>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="footer-title">Explora</h2>
+          <ul class="footer-links">
+            <li><a href="#habitaciones">Habitaciones</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#experiencias">Experiencias</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#preguntas">Preguntas frecuentes</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-4">
+          <h2 class="footer-title">Contacto</h2>
+          <ul class="footer-links" id="footerContact"></ul>
+          <ul class="footer-social" id="footerSocial" aria-label="Redes sociales"></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear">2026</span> Hotel Aurea. Fotografías de Unsplash.</p>
+        <button type="button" class="link-button" data-bs-toggle="modal" data-bs-target="#privacyModal">Aviso de privacidad</button>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============ MODAL: GALERÍA ============ -->
+  <div class="modal fade" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-md-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="galleryModalTitle">Galería</h2>
+          <span class="gallery-counter" id="galleryCounter"></span>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <figure class="viewer">
+            <div class="viewer__frame">
+              <img id="galleryModalImage" src="" alt="">
+              <button type="button" class="viewer__nav viewer__nav--prev" id="galleryPrev" aria-label="Foto anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
+              <button type="button" class="viewer__nav viewer__nav--next" id="galleryNext" aria-label="Foto siguiente"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+            </div>
+            <figcaption id="galleryModalCaption"></figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: WHATSAPP SIN CONFIGURAR ============ -->
+  <div class="modal fade" id="waPendingModal" tabindex="-1" aria-labelledby="waPendingTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="waPendingTitle">WhatsApp pendiente de configurar</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>El número de WhatsApp del hotel aún no está configurado, así que no abrimos la conversación. Este es el mensaje que se enviaría:</p>
+          <p class="wa-bubble" id="waPendingMessage"></p>
+          <p class="small-note">Para el hotel: escribe el número en <code>HOTEL_CONFIG.whatsapp.number</code> dentro de <code>app.js</code>.</p>
+          <p class="small-note" id="copyStatus" role="status" aria-live="polite"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-olive" id="copyMessageBtn"><i class="bi bi-copy" aria-hidden="true"></i> Copiar mensaje</button>
+          <button type="button" class="btn btn-olive" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: PRIVACIDAD ============ -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="privacyTitle">Aviso de privacidad</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body legal">
+          <p class="demo-tag">Texto de ejemplo: el hotel debe redactar su aviso oficial antes de publicar.</p>
+          <h3>Qué datos usa esta página</h3>
+          <p>El formulario de consulta usa tus fechas, el número de huéspedes y la habitación elegida solo para preparar un mensaje de WhatsApp en tu dispositivo. Esta página no envía esos datos a un servidor ni los guarda.</p>
+          <h3>Conversación por WhatsApp</h3>
+          <p>Si decides enviar el mensaje, la conversación ocurre en WhatsApp y se rige por las políticas de ese servicio. El hotel usará tu información para responder tu consulta.</p>
+          <h3>Tus derechos</h3>
+          <p>Puedes pedir al hotel que elimine la conversación y los datos que le compartiste.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-olive" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

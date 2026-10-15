@@ -287,6 +287,36 @@ PROYECTOS = [
         "resumen": "Landing page para una agencia de viajes con destinos nacionales e internacionales y paquetes a medida.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
     },
+    {
+        "slug": "refugio-natural-cabana",
+        "categoria": "Web",
+        "imagen": "core/img/portafolio/refugio-natural-cabana.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+        "nombre": "Refugio Natural — Cabaña Campestre",
+        "resumen": "Landing page para el alquiler de una cabaña campestre, con tarifas, disponibilidad y consulta de reserva directa por WhatsApp.",
+        "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
+    },
+    {
+        "slug": "hotel-aurea",
+        "categoria": "Web",
+        "imagen": "core/img/portafolio/hotel-aurea.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+        "nombre": "Hotel Aurea",
+        "resumen": "Landing page para un hotel boutique, con habitaciones y suites, buscador de disponibilidad por fechas y consulta de reserva por WhatsApp.",
+        "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
+    },
+    {
+        "slug": "alquilaya-arriendos-vacacionales",
+        "categoria": "Software",
+        "imagen": "core/img/portafolio/alquilaya-arriendos-vacacionales.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+        "nombre": "AlquilaYa — Arriendo Vacacional",
+        "resumen": "Plataforma de arriendo vacacional con catálogo de propiedades, favoritos, simulación de reservas y publicación de inmuebles.",
+        "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
+    },
 ]
 
 PLANES = [

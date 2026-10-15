@@ -1,0 +1,655 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AlquilaYa | Casas, fincas y apartamentos para tu próxima escapada</title>
+  <meta name="description" content="AlquilaYa: descubre y simula reservas de apartamentos, casas y fincas vacacionales en Colombia. Demostración frontend.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-root-margin="0px 0px -55%">
+
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+      <div class="container">
+        <a class="brand" href="#inicio" aria-label="AlquilaYa, ir al inicio">
+          <span class="brand__mark" aria-hidden="true"><i class="bi bi-house-door-fill"></i></span>
+          <span class="brand__name">Alquila<span>Ya</span></span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav mx-lg-auto" id="mainNav">
+            <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#propiedades">Propiedades</a></li>
+            <li class="nav-item"><a class="nav-link" href="#beneficios">Beneficios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#testimonios">Testimonios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          </ul>
+          <div class="nav-actions">
+            <button type="button" class="btn btn-ghost" id="openReservationsBtn" data-bs-toggle="modal" data-bs-target="#reservationsModal">
+              <i class="bi bi-calendar2-check" aria-hidden="true"></i>
+              Mis reservas
+              <span class="count-badge" id="reservationsBadge" hidden>0</span>
+            </button>
+            <button type="button" class="btn btn-ghost" data-bs-toggle="modal" data-bs-target="#loginModal">
+              <i class="bi bi-person-circle" aria-hidden="true"></i> Iniciar sesión
+            </button>
+            <button type="button" class="btn btn-brand" data-bs-toggle="modal" data-bs-target="#publishModal">
+              Publicar propiedad
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO + BUSCADOR ============ -->
+    <section class="hero" id="inicio" aria-labelledby="heroTitle">
+      <div class="hero__media" role="img" aria-label="Casa vacacional moderna con piscina rodeada de vegetación"></div>
+      <div class="container hero__content">
+        <h1 class="hero__title" id="heroTitle">Tu próxima escapada comienza aquí</h1>
+        <p class="hero__lead">Descubre casas, fincas y apartamentos únicos para disfrutar cada destino a tu manera.</p>
+      </div>
+
+      <div class="container">
+        <form class="search-bar" id="searchForm" novalidate aria-label="Buscar alojamientos">
+          <div class="search-field search-field--type">
+            <label for="searchType">Tipo</label>
+            <select id="searchType" name="type" class="form-select">
+              <option value="all">Todos</option>
+              <option value="apartamento">Apartamento</option>
+              <option value="casa">Casa</option>
+              <option value="finca">Finca</option>
+            </select>
+          </div>
+          <div class="search-field search-field--destination">
+            <label for="searchDestination">Destino</label>
+            <input id="searchDestination" name="destination" type="text" class="form-control"
+                   placeholder="¿A dónde quieres ir?" autocomplete="off" maxlength="60">
+          </div>
+          <div class="search-field">
+            <label for="searchCheckIn">Llegada</label>
+            <input id="searchCheckIn" name="checkIn" type="date" class="form-control" aria-describedby="searchCheckInError">
+            <div class="invalid-feedback" id="searchCheckInError"></div>
+          </div>
+          <div class="search-field">
+            <label for="searchCheckOut">Salida</label>
+            <input id="searchCheckOut" name="checkOut" type="date" class="form-control" aria-describedby="searchCheckOutError">
+            <div class="invalid-feedback" id="searchCheckOutError"></div>
+          </div>
+          <div class="search-field search-field--guests">
+            <label for="searchGuests">Huéspedes</label>
+            <input id="searchGuests" name="guests" type="number" class="form-control" min="1" max="30" value="2" inputmode="numeric" aria-describedby="searchGuestsError">
+            <div class="invalid-feedback" id="searchGuestsError"></div>
+          </div>
+          <div class="search-submit">
+            <button type="submit" class="btn btn-brand btn-lg w-100" id="searchSubmitBtn">
+              <i class="bi bi-search" aria-hidden="true"></i>
+              <span>Buscar alojamientos</span>
+            </button>
+          </div>
+          <p class="search-error" id="searchError" role="alert" hidden></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- ============ CATÁLOGO ============ -->
+    <section class="section" id="propiedades" aria-labelledby="catalogTitle">
+      <div class="container">
+        <div class="catalog-head">
+          <div>
+            <h2 class="section-title" id="catalogTitle" tabindex="-1">Encuentra tu próximo lugar favorito</h2>
+            <p class="section-lead">Apartamentos con vista, casas con historia y fincas para reunir a toda la familia. Elige el tipo de plan y ajusta la búsqueda a tus fechas.</p>
+          </div>
+          <p class="results-count" id="resultsCount" aria-live="polite">6 alojamientos disponibles</p>
+        </div>
+
+        <div class="catalog-toolbar">
+          <div class="type-chips" role="group" aria-label="Filtrar por tipo de alojamiento">
+            <button type="button" class="chip is-active" data-type="all" aria-pressed="true">Todos</button>
+            <button type="button" class="chip" data-type="apartamento" aria-pressed="false"><i class="bi bi-building" aria-hidden="true"></i> Apartamentos</button>
+            <button type="button" class="chip" data-type="casa" aria-pressed="false"><i class="bi bi-house" aria-hidden="true"></i> Casas</button>
+            <button type="button" class="chip" data-type="finca" aria-pressed="false"><i class="bi bi-tree" aria-hidden="true"></i> Fincas</button>
+          </div>
+          <div class="toolbar-actions">
+            <button type="button" class="chip" id="favoritesToggle" aria-pressed="false">
+              <i class="bi bi-heart" aria-hidden="true"></i> Solo favoritos
+            </button>
+            <button type="button" class="btn btn-link-muted" id="resetFiltersBtn">
+              <i class="bi bi-arrow-counterclockwise" aria-hidden="true"></i> Restablecer filtros
+            </button>
+          </div>
+        </div>
+
+        <p class="active-filters" id="activeFilters" hidden></p>
+
+        <div class="row g-4 property-grid" id="propertyGrid" aria-live="polite" aria-busy="false"></div>
+
+        <div class="empty-state" id="emptyState" hidden>
+          <span class="empty-state__icon" aria-hidden="true"><i class="bi bi-map"></i></span>
+          <h3>No encontramos alojamientos con esos filtros</h3>
+          <p id="emptyStateText">Prueba con otras fechas, menos huéspedes o un destino diferente.</p>
+          <button type="button" class="btn btn-outline-brand" id="emptyResetBtn">Limpiar filtros</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BENEFICIOS ============ -->
+    <section class="section section--white" id="beneficios" aria-labelledby="benefitsTitle">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-start">
+          <div class="col-lg-4">
+            <h2 class="section-title" id="benefitsTitle">Pensado para que viajar sea lo fácil</h2>
+            <p class="section-lead">Estas son las ventajas que AlquilaYa propone ofrecer a viajeros y anfitriones. En esta demostración se muestran como concepto de producto.</p>
+          </div>
+          <div class="col-lg-8">
+            <ul class="benefits">
+              <li class="benefit">
+                <span class="benefit__icon" aria-hidden="true"><i class="bi bi-calendar2-check"></i></span>
+                <h3>Reservas fáciles</h3>
+                <p>Eliges fechas, ves el total con la limpieza incluida y confirmas en un solo paso, sin cargos escondidos.</p>
+              </li>
+              <li class="benefit">
+                <span class="benefit__icon" aria-hidden="true"><i class="bi bi-shield-lock"></i></span>
+                <h3>Pagos protegidos en plataformas compatibles</h3>
+                <p>La propuesta es integrar pasarelas de pago reconocidas. Esta demostración no procesa pagos.</p>
+              </li>
+              <li class="benefit">
+                <span class="benefit__icon" aria-hidden="true"><i class="bi bi-headset"></i></span>
+                <h3>Atención al viajero</h3>
+                <p>Un canal de ayuda pensado para resolver dudas antes y durante la estadía, en español y con horario local.</p>
+              </li>
+              <li class="benefit">
+                <span class="benefit__icon" aria-hidden="true"><i class="bi bi-house-check"></i></span>
+                <h3>Alojamientos cuidadosamente seleccionados</h3>
+                <p>Un catálogo curado con fotos, amenidades y reglas claras para que sepas qué esperar al llegar.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIOS ============ -->
+    <section class="section" id="testimonios" aria-labelledby="testimonialsTitle">
+      <div class="container">
+        <div class="testimonials-head">
+          <h2 class="section-title" id="testimonialsTitle">Lo que cuentan los viajeros</h2>
+          <p class="demo-note"><i class="bi bi-info-circle" aria-hidden="true"></i> Testimonios ficticios creados para esta demostración. No son opiniones de clientes reales.</p>
+        </div>
+
+        <div id="testimonialCarousel" class="carousel slide testimonial-carousel" data-bs-touch="true" data-bs-keyboard="true"
+             tabindex="0" aria-roledescription="carrusel" aria-label="Testimonios de demostración. Usa las flechas del teclado para navegar.">
+          <div class="carousel-inner">
+            <div class="carousel-item active" role="group" aria-roledescription="diapositiva" aria-label="1 de 3">
+              <figure class="testimonial">
+                <blockquote class="testimonial__quote">
+                  <p>Fuimos ocho personas a una finca en el Quindío. El total que vimos al reservar fue exactamente lo que pagamos, y la piscina con vista a los cafetales valió cada peso.</p>
+                </blockquote>
+                <figcaption class="testimonial__author">
+                  <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=160&h=160&q=70" alt="Foto de perfil de Laura Gómez (ejemplo)" width="56" height="56" loading="lazy">
+                  <span>
+                    <strong>Laura Gómez</strong>
+                    <span class="testimonial__meta">Bogotá. Reservó una finca</span>
+                    <span class="stars" role="img" aria-label="Calificación 5 de 5"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                  </span>
+                  <span class="demo-tag">Testimonio de demostración</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="2 de 3">
+              <figure class="testimonial">
+                <blockquote class="testimonial__quote">
+                  <p>Necesitaba trabajar unos días desde Medellín y el loft tenía escritorio, buen internet y una terraza para cerrar el día. Repetiría sin pensarlo.</p>
+                </blockquote>
+                <figcaption class="testimonial__author">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=160&h=160&q=70" alt="Foto de perfil de Andrés Restrepo (ejemplo)" width="56" height="56" loading="lazy">
+                  <span>
+                    <strong>Andrés Restrepo</strong>
+                    <span class="testimonial__meta">Cali. Reservó un apartamento</span>
+                    <span class="stars" role="img" aria-label="Calificación 5 de 5"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></span>
+                  </span>
+                  <span class="demo-tag">Testimonio de demostración</span>
+                </figcaption>
+              </figure>
+            </div>
+            <div class="carousel-item" role="group" aria-roledescription="diapositiva" aria-label="3 de 3">
+              <figure class="testimonial">
+                <blockquote class="testimonial__quote">
+                  <p>Llevamos a nuestro perro a la casa de Barichara y nos recibieron con todo listo. Las calles de piedra, el patio y la calma del pueblo: justo lo que buscábamos.</p>
+                </blockquote>
+                <figcaption class="testimonial__author">
+                  <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=160&h=160&q=70" alt="Foto de perfil de Camila Duarte (ejemplo)" width="56" height="56" loading="lazy">
+                  <span>
+                    <strong>Camila Duarte</strong>
+                    <span class="testimonial__meta">Bucaramanga. Reservó una casa</span>
+                    <span class="stars" role="img" aria-label="Calificación 4 de 5"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i></span>
+                  </span>
+                  <span class="demo-tag">Testimonio de demostración</span>
+                </figcaption>
+              </figure>
+            </div>
+          </div>
+
+          <div class="carousel-nav">
+            <div class="carousel-indicators testimonial-indicators">
+              <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Testimonio 1"></button>
+              <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Testimonio 2"></button>
+              <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Testimonio 3"></button>
+            </div>
+            <div class="carousel-arrows">
+              <button class="round-btn" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev" aria-label="Testimonio anterior">
+                <i class="bi bi-chevron-left" aria-hidden="true"></i>
+              </button>
+              <button class="round-btn" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next" aria-label="Testimonio siguiente">
+                <i class="bi bi-chevron-right" aria-hidden="true"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="section section--white" id="contacto" aria-labelledby="contactTitle">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-5">
+            <h2 class="section-title" id="contactTitle">¿Hablamos?</h2>
+            <p class="section-lead">Escríbenos si quieres publicar tu propiedad o tienes preguntas sobre un alojamiento. Los datos de contacto son de ejemplo.</p>
+            <ul class="contact-list">
+              <li><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:hola@alquilaya.example">hola@alquilaya.example</a></li>
+              <li><i class="bi bi-telephone" aria-hidden="true"></i><a href="tel:+576010000000">+57 601 000 0000</a></li>
+              <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span>Medellín, Colombia</span></li>
+            </ul>
+            <div class="social" aria-label="Redes sociales">
+              <a class="round-btn" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" aria-label="Instagram (se abre en una pestaña nueva)"><i class="bi bi-instagram" aria-hidden="true"></i></a>
+              <a class="round-btn" href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook (se abre en una pestaña nueva)"><i class="bi bi-facebook" aria-hidden="true"></i></a>
+              <a class="round-btn" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer" aria-label="TikTok (se abre en una pestaña nueva)"><i class="bi bi-tiktok" aria-hidden="true"></i></a>
+              <a class="round-btn" href="https://wa.me/" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp (se abre en una pestaña nueva)"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+            </div>
+          </div>
+          <div class="col-lg-7">
+            <form class="panel" id="contactForm" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label for="contactName" class="form-label">Nombre</label>
+                  <input type="text" class="form-control" id="contactName" name="name" required minlength="2" maxlength="80" autocomplete="name">
+                  <div class="invalid-feedback">Escribe tu nombre (mínimo 2 caracteres).</div>
+                </div>
+                <div class="col-md-6">
+                  <label for="contactEmail" class="form-label">Correo electrónico</label>
+                  <input type="email" class="form-control" id="contactEmail" name="email" required maxlength="120" autocomplete="email">
+                  <div class="invalid-feedback">Escribe un correo válido, por ejemplo nombre@correo.com.</div>
+                </div>
+                <div class="col-12">
+                  <label for="contactMessage" class="form-label">Mensaje</label>
+                  <textarea class="form-control" id="contactMessage" name="message" rows="5" required minlength="10" maxlength="1000"></textarea>
+                  <div class="invalid-feedback">Cuéntanos en qué te ayudamos (mínimo 10 caracteres).</div>
+                </div>
+                <div class="col-12 d-flex flex-wrap align-items-center gap-3">
+                  <button type="submit" class="btn btn-brand" data-loading-text="Preparando...">Enviar mensaje</button>
+                  <small class="text-muted-2">Simulación: no se envía ningún correo.</small>
+                </div>
+              </div>
+              <div class="form-result" role="status" aria-live="polite"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="brand brand--light" href="#inicio" aria-label="AlquilaYa, ir al inicio">
+            <span class="brand__mark" aria-hidden="true"><i class="bi bi-house-door-fill"></i></span>
+            <span class="brand__name">Alquila<span>Ya</span></span>
+          </a>
+          <p class="footer-text">Apartamentos, casas y fincas para vacaciones, puentes festivos y viajes en familia por Colombia.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="footer-title">Explorar</h2>
+          <ul class="footer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#propiedades">Propiedades</a></li>
+            <li><a href="#beneficios">Beneficios</a></li>
+            <li><a href="#testimonios">Testimonios</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="footer-title">Contacto</h2>
+          <ul class="footer-links">
+            <li><a href="mailto:hola@alquilaya.example">hola@alquilaya.example</a></li>
+            <li><a href="tel:+576010000000">+57 601 000 0000</a></li>
+            <li>Medellín, Colombia</li>
+          </ul>
+        </div>
+        <div class="col-lg-3">
+          <h2 class="footer-title">Legal</h2>
+          <ul class="footer-links">
+            <li><button type="button" class="link-button" data-bs-toggle="modal" data-bs-target="#termsModal">Términos y condiciones</button></li>
+            <li><button type="button" class="link-button" data-bs-toggle="modal" data-bs-target="#privacyModal">Política de privacidad</button></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p><i class="bi bi-info-circle" aria-hidden="true"></i> AlquilaYa es una demostración de interfaz. No procesa pagos ni reservas reales; los datos se guardan solo en este navegador.</p>
+        <p>&copy; <span id="currentYear">2026</span> AlquilaYa. Fotografías de Unsplash.</p>
+      </div>
+    </div>
+  </footer>
+
+  <button type="button" class="back-to-top" id="backToTop" aria-label="Volver al inicio" hidden>
+    <i class="bi bi-arrow-up" aria-hidden="true"></i>
+  </button>
+
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastContainer" aria-live="polite" aria-atomic="false"></div>
+
+  <!-- ============ MODAL: DETALLE DE PROPIEDAD ============ -->
+  <div class="modal fade" id="propertyModal" tabindex="-1" aria-labelledby="pmTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-scrollable modal-fullscreen-lg-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title" id="pmTitle">Alojamiento</h2>
+            <p class="modal-subtitle" id="pmLocation"></p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <div class="gallery">
+            <div class="gallery__main">
+              <img id="pmMainImage" src="" alt="" width="1200" height="675">
+            </div>
+            <div class="gallery__thumbs" id="pmThumbs" role="group" aria-label="Fotos del alojamiento"></div>
+          </div>
+
+          <div class="row g-4 g-xl-5 mt-1">
+            <div class="col-lg-7">
+              <div class="pm-rating" id="pmRating"></div>
+              <ul class="facts" id="pmFacts" aria-label="Capacidad y distribución"></ul>
+              <h3 class="pm-heading">Sobre este lugar</h3>
+              <p class="pm-description" id="pmDescription"></p>
+              <h3 class="pm-heading">Lo que ofrece</h3>
+              <ul class="amenities" id="pmAmenities"></ul>
+              <h3 class="pm-heading">Políticas</h3>
+              <ul class="policies" id="pmPolicies"></ul>
+              <h3 class="pm-heading">Fechas ocupadas</h3>
+              <ul class="blocked-dates" id="pmBlocked"></ul>
+            </div>
+
+            <div class="col-lg-5">
+              <form class="booking-card" id="bookingForm" novalidate aria-labelledby="bookingTitle">
+                <div class="booking-card__price">
+                  <h3 id="bookingTitle" class="visually-hidden">Reserva este alojamiento</h3>
+                  <strong id="pmPrice">$0</strong> <span>por noche</span>
+                </div>
+                <div class="row g-2">
+                  <div class="col-6">
+                    <label for="bookCheckIn" class="form-label">Llegada</label>
+                    <input type="date" class="form-control" id="bookCheckIn" name="checkIn" required aria-describedby="bookCheckInError">
+                    <div class="invalid-feedback" id="bookCheckInError"></div>
+                  </div>
+                  <div class="col-6">
+                    <label for="bookCheckOut" class="form-label">Salida</label>
+                    <input type="date" class="form-control" id="bookCheckOut" name="checkOut" required aria-describedby="bookCheckOutError">
+                    <div class="invalid-feedback" id="bookCheckOutError"></div>
+                  </div>
+                  <div class="col-12">
+                    <label for="bookGuests" class="form-label">Huéspedes</label>
+                    <input type="number" class="form-control" id="bookGuests" name="guests" min="1" value="2" inputmode="numeric" required aria-describedby="bookGuestsHint bookGuestsError">
+                    <div class="form-text" id="bookGuestsHint"></div>
+                    <div class="invalid-feedback" id="bookGuestsError"></div>
+                  </div>
+                </div>
+
+                <dl class="breakdown" aria-live="polite">
+                  <div><dt>Noches</dt><dd id="bkNights">—</dd></div>
+                  <div><dt>Precio por noche</dt><dd id="bkPrice">—</dd></div>
+                  <div><dt id="bkSubtotalLabel">Subtotal del alojamiento</dt><dd id="bkSubtotal">—</dd></div>
+                  <div><dt>Tarifa de limpieza</dt><dd id="bkCleaning">—</dd></div>
+                  <div class="breakdown__total"><dt>Total estimado</dt><dd id="bkTotal">—</dd></div>
+                </dl>
+
+                <p class="booking-feedback" id="bookingFeedback" role="status" aria-live="polite"></p>
+
+                <button type="submit" class="btn btn-brand btn-lg w-100" id="confirmBookingBtn">
+                  <span class="btn-label">Confirmar reserva</span>
+                </button>
+                <p class="booking-note">Disponibilidad orientativa: la reserva se guarda solo en este navegador y no existe un servidor que garantice la exclusividad de las fechas. No se realiza ningún cobro.</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: CONFIRMACIÓN ============ -->
+  <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="cfTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-body confirmation">
+          <span class="confirmation__icon" aria-hidden="true"><i class="bi bi-check-lg"></i></span>
+          <h2 id="cfTitle">Reserva confirmada</h2>
+          <p class="confirmation__lead">Guardamos tu reserva de prueba en este navegador.</p>
+          <dl class="confirmation__data">
+            <div><dt>Código</dt><dd id="cfCode"></dd></div>
+            <div><dt>Alojamiento</dt><dd id="cfProperty"></dd></div>
+            <div><dt>Fechas</dt><dd id="cfDates"></dd></div>
+            <div><dt>Noches</dt><dd id="cfNights"></dd></div>
+            <div><dt>Huéspedes</dt><dd id="cfGuests"></dd></div>
+            <div class="confirmation__total"><dt>Total</dt><dd id="cfTotal"></dd></div>
+          </dl>
+          <div class="d-grid gap-2">
+            <button type="button" class="btn btn-brand" id="cfViewReservations">Ver mis reservas</button>
+            <button type="button" class="btn btn-ghost" data-bs-dismiss="modal">Seguir explorando</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: MIS RESERVAS ============ -->
+  <div class="modal fade" id="reservationsModal" tabindex="-1" aria-labelledby="reservationsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable modal-fullscreen-md-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title" id="reservationsTitle">Mis reservas</h2>
+            <p class="modal-subtitle">Reservas de prueba guardadas en este navegador</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p class="notice"><i class="bi bi-hdd" aria-hidden="true"></i> Estos datos viven en el almacenamiento local de tu navegador. No se sincronizan con otros dispositivos ni con otras personas, y se pierden si borras los datos del sitio.</p>
+          <ul class="reservation-list" id="reservationsList"></ul>
+          <div class="empty-state empty-state--compact" id="reservationsEmpty" hidden>
+            <span class="empty-state__icon" aria-hidden="true"><i class="bi bi-calendar2-plus"></i></span>
+            <h3>Aún no tienes reservas</h3>
+            <p>Elige un alojamiento y tus fechas: la reserva de prueba aparecerá aquí.</p>
+            <button type="button" class="btn btn-brand" id="exploreFromReservations">Explorar alojamientos</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: INICIAR SESIÓN ============ -->
+  <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title" id="loginTitle">Iniciar sesión</h2>
+            <p class="modal-subtitle">Acceso de demostración</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="loginForm" novalidate>
+            <div class="mb-3">
+              <label for="loginEmail" class="form-label">Correo electrónico</label>
+              <input type="email" class="form-control" id="loginEmail" required maxlength="120" autocomplete="email">
+              <div class="invalid-feedback">Escribe un correo válido, por ejemplo nombre@correo.com.</div>
+            </div>
+            <div class="mb-3">
+              <label for="loginPassword" class="form-label">Contraseña</label>
+              <input type="password" class="form-control" id="loginPassword" required minlength="6" maxlength="64" autocomplete="current-password">
+              <div class="invalid-feedback">La contraseña debe tener al menos 6 caracteres.</div>
+            </div>
+            <button type="submit" class="btn btn-brand w-100" data-loading-text="Validando...">Iniciar sesión</button>
+            <p class="booking-note mt-3">Esta demostración no tiene cuentas de usuario: solo revisa el formato de los campos. No se guarda ni se envía tu contraseña.</p>
+            <div class="form-result" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: PUBLICAR PROPIEDAD ============ -->
+  <div class="modal fade" id="publishModal" tabindex="-1" aria-labelledby="publishTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable modal-fullscreen-md-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <h2 class="modal-title" id="publishTitle">Publica tu propiedad</h2>
+            <p class="modal-subtitle">Formulario de demostración</p>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <form id="publishForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label for="pubName" class="form-label">Nombre del anfitrión</label>
+                <input type="text" class="form-control" id="pubName" required minlength="2" maxlength="80" autocomplete="name">
+                <div class="invalid-feedback">Escribe tu nombre.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="pubEmail" class="form-label">Correo electrónico</label>
+                <input type="email" class="form-control" id="pubEmail" required maxlength="120" autocomplete="email">
+                <div class="invalid-feedback">Escribe un correo válido.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="pubType" class="form-label">Tipo de alojamiento</label>
+                <select class="form-select" id="pubType" required>
+                  <option value="">Selecciona una opción</option>
+                  <option value="apartamento">Apartamento</option>
+                  <option value="casa">Casa</option>
+                  <option value="finca">Finca</option>
+                </select>
+                <div class="invalid-feedback">Elige el tipo de alojamiento.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="pubCity" class="form-label">Ciudad o municipio</label>
+                <input type="text" class="form-control" id="pubCity" required minlength="2" maxlength="80">
+                <div class="invalid-feedback">Indica dónde está la propiedad.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="pubCapacity" class="form-label">Capacidad (huéspedes)</label>
+                <input type="number" class="form-control" id="pubCapacity" required min="1" max="40" inputmode="numeric">
+                <div class="invalid-feedback">Indica entre 1 y 40 huéspedes.</div>
+              </div>
+              <div class="col-md-6">
+                <label for="pubPrice" class="form-label">Precio por noche (COP)</label>
+                <input type="number" class="form-control" id="pubPrice" required min="50000" max="20000000" step="1000" inputmode="numeric">
+                <div class="invalid-feedback">Indica un precio entre $50.000 y $20.000.000.</div>
+              </div>
+              <div class="col-12">
+                <label for="pubDescription" class="form-label">Descripción breve <span class="text-muted-2">(opcional)</span></label>
+                <textarea class="form-control" id="pubDescription" rows="3" maxlength="500"></textarea>
+              </div>
+              <div class="col-12">
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" id="pubConsent" required>
+                  <label class="form-check-label" for="pubConsent">Entiendo que esto es una demostración y que la propiedad no se publicará.</label>
+                  <div class="invalid-feedback">Marca la casilla para continuar.</div>
+                </div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-brand" data-loading-text="Revisando...">Enviar propuesta</button>
+              </div>
+            </div>
+            <div class="form-result" role="status" aria-live="polite"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: TÉRMINOS ============ -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="termsTitle">Términos y condiciones (ejemplo)</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body legal">
+          <p>Este texto es un ejemplo para la demostración de AlquilaYa y no constituye un acuerdo legal.</p>
+          <h3>1. Naturaleza del servicio</h3>
+          <p>AlquilaYa es un prototipo de interfaz. Los alojamientos, precios, calificaciones y testimonios son ficticios y sirven solo para ilustrar el producto.</p>
+          <h3>2. Reservas de prueba</h3>
+          <p>Las reservas que confirmes se guardan en el almacenamiento local de tu navegador. No generan obligaciones, cobros ni comunicaciones con anfitriones.</p>
+          <h3>3. Disponibilidad</h3>
+          <p>La disponibilidad mostrada es orientativa y se calcula en tu dispositivo. Al no existir un servidor, no hay garantía de exclusividad de fechas.</p>
+          <h3>4. Pagos</h3>
+          <p>Esta demostración no solicita ni procesa información de pago.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-brand" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: PRIVACIDAD ============ -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="privacyTitle">Política de privacidad (ejemplo)</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body legal">
+          <p>Este texto es un ejemplo para la demostración de AlquilaYa.</p>
+          <h3>Qué datos se guardan</h3>
+          <p>Solo tus reservas de prueba y tus favoritos, en las claves <code>alquilaya.v1.reservations</code> y <code>alquilaya.v1.favorites</code> del almacenamiento local de este navegador.</p>
+          <h3>Qué datos no se guardan</h3>
+          <p>Los formularios de contacto, acceso y publicación se validan en pantalla y no se almacenan ni se envían. Las contraseñas nunca se guardan.</p>
+          <h3>Cómo borrar tus datos</h3>
+          <p>Cancela tus reservas desde «Mis reservas», quita tus favoritos o borra los datos del sitio desde la configuración de tu navegador.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-brand" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,2402 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Refugio Natural | Alquiler de cabaña campestre</title>
+  <meta name="description" content="Refugio Natural es una cabaña campestre de clima cálido para descansar y compartir en familia o con amigos. Consulta tarifas y disponibilidad directamente con el propietario por WhatsApp.">
+  <meta name="theme-color" content="#254D3A">
+
+  <!-- Open Graph básico -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Refugio Natural">
+  <meta property="og:title" content="Refugio Natural | Alquiler de cabaña campestre">
+  <meta property="og:description" content="Una cabaña campestre de clima cálido para descansar, compartir y disfrutar. Consulta disponibilidad con el propietario.">
+  <meta property="og:image" content="https://images.unsplash.com/photo-1586375300773-8384e3e4916f?auto=format&fit=crop&w=1200&h=630&q=75">
+
+  <!-- Favicon de demostración (SVG en línea) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23254D3A'/%3E%3Cpath d='M32 12 14 30h6v20h24V30h6z' fill='%23F2E8D8'/%3E%3Cpath d='M28 50V38h8v12z' fill='%23B96F4D'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <style>
+/* ==========================================================================
+   Refugio Natural — estilos
+   1. Variables   2. Base   3. Botones   4. Header   5. Hero
+   6. Secciones   7. La cabaña   8. Galería   9. Amenidades
+   10. Experiencias   11. Tarifas y consulta   12. Testimonios
+   13. Ubicación y contacto   14. FAQ   15. Footer   16. WhatsApp flotante
+   17. Modales   18. Responsive   19. Movimiento reducido
+   ========================================================================== */
+
+/* 1. Variables ------------------------------------------------------------- */
+:root {
+  --forest: #254D3A;
+  --forest-deep: #1B3A2B;
+  --sage: #68866A;
+  --sand: #F2E8D8;
+  --sand-deep: #E7D9C2;
+  --cream: #FFFDF8;
+  --terracotta: #B96F4D;
+  --terracotta-deep: #9C5638;   /* variante oscura para botones con texto (contraste AA) */
+  --ink: #29352D;
+  --muted: #727970;
+  --muted-strong: #5E655C;      /* texto secundario pequeño sobre arena */
+  --line: rgba(41, 53, 45, .14);
+  --wa: #1F8F55;
+  --wa-hover: #187647;
+  --danger: #A63A2B;
+
+  --font-serif: "DM Serif Display", Georgia, serif;
+  --font-sans: "DM Sans", "Segoe UI", system-ui, sans-serif;
+
+  --radius-photo: 18px;
+  --radius-card: 16px;
+  --radius-control: 10px;
+  --header-h: 68px;
+  --ease: cubic-bezier(.22, .7, .2, 1);
+
+  --bs-body-font-family: var(--font-sans);
+  --bs-body-color: var(--ink);
+  --bs-body-bg: var(--cream);
+  --bs-link-color: var(--forest);
+  --bs-link-color-rgb: 37, 77, 58;
+  --bs-link-hover-color: var(--terracotta-deep);
+  --bs-border-color: var(--line);
+}
+
+/* 2. Base ------------------------------------------------------------------ */
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .modal-title {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  color: var(--forest);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+}
+h3 { font-size: 1.35rem; }
+
+img { max-width: 100%; height: auto; display: block; }
+
+:focus-visible { outline: 3px solid var(--terracotta); outline-offset: 3px; }
+
+.form-control:focus, .form-select:focus {
+  border-color: var(--sage);
+  box-shadow: 0 0 0 .2rem rgba(104, 134, 106, .25);
+}
+
+section[id], form[id] { scroll-margin-top: calc(var(--header-h) + 12px); }
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  z-index: 2000;
+  padding: .6rem 1rem;
+  background: var(--forest);
+  color: #fff;
+  border-radius: var(--radius-control);
+  text-decoration: none;
+}
+.skip-link:focus { top: 1rem; color: #fff; }
+
+.demo-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: .5rem;
+  padding: .45rem 1rem;
+  background: var(--sand-deep);
+  color: var(--ink);
+  font-size: .85rem;
+  text-align: center;
+}
+.demo-bar[hidden] { display: none; }
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: .35rem;
+  padding: .2rem .65rem;
+  border-radius: 999px;
+  background: var(--sand);
+  color: var(--muted-strong);
+  font-size: .8rem;
+  font-weight: 500;
+}
+.tag--light { background: rgba(255, 253, 248, .14); color: var(--sand); }
+.tag--pending { background: transparent; border: 1px dashed rgba(41, 53, 45, .3); color: var(--muted-strong); }
+
+.photo-note {
+  position: absolute;
+  margin: 0;
+  padding: .2rem .6rem;
+  border-radius: 999px;
+  background: rgba(27, 58, 43, .65);
+  color: #fff;
+  font-size: .75rem;
+}
+
+/* Respaldo visual cuando una foto no carga */
+.img-fallback {
+  position: relative;
+  background: var(--sand-deep);
+}
+.img-fallback img { opacity: 0; }
+.img-fallback::after {
+  content: "Foto no disponible";
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  color: var(--muted-strong);
+  font-size: .9rem;
+}
+
+/* 3. Botones --------------------------------------------------------------- */
+.btn {
+  --bs-btn-font-weight: 500;
+  --bs-btn-border-radius: 999px;
+  --bs-btn-padding-x: 1.35rem;
+  --bs-btn-padding-y: .65rem;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  transition: background-color .2s var(--ease), border-color .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+}
+.btn-lg { --bs-btn-padding-x: 1.6rem; --bs-btn-padding-y: .8rem; --bs-btn-font-size: 1.02rem; min-height: 52px; }
+.btn:hover { transform: translateY(-1px); }
+.btn:active { transform: none; }
+
+.btn-accent {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--terracotta-deep);
+  --bs-btn-border-color: var(--terracotta-deep);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #85482E;
+  --bs-btn-hover-border-color: #85482E;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #85482E;
+  --bs-btn-active-border-color: #85482E;
+}
+.btn-forest {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--forest);
+  --bs-btn-border-color: var(--forest);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--forest-deep);
+  --bs-btn-hover-border-color: var(--forest-deep);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--forest-deep);
+}
+.btn-outline-forest {
+  --bs-btn-color: var(--forest);
+  --bs-btn-border-color: var(--forest);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--forest);
+  --bs-btn-hover-border-color: var(--forest);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--forest);
+}
+.btn-glass {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: rgba(255, 253, 248, .12);
+  --bs-btn-border-color: rgba(255, 253, 248, .7);
+  --bs-btn-hover-color: var(--forest);
+  --bs-btn-hover-bg: var(--cream);
+  --bs-btn-hover-border-color: var(--cream);
+  --bs-btn-active-color: var(--forest);
+  --bs-btn-active-bg: var(--cream);
+  backdrop-filter: blur(4px);
+}
+.btn-wa {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--wa);
+  --bs-btn-border-color: var(--wa);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--wa-hover);
+  --bs-btn-hover-border-color: var(--wa-hover);
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: var(--wa-hover);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: var(--wa);
+}
+.btn-wa .bi-whatsapp { font-size: 1.15em; }
+
+/* Estado "pendiente de configurar" para cualquier botón de WhatsApp */
+[data-wa].is-pending { position: relative; }
+.btn-wa.is-pending { --bs-btn-bg: #5C7A66; --bs-btn-border-color: #5C7A66; --bs-btn-hover-bg: #4E6957; --bs-btn-hover-border-color: #4E6957; }
+.pending-badge {
+  font-size: .72rem;
+  font-weight: 500;
+  padding: .1rem .5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .2);
+}
+
+.link-button {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+/* 4. Header ---------------------------------------------------------------- */
+.site-header {
+  background: rgba(255, 253, 248, .94);
+  backdrop-filter: saturate(140%) blur(10px);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.site-header .navbar { min-height: var(--header-h); padding: .4rem 0; }
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: .6rem;
+  color: var(--forest);
+  text-decoration: none;
+}
+.logo__icon {
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border-radius: 50% 50% 50% 8px;
+  background: var(--forest);
+  color: var(--sand);
+  font-size: 1.05rem;
+}
+.logo__text {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  line-height: 1;
+  color: var(--forest);
+}
+.logo--light .logo__icon { background: var(--sand); color: var(--forest); }
+.logo--light .logo__text { color: var(--cream); }
+
+.navbar-toggler {
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--forest);
+  font-size: 1.45rem;
+}
+.navbar-toggler:focus { box-shadow: 0 0 0 .2rem rgba(185, 111, 77, .3); }
+
+.navbar-nav .nav-link {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: .98rem;
+  padding: .5rem .8rem;
+  position: relative;
+}
+.navbar-nav .nav-link::after {
+  content: "";
+  position: absolute;
+  left: .8rem;
+  right: .8rem;
+  bottom: .3rem;
+  height: 2px;
+  background: var(--terracotta);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .25s var(--ease);
+}
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active { color: var(--forest); }
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after { transform: scaleX(1); }
+
+/* 5. Hero ------------------------------------------------------------------ */
+.hero {
+  position: relative;
+  min-height: min(88vh, 820px);
+  display: flex;
+  align-items: flex-end;
+  color: #fff;
+  isolation: isolate;
+  overflow: hidden;
+}
+.hero__media {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  z-index: -1;
+  background: var(--forest);
+}
+.hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
+  animation: hero-settle 1.6s var(--ease) both;
+}
+.hero__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(20, 42, 31, .88) 0%, rgba(20, 42, 31, .55) 38%, rgba(20, 42, 31, .1) 70%),
+    linear-gradient(90deg, rgba(20, 42, 31, .5) 0%, rgba(20, 42, 31, 0) 60%);
+}
+@keyframes hero-settle { from { transform: scale(1.06); } to { transform: scale(1); } }
+
+.hero__inner { padding-top: 6rem; padding-bottom: clamp(3rem, 7vw, 5.5rem); }
+.hero__content { max-width: 760px; animation: hero-rise .9s var(--ease) .15s both; }
+@keyframes hero-rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+
+.hero__title {
+  color: #fff;
+  font-size: clamp(2.6rem, 6.2vw, 5.1rem);
+  line-height: 1.02;
+  margin-bottom: 1.25rem;
+  text-wrap: balance;
+}
+.hero__lead {
+  font-size: clamp(1.05rem, 1.6vw, 1.25rem);
+  color: rgba(255, 255, 255, .9);
+  max-width: 52ch;
+  margin-bottom: 2rem;
+}
+.hero__actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-bottom: 2rem; }
+
+.hero__attributes {
+  list-style: none;
+  padding: 1.25rem 0 0;
+  margin: 0 0 1rem;
+  border-top: 1px solid rgba(255, 255, 255, .25);
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem 1.75rem;
+  font-size: .95rem;
+  color: rgba(255, 255, 255, .92);
+}
+.hero__attributes i { color: var(--sand); margin-right: .35rem; }
+
+.hero__wa {
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  min-height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: #fff;
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255, 255, 255, .5);
+}
+.hero__wa:hover { text-decoration-color: #fff; }
+.hero__wa .pending-badge { text-decoration: none; }
+.hero__note { right: 1rem; bottom: 1rem; }
+
+/* 6. Secciones ------------------------------------------------------------- */
+.section { padding: clamp(4.5rem, 9vw, 7.5rem) 0; }
+.section--white { background: var(--cream); }
+.section--sand { background: var(--sand); }
+.section--forest { background: var(--forest); color: var(--sand); }
+
+.section-head { max-width: 680px; margin-bottom: clamp(2rem, 4vw, 3rem); }
+.section-title { font-size: clamp(2.1rem, 4vw, 3.25rem); margin-bottom: 1rem; text-wrap: balance; }
+.section-lead { color: var(--muted-strong); font-size: 1.08rem; max-width: 58ch; margin: 0; }
+.section--forest .section-title { color: var(--cream); }
+.section--forest .section-lead { color: rgba(242, 232, 216, .85); }
+
+/* 7. La cabaña ------------------------------------------------------------- */
+.intro__photo { position: relative; margin: 0; }
+.intro__photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  max-height: 640px;
+  object-fit: cover;
+  border-radius: var(--radius-photo);
+}
+.intro__photo .photo-note { left: 1rem; bottom: 1rem; }
+.intro__text { max-width: 560px; }
+.lead-text {
+  font-family: var(--font-serif);
+  font-size: clamp(1.3rem, 2vw, 1.55rem);
+  line-height: 1.35;
+  color: var(--ink);
+  margin-bottom: 1.25rem;
+}
+.intro__text > p { max-width: 62ch; }
+
+.benefits { list-style: none; padding: 0; margin: 2.25rem 0 0; display: grid; gap: 1.35rem; }
+.benefit { display: flex; gap: 1rem; align-items: flex-start; }
+.benefit__icon {
+  flex-shrink: 0;
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--sand);
+  color: var(--terracotta-deep);
+  font-size: 1.2rem;
+}
+.benefit h3 { font-size: 1.25rem; margin: .1rem 0 .2rem; }
+.benefit p { margin: 0; color: var(--muted-strong); }
+
+/* 8. Galería --------------------------------------------------------------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-auto-rows: clamp(150px, 17vw, 240px);
+  gap: .75rem;
+}
+.gallery__item {
+  position: relative;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-photo);
+  overflow: hidden;
+  background: var(--sand-deep);
+  cursor: zoom-in;
+}
+.gallery__item:first-child { grid-column: span 2; grid-row: span 2; }
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform .7s var(--ease);
+}
+.gallery__item:hover img { transform: scale(1.04); }
+.gallery__caption {
+  position: absolute;
+  left: .75rem;
+  bottom: .75rem;
+  padding: .25rem .7rem;
+  border-radius: 999px;
+  background: rgba(255, 253, 248, .92);
+  color: var(--forest);
+  font-size: .85rem;
+  font-weight: 500;
+}
+.gallery__more {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(27, 58, 43, .55);
+  color: #fff;
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+/* 9. Amenidades ------------------------------------------------------------ */
+.facts { margin: 2rem 0 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.facts div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: .85rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.facts dt { font-weight: 400; color: var(--muted-strong); display: flex; align-items: center; gap: .5rem; }
+.facts dt i { color: var(--sage); }
+.facts dd { margin: 0; font-family: var(--font-serif); font-size: 1.35rem; color: var(--forest); text-align: right; }
+.facts dd .tag { font-family: var(--font-sans); font-size: .78rem; }
+
+.amenities {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+}
+.amenity {
+  display: flex;
+  align-items: center;
+  gap: .85rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+  font-weight: 500;
+}
+.amenity i {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--sand);
+  color: var(--forest);
+  font-size: 1.15rem;
+}
+.amenities--pending .amenity { color: var(--muted-strong); font-weight: 400; }
+.amenities--pending .amenity i { background: transparent; border: 1px dashed rgba(41, 53, 45, .3); color: var(--muted); }
+.amenity small { display: block; font-size: .78rem; color: var(--muted); }
+
+.pending-block { margin-top: .5rem; }
+.pending-block[hidden] { display: none; }
+.pending-block__title { font-size: 1.35rem; margin-bottom: .35rem; }
+.pending-block__text { color: var(--muted-strong); font-size: .95rem; max-width: 60ch; margin-bottom: .5rem; }
+
+/* 10. Experiencias --------------------------------------------------------- */
+.experiences {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1.25rem, 3vw, 2.5rem);
+  align-items: start;
+}
+.experience:nth-child(2) { margin-top: 3rem; }
+.experience__photo { margin: 0 0 1.25rem; border-radius: var(--radius-photo); overflow: hidden; background: var(--sand-deep); }
+.experience__photo img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+.experience h3 { font-size: 1.5rem; margin-bottom: .5rem; display: flex; align-items: center; gap: .5rem; }
+.experience h3 i { color: var(--terracotta-deep); font-size: 1.1rem; }
+.experience p { color: var(--muted-strong); margin: 0; max-width: 40ch; }
+
+/* 11. Tarifas y consulta --------------------------------------------------- */
+.rate-highlight {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: .35rem .75rem;
+  margin: 2.25rem 0 1.75rem;
+  padding-bottom: 1.75rem;
+  border-bottom: 1px solid rgba(242, 232, 216, .2);
+}
+.rate-highlight__label, .rate-highlight__unit { color: rgba(242, 232, 216, .8); }
+.rate-highlight__price { font-family: var(--font-serif); font-weight: 400; font-size: clamp(2.4rem, 4vw, 3.2rem); color: var(--cream); line-height: 1; }
+.rate-highlight .tag { flex: 0 0 auto; margin-top: .5rem; }
+.rate-highlight__break { flex-basis: 100%; height: 0; }
+
+.conditions { margin: 0; display: grid; gap: 0; }
+.conditions div {
+  display: grid;
+  grid-template-columns: minmax(0, 11rem) 1fr;
+  gap: 1rem;
+  padding: .8rem 0;
+  border-bottom: 1px solid rgba(242, 232, 216, .14);
+}
+.conditions dt { font-weight: 400; color: rgba(242, 232, 216, .75); display: flex; gap: .5rem; }
+.conditions dt i { color: var(--terracotta); }
+.conditions dd { margin: 0; color: var(--cream); }
+.conditions dd ul { margin: 0; padding-left: 1.1rem; }
+.conditions .pending { color: rgba(242, 232, 216, .7); font-style: italic; }
+.section--forest .btn-wa { --bs-btn-bg: var(--cream); --bs-btn-color: var(--forest); --bs-btn-border-color: var(--cream); --bs-btn-hover-bg: var(--sand); --bs-btn-hover-color: var(--forest); --bs-btn-hover-border-color: var(--sand); --bs-btn-active-bg: var(--sand); --bs-btn-active-color: var(--forest); }
+.section--forest .btn-wa .bi-whatsapp { color: var(--wa); }
+.section--forest .btn-wa.is-pending { --bs-btn-bg: var(--sand); --bs-btn-border-color: var(--sand); }
+.section--forest .btn-wa .pending-badge { background: var(--sand-deep); }
+
+.inquiry {
+  background: var(--cream);
+  color: var(--ink);
+  border-radius: 22px;
+  padding: clamp(1.35rem, 3.5vw, 2.5rem);
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .45);
+}
+.inquiry .btn-wa { --bs-btn-bg: var(--wa); --bs-btn-color: #fff; --bs-btn-border-color: var(--wa); --bs-btn-hover-bg: var(--wa-hover); --bs-btn-hover-color: #fff; --bs-btn-hover-border-color: var(--wa-hover); }
+.inquiry .btn-wa .bi-whatsapp { color: #fff; }
+.inquiry .btn-wa.is-pending { --bs-btn-bg: #5C7A66; --bs-btn-border-color: #5C7A66; --bs-btn-hover-bg: #4E6957; }
+.inquiry .btn-wa .pending-badge { background: rgba(255, 255, 255, .2); }
+.inquiry__title { font-size: 1.85rem; margin-bottom: .35rem; }
+.inquiry__intro { color: var(--muted-strong); margin-bottom: 1.5rem; }
+.inquiry__fineprint { margin: .85rem 0 0; font-size: .85rem; color: var(--muted-strong); text-align: center; }
+
+.form-label { font-weight: 500; font-size: .95rem; margin-bottom: .35rem; color: var(--ink); }
+.optional { font-weight: 400; color: var(--muted); }
+.form-control {
+  min-height: 48px;
+  border-radius: var(--radius-control);
+  border-color: rgba(41, 53, 45, .22);
+  background-color: #fff;
+  color: var(--ink);
+}
+textarea.form-control { min-height: auto; }
+.form-control.is-invalid { border-color: var(--danger); }
+.invalid-feedback { color: var(--danger); font-size: .86rem; }
+.form-hint { margin: 0; font-size: .86rem; color: var(--muted-strong); }
+
+.breakdown {
+  margin: 1.75rem 0 .5rem;
+  padding: 1.1rem 1.25rem;
+  border-radius: var(--radius-card);
+  background: var(--sand);
+  display: grid;
+  gap: .45rem;
+}
+.breakdown div { display: flex; justify-content: space-between; gap: 1rem; }
+.breakdown div[hidden] { display: none; }
+.breakdown dt { font-weight: 400; color: var(--muted-strong); }
+.breakdown dd { margin: 0; font-weight: 500; text-align: right; font-variant-numeric: tabular-nums; }
+.breakdown__total { border-top: 1px solid rgba(41, 53, 45, .18); padding-top: .65rem; margin-top: .25rem; }
+.breakdown__total dt { color: var(--forest); font-weight: 700; }
+.breakdown__total dd { font-family: var(--font-serif); font-size: 1.5rem; font-weight: 400; color: var(--forest); }
+.breakdown-note { font-size: .84rem; color: var(--muted-strong); margin: 0 0 1.25rem; }
+
+.preview {
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border-radius: var(--radius-card);
+  background: #EFE9DD;
+}
+.preview__title { margin: 0 0 .6rem; font-size: .88rem; font-weight: 500; color: var(--muted-strong); display: flex; align-items: center; gap: .4rem; }
+.preview__title i { color: var(--wa); }
+.preview__bubble {
+  position: relative;
+  margin: 0 0 0 auto;
+  max-width: 92%;
+  padding: .75rem .9rem;
+  border-radius: 14px 14px 4px 14px;
+  background: #DCF3D9;
+  color: #1E2A22;
+  font-size: .92rem;
+  line-height: 1.5;
+  white-space: pre-line;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, .08);
+}
+.preview__bubble--modal { max-width: 100%; margin: 1rem 0; }
+
+.form-status { min-height: 1.4rem; margin: 0 0 .75rem; font-size: .92rem; }
+.form-status.is-error { color: var(--danger); font-weight: 500; }
+.form-status.is-ok { color: var(--forest); font-weight: 500; }
+
+/* 12. Testimonios ---------------------------------------------------------- */
+.reviews { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2rem; }
+.review { margin: 0; padding-top: 1.5rem; border-top: 2px solid var(--terracotta); }
+.review blockquote p { font-family: var(--font-serif); font-size: 1.3rem; line-height: 1.4; color: var(--ink); }
+.review figcaption { color: var(--muted-strong); font-size: .95rem; }
+.review .stars { color: var(--terracotta); letter-spacing: .1em; }
+
+.invite { text-align: center; max-width: 720px; margin: 0 auto; }
+.invite[hidden] { display: none; }
+.invite__title { font-size: clamp(2.2rem, 4.5vw, 3.6rem); margin-bottom: 1rem; text-wrap: balance; }
+.invite p { color: var(--muted-strong); font-size: 1.1rem; margin-bottom: 2rem; }
+
+/* 13. Ubicación y contacto ------------------------------------------------- */
+.location-place { font-family: var(--font-serif); font-size: 1.6rem; color: var(--forest); margin-bottom: .75rem; }
+.location-item { display: flex; gap: .75rem; margin-bottom: 1rem; max-width: 56ch; }
+.location-item i { color: var(--terracotta-deep); font-size: 1.15rem; margin-top: .15rem; }
+.location-item strong { display: block; color: var(--ink); font-weight: 500; }
+.location-item span { color: var(--muted-strong); }
+.location-empty {
+  display: flex;
+  gap: .9rem;
+  align-items: flex-start;
+  padding: 1.25rem 0;
+  max-width: 50ch;
+  color: var(--ink);
+  font-size: 1.1rem;
+}
+.location-empty i { font-size: 1.5rem; color: var(--terracotta-deep); }
+.location-actions { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 1.5rem; }
+.location-actions [hidden] { display: none; }
+
+.contact-card {
+  background: var(--cream);
+  border-radius: 22px;
+  padding: clamp(1.5rem, 3.5vw, 2.5rem);
+}
+.contact-card h3 { font-size: 1.75rem; margin-bottom: .6rem; }
+.contact-card > p { color: var(--muted-strong); }
+.contact-list { list-style: none; padding: 0; margin: 1.25rem 0 1.5rem; display: grid; gap: .75rem; }
+.contact-list li { display: flex; align-items: center; gap: .65rem; }
+.contact-list i { color: var(--sage); font-size: 1.1rem; }
+.contact-list .pending { color: var(--muted-strong); font-size: .92rem; }
+
+/* 14. FAQ ------------------------------------------------------------------ */
+.faq {
+  --bs-accordion-bg: transparent;
+  --bs-accordion-border-color: var(--line);
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: 0;
+  --bs-accordion-btn-color: var(--forest);
+  --bs-accordion-active-color: var(--forest);
+  --bs-accordion-active-bg: transparent;
+  --bs-accordion-btn-focus-box-shadow: 0 0 0 3px rgba(185, 111, 77, .35);
+  --bs-accordion-btn-padding-x: 0;
+  --bs-accordion-body-padding-x: 0;
+  --bs-accordion-btn-padding-y: 1.2rem;
+}
+.faq .accordion-item { border-left: 0; border-right: 0; }
+.faq .accordion-item:first-of-type { border-top: 1px solid var(--line); }
+.faq .accordion-button { font-family: var(--font-serif); font-size: 1.25rem; gap: 1rem; }
+.faq .accordion-button:not(.collapsed) { box-shadow: none; }
+.faq .accordion-body { padding-top: 0; padding-bottom: 1.4rem; color: var(--muted-strong); max-width: 64ch; }
+.faq .accordion-body p { margin-bottom: .75rem; }
+.faq .accordion-body ul { padding-left: 1.1rem; }
+.faq-ask {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  min-height: 40px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--forest);
+  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.faq-ask i { color: var(--wa); }
+
+/* 15. Footer --------------------------------------------------------------- */
+.site-footer { background: var(--forest-deep); color: rgba(242, 232, 216, .8); padding: 4.5rem 0 2rem; }
+.footer-text { margin: 1.1rem 0 1.5rem; max-width: 40ch; }
+.footer-title { font-family: var(--font-sans); font-size: 1rem; font-weight: 700; color: var(--cream); margin-bottom: 1rem; }
+.footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: .55rem; }
+.footer-links a { color: rgba(242, 232, 216, .8); text-decoration: none; }
+.footer-links a:hover { color: #fff; text-decoration: underline; }
+.footer-links .pending { font-size: .9rem; color: rgba(242, 232, 216, .6); }
+.footer-social { list-style: none; padding: 0; margin: 1rem 0 0; display: flex; gap: .5rem; }
+.footer-social:empty { display: none; }
+.footer-social a {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid rgba(242, 232, 216, .3);
+  color: var(--cream);
+  text-decoration: none;
+}
+.footer-social a:hover { background: var(--cream); color: var(--forest); }
+.site-footer .btn-wa { --bs-btn-bg: var(--cream); --bs-btn-color: var(--forest); --bs-btn-border-color: var(--cream); --bs-btn-hover-bg: var(--sand); --bs-btn-hover-color: var(--forest); --bs-btn-hover-border-color: var(--sand); }
+.site-footer .btn-wa .bi-whatsapp { color: var(--wa); }
+.site-footer .btn-wa .pending-badge { background: var(--sand-deep); }
+.site-footer :focus-visible { outline-color: var(--sand); }
+.footer-bottom {
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(242, 232, 216, .15);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: .9rem;
+}
+.footer-bottom p { margin: 0; }
+.footer-legal { display: flex; flex-wrap: wrap; gap: 1.25rem; }
+
+/* 16. WhatsApp flotante ---------------------------------------------------- */
+.wa-float {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 1030;
+  width: 60px;
+  height: 60px;
+  border: 0;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--wa);
+  color: #fff;
+  font-size: 1.75rem;
+  box-shadow: 0 12px 28px -10px rgba(20, 60, 40, .6);
+  transition: transform .2s var(--ease), background-color .2s var(--ease);
+}
+.wa-float:hover { transform: scale(1.06); background: var(--wa-hover); }
+.wa-float.is-pending { background: #5C7A66; }
+.wa-float .pending-dot {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  border: 2px solid #fff;
+}
+
+/* 17. Modales -------------------------------------------------------------- */
+.modal-content { border: 0; border-radius: 20px; background: var(--cream); }
+.modal-header { border-bottom: 1px solid var(--line); padding: 1.1rem 1.5rem; gap: 1rem; }
+.modal-title { font-size: 1.6rem; }
+.modal-body { padding: 1.5rem; }
+.modal-footer { border-top: 1px solid var(--line); }
+.btn-close { width: 44px; height: 44px; padding: 0; margin: -.5rem -.5rem -.5rem 0; border-radius: 50%; }
+.modal-backdrop { --bs-backdrop-bg: #142A1F; --bs-backdrop-opacity: .7; }
+.legal h3 { font-size: 1.2rem; margin-top: 1.25rem; }
+
+.gallery-modal .modal-header .btn-close { margin-left: auto; }
+.gallery-modal__counter { color: var(--muted-strong); font-size: .95rem; font-variant-numeric: tabular-nums; }
+.gallery-modal .modal-body { position: relative; padding: 1rem 1.25rem 1.25rem; }
+.gallery-modal__figure { margin: 0; }
+.gallery-modal__frame {
+  position: relative;
+  height: min(72vh, 760px);
+  border-radius: 14px;
+  overflow: hidden;
+  background: var(--sand);
+}
+.gallery-modal__frame img { width: 100%; height: 100%; object-fit: contain; }
+.gallery-modal__frame img.is-changing { animation: photo-fade .35s var(--ease); }
+@keyframes photo-fade { from { opacity: .25; } to { opacity: 1; } }
+.gallery-modal figcaption { margin-top: .75rem; color: var(--muted-strong); }
+.gallery-nav {
+  position: absolute;
+  top: calc(50% - 1.5rem);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 253, 248, .95);
+  color: var(--forest);
+  font-size: 1.3rem;
+  box-shadow: 0 6px 18px -8px rgba(0, 0, 0, .4);
+  transform: translateY(-50%);
+}
+.gallery-nav:hover { background: #fff; }
+.gallery-nav--prev { left: 2rem; }
+.gallery-nav--next { right: 2rem; }
+
+/* 18. Responsive ----------------------------------------------------------- */
+@media (max-width: 991.98px) {
+  .navbar-collapse { padding: .75rem 0 1.25rem; border-top: 1px solid var(--line); margin-top: .5rem; }
+  .navbar-nav .nav-link { padding: .75rem 0; }
+  .navbar-nav .nav-link::after { left: 0; right: auto; width: 28px; bottom: .45rem; }
+  .navbar-collapse .btn-accent { width: 100%; margin-top: .75rem; }
+
+  .amenities { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .experiences { grid-template-columns: 1fr 1fr; }
+  .experience:nth-child(2) { margin-top: 0; }
+  .experience:nth-child(3) { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 0 2rem; align-items: center; }
+  .experience:nth-child(3) .experience__photo { grid-row: span 2; margin: 0; }
+  .reviews { grid-template-columns: 1fr; }
+  .intro__photo img { aspect-ratio: 4 / 3; }
+}
+
+@media (max-width: 767.98px) {
+  body { font-size: 1rem; }
+  .hero { min-height: auto; }
+  .hero__inner { padding-top: 7rem; padding-bottom: 3rem; }
+  .hero__actions .btn { flex: 1 1 100%; }
+  .hero__attributes { flex-direction: column; gap: .4rem; }
+  .hero__note { top: 1rem; bottom: auto; }
+
+  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 140px; gap: .5rem; }
+  .gallery__item:first-child { grid-column: 1 / -1; grid-row: span 2; }
+
+  .amenities { grid-template-columns: 1fr 1fr; gap: 0 1rem; }
+  .amenity { font-size: .95rem; }
+  .experiences { grid-template-columns: 1fr; }
+  .experience:nth-child(3) { display: block; }
+  .experience:nth-child(3) .experience__photo { margin-bottom: 1.25rem; }
+  .experience__photo img { aspect-ratio: 4 / 3; }
+
+  .conditions div { grid-template-columns: 1fr; gap: .15rem; }
+  .gallery-modal__frame { height: 60vh; }
+  .gallery-nav { top: auto; bottom: 1.5rem; transform: none; width: 48px; height: 48px; }
+  .gallery-nav--prev { left: auto; right: 4.75rem; }
+  .gallery-nav--next { right: 1.25rem; }
+  .gallery-modal figcaption { padding-right: 7rem; min-height: 3rem; }
+  .footer-bottom { flex-direction: column; }
+  .wa-float { width: 56px; height: 56px; right: 1rem; bottom: 1rem; }
+}
+
+@media (max-width: 399.98px) {
+  .amenities { grid-template-columns: 1fr; }
+}
+
+/* 19. Movimiento reducido -------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .btn:hover, .wa-float:hover, .gallery__item:hover img { transform: none; }
+}
+
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+
+  <!-- Aviso de demostración: app.js lo oculta cuando CONFIG.demoMode = false -->
+  <div class="demo-bar" id="demoBar" hidden>
+    <i class="bi bi-info-circle" aria-hidden="true"></i>
+    <span>Vista de demostración: fotografías ilustrativas, tarifas provisionales y datos de contacto pendientes de configurar.</span>
+  </div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header sticky-top">
+    <nav class="navbar navbar-expand-lg" aria-label="Navegación principal">
+      <div class="container">
+        <a class="logo" href="#inicio" aria-label="Refugio Natural, ir al inicio">
+          <span class="logo__icon" aria-hidden="true"><i class="bi bi-tree"></i></span>
+          <span class="logo__text">Refugio Natural</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu"
+                aria-controls="navMenu" aria-expanded="false" aria-label="Abrir menú">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navMenu">
+          <ul class="navbar-nav ms-lg-auto">
+            <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#la-cabana">La cabaña</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+            <li class="nav-item"><a class="nav-link" href="#experiencias">Experiencias</a></li>
+            <li class="nav-item"><a class="nav-link" href="#tarifas">Tarifas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+          </ul>
+          <a class="btn btn-accent ms-lg-3" href="#consulta">Consultar disponibilidad</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="inicio" aria-labelledby="heroTitle">
+      <figure class="hero__media">
+        <img src="https://images.unsplash.com/photo-1586375300773-8384e3e4916f?auto=format&fit=crop&w=2000&q=75"
+             alt="Cabaña de madera rodeada de vegetación tropical y un sendero con baranda (foto ilustrativa)"
+             fetchpriority="high" width="2000" height="1333">
+      </figure>
+      <div class="container hero__inner">
+        <div class="hero__content">
+          <h1 class="hero__title" id="heroTitle">Tu refugio natural para descansar, compartir y disfrutar</h1>
+          <p class="hero__lead">Escápate de la rutina y vive momentos especiales en un entorno campestre de clima cálido, ideal para compartir con quienes más quieres.</p>
+          <div class="hero__actions">
+            <a class="btn btn-accent btn-lg" href="#consulta">Consultar disponibilidad</a>
+            <a class="btn btn-glass btn-lg" href="#la-cabana">Explorar la cabaña</a>
+          </div>
+          <ul class="hero__attributes" aria-label="Lo que encontrarás">
+            <li><i class="bi bi-tree" aria-hidden="true"></i> Entorno campestre</li>
+            <li><i class="bi bi-people" aria-hidden="true"></i> Espacios para compartir</li>
+            <li><i class="bi bi-chat-heart" aria-hidden="true"></i> Reservas directas con el propietario</li>
+          </ul>
+          <button type="button" class="hero__wa" data-wa="default">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i>
+            <span>Escribir por WhatsApp</span>
+          </button>
+        </div>
+      </div>
+      <p class="photo-note hero__note">Foto ilustrativa</p>
+    </section>
+
+    <!-- ============ LA CABAÑA: EXPERIENCIA ============ -->
+    <section class="section section--white" id="la-cabana" aria-labelledby="introTitle">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-6">
+            <figure class="intro__photo">
+              <img src="https://images.unsplash.com/photo-1596394516093-501ba68a0ba6?auto=format&fit=crop&w=1100&q=75"
+                   alt="Terraza de madera con cama de descanso frente a un paisaje de montañas (foto ilustrativa)"
+                   loading="lazy" width="1100" height="1300">
+              <figcaption class="photo-note">Foto ilustrativa</figcaption>
+            </figure>
+          </div>
+          <div class="col-lg-6">
+            <div class="intro__text">
+              <h2 class="section-title" id="introTitle">Un lugar para bajar el ritmo y disfrutar lo esencial</h2>
+              <p class="lead-text">Aquí los días empiezan sin alarma. Un café sin prisa, el sonido de los árboles y el calor suave de la tarde marcan el tiempo.</p>
+              <p>Refugio Natural es una cabaña campestre pensada para quienes quieren desconectarse de la rutina: parejas que buscan descanso, familias que quieren estar juntas y amigos que tienen mucho por conversar. Un lugar para cocinar algo rico, contar historias y volver a casa con la sensación de haber descansado de verdad.</p>
+
+              <ul class="benefits">
+                <li class="benefit">
+                  <span class="benefit__icon" aria-hidden="true"><i class="bi bi-people"></i></span>
+                  <div>
+                    <h3>Un espacio para compartir</h3>
+                    <p>Tiempo de calidad con las personas que quieres, lejos de las pantallas y de los afanes.</p>
+                  </div>
+                </li>
+                <li class="benefit">
+                  <span class="benefit__icon" aria-hidden="true"><i class="bi bi-moon-stars"></i></span>
+                  <div>
+                    <h3>Un ambiente de descanso</h3>
+                    <p>Tranquilidad para dormir bien, leer, conversar o simplemente no hacer nada.</p>
+                  </div>
+                </li>
+                <li class="benefit">
+                  <span class="benefit__icon" aria-hidden="true"><i class="bi bi-sun"></i></span>
+                  <div>
+                    <h3>Una experiencia campestre</h3>
+                    <p>Clima cálido, naturaleza alrededor y el ritmo sencillo del campo.</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GALERÍA ============ -->
+    <section class="section section--sand" id="galeria" aria-labelledby="galleryTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="galleryTitle">Recorre la cabaña</h2>
+          <p class="section-lead" id="galleryNote">Toca una foto para verla en grande.</p>
+        </div>
+        <div class="gallery" id="galleryGrid"></div>
+      </div>
+    </section>
+
+    <!-- ============ ESPACIOS Y AMENIDADES ============ -->
+    <section class="section section--white" id="espacios" aria-labelledby="amenitiesTitle">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-4">
+            <h2 class="section-title" id="amenitiesTitle">Pensado para disfrutar cada momento</h2>
+            <p class="section-lead">Estos son los espacios y servicios confirmados por el propietario. Si buscas algo en particular, pregúntalo antes de reservar.</p>
+            <dl class="facts" id="propertyFacts"></dl>
+          </div>
+          <div class="col-lg-8">
+            <ul class="amenities" id="amenitiesList" aria-label="Amenidades confirmadas"></ul>
+            <div class="pending-block" id="amenitiesPending" hidden>
+              <h3 class="pending-block__title">Opciones por confirmar</h3>
+              <p class="pending-block__text">En la versión de demostración se muestran las amenidades disponibles para configurar. Solo aparecerán como confirmadas cuando el propietario las active.</p>
+              <ul class="amenities amenities--pending" id="amenitiesPendingList"></ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERIENCIAS ============ -->
+    <section class="section section--sand" id="experiencias" aria-labelledby="experiencesTitle">
+      <div class="container">
+        <div class="section-head">
+          <h2 class="section-title" id="experiencesTitle">Una escapada a tu medida</h2>
+          <p class="section-lead">Ven en pareja, en familia o con tus amigos. Cuéntale al propietario cuántos son y qué planean para confirmar que la cabaña se ajusta a tu plan.</p>
+        </div>
+        <div class="experiences">
+          <article class="experience">
+            <figure class="experience__photo">
+              <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=75"
+                   alt="Persona meditando al atardecer frente a un paisaje abierto (foto ilustrativa)" loading="lazy" width="800" height="1000">
+            </figure>
+            <h3><i class="bi bi-sunset" aria-hidden="true"></i> Para descansar</h3>
+            <p>Para quienes necesitan tranquilidad, desconexión y tiempo para sí mismos. Leer, dormir sin horario y mirar el paisaje.</p>
+          </article>
+          <article class="experience">
+            <figure class="experience__photo">
+              <img src="https://images.unsplash.com/photo-1609220136736-443140cffec6?auto=format&fit=crop&w=800&q=75"
+                   alt="Padre sonriente con dos niños al aire libre (foto ilustrativa)" loading="lazy" width="800" height="1000">
+            </figure>
+            <h3><i class="bi bi-house-heart" aria-hidden="true"></i> Para compartir en familia</h3>
+            <p>Días sin afán para estar juntos, cocinar en familia y dejar que los niños disfruten del aire libre.</p>
+          </article>
+          <article class="experience">
+            <figure class="experience__photo">
+              <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?auto=format&fit=crop&w=800&q=75"
+                   alt="Grupo de amigos compartiendo una comida en una mesa larga (foto ilustrativa)" loading="lazy" width="800" height="1000">
+            </figure>
+            <h3><i class="bi bi-chat-heart" aria-hidden="true"></i> Para reunirse con amigos</h3>
+            <p>Conversaciones largas, comidas compartidas y momentos que después se recuerdan con gusto.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TARIFAS + CONSULTA ============ -->
+    <section class="section section--forest" id="tarifas" aria-labelledby="ratesTitle">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-5">
+            <h2 class="section-title" id="ratesTitle">Planea tu próxima escapada</h2>
+            <p class="section-lead">Elige tus fechas para ver un estimado y escríbele al propietario para confirmar disponibilidad y condiciones.</p>
+
+            <div class="rate-highlight">
+              <span class="rate-highlight__label">Desde</span>
+              <strong class="rate-highlight__price" id="ratePrice">Por confirmar</strong>
+              <span class="rate-highlight__unit">por noche</span>
+              <span class="rate-highlight__break" aria-hidden="true"></span>
+              <span class="tag tag--light" id="rateProvisional" hidden>Tarifa provisional de demostración</span>
+            </div>
+
+            <dl class="conditions" id="conditionsList"></dl>
+
+            <button type="button" class="btn btn-wa btn-lg mt-4" data-wa="price">
+              <i class="bi bi-whatsapp" aria-hidden="true"></i> Consultar precio por WhatsApp
+            </button>
+          </div>
+
+          <div class="col-lg-7">
+            <form class="inquiry" id="consulta" novalidate aria-labelledby="inquiryTitle">
+              <h3 class="inquiry__title" id="inquiryTitle">Consulta tus fechas</h3>
+              <p class="inquiry__intro">No es una reserva: el propietario te confirmará disponibilidad y condiciones por WhatsApp.</p>
+
+              <div class="row g-3">
+                <div class="col-6">
+                  <label class="form-label" for="checkIn">Llegada</label>
+                  <input class="form-control" type="date" id="checkIn" name="checkIn" required aria-describedby="checkInError">
+                  <div class="invalid-feedback" id="checkInError"></div>
+                </div>
+                <div class="col-6">
+                  <label class="form-label" for="checkOut">Salida</label>
+                  <input class="form-control" type="date" id="checkOut" name="checkOut" required aria-describedby="checkOutError">
+                  <div class="invalid-feedback" id="checkOutError"></div>
+                </div>
+                <div class="col-6">
+                  <label class="form-label" for="adults">Adultos</label>
+                  <input class="form-control" type="number" id="adults" name="adults" min="1" value="2" inputmode="numeric" required aria-describedby="adultsError capacityHint">
+                  <div class="invalid-feedback" id="adultsError"></div>
+                </div>
+                <div class="col-6">
+                  <label class="form-label" for="children">Niños <span class="optional">(opcional)</span></label>
+                  <input class="form-control" type="number" id="children" name="children" min="0" value="0" inputmode="numeric" aria-describedby="childrenError capacityHint">
+                  <div class="invalid-feedback" id="childrenError"></div>
+                </div>
+                <div class="col-12">
+                  <p class="form-hint" id="capacityHint"></p>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="guestName">Tu nombre</label>
+                  <input class="form-control" type="text" id="guestName" name="guestName" maxlength="60" autocomplete="name" required aria-describedby="guestNameError">
+                  <div class="invalid-feedback" id="guestNameError"></div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="guestMessage">Mensaje adicional <span class="optional">(opcional)</span></label>
+                  <textarea class="form-control" id="guestMessage" name="guestMessage" rows="2" maxlength="300" placeholder="Por ejemplo: celebramos un cumpleaños o llegamos tarde."></textarea>
+                </div>
+              </div>
+
+              <dl class="breakdown" aria-live="polite">
+                <div><dt>Noches</dt><dd id="bdNights">—</dd></div>
+                <div><dt>Tarifa por noche</dt><dd id="bdRate">—</dd></div>
+                <div><dt id="bdSubtotalLabel">Subtotal de la estancia</dt><dd id="bdSubtotal">—</dd></div>
+                <div id="bdCleaningRow" hidden><dt>Tarifa de limpieza</dt><dd id="bdCleaning">—</dd></div>
+                <div class="breakdown__total"><dt>Total estimado</dt><dd id="bdTotal">—</dd></div>
+              </dl>
+              <p class="breakdown-note" id="breakdownNote"></p>
+
+              <div class="preview" aria-labelledby="previewTitle">
+                <p class="preview__title" id="previewTitle"><i class="bi bi-whatsapp" aria-hidden="true"></i> Así se verá tu mensaje</p>
+                <p class="preview__bubble" id="messagePreview"></p>
+              </div>
+
+              <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+
+              <button type="submit" class="btn btn-wa btn-lg w-100" id="inquirySubmit">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Consultar disponibilidad por WhatsApp
+              </button>
+              <p class="inquiry__fineprint">WhatsApp se abrirá con el mensaje listo para que lo revises y lo envíes tú. Esta página no guarda tus datos ni procesa pagos.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TESTIMONIOS / INVITACIÓN ============ -->
+    <section class="section section--white" id="testimonios" aria-labelledby="reviewsTitle">
+      <div class="container">
+        <div id="reviewsBlock" hidden>
+          <div class="section-head">
+            <h2 class="section-title" id="reviewsTitle">Momentos que merecen repetirse</h2>
+          </div>
+          <div class="reviews" id="reviewsList"></div>
+        </div>
+
+        <div class="invite" id="inviteBlock">
+          <h2 class="invite__title" id="inviteTitle">¿Te imaginas tu próxima escapada aquí?</h2>
+          <p>Escríbele al propietario, cuéntale tus fechas y cuántas personas viajan.</p>
+          <button type="button" class="btn btn-wa btn-lg" data-wa="default">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ UBICACIÓN Y CONTACTO ============ -->
+    <section class="section section--sand" id="ubicacion" aria-labelledby="locationTitle">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-6">
+            <h2 class="section-title" id="locationTitle">Ven a descubrir Refugio Natural</h2>
+            <div id="locationDetails"></div>
+            <div class="location-actions">
+              <a class="btn btn-outline-forest btn-lg" id="mapsLink" href="#ubicacion" target="_blank" rel="noopener noreferrer" hidden>
+                <i class="bi bi-signpost-split" aria-hidden="true"></i> Cómo llegar
+              </a>
+              <button type="button" class="btn btn-wa btn-lg" data-wa="location">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Pedir ubicación por WhatsApp
+              </button>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <div class="contact-card" id="contacto" aria-labelledby="contactTitle">
+              <h3 id="contactTitle">Habla directamente con el propietario</h3>
+              <p>Resolvemos tus preguntas sobre fechas, tarifas, capacidad y condiciones antes de que reserves.</p>
+              <ul class="contact-list" id="contactList"></ul>
+              <button type="button" class="btn btn-wa btn-lg w-100" data-wa="default">
+                <i class="bi bi-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PREGUNTAS FRECUENTES ============ -->
+    <section class="section section--white" id="preguntas" aria-labelledby="faqTitle">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-4">
+            <h2 class="section-title" id="faqTitle">Preguntas frecuentes</h2>
+            <p class="section-lead">Si tu pregunta no está aquí, escríbele al propietario por WhatsApp.</p>
+          </div>
+          <div class="col-lg-8">
+            <div class="accordion faq" id="faqAccordion"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5">
+          <a class="logo logo--light" href="#inicio" aria-label="Refugio Natural, ir al inicio">
+            <span class="logo__icon" aria-hidden="true"><i class="bi bi-tree"></i></span>
+            <span class="logo__text">Refugio Natural</span>
+          </a>
+          <p class="footer-text">Cabaña campestre de clima cálido para descansar, compartir y disfrutar. Reservas directas con el propietario.</p>
+          <button type="button" class="btn btn-wa" data-wa="default">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp
+          </button>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="footer-title">Explora</h2>
+          <ul class="footer-links">
+            <li><a href="#la-cabana">La cabaña</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#experiencias">Experiencias</a></li>
+            <li><a href="#tarifas">Tarifas</a></li>
+            <li><a href="#ubicacion">Ubicación</a></li>
+            <li><a href="#preguntas">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-4">
+          <h2 class="footer-title">Contacto</h2>
+          <ul class="footer-links" id="footerContact"></ul>
+          <ul class="footer-social" id="footerSocial" aria-label="Redes sociales"></ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="currentYear">2026</span> Refugio Natural. Fotografías ilustrativas de Unsplash.</p>
+        <p class="footer-legal">
+          <button type="button" class="link-button" data-bs-toggle="modal" data-bs-target="#privacyModal">Política de privacidad</button>
+          <button type="button" class="link-button" data-bs-toggle="modal" data-bs-target="#termsModal">Términos y condiciones</button>
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- WhatsApp flotante -->
+  <button type="button" class="wa-float" data-wa="default" id="waFloat" aria-label="Escribir por WhatsApp">
+    <i class="bi bi-whatsapp" aria-hidden="true"></i>
+  </button>
+
+  <!-- ============ MODAL: GALERÍA ============ -->
+  <div class="modal fade gallery-modal" id="galleryModal" tabindex="-1" aria-labelledby="galleryModalTitle" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-md-down">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="galleryModalTitle">Galería</h2>
+          <span class="gallery-modal__counter" id="galleryCounter" aria-live="polite"></span>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar galería"></button>
+        </div>
+        <div class="modal-body">
+          <figure class="gallery-modal__figure">
+            <div class="gallery-modal__frame">
+              <img id="galleryModalImage" src="" alt="">
+            </div>
+            <figcaption id="galleryModalCaption"></figcaption>
+          </figure>
+          <button type="button" class="gallery-nav gallery-nav--prev" id="galleryPrev" aria-label="Foto anterior">
+            <i class="bi bi-chevron-left" aria-hidden="true"></i>
+          </button>
+          <button type="button" class="gallery-nav gallery-nav--next" id="galleryNext" aria-label="Foto siguiente">
+            <i class="bi bi-chevron-right" aria-hidden="true"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: WHATSAPP PENDIENTE ============ -->
+  <div class="modal fade" id="waPendingModal" tabindex="-1" aria-labelledby="waPendingTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="waPendingTitle">WhatsApp pendiente de configurar</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <p>El número del propietario aún no está configurado, así que no abrimos WhatsApp. Este es el mensaje que se enviaría:</p>
+          <p class="preview__bubble preview__bubble--modal" id="waPendingMessage"></p>
+          <p class="form-hint">Para el propietario: escribe el número en <code>CONFIG.whatsapp.number</code> dentro de <code>app.js</code>.</p>
+          <p class="form-status" id="copyStatus" role="status" aria-live="polite"></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline-forest" id="copyMessageBtn"><i class="bi bi-copy" aria-hidden="true"></i> Copiar mensaje</button>
+          <button type="button" class="btn btn-forest" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: PRIVACIDAD ============ -->
+  <div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="privacyTitle">Política de privacidad</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body legal">
+          <p class="tag">Texto base: el propietario debe revisarlo y adaptarlo antes de publicar.</p>
+          <h3>Datos que recoge esta página</h3>
+          <p>El formulario de consulta solo usa tus fechas, el número de huéspedes, tu nombre y tu mensaje para armar un texto de WhatsApp en tu propio dispositivo. Esta página no envía esos datos a ningún servidor ni los guarda en el navegador.</p>
+          <h3>Conversación por WhatsApp</h3>
+          <p>Cuando decides enviar el mensaje, la conversación ocurre en WhatsApp y se rige por las políticas de ese servicio. El propietario usará tus datos solo para responder tu consulta y gestionar tu estadía.</p>
+          <h3>Tus derechos</h3>
+          <p>Puedes pedir al propietario que elimine la conversación y los datos que le compartiste.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-forest" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ MODAL: TÉRMINOS ============ -->
+  <div class="modal fade" id="termsModal" tabindex="-1" aria-labelledby="termsTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="termsTitle">Términos y condiciones</h2>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body legal">
+          <p class="tag">Texto base: el propietario debe revisarlo y adaptarlo antes de publicar.</p>
+          <h3>Información de la página</h3>
+          <p>Las fotografías son ilustrativas mientras el propietario no publique imágenes propias. Las tarifas mostradas son estimados de referencia y pueden cambiar.</p>
+          <h3>Consultas y reservas</h3>
+          <p>El formulario no crea reservas. Una estadía solo queda confirmada cuando el propietario la confirma directamente contigo, junto con las condiciones de pago y cancelación.</p>
+          <h3>Pagos</h3>
+          <p>Esta página no solicita ni procesa pagos. Acuerda cualquier pago únicamente con el propietario.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-forest" data-bs-dismiss="modal">Entendido</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script defer>
+/* ==========================================================================
+   Refugio Natural — lógica de la página
+   Todo lo que el propietario debe completar está en CONFIG (bloque 1).
+   La página no guarda datos personales ni crea reservas: solo prepara
+   un mensaje que el visitante revisa y envía por WhatsApp.
+   ========================================================================== */
+'use strict';
+
+(() => {
+  /* ========================================================================
+     1. CONFIGURACIÓN DE REFUGIO NATURAL
+     Regla general: null o '' = dato no confirmado. La página lo mostrará
+     como «Por confirmar» (modo demostración) u ocultará el elemento.
+     ======================================================================== */
+  const CONFIG = {
+    // true: muestra avisos de demostración y las opciones pendientes. Ponlo en false al publicar.
+    demoMode: true,
+
+    whatsapp: {
+      // Formato internacional, solo dígitos, sin "+" ni espacios. Ej.: '573001234567'.
+      number: '',
+      messages: {
+        default: 'Hola, estoy interesado en conocer la disponibilidad de Refugio Natural. ¿Me podrían compartir las tarifas y las condiciones de reserva?',
+        price: 'Hola, quisiera consultar el precio de Refugio Natural para mis fechas. ¿Me podrían compartir las tarifas y las condiciones de reserva?',
+        location: 'Hola, ¿me podrían compartir la ubicación de Refugio Natural y las indicaciones para llegar?'
+      }
+    },
+
+    contact: {
+      email: '',                  // Ej.: 'reservas@tudominio.com'
+      social: {                   // URL completas (https://...). Vacío = no se muestra.
+        instagram: '',
+        facebook: '',
+        tiktok: ''
+      }
+    },
+
+    property: {
+      maxGuests: 6,               // Capacidad máxima de personas (adultos + niños).
+      maxGuestsProvisional: true, // true mientras el propietario no confirme la capacidad.
+      bedrooms: null,
+      bathrooms: null,
+      beds: null
+    },
+
+    stay: {
+      minNights: null,            // Ej.: 2. null = sin mínimo publicado.
+      checkInTime: '',            // Ej.: '3:00 p. m.'
+      checkOutTime: ''            // Ej.: '12:00 m.'
+    },
+
+    pricing: {
+      pricePerNight: 450000,      // COP. null = precio por confirmar.
+      cleaningFee: null,          // COP. null = no publicado; 0 = sin cargo.
+      extraFees: [],              // Cargos adicionales obligatorios: [{ label: 'Persona adicional', amount: 50000 }]
+      provisional: true           // true = valores de demostración, no tarifas confirmadas.
+    },
+
+    includedServices: [],         // Ej.: ['Ropa de cama y toallas', 'Wi-Fi']
+
+    policies: {
+      booking: '',                // Condiciones para separar la fecha.
+      deposit: '',                // Información sobre anticipos.
+      cancellation: '',           // Política de cancelación.
+      payments: '',               // Medios de pago aceptados.
+      pets: ''                    // Detalle de la política de mascotas (si amenities.pets = true).
+    },
+
+    // true = confirmada, false = no disponible (se oculta), null = por confirmar.
+    amenities: {
+      kitchen: null,
+      livingRoom: null,
+      garden: null,
+      terrace: null,
+      pool: null,
+      bbq: null,
+      parking: null,
+      wifi: null,
+      airConditioning: null,
+      fans: null,
+      pets: null,
+      hammocks: null
+    },
+
+    location: {
+      municipality: '',
+      department: '',
+      reference: '',              // Ej.: 'Vereda ..., a la entrada del condominio ...'
+      directions: '',             // Indicaciones de llegada.
+      mapsUrl: ''                 // Enlace de Google Maps (https://maps.app.goo.gl/...).
+    },
+
+    // Fotos ilustrativas de Unsplash. Reemplaza `src` por las fotos reales (ruta local o URL)
+    // y cambia `illustrative` a false.
+    gallery: {
+      illustrative: true,
+      photos: [
+        { src: 'https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?auto=format&fit=crop&w=1600&q=75', alt: 'Casa campestre con techo a dos aguas, palmeras y jardín amplio', caption: 'Fachada y jardín' },
+        { src: 'https://images.unsplash.com/photo-1520483601560-389dff434fdf?auto=format&fit=crop&w=1600&q=75', alt: 'Vista desde una terraza techada hacia palmeras y vegetación tropical', caption: 'Terraza' },
+        { src: 'https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=75', alt: 'Sala luminosa con sofás claros, plantas y cuadros', caption: 'Sala de estar' },
+        { src: 'https://images.unsplash.com/photo-1615874959474-d609969a20ed?auto=format&fit=crop&w=1600&q=75', alt: 'Habitación con cama, cojines en tonos cálidos y plantas colgantes', caption: 'Habitación' },
+        { src: 'https://images.unsplash.com/photo-1556912173-3bb406ef7e77?auto=format&fit=crop&w=1600&q=75', alt: 'Cocina blanca con estufa, mesón y gabinetes', caption: 'Cocina' },
+        { src: 'https://images.unsplash.com/photo-1586375300773-8384e3e4916f?auto=format&fit=crop&w=1600&q=75', alt: 'Sendero con baranda de madera entre vegetación que lleva a una cabaña', caption: 'Entorno natural' }
+      ]
+    },
+
+    // Solo reseñas reales, con autorización de quien las escribió.
+    // Formato: { name: 'Nombre', comment: 'Texto', rating: 5, date: '2026-09-14' }
+    reviews: []
+  };
+
+  /* ========================================================================
+     CONSTANTES Y CATÁLOGOS
+     ======================================================================== */
+  const AMENITY_CATALOG = Object.freeze({
+    kitchen: { label: 'Cocina', icon: 'bi-cup-hot' },
+    livingRoom: { label: 'Sala de estar', icon: 'bi-lamp' },
+    garden: { label: 'Jardín', icon: 'bi-flower1' },
+    terrace: { label: 'Terraza', icon: 'bi-brightness-high' },
+    pool: { label: 'Piscina', icon: 'bi-water' },
+    bbq: { label: 'Zona BBQ', icon: 'bi-fire' },
+    parking: { label: 'Parqueadero', icon: 'bi-car-front' },
+    wifi: { label: 'Wi-Fi', icon: 'bi-wifi' },
+    airConditioning: { label: 'Aire acondicionado', icon: 'bi-snow' },
+    fans: { label: 'Ventiladores', icon: 'bi-fan' },
+    pets: { label: 'Admite mascotas', icon: 'bi-house-heart' },
+    hammocks: { label: 'Zona de hamacas', icon: 'bi-moon-stars' }
+  });
+
+  const PENDING_TEXT = 'Por confirmar con el propietario';
+  const MAX_NIGHTS = 60;
+  const MS_PER_DAY = 86400000;
+  const GALLERY_VISIBLE = 5;
+  const SUBMIT_COOLDOWN_MS = 1500;
+
+  /* ========================================================================
+     2. FORMATO DE MONEDA Y UTILIDADES DE DOM
+     ======================================================================== */
+  const currencyFormatter = new Intl.NumberFormat('es-CO', {
+    style: 'currency', currency: 'COP', maximumFractionDigits: 0
+  });
+  const formatCOP = (amount) => currencyFormatter.format(amount);
+  const isAmount = (value) => typeof value === 'number' && Number.isFinite(value) && value >= 0;
+  const hasText = (value) => typeof value === 'string' && value.trim() !== '';
+  const plural = (n, one, many) => `${n} ${n === 1 ? one : many}`;
+
+  /** Crea elementos asignando texto con textContent (nunca innerHTML). */
+  function el(tag, options = {}, children = []) {
+    const node = document.createElement(tag);
+    const { className, text, attrs, dataset } = options;
+    if (className) node.className = className;
+    if (text !== undefined && text !== null) node.textContent = text;
+    if (attrs) {
+      Object.entries(attrs).forEach(([name, value]) => {
+        if (value === false || value === null || value === undefined) return;
+        node.setAttribute(name, value === true ? '' : String(value));
+      });
+    }
+    if (dataset) Object.assign(node.dataset, dataset);
+    children.forEach((child) => { if (child) node.append(child); });
+    return node;
+  }
+
+  const icon = (name) => el('i', { className: `bi ${name}`, attrs: { 'aria-hidden': 'true' } });
+
+  /** Si una foto no carga, el contenedor muestra un fondo de respaldo. */
+  function protectImage(img) {
+    const markBroken = () => { if (img.parentElement) img.parentElement.classList.add('img-fallback'); };
+    if (img.complete && img.naturalWidth === 0 && img.getAttribute('src')) markBroken();
+    img.addEventListener('error', markBroken);
+    img.addEventListener('load', () => { if (img.parentElement) img.parentElement.classList.remove('img-fallback'); });
+  }
+
+  function isSafeHttpsUrl(value, allowedHosts) {
+    if (!hasText(value)) return false;
+    try {
+      const url = new URL(value);
+      if (url.protocol !== 'https:') return false;
+      return !allowedHosts || allowedHosts.some((host) => url.hostname === host || url.hostname.endsWith(`.${host}`));
+    } catch (error) {
+      return false;
+    }
+  }
+
+  const isValidEmail = (value) => hasText(value) && /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim());
+
+  /* ========================================================================
+     3. UTILIDADES DE FECHA (días de calendario en UTC, sin horas)
+     ======================================================================== */
+  function parseISODate(value) {
+    if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return null;
+    const [y, m, d] = value.split('-').map(Number);
+    const time = Date.UTC(y, m - 1, d);
+    const check = new Date(time);
+    if (check.getUTCFullYear() !== y || check.getUTCMonth() !== m - 1 || check.getUTCDate() !== d) return null;
+    return time;
+  }
+
+  const toISODate = (time) => new Date(time).toISOString().slice(0, 10);
+
+  function todayISO() {
+    const now = new Date();
+    return toISODate(Date.UTC(now.getFullYear(), now.getMonth(), now.getDate()));
+  }
+
+  const addDays = (iso, days) => toISODate(parseISODate(iso) + days * MS_PER_DAY);
+
+  /** Del 10 al 13 son 3 noches: diferencia de días de calendario. */
+  const nightsBetween = (checkIn, checkOut) =>
+    Math.round((parseISODate(checkOut) - parseISODate(checkIn)) / MS_PER_DAY);
+
+  const longDateFormatter = new Intl.DateTimeFormat('es-CO', {
+    weekday: 'long', day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC'
+  });
+  const formatLongDate = (iso) => longDateFormatter.format(new Date(parseISODate(iso)));
+
+  /* ========================================================================
+     REFERENCIAS AL DOM
+     ======================================================================== */
+  let dom = {};
+
+  function cacheDom() {
+    const $ = (id) => document.getElementById(id);
+    dom = {
+      demoBar: $('demoBar'),
+      navMenu: $('navMenu'),
+      galleryGrid: $('galleryGrid'),
+      galleryNote: $('galleryNote'),
+      galleryModal: $('galleryModal'),
+      galleryModalImage: $('galleryModalImage'),
+      galleryModalCaption: $('galleryModalCaption'),
+      galleryCounter: $('galleryCounter'),
+      galleryPrev: $('galleryPrev'),
+      galleryNext: $('galleryNext'),
+      propertyFacts: $('propertyFacts'),
+      amenitiesList: $('amenitiesList'),
+      amenitiesPending: $('amenitiesPending'),
+      amenitiesPendingList: $('amenitiesPendingList'),
+      ratePrice: $('ratePrice'),
+      rateProvisional: $('rateProvisional'),
+      conditionsList: $('conditionsList'),
+      form: $('consulta'),
+      checkIn: $('checkIn'),
+      checkOut: $('checkOut'),
+      adults: $('adults'),
+      children: $('children'),
+      guestName: $('guestName'),
+      guestMessage: $('guestMessage'),
+      capacityHint: $('capacityHint'),
+      bdNights: $('bdNights'),
+      bdRate: $('bdRate'),
+      bdSubtotal: $('bdSubtotal'),
+      bdSubtotalLabel: $('bdSubtotalLabel'),
+      bdCleaningRow: $('bdCleaningRow'),
+      bdCleaning: $('bdCleaning'),
+      bdTotal: $('bdTotal'),
+      breakdownNote: $('breakdownNote'),
+      messagePreview: $('messagePreview'),
+      formStatus: $('formStatus'),
+      inquirySubmit: $('inquirySubmit'),
+      reviewsSection: $('testimonios'),
+      reviewsBlock: $('reviewsBlock'),
+      reviewsList: $('reviewsList'),
+      inviteBlock: $('inviteBlock'),
+      locationDetails: $('locationDetails'),
+      mapsLink: $('mapsLink'),
+      contactList: $('contactList'),
+      footerContact: $('footerContact'),
+      footerSocial: $('footerSocial'),
+      faqAccordion: $('faqAccordion'),
+      waPendingModal: $('waPendingModal'),
+      waPendingMessage: $('waPendingMessage'),
+      copyMessageBtn: $('copyMessageBtn'),
+      copyStatus: $('copyStatus'),
+      currentYear: $('currentYear')
+    };
+  }
+
+  /* ========================================================================
+     4. RENDERIZADO DE AMENIDADES, CAPACIDAD Y TARIFAS
+     ======================================================================== */
+  const pendingTag = (text = 'Por confirmar') => el('span', { className: 'tag tag--pending', text });
+
+  function renderPropertyFacts() {
+    const { maxGuests, maxGuestsProvisional, bedrooms, bathrooms, beds } = CONFIG.property;
+    const facts = [
+      { icon: 'bi-people', label: 'Capacidad', value: Number.isInteger(maxGuests) ? plural(maxGuests, 'persona', 'personas') : null, provisional: maxGuestsProvisional },
+      { icon: 'bi-door-closed', label: 'Habitaciones', value: Number.isInteger(bedrooms) ? String(bedrooms) : null },
+      { icon: 'bi-moon-stars', label: 'Camas', value: Number.isInteger(beds) ? String(beds) : null },
+      { icon: 'bi-droplet', label: 'Baños', value: Number.isInteger(bathrooms) ? String(bathrooms) : null }
+    ];
+    const rows = facts
+      .filter((fact) => fact.value !== null || CONFIG.demoMode)
+      .map((fact) => el('div', {}, [
+        el('dt', {}, [icon(fact.icon), el('span', { text: fact.label })]),
+        el('dd', {}, fact.value === null
+          ? [pendingTag()]
+          : [document.createTextNode(fact.value), fact.provisional ? el('span', { text: ' ' }) : null, fact.provisional ? pendingTag('Provisional') : null])
+      ]));
+    dom.propertyFacts.replaceChildren(...rows);
+    dom.propertyFacts.hidden = rows.length === 0;
+  }
+
+  function renderAmenities() {
+    const entries = Object.entries(AMENITY_CATALOG);
+    const confirmed = entries.filter(([key]) => CONFIG.amenities[key] === true);
+    const pending = entries.filter(([key]) => CONFIG.amenities[key] !== true && CONFIG.amenities[key] !== false);
+
+    const toItem = ([, amenity], note) => el('li', { className: 'amenity' }, [
+      icon(amenity.icon),
+      el('span', {}, [document.createTextNode(amenity.label), note ? el('small', { text: note }) : null])
+    ]);
+
+    if (confirmed.length) {
+      dom.amenitiesList.replaceChildren(...confirmed.map((entry) => toItem(entry)));
+    } else {
+      dom.amenitiesList.replaceChildren(el('li', { className: 'amenity', attrs: { style: 'grid-column: 1 / -1' } }, [
+        icon('bi-chat-heart'),
+        el('span', { text: 'El propietario aún no ha publicado las amenidades. Pregunta por WhatsApp por lo que necesites para tu estadía.' })
+      ]));
+    }
+
+    const showPending = CONFIG.demoMode && pending.length > 0;
+    dom.amenitiesPending.hidden = !showPending;
+    if (showPending) dom.amenitiesPendingList.replaceChildren(...pending.map((entry) => toItem(entry, 'Opción configurable')));
+  }
+
+  /** Texto de una condición o null si no está configurada. */
+  function describeCleaningFee() {
+    const fee = CONFIG.pricing.cleaningFee;
+    if (!isAmount(fee)) return null;
+    return fee === 0 ? 'Sin cargo de limpieza' : formatCOP(fee);
+  }
+
+  function renderRates() {
+    const { pricePerNight, provisional } = CONFIG.pricing;
+    dom.ratePrice.textContent = isAmount(pricePerNight) ? formatCOP(pricePerNight) : 'Por confirmar';
+    dom.rateProvisional.hidden = !(provisional && isAmount(pricePerNight));
+
+    const { maxGuests, maxGuestsProvisional } = CONFIG.property;
+    const { minNights, checkInTime, checkOutTime } = CONFIG.stay;
+    const p = CONFIG.policies;
+    const services = CONFIG.includedServices.filter(hasText);
+
+    const rows = [
+      { icon: 'bi-people', label: 'Capacidad máxima', value: Number.isInteger(maxGuests) ? `${plural(maxGuests, 'persona', 'personas')}${maxGuestsProvisional ? ' (provisional)' : ''}` : null },
+      { icon: 'bi-calendar-event', label: 'Estancia mínima', value: Number.isInteger(minNights) && minNights > 0 ? plural(minNights, 'noche', 'noches') : null },
+      { icon: 'bi-sunrise', label: 'Llegada', value: hasText(checkInTime) ? `Desde las ${checkInTime}` : null },
+      { icon: 'bi-sunset', label: 'Salida', value: hasText(checkOutTime) ? `Hasta las ${checkOutTime}` : null },
+      { icon: 'bi-stars', label: 'Limpieza', value: describeCleaningFee() },
+      ...CONFIG.pricing.extraFees.filter((fee) => hasText(fee.label) && isAmount(fee.amount))
+        .map((fee) => ({ icon: 'bi-plus-circle', label: fee.label, value: formatCOP(fee.amount) })),
+      { icon: 'bi-check2', label: 'Incluye', list: services.length ? services : null },
+      { icon: 'bi-calendar-check', label: 'Condiciones de reserva', value: hasText(p.booking) ? p.booking : null },
+      { icon: 'bi-cash-coin', label: 'Anticipo', value: hasText(p.deposit) ? p.deposit : null },
+      { icon: 'bi-arrow-counterclockwise', label: 'Cancelación', value: hasText(p.cancellation) ? p.cancellation : null }
+    ];
+
+    dom.conditionsList.replaceChildren(...rows.map((row) => {
+      let content;
+      if (row.list) content = el('ul', {}, row.list.map((item) => el('li', { text: item })));
+      else if (row.value) content = document.createTextNode(row.value);
+      else content = el('span', { className: 'pending', text: PENDING_TEXT });
+      return el('div', {}, [el('dt', {}, [icon(row.icon), el('span', { text: row.label })]), el('dd', {}, [content])]);
+    }));
+  }
+
+  /* ========================================================================
+     5. GESTIÓN DE LA GALERÍA
+     ======================================================================== */
+  const gallery = { index: 0, modal: null };
+  const galleryPhotos = () => CONFIG.gallery.photos.filter((photo) => hasText(photo.src) && hasText(photo.alt));
+
+  function renderGallery() {
+    const photos = galleryPhotos();
+    const illustrative = CONFIG.gallery.illustrative;
+    dom.galleryNote.textContent = illustrative
+      ? 'Fotografías ilustrativas: se reemplazarán por fotos reales de Refugio Natural. Toca una foto para verla en grande.'
+      : 'Toca una foto para verla en grande.';
+
+    const visible = photos.slice(0, GALLERY_VISIBLE);
+    const hiddenCount = photos.length - visible.length;
+
+    const tiles = visible.map((photo, index) => {
+      const img = el('img', { attrs: { src: photo.src.replace('w=1600', index === 0 ? 'w=1200' : 'w=700'), alt: photo.alt, loading: 'lazy' } });
+      protectImage(img);
+      const isLastWithMore = hiddenCount > 0 && index === visible.length - 1;
+      const label = isLastWithMore
+        ? `Ver las ${photos.length} fotos de la galería`
+        : `Ampliar foto: ${photo.caption || photo.alt}`;
+      return el('button', {
+        className: 'gallery__item',
+        attrs: { type: 'button', 'aria-label': label },
+        dataset: { index: String(index) }
+      }, [
+        img,
+        photo.caption && !isLastWithMore ? el('span', { className: 'gallery__caption', text: photo.caption }) : null,
+        isLastWithMore ? el('span', { className: 'gallery__more', text: `+${plural(hiddenCount, 'foto', 'fotos')}` }) : null
+      ]);
+    });
+    dom.galleryGrid.replaceChildren(...tiles);
+  }
+
+  function showGalleryPhoto(index) {
+    const photos = galleryPhotos();
+    if (!photos.length) return;
+    gallery.index = (index + photos.length) % photos.length;
+    const photo = photos[gallery.index];
+    const img = dom.galleryModalImage;
+
+    img.classList.remove('is-changing');
+    void img.offsetWidth; // reinicia la animación de cambio
+    img.classList.add('is-changing');
+    img.src = photo.src;
+    img.alt = photo.alt;
+
+    const suffix = CONFIG.gallery.illustrative ? ' (foto ilustrativa)' : '';
+    dom.galleryModalCaption.textContent = `${photo.caption ? `${photo.caption}: ` : ''}${photo.alt}${suffix}`;
+    dom.galleryCounter.textContent = `${gallery.index + 1} de ${photos.length}`;
+  }
+
+  function openGallery(index) {
+    showGalleryPhoto(index);
+    gallery.modal.show();
+  }
+
+  function handleGalleryKeys(event) {
+    if (!dom.galleryModal.classList.contains('show')) return;
+    if (event.key === 'ArrowRight') { event.preventDefault(); showGalleryPhoto(gallery.index + 1); }
+    if (event.key === 'ArrowLeft') { event.preventDefault(); showGalleryPhoto(gallery.index - 1); }
+  }
+
+  /* ========================================================================
+     6. CALCULADORA DE ESTANCIA
+     ======================================================================== */
+  function readForm() {
+    return {
+      checkIn: dom.checkIn.value,
+      checkOut: dom.checkOut.value,
+      adultsRaw: dom.adults.value.trim(),
+      childrenRaw: dom.children.value.trim(),
+      name: dom.guestName.value.replace(/\s+/g, ' ').trim(),
+      message: dom.guestMessage.value.replace(/\n{3,}/g, '\n\n').trim()
+    };
+  }
+
+  /** Total estimado = noches × precio por noche + limpieza + cargos adicionales configurados. */
+  function buildQuote(nights) {
+    const { pricePerNight, cleaningFee, extraFees } = CONFIG.pricing;
+    if (!isAmount(pricePerNight) || nights <= 0) return null;
+    const subtotal = nights * pricePerNight;
+    const cleaning = isAmount(cleaningFee) ? cleaningFee : 0;
+    const extras = extraFees.filter((fee) => hasText(fee.label) && isAmount(fee.amount));
+    const extrasTotal = extras.reduce((sum, fee) => sum + fee.amount, 0);
+    return { nights, pricePerNight, subtotal, cleaning, extras, total: subtotal + cleaning + extrasTotal };
+  }
+
+  function renderBreakdown(nights, quote) {
+    const { pricePerNight, cleaningFee, provisional } = CONFIG.pricing;
+    dom.bdNights.textContent = nights > 0 ? plural(nights, 'noche', 'noches') : '—';
+    dom.bdRate.textContent = isAmount(pricePerNight) ? formatCOP(pricePerNight) : 'Por confirmar';
+    dom.bdSubtotalLabel.textContent = quote ? `Subtotal (${nights} × ${formatCOP(quote.pricePerNight)})` : 'Subtotal de la estancia';
+    dom.bdSubtotal.textContent = quote ? formatCOP(quote.subtotal) : '—';
+
+    const showCleaning = isAmount(cleaningFee) && cleaningFee > 0;
+    dom.bdCleaningRow.hidden = !showCleaning;
+    if (showCleaning) dom.bdCleaning.textContent = formatCOP(cleaningFee);
+
+    // Filas de cargos adicionales configurados (se regeneran en cada cálculo).
+    dom.form.querySelectorAll('[data-extra-fee]').forEach((row) => row.remove());
+    if (quote) {
+      const totalRow = dom.bdTotal.parentElement;
+      quote.extras.forEach((fee) => {
+        totalRow.before(el('div', { dataset: { extraFee: '' } }, [el('dt', { text: fee.label }), el('dd', { text: formatCOP(fee.amount) })]));
+      });
+    }
+
+    dom.bdTotal.textContent = quote ? formatCOP(quote.total) : (isAmount(pricePerNight) ? '—' : 'Por confirmar');
+
+    if (!isAmount(pricePerNight)) {
+      dom.breakdownNote.textContent = 'El propietario te compartirá la tarifa por WhatsApp.';
+    } else if (provisional) {
+      dom.breakdownNote.textContent = 'Tarifa provisional de demostración. El valor final lo confirma el propietario.';
+    } else {
+      dom.breakdownNote.textContent = 'Estimado de referencia. El valor final y la disponibilidad los confirma el propietario.';
+    }
+  }
+
+  function renderCapacityHint() {
+    const { maxGuests, maxGuestsProvisional } = CONFIG.property;
+    if (Number.isInteger(maxGuests)) {
+      dom.capacityHint.textContent = `Capacidad máxima: ${plural(maxGuests, 'persona', 'personas')} entre adultos y niños${maxGuestsProvisional ? ' (dato provisional)' : ''}.`;
+      dom.adults.max = String(maxGuests);
+      dom.children.max = String(Math.max(maxGuests - 1, 0));
+    } else {
+      dom.capacityHint.textContent = 'Confirma con el propietario la capacidad para tu grupo.';
+    }
+  }
+
+  /* ========================================================================
+     7. VALIDACIÓN DEL FORMULARIO
+     ======================================================================== */
+  const touched = new Set();
+
+  function validateInquiry(values) {
+    const errors = {};
+    const today = todayISO();
+    const minNights = Number.isInteger(CONFIG.stay.minNights) && CONFIG.stay.minNights > 0 ? CONFIG.stay.minNights : 1;
+    const adults = Number(values.adultsRaw);
+    const children = values.childrenRaw === '' ? 0 : Number(values.childrenRaw);
+
+    if (!values.checkIn) errors.checkIn = 'Elige tu fecha de llegada.';
+    else if (parseISODate(values.checkIn) === null) errors.checkIn = 'La fecha de llegada no es válida.';
+    else if (values.checkIn < today) errors.checkIn = 'La llegada no puede ser anterior a hoy.';
+
+    if (!values.checkOut) errors.checkOut = 'Elige tu fecha de salida.';
+    else if (parseISODate(values.checkOut) === null) errors.checkOut = 'La fecha de salida no es válida.';
+
+    let nights = 0;
+    if (!errors.checkIn && !errors.checkOut) {
+      nights = nightsBetween(values.checkIn, values.checkOut);
+      if (nights <= 0) errors.checkOut = 'La salida debe ser posterior a la llegada.';
+      else if (nights < minNights) errors.checkOut = `La estancia mínima es de ${plural(minNights, 'noche', 'noches')}.`;
+      else if (nights > MAX_NIGHTS) errors.checkOut = `Para estancias de más de ${MAX_NIGHTS} noches, escríbele directamente al propietario.`;
+    }
+
+    if (values.adultsRaw === '' || !Number.isInteger(adults) || adults < 1) errors.adults = 'Indica al menos 1 adulto.';
+    if (!Number.isInteger(children) || children < 0) errors.children = 'Escribe 0 o más niños.';
+
+    const { maxGuests } = CONFIG.property;
+    if (!errors.adults && !errors.children && Number.isInteger(maxGuests) && adults + children > maxGuests) {
+      errors.adults = `Son ${adults + children} personas y la capacidad máxima es de ${maxGuests}.`;
+    }
+
+    if (values.name.length < 2) errors.guestName = 'Escribe tu nombre para que el propietario sepa con quién habla.';
+
+    return {
+      errors,
+      nights: errors.checkIn || errors.checkOut ? 0 : nights,
+      adults: errors.adults ? null : adults,
+      children: errors.children ? null : children
+    };
+  }
+
+  function setFieldError(input, message) {
+    const feedback = document.getElementById(`${input.id}Error`);
+    input.classList.toggle('is-invalid', Boolean(message));
+    input.setAttribute('aria-invalid', message ? 'true' : 'false');
+    if (feedback) feedback.textContent = message || '';
+  }
+
+  function setStatus(message, tone) {
+    dom.formStatus.textContent = message;
+    dom.formStatus.classList.toggle('is-error', tone === 'error');
+    dom.formStatus.classList.toggle('is-ok', tone === 'ok');
+  }
+
+  /** Recalcula todo. Con showAll=false solo marca errores de campos ya tocados. */
+  function updateInquiry({ showAll = false } = {}) {
+    const values = readForm();
+    const result = validateInquiry(values);
+    const fields = { checkIn: dom.checkIn, checkOut: dom.checkOut, adults: dom.adults, children: dom.children, guestName: dom.guestName };
+
+    Object.entries(fields).forEach(([key, input]) => {
+      const visible = showAll || touched.has(key);
+      setFieldError(input, visible ? result.errors[key] : '');
+    });
+
+    const quote = buildQuote(result.nights);
+    renderBreakdown(result.nights, quote);
+    dom.messagePreview.textContent = buildInquiryMessage(values, result, quote);
+    return { values, result, quote };
+  }
+
+  /* ========================================================================
+     8. GENERACIÓN DE ENLACES Y MENSAJES DE WHATSAPP
+     ======================================================================== */
+  const whatsappNumber = () => String(CONFIG.whatsapp.number || '').trim();
+  const isWhatsAppConfigured = () => /^\d{8,15}$/.test(whatsappNumber());
+
+  function buildWhatsAppUrl(message) {
+    if (!isWhatsAppConfigured()) return null;
+    return `https://wa.me/${whatsappNumber()}?text=${encodeURIComponent(message)}`;
+  }
+
+  function buildInquiryMessage(values, result, quote) {
+    const has = (key) => !result.errors[key];
+    const lines = [
+      'Hola, estoy interesado en alojarme en Refugio Natural.',
+      '',
+      `Nombre: ${values.name.length >= 2 ? values.name : '[tu nombre]'}.`,
+      `Llegada: ${has('checkIn') && values.checkIn ? formatLongDate(values.checkIn) : '[fecha de llegada]'}.`,
+      `Salida: ${has('checkOut') && values.checkOut ? formatLongDate(values.checkOut) : '[fecha de salida]'}.`,
+      `Número de noches: ${result.nights > 0 ? result.nights : '[noches]'}.`,
+      `Adultos: ${result.adults !== null ? result.adults : '[adultos]'}.`,
+      `Niños: ${result.children !== null ? result.children : '0'}.`
+    ];
+    if (quote) {
+      const note = CONFIG.pricing.provisional ? 'valor de referencia de la página, sujeto a confirmación' : 'estimado de la página, sujeto a confirmación';
+      lines.push(`Total estimado: ${formatCOP(quote.total)} (${note}).`);
+    }
+    if (values.message) lines.push('', `Mensaje: ${values.message}`);
+    lines.push('', '¿Me pueden confirmar la disponibilidad y las condiciones de reserva?');
+    return lines.join('\n');
+  }
+
+  function messageForTrigger(trigger) {
+    const messages = CONFIG.whatsapp.messages;
+    const kind = trigger.dataset.wa;
+    if (kind === 'faq' && hasText(trigger.dataset.waQuestion)) {
+      return `Hola, tengo una pregunta sobre Refugio Natural: ${trigger.dataset.waQuestion}`;
+    }
+    return messages[kind] || messages.default;
+  }
+
+  /** Abre WhatsApp para que el visitante revise y envíe el mensaje. Nunca lo envía solo. */
+  function openWhatsApp(message) {
+    const url = buildWhatsAppUrl(message);
+    if (!url) {
+      showPendingWhatsApp(message);
+      return false;
+    }
+    const opened = window.open(url, '_blank');
+    if (opened) opened.opener = null;
+    else window.location.href = url; // si el navegador bloquea la pestaña nueva
+    return true;
+  }
+
+  let pendingModal = null;
+  function showPendingWhatsApp(message) {
+    dom.waPendingMessage.textContent = message;
+    dom.copyStatus.textContent = '';
+    pendingModal.show();
+  }
+
+  async function copyPendingMessage() {
+    const text = dom.waPendingMessage.textContent;
+    try {
+      await navigator.clipboard.writeText(text);
+      dom.copyStatus.textContent = 'Mensaje copiado.';
+    } catch (error) {
+      const range = document.createRange();
+      range.selectNodeContents(dom.waPendingMessage);
+      const selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(range);
+      dom.copyStatus.textContent = 'Selecciona el texto resaltado y cópialo manualmente.';
+    }
+  }
+
+  /** Marca visualmente los botones de WhatsApp cuando falta el número. */
+  function decorateWhatsAppTriggers(root = document) {
+    if (isWhatsAppConfigured()) return;
+    root.querySelectorAll('[data-wa]:not(.is-pending)').forEach((trigger) => {
+      trigger.classList.add('is-pending');
+      if (trigger.id === 'waFloat') {
+        trigger.append(el('span', { className: 'pending-dot', attrs: { 'aria-hidden': 'true' } }));
+        trigger.setAttribute('aria-label', 'WhatsApp pendiente de configurar: ver el mensaje');
+      } else if (!trigger.classList.contains('faq-ask')) {
+        trigger.append(el('span', { className: 'pending-badge', text: 'Pendiente' }));
+      }
+      trigger.setAttribute('title', 'Número de WhatsApp pendiente de configurar');
+    });
+  }
+
+  /* ========================================================================
+     CONTENIDO CONFIGURABLE: TESTIMONIOS, UBICACIÓN, CONTACTO Y FAQ
+     ======================================================================== */
+  function renderReviews() {
+    const reviews = CONFIG.reviews.filter((r) => hasText(r.name) && hasText(r.comment));
+    const hasReviews = reviews.length > 0;
+    dom.reviewsBlock.hidden = !hasReviews;
+    dom.inviteBlock.hidden = hasReviews;
+    dom.reviewsSection.setAttribute('aria-labelledby', hasReviews ? 'reviewsTitle' : 'inviteTitle');
+    if (!hasReviews) return;
+
+    dom.reviewsList.replaceChildren(...reviews.map((review) => {
+      const rating = Math.min(Math.max(Math.round(Number(review.rating) || 0), 0), 5);
+      const dateText = parseISODate(review.date) !== null
+        ? new Intl.DateTimeFormat('es-CO', { month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(parseISODate(review.date)))
+        : '';
+      return el('figure', { className: 'review' }, [
+        rating ? el('p', { className: 'stars', text: '★'.repeat(rating) + '☆'.repeat(5 - rating), attrs: { role: 'img', 'aria-label': `Calificación ${rating} de 5` } }) : null,
+        el('blockquote', {}, [el('p', { text: review.comment })]),
+        el('figcaption', { text: dateText ? `${review.name}, ${dateText}` : review.name })
+      ]);
+    }));
+  }
+
+  const MAPS_HOSTS = ['google.com', 'maps.app.goo.gl', 'goo.gl'];
+
+  function renderLocation() {
+    const loc = CONFIG.location;
+    const place = [loc.municipality, loc.department].filter(hasText).join(', ');
+    const hasDetails = place || hasText(loc.reference) || hasText(loc.directions);
+
+    if (!hasDetails) {
+      dom.locationDetails.replaceChildren(el('p', { className: 'location-empty' }, [
+        icon('bi-geo-alt'),
+        el('span', { text: 'Consulta la ubicación y las indicaciones directamente con el propietario. Te las compartirá por WhatsApp.' })
+      ]));
+    } else {
+      const item = (iconName, title, text) => el('div', { className: 'location-item' }, [
+        icon(iconName), el('div', {}, [el('strong', { text: title }), el('span', { text })])
+      ]);
+      dom.locationDetails.replaceChildren(
+        place ? el('p', { className: 'location-place', text: place }) : null,
+        hasText(loc.reference) ? item('bi-geo-alt', 'Referencia', loc.reference) : null,
+        hasText(loc.directions) ? item('bi-signpost-2', 'Cómo llegar', loc.directions) : null
+      );
+    }
+
+    const validMaps = isSafeHttpsUrl(loc.mapsUrl, MAPS_HOSTS);
+    dom.mapsLink.hidden = !validMaps;
+    if (validMaps) {
+      dom.mapsLink.href = loc.mapsUrl;
+      dom.mapsLink.setAttribute('aria-label', 'Cómo llegar: abrir la ubicación en Google Maps (pestaña nueva)');
+    }
+  }
+
+  function renderContact() {
+    const number = whatsappNumber();
+    const email = CONFIG.contact.email;
+    const items = (light) => {
+      const list = [];
+      list.push(isWhatsAppConfigured()
+        ? el('li', {}, [icon('bi-whatsapp'), el('span', { text: `WhatsApp +${number}` })])
+        : el('li', {}, [icon('bi-whatsapp'), el('span', { className: 'pending', text: 'WhatsApp: número pendiente de configurar' })]));
+      if (isValidEmail(email)) {
+        list.push(el('li', {}, [icon('bi-envelope'), el('a', { text: email.trim(), attrs: { href: `mailto:${email.trim()}` } })]));
+      } else if (CONFIG.demoMode && !light) {
+        list.push(el('li', {}, [icon('bi-envelope'), el('span', { className: 'pending', text: 'Correo: opcional, pendiente de configurar' })]));
+      }
+      return list;
+    };
+    dom.contactList.replaceChildren(...items(false));
+    dom.footerContact.replaceChildren(...items(true));
+
+    const socialIcons = {
+      instagram: { icon: 'bi-instagram', label: 'Instagram', hosts: ['instagram.com'] },
+      facebook: { icon: 'bi-facebook', label: 'Facebook', hosts: ['facebook.com'] },
+      tiktok: { icon: 'bi-tiktok', label: 'TikTok', hosts: ['tiktok.com'] }
+    };
+    const socials = Object.entries(socialIcons)
+      .filter(([key, meta]) => isSafeHttpsUrl(CONFIG.contact.social[key], meta.hosts))
+      .map(([key, meta]) => el('li', {}, [el('a', {
+        attrs: { href: CONFIG.contact.social[key], target: '_blank', rel: 'noopener noreferrer', 'aria-label': `${meta.label} de Refugio Natural (pestaña nueva)` }
+      }, [icon(meta.icon)])]));
+    dom.footerSocial.replaceChildren(...socials);
+  }
+
+  /** Las respuestas salen solo de CONFIG; si falta el dato, se invita a preguntar. */
+  function buildFaqItems() {
+    const { maxGuests, maxGuestsProvisional } = CONFIG.property;
+    const { checkInTime, checkOutTime } = CONFIG.stay;
+    const p = CONFIG.policies;
+    const services = CONFIG.includedServices.filter(hasText);
+    const loc = CONFIG.location;
+    const place = [loc.municipality, loc.department].filter(hasText).join(', ');
+    const pets = CONFIG.amenities.pets;
+
+    return [
+      {
+        q: '¿Cómo puedo reservar?',
+        a: ['Elige tus fechas en el formulario de consulta y envía el mensaje por WhatsApp. El propietario te confirmará la disponibilidad, el valor final y las condiciones para separar la fecha.', 'Tu estadía solo queda reservada cuando el propietario la confirma directamente contigo.']
+      },
+      {
+        q: '¿Cómo confirmo la disponibilidad?',
+        a: ['Esta página no muestra un calendario en tiempo real. La disponibilidad la confirma siempre el propietario por WhatsApp.']
+      },
+      {
+        q: '¿Cuál es la capacidad máxima?',
+        a: Number.isInteger(maxGuests) && !maxGuestsProvisional ? [`Refugio Natural recibe hasta ${plural(maxGuests, 'persona', 'personas')}, contando adultos y niños.`] : null
+      },
+      {
+        q: '¿Qué incluye la tarifa?',
+        a: services.length ? ['La tarifa incluye:', services] : null
+      },
+      {
+        q: '¿Cuáles son los horarios de llegada y salida?',
+        a: hasText(checkInTime) && hasText(checkOutTime) ? [`La llegada es desde las ${checkInTime} y la salida hasta las ${checkOutTime}.`] : null
+      },
+      {
+        q: '¿Se permiten mascotas?',
+        a: pets === true ? [hasText(p.pets) ? p.pets : 'Sí, Refugio Natural admite mascotas. Avísale al propietario cuando hagas tu consulta.']
+          : pets === false ? ['No, por el momento Refugio Natural no admite mascotas.'] : null
+      },
+      {
+        q: '¿Cómo funcionan los pagos?',
+        a: hasText(p.payments) || hasText(p.deposit)
+          ? [p.payments, p.deposit, 'Esta página no procesa pagos: acuérdalos únicamente con el propietario.'].filter(hasText)
+          : null
+      },
+      {
+        q: '¿Cuál es la política de cancelación?',
+        a: hasText(p.cancellation) ? [p.cancellation] : null
+      },
+      {
+        q: '¿Cómo puedo obtener la ubicación?',
+        a: place ? [`Refugio Natural está en ${place}. El propietario te enviará la ubicación exacta y las indicaciones al confirmar tu estadía.`] : null
+      }
+    ];
+  }
+
+  function renderFaq() {
+    const items = buildFaqItems().map((item, index) => {
+      const headingId = `faqHeading${index}`;
+      const panelId = `faqPanel${index}`;
+
+      const body = el('div', { className: 'accordion-body' });
+      if (item.a) {
+        item.a.forEach((part) => {
+          body.append(Array.isArray(part)
+            ? el('ul', {}, part.map((text) => el('li', { text })))
+            : el('p', { text: part }));
+        });
+      } else {
+        body.append(
+          el('p', { text: 'El propietario aún no ha publicado esta información. Pregúntale directamente y te responderá por WhatsApp.' }),
+          el('button', {
+            className: 'faq-ask',
+            attrs: { type: 'button' },
+            dataset: { wa: 'faq', waQuestion: item.q }
+          }, [icon('bi-whatsapp'), el('span', { text: 'Preguntar por WhatsApp' })])
+        );
+      }
+
+      return el('div', { className: 'accordion-item' }, [
+        el('h3', { className: 'accordion-header', attrs: { id: headingId } }, [
+          el('button', {
+            className: 'accordion-button collapsed',
+            text: item.q,
+            attrs: { type: 'button', 'data-bs-toggle': 'collapse', 'data-bs-target': `#${panelId}`, 'aria-expanded': 'false', 'aria-controls': panelId }
+          })
+        ]),
+        el('div', {
+          className: 'accordion-collapse collapse',
+          attrs: { id: panelId, 'aria-labelledby': headingId, 'data-bs-parent': '#faqAccordion' }
+        }, [body])
+      ]);
+    });
+    dom.faqAccordion.replaceChildren(...items);
+  }
+
+  /* ========================================================================
+     9. GESTIÓN DE EVENTOS
+     ======================================================================== */
+  function syncDateLimits() {
+    const today = todayISO();
+    const minNights = Number.isInteger(CONFIG.stay.minNights) && CONFIG.stay.minNights > 0 ? CONFIG.stay.minNights : 1;
+    dom.checkIn.min = today;
+    const base = parseISODate(dom.checkIn.value) !== null && dom.checkIn.value >= today ? dom.checkIn.value : today;
+    dom.checkOut.min = addDays(base, minNights);
+  }
+
+  function handleCheckInChange() {
+    syncDateLimits();
+    // Si la salida quedó antes de la nueva llegada, propone la estancia mínima.
+    if (dom.checkIn.value && (!dom.checkOut.value || dom.checkOut.value <= dom.checkIn.value)) {
+      dom.checkOut.value = dom.checkOut.min;
+    }
+  }
+
+  let submitLocked = false;
+  function handleInquirySubmit(event) {
+    event.preventDefault();
+    if (submitLocked) return;
+
+    const { values, result, quote } = updateInquiry({ showAll: true });
+    if (Object.keys(result.errors).length) {
+      setStatus('Revisa los campos marcados para preparar tu consulta.', 'error');
+      const firstInvalid = dom.form.querySelector('.is-invalid');
+      if (firstInvalid) firstInvalid.focus();
+      return;
+    }
+
+    submitLocked = true;
+    dom.inquirySubmit.disabled = true;
+    window.setTimeout(() => { submitLocked = false; dom.inquirySubmit.disabled = false; }, SUBMIT_COOLDOWN_MS);
+
+    const opened = openWhatsApp(buildInquiryMessage(values, result, quote));
+    setStatus(opened
+      ? 'Abrimos WhatsApp con tu mensaje. Revísalo y envíalo para hacer tu consulta.'
+      : 'Tu mensaje está listo, pero el número de WhatsApp aún no está configurado.', opened ? 'ok' : '');
+  }
+
+  function bindFormEvents() {
+    const fieldKeys = new Map([
+      [dom.checkIn, 'checkIn'], [dom.checkOut, 'checkOut'], [dom.adults, 'adults'],
+      [dom.children, 'children'], [dom.guestName, 'guestName']
+    ]);
+    dom.checkIn.addEventListener('change', handleCheckInChange);
+
+    fieldKeys.forEach((key, input) => {
+      input.addEventListener('change', () => { touched.add(key); updateInquiry(); });
+      input.addEventListener('blur', () => { if (input.value !== '') { touched.add(key); updateInquiry(); } });
+      input.addEventListener('input', () => {
+        if (input.type === 'date' || input.type === 'number') touched.add(key);
+        updateInquiry();
+        if (dom.formStatus.classList.contains('is-error') && !dom.form.querySelector('.is-invalid')) setStatus('', '');
+      });
+    });
+    dom.guestMessage.addEventListener('input', () => updateInquiry());
+    dom.form.addEventListener('submit', handleInquirySubmit);
+  }
+
+  function bindWhatsAppEvents() {
+    // Delegación: cubre también los botones creados dinámicamente (FAQ).
+    document.addEventListener('click', (event) => {
+      const trigger = event.target.closest('[data-wa]');
+      if (!trigger) return;
+      event.preventDefault();
+      openWhatsApp(messageForTrigger(trigger));
+    });
+    dom.copyMessageBtn.addEventListener('click', copyPendingMessage);
+  }
+
+  function bindGalleryEvents() {
+    dom.galleryGrid.addEventListener('click', (event) => {
+      const tile = event.target.closest('.gallery__item');
+      if (tile) openGallery(Number(tile.dataset.index));
+    });
+    dom.galleryPrev.addEventListener('click', () => showGalleryPhoto(gallery.index - 1));
+    dom.galleryNext.addEventListener('click', () => showGalleryPhoto(gallery.index + 1));
+    document.addEventListener('keydown', handleGalleryKeys);
+    protectImage(dom.galleryModalImage);
+  }
+
+  function bindNavigationEvents() {
+    const collapse = bootstrap.Collapse.getOrCreateInstance(dom.navMenu, { toggle: false });
+    dom.navMenu.addEventListener('click', (event) => {
+      if (event.target.closest('a') && dom.navMenu.classList.contains('show')) collapse.hide();
+    });
+    // Resalta la sección visible en el menú.
+    bootstrap.ScrollSpy.getOrCreateInstance(document.body, { target: '#navMenu', rootMargin: '0px 0px -55%' });
+  }
+
+  /* ========================================================================
+     10. INICIALIZACIÓN DE LA PÁGINA
+     ======================================================================== */
+  function renderContent() {
+    dom.demoBar.hidden = !CONFIG.demoMode;
+    dom.currentYear.textContent = String(new Date().getFullYear());
+    document.querySelectorAll('.photo-note').forEach((note) => { note.hidden = !CONFIG.gallery.illustrative; });
+    document.querySelectorAll('main img').forEach(protectImage);
+
+    renderGallery();
+    renderPropertyFacts();
+    renderAmenities();
+    renderRates();
+    renderCapacityHint();
+    renderReviews();
+    renderLocation();
+    renderContact();
+    renderFaq();
+    decorateWhatsAppTriggers();
+  }
+
+  function init() {
+    if (typeof bootstrap === 'undefined') {
+      console.error('Refugio Natural: Bootstrap no se cargó. Revisa la conexión a internet.');
+      return;
+    }
+    cacheDom();
+    gallery.modal = bootstrap.Modal.getOrCreateInstance(dom.galleryModal);
+    pendingModal = bootstrap.Modal.getOrCreateInstance(dom.waPendingModal);
+
+    renderContent();
+    syncDateLimits();
+    updateInquiry();
+
+    bindFormEvents();
+    bindWhatsAppEvents();
+    bindGalleryEvents();
+    bindNavigationEvents();
+  }
+
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init);
+  else init();
+})();
+
+  </script>
+</body>
+</html>

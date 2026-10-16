@@ -1,0 +1,135 @@
+/* ==========================================================================
+   Ajustes por tamaño de pantalla (Bootstrap: lg 992, md 768, sm 576)
+   ========================================================================== */
+
+/* Escritorio amplio */
+
+/* Portátil pequeño */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .sector-tabs { grid-template-columns: 260px 1fr; }
+  .sector-panel { grid-template-columns: 1fr; }
+}
+
+/* Menú horizontal desde 1200 px (navbar-expand-xl): deja sitio a un nombre comercial largo */
+@media (min-width: 1200px) {
+  .navbar-nav { gap: .15rem; }
+  .nav-link, .nav-cta, .brand-name { white-space: nowrap; }
+  .navbar-nav .nav-link.active::after,
+  .navbar-nav .nav-link[aria-current="true"]::after {
+    content: ''; position: absolute; left: var(--bs-navbar-nav-link-padding-x, .5rem); right: var(--bs-navbar-nav-link-padding-x, .5rem);
+    bottom: .1rem; height: 2px; border-radius: 2px; background: var(--corp);
+  }
+}
+
+/* Menú desplegable por debajo de 1200 px */
+@media (max-width: 1199.98px) {
+  :root { --header-h: 68px; }
+  .navbar-collapse {
+    margin-top: .75rem; padding: .75rem 0 1rem;
+    border-top: 1px solid var(--line);
+  }
+  .navbar-nav .nav-link { padding-block: .8rem; font-size: 1.0625rem; border-bottom: 1px solid var(--line); }
+  .nav-cta { margin: 1rem 0 0; width: 100%; }
+}
+
+
+/* Tableta y menor: menú desplegable */
+@media (max-width: 991.98px) {
+
+  .hero-inner { flex-direction: column; align-items: flex-start; justify-content: center; gap: 2rem; }
+  .hero-pane { align-self: flex-start; }
+  .hero-shade {
+    background:
+      linear-gradient(180deg, rgba(15, 58, 64, .55) 0%, rgba(15, 58, 64, .7) 45%, rgba(15, 58, 64, .9) 100%);
+  }
+
+  .benefit-row { grid-template-columns: repeat(2, 1fr); }
+  .benefit { padding: 1.5rem 1.25rem; }
+  .benefit:first-child { padding-left: 1.25rem; }
+  .benefit:nth-child(odd) { padding-left: 0; border-left: 0; }
+  .benefit:nth-child(n+3) { border-top: 1px solid var(--line); }
+
+  .reasons { gap: 1.75rem 2rem; }
+  /* Productos: dos columnas y la ficha principal a lo ancho */
+  .product-grid { grid-template-columns: repeat(2, 1fr); }
+  .product--lead { grid-column: 1 / -1; grid-row: auto; }
+  .product--lead .product-media { aspect-ratio: 16 / 9; min-height: 0; }
+  .why-photo { aspect-ratio: 16 / 10; max-height: 420px; }
+
+  /* Proceso en vertical */
+  .process-line { grid-template-columns: 1fr; gap: 1.75rem; max-width: 36rem; }
+  .process-line::before, .process-line::after {
+    top: 28px; bottom: 28px; left: 27px; right: auto; width: 2px; height: auto;
+  }
+  .process-line::after { transform-origin: center top; transform: scaleY(var(--fill)); background: linear-gradient(180deg, var(--corp), var(--cyan)); }
+  .step { display: grid; grid-template-columns: 56px 1fr; column-gap: 1.25rem; }
+  .step-node { grid-row: span 2; margin: 0; }
+  .step h3 { margin-top: .9rem; }
+
+  /* Sectores: pestañas horizontales desplazables */
+  .sector-tabs { grid-template-columns: 1fr; gap: 1.5rem; }
+  .sector-menu {
+    position: static; flex-direction: row; overflow-x: auto; gap: .5rem;
+    padding-bottom: .5rem; scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+  }
+  .sector-tab {
+    flex: none; width: auto; white-space: nowrap; scroll-snap-align: start;
+    border: 1.5px solid var(--line); border-radius: 999px; padding: .55rem 1rem;
+  }
+  .sector-tab[aria-selected="true"] { border-color: var(--corp); }
+  .sector-panel { grid-template-columns: 1fr; gap: 1.5rem; }
+
+  .plan { grid-template-columns: 1fr; gap: 1.5rem; max-width: 36rem; }
+
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .gallery-grid .g-feature { grid-column: 1 / -1; grid-row: auto; }
+  .g-feature .g-item { aspect-ratio: 4 / 3; }
+
+  .cta-card { grid-template-columns: 1fr; }
+  .cta-photo { display: none; }
+
+  .contact-list { grid-template-columns: 1fr 1fr; }
+}
+
+/* Móvil */
+@media (max-width: 767.98px) {
+  body { font-size: 1rem; }
+  .product-grid { grid-template-columns: 1fr; }
+  .fact-sheet { grid-template-columns: 1fr; padding-block: .25rem; }
+  .fact-sheet > div { padding: .75rem 0; }
+  .fact-sheet > div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  .reasons { grid-template-columns: 1fr; }
+  .coverage-list > div { grid-template-columns: 1fr; gap: .2rem; }
+  .contact-list { grid-template-columns: 1fr; }
+  .inline-cta { padding: 1.5rem; }
+  .inline-cta .btn { width: 100%; }
+  .site-footer { padding-bottom: 6.5rem; } /* espacio para el botón flotante */
+}
+
+/* Móvil pequeño */
+@media (max-width: 575.98px) {
+  .topbar-list { gap: .25rem 1.1rem; font-size: .8125rem; }
+  .topbar-list li[data-campo="contacto.horario"] { display: none; }
+  .brand-sub { display: none; }
+  .brand-name { font-size: 1rem; }
+  .hero-actions .btn { width: 100%; }
+  .cta-actions .btn { width: 100%; }
+  .hero-pane { width: 100%; }
+  .hero-foot { bottom: .75rem; }
+  .hero-foot { gap: .5rem; }
+  .hero-foot .ref-tag { white-space: nowrap; font-size: .6875rem; }
+  .hero-count { min-width: 2.25rem; }
+  .snow-toggle { width: 40px; padding: 0; justify-content: center; }
+  .snow-toggle span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .benefit-row { grid-template-columns: 1fr; }
+  .benefit, .benefit:first-child, .benefit:nth-child(odd) { padding: 1.25rem 0; border-left: 0; }
+  .benefit + .benefit { border-top: 1px solid var(--line); border-left: 0; }
+  .gallery-grid { grid-template-columns: 1fr; gap: .75rem; }
+  .qty { grid-template-columns: 1fr 7rem; }
+  .coverage-map { aspect-ratio: 1 / 1.1; }
+  .map-towns li { font-size: .75rem; }
+  .wa-float { padding: 0; width: 56px; justify-content: center; }
+  .wa-float-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .wa-float.is-pending { width: auto; padding: 0 1rem; }
+  .wa-float.is-pending .wa-float-label { position: static; width: auto; height: auto; clip: auto; font-size: .8125rem; }
+}

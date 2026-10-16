@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Solicitar cotización | Solar Ingeniería Diseño y Construcciones</title>
+  <meta name="description" content="Solicite una cotización para un sistema de energía solar en Santander. Cuéntenos el municipio, el tipo de inmueble y su consumo mensual.">
+  <!-- Prototipo: retirar noindex al publicar -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#0F3A3E">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Solar Ingeniería Diseño y Construcciones">
+  <meta property="og:title" content="Solicitar cotización | Solar Ingeniería Diseño y Construcciones">
+  <meta property="og:description" content="Solicite una cotización para un sistema de energía solar en Santander. Cuéntenos el municipio, el tipo de inmueble y su consumo mensual.">
+  <!-- Al publicar: og:image y og:url con URL absoluta del dominio definitivo, y canonical -->
+  <meta property="og:image" content="assets/images/cubierta-industrial-1200.webp">
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css?v=1">
+</head>
+<body data-page="contacto">
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <div class="review-bar" role="note">
+    <div class="container-site"><strong>Prototipo para revisión.</strong> Los textos e imágenes marcados «Por confirmar» deben validarse con la empresa antes de publicar.</div>
+  </div>
+
+  <header class="site-header">
+    <div class="container-site bar">
+      <a class="brand" href="index.html" aria-label="Solar Ingeniería Diseño y Construcciones, inicio">
+        <img src="assets/logo/logo-provisional.svg" width="40" height="40" alt="">
+        <span class="brand-name"><b>Solar Ingeniería</b><span>Diseño y Construcciones</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Principal">
+        <ul>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="btn-site btn-primary-site header-cta" href="contacto.html">Solicitar cotización</a>
+      <button class="menu-toggle" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu" aria-controls="menu">
+        <i class="bi bi-list" aria-hidden="true"></i> Menú
+      </button>
+    </div>
+  </header>
+
+  <div class="offcanvas offcanvas-end menu-panel" tabindex="-1" id="menu" aria-labelledby="menu-title">
+    <div class="offcanvas-header">
+      <p class="h5 mb-0" id="menu-title">Menú</p>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar menú"></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav aria-label="Principal (móvil)">
+        <ul>
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="proyectos.html">Proyectos</a></li>
+          <li><a href="nosotros.html">Nosotros</a></li>
+          <li><a href="contacto.html" aria-current="page">Contacto</a></li>
+        </ul>
+      </nav>
+      <a class="btn-site btn-primary-site w-100" href="contacto.html">Solicitar cotización</a>
+    </div>
+  </div>
+
+  <main id="contenido">
+    <section class="page-hero">
+      <div class="container-site">
+        <nav class="breadcrumb-site" aria-label="Ruta"><ol><li><a href="index.html">Inicio</a></li><li aria-current="page">Contacto</li></ol></nav>
+        <h1>Solicitar cotización</h1>
+        <p class="lead-text">Cuéntenos del proyecto. Con el municipio, el tipo de inmueble y su consumo mensual podemos preparar una primera propuesta.</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container-site contact-grid">
+        <div>
+          <p class="mb-4" data-status="pendiente"><span class="pending-tag">Prototipo: el formulario valida los datos, pero todavía no los envía</span></p>
+          <form class="form-site" id="form-cotizacion" novalidate>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-nombre">Nombre y apellido</label>
+                <input id="f-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="err-nombre">
+                <p class="error" id="err-nombre" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="f-empresa">Empresa <span class="opt">(opcional)</span></label>
+                <input id="f-empresa" name="empresa" type="text" autocomplete="organization">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-correo">Correo electrónico</label>
+                <input id="f-correo" name="correo" type="email" autocomplete="email" inputmode="email" required aria-describedby="err-correo">
+                <p class="error" id="err-correo" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="f-telefono">Teléfono o celular</label>
+                <input id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required aria-describedby="err-telefono">
+                <p class="error" id="err-telefono" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-municipio">Municipio del proyecto</label>
+                <input id="f-municipio" name="municipio" type="text" autocomplete="address-level2" required aria-describedby="err-municipio">
+                <p class="error" id="err-municipio" aria-live="polite"></p>
+              </div>
+              <div class="field">
+                <label for="f-tipo">Tipo de proyecto</label>
+                <select id="f-tipo" name="tipo" required aria-describedby="err-tipo">
+                  <option value="">Elija una opción</option>
+                  <option value="vivienda">Vivienda</option>
+                  <option value="comercio">Comercio o institución</option>
+                  <option value="industria">Industria</option>
+                  <option value="agro">Agro o finca</option>
+                  <option value="otro">Otro</option>
+                </select>
+                <p class="error" id="err-tipo" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="field">
+                <label for="f-servicio">Servicio de interés <span class="opt">(opcional)</span></label>
+                <select id="f-servicio" name="servicio">
+                  <option value="">Proyecto completo o no estoy seguro</option>
+                <option value="diseno">Diseño de sistemas fotovoltaicos</option>
+                <option value="ingenieria">Ingeniería de proyectos</option>
+                <option value="construccion">Construcción e instalación</option>
+                <option value="mantenimiento">Mantenimiento y seguimiento</option>
+                </select>
+              </div>
+              <div class="field">
+                <label for="f-consumo">Consumo mensual <span class="opt">(opcional)</span></label>
+                <input id="f-consumo" name="consumo" type="number" min="1" step="1" inputmode="numeric" aria-describedby="hint-consumo err-consumo">
+                <span class="hint" id="hint-consumo">En kWh. Aparece en su factura de energía.</span>
+                <p class="error" id="err-consumo" aria-live="polite"></p>
+              </div>
+            </div>
+            <div class="field">
+              <label for="f-mensaje">Cuéntenos del proyecto</label>
+              <textarea id="f-mensaje" name="mensaje" required aria-describedby="hint-mensaje err-mensaje"></textarea>
+              <span class="hint" id="hint-mensaje">Tipo de cubierta o terreno, para qué quiere el sistema y cualquier plazo que tenga.</span>
+              <p class="error" id="err-mensaje" aria-live="polite"></p>
+            </div>
+            <div class="hp" aria-hidden="true">
+              <label for="f-sitio">No llene este campo</label>
+              <input id="f-sitio" name="sitio_web" type="text" tabindex="-1" autocomplete="off">
+            </div>
+            <div class="field">
+              <label class="check" for="f-privacidad">
+                <input id="f-privacidad" name="privacidad" type="checkbox" value="si" required aria-describedby="err-privacidad">
+                <span>Autorizo el tratamiento de mis datos para responder esta solicitud, según la <a data-legal="privacidad" href="privacidad.html">política de tratamiento de datos</a>.</span>
+              </label>
+              <p class="error" id="err-privacidad" aria-live="polite"></p>
+            </div>
+            <div>
+              <button class="btn-site btn-primary-site" type="submit">Enviar solicitud</button>
+            </div>
+            <div class="form-status" id="form-status" tabindex="-1" role="status"></div>
+          </form>
+        </div>
+
+        <aside class="contact-aside" aria-label="Datos de contacto">
+          <h2>Contacto directo</h2>
+          <ul class="contact-list">
+            <li data-requires="contacto.telefono"><i class="bi bi-telephone" aria-hidden="true"></i><span><span class="k">Teléfono</span><a data-href="tel:contacto.telefonoHref" data-field="contacto.telefono" href="#"></a></span></li>
+            <li data-requires="contacto.whatsapp"><i class="bi bi-whatsapp" aria-hidden="true"></i><span><span class="k">WhatsApp</span><a data-wa href="#">Escribir por WhatsApp</a></span></li>
+            <li data-requires="contacto.correo"><i class="bi bi-envelope" aria-hidden="true"></i><span><span class="k">Correo</span><a data-href="mailto:contacto.correo" data-field="contacto.correo" href="#"></a></span></li>
+            <li data-requires="contacto.direccion"><i class="bi bi-geo-alt" aria-hidden="true"></i><span><span class="k">Dirección</span><span data-field="contacto.direccion"></span></span></li>
+            <li data-requires="contacto.horario"><i class="bi bi-clock" aria-hidden="true"></i><span><span class="k">Horario</span><span data-field="contacto.horario"></span></span></li>
+            <li data-contact-empty><i class="bi bi-hourglass-split" aria-hidden="true"></i><span>Teléfono, WhatsApp, correo, dirección y horario están pendientes de confirmación. <span class="pending-tag">Por confirmar</span></span></li>
+          </ul>
+
+          <h2>Tenga a mano</h2>
+          <ul class="contact-list">
+            <li><i class="bi bi-receipt" aria-hidden="true"></i><span>Una o varias facturas de energía recientes</span></li>
+            <li><i class="bi bi-image" aria-hidden="true"></i><span>Fotos de la cubierta o del terreno</span></li>
+            <li><i class="bi bi-lightning-charge" aria-hidden="true"></i><span>Una foto del tablero o contador eléctrico</span></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer on-dark">
+    <div class="container-site">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-brand">
+            <img src="assets/logo/logo-provisional.svg" width="40" height="40" alt="">
+            <b>Solar Ingeniería Diseño y Construcciones</b>
+          </div>
+          <p>Diseño, ingeniería y construcción de sistemas de energía solar en <span data-field="empresa.region">Santander, Colombia</span>.</p>
+          <div data-social-wrap hidden>
+            <ul class="social-list" data-social aria-label="Redes sociales"></ul>
+          </div>
+        </div>
+        <nav aria-label="Pie de página">
+          <h2>Navegación</h2>
+          <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="servicios.html">Servicios</a></li>
+            <li><a href="proyectos.html">Proyectos</a></li>
+            <li><a href="nosotros.html">Nosotros</a></li>
+            <li><a href="contacto.html">Solicitar cotización</a></li>
+          </ul>
+        </nav>
+        <div>
+          <h2>Contacto</h2>
+          <ul>
+            <li data-requires="contacto.telefono"><a data-href="tel:contacto.telefonoHref" data-field="contacto.telefono" href="contacto.html"></a></li>
+            <li data-requires="contacto.whatsapp"><a data-wa href="contacto.html">WhatsApp</a></li>
+            <li data-requires="contacto.correo"><a data-href="mailto:contacto.correo" data-field="contacto.correo" href="contacto.html"></a></li>
+            <li data-requires="contacto.direccion"><span data-field="contacto.direccion"></span></li>
+            <li data-requires="contacto.horario"><span data-field="contacto.horario"></span></li>
+            <li data-contact-empty>Datos de contacto por confirmar. <span class="pending-tag">Por confirmar</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="mb-0">© <span data-year>2026</span> Solar Ingeniería Diseño y Construcciones</p>
+        <p class="mb-0"><a data-legal="privacidad" href="privacidad.html">Política de tratamiento de datos</a></p>
+        <details class="credits">
+          <summary>Créditos fotográficos</summary>
+          <p class="mt-2 mb-0">Fotografías ilustrativas: no corresponden a proyectos de la empresa.</p>
+          <ul>
+            <li>Dornbirn-Rhombergs Fabrik-photovoltaic systems-01ASD.jpg, Asurnipal, <a href="https://commons.wikimedia.org/wiki/File:Dornbirn-Rhombergs_Fabrik-photovoltaic_systems-01ASD.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</li>
+            <li>Fixed mounting structure in a photovoltaic array.jpg, Marta Victoria, <a href="https://commons.wikimedia.org/wiki/File:Fixed_mounting_structure_in_a_photovoltaic_array.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</li>
+            <li>Rooftop solar photovoltaic installation.jpg, Marta Victoria, <a href="https://commons.wikimedia.org/wiki/File:Rooftop_solar_photovoltaic_installation.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</li>
+            <li>Solar Panel on Rooftop 2.jpg, Esthee2010, <a href="https://commons.wikimedia.org/wiki/File:Solar_Panel_on_Rooftop_2.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0" target="_blank" rel="noopener">CC BY-SA 4.0</a>.</li>
+            <li>Solar installation technician on rooftop (5392894792).jpg, CoCreatr from Yokohama, Japan, <a href="https://commons.wikimedia.org/wiki/File:Solar_installation_technician_on_rooftop_(5392894792).jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/licenses/by-sa/2.0" target="_blank" rel="noopener">CC BY-SA 2.0</a>.</li>
+            <li>Solar-Væggerløse-under-construction.jpg, Hanno Böck, <a href="https://commons.wikimedia.org/wiki/File:Solar-V%C3%A6ggerl%C3%B8se-under-construction.jpg" target="_blank" rel="noopener">Wikimedia Commons</a>, <a href="https://creativecommons.org/publicdomain/zero/1.0/deed.en" target="_blank" rel="noopener">CC0</a>.</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </footer>
+
+  <div class="mobile-bar">
+    <a class="btn-site btn-primary-site" href="contacto.html">Solicitar cotización</a>
+    <a class="btn-site btn-ghost-site" data-requires="contacto.whatsapp" data-wa href="contacto.html" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+    <a class="btn-site btn-ghost-site" data-requires="contacto.telefono" data-href="tel:contacto.telefonoHref" href="contacto.html" aria-label="Llamar"><i class="bi bi-telephone" aria-hidden="true"></i></a>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" defer></script>
+  <script src="js/config.js?v=1" defer></script>
+  <script src="js/main.js?v=1" defer></script>
+</body>
+</html>

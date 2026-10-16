@@ -1355,12 +1355,6 @@ p { margin: 0 0 1.1em; }
    queries, así que también es una sola en tablet y en móvil. */
 .carrusel-resenas .carrusel-pista { grid-auto-columns: 100%; }
 
-/* --- Proyectos: una página de hasta 6 tarjetas por vista, no una tarjeta suelta ---
-   Mismo truco de especificidad que arriba: cada hijo de la pista ya no es una
-   tarjeta individual sino un bloque `.pagina-proyectos` con su propia rejilla
-   de 3 columnas, así que una página entera ocupa el 100% del ancho. */
-.carrusel-portafolio .carrusel-pista { grid-auto-columns: 100%; }
-.pagina-proyectos { padding: 4px 2px; }
 
 /* Se le pone tope de ancho: una cita en cursiva a 1200 px da renglones tan
    largos que cuesta volver al principio de la línea siguiente. */

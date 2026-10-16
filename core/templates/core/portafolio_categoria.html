@@ -1,0 +1,63 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}{{ categoria.nombre }} | Portafolio | sruedadev.com{% endblock %}
+{% block description %}{{ categoria.descripcion }}{% endblock %}
+{% block og_title %}{{ categoria.nombre }} | Portafolio | sruedadev.com{% endblock %}
+{% block og_description %}{{ categoria.descripcion }}{% endblock %}
+{% block twitter_title %}{{ categoria.nombre }} | Portafolio | sruedadev.com{% endblock %}
+{% block twitter_description %}{{ categoria.descripcion }}{% endblock %}
+{% block canonical %}https://sruedadev.com/portafolio/categoria/{{ categoria.slug }}/{% endblock %}
+{% block og_url %}https://sruedadev.com/portafolio/categoria/{{ categoria.slug }}/{% endblock %}
+
+{% block content %}
+<section class="hero-proyecto hero-servicio">
+    <div class="circuito" aria-hidden="true"></div>
+    <div class="contenedor">
+        <p class="miga">
+            <a href="{% url 'core:home' %}">Inicio</a> /
+            <a href="{% url 'core:home' %}#portafolio">Portafolio</a> /
+            {{ categoria.nombre }}
+        </p>
+
+        <span class="etiqueta"><i class="punto"></i> Categoría</span>
+
+        <h1>{{ categoria.nombre }}</h1>
+        <p class="bajada">{{ categoria.descripcion }}</p>
+    </div>
+</section>
+
+<section class="seccion">
+    <div class="contenedor">
+        <div class="rejilla rejilla-3">
+            {% for proyecto in proyectos %}
+            <a class="proyecto-card aparece visible" href="{{ proyecto.url }}" data-cat="{{ proyecto.categoria }}" target="_blank" rel="noopener">
+                <div class="proyecto-img">
+                    {% if proyecto.imagen %}
+                    <img src="{% static proyecto.imagen %}" width="{{ proyecto.imagen_w }}" height="{{ proyecto.imagen_h }}" alt="{{ proyecto.nombre }}" loading="lazy" decoding="async">
+                    {% else %}
+                    <div class="ph"><span>sruedadev</span></div>
+                    {% endif %}
+                </div>
+                <div class="proyecto-cuerpo">
+                    <span class="chip">{{ proyecto.categoria }}</span>
+                    <h3>{{ proyecto.nombre }}</h3>
+                    <p>{{ proyecto.resumen }}</p>
+                    <div class="stack">
+                        {% for tecnologia in proyecto.stack %}
+                        <span>{{ tecnologia }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <p class="volver-portafolio">
+            <a href="{% url 'core:home' %}#portafolio">← Ver todas las categorías del portafolio</a>
+        </p>
+    </div>
+</section>
+
+{% include "core/partials/_cta_final.html" %}
+{% endblock %}

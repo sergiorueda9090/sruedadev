@@ -105,11 +105,70 @@ PROCESO = [
     },
 ]
 
+# Categorías del portafolio: agrupan los proyectos por sector/industria. Cada
+# proyecto apunta a una de estas por "categoria_slug"; "imagen" es la foto de
+# portada que se usa como ilustración de la categoría (la reutilizamos de uno
+# de sus proyectos en vez de generar un activo aparte).
+CATEGORIAS_PORTAFOLIO = [
+    {
+        "slug": "transporte-movilidad",
+        "nombre": "Transporte y Movilidad",
+        "descripcion": "Cooperativas de transporte, carga, autoescuelas, mudanzas y parqueaderos.",
+        "imagen": "core/img/portafolio/vertice-carga.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+    },
+    {
+        "slug": "turismo-alojamiento",
+        "nombre": "Turismo y Alojamiento",
+        "descripcion": "Agencias de viaje, hoteles, cabañas y plataformas de arriendo vacacional.",
+        "imagen": "core/img/portafolio/hotel-aurea.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+    },
+    {
+        "slug": "salud-bienestar",
+        "nombre": "Salud y Bienestar",
+        "descripcion": "Consultorios médicos y odontológicos, psicología, spas, gimnasios y veterinarias.",
+        "imagen": "core/img/portafolio/clinica-aurora-medicina-estetica.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+    },
+    {
+        "slug": "construccion-industria",
+        "nombre": "Construcción e Industria",
+        "descripcion": "Constructoras, energía solar y producción industrial.",
+        "imagen": "core/img/portafolio/solar-ingenieria-construcciones.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+    },
+    {
+        "slug": "comercio-consumo",
+        "nombre": "Comercio y Consumo",
+        "descripcion": "Tiendas en línea, restaurantes y marcas de belleza directas al consumidor.",
+        "imagen": "core/img/portafolio/essence-time-perfumes-relojes.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+    },
+    {
+        "slug": "legal-seguros-tecnologia",
+        "nombre": "Legal, Seguros y Tecnología",
+        "descripcion": "Bufetes de abogados, aseguradoras y desarrollo de software.",
+        "imagen": "core/img/portafolio/devcraft-desarrollo-software.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+    },
+]
+
 PROYECTOS = [
     # Landing pages propias: proyectos realmente construidos, servidos desde este mismo sitio.
+    # "sitio_estatico": True → el proyecto es un sitio multi-página con assets propios
+    # (css/js/imágenes), servido tal cual desde static/core/portafolio_sitios/<slug>/ en
+    # vez de por la vista portafolio_detalle (que solo sirve un .html autocontenido).
     {
         "slug": "bufete-ramirez-asociados",
-        "categoria": "Web",
+        "categoria": "Legal, Seguros y Tecnología",
+        "categoria_slug": "legal-seguros-tecnologia",
         "imagen": "core/img/portafolio/bufete-ramirez-asociados.webp",
         "imagen_w": 960,
         "imagen_h": 516,
@@ -119,7 +178,8 @@ PROYECTOS = [
     },
     {
         "slug": "colombia-viva-viajes",
-        "categoria": "Web",
+        "categoria": "Turismo y Alojamiento",
+        "categoria_slug": "turismo-alojamiento",
         "imagen": "core/img/portafolio/colombia-viva-viajes.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -129,7 +189,8 @@ PROYECTOS = [
     },
     {
         "slug": "altavista-constructora",
-        "categoria": "Web",
+        "categoria": "Construcción e Industria",
+        "categoria_slug": "construccion-industria",
         "imagen": "core/img/portafolio/altavista-constructora.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -139,7 +200,8 @@ PROYECTOS = [
     },
     {
         "slug": "dentalsmile-consultorio",
-        "categoria": "Web",
+        "categoria": "Salud y Bienestar",
+        "categoria_slug": "salud-bienestar",
         "imagen": "core/img/portafolio/dentalsmile-consultorio.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -149,7 +211,8 @@ PROYECTOS = [
     },
     {
         "slug": "portafolio-desarrollador-freelance",
-        "categoria": "Web",
+        "categoria": "Legal, Seguros y Tecnología",
+        "categoria_slug": "legal-seguros-tecnologia",
         "imagen": "core/img/portafolio/portafolio-desarrollador-freelance.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -159,7 +222,8 @@ PROYECTOS = [
     },
     {
         "slug": "devcraft-desarrollo-software",
-        "categoria": "Software",
+        "categoria": "Legal, Seguros y Tecnología",
+        "categoria_slug": "legal-seguros-tecnologia",
         "imagen": "core/img/portafolio/devcraft-desarrollo-software.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -169,7 +233,8 @@ PROYECTOS = [
     },
     {
         "slug": "ironforge-gym",
-        "categoria": "Web",
+        "categoria": "Salud y Bienestar",
+        "categoria_slug": "salud-bienestar",
         "imagen": "core/img/portafolio/ironforge-gym.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -179,7 +244,8 @@ PROYECTOS = [
     },
     {
         "slug": "brasakfire-hamburgueseria",
-        "categoria": "Web",
+        "categoria": "Comercio y Consumo",
+        "categoria_slug": "comercio-consumo",
         "imagen": "core/img/portafolio/brasakfire-hamburgueseria.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -189,7 +255,8 @@ PROYECTOS = [
     },
     {
         "slug": "lumiere-botanica-serum",
-        "categoria": "E-commerce",
+        "categoria": "Comercio y Consumo",
+        "categoria_slug": "comercio-consumo",
         "imagen": "core/img/portafolio/lumiere-botanica-serum.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -199,7 +266,8 @@ PROYECTOS = [
     },
     {
         "slug": "mente-plena-psicologia",
-        "categoria": "Web",
+        "categoria": "Salud y Bienestar",
+        "categoria_slug": "salud-bienestar",
         "imagen": "core/img/portafolio/mente-plena-psicologia.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -209,7 +277,8 @@ PROYECTOS = [
     },
     {
         "slug": "muvit-mudanzas-logistica",
-        "categoria": "Web",
+        "categoria": "Transporte y Movilidad",
+        "categoria_slug": "transporte-movilidad",
         "imagen": "core/img/portafolio/muvit-mudanzas-logistica.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -219,7 +288,8 @@ PROYECTOS = [
     },
     {
         "slug": "patitas-vet-clinica",
-        "categoria": "Web",
+        "categoria": "Salud y Bienestar",
+        "categoria_slug": "salud-bienestar",
         "imagen": "core/img/portafolio/patitas-vet-clinica.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -229,7 +299,8 @@ PROYECTOS = [
     },
     {
         "slug": "seguros-com-digital",
-        "categoria": "Software",
+        "categoria": "Legal, Seguros y Tecnología",
+        "categoria_slug": "legal-seguros-tecnologia",
         "imagen": "core/img/portafolio/seguros-com-digital.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -239,7 +310,8 @@ PROYECTOS = [
     },
     {
         "slug": "bella-spa-centro-belleza",
-        "categoria": "Web",
+        "categoria": "Salud y Bienestar",
+        "categoria_slug": "salud-bienestar",
         "imagen": "core/img/portafolio/bella-spa-centro-belleza.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -249,7 +321,8 @@ PROYECTOS = [
     },
     {
         "slug": "clinica-aurora-medicina-estetica",
-        "categoria": "Web",
+        "categoria": "Salud y Bienestar",
+        "categoria_slug": "salud-bienestar",
         "imagen": "core/img/portafolio/clinica-aurora-medicina-estetica.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -259,7 +332,8 @@ PROYECTOS = [
     },
     {
         "slug": "structura-construccion-industrial",
-        "categoria": "Web",
+        "categoria": "Construcción e Industria",
+        "categoria_slug": "construccion-industria",
         "imagen": "core/img/portafolio/structura-construccion-industrial.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -269,7 +343,8 @@ PROYECTOS = [
     },
     {
         "slug": "vialidad-centro-automovilistico",
-        "categoria": "Web",
+        "categoria": "Transporte y Movilidad",
+        "categoria_slug": "transporte-movilidad",
         "imagen": "core/img/portafolio/vialidad-centro-automovilistico.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -279,7 +354,8 @@ PROYECTOS = [
     },
     {
         "slug": "wanderlust-agencia-viajes",
-        "categoria": "Web",
+        "categoria": "Turismo y Alojamiento",
+        "categoria_slug": "turismo-alojamiento",
         "imagen": "core/img/portafolio/wanderlust-agencia-viajes.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -289,7 +365,8 @@ PROYECTOS = [
     },
     {
         "slug": "refugio-natural-cabana",
-        "categoria": "Web",
+        "categoria": "Turismo y Alojamiento",
+        "categoria_slug": "turismo-alojamiento",
         "imagen": "core/img/portafolio/refugio-natural-cabana.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -299,7 +376,8 @@ PROYECTOS = [
     },
     {
         "slug": "hotel-aurea",
-        "categoria": "Web",
+        "categoria": "Turismo y Alojamiento",
+        "categoria_slug": "turismo-alojamiento",
         "imagen": "core/img/portafolio/hotel-aurea.webp",
         "imagen_w": 906,
         "imagen_h": 487,
@@ -309,13 +387,111 @@ PROYECTOS = [
     },
     {
         "slug": "alquilaya-arriendos-vacacionales",
-        "categoria": "Software",
+        "categoria": "Turismo y Alojamiento",
+        "categoria_slug": "turismo-alojamiento",
         "imagen": "core/img/portafolio/alquilaya-arriendos-vacacionales.webp",
         "imagen_w": 906,
         "imagen_h": 487,
         "nombre": "AlquilaYa — Arriendo Vacacional",
         "resumen": "Plataforma de arriendo vacacional con catálogo de propiedades, favoritos, simulación de reservas y publicación de inmuebles.",
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
+    },
+    {
+        "slug": "cooperativa-transportadores-santander",
+        "categoria": "Transporte y Movilidad",
+        "categoria_slug": "transporte-movilidad",
+        "imagen": "core/img/portafolio/cooperativa-transportadores-santander.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+        "nombre": "Cooperativa Santandereana de Transportadores",
+        "resumen": "Sitio institucional para una cooperativa de transporte intermunicipal: rutas, flota, seguridad y solicitud de información.",
+        "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
+        "sitio_estatico": True,
+    },
+    {
+        "slug": "vertice-carga",
+        "categoria": "Transporte y Movilidad",
+        "categoria_slug": "transporte-movilidad",
+        "imagen": "core/img/portafolio/vertice-carga.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+        "nombre": "Vértice Carga — Transporte Terrestre de Carga",
+        "resumen": "Landing page para una empresa de transporte de carga: tractomulas, camiones rígidos y furgones, con cotización de envíos.",
+        "stack": ["HTML5", "CSS3", "JavaScript"],
+    },
+    {
+        "slug": "easypark-colombia",
+        "categoria": "Transporte y Movilidad",
+        "categoria_slug": "transporte-movilidad",
+        "imagen": "core/img/portafolio/easypark-colombia.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+        "nombre": "Easypark de Colombia — Tecnología para Parqueaderos",
+        "resumen": "Sitio de servicios para administración de parqueaderos: control de acceso, cobro y disponibilidad de cupos en tiempo real.",
+        "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
+        "sitio_estatico": True,
+    },
+    {
+        "slug": "solar-ingenieria-construcciones",
+        "categoria": "Construcción e Industria",
+        "categoria_slug": "construccion-industria",
+        "imagen": "core/img/portafolio/solar-ingenieria-construcciones.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+        "nombre": "Solar Ingeniería Diseño y Construcciones",
+        "resumen": "Sitio para una empresa de ingeniería solar: diseño, cálculo y construcción de sistemas fotovoltaicos, con carta solar interactiva.",
+        "stack": ["HTML5", "CSS3", "Bootstrap 5", "JavaScript"],
+        "sitio_estatico": True,
+    },
+    {
+        "slug": "glaciar-andino-hielo",
+        "categoria": "Construcción e Industria",
+        "categoria_slug": "construccion-industria",
+        "imagen": "core/img/portafolio/glaciar-andino-hielo.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+        "nombre": "Glaciar Andino — Hielo para Negocios",
+        "resumen": "Landing page para una planta de hielo: catálogo de presentaciones, proceso de producción y cotización para restaurantes y hoteles.",
+        "stack": ["HTML5", "CSS3", "Bootstrap 5", "GSAP", "JavaScript"],
+        "sitio_estatico": True,
+    },
+    {
+        "slug": "essence-time-perfumes-relojes",
+        "categoria": "Comercio y Consumo",
+        "categoria_slug": "comercio-consumo",
+        "imagen": "core/img/portafolio/essence-time-perfumes-relojes.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+        "nombre": "Essence & Time — Perfumes, Lociones y Relojes",
+        "resumen": "Tienda en línea multimarca de perfumes, lociones y relojes, con catálogo, favoritos, carrito y checkout.",
+        "stack": ["HTML5", "CSS3", "Bootstrap 5", "GSAP", "JavaScript"],
+        "sitio_estatico": True,
+    },
+    {
+        # Proyecto propio (no es un mockup): backend Django REST + frontend React
+        # con base de datos real. "caso_estudio" → se sirve con su propia página
+        # (portafolio_caso) con galería de capturas en vez del .html autocontenido
+        # de los demás, porque todavía no está publicado en un dominio propio.
+        "slug": "rumbo-colombia-agencia-viajes",
+        "categoria": "Turismo y Alojamiento",
+        "categoria_slug": "turismo-alojamiento",
+        "imagen": "core/img/portafolio/rumbo-colombia-agencia-viajes.webp",
+        "imagen_w": 906,
+        "imagen_h": 487,
+        "nombre": "Rumbo Colombia — Plataforma de Agencia de Viajes",
+        "resumen": "Plataforma propia para una agencia de viajes: sitio público con destinos y paquetes, y panel administrativo para gestionar todo el contenido en tiempo real.",
+        "stack": ["Django REST Framework", "React", "Redux Toolkit", "MUI", "MySQL"],
+        "caso_estudio": True,
+        "nota_caso": (
+            "Proyecto propio con backend y base de datos reales: estas capturas son de la "
+            "versión actual, corriendo en un entorno local. Todavía no está publicado en un "
+            "dominio propio; en cuanto esté en línea, esta ficha enlazará directo al sitio."
+        ),
+        "galeria": [
+            {"imagen": "core/img/portafolio/rumbo-colombia-agencia-viajes.webp", "titulo": "Sitio público — Inicio"},
+            {"imagen": "core/img/portafolio/rumbo-colombia-destinos.webp", "titulo": "Sitio público — Destinos"},
+            {"imagen": "core/img/portafolio/rumbo-colombia-panel-admin.webp", "titulo": "Panel administrativo — Inicio de sesión"},
+        ],
     },
 ]
 

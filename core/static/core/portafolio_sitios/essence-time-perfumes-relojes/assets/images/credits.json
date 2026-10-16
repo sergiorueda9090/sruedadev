@@ -1,0 +1,783 @@
+[
+  {
+    "file": "hero/perfume-hero-ambar-sombras",
+    "folder": "hero",
+    "sizes": [
+      1200,
+      600
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 3059609,
+    "source": "https://www.pexels.com/photo/3059609/",
+    "photographer": "RF._.studio",
+    "license": "Pexels License",
+    "description": "Dos frascos de perfume con líquido ámbar sobre una superficie de vidrio reflectante, con sombras de follaje sobre un fondo oscuro.",
+    "tone": "dark",
+    "notes": "Frasco rectangular alto de vidrio transparente, líquido ámbar/miel, tapa negra; segundo frasco pequeño ámbar desenfocado detrás. Ambiente oscuro y dramático, verde-negro con luz suave. Sin etiqueta visible."
+  },
+  {
+    "file": "hero/reloj-hero-esfera-blanca-oro-rosa",
+    "folder": "hero",
+    "sizes": [
+      1000,
+      500
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 5058216,
+    "source": "https://www.pexels.com/photo/5058216/",
+    "photographer": "Max Avans",
+    "license": "Pexels License",
+    "description": "Reloj minimalista de esfera blanca y caja dorada rosa con correa de cuero marrón sobre madera.",
+    "tone": "warm",
+    "notes": "Esfera blanca lisa con índices de barra y agujas oro rosa, sin números ni marca visible; caja delgada tono oro rosa; correa de cuero marrón oscuro. Estilo unisex/hombre minimalista. Fondo tablones de madera cálida."
+  },
+  {
+    "file": "hero/og-default",
+    "folder": "hero",
+    "sizes": [
+      1200
+    ],
+    "ratio": "1.91:1",
+    "format": "jpg",
+    "pexelsId": 8166613,
+    "source": "https://www.pexels.com/photo/8166613/",
+    "photographer": "Daria Liudnaya",
+    "license": "Pexels License",
+    "description": "Frasco de perfume con líquido ámbar sobre un pedestal blanco, junto a un arco decorativo y flores lilas.",
+    "tone": "light",
+    "notes": "Recorte horizontal 1200x630 de la misma foto usada en perfumes/perfume-ambar-arco-flores. Frasco rectangular, líquido ámbar, tapa negra cuadrada; base azul, fondo blanco."
+  },
+  {
+    "file": "perfumes/perfume-ambar-arco-flores",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 8166613,
+    "source": "https://www.pexels.com/photo/8166613/",
+    "photographer": "Daria Liudnaya",
+    "license": "Pexels License",
+    "description": "Frasco rectangular de perfume con líquido ámbar sobre un pedestal blanco, con arco decorativo, flores lilas y piedra coralina.",
+    "tone": "light",
+    "notes": "Frasco rectangular de vidrio grueso transparente, líquido ámbar anaranjado, tapa negra cuadrada; sin etiqueta. Superficie azul y fondo blanco; flores de statice moradas."
+  },
+  {
+    "file": "perfumes/perfume-atar-dorado-marmol",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 12402362,
+    "source": "https://www.pexels.com/photo/12402362/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Dos pequeños frascos de aceite perfumado con tapas doradas sobre pedestales blancos de mármol junto a una tela roja.",
+    "tone": "light",
+    "notes": "Frascos tipo atar/roll-on pequeños de vidrio transparente, líquido claro dorado pálido; tapas metálicas doradas/rojizas. Tela de terciopelo rojo, mármol blanco veteado. Formato pequeño (10-12 ml)."
+  },
+  {
+    "file": "perfumes/perfume-rosado-tapa-dorada-rosas",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 1190829,
+    "source": "https://www.pexels.com/photo/1190829/",
+    "photographer": "Diana",
+    "license": "Pexels License",
+    "description": "Frasco de perfume prismático con líquido rosado dorado y tapa dorada junto a rosas secas sobre fondo blanco.",
+    "tone": "light",
+    "notes": "Frasco alto facetado/prismático de vidrio transparente, líquido rosa-durazno a ámbar claro, tapa rectangular dorada brillante. Sin texto visible. Estilo femenino."
+  },
+  {
+    "file": "perfumes/perfume-redondo-dorado-flor-blanca",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 8450248,
+    "source": "https://www.pexels.com/photo/8450248/",
+    "photographer": "MART PRODUCTION",
+    "license": "Pexels License",
+    "description": "Frasco redondeado de perfume con líquido dorado claro y tapa de cristal facetado sobre una superficie blanca, con una flor blanca desenfocada.",
+    "tone": "light",
+    "notes": "Frasco bajo y redondeado (forma de peonza), vidrio transparente, líquido champán/dorado claro; cuello metálico dorado y tapa de cristal facetado transparente. Estilo femenino, luz suave."
+  },
+  {
+    "file": "perfumes/perfume-esmerilado-aqua-piedras",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 7814959,
+    "source": "https://www.pexels.com/photo/7814959/",
+    "photographer": "Mikhail Nilov",
+    "license": "Pexels License",
+    "description": "Frasco de perfume de vidrio esmerilado con líquido verde agua sobre piedras apiladas y fondo de mármol gris.",
+    "tone": "light",
+    "notes": "Frasco cuadrado de vidrio esmerilado con muesca escalonada, líquido verde agua/menta, tapa metálica plateada cuadrada. Piedras grises, flor anémona morada, agua. Estilo fresco/acuático, masculino o unisex."
+  },
+  {
+    "file": "perfumes/perfume-rojo-fondo-rosa",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 35825554,
+    "source": "https://www.pexels.com/photo/35825554/",
+    "photographer": "Mira Fialkova",
+    "license": "Pexels License",
+    "description": "Frasco cilíndrico de perfume con líquido rojo y tapa plateada recostado sobre un fondo rosa coral.",
+    "tone": "warm",
+    "notes": "Frasco cilíndrico de vidrio grueso transparente, líquido rojo rubí/granate, tapa metálica plateada cilíndrica. Fondo rosa coral liso. Sin etiqueta. Estilo femenino intenso."
+  },
+  {
+    "file": "perfumes/perfume-negro-boticario-beige",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 7796813,
+    "source": "https://www.pexels.com/photo/7796813/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Frasco negro estilo boticario con tapa redonda sobre fondo beige con espigas secas.",
+    "tone": "warm",
+    "notes": "Frasco opaco negro mate tipo apotecario con tapón redondo negro; no se ve el líquido. Fondo beige arena, espigas/hierbas secas. Sin etiqueta. Estilo unisex/nicho."
+  },
+  {
+    "file": "perfumes/perfume-cuadrado-transparente-arena",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 8361540,
+    "source": "https://www.pexels.com/photo/8361540/",
+    "photographer": "Kaboompics",
+    "license": "Pexels License",
+    "description": "Frasco cuadrado de perfume transparente con etiqueta en blanco y tapa plateada, semienterrado en arena clara.",
+    "tone": "light",
+    "notes": "Frasco cuadrado plano de vidrio transparente, líquido incoloro, tapa cilíndrica plateada; etiqueta blanca sin texto. Arena beige. Estilo fresco/unisex."
+  },
+  {
+    "file": "perfumes/perfume-etiqueta-blanca-arena-sombra",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 8361545,
+    "source": "https://www.pexels.com/photo/8361545/",
+    "photographer": "Kaboompics",
+    "license": "Pexels License",
+    "description": "Frasco de perfume transparente con etiqueta en blanco y tapa plateada sobre arena, con sombras marcadas de luz natural.",
+    "tone": "warm",
+    "notes": "Mismo tipo de frasco cuadrado transparente que perfume-cuadrado-transparente-arena (misma sesión), vertical y de frente; líquido incoloro, tapa plateada, etiqueta blanca vacía. Sombras duras, arena beige."
+  },
+  {
+    "file": "perfumes/perfume-verde-pastel-arena",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 8361486,
+    "source": "https://www.pexels.com/photo/8361486/",
+    "photographer": "Kaboompics",
+    "license": "Pexels License",
+    "description": "Frasco de perfume verde pastel de forma rectangular recostado sobre arena ondulada.",
+    "tone": "light",
+    "notes": "Frasco rectangular opaco/lacado verde menta pastel con cuello y tapa del mismo tono, base amarillo claro; sin etiqueta. Arena ondulada beige-gris. Estilo fresco, femenino o unisex."
+  },
+  {
+    "file": "perfumes/perfume-transparente-tapa-verde",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 3831748,
+    "source": "https://www.pexels.com/photo/3831748/",
+    "photographer": "Dina Nasyrova",
+    "license": "Pexels License",
+    "description": "Frasco de perfume transparente con atomizador dorado y su tapa verde a un lado, sobre fondo blanco.",
+    "tone": "light",
+    "notes": "Frasco cilíndrico alto de vidrio transparente, líquido incoloro, cuello atomizador dorado con botón blanco; tapa verde oliva apoyada en la base. Fondo blanco/gris claro. Minimalista."
+  },
+  {
+    "file": "perfumes/perfume-spray-flores-secas",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 7796498,
+    "source": "https://www.pexels.com/photo/7796498/",
+    "photographer": "Alesia Kozik",
+    "license": "Pexels License",
+    "description": "Frasco de perfume ovalado con líquido dorado y atomizador dorado entre flores secas sobre una superficie clara.",
+    "tone": "light",
+    "notes": "Frasco ovalado/gota de vidrio transparente, líquido amarillo dorado, atomizador dorado sin tapa. Flores secas doradas esparcidas, sombras suaves. Fondo blanco cálido."
+  },
+  {
+    "file": "perfumes/perfume-cuadrado-tapa-madera",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 4735929,
+    "source": "https://www.pexels.com/photo/4735929/",
+    "photographer": "Kaboompics",
+    "license": "Pexels License",
+    "description": "Frasco cuadrado de perfume con líquido rosado claro y tapa cilíndrica de tono caoba sobre fondo blanco.",
+    "tone": "light",
+    "notes": "Frasco cuadrado de vidrio grueso transparente, líquido rosado/durazno claro (medio lleno), tapa cilíndrica marrón rojizo brillante (aspecto madera/resina). Fondo blanco. Sin etiqueta."
+  },
+  {
+    "file": "perfumes/perfume-trio-ambar-cristal",
+    "folder": "perfumes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 264819,
+    "source": "https://www.pexels.com/photo/264819/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Tres frascos de perfume de cristal labrado con líquidos ámbar, transparente y azul claro sobre madera.",
+    "tone": "warm",
+    "notes": "Frascos altos curvos con relieve de líneas en el vidrio; delante uno con líquido ámbar anaranjado y tapa metálica plateada con capuchón transparente; detrás uno incoloro y otro celeste desenfocados. Superficie de madera clara."
+  },
+  {
+    "file": "lociones/locion-pump-ambar-arco",
+    "folder": "lociones",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 8167172,
+    "source": "https://www.pexels.com/photo/8167172/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Botella de loción ámbar con dosificador negro bajo un arco blanco sobre superficie amarilla pálida.",
+    "tone": "light",
+    "notes": "Botella redonda de PET/vidrio ámbar marrón con bomba dosificadora negra, sin etiqueta. Arco blanco, piedritas, fondo gris claro y base amarillo mantequilla."
+  },
+  {
+    "file": "lociones/locion-pump-blanca-luz",
+    "folder": "lociones",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 8054404,
+    "source": "https://www.pexels.com/photo/8054404/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Botella blanca de loción corporal con dosificador negro, iluminada por un destello de luz cálida.",
+    "tone": "light",
+    "notes": "Botella blanca opaca de hombros redondeados con bomba dosificadora negra, sin etiqueta. Fondo gris-verde y superficie blanca, reflejo de luz amarillo cálido."
+  },
+  {
+    "file": "lociones/locion-frasco-ambar-eucalipto",
+    "folder": "lociones",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 7797102,
+    "source": "https://www.pexels.com/photo/7797102/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Frasco de vidrio ámbar con tapa negra sobre una bandeja dorada junto a ramas de eucalipto, sobre fondo beige.",
+    "tone": "warm",
+    "notes": "Frasco boticario de vidrio ámbar oscuro con tapa negra y etiqueta negra en blanco (sin texto); puede representar aceite corporal o crema. Bandeja metálica dorada, ramas verdes, fondo beige-durazno."
+  },
+  {
+    "file": "lociones/serum-gotero-ambar-ceramica",
+    "folder": "lociones",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 7797108,
+    "source": "https://www.pexels.com/photo/7797108/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Frasco gotero de vidrio ámbar y pequeño frasco con dosificador sobre plato de cerámica, con hojas y una esfera de piedra.",
+    "tone": "warm",
+    "notes": "Gotero de vidrio ámbar con pipeta negra y banda de etiqueta negra/dorada sin texto; detrás frasco ámbar pequeño con bomba negra. Plato de cerámica crema, esfera gris, fondo beige. Sérum/aceite corporal."
+  },
+  {
+    "file": "lociones/crema-tarros-marmol-hojas",
+    "folder": "lociones",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 6690232,
+    "source": "https://www.pexels.com/photo/6690232/",
+    "photographer": "Tara Winstead",
+    "license": "Pexels License",
+    "description": "Dos tarros abiertos de crema, uno rosado y otro blanco, sobre mármol blanco con hojas y pétalos.",
+    "tone": "light",
+    "notes": "Tarros de vidrio sin tapa vistos desde arriba: crema rosa pálido y crema blanca, textura batida visible. Mármol blanco, hojas verdes de eucalipto, sal y pétalos. Sin marcas."
+  },
+  {
+    "file": "lociones/aceite-gotero-lino",
+    "folder": "lociones",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 6663595,
+    "source": "https://www.pexels.com/photo/6663595/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Frasco pequeño de vidrio ámbar y su gotero blanco sobre tela de lino beige con sombras de luz.",
+    "tone": "warm",
+    "notes": "Frasco cuentagotas de vidrio ámbar oscuro con tapa blanca y gotero de cristal con tetina blanca al lado; pequeña etiqueta clara sin texto legible. Lino beige arrugado, sombras de ventana. Aceite esencial/corporal."
+  },
+  {
+    "file": "relojes/reloj-cronografo-acero-esfera-gris",
+    "folder": "relojes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 190819,
+    "source": "https://www.pexels.com/photo/190819/",
+    "photographer": "Fernando Arcos",
+    "license": "Pexels License",
+    "description": "Reloj cronógrafo de acero con brazalete de eslabones y esfera gris con detalles dorados, sobre madera oscura.",
+    "tone": "dark",
+    "notes": "Cronógrafo de hombre, caja y brazalete de acero inoxidable pulido; esfera gris antracita con tres subesferas negras, números arábigos y agujas dorados, bisel taquimétrico negro. Sin marca visible. Bordes superior/inferior con relleno difuminado para lograr 4:5 sin cortar la esfera."
+  },
+  {
+    "file": "relojes/reloj-mujer-cuero-rosa-oro",
+    "folder": "relojes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 1228514,
+    "source": "https://www.pexels.com/photo/1228514/",
+    "photographer": "Jess Bailey Designs",
+    "license": "Pexels License",
+    "description": "Reloj de mujer con esfera blanca, caja dorada rosa y correa de cuero rosa sobre un cuaderno blanco.",
+    "tone": "light",
+    "notes": "Esfera blanca minimalista con índices de barra y agujas oro rosa, sin números; caja oro rosa; correa de cuero rosa pastel con costuras. Estilo femenino. Fondo blanco con libreta rayada."
+  },
+  {
+    "file": "relojes/reloj-mujer-cuero-rosa-libreta",
+    "folder": "relojes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 1162519,
+    "source": "https://www.pexels.com/photo/1162519/",
+    "photographer": "Jess Bailey Designs (probable, misma sesión)",
+    "license": "Pexels License",
+    "description": "Reloj de esfera blanca con correa de cuero rosa sobre una libreta pastel junto a una taza de café.",
+    "tone": "light",
+    "notes": "Mismo modelo que reloj-mujer-cuero-rosa-oro (esfera blanca, caja oro rosa, cuero rosa pastel), en composición flat lay con libreta rosa/celeste con la palabra genérica 'NOTES' y taza de café. Estilo femenino."
+  },
+  {
+    "file": "relojes/reloj-mujer-malla-plateada-romanos",
+    "folder": "relojes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 20118030,
+    "source": "https://www.pexels.com/photo/20118030/",
+    "photographer": "Samed Bayrak",
+    "license": "Pexels License",
+    "description": "Reloj de mujer plateado con brazalete de malla y esfera blanca guilloché con números romanos azules, sobre tela blanca.",
+    "tone": "light",
+    "notes": "Caja redonda de acero plateado, asas con pequeños cristales, brazalete de malla milanesa plateada; esfera blanca/plateada con rayos, números romanos azules y agujas azul acero. Hay un logotipo muy pequeño en la esfera (no legible a tamaño web). Estilo femenino."
+  },
+  {
+    "file": "relojes/reloj-dorado-eslabones-muneca",
+    "folder": "relojes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 1136590,
+    "source": "https://www.pexels.com/photo/1136590/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Reloj dorado de brazalete de eslabones en la muñeca de un hombre con suéter gris.",
+    "tone": "warm",
+    "notes": "Brazalete de eslabones tono dorado amarillo; la esfera no es visible (reloj visto de lado). Mano de hombre de piel oscura, suéter gris; fondo desenfocado claro. Estilo masculino, sirve como imagen de reloj dorado/oro."
+  },
+  {
+    "file": "relojes/reloj-rectangular-cuero-cafe-muneca",
+    "folder": "relojes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 14668285,
+    "source": "https://www.pexels.com/photo/14668285/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Reloj rectangular de esfera blanca con correa de cuero marrón oscuro en una muñeca, con luz cálida y fondo oscuro.",
+    "tone": "dark",
+    "notes": "Caja rectangular tono oro rosa/plateado claro, esfera blanca texturizada con índices de barra, sólo la palabra 'QUARTZ'; correa de cuero marrón oscuro delgada. Muñeca femenina, abrigo camel. Estilo femenino clásico."
+  },
+  {
+    "file": "relojes/reloj-malla-dorada-esfera-negra",
+    "folder": "relojes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 1619651,
+    "source": "https://www.pexels.com/photo/1619651/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Reloj de esfera negra y caja dorada con brazalete de malla dorada sobre fondo azul marino.",
+    "tone": "dark",
+    "notes": "Esfera negra lisa con índices de barra y agujas doradas; caja dorada; malla milanesa dorada con hebilla deslizante. Logotipo en escritura en la esfera no legible. Fondo azul marino mate. Estilo unisex/minimalista. Recortado de una foto más amplia (sin otros objetos)."
+  },
+  {
+    "file": "relojes/reloj-esfera-blanca-cuero-negro-traje",
+    "folder": "relojes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 6701788,
+    "source": "https://www.pexels.com/photo/6701788/",
+    "photographer": "Zaid Ali",
+    "license": "Pexels License",
+    "description": "Reloj clásico de esfera blanca y correa de cuero negro en la muñeca de un hombre con traje oscuro.",
+    "tone": "dark",
+    "notes": "Caja redonda de acero plateado, esfera blanca con índices de barra, correa de cuero negro; puño de camisa blanca y saco azul marino. Texto de la esfera ilegible. Estilo hombre formal/ejecutivo."
+  },
+  {
+    "file": "relojes/reloj-oro-rosa-esfera-azul-brillante",
+    "folder": "relojes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 12518204,
+    "source": "https://www.pexels.com/photo/12518204/",
+    "photographer": "Iris Sacvalion",
+    "license": "Pexels License",
+    "description": "Reloj de mujer con caja oro rosa y esfera azul oscuro con destellos, junto a una taza y un libro sobre madera.",
+    "tone": "warm",
+    "notes": "Esfera azul noche con efecto cielo estrellado/brillos, números romanos y agujas oro rosa; caja y malla oro rosa. ATENCIÓN: lleva una firma en cursiva en la esfera (semi-legible, marca genérica); descartar si se exige cero texto. Estilo femenino."
+  },
+  {
+    "file": "relojes/reloj-esfera-blanca-fase-lunar-macro",
+    "folder": "relojes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 552598,
+    "source": "https://www.pexels.com/photo/552598/",
+    "photographer": "Mat Brown",
+    "license": "Pexels License",
+    "description": "Primer plano en blanco y negro de una esfera de reloj con números romanos, calendario y fase lunar.",
+    "tone": "light",
+    "notes": "Macro monocromo de esfera blanca con números romanos negros, subesfera de meses, fecha y ventana de fase lunar; agujas negras. Sin marca visible. Útil como reloj clásico/complicaciones o imagen de detalle."
+  },
+  {
+    "file": "regalos/regalo-cajas-kraft-lazos",
+    "folder": "regalos",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 7410461,
+    "source": "https://www.pexels.com/photo/7410461/",
+    "photographer": "Kristina Umaeva",
+    "license": "Pexels License",
+    "description": "Dos cajas de regalo de cartón kraft con ventana, atadas con cintas rosa y verde menta, junto a flores blancas.",
+    "tone": "light",
+    "notes": "Cajas kraft marrón claro, cintas satinadas rosa pálido y verde menta; tarjeta con escritura a mano (no marca) abajo a la izquierda, flores blancas y follaje. Fondo blanco luminoso."
+  },
+  {
+    "file": "regalos/regalo-papel-verde-cordel",
+    "folder": "regalos",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 1681103,
+    "source": "https://www.pexels.com/photo/1681103/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Regalo envuelto en papel verde azulado con rombos dorados, atado con cordel de yute y etiqueta kraft, con luces bokeh.",
+    "tone": "warm",
+    "notes": "Papel verde petróleo con estampado de rombos dorados, cordel de yute natural, etiqueta kraft en blanco. Mesa de madera y luces cálidas desenfocadas. Ambiente navideño/festivo."
+  },
+  {
+    "file": "regalos/regalo-caja-hexagonal-rosa",
+    "folder": "regalos",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 4397903,
+    "source": "https://www.pexels.com/photo/4397903/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Caja de regalo hexagonal rosa con cinta azul marino sobre una mesa blanca.",
+    "tone": "light",
+    "notes": "Caja hexagonal de cartón rosa empolvado, cinta de organza azul marino con lazo. Superficie de mármol blanco, fondo blanco cálido. Minimalista."
+  },
+  {
+    "file": "regalos/regalo-caja-rayas-lazo-satin",
+    "folder": "regalos",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 5704738,
+    "source": "https://www.pexels.com/photo/5704738/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Caja de regalo con rayas rosa y blanco y gran lazo de satén durazno sobre un sillón de terciopelo rosa.",
+    "tone": "warm",
+    "notes": "Caja cuadrada con rayas rosa/blanco, lazo de satén durazno-melocotón. Sillón de terciopelo rosa palo. Tonos rosados cálidos."
+  },
+  {
+    "file": "regalos/regalo-cintas-doradas-cajas",
+    "folder": "regalos",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 10520248,
+    "source": "https://www.pexels.com/photo/10520248/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Varios regalos envueltos con grandes cintas de satén doradas sobre madera rústica, con una tarjeta navideña.",
+    "tone": "warm",
+    "notes": "Cajas envueltas en papel kraft y papel negro con damasco plateado, cintas satinadas doradas/champán. Tarjeta con 'Joyeux Noël' manuscrito (temporada navideña). Madera rústica."
+  },
+  {
+    "file": "regalos/accesorios-cuero-billeteras",
+    "folder": "regalos",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 4452399,
+    "source": "https://www.pexels.com/photo/4452399/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Billeteras y tarjeteros de cuero marrón y verde oscuro sobre piel curtida y madera.",
+    "tone": "warm",
+    "notes": "Tarjeteros y billeteras de cuero cognac/marrón con costura blanca, monedero verde botella con broche; pequeños sellos grabados del artesano poco legibles. Piel de cuero y madera. Útil como accesorios de regalo masculino/unisex."
+  },
+  {
+    "file": "editorial/editorial-perfume-rojo-tejido",
+    "folder": "editorial",
+    "sizes": [
+      1600,
+      800
+    ],
+    "ratio": "3:2",
+    "format": "webp",
+    "pexelsId": 11161892,
+    "source": "https://www.pexels.com/photo/11161892/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Pequeño frasco de perfume rojo en forma de manzana sobre un tejido de punto marrón con ramas de eucalipto.",
+    "tone": "warm",
+    "notes": "Panorámica 3:2. Frasco redondeado rojo rubí con tapa plateada (sin texto visible); tejido de lana color camel/chocolate, eucalipto verde azulado. Mucho espacio negativo para texto."
+  },
+  {
+    "file": "editorial/editorial-reloj-muneca-traje",
+    "folder": "editorial",
+    "sizes": [
+      1600,
+      800
+    ],
+    "ratio": "3:2",
+    "format": "webp",
+    "pexelsId": 447570,
+    "source": "https://www.pexels.com/photo/447570/",
+    "photographer": "Anders Kristensen",
+    "license": "Pexels License",
+    "description": "Hombre con traje gris de tweed y la mano en el bolsillo, mostrando un reloj de esfera negra y correa de cuero tostado.",
+    "tone": "warm",
+    "notes": "Panorámica 3:2, sin rostro. Reloj de esfera negra con segundero rojo, correa de cuero color tostado/camel (el texto de la esfera es diminuto a este tamaño; no usar recortes cerrados). Traje gris jaspeado, puño blanco, fondo de bosque desenfocado."
+  },
+  {
+    "file": "editorial/editorial-regalos-ventana",
+    "folder": "editorial",
+    "sizes": [
+      1600,
+      800
+    ],
+    "ratio": "3:2",
+    "format": "webp",
+    "pexelsId": 7561034,
+    "source": "https://www.pexels.com/photo/7561034/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Pila de regalos envueltos con papeles estampados y cintas junto a una ventana luminosa.",
+    "tone": "light",
+    "notes": "Panorámica 3:2. Papeles dorado metalizado, estampado animal (leopardo) y geométrico pastel; cintas cobrizas y blancas. Banco blanco junto a ventana, cojines beige."
+  },
+  {
+    "file": "editorial/editorial-arena-textura",
+    "folder": "editorial",
+    "sizes": [
+      1600,
+      800
+    ],
+    "ratio": "3:2",
+    "format": "webp",
+    "pexelsId": 15406025,
+    "source": "https://www.pexels.com/photo/15406025/",
+    "photographer": "Ulrick Trappschuh",
+    "license": "Pexels License",
+    "description": "Textura de arena fina con ondulaciones y una pequeña hondonada, en tonos beige.",
+    "tone": "light",
+    "notes": "Panorámica 3:2 de textura de arena beige/arena dorada, luz suave. Ideal como fondo de banner (paleta marfil/arena)."
+  },
+  {
+    "file": "editorial/editorial-flor-agata-marmol",
+    "folder": "editorial",
+    "sizes": [
+      1600,
+      800
+    ],
+    "ratio": "3:2",
+    "format": "webp",
+    "pexelsId": 27495825,
+    "source": "https://www.pexels.com/photo/27495825/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Peonía blanca y una lámina de ágata con borde dorado sobre mármol blanco, con pétalos sueltos.",
+    "tone": "light",
+    "notes": "Panorámica 3:2. Ágata gris azulada con borde dorado, peonía blanca, hojas verdes, pétalos sobre mármol blanco. Tonos fríos claros con acento dorado."
+  },
+  {
+    "file": "editorial/editorial-lavanda-sombras",
+    "folder": "editorial",
+    "sizes": [
+      1600,
+      800
+    ],
+    "ratio": "3:2",
+    "format": "webp",
+    "pexelsId": 7947790,
+    "source": "https://www.pexels.com/photo/7947790/",
+    "photographer": null,
+    "license": "Pexels License",
+    "description": "Ramitas de lavanda alineadas sobre una superficie clara con sombras largas de luz natural.",
+    "tone": "light",
+    "notes": "Panorámica 3:2. Lavanda morada sobre fondo blanco-gris cálido, sombras diagonales. Mucho espacio negativo; evoca notas aromáticas."
+  },
+  {
+    "file": "relojes/reloj-clasico-oro-rosa-cuero",
+    "folder": "relojes",
+    "sizes": [
+      800,
+      400
+    ],
+    "ratio": "4:5",
+    "format": "webp",
+    "pexelsId": 5058216,
+    "source": "https://www.pexels.com/photo/5058216/",
+    "photographer": "Max Avans",
+    "license": "Pexels License",
+    "description": "Reloj minimalista de esfera blanca y caja dorada rosa con correa de cuero marrón sobre madera.",
+    "tone": "warm",
+    "notes": "Esfera blanca lisa con índices de barra y agujas oro rosa, sin números ni marca visible; caja delgada tono oro rosa; correa de cuero marrón oscuro. Estilo unisex/hombre minimalista. Fondo tablones de madera cálida. (copia del hero para ficha de producto)"
+  }
+]

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Marca provisional">
+  <rect width="64" height="64" rx="12" fill="#0F3A3E"/>
+  <path d="M12 44a20 20 0 0 1 40 0" fill="none" stroke="#E8EEEC" stroke-width="2" stroke-dasharray="3 3.5" stroke-linecap="round"/>
+  <circle cx="41" cy="27.5" r="5.5" fill="#F2B33D"/>
+  <path d="M9 44h46" stroke="#E8EEEC" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M18 50h28" stroke="#E8EEEC" stroke-width="2.5" stroke-linecap="round" opacity=".55"/>
+</svg>

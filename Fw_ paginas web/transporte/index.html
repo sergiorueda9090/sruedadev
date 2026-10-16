@@ -1,0 +1,439 @@
+<!doctype html>
+<html lang="es-CO" data-mode="revision">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cooperativa Santandereana de Transportadores Limitada | Bucaramanga, Santander</title>
+  <meta name="description" content="Cooperativa Santandereana de Transportadores Limitada, organización del sector transporte con sede en Bucaramanga, Santander. Conoce la cooperativa y solicita información.">
+  <!-- PROTOTIPO: retirar noindex solo cuando la cooperativa apruebe el contenido y el dominio esté definido.
+       Canonical y og:url/og:image absolutos se añaden en ese momento. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#102A43">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="Cooperativa Santandereana de Transportadores Limitada">
+  <meta property="og:description" content="Organización del sector transporte con sede en Bucaramanga, Santander.">
+  <!-- Sin favicon autorizado: el data-URI vacío evita la petición 404 a /favicon.ico -->
+  <link rel="icon" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preload" as="image" href="assets/images/hero-canon-chicamocha-1600.webp"
+        imagesrcset="assets/images/hero-canon-chicamocha-1600.webp 1600w, assets/images/hero-canon-chicamocha-2400.webp 2400w"
+        imagesizes="100vw" media="(min-width: 768px)" fetchpriority="high">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400..700&amp;display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" integrity="sha384-/rJKQnzOkEo+daG0jMjU1IwwY9unxt1NBw3Ef2fmOJ3PW/TfAg2KXVoWwMZQZtw9" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css?v=1">
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Aviso de prototipo: solo en modo revisión -->
+  <div class="proto-bar" data-only="revision">
+    <div class="container">
+      <p>Prototipo de diseño para revisión. No es el sitio oficial de la cooperativa. Los datos marcados como <span class="pending-tag">Por confirmar</span> deben validarse antes de publicar.</p>
+    </div>
+  </div>
+
+  <!-- 1. Barra superior informativa: cada dato aparece solo si existe en config.js -->
+  <div class="topbar">
+    <div class="container topbar__inner">
+      <ul class="topbar__list">
+        <li><i class="bi bi-geo-alt" aria-hidden="true"></i><span data-field="ubicacion">Bucaramanga, Santander</span></li>
+        <li class="topbar__secondary" data-requires="contacto.telefono"><i class="bi bi-telephone" aria-hidden="true"></i><a data-field="contacto.telefono" data-href="tel:contacto.telefonoHref"></a></li>
+        <li class="topbar__secondary" data-requires="contacto.correo"><i class="bi bi-envelope" aria-hidden="true"></i><a data-field="contacto.correo" data-href="mailto:contacto.correo"></a></li>
+        <li class="topbar__secondary" data-requires="contacto.horario"><i class="bi bi-clock" aria-hidden="true"></i><span data-field="contacto.horario"></span></li>
+      </ul>
+      <a class="topbar__link" href="#contacto">Escríbenos</a>
+    </div>
+  </div>
+
+  <!-- 2. Header y navegación -->
+  <header class="site-header" id="inicio-header">
+    <nav class="navbar navbar-expand-xl" aria-label="Navegación principal">
+      <div class="container">
+        <!-- Sin logotipo oficial disponible: nombre en texto, sin símbolo inventado -->
+        <a class="wordmark" href="#inicio" aria-label="Cooperativa Santandereana de Transportadores Limitada, ir al inicio">
+          <span class="wordmark__main">Cooperativa Santandereana</span>
+          <span class="wordmark__sub">de Transportadores Limitada</span>
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu" aria-controls="menu" aria-label="Abrir menú">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+
+        <div class="offcanvas offcanvas-end offcanvas-xl" tabindex="-1" id="menu" aria-labelledby="menu-titulo">
+          <div class="offcanvas-header">
+            <p class="offcanvas-title" id="menu-titulo">Menú</p>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#menu" aria-label="Cerrar menú"></button>
+          </div>
+          <div class="offcanvas-body">
+            <ul class="navbar-nav main-nav">
+              <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+              <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+              <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+              <li class="nav-item"><a class="nav-link" href="#como-trabajamos">Cómo trabajamos</a></li>
+              <li class="nav-item"><a class="nav-link" href="#seguridad">Seguridad</a></li>
+              <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+            </ul>
+            <a class="btn btn-accent nav-cta" href="#contacto">Solicitar información</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+
+    <!-- 3. Hero. Foto provisional: paisaje vial de Santander; sustituir por fotografía
+         propia de la operación una vez confirmada la modalidad de transporte. -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <picture class="hero__media">
+        <source media="(min-width: 768px)" srcset="assets/images/hero-canon-chicamocha-1600.webp 1600w, assets/images/hero-canon-chicamocha-2400.webp 2400w" sizes="100vw">
+        <img src="assets/images/hero-canon-chicamocha-movil-900.webp" width="900" height="1200"
+             alt="Cañón del Chicamocha, en Santander, con una carretera que desciende entre las montañas" fetchpriority="high">
+      </picture>
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <h1 class="hero__title" id="hero-titulo">Experiencia y compromiso al servicio del transporte</h1>
+          <span class="lane-line hero__lane" aria-hidden="true"></span>
+          <p class="hero__lead">Conoce nuestra organización, nuestros servicios y las soluciones de transporte que podemos ofrecerte.</p>
+          <div class="hero__actions">
+            <a class="btn btn-accent btn-lg" href="#servicios">Conocer nuestros servicios</a>
+            <a class="btn btn-ghost-light btn-lg" href="#contacto">Contactar con la cooperativa</a>
+          </div>
+        </div>
+      </div>
+      <p class="hero__place"><i class="bi bi-geo-alt" aria-hidden="true"></i> Cañón del Chicamocha, Santander</p>
+    </section>
+
+    <!-- 4. Presentación corporativa -->
+    <section class="section about" id="nosotros" aria-labelledby="nosotros-titulo">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-6 col-xl-5" data-aos="fade-up">
+            <p class="section-label">Quiénes somos</p>
+            <h2 class="section-title" id="nosotros-titulo">Una cooperativa comprometida con el transporte</h2>
+            <div data-status="pendiente">
+              <p class="about__lead">Estamos preparando una presentación corporativa de la Cooperativa Santandereana de Transportadores Limitada. Próximamente podrás consultar aquí información confirmada sobre su historia, actividad, organización y servicios.</p>
+              <span class="pending-tag">Por confirmar: texto institucional oficial</span>
+            </div>
+            <p data-only="publicacion" class="about__lead">Somos una cooperativa del sector transporte con sede en Bucaramanga, Santander.</p>
+            <p class="about__text">Si necesitas información institucional, como estatutos, composición o trayectoria, puedes solicitarla directamente a la cooperativa.</p>
+            <a class="link-arrowless" href="#contacto" data-consulta="institucional">Solicitar información institucional</a>
+          </div>
+          <div class="col-lg-6 offset-xl-1" data-aos="fade-up" data-aos-delay="100">
+            <figure class="about__figure">
+              <img src="assets/images/bucaramanga-viaducto-1000.webp"
+                   srcset="assets/images/bucaramanga-viaducto-640.webp 640w, assets/images/bucaramanga-viaducto-1000.webp 1000w"
+                   sizes="(min-width: 992px) 45vw, 100vw" width="1000" height="1251" loading="lazy" decoding="async"
+                   alt="Vista de Bucaramanga con edificios del centro y un viaducto con tráfico vehicular">
+              <figcaption>Bucaramanga, Santander</figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Servicios. Las modalidades proceden de fuentes públicas secundarias
+         (UNAB, 2011) y NO están confirmadas por la cooperativa: en modo publicación
+         se ocultan y se muestra el bloque alternativo. -->
+    <section class="section services" id="servicios" aria-labelledby="servicios-titulo">
+      <div class="container">
+        <div class="services__head" data-aos="fade-up">
+          <p class="section-label">Servicios</p>
+          <h2 class="section-title" id="servicios-titulo">Modalidades de transporte</h2>
+          <p class="section-intro" data-status="pendiente">Estas modalidades aparecen en fuentes públicas sobre la cooperativa, pero aún no han sido confirmadas por ella. Se publicarán solo las que la cooperativa valide, con su alcance real.</p>
+          <p class="section-intro" data-only="publicacion">Consulta con la cooperativa la disponibilidad y las condiciones de cada servicio.</p>
+        </div>
+
+        <div class="services__grid" data-status="pendiente">
+          <article class="service service--feature" data-aos="fade-up">
+            <div class="service__media">
+              <img src="assets/images/carretera-atardecer-1600.webp"
+                   srcset="assets/images/carretera-atardecer-900.webp 900w, assets/images/carretera-atardecer-1600.webp 1600w"
+                   sizes="(min-width: 992px) 58vw, 100vw" width="1600" height="900" loading="lazy" decoding="async"
+                   alt="Carretera de doble calzada al atardecer con vehículos circulando con las luces encendidas">
+            </div>
+            <div class="service__body">
+              <span class="pending-tag">Por confirmar</span>
+              <h3 class="service__title"><i class="bi bi-bus-front" aria-hidden="true"></i> Transporte de pasajeros</h3>
+              <p>Pendiente de definir: tipo de servicio (intermunicipal, especial u otro), destinos autorizados y forma de compra de tiquetes.</p>
+              <p class="service__benefit">Beneficio para el usuario: por definir con la cooperativa.</p>
+              <a class="link-arrowless" href="#contacto" data-consulta="servicios">Solicitar información</a>
+            </div>
+          </article>
+
+          <article class="service" data-aos="fade-up" data-aos-delay="80">
+            <span class="pending-tag">Por confirmar</span>
+            <h3 class="service__title"><i class="bi bi-box-seam" aria-hidden="true"></i> Carga y encomiendas</h3>
+            <p>Pendiente de definir: tipo de mercancía admitida, cobertura y condiciones de envío.</p>
+            <a class="link-arrowless" href="#contacto" data-consulta="servicios">Solicitar información</a>
+          </article>
+
+          <article class="service" data-aos="fade-up" data-aos-delay="160">
+            <span class="pending-tag">Por confirmar</span>
+            <h3 class="service__title"><i class="bi bi-signpost-split" aria-hidden="true"></i> Turismo</h3>
+            <p>Pendiente de definir: si la cooperativa ofrece actualmente planes o transporte turístico y en qué condiciones.</p>
+            <a class="link-arrowless" href="#contacto" data-consulta="servicios">Solicitar información</a>
+          </article>
+        </div>
+
+        <div class="services__fallback" data-only="publicacion">
+          <a class="btn btn-primary" href="#contacto" data-consulta="servicios">Consultar servicios disponibles</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Propuesta de valor: sin atributos confirmados todavía.
+         Se muestra solo en revisión, como guion de lo que la cooperativa debe aportar. -->
+    <section class="section values" aria-labelledby="valores-titulo" data-status="pendiente">
+      <div class="container">
+        <div class="values__head" data-aos="fade-up">
+          <h2 class="section-title" id="valores-titulo">Lo que nos distingue</h2>
+          <span class="pending-tag">Por confirmar: cada bloque necesita información real</span>
+        </div>
+        <ul class="values__list">
+          <li class="value" data-aos="fade-up">
+            <i class="bi bi-headset" aria-hidden="true"></i>
+            <h3>Atención al usuario</h3>
+            <p>Pendiente: canales de atención, horarios y tiempos de respuesta confirmados.</p>
+          </li>
+          <li class="value" data-aos="fade-up" data-aos-delay="60">
+            <i class="bi bi-shield-check" aria-hidden="true"></i>
+            <h3>Seguridad en la operación</h3>
+            <p>Pendiente: protocolos y prácticas que la cooperativa pueda documentar.</p>
+          </li>
+          <li class="value" data-aos="fade-up" data-aos-delay="120">
+            <i class="bi bi-people" aria-hidden="true"></i>
+            <h3>Modelo cooperativo</h3>
+            <p>Pendiente: cómo participan los asociados y qué aporta este modelo al usuario.</p>
+          </li>
+          <li class="value" data-aos="fade-up" data-aos-delay="180">
+            <i class="bi bi-file-earmark-check" aria-hidden="true"></i>
+            <h3>Cumplimiento normativo</h3>
+            <p>Pendiente: habilitaciones y autorizaciones vigentes, con su número y fecha.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. Sin datos de cobertura ni infraestructura: se sustituye por el proceso
+         de atención de una solicitud, que no afirma capacidades operativas. -->
+    <section class="section process" id="como-trabajamos" aria-labelledby="proceso-titulo">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-4" data-aos="fade-up">
+            <p class="section-label">Cómo trabajamos</p>
+            <h2 class="section-title" id="proceso-titulo">De tu consulta a una respuesta concreta</h2>
+            <p class="section-intro">Así se atiende cada solicitud que llega a la cooperativa por este sitio.</p>
+          </div>
+          <div class="col-lg-7 offset-lg-1">
+            <ol class="route">
+              <li class="route__stop" data-aos="fade-up">
+                <h3>Cuéntanos qué necesitas</h3>
+                <p>Escribe tu consulta en el formulario: el tipo de servicio, las fechas o la información que buscas.</p>
+              </li>
+              <li class="route__stop" data-aos="fade-up" data-aos-delay="80">
+                <h3>La cooperativa revisa tu solicitud</h3>
+                <p>El equipo comprueba la disponibilidad y las condiciones que aplican a tu caso.</p>
+              </li>
+              <li class="route__stop" data-aos="fade-up" data-aos-delay="160">
+                <h3>Recibes la respuesta</h3>
+                <p>Te contactamos por el medio que indiques, con la información para decidir.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Seguridad: sin afirmaciones legales; invita a consultar las condiciones -->
+    <section class="section safety" id="seguridad" aria-labelledby="seguridad-titulo">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-start">
+          <div class="col-lg-5" data-aos="fade-up">
+            <p class="section-label">Seguridad y responsabilidad</p>
+            <h2 class="section-title" id="seguridad-titulo">Pregunta antes de viajar o contratar</h2>
+            <p class="section-intro">Tienes derecho a conocer las condiciones del servicio. Puedes solicitar a la cooperativa información sobre estos temas:</p>
+            <a class="btn btn-primary" href="#contacto" data-consulta="seguridad">Consultar políticas y condiciones</a>
+          </div>
+          <div class="col-lg-6 offset-lg-1" data-aos="fade-up" data-aos-delay="100">
+            <ul class="checklist">
+              <li><i class="bi bi-file-text" aria-hidden="true"></i><div><h3>Pólizas y seguros</h3><p>Qué cubren y cómo se hacen efectivos.</p></div></li>
+              <li><i class="bi bi-tools" aria-hidden="true"></i><div><h3>Mantenimiento de vehículos</h3><p>Con qué frecuencia y bajo qué controles se revisan.</p></div></li>
+              <li><i class="bi bi-person-badge" aria-hidden="true"></i><div><h3>Formación de conductores</h3><p>Requisitos y capacitación del personal.</p></div></li>
+              <li><i class="bi bi-clipboard-check" aria-hidden="true"></i><div><h3>Protocolos operativos</h3><p>Cómo se gestionan los riesgos y las incidencias.</p></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Indicadores empresariales: OMITIDA hasta disponer de cifras reales con fuente y fecha. -->
+
+    <!-- 10. Llamada a la acción -->
+    <section class="cta" aria-labelledby="cta-titulo">
+      <span class="lane-line cta__lane" aria-hidden="true"></span>
+      <div class="container cta__inner" data-aos="fade-up">
+        <div>
+          <h2 class="cta__title" id="cta-titulo">Conversemos sobre tus necesidades de transporte</h2>
+          <p class="cta__text">Contáctanos para conocer más sobre nuestra organización y consultar la disponibilidad de los servicios que ofrecemos.</p>
+        </div>
+        <div class="cta__actions">
+          <a class="btn btn-accent btn-lg" href="#contacto">Contactar ahora</a>
+          <a class="btn btn-ghost-light btn-lg" href="#servicios">Consultar servicios</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Formulario de contacto -->
+    <section class="section contact" id="contacto" aria-labelledby="contacto-titulo">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-4" data-aos="fade-up">
+            <p class="section-label">Contacto</p>
+            <h2 class="section-title" id="contacto-titulo">Solicita información</h2>
+            <p class="section-intro">Completa el formulario y cuéntanos qué necesitas. Los campos marcados con <span class="req" aria-hidden="true">*</span> son obligatorios.</p>
+
+            <ul class="contact__channels" data-contact-list>
+              <li data-requires="contacto.telefono"><i class="bi bi-telephone" aria-hidden="true"></i><a data-field="contacto.telefono" data-href="tel:contacto.telefonoHref"></a></li>
+              <li data-requires="contacto.whatsapp"><i class="bi bi-whatsapp" aria-hidden="true"></i><a data-wa>Escribir por WhatsApp</a></li>
+              <li data-requires="contacto.correo"><i class="bi bi-envelope" aria-hidden="true"></i><a data-field="contacto.correo" data-href="mailto:contacto.correo"></a></li>
+              <li data-requires="contacto.direccion"><i class="bi bi-geo-alt" aria-hidden="true"></i><span data-field="contacto.direccion"></span></li>
+              <li data-requires="contacto.horario"><i class="bi bi-clock" aria-hidden="true"></i><span data-field="contacto.horario"></span></li>
+            </ul>
+            <p class="contact__empty" data-contact-empty hidden>Los teléfonos, el correo y la dirección de la cooperativa se publicarán aquí cuando estén confirmados.</p>
+          </div>
+
+          <div class="col-lg-7 offset-lg-1" data-aos="fade-up" data-aos-delay="100">
+            <form class="form-panel" id="form-contacto" novalidate>
+              <div class="row g-4">
+                <div class="col-md-6 field">
+                  <label class="form-label" for="f-nombre">Nombre completo <span class="req" aria-hidden="true">*</span></label>
+                  <input class="form-control" id="f-nombre" name="nombre" type="text" autocomplete="name" required minlength="3" maxlength="100" aria-describedby="f-nombre-err">
+                  <p class="field__error" id="f-nombre-err" aria-live="polite"></p>
+                </div>
+                <div class="col-md-6 field">
+                  <label class="form-label" for="f-empresa">Empresa <span class="opt">(opcional)</span></label>
+                  <input class="form-control" id="f-empresa" name="empresa" type="text" autocomplete="organization" maxlength="120">
+                </div>
+                <div class="col-md-6 field">
+                  <label class="form-label" for="f-correo">Correo electrónico <span class="req" aria-hidden="true">*</span></label>
+                  <input class="form-control" id="f-correo" name="correo" type="email" autocomplete="email" inputmode="email" required maxlength="160" aria-describedby="f-correo-err">
+                  <p class="field__error" id="f-correo-err" aria-live="polite"></p>
+                </div>
+                <div class="col-md-6 field">
+                  <label class="form-label" for="f-telefono">Teléfono <span class="opt">(opcional)</span></label>
+                  <input class="form-control" id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" maxlength="20" aria-describedby="f-telefono-hint f-telefono-err">
+                  <p class="field__hint" id="f-telefono-hint">Fijo o celular, por ejemplo 300&nbsp;123&nbsp;4567.</p>
+                  <p class="field__error" id="f-telefono-err" aria-live="polite"></p>
+                </div>
+                <div class="col-12 field">
+                  <label class="form-label" for="f-tipo">Tipo de consulta <span class="req" aria-hidden="true">*</span></label>
+                  <select class="form-select" id="f-tipo" name="tipo" required aria-describedby="f-tipo-err">
+                    <option value="">Elige una opción</option>
+                    <option value="servicios">Información sobre servicios</option>
+                    <option value="institucional">Información institucional</option>
+                    <option value="seguridad">Seguridad y condiciones del servicio</option>
+                    <option value="otra">Otra consulta</option>
+                  </select>
+                  <p class="field__error" id="f-tipo-err" aria-live="polite"></p>
+                </div>
+                <div class="col-12 field">
+                  <label class="form-label" for="f-mensaje">Mensaje <span class="req" aria-hidden="true">*</span></label>
+                  <textarea class="form-control" id="f-mensaje" name="mensaje" rows="5" required minlength="10" maxlength="2000" aria-describedby="f-mensaje-err"></textarea>
+                  <p class="field__error" id="f-mensaje-err" aria-live="polite"></p>
+                </div>
+                <div class="col-12 field">
+                  <div class="form-check">
+                    <input class="form-check-input" id="f-datos" name="autorizacion" type="checkbox" required aria-describedby="f-datos-err">
+                    <label class="form-check-label" for="f-datos">
+                      Autorizo el tratamiento de mis datos personales para responder esta consulta, conforme a la Ley 1581 de 2012. <span class="req" aria-hidden="true">*</span>
+                      <a data-legal="politicaDatosUrl" target="_blank" rel="noopener" hidden>Leer la política de tratamiento de datos</a>
+                      <span class="pending-note" data-legal-missing="politicaDatosUrl">La política de tratamiento de datos de la cooperativa debe publicarse antes de activar el formulario.</span>
+                    </label>
+                  </div>
+                  <p class="field__error" id="f-datos-err" aria-live="polite"></p>
+                </div>
+                <div class="col-12 form-panel__foot">
+                  <button class="btn btn-primary btn-lg" type="submit" data-submit>
+                    <span class="spinner-border spinner-border-sm" aria-hidden="true" hidden></span>
+                    <span data-submit-label>Enviar solicitud</span>
+                  </button>
+                </div>
+              </div>
+              <div class="form-status" data-form-status role="status" aria-live="polite" tabindex="-1" hidden></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 12. Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-4">
+          <p class="wordmark wordmark--light">
+            <span class="wordmark__main">Cooperativa Santandereana</span>
+            <span class="wordmark__sub">de Transportadores Limitada</span>
+          </p>
+          <p class="footer__summary">Organización del sector transporte con sede en Bucaramanga, Santander.</p>
+        </div>
+        <nav class="col-6 col-lg-2" aria-labelledby="f-nav">
+          <h2 class="footer__heading" id="f-nav">Navegación</h2>
+          <ul class="footer__links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#nosotros">Nosotros</a></li>
+            <li><a href="#servicios">Servicios</a></li>
+            <li><a href="#como-trabajamos">Cómo trabajamos</a></li>
+            <li><a href="#seguridad">Seguridad</a></li>
+          </ul>
+        </nav>
+        <div class="col-6 col-lg-3">
+          <h2 class="footer__heading">Atención al cliente</h2>
+          <ul class="footer__links" data-contact-list>
+            <li><a href="#contacto">Solicitar información</a></li>
+            <li data-requires="contacto.telefono"><a data-field="contacto.telefono" data-href="tel:contacto.telefonoHref"></a></li>
+            <li data-requires="contacto.correo"><a data-field="contacto.correo" data-href="mailto:contacto.correo"></a></li>
+            <li data-requires="contacto.direccion"><span data-field="contacto.direccion"></span></li>
+            <li data-requires="contacto.horario"><span data-field="contacto.horario"></span></li>
+          </ul>
+          <p class="footer__note" data-contact-empty hidden>Datos de contacto en validación.</p>
+        </div>
+        <div class="col-lg-3">
+          <h2 class="footer__heading">Información legal</h2>
+          <ul class="footer__links">
+            <li><a data-legal="politicaDatosUrl" hidden>Tratamiento de datos personales</a></li>
+            <li><a data-legal="privacidadUrl" hidden>Política de privacidad</a></li>
+          </ul>
+          <p class="footer__note" data-legal-missing="politicaDatosUrl">La política de tratamiento de datos y el aviso de privacidad se publicarán cuando la cooperativa los facilite.</p>
+          <ul class="footer__social" data-social hidden></ul>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>© <span data-year>2026</span> Cooperativa Santandereana de Transportadores Limitada. Bucaramanga, Santander, Colombia.</p>
+        <details class="footer__credits">
+          <summary>Créditos fotográficos</summary>
+          <ul>
+            <li>«Cañón del Rio Chicamocha», DanielORo, <a href="https://creativecommons.org/licenses/by/4.0/" rel="license noopener" target="_blank">CC BY 4.0</a>, vía <a href="https://commons.wikimedia.org/wiki/File:Ca%C3%B1%C3%B3n_del_Rio_Chicamocha.jpg" rel="noopener" target="_blank">Wikimedia Commons</a>. Recortada.</li>
+            <li>«Bucaramanga 3 Sder Col enr 2022», EEIM, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener" target="_blank">CC BY-SA 4.0</a>, vía <a href="https://commons.wikimedia.org/wiki/File:Bucaramanga_3_Sder_Col_enr_2022.jpg" rel="noopener" target="_blank">Wikimedia Commons</a>. Recortada.</li>
+            <li>«Paisajes de carretera», Johanrockdriz, <a href="https://creativecommons.org/licenses/by-sa/4.0/" rel="license noopener" target="_blank">CC BY-SA 4.0</a>, vía <a href="https://commons.wikimedia.org/wiki/File:Paisajes_de_carretera.jpg" rel="noopener" target="_blank">Wikimedia Commons</a>.</li>
+          </ul>
+        </details>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" integrity="sha384-n1AULnKdMJlK1oQCLNDL9qZsDgXtH6jRYFCpBtWFc+a9Yve0KSoMn575rk755NJZ" crossorigin="anonymous" defer></script>
+  <script src="js/config.js?v=1" defer></script>
+  <script src="js/main.js?v=1" defer></script>
+</body>
+</html>

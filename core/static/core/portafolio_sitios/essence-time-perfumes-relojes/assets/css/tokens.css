@@ -1,0 +1,189 @@
+/* ==========================================================================
+   ESSENCE & TIME — Design tokens
+   Única fuente de verdad para color, tipografía, espaciado, forma y movimiento.
+   Contrastes verificados (WCAG 2.1) anotados junto a cada tono de texto.
+   ========================================================================== */
+
+:root {
+  /* ---- Paleta base (brief) ---------------------------------------------- */
+  --c-ivory:        #F5F0E8;  /* fondo principal */
+  --c-white:        #FFFFFF;  /* superficies elevadas */
+  --c-sand:         #EBE3D8;  /* fondo alternativo, fondo de fotografía de producto */
+  --c-line:         #E4DDD2;  /* bordes delicados */
+  --c-ink:          #25231F;  /* texto principal — 13.8:1 sobre ivory */
+  --c-stone:        #746B61;  /* texto secundario — 4.6:1 ivory / 5.2:1 white */
+  --c-stone-strong: #685F56;  /* texto secundario sobre sand — 4.9:1 (stone falla: 4.1) */
+  --c-terracotta:   #815B4B;  /* enlaces, foco, precio rebajado — 5.2:1 ivory */
+  --c-champagne:    #C5A46D;  /* SOLO decorativo sobre fondos claros (2.1:1) */
+
+  /* ---- Banda nocturna (uso selectivo para fragancias de noche) ---------- */
+  --c-night:        #25231F;
+  --c-night-raise:  #302D28;
+  --c-night-text:   #F5F0E8;
+  --c-night-muted:  #B5ADA2;  /* 7.1:1 sobre night */
+  --c-night-line:   rgba(245, 240, 232, .14);
+  /* champagne sí es legible como texto sobre night: 6.6:1 */
+
+  /* ---- Roles semánticos ------------------------------------------------- */
+  --bg:             var(--c-ivory);
+  --bg-alt:         var(--c-sand);
+  --surface:        var(--c-white);
+  --text:           var(--c-ink);
+  --text-muted:     var(--c-stone);
+  --border:         var(--c-line);
+  --border-strong:  #CFC5B7;
+  --link:           var(--c-terracotta);
+  --link-hover:     var(--c-ink);
+  --accent:         var(--c-champagne);
+  --focus-ring:     var(--c-terracotta);
+
+  --c-success:      #4F6B4A;  /* 5.6:1 ivory */
+  --c-success-bg:   #E6EBDF;
+  --c-danger:       #9A3B2E;  /* 6.1:1 ivory */
+  --c-danger-bg:    #F4E2DC;
+  --c-warning:      #7A5A1E;  /* 5.9:1 ivory */
+  --c-warning-bg:   #F3E9D2;
+
+  --overlay:        rgba(37, 35, 31, .42);
+
+  /* ---- Tipografía ------------------------------------------------------- */
+  /* Open Sans en todo el sitio: titulares, interfaz e información de compra.
+     Humanista de x-height alta pensada para pantalla (mismo criterio de
+     legibilidad que Amazon Ember, cuya licencia no está disponible), con
+     cifras tabulares y soporte completo de tildes y ñ.
+     Respaldo: Arial y sans-serif del sistema.
+     --font-logo: solo el «&» del logotipo (Bodoni Moda cursiva, cargada como
+     subconjunto de un único glifo con &text=%26). */
+  --font-sans: "Open Sans", Arial, "Helvetica Neue", Helvetica, system-ui, sans-serif;
+  --font-logo: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+
+  /* Escala modular ~1.25 en móvil → ~1.333 en escritorio (360px → 1440px) */
+  --fs-xs:   clamp(0.75rem,  0.73rem + 0.09vw, 0.8125rem);  /* 12 → 13 */
+  --fs-sm:   clamp(0.8125rem,0.79rem + 0.09vw, 0.875rem);   /* 13 → 14 */
+  --fs-base: clamp(0.9375rem,0.91rem + 0.12vw, 1rem);       /* 15 → 16 */
+  --fs-md:   clamp(1.0625rem,1.01rem + 0.23vw, 1.1875rem);  /* 17 → 19 */
+  --fs-lg:   clamp(1.25rem,  1.15rem + 0.46vw, 1.5625rem);  /* 20 → 25 */
+  --fs-xl:   clamp(1.5625rem,1.38rem + 0.83vw, 2.125rem);   /* 25 → 34 */
+  --fs-2xl:  clamp(1.9375rem,1.62rem + 1.39vw, 2.875rem);   /* 31 → 46 */
+  --fs-3xl:  clamp(2.4375rem,1.92rem + 2.31vw, 3.9375rem);  /* 39 → 63 */
+  --fs-4xl:  clamp(2.875rem, 2.06rem + 3.61vw, 5.3125rem);  /* 46 → 85  (solo hero) */
+
+  --lh-tight:   1.12;   /* titulares grandes: deja aire a tildes en mayúscula (Á, É) */
+  --lh-snug:    1.22;   /* titulares y títulos de interfaz */
+  --lh-body:    1.5;    /* sans: interfaz y textos cortos */
+  --lh-prose:   1.65;   /* sans en textos largos (legales, guías) */
+
+  --fw-regular: 400;
+  --fw-medium:  500;
+  --fw-semi:    600;
+  --fw-bold:    700;
+  --fw-heading: 600;    /* h1/h2 y titulares de campaña */
+
+  /* Sin espaciado artificial: Open Sans ya está espaciada para pantalla.
+     Únicas excepciones: un ajuste óptico mínimo en titulares grandes y el
+     logotipo. */
+  --tracking-display: -0.01em;
+  --tracking-logo:    0.24em;   /* el logotipo es la única versalita espaciada */
+
+  --measure:        66ch;   /* lectura sans */
+  --measure-narrow: 42ch;
+
+  /* ---- Espaciado (base 4px) -------------------------------------------- */
+  --sp-1: 0.25rem;  --sp-2: 0.5rem;   --sp-3: 0.75rem;  --sp-4: 1rem;
+  --sp-5: 1.5rem;   --sp-6: 2rem;     --sp-7: 3rem;     --sp-8: 4rem;
+  --sp-9: 6rem;     --sp-10: 8rem;
+
+  /* Ritmo vertical de secciones, fluido */
+  --section-y:    clamp(3.5rem, 2.4rem + 4.9vw, 7.5rem);
+  --section-y-sm: clamp(2.5rem, 1.9rem + 2.6vw, 4.5rem);
+
+  /* ---- Layout ----------------------------------------------------------- */
+  --gutter:        clamp(1rem, 0.6rem + 1.8vw, 2.5rem);   /* margen lateral: 16px en 360px */
+  --container:     84rem;   /* 1344px */
+  --container-text: 46rem;
+  --header-h:      58px;    /* móvil; reservado para evitar CLS antes de inyectar el header */
+  --topbar-h:      34px;
+
+  /* ---- Forma: el radio expresa jerarquía, no se aplica a todo ------------ */
+  --r-none:  0;        /* fotografía, tarjetas de producto, banners */
+  --r-ctrl:  3px;      /* botones, campos, menús */
+  --r-panel: 6px;      /* modales, minicarrito en móvil */
+  --r-pill:  999px;    /* chips de filtro, contador del carrito */
+
+  /* ---- Bordes ----------------------------------------------------------- */
+  --bw:            1px;
+  --bw-strong:     1.5px;
+  --border-hair:   var(--bw) solid var(--border);
+  --border-ctrl:   var(--bw) solid var(--border-strong);
+  --border-ink:    var(--bw) solid var(--c-ink);
+
+  /* ---- Breakpoints (referencia; las media queries no aceptan var()) ----
+     Coinciden con Bootstrap: sm 576 · md 768 · lg 992 · xl 1200 · xxl 1400.
+     Complementarios propios: --bp-xs 360 (móvil mínimo), --bp-3xl 1680.   */
+  --bp-xs: 360px;  --bp-sm: 576px;  --bp-md: 768px;  --bp-lg: 992px;
+  --bp-xl: 1200px; --bp-xxl: 1400px; --bp-3xl: 1680px;
+
+  /* ---- Controles ------------------------------------------------------ */
+  --ctrl-h:     48px;   /* objetivo táctil cómodo */
+  --ctrl-h-sm:  40px;
+  --icon-btn:   44px;
+
+  /* ---- Elevación: solo para capas superpuestas -------------------------- */
+  --shadow-pop:   0 10px 30px -12px rgba(37, 35, 31, .18), 0 2px 6px -2px rgba(37, 35, 31, .06);
+  --shadow-panel: -24px 0 60px -30px rgba(37, 35, 31, .28);
+
+  /* ---- Proporciones de imagen ------------------------------------------ */
+  --ratio-product:  4 / 5;   /* fichas y tarjetas (vertical) */
+  --ratio-campaign: 3 / 4;
+  --ratio-wide:     16 / 9;
+  --ratio-watch:    1 / 1;   /* esferas: nunca recortar el bisel */
+
+  /* ---- Movimiento ------------------------------------------------------- */
+  --ease-out:    cubic-bezier(.22, .61, .36, 1);
+  --ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --ease-silk:   cubic-bezier(.16, 1, .3, 1);   /* entradas editoriales */
+  --dur-fast: 160ms;
+  --dur-base: 280ms;
+  --dur-slow: 560ms;
+  --t-color:  color var(--dur-fast) var(--ease-out), background-color var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out);
+  --t-transform: transform var(--dur-base) var(--ease-out);
+  --t-opacity:   opacity var(--dur-base) var(--ease-out);
+
+  /* ---- Capas ------------------------------------------------------------ */
+  --z-header:   1030;
+  --z-dropdown: 1040;
+  --z-drawer:   1050;
+  --z-modal:    1060;
+  --z-toast:    1080;
+
+  /* ---- Puente con Bootstrap 5.3 ---------------------------------------- */
+  --bs-body-bg:          var(--bg);
+  --bs-body-color:       var(--text);
+  --bs-body-font-family: var(--font-sans);
+  --bs-body-font-size:   var(--fs-base);
+  --bs-body-line-height: var(--lh-body);
+  --bs-secondary-color:  var(--text-muted);
+  --bs-border-color:     var(--border);
+  --bs-border-radius:    var(--r-ctrl);
+  --bs-border-radius-sm: var(--r-ctrl);
+  --bs-border-radius-lg: var(--r-panel);
+  --bs-link-color:       var(--link);
+  --bs-link-color-rgb:   129, 91, 75;
+  --bs-link-hover-color: var(--link-hover);
+  --bs-link-hover-color-rgb: 37, 35, 31;
+  --bs-focus-ring-color: rgba(129, 91, 75, .35);
+}
+
+@media (min-width: 992px) {
+  :root { --header-h: 72px; }
+}
+
+/* Movimiento reducido: los tokens de duración se anulan globalmente */
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --dur-fast: 0ms;
+    --dur-base: 0ms;
+    --dur-slow: 0ms;
+  }
+}

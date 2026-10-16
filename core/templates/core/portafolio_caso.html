@@ -1,0 +1,64 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}{{ proyecto.nombre }} | Portafolio | sruedadev.com{% endblock %}
+{% block description %}{{ proyecto.resumen }}{% endblock %}
+{% block og_title %}{{ proyecto.nombre }} | Portafolio | sruedadev.com{% endblock %}
+{% block og_description %}{{ proyecto.resumen }}{% endblock %}
+{% block twitter_title %}{{ proyecto.nombre }} | Portafolio | sruedadev.com{% endblock %}
+{% block twitter_description %}{{ proyecto.resumen }}{% endblock %}
+{% block canonical %}https://sruedadev.com/portafolio/caso/{{ proyecto.slug }}/{% endblock %}
+{% block og_url %}https://sruedadev.com/portafolio/caso/{{ proyecto.slug }}/{% endblock %}
+
+{% block content %}
+<section class="hero-proyecto hero-servicio">
+    <div class="circuito" aria-hidden="true"></div>
+    <div class="contenedor">
+        <p class="miga">
+            <a href="{% url 'core:home' %}">Inicio</a> /
+            <a href="{% url 'core:home' %}#portafolio">Portafolio</a> /
+            {{ proyecto.nombre }}
+        </p>
+
+        <span class="etiqueta"><i class="punto"></i> Caso de estudio</span>
+
+        <h1>{{ proyecto.nombre }}</h1>
+        <p class="bajada">{{ proyecto.resumen }}</p>
+
+        <div class="stack">
+            {% for tecnologia in proyecto.stack %}
+            <span>{{ tecnologia }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="seccion">
+    <div class="contenedor">
+        {% if proyecto.nota_caso %}
+        <div class="estado estado-vacio" style="margin-bottom: 40px;">
+            <p>{{ proyecto.nota_caso }}</p>
+        </div>
+        {% endif %}
+
+        <div class="rejilla rejilla-3">
+            {% for captura in proyecto.galeria %}
+            <div class="proyecto-card">
+                <div class="proyecto-img">
+                    <img src="{% static captura.imagen %}" width="906" height="487" alt="{{ captura.titulo }}" loading="lazy" decoding="async">
+                </div>
+                <div class="proyecto-cuerpo">
+                    <h3>{{ captura.titulo }}</h3>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <p class="volver-portafolio">
+            <a href="{% url 'core:home' %}#portafolio">← Ver todas las categorías del portafolio</a>
+        </p>
+    </div>
+</section>
+
+{% include "core/partials/_cta_final.html" %}
+{% endblock %}

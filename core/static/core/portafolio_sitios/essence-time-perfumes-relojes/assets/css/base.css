@@ -1,0 +1,177 @@
+/* ==========================================================================
+   ESSENCE & TIME — Base
+   Se carga después de Bootstrap: ajusta sus valores por defecto a la marca.
+   ========================================================================== */
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: calc(var(--header-h) + var(--sp-4));
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: var(--lh-body);
+  font-feature-settings: "kern" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  overflow-x: clip;
+}
+
+/* Bloqueo de scroll solo mientras hay un panel modal abierto */
+body.is-locked { overflow: hidden; }
+
+::selection { background: var(--c-ink); color: var(--c-ivory); }
+
+/* ---- Encabezados: una sola familia; la jerarquía la marcan tamaño y peso -- */
+h1, h2, h3, h4, .display, .h-display {
+  font-family: var(--font-sans);
+  font-weight: var(--fw-heading);
+  letter-spacing: var(--tracking-display);
+  line-height: var(--lh-tight);
+  color: var(--text);
+  text-wrap: balance;
+  margin: 0 0 var(--sp-4);
+}
+h1, .h1 { font-size: var(--fs-3xl); }
+h2, .h2 { font-size: var(--fs-2xl); line-height: var(--lh-snug); }
+h3, .h3 { font-size: var(--fs-lg);  line-height: var(--lh-snug); }
+h4, .h4 { font-size: var(--fs-md);  line-height: var(--lh-snug); }
+h3, h4, .h3, .h4 { letter-spacing: 0; }
+
+/* h5/h6 son funcionales (títulos de columna, filtros): sans, no versales */
+h5, h6, .h5, .h6 {
+  font-family: var(--font-sans);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semi);
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--sp-3);
+}
+
+.display { font-size: var(--fs-4xl); }
+
+p { margin: 0 0 var(--sp-4); max-width: var(--measure); text-wrap: pretty; }
+
+.lead {
+  font-size: var(--fs-md);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+  color: var(--text-muted);
+}
+
+small, .text-small { font-size: var(--fs-sm); }
+.text-xs { font-size: var(--fs-xs); }
+.text-muted, .text-secondary { color: var(--text-muted) !important; }
+
+/* Cifras: precios, cantidades y contadores alinean en columna */
+.num, .price, data, output { font-variant-numeric: tabular-nums lining-nums; }
+
+/* ---- Enlaces ------------------------------------------------------------- */
+a {
+  color: var(--link);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .22em;
+  text-decoration-color: color-mix(in srgb, currentColor 40%, transparent);
+  transition: color var(--dur-fast) var(--ease-out),
+              text-decoration-color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--link-hover); text-decoration-color: currentColor; }
+
+/* Enlaces de navegación y tarjetas: sin subrayado permanente */
+.link-plain { color: inherit; text-decoration: none; }
+.link-plain:hover { color: inherit; }
+
+/* ---- Foco visible y consistente ----------------------------------------- */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: var(--r-ctrl);
+}
+.on-night :focus-visible { outline-color: var(--c-champagne); }
+
+/* ---- Medios -------------------------------------------------------------- */
+img, svg, video { display: block; max-width: 100%; height: auto; }
+img { font-style: italic; color: var(--text-muted); } /* alt legible si falla la carga */
+
+/* ---- Separador ----------------------------------------------------------- */
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  opacity: 1;
+  margin: var(--sp-6) 0;
+}
+
+/* ---- Accesibilidad ------------------------------------------------------- */
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: var(--sp-2);
+  z-index: calc(var(--z-toast) + 1);
+  padding: var(--sp-2) var(--sp-4);
+  background: var(--c-ink);
+  color: var(--c-ivory);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semi);
+  text-decoration: none;
+  border-radius: var(--r-ctrl);
+  transform: translateY(-150%);
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+.skip-link:focus-visible { transform: none; color: var(--c-ivory); }
+
+.visually-hidden-focusable:not(:focus):not(:focus-within) {
+  position: absolute !important;
+  width: 1px !important; height: 1px !important;
+  overflow: hidden !important; clip: rect(0 0 0 0) !important;
+  white-space: nowrap !important;
+}
+
+/* ---- Superficies --------------------------------------------------------- */
+.bg-alt   { background-color: var(--bg-alt); }
+.bg-alt .text-muted { color: var(--c-stone-strong) !important; }
+.bg-surface { background-color: var(--surface); }
+
+.on-night {
+  background-color: var(--c-night);
+  color: var(--c-night-text);
+  --text: var(--c-night-text);
+  --text-muted: var(--c-night-muted);
+  --border: var(--c-night-line);
+  --link: var(--c-champagne);
+  --link-hover: var(--c-ivory);
+}
+.on-night h1, .on-night h2, .on-night h3, .on-night h4 { color: var(--c-night-text); }
+
+/* ---- Marca: el "minutero" ----------------------------------------------
+   60 marcas del anillo de una esfera. Sustituye al filete genérico en
+   momentos clave; la marca de las 12 (inicio) lleva el único toque dorado.
+   Uso: <div class="dial-track" aria-hidden="true"></div>               */
+.dial-track {
+  --tick: var(--border-strong);
+  --tick-major: var(--text-muted);
+  height: 9px;
+  width: 100%;
+  background:
+    linear-gradient(var(--accent), var(--accent)) left bottom / 1px 9px no-repeat,
+    repeating-linear-gradient(90deg,
+      var(--tick-major) 0 1px, transparent 1px calc(100% / 12)) left bottom / 100% 7px no-repeat,
+    repeating-linear-gradient(90deg,
+      var(--tick) 0 1px, transparent 1px calc(100% / 60)) left bottom / 100% 4px no-repeat;
+}
+.on-night .dial-track { --tick: rgba(245, 240, 232, .22); --tick-major: var(--c-night-muted); }
+
+/* Reducción de movimiento: neutraliza transiciones y animaciones CSS */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 1ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 1ms !important;
+    scroll-behavior: auto !important;
+  }
+}

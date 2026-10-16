@@ -1,0 +1,16 @@
+# Sistema
+.DS_Store
+Thumbs.db
+*.swp
+
+# Editores
+.vscode/
+.idea/
+
+# Dependencias y artefactos (no usados en fase 1, previstos si se añade tooling)
+node_modules/
+dist/
+*.log
+
+# Imágenes originales sin optimizar
+assets/images/_src/

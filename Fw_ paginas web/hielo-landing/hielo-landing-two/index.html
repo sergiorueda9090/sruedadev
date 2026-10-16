@@ -1,0 +1,769 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Planta de hielo para negocios | Producción y entrega de hielo</title>
+  <meta name="description" content="Producimos y entregamos hielo a cocinas, barras, hoteles, tiendas, eventos, distribuidores e industria. Pide una cotización según tu consumo y tu zona.">
+  <!-- Prototipo en revisión: quitar esta línea al publicar con datos verificados. -->
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#232838">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="Planta de hielo para negocios | Producción y entrega de hielo">
+  <meta property="og:description" content="Hielo para negocios: cotiza el formato y la cantidad que usas, con entrega acordada en tu zona.">
+  <meta property="og:image" content="assets/img/og-hielo.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="icon" href="assets/icons/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400..800&amp;display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css?v=5">
+  <link rel="stylesheet" href="css/responsive.css?v=5">
+
+  <link rel="preload" as="image" href="assets/img/hero-full-1200.webp" imagesrcset="assets/img/hero-full-1200.webp 1200w, assets/img/hero-full.webp 1800w" imagesizes="100vw" media="(min-width: 768px)" fetchpriority="high">
+  <link rel="preload" as="image" href="assets/img/hero-hielo-sm.webp" imagesrcset="assets/img/hero-hielo-sm.webp 600w, assets/img/hero-hielo.webp 958w" imagesizes="100vw" media="(max-width: 767.98px)" fetchpriority="high">
+
+  <!-- Activa la animación de entrada solo si el visitante no pidió movimiento reducido.
+       Si GSAP no llega a cargar, la clase se retira y todo queda visible. -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      if (window.matchMedia && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        d.classList.add('js-anim');
+        setTimeout(function () { if (!window.__heroAnimado) d.classList.remove('js-anim'); }, 2500);
+      }
+    })();
+  </script>
+
+  <script src="js/config.js?v=5" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" integrity="sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" integrity="sha384-P8VzCVnT9NBUkMrpcIZrJbA7EBjJvh/fJS6PmP+4nLIM284DtsImIv8D0fFjIkeh" crossorigin="anonymous" defer></script>
+  <script src="js/whatsapp.js?v=5" defer></script>
+  <script src="js/main.js?v=5" defer></script>
+  <script src="js/form.js?v=5" defer></script>
+  <script src="js/gallery.js?v=5" defer></script>
+  <script src="js/snow.js?v=5" defer></script>
+  <script src="js/animations.js?v=5" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Ir al contenido principal</a>
+
+  <!-- Aviso de revisión (solo modo 'revision') -->
+  <div class="review-bar" data-solo="revision" role="note">
+    <div class="container">
+      <i class="bi bi-hourglass-split" aria-hidden="true"></i>
+      <span><strong>Versión de revisión.</strong> Lo marcado como «pendiente» todavía no es información real y las imágenes son ilustrativas.</span>
+    </div>
+  </div>
+
+  <!-- 1. Barra superior -->
+  <div class="topbar" id="topbar">
+    <div class="container">
+      <ul class="topbar-list">
+        <li data-campo="cobertura.ciudadBase" data-etiqueta="Zona de entrega"><i class="bi bi-geo-alt" aria-hidden="true"></i> <span class="v"></span></li>
+        <li data-campo="contacto.telefono" data-tipo="tel" data-etiqueta="Teléfono"><i class="bi bi-telephone" aria-hidden="true"></i> <span class="v"></span></li>
+        <li data-campo="contacto.horario" data-etiqueta="Horario de atención"><i class="bi bi-clock" aria-hidden="true"></i> <span class="v"></span></li>
+        <li data-campo="contacto.whatsapp" data-tipo="wa" data-etiqueta="WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i> <span class="v"></span></li>
+      </ul>
+    </div>
+  </div>
+
+  <header class="site-header" id="cabecera">
+    <nav class="navbar navbar-expand-xl" aria-label="Menú del sitio">
+      <div class="container">
+        <a class="brand" href="#inicio" aria-label="Volver a la portada">
+          <img class="brand-logo" src="assets/icons/logo-provisional.svg" width="40" height="40" alt="">
+          <span class="brand-text">
+            <span class="brand-name" data-marca>Planta de hielo</span>
+            <span class="brand-sub">Producción y entrega</span>
+          </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Mostrar menú">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#inicio">Portada</a></li>
+            <li class="nav-item"><a class="nav-link" href="#nosotros">Empresa</a></li>
+            <li class="nav-item"><a class="nav-link" href="#productos">Catálogo</a></li>
+            <li class="nav-item"><a class="nav-link" href="#calidad">Proceso</a></li>
+            <li class="nav-item"><a class="nav-link" href="#sectores">Negocios</a></li>
+            <li class="nav-item"><a class="nav-link" href="#cobertura">Entregas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contacto">Contáctanos</a></li>
+          </ul>
+          <a class="btn btn-brand nav-cta" href="#cotizacion">Pedir cotización</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- 2. Hero: foto a sangre con nieve -->
+    <section class="hero" id="inicio" aria-labelledby="hero-titulo">
+      <div class="hero-bg">
+        <picture>
+          <source media="(max-width: 767.98px)" srcset="assets/img/hero-hielo-sm.webp 600w, assets/img/hero-hielo.webp 958w" sizes="100vw">
+          <img src="assets/img/hero-full-1200.webp"
+               srcset="assets/img/hero-full-1200.webp 1200w, assets/img/hero-full.webp 1800w"
+               sizes="100vw" width="1800" height="1197" fetchpriority="high"
+               alt="Primer plano de cubos de hielo cristalinos con pequeñas burbujas en su interior">
+        </picture>
+        <span class="frost" aria-hidden="true"></span>
+        <span class="hero-shade" aria-hidden="true"></span>
+        <canvas class="snow" aria-hidden="true"></canvas>
+      </div>
+
+      <div class="container hero-inner">
+        <div class="hero-copy">
+          <p class="hero-label" data-hero>Planta de hielo para negocios</p>
+          <h1 id="hero-titulo" class="hero-title" data-hero>Hielo para negocios que no pueden parar.</h1>
+          <p class="hero-sub" data-hero>Producimos y llevamos hielo a cocinas, barras, hoteles, tiendas, eventos y distribuidores. Cotizamos según lo que consumes y dónde lo recibes.</p>
+          <div class="hero-actions" data-hero>
+            <a class="btn btn-frost btn-lg" href="#cotizacion">Pedir cotización</a>
+            <a class="btn btn-ghost btn-lg" href="#productos">Ver tipos de hielo</a>
+          </div>
+        </div>
+        <div class="hero-pane">
+          <p class="visually-hidden">Nuestro compromiso:</p>
+          <ul class="trust-list" id="atributos-hero">
+            <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Producción con control de higiene</li>
+            <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Entregas acordadas por zona</li>
+            <li><i class="bi bi-check2-circle" aria-hidden="true"></i> Un asesor para tu cuenta</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="hero-foot container">
+        <span class="ref-tag">Imagen ilustrativa</span>
+        <button class="snow-toggle" id="snow-toggle" type="button" aria-pressed="false" hidden>
+          <i class="bi bi-pause-fill" aria-hidden="true"></i> <span>Detener nieve</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- 3. Franja de beneficios -->
+    <section class="benefits" aria-label="Ventajas">
+      <div class="container">
+        <ul class="benefit-row">
+          <li class="benefit">
+            <i class="bi bi-droplet-half" aria-hidden="true"></i>
+            <div>
+              <h2 class="benefit-title">Higiene en planta</h2>
+              <p>Controles de limpieza durante la producción y el empaque.</p>
+            </div>
+          </li>
+          <li class="benefit">
+            <i class="bi bi-box-seam" aria-hidden="true"></i>
+            <div>
+              <h2 class="benefit-title">Volumen de negocio</h2>
+              <p>Cantidades pensadas para turnos completos, no para la nevera de una casa.</p>
+            </div>
+          </li>
+          <li class="benefit">
+            <i class="bi bi-truck" aria-hidden="true"></i>
+            <div>
+              <h2 class="benefit-title">Entregas por acuerdo</h2>
+              <p>Definimos contigo el día, la franja y el lugar de recibo.</p>
+            </div>
+          </li>
+          <li class="benefit">
+            <i class="bi bi-headset" aria-hidden="true"></i>
+            <div>
+              <h2 class="benefit-title">Trato directo</h2>
+              <p>Hablas con una persona que conoce tu pedido y tu consumo.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 4. Presentación corporativa -->
+    <section class="section about" id="nosotros" aria-labelledby="nosotros-titulo">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-6 order-lg-1">
+            <figure class="photo photo-tall">
+              <img src="assets/img/fabrica.webp" srcset="assets/img/fabrica-sm.webp 720w, assets/img/fabrica.webp 1200w"
+                   sizes="(min-width: 992px) 46vw, 100vw" width="1200" height="900" loading="lazy" decoding="async"
+                   alt="Sistema de filtración de agua con tanque de acero y tuberías sobre piso de baldosa">
+              <span class="ref-tag">Imagen ilustrativa</span>
+            </figure>
+          </div>
+          <div class="col-lg-6 order-lg-2">
+            <h2 id="nosotros-titulo" class="section-title">Producimos el hielo que tu operación gasta cada día.</h2>
+            <p class="lead-text" data-campo="empresa.descripcion" data-etiqueta="Presentación de la empresa (trayectoria y ubicación de la planta)" data-bloque><span class="v"></span></p>
+            <p>Una cocina que abre temprano, una barra que llena neveras antes del turno, un evento que no puede esperar: para ellos fabricamos y despachamos hielo.</p>
+            <ul class="check-list">
+              <li><i class="bi bi-check2" aria-hidden="true"></i><span><strong>Calidad desde el agua.</strong> Partimos de agua tratada y sellamos cada empaque antes del despacho.</span></li>
+              <li data-condicion="operacion.pedidosRecurrentes" data-etiqueta="Pedidos con frecuencia fija"><i class="bi bi-check2" aria-hidden="true"></i><span><strong>Pedidos programados.</strong> Fijamos una frecuencia y el hielo llega sin que tengas que pedirlo cada vez.</span></li>
+              <li><i class="bi bi-check2" aria-hidden="true"></i><span><strong>Claridad comercial.</strong> Antes de cerrar un pedido sabes qué recibes, cuándo y en qué condiciones.</span></li>
+            </ul>
+            <dl class="fact-sheet">
+              <div><dt>Nombre legal</dt><dd data-campo="empresa.razonSocial" data-etiqueta="Nombre legal"><span class="v"></span></dd></div>
+              <div><dt>Ubicación de la planta</dt><dd data-campo="empresa.ciudad" data-etiqueta="Municipio de la planta"><span class="v"></span></dd></div>
+              <div><dt>Documento sanitario</dt><dd data-campo="calidad.registroSanitario" data-etiqueta="Registro o permiso sanitario"><span class="v"></span></dd></div>
+            </dl>
+            <a class="btn btn-outline-brand" href="#calidad">Ver cómo trabajamos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Productos -->
+    <section class="section products" id="productos" aria-labelledby="productos-titulo">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="productos-titulo" class="section-title">Tipos de hielo</h2>
+          <p>Cada formato sirve para algo distinto. El precio y los empaques dependen del volumen y del lugar de entrega.</p>
+        </div>
+        <div class="product-grid" id="lista-productos" aria-live="polite">
+          <noscript><p>Para ver los tipos de hielo, activa JavaScript en tu navegador o contáctanos.</p></noscript>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. ¿Por qué elegirnos? -->
+    <section class="section why" id="elegirnos" aria-labelledby="elegirnos-titulo">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-5">
+            <figure class="photo why-photo">
+              <img src="assets/img/equipo-produccion.webp" srcset="assets/img/equipo-produccion-sm.webp 480w, assets/img/equipo-produccion.webp 800w"
+                   sizes="(min-width: 992px) 38vw, 100vw" width="800" height="1000" loading="lazy" decoding="async"
+                   alt="Trabajador sacando moldes de hielo de un tanque de congelación">
+              <span class="ref-tag">Imagen ilustrativa</span>
+            </figure>
+          </div>
+          <div class="col-lg-7">
+            <h2 id="elegirnos-titulo" class="section-title">Lo que cuidamos en cada pedido.</h2>
+            <ul class="reasons">
+              <li>
+                <i class="bi bi-clipboard2-check" aria-hidden="true"></i>
+                <h3>Revisión antes de empacar</h3>
+                <p>Miramos transparencia, forma y peso antes de cerrar cada empaque.</p>
+              </li>
+              <li>
+                <i class="bi bi-droplet" aria-hidden="true"></i>
+                <h3>Planta limpia</h3>
+                <p>Agua tratada, superficies higienizadas y personal con elementos de protección.</p>
+              </li>
+              <li>
+                <i class="bi bi-boxes" aria-hidden="true"></i>
+                <h3>Producción planeada</h3>
+                <p>Organizamos cada jornada según los pedidos programados de nuestros clientes.</p>
+              </li>
+              <li>
+                <i class="bi bi-calendar2-check" aria-hidden="true"></i>
+                <h3>Entregas acordadas</h3>
+                <p>Respetamos el día y la franja pactados, y avisamos a tiempo cualquier cambio.</p>
+              </li>
+              <li>
+                <i class="bi bi-person-lines-fill" aria-hidden="true"></i>
+                <h3>Un contacto fijo</h3>
+                <p>La misma persona te cotiza, programa tus pedidos y atiende las novedades.</p>
+              </li>
+              <li data-condicion="empresa.anioFundacion" data-etiqueta="Año de inicio de la empresa">
+                <i class="bi bi-award" aria-hidden="true"></i>
+                <h3>Trayectoria</h3>
+                <p>En el oficio desde <span data-anio></span>.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Proceso de producción y calidad -->
+    <section class="section process" id="calidad" aria-labelledby="calidad-titulo">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="calidad-titulo" class="section-title">Cómo se hace tu hielo</h2>
+          <p>Seis pasos entre el agua y tu puerta.</p>
+        </div>
+        <ol class="process-line">
+          <li class="step">
+            <span class="step-node"><i class="bi bi-water" aria-hidden="true"></i></span>
+            <h3><span class="step-n">1</span> Agua tratada</h3>
+            <p>Filtramos y acondicionamos el agua antes de congelarla.</p>
+          </li>
+          <li class="step">
+            <span class="step-node"><i class="bi bi-snow2" aria-hidden="true"></i></span>
+            <h3><span class="step-n">2</span> Congelación</h3>
+            <p>Cada máquina forma el hielo según el tipo de producto.</p>
+          </li>
+          <li class="step">
+            <span class="step-node"><i class="bi bi-search" aria-hidden="true"></i></span>
+            <h3><span class="step-n">3</span> Inspección</h3>
+            <p>Verificamos aspecto, forma y peso del hielo.</p>
+          </li>
+          <li class="step">
+            <span class="step-node"><i class="bi bi-bag-check" aria-hidden="true"></i></span>
+            <h3><span class="step-n">4</span> Embolsado</h3>
+            <p>Sellamos y marcamos cada empaque.</p>
+          </li>
+          <li class="step">
+            <span class="step-node"><i class="bi bi-thermometer-snow" aria-hidden="true"></i></span>
+            <h3><span class="step-n">5</span> Cuarto frío</h3>
+            <p>Guardamos el producto en frío hasta despacharlo.</p>
+          </li>
+          <li class="step">
+            <span class="step-node"><i class="bi bi-truck" aria-hidden="true"></i></span>
+            <h3><span class="step-n">6</span> Entrega</h3>
+            <p>Sale hacia tu negocio el día y en la franja pactados.</p>
+          </li>
+        </ol>
+        <p class="note" id="nota-proceso"><i class="bi bi-info-circle" aria-hidden="true"></i> <span>Pasos de referencia: se ajustarán al proceso que confirme la planta.</span></p>
+        <div class="docs" id="documentos">
+          <h3 class="docs-title">Permisos sanitarios y certificaciones</h3>
+          <ul class="docs-list" id="lista-documentos"></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Sectores -->
+    <section class="section sectors" id="sectores" aria-labelledby="sectores-titulo">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="sectores-titulo" class="section-title">Para cada tipo de negocio</h2>
+          <p>Elige el tuyo y mira qué hielo suele usar.</p>
+        </div>
+        <div class="sector-tabs">
+          <div class="sector-menu" role="tablist" aria-label="Tipos de negocio" aria-orientation="vertical">
+            <button class="sector-tab" role="tab" id="tab-restaurantes" aria-controls="panel-restaurantes" aria-selected="true" type="button"><i class="bi bi-cup-straw" aria-hidden="true"></i> Cocinas y barras</button>
+            <button class="sector-tab" role="tab" id="tab-hoteles" aria-controls="panel-hoteles" aria-selected="false" tabindex="-1" type="button"><i class="bi bi-building" aria-hidden="true"></i> Hotelería</button>
+            <button class="sector-tab" role="tab" id="tab-eventos" aria-controls="panel-eventos" aria-selected="false" tabindex="-1" type="button"><i class="bi bi-balloon" aria-hidden="true"></i> Eventos y banquetes</button>
+            <button class="sector-tab" role="tab" id="tab-tiendas" aria-controls="panel-tiendas" aria-selected="false" tabindex="-1" type="button"><i class="bi bi-shop" aria-hidden="true"></i> Tiendas y autoservicios</button>
+            <button class="sector-tab" role="tab" id="tab-distribuidores" aria-controls="panel-distribuidores" aria-selected="false" tabindex="-1" type="button"><i class="bi bi-diagram-3" aria-hidden="true"></i> Reventa y distribución</button>
+            <button class="sector-tab" role="tab" id="tab-pescaderias" aria-controls="panel-pescaderias" aria-selected="false" tabindex="-1" type="button"><i class="bi bi-basket" aria-hidden="true"></i> Pescados y alimentos</button>
+            <button class="sector-tab" role="tab" id="tab-industria" aria-controls="panel-industria" aria-selected="false" tabindex="-1" type="button"><i class="bi bi-buildings" aria-hidden="true"></i> Industria y empresas</button>
+          </div>
+
+          <div class="sector-panels">
+            <article class="sector-panel" id="panel-restaurantes" role="tabpanel" aria-labelledby="tab-restaurantes" tabindex="0">
+              <figure class="photo"><img src="assets/img/sector-restaurantes-sm.webp" srcset="assets/img/sector-restaurantes-sm.webp 600w, assets/img/sector-restaurantes.webp 720w" sizes="(min-width: 992px) 40vw, 100vw" width="720" height="540" loading="lazy" decoding="async" alt="Bebida con hielo y limón servida en la barra"><span class="ref-tag">Imagen ilustrativa</span></figure>
+              <div class="sector-body">
+                <h3>Cocinas y barras</h3>
+                <p>Cada turno gasta hielo en bebidas, cocteles, neveras y preparación. La clave es tener suficiente antes de la hora pico.</p>
+                <p class="uses"><span>Lo que más piden:</span> cubos, tubular y frappé.</p>
+              </div>
+            </article>
+            <article class="sector-panel" id="panel-hoteles" role="tabpanel" aria-labelledby="tab-hoteles" tabindex="0">
+              <figure class="photo"><img src="assets/img/sector-hoteles-sm.webp" srcset="assets/img/sector-hoteles-sm.webp 600w, assets/img/sector-hoteles.webp 1000w" sizes="(min-width: 992px) 40vw, 100vw" width="1000" height="750" loading="lazy" decoding="async" alt="Baldes metálicos con hielo para mantener frías las botellas"><span class="ref-tag">Imagen ilustrativa</span></figure>
+              <div class="sector-body">
+                <h3>Hotelería</h3>
+                <p>Bar, restaurante, piscina y servicio a la habitación consumen a diario, y el consumo sube en fines de semana y temporada alta.</p>
+                <p class="uses"><span>Lo que más piden:</span> cubos y tubular.</p>
+              </div>
+            </article>
+            <article class="sector-panel" id="panel-eventos" role="tabpanel" aria-labelledby="tab-eventos" tabindex="0">
+              <figure class="photo"><img src="assets/img/sector-eventos-sm.webp" srcset="assets/img/sector-eventos-sm.webp 600w, assets/img/sector-eventos.webp 1000w" sizes="(min-width: 992px) 40vw, 100vw" width="1000" height="750" loading="lazy" decoding="async" alt="Mariscos presentados sobre una base de hielo"><span class="ref-tag">Imagen ilustrativa</span></figure>
+              <div class="sector-body">
+                <h3>Eventos y banquetes</h3>
+                <p>Matrimonios, ferias y celebraciones gastan mucho hielo en pocas horas. Si acuerdas cantidad y hora con tiempo, no improvisas el día del evento.</p>
+                <p class="uses"><span>Lo que más piden:</span> cubos, frappé y escamas para montajes.</p>
+              </div>
+            </article>
+            <article class="sector-panel" id="panel-tiendas" role="tabpanel" aria-labelledby="tab-tiendas" tabindex="0">
+              <figure class="photo"><img src="assets/img/sector-tiendas-sm.webp" srcset="assets/img/sector-tiendas-sm.webp 600w, assets/img/sector-tiendas.webp 1000w" sizes="(min-width: 992px) 40vw, 100vw" width="1000" height="750" loading="lazy" decoding="async" alt="Bolsa con cubos de hielo y dos cubos sueltos al lado"><span class="ref-tag">Imagen ilustrativa</span></figure>
+              <div class="sector-body">
+                <h3>Tiendas y autoservicios</h3>
+                <p>Bolsas listas para vender, que reponemos según lo rápido que se vacíe tu congelador.</p>
+                <p class="uses"><span>Lo que más piden:</span> cubos y tubular embolsados.</p>
+              </div>
+            </article>
+            <article class="sector-panel" id="panel-distribuidores" role="tabpanel" aria-labelledby="tab-distribuidores" tabindex="0">
+              <figure class="photo"><img src="assets/img/distribucion-sm.webp" srcset="assets/img/distribucion-sm.webp 600w, assets/img/distribucion.webp 937w" sizes="(min-width: 992px) 40vw, 100vw" width="937" height="703" loading="lazy" decoding="async" alt="Personas descargando bloques de hielo de un camión en plena calle"><span class="ref-tag">Imagen ilustrativa</span></figure>
+              <div class="sector-body">
+                <h3>Reventa y distribución</h3>
+                <p>¿Vendes hielo en tu barrio o municipio? Cotiza por despacho y acuerda una frecuencia estable de recogida o entrega.</p>
+                <p class="uses"><span>Lo que más piden:</span> cubos embolsados y bloques.</p>
+              </div>
+            </article>
+            <article class="sector-panel" id="panel-pescaderias" role="tabpanel" aria-labelledby="tab-pescaderias" tabindex="0">
+              <figure class="photo"><img src="assets/img/sector-pescaderias-sm.webp" srcset="assets/img/sector-pescaderias-sm.webp 600w, assets/img/sector-pescaderias.webp 1000w" sizes="(min-width: 992px) 40vw, 100vw" width="1000" height="750" loading="lazy" decoding="async" alt="Caja con pescado fresco cubierto de hielo"><span class="ref-tag">Imagen ilustrativa</span></figure>
+              <div class="sector-body">
+                <h3>Pescados y alimentos</h3>
+                <p>En vitrina o en el traslado, el hielo mantiene frío lo que vendes. Te ayudamos a escoger el formato para tu forma de trabajo.</p>
+                <p class="uses"><span>Lo que más piden:</span> escamas, frappé y bloques.</p>
+              </div>
+            </article>
+            <article class="sector-panel" id="panel-industria" role="tabpanel" aria-labelledby="tab-industria" tabindex="0">
+              <figure class="photo"><img src="assets/img/sector-industria.webp" width="600" height="450" loading="lazy" decoding="async" alt="Hilera de bloques de hielo recién sacados del molde"><span class="ref-tag">Imagen ilustrativa</span></figure>
+              <div class="sector-body">
+                <h3>Industria y empresas</h3>
+                <p>Comedores de empresa, obras, plantas y bodegas que piden hielo en volumen con entregas en fechas fijas.</p>
+                <p class="uses"><span>Lo que más piden:</span> bloques y cubos en bolsa grande.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <div class="inline-cta">
+          <p>Dinos cuánto hielo usas y dónde lo recibes, y te enviamos una propuesta.</p>
+          <a class="btn btn-brand" href="#cotizacion">Pedir cotización</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Capacidad y cifras (o, sin cifras documentadas, cómo se organiza el suministro) -->
+    <section class="section capacity" id="capacidad" aria-labelledby="capacidad-titulo">
+      <div class="container">
+        <div id="cifras" hidden>
+          <h2 class="section-title" id="capacidad-titulo-cifras">Nuestra capacidad en números</h2>
+          <ul class="stats" id="lista-cifras"></ul>
+        </div>
+        <div id="sin-cifras">
+          <div class="section-head">
+            <h2 id="capacidad-titulo" class="section-title">Tres datos para empezar</h2>
+            <p>Con ellos armamos tu plan de entregas.</p>
+          </div>
+          <ol class="plan">
+            <li>
+              <span class="plan-n">1</span>
+              <h3>Cuánto usas</h3>
+              <p>Tu consumo en un día normal y en uno de mucho movimiento.</p>
+            </li>
+            <li>
+              <span class="plan-n">2</span>
+              <h3>Qué formato</h3>
+              <p>El tipo de hielo y el empaque que encajan con tu trabajo.</p>
+            </li>
+            <li>
+              <span class="plan-n">3</span>
+              <h3>Cuándo y dónde</h3>
+              <p>La frecuencia de entrega y el lugar donde lo recibes.</p>
+            </li>
+          </ol>
+          <p class="note" data-solo="revision"><i class="bi bi-info-circle" aria-hidden="true"></i> <span>Aquí aparecerán cifras de producción, clientes, municipios y trayectoria cuando la empresa las respalde con documentos (<code>js/config.js → indicadores</code>).</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Cobertura -->
+    <section class="section coverage" id="cobertura" aria-labelledby="cobertura-titulo">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-6">
+            <h2 id="cobertura-titulo" class="section-title">Así llega el hielo a tu zona.</h2>
+            <dl class="coverage-list">
+              <div><dt>Sede de despacho</dt><dd data-campo="cobertura.ciudadBase" data-etiqueta="Sede de despacho"><span class="v"></span></dd></div>
+              <div><dt>Municipios con entrega</dt><dd data-campo="cobertura.municipios" data-tipo="lista" data-etiqueta="Municipios con entrega"><span class="v"></span></dd></div>
+              <div><dt>Forma de entrega</dt><dd data-campo="cobertura.modalidad" data-tipo="lista" data-etiqueta="Forma de entrega"><span class="v"></span></dd></div>
+              <div><dt>Pedidos fijos</dt><dd data-campo="operacion.pedidosRecurrentes" data-tipo="si-no" data-etiqueta="Pedidos fijos"><span class="v"></span></dd></div>
+              <div><dt>Grandes volúmenes</dt><dd data-campo="operacion.condicionesAltoVolumen" data-etiqueta="Condiciones para grandes volúmenes"><span class="v"></span></dd></div>
+            </dl>
+            <a class="btn btn-brand" href="#cotizacion" id="cta-cobertura" data-wa="cobertura">Preguntar por entregas en mi zona</a>
+          </div>
+          <div class="col-lg-6">
+            <figure class="coverage-map" aria-labelledby="mapa-cap">
+              <svg class="rings" viewBox="0 0 400 400" aria-hidden="true" focusable="false">
+                <circle cx="200" cy="200" r="190" />
+                <circle cx="200" cy="200" r="130" />
+                <circle cx="200" cy="200" r="70" />
+              </svg>
+              <div class="map-center">
+                <i class="bi bi-buildings" aria-hidden="true"></i>
+                <span id="mapa-base">Sede</span>
+              </div>
+              <ul class="map-towns" id="mapa-municipios"></ul>
+              <figcaption id="mapa-cap">
+                <span id="mapa-texto">Diagrama sin escala. Los municipios aparecerán cuando la empresa los confirme.</span>
+                <a id="mapa-enlace" href="#" hidden target="_blank" rel="noopener">Abrir la ubicación en OpenStreetMap</a>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. Galería -->
+    <section class="section gallery" id="galeria" aria-labelledby="galeria-titulo">
+      <div class="container">
+        <div class="section-head">
+          <h2 id="galeria-titulo" class="section-title">La planta por dentro</h2>
+          <p>Imágenes ilustrativas hasta contar con fotos propias. Selecciona una para verla en grande.</p>
+        </div>
+        <ul class="gallery-grid">
+          <li class="g-feature">
+            <button type="button" class="g-item" data-full="assets/img/proceso-produccion.webp" data-caption="Tanque donde se forman los bloques">
+              <img src="assets/img/proceso-produccion-sm.webp" srcset="assets/img/proceso-produccion-sm.webp 720w, assets/img/proceso-produccion.webp 1067w" sizes="(min-width: 768px) 60vw, 100vw" width="1067" height="800" loading="lazy" decoding="async" alt="Trabajador junto al tanque donde se forman bloques de hielo">
+            </button>
+          </li>
+          <li>
+            <button type="button" class="g-item" data-full="assets/img/galeria-maquina.webp" data-caption="Máquina productora de hielo">
+              <img src="assets/img/galeria-maquina-sm.webp" width="600" height="450" loading="lazy" decoding="async" alt="Bandejas llenas de hielo dentro de una máquina productora">
+            </button>
+          </li>
+          <li>
+            <button type="button" class="g-item" data-full="assets/img/galeria-empaque.webp" data-caption="Hielo embolsado">
+              <img src="assets/img/galeria-empaque-sm.webp" width="600" height="450" loading="lazy" decoding="async" alt="Bolsa sellada con cubos de hielo separados en celdas">
+            </button>
+          </li>
+          <li>
+            <button type="button" class="g-item" data-full="assets/img/galeria-moldes.webp" data-caption="Moldes para cubos">
+              <img src="assets/img/galeria-moldes-sm.webp" width="600" height="450" loading="lazy" decoding="async" alt="Moldes en cuadrícula con cubos de hielo ya congelados">
+            </button>
+          </li>
+          <li>
+            <button type="button" class="g-item" data-full="assets/img/sector-industria.webp" data-caption="Bloques listos para guardar">
+              <img src="assets/img/sector-industria.webp" width="600" height="450" loading="lazy" decoding="async" alt="Fila de bloques de hielo sobre el piso de la planta">
+            </button>
+          </li>
+          <li>
+            <button type="button" class="g-item" data-full="assets/img/galeria-hielo-terminado.webp" data-caption="Producto final">
+              <img src="assets/img/galeria-hielo-terminado-sm.webp" width="600" height="450" loading="lazy" decoding="async" alt="Un cubo de hielo cristalino sobre fondo oscuro">
+            </button>
+          </li>
+        </ul>
+      </div>
+      <dialog class="lightbox" id="lightbox" aria-labelledby="lightbox-caption">
+        <div class="lightbox-inner">
+          <img id="lightbox-img" src="" alt="">
+          <div class="lightbox-bar">
+            <p id="lightbox-caption"></p>
+            <span id="lightbox-count" aria-live="polite"></span>
+            <div class="lightbox-ctrl">
+              <button type="button" class="lb-btn" data-lb="prev" aria-label="Imagen anterior"><i class="bi bi-chevron-left" aria-hidden="true"></i></button>
+              <button type="button" class="lb-btn" data-lb="next" aria-label="Imagen siguiente"><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+              <button type="button" class="lb-btn" data-lb="close" aria-label="Cerrar visor"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+            </div>
+          </div>
+        </div>
+      </dialog>
+    </section>
+
+    <!-- 12. Clientes y testimonios (sin material autorizado: matriz de soluciones por sector) -->
+    <section class="section clients" id="clientes" aria-labelledby="clientes-titulo">
+      <div class="container">
+        <div id="con-clientes" hidden>
+          <h2 class="section-title" id="clientes-titulo-real">Negocios que trabajan con nosotros</h2>
+          <ul class="logos" id="lista-logos"></ul>
+          <div class="quotes" id="lista-testimonios"></div>
+        </div>
+        <div id="sin-clientes">
+          <div class="section-head">
+            <h2 id="clientes-titulo" class="section-title">Qué hielo usa cada negocio</h2>
+            <p>Una referencia rápida; si no sabes cuál te conviene, te asesoramos.</p>
+          </div>
+          <div class="matrix-wrap" tabindex="0" role="region" aria-labelledby="clientes-titulo">
+            <table class="matrix" id="matriz">
+              <caption class="visually-hidden">Tipo de hielo más usado según el negocio</caption>
+            </table>
+          </div>
+          <p class="note" data-solo="revision"><i class="bi bi-info-circle" aria-hidden="true"></i> <span>Solo publicaremos logotipos y opiniones de clientes con su autorización por escrito (<code>config.js → clientes</code>).</span></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 13. Llamada a la acción -->
+    <section class="cta-band" id="cta" aria-labelledby="cta-titulo">
+      <div class="container">
+        <div class="cta-card">
+          <div class="cta-copy">
+            <h2 id="cta-titulo">¿Buscas quién te surta de hielo?</h2>
+            <p>Cuéntanos qué formato usas, en qué cantidad y dónde lo recibes. Te respondemos con los empaques y las condiciones disponibles.</p>
+            <div class="cta-actions">
+              <a class="btn btn-wa btn-lg" href="#cotizacion" data-wa="general"><i class="bi bi-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp</a>
+              <a class="btn btn-quiet btn-lg" href="#cotizacion">Llenar el formulario</a>
+            </div>
+            <p class="wa-off-note" data-wa-off hidden><i class="bi bi-info-circle" aria-hidden="true"></i> El WhatsApp de la empresa todavía no está activo; usa el formulario.</p>
+          </div>
+          <figure class="cta-photo">
+            <img src="assets/img/cta-cubo-sm.webp" srcset="assets/img/cta-cubo-sm.webp 480w, assets/img/cta-cubo.webp 800w" sizes="(min-width: 992px) 30vw, 60vw" width="800" height="1000" loading="lazy" decoding="async" alt="Un cubo de hielo cristalino apoyado sobre madera">
+            <span class="ref-tag">Imagen ilustrativa</span>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 14. Formulario de cotización -->
+    <section class="section quote" id="cotizacion" aria-labelledby="cotizacion-titulo">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-4">
+            <h2 id="cotizacion-titulo" class="section-title">Pide tu cotización</h2>
+            <p>Llena estos datos y armamos una propuesta para tu consumo y tu zona.</p>
+            <ul class="quote-help">
+              <li><i class="bi bi-1-circle" aria-hidden="true"></i> Llena los campos marcados con *.</li>
+              <li><i class="bi bi-2-circle" aria-hidden="true"></i> Confirma el resumen.</li>
+              <li><i class="bi bi-3-circle" aria-hidden="true"></i> Envíalo por el canal habilitado.</li>
+            </ul>
+            <p class="small-print">Tus datos no se guardan en esta página; solo salen cuando confirmas el envío.</p>
+          </div>
+          <div class="col-lg-8">
+            <form class="quote-form" id="form-cotizacion" novalidate>
+              <p class="form-alert" id="form-errores" role="alert" hidden></p>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="f-nombre">Tu nombre *</label>
+                  <input class="form-control" id="f-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80" aria-describedby="e-nombre">
+                  <p class="field-error" id="e-nombre"></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-empresa">Nombre del negocio *</label>
+                  <input class="form-control" id="f-empresa" name="empresa" type="text" autocomplete="organization" required maxlength="100" aria-describedby="e-empresa">
+                  <p class="field-error" id="e-empresa"></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-telefono">Teléfono de contacto *</label>
+                  <input class="form-control" id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" required maxlength="20" aria-describedby="h-telefono e-telefono">
+                  <p class="field-hint" id="h-telefono">10 dígitos: celular o fijo.</p>
+                  <p class="field-error" id="e-telefono"></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-correo">Correo *</label>
+                  <input class="form-control" id="f-correo" name="correo" type="email" autocomplete="email" required maxlength="120" aria-describedby="e-correo">
+                  <p class="field-error" id="e-correo"></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-ciudad">Municipio de entrega *</label>
+                  <input class="form-control" id="f-ciudad" name="ciudad" type="text" autocomplete="address-level2" required maxlength="80" aria-describedby="e-ciudad">
+                  <p class="field-error" id="e-ciudad"></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-tipo">Hielo que necesitas *</label>
+                  <select class="form-select" id="f-tipo" name="tipo" required aria-describedby="e-tipo">
+                    <option value="">Elige</option>
+                    <option value="Necesito asesoría">No sé cuál, quiero asesoría</option>
+                  </select>
+                  <p class="field-error" id="e-tipo"></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-cantidad">Consumo estimado *</label>
+                  <div class="qty">
+                    <input class="form-control" id="f-cantidad" name="cantidad" type="number" inputmode="numeric" min="1" max="1000000" step="1" required aria-describedby="e-cantidad">
+                    <label class="visually-hidden" for="f-unidad">Unidad de medida</label>
+                    <select class="form-select" id="f-unidad" name="unidad">
+                      <option>kilos</option>
+                      <option>bolsas</option>
+                      <option>bloques</option>
+                    </select>
+                  </div>
+                  <p class="field-error" id="e-cantidad"></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-frecuencia">¿Cada cuánto compras? *</label>
+                  <select class="form-select" id="f-frecuencia" name="frecuencia" required aria-describedby="e-frecuencia">
+                    <option value="">Elige</option>
+                    <option>Solo una vez (evento)</option>
+                    <option>Todos los días</option>
+                    <option>Varias veces a la semana</option>
+                    <option>Una vez a la semana</option>
+                    <option>Cada quince días</option>
+                    <option>Una vez al mes</option>
+                  </select>
+                  <p class="field-error" id="e-frecuencia"></p>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="f-mensaje">Detalles de la entrega</label>
+                  <textarea class="form-control" id="f-mensaje" name="mensaje" rows="3" maxlength="600" aria-describedby="h-mensaje"></textarea>
+                  <p class="field-hint" id="h-mensaje">Si quieres: dirección, hora para recibir o fecha del evento.</p>
+                </div>
+                <div class="col-12">
+                  <div class="form-check consent">
+                    <input class="form-check-input" type="checkbox" id="f-acepta" name="acepta" required aria-describedby="e-acepta">
+                    <label class="form-check-label" for="f-acepta">Acepto que usen mis datos personales solo para atender esta solicitud, según la <a href="privacidad.html" data-privacidad>política de tratamiento de datos</a>. *</label>
+                  </div>
+                  <p class="field-error" id="e-acepta"></p>
+                </div>
+                <div class="col-12">
+                  <button class="btn btn-brand btn-lg" type="submit">Revisar mi solicitud</button>
+                </div>
+              </div>
+            </form>
+
+            <div class="result" id="form-resultado" hidden tabindex="-1">
+              <h3 class="result-title" id="resultado-titulo"></h3>
+              <p id="resultado-texto"></p>
+              <pre class="result-msg" id="resultado-mensaje"></pre>
+              <div class="result-actions" id="resultado-acciones"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 15. Preguntas frecuentes -->
+    <section class="section faq" id="preguntas" aria-labelledby="preguntas-titulo">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-4">
+            <h2 id="preguntas-titulo" class="section-title">Dudas comunes</h2>
+            <p>¿Tienes otra pregunta? Déjala en el formulario de cotización.</p>
+          </div>
+          <div class="col-lg-8">
+            <div class="accordion" id="faq-lista"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 16. Contacto y pie de página -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
+        <div class="col-lg-4">
+          <a class="brand brand-footer" href="#inicio" aria-label="Subir a la portada">
+            <img class="brand-logo" src="assets/icons/logo-provisional-claro.svg" width="40" height="40" alt="">
+            <span class="brand-text"><span class="brand-name" data-marca>Planta de hielo</span></span>
+          </a>
+          <p class="footer-desc">Planta de hielo que produce y entrega a cocinas, barras, hoteles, tiendas, eventos, distribuidores e industria.</p>
+          <ul class="social" id="redes"></ul>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="footer-title">Secciones</h2>
+          <ul class="footer-links">
+            <li><a href="#nosotros">Empresa</a></li>
+            <li><a href="#productos">Tipos de hielo</a></li>
+            <li><a href="#calidad">Proceso</a></li>
+            <li><a href="#sectores">Negocios</a></li>
+            <li><a href="#cobertura">Entregas</a></li>
+            <li><a href="#preguntas">Dudas</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-6" id="contacto" tabindex="-1">
+          <h2 class="footer-title">Datos de contacto</h2>
+          <dl class="contact-list">
+            <div data-campo="contacto.telefono" data-tipo="tel" data-etiqueta="Teléfono"><dt><i class="bi bi-telephone" aria-hidden="true"></i> Teléfono</dt><dd class="v"></dd></div>
+            <div data-campo="contacto.whatsapp" data-tipo="wa" data-etiqueta="WhatsApp"><dt><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp</dt><dd class="v"></dd></div>
+            <div data-campo="contacto.correo" data-tipo="mail" data-etiqueta="Correo de ventas"><dt><i class="bi bi-envelope" aria-hidden="true"></i> Correo electrónico</dt><dd class="v"></dd></div>
+            <div data-campo="empresa.direccion" data-etiqueta="Dirección"><dt><i class="bi bi-geo-alt" aria-hidden="true"></i> Dirección de la planta</dt><dd class="v"></dd></div>
+            <div data-campo="contacto.horario" data-etiqueta="Horario de atención"><dt><i class="bi bi-clock" aria-hidden="true"></i> Horario de atención</dt><dd class="v"></dd></div>
+            <div data-campo="cobertura.municipios" data-tipo="lista" data-etiqueta="Zona de entrega"><dt><i class="bi bi-map" aria-hidden="true"></i> Zona de entrega</dt><dd class="v"></dd></div>
+          </dl>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="anio"></span> <span data-razon>Planta de hielo</span>. Derechos reservados.</p>
+        <ul class="footer-legal">
+          <li><a href="privacidad.html" data-privacidad>Tratamiento de datos</a></li>
+          <li>
+            <details class="credits">
+              <summary>Origen de las imágenes</summary>
+              <ul id="lista-creditos"></ul>
+            </details>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" id="wa-float" href="#cotizacion" hidden>
+    <i class="bi bi-whatsapp" aria-hidden="true"></i>
+    <span class="wa-float-label">WhatsApp</span>
+  </a>
+</body>
+</html>

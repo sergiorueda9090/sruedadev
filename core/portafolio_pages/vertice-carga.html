@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0B2238" />
+
+<!-- SEO -->
+<title>Vértice Carga · Transporte Terrestre de Carga en Colombia</title>
+<meta name="description" content="Transporte terrestre de carga en Colombia: tractomulas, camiones rígidos y furgones coordinados de punta a punta. Solicita una cotización para tu próximo envío." />
+<meta name="keywords" content="transporte de carga Colombia, tractomulas, carga paletizada, transporte dedicado, logística terrestre, cotización de transporte" />
+<meta name="author" content="Vértice Carga" />
+<link rel="canonical" href="https://[tudominio].com.co/" />
+
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Vértice Carga — Transporte Terrestre de Carga en Colombia" />
+<meta property="og:description" content="Coordinamos el transporte de tu mercancía de punta a punta: carga seca, carga paletizada y transporte dedicado para empresas." />
+<meta property="og:url" content="https://[tudominio].com.co/" />
+<meta property="og:image" content="https://[tudominio].com.co/og-cover.jpg" />
+<meta property="og:locale" content="es_CO" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Vértice Carga — Transporte Terrestre de Carga en Colombia" />
+<meta name="twitter:description" content="Transporte terrestre de carga coordinado de punta a punta en Colombia." />
+<meta name="twitter:image" content="https://[tudominio].com.co/og-cover.jpg" />
+
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+
+<!--
+  JSON-LD: no existe un @type de Schema.org específico para "transporte de
+  carga terrestre", por lo que se usa LocalBusiness (valor por defecto de la
+  tabla de referencia). No se incluyen aggregateRating, geo ni
+  openingHoursSpecification porque no hay datos reales confirmados: se
+  omiten en vez de inventarlos. Reemplaza los valores entre [ ] antes de publicar.
+-->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Vértice Carga",
+  "description": "Transporte terrestre de carga en Colombia: carga seca, carga paletizada y transporte dedicado para empresas.",
+  "url": "https://[tudominio].com.co",
+  "telephone": "[+57 TELÉFONO]",
+  "email": "[correo@tudominio.com.co]",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "[Dirección]",
+    "addressLocality": "[Ciudad]",
+    "addressRegion": "[Departamento]",
+    "addressCountry": "CO"
+  }
+}
+</script>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<style>
+  :root {
+    --ink:          #0B2238;
+    --ink-2:        #123049;
+    --paper:        #F6F3EC;
+    --paper-2:      #EFEBE1;
+    --mineral:      #6B6E6B;
+    --mineral-light:#AFB0A8;
+    --steel:        #DAD7CC;
+    --signal:       #C65A28;
+    --signal-deep:  #8F3C19;
+    --white:        #FFFFFF;
+
+    --font-display: 'Space Grotesk', system-ui, sans-serif;
+    --font-body:    'Work Sans', system-ui, sans-serif;
+
+    --r-sm: 2px;
+    --r-md: 4px;
+    --transition: all .3s cubic-bezier(.4,0,.2,1);
+    --nav-h: 80px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; scroll-padding-top: var(--nav-h); -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.65;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+  }
+  input, textarea, select, button { font-family: inherit; font-size: 16px; }
+  h1, h2, h3, h4 { font-family: var(--font-display); color: var(--ink); line-height: 1.12; font-weight: 600; }
+  a { text-decoration: none; color: inherit; transition: var(--transition); }
+  img { max-width: 100%; display: block; }
+  p { max-width: 62ch; }
+  .container-x { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 28px; }
+  .section { padding: 110px 0; }
+  .section-sm { padding: 64px 0; }
+  .on-dark { background: var(--ink); color: var(--paper); }
+  .on-dark h1, .on-dark h2, .on-dark h3, .on-dark h4 { color: var(--paper); }
+  .on-dark p { color: #C9D2DA; }
+  .on-steel { background: var(--paper-2); }
+
+  .skip-link {
+    position: absolute; left: -999px; top: 0; background: var(--signal); color: #fff;
+    padding: 10px 16px; z-index: 2000; font-weight: 600;
+  }
+  .skip-link:focus { left: 8px; top: 8px; }
+
+  h2.sec-h { font-size: clamp(1.9rem, 3vw, 2.7rem); margin-bottom: .5rem; }
+  .sec-lede { color: var(--mineral); max-width: 54ch; font-size: 1.02rem; }
+  .on-dark .sec-lede { color: #AEBAC4; }
+
+  /* ===== Botones ===== */
+  .btn-v {
+    font-family: var(--font-body); font-weight: 600; font-size: .92rem;
+    padding: 15px 30px; border-radius: var(--r-sm); border: 1px solid transparent;
+    display: inline-flex; align-items: center; gap: 10px; cursor: pointer;
+    transition: var(--transition); white-space: nowrap;
+  }
+  .btn-v-primary { background: var(--signal); color: #fff; }
+  .btn-v-primary:hover { background: var(--signal-deep); }
+  .btn-v-ghost-light { background: transparent; color: var(--paper); border-color: rgba(246,243,236,.4); }
+  .btn-v-ghost-light:hover { border-color: var(--paper); background: rgba(246,243,236,.08); }
+  .btn-v-ghost-dark { background: transparent; color: var(--ink); border-color: var(--ink); }
+  .btn-v-ghost-dark:hover { background: var(--ink); color: var(--paper); }
+  .btn-v-block { width: 100%; justify-content: center; }
+
+  /* ===== Reveal (orquestado por secciones, no por cada tarjeta) =====
+     Visible por defecto: el estado oculto solo lo aplica JS (clase .js-anim-ready),
+     así el contenido nunca depende de que el script cargue para poder verse. */
+  .reveal-group.js-anim-ready { opacity: 0; transform: translateY(24px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal-group.js-anim-ready.visible { opacity: 1; transform: none; }
+
+  /* ===== Navbar ===== */
+  #navbar {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    padding: 22px 0; transition: var(--transition);
+  }
+  #navbar.scrolled { background: rgba(11,34,56,.94); backdrop-filter: blur(8px); padding: 14px 0; }
+  .nav-row { display: flex; align-items: center; justify-content: space-between; }
+  .nav-brand { display: flex; flex-direction: column; line-height: 1; color: var(--paper); }
+  .nav-brand strong { font-family: var(--font-display); font-size: 1.15rem; font-weight: 700; letter-spacing: .01em; }
+  .nav-brand small { font-size: .62rem; color: var(--signal); font-weight: 600; letter-spacing: .08em; }
+  .nav-links { display: flex; align-items: center; gap: 6px; }
+  .nav-links a:not(.btn-v) {
+    color: var(--paper); font-size: .92rem; font-weight: 500; padding: 10px 14px; border-radius: var(--r-sm);
+  }
+  .nav-links a:not(.btn-v):hover { background: rgba(246,243,236,.1); }
+  .nav-toggle { background: transparent; border: none; color: var(--paper); font-size: 1.6rem; display: none; }
+  @media (max-width: 991px) {
+    .nav-toggle { display: block; }
+    .nav-links {
+      position: fixed; top: 0; right: 0; bottom: 0; width: min(78vw, 340px);
+      background: var(--ink); flex-direction: column; align-items: stretch; gap: 2px;
+      padding: calc(var(--nav-h) + 10px) 24px 24px; transform: translateX(100%);
+      transition: transform .35s ease; box-shadow: -10px 0 30px rgba(0,0,0,.3);
+    }
+    .nav-links.open { transform: translateX(0); }
+    .nav-links a:not(.btn-v) { padding: 14px 10px; border-bottom: 1px solid rgba(246,243,236,.08); }
+    .nav-links .btn-v { margin-top: 14px; }
+  }
+
+  /* ===== Hero ===== */
+  .hero {
+    position: relative; background: var(--ink); color: var(--paper);
+    display: grid; grid-template-columns: 1.15fr 1fr; min-height: 100vh;
+  }
+  .hero-copy {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: calc(var(--nav-h) + 50px) 56px 70px clamp(28px, 6vw, 80px);
+  }
+  .hero-copy h1 { color: var(--paper); font-size: clamp(2.3rem, 4.6vw, 4.1rem); max-width: 11ch; margin-bottom: 1.4rem; }
+  .hero-copy p.lead { font-size: 1.1rem; color: #C9D2DA; max-width: 42ch; margin-bottom: 2.2rem; }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .hero-media {
+    position: relative; overflow: hidden; background: #081625;
+    background-image:
+      linear-gradient(rgba(201,210,218,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(201,210,218,.06) 1px, transparent 1px);
+    background-size: 36px 36px;
+  }
+  .hero-media i.bg-truck {
+    position: absolute; right: -40px; bottom: -40px; font-size: 26rem; color: var(--paper);
+    opacity: .04; line-height: 1;
+  }
+  .hero-media svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+  .hero-route-path { stroke: var(--signal); stroke-width: 2.4; fill: none; stroke-dasharray: 6 7; }
+  .hero-route-dot { fill: var(--signal); }
+  .hero-route-label {
+    font-family: var(--font-body); font-size: 12px; fill: var(--paper); font-weight: 600;
+  }
+  @media (max-width: 991px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-copy { padding: calc(var(--nav-h) + 36px) 24px 40px; }
+    .hero-media { aspect-ratio: 4 / 3; }
+  }
+
+  /* ===== Franja de capacidades ===== */
+  .capability-strip { background: var(--ink-2); padding: 30px 0; overflow: hidden; }
+  .chip-row { display: flex; gap: 12px; flex-wrap: wrap; }
+  .chip {
+    border: 1px solid rgba(246,243,236,.28); color: var(--paper);
+    font-size: .85rem; font-weight: 500; padding: 9px 18px; border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  /* ===== Servicios: filas editoriales alternas ===== */
+  .service-row { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 48px; margin-bottom: 86px; }
+  .service-row:last-child { margin-bottom: 0; }
+  .service-row:nth-child(even) .service-media { order: 2; }
+  .service-media { aspect-ratio: 5/4; overflow: hidden; border-radius: var(--r-md); }
+  .service-media img { width: 100%; height: 100%; object-fit: cover; }
+  .service-num { font-family: var(--font-display); font-size: .85rem; color: var(--signal); font-weight: 700; margin-bottom: .6rem; }
+  .service-copy h3 { font-size: clamp(1.4rem, 2.2vw, 1.9rem); margin-bottom: .8rem; }
+  .service-copy p { color: var(--mineral); margin-bottom: 1.1rem; }
+  .service-need {
+    border-left: 2px solid var(--signal); padding-left: 14px; font-size: .9rem; color: var(--ink);
+  }
+  .service-need strong { font-weight: 700; }
+
+  /* ===== Marcador de fotografía (reemplazar por fotos reales) ===== */
+  .ph-photo {
+    width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; gap: 10px; text-align: center; padding: 24px;
+    background: repeating-linear-gradient(135deg, var(--ink-2) 0 2px, #0E2B45 2px 34px);
+  }
+  .ph-photo i { font-size: 2.3rem; color: var(--signal); opacity: .9; }
+  .ph-photo span { font-size: .76rem; max-width: 24ch; line-height: 1.45; color: #9FB0BD; }
+  @media (max-width: 767px) {
+    .service-row, .service-row:nth-child(even) { grid-template-columns: 1fr; gap: 20px; }
+    .service-row:nth-child(even) .service-media { order: 0; }
+  }
+
+  /* ===== Flota: catálogo horizontal ===== */
+  .fleet-scroll {
+    display: flex; gap: 22px; overflow-x: auto; padding-bottom: 10px; scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+  }
+  .fleet-card {
+    scroll-snap-align: start; flex: 0 0 min(78vw, 360px); position: relative; overflow: hidden; border-radius: var(--r-md);
+    aspect-ratio: 3/4; background: var(--ink);
+  }
+  .fleet-card img { width: 100%; height: 100%; object-fit: cover; }
+  .fleet-card .fleet-label {
+    position: absolute; left: 0; right: 0; bottom: 0; padding: 22px 20px;
+    background: linear-gradient(0deg, rgba(11,34,56,.92), transparent);
+    color: var(--paper);
+  }
+  .fleet-card .fleet-label strong { font-family: var(--font-display); font-size: 1.1rem; display: block; margin-bottom: 2px; }
+  .fleet-card .fleet-label span { font-size: .85rem; color: #C9D2DA; }
+
+  /* ===== Proceso: línea de secuencia ===== */
+  .process-line { position: relative; padding-left: 46px; }
+  .process-line::before {
+    content: ''; position: absolute; left: 11px; top: 10px; bottom: 10px; width: 2px; background: var(--steel);
+  }
+  .process-step { position: relative; padding-bottom: 42px; }
+  .process-step:last-child { padding-bottom: 0; }
+  .process-step::before {
+    content: attr(data-step); position: absolute; left: -46px; top: -2px; width: 24px; height: 24px;
+    border-radius: 50%; background: var(--signal); color: #fff; font-family: var(--font-display);
+    font-size: .72rem; font-weight: 700; display: flex; align-items: center; justify-content: center;
+  }
+  .process-step h4 { font-size: 1.15rem; margin-bottom: .35rem; }
+  .process-step p { color: var(--mineral); font-size: .96rem; }
+
+  /* ===== Cobertura ===== */
+  .coverage-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center; }
+  .coverage-note {
+    border: 1px dashed var(--mineral-light); border-radius: var(--r-md); padding: 16px 18px;
+    font-size: .88rem; color: var(--mineral); margin-top: 1.2rem;
+  }
+  @media (max-width: 767px) { .coverage-wrap { grid-template-columns: 1fr; } }
+
+  /* ===== Empresa / diferenciadores ===== */
+  .trust-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 56px; }
+  .trust-list { list-style: none; display: flex; flex-direction: column; gap: 20px; }
+  .trust-list li { display: flex; gap: 14px; align-items: flex-start; }
+  .trust-list i { color: var(--signal); font-size: 1.3rem; margin-top: 2px; }
+  .trust-list strong { display: block; font-family: var(--font-display); font-size: 1rem; margin-bottom: 2px; }
+  .trust-list span { color: var(--mineral); font-size: .92rem; }
+  @media (max-width: 767px) { .trust-wrap { grid-template-columns: 1fr; } }
+
+  /* ===== Formulario de cotización ===== */
+  .quote-card { background: var(--ink); color: var(--paper); border-radius: var(--r-md); padding: clamp(28px, 4vw, 56px); }
+  .quote-card .sec-h, .quote-card .sec-lede { color: var(--paper); }
+  .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 2rem; }
+  .form-grid .full { grid-column: 1 / -1; }
+  .f-field label { display: block; font-size: .82rem; font-weight: 600; margin-bottom: 6px; color: #C9D2DA; }
+  .f-field input, .f-field select, .f-field textarea {
+    width: 100%; background: rgba(246,243,236,.06); border: 1px solid rgba(246,243,236,.22);
+    border-radius: var(--r-sm); padding: 12px 14px; color: var(--paper);
+  }
+  .f-field input::placeholder, .f-field textarea::placeholder { color: #7E8E9A; }
+  .f-field input:focus, .f-field select:focus, .f-field textarea:focus {
+    outline: none; border-color: var(--signal);
+  }
+  .f-field textarea { resize: vertical; min-height: 90px; }
+  .f-check { display: flex; gap: 10px; align-items: flex-start; font-size: .85rem; color: #C9D2DA; margin-top: 1.4rem; }
+  .f-check input { width: 18px; height: 18px; margin-top: 2px; flex-shrink: 0; }
+  .form-status { margin-top: 1rem; font-size: .9rem; color: var(--signal); min-height: 1.2em; }
+  :invalid { box-shadow: none; }
+  .was-validated :invalid { border-color: #e06a4f !important; }
+  @media (max-width: 575px) { .form-grid { grid-template-columns: 1fr; } }
+
+  /* ===== CTA final ===== */
+  .cta-final { text-align: left; }
+  .cta-final .container-x { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 24px; }
+  .cta-final h2 { font-size: clamp(1.7rem, 3vw, 2.4rem); max-width: 18ch; }
+
+  /* ===== Footer ===== */
+  footer.site-footer { background: var(--ink-2); color: #AEBAC4; padding: 70px 0 28px; }
+  footer.site-footer h5 { color: var(--paper); font-size: .95rem; margin-bottom: 16px; font-family: var(--font-body); font-weight: 700; }
+  footer.site-footer a { color: #AEBAC4; font-size: .9rem; display: block; padding: 4px 0; }
+  footer.site-footer a:hover { color: var(--paper); }
+  footer .foot-brand strong { font-family: var(--font-display); color: var(--paper); font-size: 1.2rem; }
+  footer .social { display: flex; gap: 10px; margin-top: 16px; }
+  footer .social a { width: 38px; height: 38px; border: 1px solid rgba(246,243,236,.25); border-radius: 50%; display: flex; align-items: center; justify-content: center; padding: 0; }
+  footer .social a:hover { background: var(--signal); border-color: var(--signal); }
+  footer .copy { border-top: 1px solid rgba(246,243,236,.1); padding-top: 22px; margin-top: 44px; font-size: .82rem; text-align: center; }
+
+  /* ===== Flotantes ===== */
+  .whatsapp-float, .scroll-top {
+    position: fixed; right: 22px; z-index: 999; width: 56px; height: 56px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; font-size: 1.6rem; color: #fff;
+    box-shadow: 0 6px 20px rgba(0,0,0,.3); transition: var(--transition); border: none; cursor: pointer;
+  }
+  .whatsapp-float { bottom: calc(22px + env(safe-area-inset-bottom)); background: #25d366; animation: wa-float 3s ease-in-out infinite; }
+  .whatsapp-float i { animation: wa-wiggle 3s ease-in-out infinite; display: inline-block; }
+  .whatsapp-float::before, .whatsapp-float::after {
+    content: ''; position: absolute; inset: 0; border-radius: 50%; background: #25d366; z-index: -1; opacity: .6;
+    animation: wa-ripple 2.2s ease-out infinite;
+  }
+  .whatsapp-float::after { animation-delay: 1.1s; }
+  .whatsapp-float:hover { transform: scale(1.1) translateY(-4px); animation-play-state: paused; }
+  .whatsapp-float:hover i { animation-play-state: paused; }
+  @keyframes wa-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-8px); } }
+  @keyframes wa-wiggle { 0%,60%,100% { transform: rotate(0); } 70% { transform: rotate(-12deg); } 80% { transform: rotate(12deg); } 90% { transform: rotate(-6deg); } }
+  @keyframes wa-ripple { 0% { transform: scale(1); opacity: .55; } 70% { opacity: 0; } 100% { transform: scale(2.4); opacity: 0; } }
+  .scroll-top { bottom: calc(92px + env(safe-area-inset-bottom)); background: var(--ink); opacity: 0; pointer-events: none; }
+  .scroll-top.visible { opacity: 1; pointer-events: auto; }
+  .scroll-top:hover { background: var(--signal); }
+  @media (prefers-reduced-motion: reduce) {
+    .whatsapp-float, .whatsapp-float i, .whatsapp-float::before, .whatsapp-float::after { animation: none !important; }
+  }
+  @media (max-width: 575px) {
+    .whatsapp-float, .scroll-top { width: 50px; height: 50px; font-size: 1.4rem; right: 16px; }
+    .scroll-top { bottom: calc(80px + env(safe-area-inset-bottom)); }
+  }
+
+  /* ===== Breakpoints adicionales (escala tipográfica) ===== */
+  @media (min-width: 1920px) { html { font-size: 17.5px; } .container-x { max-width: 1480px; } }
+  @media (min-width: 1400px) and (max-width: 1919px) { .container-x { max-width: 1320px; } }
+  @media (max-width: 575px) { html { font-size: 15px; } }
+  @media (max-width: 360px) { html { font-size: 14px; } }
+  @media (orientation: landscape) and (max-height: 480px) { .hero { min-height: auto; } .hero-copy { padding-top: calc(var(--nav-h) + 20px); } }
+
+  @media print {
+    #navbar, .whatsapp-float, .scroll-top, .cta-final, .capability-strip { display: none !important; }
+  }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<header id="navbar">
+  <div class="container-x nav-row">
+    <a href="#inicio" class="nav-brand">
+      <strong>VÉRTICE</strong>
+      <small>CARGA · INGENIERÍA DEL MOVIMIENTO</small>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#servicios">Servicios</a>
+      <a href="#flota">Flota</a>
+      <a href="#operacion">Operación</a>
+      <a href="#empresa">Empresa</a>
+      <a href="#contacto">Contacto</a>
+      <a href="#cotizar" class="btn-v btn-v-primary">Cotizar envío</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <i class="bi bi-list" id="navToggleIcon"></i>
+    </button>
+  </div>
+</header>
+
+<main id="contenido">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero-copy">
+      <h1>Movemos la carga que mueve tu negocio.</h1>
+      <p class="lead">Transporte terrestre de carga en Colombia, coordinado de punta a punta: desde la solicitud hasta la confirmación de entrega.</p>
+      <div class="hero-cta">
+        <a href="#cotizar" class="btn-v btn-v-primary">Cotizar un envío</a>
+        <a href="#servicios" class="btn-v btn-v-ghost-light">Ver servicios</a>
+      </div>
+    </div>
+    <div class="hero-media" id="heroMedia" role="img" aria-label="Esquema de ruta entre un punto de origen y un punto de destino, con un camión de fondo">
+      <i class="bi bi-truck bg-truck" aria-hidden="true"></i>
+      <svg viewBox="0 0 400 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <path class="hero-route-path" id="heroRoutePath" d="M36,450 C130,370 95,270 215,225 C295,196 300,165 350,150" />
+        <circle class="hero-route-dot" cx="36" cy="450" r="5" />
+        <circle class="hero-route-dot" cx="350" cy="150" r="5" />
+        <text class="hero-route-label" x="46" y="440">ORIGEN</text>
+        <text class="hero-route-label" x="260" y="144">DESTINO</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- FRANJA DE CAPACIDADES -->
+  <!-- Ajustar estas categorías según los servicios reales que confirme el cliente. -->
+  <section class="capability-strip">
+    <div class="container-x chip-row">
+      <span class="chip">Carga seca</span>
+      <span class="chip">Carga paletizada</span>
+      <span class="chip">Tractomulas y tractocamiones</span>
+      <span class="chip">Camiones rígidos</span>
+      <span class="chip">Furgones</span>
+      <span class="chip">Transporte dedicado para empresas</span>
+    </div>
+  </section>
+
+  <!-- SERVICIOS -->
+  <section class="section" id="servicios">
+    <div class="container-x">
+      <div class="reveal-group" style="margin-bottom: 64px;">
+        <h2 class="sec-h">Servicios</h2>
+        <p class="sec-lede">Cada operación se cotiza según el tipo de mercancía, el origen y el destino. Esto es lo que necesitamos saber de cada una.</p>
+      </div>
+
+      <div class="reveal-group">
+        <div class="service-row">
+          <div class="service-media"><div class="ph-photo"><i class="bi bi-box-seam"></i><span>Foto: mercancía empacada lista para despacho — reemplazar por fotografía real</span></div></div>
+          <div class="service-copy">
+            <div class="service-num">Carga seca y mercancía general</div>
+            <h3>Transporte de mercancía empacada o a granel seco</h3>
+            <p>Para productos empacados, en cajas o a granel seco que no requieren condiciones especiales de manejo.</p>
+            <p class="service-need"><strong>Para cotizar, necesitamos:</strong> origen y destino, tipo de empaque, peso o volumen aproximado.</p>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div class="service-media"><div class="ph-photo"><i class="bi bi-boxes"></i><span>Foto: estibas paletizadas en bodega — reemplazar por fotografía real</span></div></div>
+          <div class="service-copy">
+            <div class="service-num">Carga paletizada y distribución</div>
+            <h3>Transporte de mercancía paletizada a uno o varios puntos</h3>
+            <p>Pensado para operaciones con estibas que deben distribuirse entre varios destinos dentro de una misma ruta.</p>
+            <p class="service-need"><strong>Para cotizar, necesitamos:</strong> número de estibas, puntos de entrega, fecha estimada.</p>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div class="service-media"><div class="ph-photo"><i class="bi bi-truck-front"></i><span>Foto: vehículo asignado a una operación empresarial — reemplazar por fotografía real</span></div></div>
+          <div class="service-copy">
+            <div class="service-num">Transporte dedicado para empresas</div>
+            <h3>Vehículo y horario asignados a la operación de tu empresa</h3>
+            <p>Para empresas con necesidades de transporte recurrentes que requieren coordinación continua, no un servicio puntual.</p>
+            <p class="service-need"><strong>Para cotizar, necesitamos:</strong> frecuencia de los envíos, rutas habituales, volumen mensual aproximado.</p>
+          </div>
+        </div>
+
+        <div class="service-row">
+          <div class="service-media"><div class="ph-photo"><i class="bi bi-signpost-split"></i><span>Foto: coordinación de rutas y despachos — reemplazar por fotografía real</span></div></div>
+          <div class="service-copy">
+            <div class="service-num">Coordinación logística</div>
+            <h3>Planeación de rutas y comunicación durante el trayecto</h3>
+            <p>Coordinamos la ruta, el horario de despacho y mantenemos comunicación directa contigo durante la operación.</p>
+            <p class="service-need"><strong>Para cotizar, necesitamos:</strong> detalles del despacho, contacto en destino, restricciones de horario si aplica.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FLOTA -->
+  <section class="section on-steel" id="flota">
+    <div class="container-x">
+      <div class="reveal-group" style="margin-bottom: 44px;">
+        <h2 class="sec-h">Flota y vehículos</h2>
+        <p class="sec-lede">Categorías de vehículo disponibles según el tipo de carga. [Confirmar tonelaje, dimensiones y cantidad de unidades por categoría antes de publicar.]</p>
+      </div>
+    </div>
+    <div class="container-x">
+      <div class="fleet-scroll reveal-group">
+        <div class="fleet-card">
+          <div class="ph-photo" style="background: repeating-linear-gradient(135deg, var(--ink) 0 2px, #0E2B45 2px 34px);"><i class="bi bi-truck-front-fill"></i><span>Foto real pendiente</span></div>
+          <div class="fleet-label"><strong>Tractomulas y tractocamiones</strong><span>Para operaciones de mayor volumen</span></div>
+        </div>
+        <div class="fleet-card">
+          <div class="ph-photo" style="background: repeating-linear-gradient(135deg, var(--ink) 0 2px, #0E2B45 2px 34px);"><i class="bi bi-truck"></i><span>Foto real pendiente</span></div>
+          <div class="fleet-label"><strong>Camiones rígidos</strong><span>Para rutas urbanas e interurbanas</span></div>
+        </div>
+        <div class="fleet-card">
+          <div class="ph-photo" style="background: repeating-linear-gradient(135deg, var(--ink) 0 2px, #0E2B45 2px 34px);"><i class="bi bi-box2"></i><span>Foto real pendiente</span></div>
+          <div class="fleet-label"><strong>Furgones</strong><span>Para mercancía empacada y distribución</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO OPERATIVO -->
+  <section class="section" id="operacion">
+    <div class="container-x">
+      <div class="reveal-group" style="margin-bottom: 56px;">
+        <h2 class="sec-h">Cómo funciona el servicio</h2>
+        <p class="sec-lede">Cinco pasos, desde que nos escribes hasta que confirmamos la entrega.</p>
+      </div>
+      <div class="process-line reveal-group" style="max-width: 640px;">
+        <div class="process-step" data-step="1"><h4>Solicitud del cliente</h4><p>Nos cuentas qué necesitas transportar, desde dónde y hacia dónde.</p></div>
+        <div class="process-step" data-step="2"><h4>Revisión de la mercancía y la ruta</h4><p>Confirmamos tipo de carga, volumen aproximado y la ruta a cubrir.</p></div>
+        <div class="process-step" data-step="3"><h4>Coordinación del servicio</h4><p>Asignamos el vehículo adecuado y programamos el despacho.</p></div>
+        <div class="process-step" data-step="4"><h4>Comunicación durante la operación</h4><p>Mantenemos contacto directo contigo durante el trayecto.</p></div>
+        <div class="process-step" data-step="5"><h4>Confirmación de entrega</h4><p>Validamos que la mercancía llegó en las condiciones acordadas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COBERTURA -->
+  <section class="section on-steel" id="cobertura">
+    <div class="container-x coverage-wrap">
+      <div class="reveal-group">
+        <h2 class="sec-h">Cobertura</h2>
+        <p class="sec-lede">Operamos sobre rutas terrestres confirmadas dentro de Colombia.</p>
+        <div class="coverage-note">[Especifica aquí las ciudades y rutas reales que la empresa cubre. No se publican ciudades ni cobertura nacional sin confirmar.]</div>
+      </div>
+      <div class="reveal-group">
+        <svg viewBox="0 0 320 300" width="100%" role="img" aria-label="Esquema de rutas de cobertura">
+          <path d="M40,250 C90,190 70,140 140,120 C190,105 200,60 270,40" stroke="#C65A28" stroke-width="2.5" fill="none" stroke-dasharray="5 6" />
+          <circle cx="40" cy="250" r="6" fill="#0B2238" />
+          <circle cx="140" cy="120" r="5" fill="#6B6E6B" />
+          <circle cx="270" cy="40" r="6" fill="#0B2238" />
+          <text x="48" y="268" font-family="Work Sans" font-size="12" fill="#0B2238">[Ciudad origen]</text>
+          <text x="148" y="112" font-family="Work Sans" font-size="12" fill="#6B6E6B">[Ciudad intermedia]</text>
+          <text x="200" y="34" font-family="Work Sans" font-size="12" fill="#0B2238">[Ciudad destino]</text>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMPRESA / DIFERENCIADORES -->
+  <section class="section" id="empresa">
+    <div class="container-x trust-wrap">
+      <div class="reveal-group">
+        <h2 class="sec-h">Por qué coordinar tu transporte con nosotros</h2>
+        <p class="sec-lede">La carga de tu empresa necesita respuestas claras, no promesas genéricas. Así trabajamos cada operación.</p>
+      </div>
+      <ul class="trust-list reveal-group">
+        <li><i class="bi bi-chat-square-text"></i><div><strong>Claridad en la cotización</strong><span>Sabes qué vehículo, qué ruta y qué condiciones aplican antes de confirmar.</span></div></li>
+        <li><i class="bi bi-diagram-3"></i><div><strong>Coordinación directa</strong><span>Un punto de contacto durante toda la operación, sin intermediarios adicionales.</span></div></li>
+        <li><i class="bi bi-briefcase"></i><div><strong>Atención empresarial</strong><span>Procesos pensados para empresas con necesidades de transporte recurrentes.</span></div></li>
+        <li><i class="bi bi-sliders"></i><div><strong>Adaptación a cada operación</strong><span>Cada envío se coordina según el tipo de carga y la ruta, no con una plantilla fija.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FORMULARIO DE COTIZACIÓN -->
+  <section class="section" id="cotizar">
+    <div class="container-x">
+      <div class="quote-card reveal-group">
+        <h2 class="sec-h">Cotiza tu envío</h2>
+        <p class="sec-lede">Completa el formulario y te contactaremos para confirmar los detalles de tu operación.</p>
+        <form id="quoteForm" class="form-grid" novalidate>
+          <div class="f-field"><label for="f-name">Nombre completo *</label><input type="text" id="f-name" name="nombre" required /></div>
+          <div class="f-field"><label for="f-company">Empresa *</label><input type="text" id="f-company" name="empresa" required /></div>
+          <div class="f-field"><label for="f-email">Correo electrónico *</label><input type="email" id="f-email" name="correo" required /></div>
+          <div class="f-field"><label for="f-phone">Teléfono *</label><input type="tel" id="f-phone" name="telefono" required /></div>
+          <div class="f-field">
+            <label for="f-merch">Tipo de mercancía *</label>
+            <select id="f-merch" name="tipo_mercancia" required>
+              <option value="">Selecciona una opción</option>
+              <option>Carga seca / mercancía general</option>
+              <option>Carga paletizada</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="f-field">
+            <label for="f-vehicle">Tipo de vehículo requerido *</label>
+            <select id="f-vehicle" name="tipo_vehiculo" required>
+              <option value="">Selecciona una opción</option>
+              <option>Tractomula / tractocamión</option>
+              <option>Camión rígido</option>
+              <option>Furgón</option>
+              <option>No estoy seguro</option>
+            </select>
+          </div>
+          <div class="f-field"><label for="f-origin">Ciudad de origen *</label><input type="text" id="f-origin" name="origen" required /></div>
+          <div class="f-field"><label for="f-dest">Ciudad de destino *</label><input type="text" id="f-dest" name="destino" required /></div>
+          <div class="f-field"><label for="f-date">Fecha estimada *</label><input type="date" id="f-date" name="fecha" required /></div>
+          <div class="f-field"><label for="f-weight">Peso o volumen aproximado</label><input type="text" id="f-weight" name="peso" placeholder="Ej: 8 toneladas / 12 estibas" /></div>
+          <div class="f-field full"><label for="f-notes">Información adicional</label><textarea id="f-notes" name="notas"></textarea></div>
+          <div class="full">
+            <label class="f-check">
+              <input type="checkbox" id="f-consent" name="consentimiento" required />
+              <span>Autorizo el tratamiento de mis datos personales conforme a la Ley 1581 de 2012 para ser contactado sobre esta solicitud. *</span>
+            </label>
+          </div>
+          <div class="full">
+            <button type="submit" class="btn-v btn-v-primary btn-v-block">Enviar solicitud de cotización</button>
+            <p class="form-status" id="formStatus" role="status"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="section-sm cta-final on-dark">
+    <div class="container-x">
+      <h2>¿Tienes una carga para mover? Cuéntanos la ruta.</h2>
+      <a href="#cotizar" class="btn-v btn-v-ghost-light">Cotizar un envío</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer" id="contacto">
+  <div class="container-x">
+    <div class="row gy-4">
+      <div class="col-lg-4 foot-brand">
+        <strong>VÉRTICE CARGA</strong>
+        <p style="margin-top:10px; max-width: 32ch;">Transporte terrestre de carga en Colombia, coordinado de punta a punta.</p>
+        <div class="social">
+          <a href="#" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+          <a href="#" aria-label="Facebook"><i class="bi bi-facebook"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h5>Navegación</h5>
+        <a href="#servicios">Servicios</a>
+        <a href="#flota">Flota</a>
+        <a href="#operacion">Operación</a>
+        <a href="#empresa">Empresa</a>
+      </div>
+      <div class="col-lg-2 col-6">
+        <h5>Servicios</h5>
+        <a href="#servicios">Carga seca</a>
+        <a href="#servicios">Carga paletizada</a>
+        <a href="#servicios">Transporte dedicado</a>
+      </div>
+      <div class="col-lg-4">
+        <h5>Contacto</h5>
+        <a href="#">[Dirección, Ciudad]</a>
+        <a href="tel:+57">[+57 Teléfono / WhatsApp]</a>
+        <a href="mailto:correo@tudominio.com.co">[correo@tudominio.com.co]</a>
+      </div>
+    </div>
+    <div class="copy">
+      © <span id="year"></span> Vértice Carga · NIT [000.000.000-0] · <a href="#" style="display:inline;">Términos</a> · <a href="#" style="display:inline;">Privacidad</a>
+    </div>
+  </div>
+</footer>
+
+<!--
+  Botón flotante de WhatsApp: no se incluyó un número real porque no fue
+  confirmado por el cliente. Por ahora dirige al formulario de cotización.
+  Para activarlo, reemplaza el href por:
+  https://wa.me/57XXXXXXXXXX?text=Hola%2C%20quiero%20cotizar%20un%20transporte%20de%20carga
+-->
+<a href="#cotizar" class="whatsapp-float" aria-label="Escríbenos para cotizar">
+  <i class="bi bi-whatsapp"></i>
+</a>
+<button class="scroll-top" id="scrollTop" aria-label="Volver arriba">
+  <i class="bi bi-arrow-up"></i>
+</button>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Navbar scroll state + scroll-top visibility
+  const navbar = document.getElementById('navbar');
+  const scrollTop = document.getElementById('scrollTop');
+  window.addEventListener('scroll', () => {
+    const y = window.scrollY;
+    navbar.classList.toggle('scrolled', y > 20);
+    scrollTop.classList.toggle('visible', y > 500);
+  });
+  scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+  // Mobile nav toggle
+  const navToggle = document.getElementById('navToggle');
+  const navToggleIcon = document.getElementById('navToggleIcon');
+  const navLinks = document.getElementById('navLinks');
+  navToggle.addEventListener('click', () => {
+    const open = navLinks.classList.toggle('open');
+    navToggle.setAttribute('aria-expanded', open);
+    navToggleIcon.className = open ? 'bi bi-x-lg' : 'bi bi-list';
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggleIcon.className = 'bi bi-list';
+  }));
+
+  // Formulario: sin backend. Construye un mailto: con los datos, no simula un envío exitoso.
+  // TODO: reemplazar por una integración real (backend propio, Formspree o EmailJS).
+  const quoteForm = document.getElementById('quoteForm');
+  const formStatus = document.getElementById('formStatus');
+  quoteForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!quoteForm.checkValidity()) {
+      quoteForm.classList.add('was-validated');
+      formStatus.textContent = 'Revisa los campos marcados antes de continuar.';
+      return;
+    }
+    const d = Object.fromEntries(new FormData(quoteForm).entries());
+    const body = [
+      `Nombre: ${d.nombre}`, `Empresa: ${d.empresa}`, `Correo: ${d.correo}`, `Teléfono: ${d.telefono}`,
+      `Tipo de mercancía: ${d.tipo_mercancia}`, `Tipo de vehículo: ${d.tipo_vehiculo}`,
+      `Origen: ${d.origen}`, `Destino: ${d.destino}`, `Fecha estimada: ${d.fecha}`,
+      `Peso/volumen: ${d.peso || '—'}`, `Notas: ${d.notas || '—'}`
+    ].join('\n');
+    const mailto = `mailto:[correo@tudominio.com.co]?subject=${encodeURIComponent('Solicitud de cotización - ' + d.empresa)}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailto;
+    formStatus.textContent = 'Se abrió tu cliente de correo con la solicitud lista para enviar.';
+  });
+
+  // Entrada orquestada del hero (un solo momento, no por cada sección): GSAP si está
+  // disponible; si falla o el usuario prefiere menos movimiento, el contenido ya es
+  // visible por defecto (ver CSS), así que no se requiere nada más.
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  try {
+    if (reduceMotion || !window.gsap) throw new Error('gsap-skip');
+
+    const routePath = document.getElementById('heroRoutePath');
+    const pathLength = routePath.getTotalLength();
+    gsap.set(routePath, { strokeDasharray: pathLength, strokeDashoffset: pathLength });
+    gsap.set(['.hero-copy h1', '.hero-copy .lead', '.hero-cta'], { opacity: 0, y: 18 });
+    gsap.set('.bg-truck', { opacity: 0 });
+
+    gsap.timeline({ defaults: { ease: 'power2.out' } })
+      .to('.hero-copy h1', { opacity: 1, y: 0, duration: .7 }, 0.1)
+      .to('.hero-copy .lead', { opacity: 1, y: 0, duration: .6 }, 0.25)
+      .to('.hero-cta', { opacity: 1, y: 0, duration: .6 }, 0.35)
+      .to('.bg-truck', { opacity: .04, duration: 1, ease: 'power1.out' }, 0.15)
+      .to(routePath, { strokeDashoffset: 0, duration: 1.2 }, 0.5);
+  } catch (err) {
+    // Sin animación de entrada: el contenido ya es visible por defecto.
+  }
+
+  // Revelado al hacer scroll, agrupado por sección (no por cada tarjeta individual),
+  // con IntersectionObserver nativo: sin dependencias de CDN adicionales.
+  if (!reduceMotion && 'IntersectionObserver' in window) {
+    const revealEls = document.querySelectorAll('.reveal-group');
+    revealEls.forEach(el => el.classList.add('js-anim-ready'));
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.classList.add('visible'); io.unobserve(entry.target); }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    revealEls.forEach(el => io.observe(el));
+  }
+</script>
+</body>
+</html>

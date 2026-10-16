@@ -3,14 +3,14 @@ from pathlib import Path
 from urllib.parse import quote_plus
 
 from django.http import Http404, HttpResponse, JsonResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.templatetags.static import static as static_url
 from django.urls import reverse
 from django.views.decorators.http import require_POST
 
 from . import data
 
 PORTAFOLIO_PAGES_DIR = Path(__file__).resolve().parent / "portafolio_pages"
-PROYECTOS_POR_PAGINA = 6
 
 # Dominio de publicación. Se usa para construir URLs absolutas en el sitemap
 # y en robots.txt, que no dependen de `request.get_host()` porque deben ser
@@ -19,8 +19,21 @@ PROYECTOS_POR_PAGINA = 6
 DOMINIO = "https://sruedadev.com"
 
 # Solo estos slugs tienen una página propia servida por Django.
-PROYECTOS_SLUGS = {p["slug"] for p in data.PROYECTOS}
+PROYECTOS_POR_SLUG = {p["slug"]: p for p in data.PROYECTOS}
 PLANES_POR_SLUG = {p["slug"]: p for p in data.PLANES}
+CATEGORIAS_POR_SLUG = {c["slug"]: c for c in data.CATEGORIAS_PORTAFOLIO}
+
+
+def _url_proyecto(proyecto):
+    # Los proyectos "sitio_estatico" son sitios multi-página con sus propios
+    # css/js/imágenes: se sirven tal cual desde static/core/portafolio_sitios/
+    # en vez de por portafolio_detalle, que solo sabe devolver un .html suelto.
+    if proyecto.get("sitio_estatico"):
+        return static_url("core/portafolio_sitios/%s/index.html" % proyecto["slug"])
+    # "caso_estudio": proyecto propio sin sitio público todavía (ver portafolio_caso).
+    if proyecto.get("caso_estudio"):
+        return reverse("core:portafolio_caso", args=[proyecto["slug"]])
+    return reverse("core:portafolio_detalle", args=[proyecto["slug"]])
 
 # Mensaje precargado del botón de WhatsApp en /salud/. El número sigue
 # viniendo de data.WHATSAPP_NUMERO vía el context processor: aquí solo se
@@ -32,23 +45,22 @@ SALUD_WHATSAPP_MENSAJE = (
 SALUD_WHATSAPP_TEXTO = quote_plus(SALUD_WHATSAPP_MENSAJE)
 
 
-def _proyectos_paginados():
-    proyectos = []
-    for proyecto in data.PROYECTOS:
-        proyecto = dict(proyecto)
-        proyecto["url"] = reverse("core:portafolio_detalle", args=[proyecto["slug"]])
-        proyectos.append(proyecto)
-
-    return [
-        proyectos[i:i + PROYECTOS_POR_PAGINA]
-        for i in range(0, len(proyectos), PROYECTOS_POR_PAGINA)
-    ]
+def _categorias_con_conteo():
+    categorias = []
+    for categoria in data.CATEGORIAS_PORTAFOLIO:
+        categoria = dict(categoria)
+        categoria["url"] = reverse("core:portafolio_categoria", args=[categoria["slug"]])
+        categoria["total_proyectos"] = sum(
+            1 for p in data.PROYECTOS if p["categoria_slug"] == categoria["slug"]
+        )
+        categorias.append(categoria)
+    return categorias
 
 
 def home(request):
     contexto = {
         "proceso": data.PROCESO,
-        "proyectos_paginas": _proyectos_paginados(),
+        "categorias_portafolio": _categorias_con_conteo(),
         "planes": data.PLANES,
         "faq": data.FAQ,
         "testimonios": data.TESTIMONIOS,
@@ -59,13 +71,51 @@ def home(request):
     return render(request, "core/index.html", contexto)
 
 
+def portafolio_categoria(request, slug):
+    categoria = CATEGORIAS_POR_SLUG.get(slug)
+    if categoria is None:
+        raise Http404("Categoría no encontrada")
+
+    proyectos = []
+    for proyecto in data.PROYECTOS:
+        if proyecto["categoria_slug"] != slug:
+            continue
+        proyecto = dict(proyecto)
+        proyecto["url"] = _url_proyecto(proyecto)
+        proyectos.append(proyecto)
+
+    contexto = {
+        "categoria": categoria,
+        "proyectos": proyectos,
+    }
+    return render(request, "core/portafolio_categoria.html", contexto)
+
+
 def portafolio_detalle(request, slug):
-    if slug not in PROYECTOS_SLUGS:
+    proyecto = PROYECTOS_POR_SLUG.get(slug)
+    if proyecto is None:
         raise Http404("Proyecto no encontrado")
 
+    # Los "sitio_estatico" no tienen .html en portafolio_pages: viven en
+    # static/core/portafolio_sitios/. Se redirige a su URL real en vez de
+    # devolver 404.
+    if proyecto.get("sitio_estatico") or proyecto.get("caso_estudio"):
+        return redirect(_url_proyecto(proyecto))
+
     archivo = PORTAFOLIO_PAGES_DIR / ("%s.html" % slug)
+    if not archivo.exists():
+        raise Http404("Proyecto no encontrado")
     contenido = archivo.read_text(encoding="utf-8")
     return HttpResponse(contenido)
+
+
+def portafolio_caso(request, slug):
+    proyecto = PROYECTOS_POR_SLUG.get(slug)
+    if proyecto is None or not proyecto.get("caso_estudio"):
+        raise Http404("Proyecto no encontrado")
+
+    contexto = {"proyecto": proyecto}
+    return render(request, "core/portafolio_caso.html", contexto)
 
 
 def salud(request):
@@ -206,8 +256,13 @@ def sitemap_xml(request):
         for plan in data.PLANES
     ]
     urls += [
-        DOMINIO + reverse("core:portafolio_detalle", args=[proyecto["slug"]])
+        DOMINIO + reverse("core:portafolio_categoria", args=[categoria["slug"]])
+        for categoria in data.CATEGORIAS_PORTAFOLIO
+    ]
+    urls += [
+        DOMINIO + _url_proyecto(proyecto)
         for proyecto in data.PROYECTOS
+        if not proyecto.get("sitio_estatico")
     ]
 
     partes = ['<?xml version="1.0" encoding="UTF-8"?>']

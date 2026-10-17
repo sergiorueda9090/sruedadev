@@ -1,0 +1,276 @@
+/*
+ * Piezas compartidas de las cinco demostraciones.
+ * Cada sitio define sus colores sobrescribiendo estas variables en su :root:
+ *   --ces-ink, --ces-paper, --ces-accent, --ces-accent-ink, --ces-focus, --ces-error, --ces-font
+ * Todo lo visual propio de cada marca vive en su css/styles.css.
+ */
+
+:root {
+  --ces-ink: #1b1f23;
+  --ces-paper: #ffffff;
+  --ces-muted: #5e6368;
+  --ces-line: #d5d8db;
+  --ces-accent: #1b1f23;
+  --ces-accent-ink: #ffffff;
+  --ces-focus: #1a5fd0;
+  --ces-error: #a8231b;
+  --ces-success: #1f6b3a;
+  --ces-info-bg: #eef1f4;
+  --ces-bar-bg: #1b1f23;
+  --ces-bar-ink: #f1f2f3;
+  --ces-bar-link: #ffffff;
+  --ces-bar-h: 2.5rem;
+}
+
+/* ---------- Animaciones opcionales ---------- */
+
+/* Sin AOS (no cargó, movimiento reducido o sin JS) el contenido se ve completo. */
+.no-aos [data-aos] {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior: smooth; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Modo revisión / publicación ---------- */
+
+html[data-modo="publicacion"] [data-status="pendiente"],
+html[data-modo="revision"] [data-only="publicacion"] {
+  display: none !important;
+}
+
+.ces-pending {
+  display: inline-block;
+  padding: 0.05em 0.5em;
+  border: 1px dashed currentColor;
+  border-radius: 3px;
+  font-size: 0.82em;
+  font-weight: 500;
+  line-height: 1.5;
+  opacity: 0.85;
+  text-decoration: none !important;
+}
+
+.ces-flag {
+  display: inline-block;
+  padding: 0.15em 0.55em;
+  border-radius: 3px;
+  background: #fff4d6;
+  color: #5b4300;
+  font-size: 0.78rem;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+/* ---------- Accesibilidad ---------- */
+
+.ces-skip {
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  z-index: 2000;
+  padding: 0.75rem 1rem;
+  background: var(--ces-ink);
+  color: var(--ces-paper);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.ces-skip:focus { transform: none; }
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--ces-focus);
+  outline-offset: 2px;
+}
+
+[id] { scroll-margin-top: var(--ces-scroll-offset, 6rem); }
+
+/* ---------- Barra del showroom ---------- */
+
+.ces-demo-bar {
+  position: relative;
+  z-index: 1031;
+  background: var(--ces-bar-bg);
+  color: var(--ces-bar-ink);
+  font: 400 0.8125rem/1.3 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.ces-demo-bar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: var(--ces-bar-h);
+  width: min(100% - 2rem, 1320px);
+  margin-inline: auto;
+}
+.ces-demo-bar__note { margin: 0; }
+.ces-demo-bar__note strong { font-weight: 600; }
+.ces-demo-bar a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 2.25rem;
+  color: var(--ces-bar-link);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  white-space: nowrap;
+}
+.ces-demo-bar a:hover { text-decoration-thickness: 2px; }
+@media (max-width: 575.98px) {
+  .ces-demo-bar__note span { display: none; }
+}
+
+/* ---------- Formularios: errores y estado ---------- */
+
+.ces-field-error {
+  margin: 0.35rem 0 0;
+  color: var(--ces-error);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+.ces-field-error::before {
+  content: "\F33A"; /* bi-exclamation-circle */
+  font-family: "bootstrap-icons";
+  margin-right: 0.35em;
+  vertical-align: -0.1em;
+}
+[aria-invalid="true"]:not(fieldset) {
+  border-color: var(--ces-error) !important;
+  box-shadow: inset 0 0 0 1px var(--ces-error) !important;
+}
+fieldset[aria-invalid="true"] legend { color: var(--ces-error); }
+
+.ces-status {
+  margin-top: 1.25rem;
+  padding: 1rem 1.125rem;
+  border-left: 4px solid currentColor;
+  background: var(--ces-info-bg);
+  color: var(--ces-ink);
+}
+.ces-status:focus { outline: none; }
+.ces-status:focus-visible { outline: 3px solid var(--ces-focus); outline-offset: 2px; }
+.ces-status p { margin: 0 0 0.5rem; }
+.ces-status p:last-child { margin-bottom: 0; }
+.ces-status.is-error { border-left-color: var(--ces-error); }
+.ces-status.is-success { border-left-color: var(--ces-success); }
+.ces-status.is-info { border-left-color: var(--ces-ink); }
+.ces-status__lead { font-weight: 600; }
+.ces-status__links { display: flex; flex-wrap: wrap; gap: 0.5rem 1.25rem; }
+.ces-status__link { color: inherit; font-weight: 600; text-underline-offset: 0.2em; }
+
+button:disabled, [aria-disabled="true"] { cursor: not-allowed; opacity: 0.6; }
+
+/* ---------- Diálogo genérico ---------- */
+
+.ces-dialog {
+  width: min(100% - 2rem, 32rem);
+  padding: 1.5rem;
+  border: 0;
+  border-radius: 4px;
+  background: var(--ces-paper);
+  color: var(--ces-ink);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.25);
+}
+.ces-dialog::backdrop { background: rgba(10, 14, 18, 0.6); }
+.ces-dialog__title { margin: 0 0 0.75rem; font-size: 1.25rem; font-weight: 700; }
+.ces-dialog__body p { margin: 0 0 0.75rem; }
+.ces-dialog__quote {
+  margin: 0 0 0.75rem;
+  padding: 0.75rem 1rem;
+  border-left: 3px solid var(--ces-accent);
+  background: var(--ces-info-bg);
+  font-style: normal;
+}
+.ces-dialog__note { color: var(--ces-muted); font-size: 0.9rem; }
+.ces-dialog__close {
+  min-height: 2.75rem;
+  padding: 0.5rem 1.25rem;
+  border: 0;
+  border-radius: 3px;
+  background: var(--ces-accent);
+  color: var(--ces-accent-ink);
+  font-weight: 600;
+}
+
+/* ---------- Visor de galería ---------- */
+
+.ces-lightbox {
+  width: 100vw;
+  max-width: 100vw;
+  height: 100dvh;
+  max-height: 100dvh;
+  margin: 0;
+  padding: 3.5rem 0.75rem 2.5rem;
+  border: 0;
+  background: rgba(8, 10, 12, 0.94);
+  color: #f3f4f5;
+}
+.ces-lightbox[open] {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ces-lightbox::backdrop { background: rgba(8, 10, 12, 0.94); }
+.ces-lightbox__figure { margin: 0; min-width: 0; text-align: center; }
+.ces-lightbox__img {
+  max-width: 100%;
+  max-height: calc(100dvh - 9rem);
+  object-fit: contain;
+}
+.ces-lightbox__caption { margin-top: 0.75rem; font-size: 0.9rem; color: #d7dadd; }
+.ces-lightbox__counter { position: absolute; left: 0; right: 0; bottom: 0.75rem; margin: 0; text-align: center; font-size: 0.85rem; color: #c3c7cb; }
+.ces-lightbox__nav,
+.ces-lightbox__close {
+  display: inline-grid;
+  place-items: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 50%;
+  background: transparent;
+  color: #fff;
+  font-size: 1.15rem;
+}
+.ces-lightbox__nav:hover,
+.ces-lightbox__close:hover { background: rgba(255, 255, 255, 0.12); }
+.ces-lightbox__close { position: absolute; top: 0.75rem; right: 0.75rem; }
+.ces-lightbox :focus-visible { outline-color: #ffffff; }
+
+/* ---------- Créditos ---------- */
+
+.ces-credits { margin: 0; padding-left: 1.1rem; font-size: 0.8125rem; line-height: 1.55; }
+.ces-credits li { margin-bottom: 0.35rem; }
+.ces-credits a { color: inherit; text-underline-offset: 0.15em; }
+.ces-credits__title { font-style: italic; }
+
+/* ---------- Imágenes ---------- */
+
+img { max-width: 100%; height: auto; }
+.ces-photo-tag {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  z-index: 2;
+  padding: 0.2rem 0.55rem;
+  border-radius: 2px;
+  background: rgba(12, 14, 16, 0.72);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.4;
+  pointer-events: none;
+}

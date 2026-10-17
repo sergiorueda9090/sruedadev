@@ -1173,6 +1173,50 @@ p { margin: 0 0 1.1em; }
     color: var(--texto);
 }
 
+/* ---------- portafolio: lista de categorías (inicio) ----------
+   Misma idea que `.planes` (miniatura cuadrada + texto, separadas por una
+   línea) en vez de la cuadrícula de `.proyecto-card`: con solo seis
+   categorías se lee mejor como lista que como tarjetas grandes. Las páginas
+   de categoría (que sí listan muchos proyectos) siguen usando `.proyecto-card`. */
+.portafolio-lista { display: flex; flex-direction: column; gap: 0; }
+
+.portafolio-fila {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 28px 10px;
+    border-bottom: 1px solid var(--borde);
+    color: inherit;
+    transition: background .28s;
+}
+.portafolio-lista .portafolio-fila:first-child { padding-top: 6px; }
+.portafolio-lista .portafolio-fila:last-child { border-bottom: none; padding-bottom: 6px; }
+.portafolio-fila:hover { background: var(--gris-02); color: inherit; }
+
+.portafolio-imagen {
+    flex-shrink: 0;
+    width: 112px;
+    aspect-ratio: 1 / 1;
+    border-radius: 14px;
+    overflow: hidden;
+    border: 1px solid var(--borde);
+    box-shadow: var(--sombra-sm);
+    transition: transform .3s, border-color .3s;
+}
+.portafolio-imagen img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.portafolio-fila:hover .portafolio-imagen { transform: scale(1.04); border-color: rgba(11, 99, 246, .35); }
+
+.portafolio-contenido { flex: 1; min-width: 0; }
+.portafolio-contenido h3 { font-size: 1.1rem; margin-bottom: .3em; transition: color .3s; }
+.portafolio-fila:hover .portafolio-contenido h3 { color: var(--azul); }
+.portafolio-contenido .chip { margin-bottom: 10px; }
+.portafolio-contenido p { color: var(--suave); font-size: .92rem; margin-bottom: 0; }
+
+@media (max-width: 760px) {
+    .portafolio-fila { gap: 16px; padding: 20px 4px; }
+    .portafolio-imagen { width: 78px; border-radius: 10px; }
+}
+
 /* ---------- planes ---------- */
 
 /* --- Fondo de la sección de precios ---

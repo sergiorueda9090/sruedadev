@@ -7,15 +7,15 @@
             <p>Cada categoría agrupa los proyectos de un mismo sector. Haz clic para ver todos los trabajos de esa industria.</p>
         </div>
 
-        <div class="rejilla rejilla-3">
+        <div class="portafolio-lista">
             {% for categoria in categorias_portafolio %}
-            <a class="proyecto-card aparece" href="{{ categoria.url }}">
-                <div class="proyecto-img">
+            <a class="portafolio-fila aparece" href="{{ categoria.url }}">
+                <div class="portafolio-imagen">
                     <img src="{% static categoria.imagen %}" width="{{ categoria.imagen_w }}" height="{{ categoria.imagen_h }}" alt="{{ categoria.nombre }}" loading="lazy" decoding="async">
                 </div>
-                <div class="proyecto-cuerpo">
-                    <span class="chip">{{ categoria.total_proyectos }} proyecto{{ categoria.total_proyectos|pluralize }}</span>
+                <div class="portafolio-contenido">
                     <h3>{{ categoria.nombre }}</h3>
+                    <span class="chip">{{ categoria.total_proyectos }} proyecto{{ categoria.total_proyectos|pluralize }}</span>
                     <p>{{ categoria.descripcion }}</p>
                 </div>
             </a>

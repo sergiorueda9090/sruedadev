@@ -1,0 +1,815 @@
+[
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "apto-sotomayor",
+    "origen": "photo-1613545325278-f24b0cae1224",
+    "alt": "Sala de doble altura con chimenea, muros claros y comedor junto a la cocina",
+    "archivos": [
+      "apto-sotomayor-640.webp",
+      "apto-sotomayor-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1613545325278-f24b0cae1224",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "asesoria",
+    "origen": "photo-1618221195710-dd6b41faaea6",
+    "alt": "Sala cálida con sofá gris, mesa de madera y ventana horizontal hacia el jardín",
+    "archivos": [
+      "asesoria-640.webp",
+      "asesoria-1096.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "casa-giron",
+    "origen": "photo-1599809275671-b5942cabc7a2",
+    "alt": "Casa campestre de muros ocres con jacuzzi y terraza al atardecer",
+    "archivos": [
+      "casa-giron-640.webp",
+      "casa-giron-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1599809275671-b5942cabc7a2",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "casa-ruitoque",
+    "origen": "photo-1613977257363-707ba9348227",
+    "alt": "Casa blanca de dos niveles con piscina y jardín al atardecer",
+    "archivos": [
+      "casa-ruitoque-640.webp",
+      "casa-ruitoque-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1613977257363-707ba9348227",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "cat-apartamentos",
+    "origen": "photo-1600210491892-03d54c0aaf87",
+    "alt": "Salón con ventanales en arco, vigas de madera y chimenea",
+    "archivos": [
+      "cat-apartamentos-640.webp",
+      "cat-apartamentos-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "cat-casas",
+    "origen": "photo-1580587771525-78b9dba3b914",
+    "alt": "Casa de autor con volúmenes blancos, ladrillo y piscina frontal",
+    "archivos": [
+      "cat-casas-640.webp",
+      "cat-casas-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1580587771525-78b9dba3b914",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "cat-fincas",
+    "origen": "photo-1558036117-15d82a90b9b1",
+    "alt": "Casa campestre de madera sobre una colina verde al amanecer",
+    "archivos": [
+      "cat-fincas-640.webp",
+      "cat-fincas-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1558036117-15d82a90b9b1",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "cat-inversion",
+    "origen": "photo-1582407947304-fd86f028f716",
+    "alt": "Torres de vidrio de uso mixto contra el cielo",
+    "archivos": [
+      "cat-inversion-640.webp",
+      "cat-inversion-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1582407947304-fd86f028f716",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "cat-penthouses",
+    "origen": "photo-1600573472550-8090b5e0745e",
+    "alt": "Interior con escalera flotante y ventanales hacia una terraza con piscina",
+    "archivos": [
+      "cat-penthouses-640.webp",
+      "cat-penthouses-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1600573472550-8090b5e0745e",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "finca-piedecuesta",
+    "origen": "photo-1416331108676-a22ccb276e35",
+    "alt": "Casa de hacienda con tejas de barro y piscina iluminada en la noche",
+    "archivos": [
+      "finca-piedecuesta-640.webp",
+      "finca-piedecuesta-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1416331108676-a22ccb276e35",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "hero",
+    "origen": "photo-1613490493576-7fde63acd811",
+    "alt": "Residencia contemporánea blanca con piscina lineal y terrazas en voladizo",
+    "archivos": [
+      "hero-960.webp",
+      "hero-1600.webp",
+      "hero-2400.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1613490493576-7fde63acd811",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "mosaico-comedor",
+    "origen": "photo-1600607687920-4e2a09cf159d",
+    "alt": "Comedor de mesa negra junto a una escalera en concreto y celosía de madera",
+    "archivos": [
+      "mosaico-comedor-640.webp",
+      "mosaico-comedor-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "mosaico-comedor-verde",
+    "origen": "photo-1617806118233-18e1de247200",
+    "alt": "Comedor luminoso con sillas de terciopelo verde y lámpara escultórica",
+    "archivos": [
+      "mosaico-comedor-verde-800.webp",
+      "mosaico-comedor-verde-1600.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1617806118233-18e1de247200",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "mosaico-fachada",
+    "origen": "photo-1600566753190-17f0baa2a6c3",
+    "alt": "Fachada en madera y vidrio con acceso peatonal en gravilla",
+    "archivos": [
+      "mosaico-fachada-640.webp",
+      "mosaico-fachada-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "mosaico-pabellon",
+    "origen": "photo-1582268611958-ebfd161ef9cf",
+    "alt": "Pabellón acristalado abierto hacia una piscina rodeada de jardín",
+    "archivos": [
+      "mosaico-pabellon-800.webp",
+      "mosaico-pabellon-1600.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "penthouse-cabecera",
+    "origen": "photo-1600607687939-ce8a6c25118c",
+    "alt": "Sala abierta de doble altura con sofá blanco, cocina al fondo y muro en madera",
+    "archivos": [
+      "penthouse-cabecera-640.webp",
+      "penthouse-cabecera-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "propietarios",
+    "origen": "photo-1600585154526-990dced4db0d",
+    "alt": "Fachada contemporánea en negro y madera iluminada al anochecer",
+    "archivos": [
+      "propietarios-960.webp",
+      "propietarios-1600.webp",
+      "propietarios-2400.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1600585154526-990dced4db0d",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "01-inmobiliaria-prestige",
+    "slot": "residencia-lagos",
+    "origen": "photo-1600585154340-be6161a56a0c",
+    "alt": "Casa moderna de fachada oscura iluminada al anochecer junto a un gran árbol",
+    "archivos": [
+      "residencia-lagos-640.webp",
+      "residencia-lagos-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "apartaestudio-cabecera",
+    "origen": "photo-1586023492125-27b2c045efd7",
+    "alt": "Rincón de apartaestudio con sillón amarillo, lámpara de pie y cuadro",
+    "archivos": [
+      "apartaestudio-cabecera-480.webp",
+      "apartaestudio-cabecera-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "apto-bucarica",
+    "origen": "photo-1600489000022-c2086d79f9d4",
+    "alt": "Cocina en L con gabinetes grises, repisas abiertas y ventana",
+    "archivos": [
+      "apto-bucarica-480.webp",
+      "apto-bucarica-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "apto-canaveral",
+    "origen": "photo-1522708323590-d24dbb6b0267",
+    "alt": "Apartamento con sala, comedor y cocina integrados junto a un ventanal",
+    "archivos": [
+      "apto-canaveral-480.webp",
+      "apto-canaveral-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "apto-piedecuesta",
+    "origen": "photo-1554995207-c18c203602cb",
+    "alt": "Sala con sofá de cuero, cojines verdes y cocina abierta al fondo",
+    "archivos": [
+      "apto-piedecuesta-480.webp",
+      "apto-piedecuesta-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1554995207-c18c203602cb",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "apto-real-de-minas",
+    "origen": "photo-1493809842364-78817add7ffb",
+    "alt": "Sala con sofá azul, piso de madera y ventana amplia",
+    "archivos": [
+      "apto-real-de-minas-480.webp",
+      "apto-real-de-minas-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1493809842364-78817add7ffb",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "casa-giron",
+    "origen": "photo-1600047509358-9dc75507daeb",
+    "alt": "Casa moderna blanca con volumen en madera y antejardín",
+    "archivos": [
+      "casa-giron-480.webp",
+      "casa-giron-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1600047509358-9dc75507daeb",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "casa-lagos",
+    "origen": "photo-1494526585095-c41746248156",
+    "alt": "Fachada de casa de dos pisos con garaje y luces encendidas al atardecer",
+    "archivos": [
+      "casa-lagos-480.webp",
+      "casa-lagos-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1494526585095-c41746248156",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "casa-san-alonso",
+    "origen": "photo-1600047509807-ba8f99d2cdde",
+    "alt": "Casa de dos pisos con fachada en madera, ventanales y jardín",
+    "archivos": [
+      "casa-san-alonso-480.webp",
+      "casa-san-alonso-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "ciudad-bucaramanga",
+    "origen": "File:Bucaramanga v cu.JPG",
+    "alt": "Vista de Bucaramanga con edificios y la cordillera al fondo",
+    "archivos": [
+      "ciudad-bucaramanga-480.webp",
+      "ciudad-bucaramanga-900.webp"
+    ],
+    "fuente": "Wikimedia Commons",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Bucaramanga_v_cu.JPG",
+    "autor": "EEIM",
+    "licencia": "CC BY-SA 3.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "ciudad-floridablanca",
+    "origen": "File:Cañaveral,Floridablanca Sder Col enr 2022.jpg",
+    "alt": "Torres residenciales del sector Cañaveral, en Floridablanca",
+    "archivos": [
+      "ciudad-floridablanca-480.webp",
+      "ciudad-floridablanca-900.webp"
+    ],
+    "fuente": "Wikimedia Commons",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Ca%C3%B1averal,Floridablanca_Sder_Col_enr_2022.jpg",
+    "autor": "EEIM",
+    "licencia": "CC BY-SA 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "ciudad-giron",
+    "origen": "File:Calles. Sector antiguo de la ciudad de Girón, Santander. Colombia..JPG",
+    "alt": "Calle empedrada con casas coloniales blancas en el casco antiguo de Girón",
+    "archivos": [
+      "ciudad-giron-480.webp",
+      "ciudad-giron-900.webp"
+    ],
+    "fuente": "Wikimedia Commons",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Calles._Sector_antiguo_de_la_ciudad_de_Gir%C3%B3n,_Santander._Colombia..JPG",
+    "autor": "Kamilokardona",
+    "licencia": "CC BY-SA 3.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "ciudad-piedecuesta",
+    "origen": "File:Piedecuesta, Santander.JPG",
+    "alt": "Edificio histórico blanco y templo en el centro de Piedecuesta",
+    "archivos": [
+      "ciudad-piedecuesta-480.webp",
+      "ciudad-piedecuesta-900.webp"
+    ],
+    "fuente": "Wikimedia Commons",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Piedecuesta,_Santander.JPG",
+    "autor": "Claudio A Moreno",
+    "licencia": "CC BY-SA 3.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "hero",
+    "origen": "photo-1564013799919-ab600027ffc6",
+    "alt": "Casa blanca de dos pisos con balcón, palmeras y piscina en un día soleado",
+    "archivos": [
+      "hero-800.webp",
+      "hero-1400.webp",
+      "hero-2000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1564013799919-ab600027ffc6",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "local-centro",
+    "origen": "photo-1441986300917-64674bd600d8",
+    "alt": "Local comercial adecuado como tienda de ropa con estanterías y lámparas",
+    "archivos": [
+      "local-centro-480.webp",
+      "local-centro-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1441986300917-64674bd600d8",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "lote-piedecuesta",
+    "origen": "photo-1470071459604-3b5ec3a7fe05",
+    "alt": "Terreno verde en ladera con montañas y nubes al fondo",
+    "archivos": [
+      "lote-piedecuesta-480.webp",
+      "lote-piedecuesta-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "oficina-cabecera",
+    "origen": "photo-1497366216548-37526070297c",
+    "alt": "Oficina con piso en concreto pulido, divisiones de vidrio y cocineta",
+    "archivos": [
+      "oficina-cabecera-480.webp",
+      "oficina-cabecera-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1497366216548-37526070297c",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "oficina-floridablanca",
+    "origen": "photo-1604328698692-f76ea9498e76",
+    "alt": "Oficina abierta luminosa con plantas, piso de madera y ventanales",
+    "archivos": [
+      "oficina-floridablanca-480.webp",
+      "oficina-floridablanca-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1604328698692-f76ea9498e76",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "propietarios",
+    "origen": "photo-1502672260266-1c1ef2d93688",
+    "alt": "Sala con plantas, sofá gris y luz natural lista para mostrar",
+    "archivos": [
+      "propietarios-640.webp",
+      "propietarios-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "02-hogar-urbano",
+    "slot": "ventajas",
+    "origen": "photo-1556909114-f6e7ad7d3136",
+    "alt": "Pareja cocinando junta en una cocina luminosa",
+    "archivos": [
+      "ventajas-640.webp",
+      "ventajas-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "administracion",
+    "origen": "photo-1574362848149-11496d93a7c7",
+    "alt": "Edificio de apartamentos en ladrillo con balcones y zona verde",
+    "archivos": [
+      "administracion-640.webp",
+      "administracion-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1574362848149-11496d93a7c7",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "apto-cabecera",
+    "origen": "photo-1600121848594-d8644e57abab",
+    "alt": "Sala de apartamento con sofás grises y biblioteca empotrada",
+    "archivos": [
+      "apto-cabecera-480.webp",
+      "apto-cabecera-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1600121848594-d8644e57abab",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "apto-giron",
+    "origen": "photo-1503174971373-b1f69850bded",
+    "alt": "Sala con ventanales de piso a techo y vista a zonas verdes",
+    "archivos": [
+      "apto-giron-480.webp",
+      "apto-giron-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1503174971373-b1f69850bded",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "apto-provenza",
+    "origen": "photo-1536376072261-38c75010e6c9",
+    "alt": "Apartamento tipo loft con muro de ladrillo, biblioteca y comedor",
+    "archivos": [
+      "apto-provenza-480.webp",
+      "apto-provenza-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1536376072261-38c75010e6c9",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "bodega-chimita",
+    "origen": "photo-1586528116311-ad8dd3c8310d",
+    "alt": "Bodega de gran altura con estanterías industriales y cubierta metálica",
+    "archivos": [
+      "bodega-chimita-480.webp",
+      "bodega-chimita-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "casa-floridablanca",
+    "origen": "photo-1628744448840-55bdb2497bd4",
+    "alt": "Casa de un piso con fachada en madera y piedra y acceso amplio",
+    "archivos": [
+      "casa-floridablanca-480.webp",
+      "casa-floridablanca-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1628744448840-55bdb2497bd4",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "cta-final",
+    "origen": "photo-1479839672679-a46483c0e7c8",
+    "alt": "Fachada modular blanca de un edificio contemporáneo",
+    "archivos": [
+      "cta-final-960.webp",
+      "cta-final-1600.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1479839672679-a46483c0e7c8",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "hero",
+    "origen": "photo-1486406146926-c627a92ad1ab",
+    "alt": "Torres contemporáneas de vidrio vistas desde abajo",
+    "archivos": [
+      "hero-800.webp",
+      "hero-1400.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "inversion-bucaramanga",
+    "origen": "File:Bucaramanga desde Cabecera Noche 2.jpg",
+    "alt": "Bucaramanga de noche vista desde Cabecera, con torres residenciales iluminadas",
+    "archivos": [
+      "inversion-bucaramanga-960.webp",
+      "inversion-bucaramanga-1600.webp"
+    ],
+    "fuente": "Wikimedia Commons",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Bucaramanga_desde_Cabecera_Noche_2.jpg",
+    "autor": "Ángel Páez",
+    "licencia": "CC BY 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by/4.0"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "linea-compraventa",
+    "origen": "photo-1515263487990-61b07816b324",
+    "alt": "Edificio residencial moderno con fachada blanca y gris",
+    "archivos": [
+      "linea-compraventa-640.webp",
+      "linea-compraventa-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1515263487990-61b07816b324",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "local-floridablanca",
+    "origen": "photo-1555396273-367ea4eb4db5",
+    "alt": "Local comercial de doble altura adecuado como restaurante",
+    "archivos": [
+      "local-floridablanca-480.webp",
+      "local-floridablanca-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "oficina-cabecera",
+    "origen": "photo-1497366811353-6870744d04b2",
+    "alt": "Oficina con ventanales perimetrales, piso en concreto y sala de reuniones",
+    "archivos": [
+      "oficina-cabecera-480.webp",
+      "oficina-cabecera-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1497366811353-6870744d04b2",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "oficina-piso",
+    "origen": "photo-1462826303086-329426d1aef5",
+    "alt": "Sala de juntas con ventanal continuo y mesa para doce personas",
+    "archivos": [
+      "oficina-piso-480.webp",
+      "oficina-piso-960.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1462826303086-329426d1aef5",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "propietarios",
+    "origen": "photo-1626178793926-22b28830aa30",
+    "alt": "Asesor sostiene una maqueta de casa junto a una calculadora",
+    "archivos": [
+      "propietarios-640.webp",
+      "propietarios-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1626178793926-22b28830aa30",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "proyecto-balcones",
+    "origen": "photo-1567684014761-b65e2e59b9eb",
+    "alt": "Fachada de edificio con balcones iluminados en tonos cálidos",
+    "archivos": [
+      "proyecto-balcones-800.webp",
+      "proyecto-balcones-1400.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1567684014761-b65e2e59b9eb",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "proyecto-parque",
+    "origen": "photo-1580041065738-e72023775cdc",
+    "alt": "Conjunto residencial de baja altura con piscina y zonas verdes",
+    "archivos": [
+      "proyecto-parque-800.webp",
+      "proyecto-parque-1400.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1580041065738-e72023775cdc",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "03-inmobiliaria-360",
+    "slot": "proyecto-torre",
+    "origen": "photo-1565008447742-97f6f38c985c",
+    "alt": "Torre de vivienda en construcción con grúa",
+    "archivos": [
+      "proyecto-torre-800.webp",
+      "proyecto-torre-1400.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1565008447742-97f6f38c985c",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  }
+]

@@ -1,0 +1,824 @@
+[
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "cta",
+    "origen": "photo-1586528116691-012ff3ac0fec",
+    "alt": "Operario moviendo un pallet bajo racks de largueros naranja en una bodega iluminada",
+    "ratio": "21:9",
+    "archivos": [
+      "cta-960.webp",
+      "cta-1600.webp",
+      "cta-2200.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1586528116691-012ff3ac0fec",
+    "autor": "Adrian Sulyok",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "gal-1",
+    "origen": "photo-1627309366653-2dedc084cdf1",
+    "alt": "Bodega con racks de bastidores azules y largueros naranja de varios niveles",
+    "ratio": "16:9",
+    "archivos": [
+      "gal-1-800.webp",
+      "gal-1-1400.webp",
+      "gal-1-1733.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1627309366653-2dedc084cdf1",
+    "autor": "Jacques Dillies",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "gal-2",
+    "origen": "photo-1661156565686-d5450ed3e42a",
+    "alt": "Vista elevada de hileras de racks selectivos recién instalados con protecciones amarillas",
+    "ratio": "4:5",
+    "archivos": [
+      "gal-2-640.webp",
+      "gal-2-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1661156565686-d5450ed3e42a",
+    "autor": "Krisana Nakajo",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "gal-3",
+    "origen": "photo-1553413077-190dd305871c",
+    "alt": "Pasillo largo y estrecho entre racks altos con mercancía embalada",
+    "ratio": "4:5",
+    "archivos": [
+      "gal-3-640.webp",
+      "gal-3-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1553413077-190dd305871c",
+    "autor": "Ruchindra Gunasekara",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "gal-4",
+    "origen": "photo-1592085198739-ffcad7f36b54",
+    "alt": "Pasillo profundo de racks de bastidores oscuros cargados de pallets hasta el techo",
+    "ratio": "4:5",
+    "archivos": [
+      "gal-4-640.webp",
+      "gal-4-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1592085198739-ffcad7f36b54",
+    "autor": "Arno Senoner",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "hero",
+    "origen": "photo-1689942010216-dc412bb1e7a9",
+    "alt": "Pasillo de racks selectivos de gran altura cargados con pallets y un montacargas detenido en el centro",
+    "ratio": "4:5",
+    "archivos": [
+      "hero-640.webp",
+      "hero-1000.webp",
+      "hero-1400.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1689942010216-dc412bb1e7a9",
+    "autor": "AFINIS Group ® - AFINIS GASKET® Production",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "ing-detalle",
+    "origen": "photo-1781157076377-3c17f8c365ee",
+    "alt": "Unión atornillada entre una viga y una columna de acero pintadas de azul",
+    "ratio": "1:1",
+    "archivos": [
+      "ing-detalle-500.webp",
+      "ing-detalle-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1781157076377-3c17f8c365ee",
+    "autor": "Declan Sun",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "ing-estructura",
+    "origen": "photo-1785257532053-34686f5c3e10",
+    "alt": "Estructura de acero azul de un edificio industrial en construcción, con vigas y correas a la vista",
+    "ratio": "4:3",
+    "archivos": [
+      "ing-estructura-800.webp",
+      "ing-estructura-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1785257532053-34686f5c3e10",
+    "autor": "Hardco Group",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "problema",
+    "origen": "photo-1757837593538-b4a8654132f1",
+    "alt": "Cajas de cartón apiladas sin orden hasta el techo, sin estanterías ni pasillos",
+    "ratio": "4:5",
+    "archivos": [
+      "problema-640.webp",
+      "problema-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1757837593538-b4a8654132f1",
+    "autor": "Declan Sun",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "proc-diagnostico",
+    "origen": "photo-1581094488379-6a10d04c0f04",
+    "alt": "Dos personas revisan y señalan un plano impreso sobre una mesa",
+    "ratio": "4:3",
+    "archivos": [
+      "proc-diagnostico-640.webp",
+      "proc-diagnostico-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1581094488379-6a10d04c0f04",
+    "autor": "ThisisEngineering",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "proc-diseno",
+    "origen": "photo-1744627049721-73c27008ad28",
+    "alt": "Ingeniero frente a dos monitores con un modelo tridimensional de estanterías",
+    "ratio": "4:3",
+    "archivos": [
+      "proc-diseno-640.webp",
+      "proc-diseno-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1744627049721-73c27008ad28",
+    "autor": "Evgeniy Surzhan",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "proc-entrega",
+    "origen": "photo-1661157072508-c34b1dc84b94",
+    "alt": "Racks selectivos recién montados, vacíos, en una bodega amplia con piso de concreto",
+    "ratio": "4:3",
+    "archivos": [
+      "proc-entrega-640.webp",
+      "proc-entrega-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1661157072508-c34b1dc84b94",
+    "autor": "Krisana Nakajo",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "proc-fabricacion",
+    "origen": "photo-1714504904786-b6732390b206",
+    "alt": "Corte de tubos cuadrados de acero con chispas en un taller",
+    "ratio": "4:3",
+    "archivos": [
+      "proc-fabricacion-640.webp",
+      "proc-fabricacion-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1714504904786-b6732390b206",
+    "autor": "Cemrecan Yurtman",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "proc-instalacion",
+    "origen": "photo-1758609554462-c415542ce531",
+    "alt": "Bastidores y largueros de rack azules y naranja apilados en obra antes del montaje",
+    "ratio": "4:3",
+    "archivos": [
+      "proc-instalacion-640.webp",
+      "proc-instalacion-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1758609554462-c415542ce531",
+    "autor": "Sergej *****",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "sol-cantilever",
+    "origen": "photo-1671022442106-c787685d9fed",
+    "alt": "Rack cantilever cargado con perfiles y tubos de acero de gran longitud dentro de una nave",
+    "ratio": "3:2",
+    "archivos": [
+      "sol-cantilever-640.webp",
+      "sol-cantilever-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1671022442106-c787685d9fed",
+    "autor": "Corey Willett",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "sol-multinivel",
+    "origen": "photo-1770910195585-825a1181a704",
+    "alt": "Estantería metálica de varios niveles con pisos de rejilla y pasarelas intermedias",
+    "ratio": "3:2",
+    "archivos": [
+      "sol-multinivel-640.webp",
+      "sol-multinivel-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1770910195585-825a1181a704",
+    "autor": "Adrien Olichon",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "sol-pesada",
+    "origen": "photo-1689942007186-099d175dd491",
+    "alt": "Montacargas transportando un pallet frente a racks de carga pesada llenos de estibas",
+    "ratio": "3:2",
+    "archivos": [
+      "sol-pesada-640.webp",
+      "sol-pesada-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1689942007186-099d175dd491",
+    "autor": "AFINIS Group ® - AFINIS GASKET® Production",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "sol-picking",
+    "origen": "photo-1749244768351-2726dc23d26c",
+    "alt": "Pasillo de estanterías para picking con cajas medianas y carros de mano",
+    "ratio": "3:2",
+    "archivos": [
+      "sol-picking-640.webp",
+      "sol-picking-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1749244768351-2726dc23d26c",
+    "autor": "Russ Murray",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-1-ingenieria",
+    "slot": "sol-selectiva",
+    "origen": "photo-1709804945989-c8be542e04db",
+    "alt": "Rack selectivo de largueros naranja y bastidores azules visto desde el piso, con cajas en todos los niveles",
+    "ratio": "3:2",
+    "archivos": [
+      "sol-selectiva-640.webp",
+      "sol-selectiva-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1709804945989-c8be542e04db",
+    "autor": "Ali Mkumbwa",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "beneficio",
+    "origen": "photo-1664382953403-fc1ac77073a0",
+    "alt": "Dos personas recorren un pasillo de estanterías revisando una lista en una tabla",
+    "ratio": "4:3",
+    "archivos": [
+      "beneficio-640.webp",
+      "beneficio-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1664382953403-fc1ac77073a0",
+    "autor": "Centre for Ageing Better",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "cat-cantilever",
+    "origen": "photo-1690176287026-ba0e947a244f",
+    "alt": "Racks cantilever amarillos cargados de perfiles de acero junto a una vía de circulación demarcada",
+    "ratio": "4:3",
+    "archivos": [
+      "cat-cantilever-640.webp",
+      "cat-cantilever-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1690176287026-ba0e947a244f",
+    "autor": "Jaime Maldonado",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "cat-dinamico",
+    "origen": "photo-1622030433415-153f4ada40fe",
+    "alt": "Rack dinámico con rodillos inclinados y guías amarillas para el flujo de cajas",
+    "ratio": "4:3",
+    "archivos": [
+      "cat-dinamico-640.webp",
+      "cat-dinamico-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1622030433415-153f4ada40fe",
+    "autor": "Petr",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "cat-drivein",
+    "origen": "photo-1665239047402-a0e8e0d70bb5",
+    "alt": "Calles profundas de rack azul para almacenamiento compacto de pallets",
+    "ratio": "4:3",
+    "archivos": [
+      "cat-drivein-640.webp",
+      "cat-drivein-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1665239047402-a0e8e0d70bb5",
+    "autor": "Alberto Rodríguez",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "cat-liviana",
+    "origen": "photo-1622030360273-a8d1377be08b",
+    "alt": "Estanterías metálicas blancas de carga liviana en una bodega limpia",
+    "ratio": "4:3",
+    "archivos": [
+      "cat-liviana-640.webp",
+      "cat-liviana-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1622030360273-a8d1377be08b",
+    "autor": "Petr",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "cat-pesada",
+    "origen": "photo-1645736315000-6f788915923b",
+    "alt": "Montacargas retráctil trabajando entre racks de carga pesada con mercancía paletizada",
+    "ratio": "4:3",
+    "archivos": [
+      "cat-pesada-640.webp",
+      "cat-pesada-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1645736315000-6f788915923b",
+    "autor": "Bernd 📷 Dittrich",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "cat-selectiva",
+    "origen": "photo-1661156965965-ef5e6f68a51b",
+    "alt": "Racks selectivos azules y naranja con letreros de pasillo y protecciones amarillas",
+    "ratio": "4:3",
+    "archivos": [
+      "cat-selectiva-640.webp",
+      "cat-selectiva-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1661156965965-ef5e6f68a51b",
+    "autor": "Krisana Nakajo",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "cat-semipesada",
+    "origen": "photo-1586528116493-a029325540fa",
+    "alt": "Pasillo de estanterías semipesadas con cajas plásticas amarillas para piezas pequeñas",
+    "ratio": "4:3",
+    "archivos": [
+      "cat-semipesada-640.webp",
+      "cat-semipesada-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1586528116493-a029325540fa",
+    "autor": "Adrian Sulyok",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "cta",
+    "origen": "photo-1790891526007-fb2aa1af1df0",
+    "alt": "Pasillo de racks de gran altura con mercancía en cajas vista en perspectiva",
+    "ratio": "16:9",
+    "archivos": [
+      "cta-960.webp",
+      "cta-1600.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1790891526007-fb2aa1af1df0",
+    "autor": "Peaky_82",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "gal-1",
+    "origen": "photo-1782948603191-065fb15e2e8e",
+    "alt": "Pasillo central de un centro de distribución con estanterías altas a ambos lados",
+    "ratio": "4:3",
+    "archivos": [
+      "gal-1-640.webp",
+      "gal-1-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1782948603191-065fb15e2e8e",
+    "autor": "Sebastian Schuster",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "gal-2",
+    "origen": "photo-1684695749267-233af13276d0",
+    "alt": "Vista elevada de una bodega con racks de largueros rojos y zona de despacho",
+    "ratio": "4:3",
+    "archivos": [
+      "gal-2-640.webp",
+      "gal-2-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1684695749267-233af13276d0",
+    "autor": "Alberto Rodríguez",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "gal-3",
+    "origen": "photo-1586528116311-ad8dd3c8310d",
+    "alt": "Bodega con racks naranja y gran cantidad de mercancía en cajas organizada en el piso",
+    "ratio": "4:3",
+    "archivos": [
+      "gal-3-640.webp",
+      "gal-3-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d",
+    "autor": "Adrian Sulyok",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "gal-4",
+    "origen": "photo-1635468609223-4e59675ac96d",
+    "alt": "Pasillo largo de racks de varios niveles con iluminación lineal en el techo",
+    "ratio": "4:3",
+    "archivos": [
+      "gal-4-640.webp",
+      "gal-4-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1635468609223-4e59675ac96d",
+    "autor": "Xu Guo",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "gal-5",
+    "origen": "photo-1586528116022-aeda1613c63d",
+    "alt": "Personas caminando por el pasillo principal de una bodega con racks naranja",
+    "ratio": "4:3",
+    "archivos": [
+      "gal-5-640.webp",
+      "gal-5-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1586528116022-aeda1613c63d",
+    "autor": "Adrian Sulyok",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "hero",
+    "origen": "photo-1714650601435-67a4d51a0798",
+    "alt": "Pasillo de una bodega de gran altura con racks rojos y blancos llenos de mercancía paletizada",
+    "ratio": "16:10",
+    "archivos": [
+      "hero-800.webp",
+      "hero-1300.webp",
+      "hero-2000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1714650601435-67a4d51a0798",
+    "autor": "Rack Manufacturing Expert",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-2-almacenamiento",
+    "slot": "proceso",
+    "origen": "photo-1781559818983-c32838ee3d55",
+    "alt": "Persona consultando una tableta dentro de una bodega",
+    "ratio": "4:5",
+    "archivos": [
+      "proceso-640.webp",
+      "proceso-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1781559818983-c32838ee3d55",
+    "autor": "Rodrigo Rodrigues | WOLF Λ R T",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "analisis",
+    "origen": "photo-1608303588026-884930af2559",
+    "alt": "Manos sobre planos de distribución con una calculadora",
+    "ratio": "4:5",
+    "archivos": [
+      "analisis-640.webp",
+      "analisis-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1608303588026-884930af2559",
+    "autor": "Pedro Miranda",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "cta",
+    "origen": "photo-1562088997-ed2fbeef1cd6",
+    "alt": "Estructura metálica de varios niveles en construcción vista desde abajo",
+    "ratio": "21:9",
+    "archivos": [
+      "cta-960.webp",
+      "cta-1600.webp",
+      "cta-2200.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1562088997-ed2fbeef1cd6",
+    "autor": "Jackie Martinez",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "esp-cantilever",
+    "origen": "photo-1787422430123-344b233a0626",
+    "alt": "Tablas de madera apiladas sobre brazos rojos de un rack cantilever",
+    "ratio": "4:3",
+    "archivos": [
+      "esp-cantilever-640.webp",
+      "esp-cantilever-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1787422430123-344b233a0626",
+    "autor": "PJ Wallace",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "esp-entrepiso",
+    "origen": "photo-1560953981-28e3bab4aab6",
+    "alt": "Nave industrial con escaleras metálicas que suben a una plataforma superior",
+    "ratio": "4:3",
+    "archivos": [
+      "esp-entrepiso-640.webp",
+      "esp-entrepiso-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1560953981-28e3bab4aab6",
+    "autor": "Mikolaj Felinski",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "esp-medida",
+    "origen": "photo-1763926025477-423847028860",
+    "alt": "Estantería de celdas con barras y perfiles metálicos clasificados por medida",
+    "ratio": "4:3",
+    "archivos": [
+      "esp-medida-640.webp",
+      "esp-medida-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1763926025477-423847028860",
+    "autor": "Zoshua Colah",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "esp-pesada",
+    "origen": "photo-1672552226380-486fe900b322",
+    "alt": "Rack de carga pesada con cajas sobre pallets visto entre los bastidores",
+    "ratio": "4:3",
+    "archivos": [
+      "esp-pesada-640.webp",
+      "esp-pesada-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1672552226380-486fe900b322",
+    "autor": "Arum Visuals",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "filosofia",
+    "origen": "photo-1542621334-a254cf47733d",
+    "alt": "Lápiz sobre un plano técnico con cotas y una regla de escala",
+    "ratio": "4:5",
+    "archivos": [
+      "filosofia-640.webp",
+      "filosofia-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1542621334-a254cf47733d",
+    "autor": "Sven Mieke",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "hero",
+    "origen": "photo-1727199079123-ba845d5ab4f6",
+    "alt": "Estructura de racks vacía de gran altura en una nave de muros claros, vista en perspectiva",
+    "ratio": "16:9",
+    "archivos": [
+      "hero-960.webp",
+      "hero-1600.webp",
+      "hero-2400.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1727199079123-ba845d5ab4f6",
+    "autor": "Alex Durynin",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "mat-acero",
+    "origen": "photo-1651611790023-53bd5b6fb59b",
+    "alt": "Unión atornillada de perfiles de acero vista desde abajo, en blanco y negro",
+    "ratio": "1:1",
+    "archivos": [
+      "mat-acero-640.webp",
+      "mat-acero-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1651611790023-53bd5b6fb59b",
+    "autor": "Random Thinking",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "mat-montaje",
+    "origen": "photo-1623489254637-a2dd8375243d",
+    "alt": "Operario con arnés y casco revisando un paquete de varillas sobre una plataforma de rejilla",
+    "ratio": "1:1",
+    "archivos": [
+      "mat-montaje-640.webp",
+      "mat-montaje-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1623489254637-a2dd8375243d",
+    "autor": "Mads Eneqvist",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "mat-tornilleria",
+    "origen": "photo-1605701249987-f0bb9b505d06",
+    "alt": "Tornillos y tuercas de acero galvanizado sobre fondo claro",
+    "ratio": "1:1",
+    "archivos": [
+      "mat-tornilleria-640.webp",
+      "mat-tornilleria-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1605701249987-f0bb9b505d06",
+    "autor": "Edge2Edge Media",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "operacion",
+    "origen": "photo-1772299121503-cd62a57e3a26",
+    "alt": "Personas con chaleco reflectivo recorren una nave vacía antes de su adecuación",
+    "ratio": "3:2",
+    "archivos": [
+      "operacion-800.webp",
+      "operacion-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1772299121503-cd62a57e3a26",
+    "autor": "Craftsman Concrete Floors",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "proy-01",
+    "origen": "photo-1661156295677-ce91c410be9b",
+    "alt": "Racks selectivos azules y rojos con señalización de pasillos y defensas amarillas",
+    "ratio": "4:3",
+    "archivos": [
+      "proy-01-800.webp",
+      "proy-01-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1661156295677-ce91c410be9b",
+    "autor": "Krisana Nakajo",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "proy-02",
+    "origen": "photo-1679207751534-2cd9089b6def",
+    "alt": "Pasillo de racks verdes con un contenedor metálico amarillo bajo una luz cenital",
+    "ratio": "4:5",
+    "archivos": [
+      "proy-02-640.webp",
+      "proy-02-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1679207751534-2cd9089b6def",
+    "autor": "Fethi Benattallah",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "proy-03",
+    "origen": "photo-1721937718756-3bfec49f42a2",
+    "alt": "Pasillo muy alto con cargas largas embaladas a ambos lados y un equipo de manejo al fondo",
+    "ratio": "4:5",
+    "archivos": [
+      "proy-03-640.webp",
+      "proy-03-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1721937718756-3bfec49f42a2",
+    "autor": "Ashley",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "landing-3-proyectos-medida",
+    "slot": "proy-04",
+    "origen": "photo-1469289759076-d1484757abc3",
+    "alt": "Vista superior de una nave de taller con materiales, estanterías y zonas de trabajo",
+    "ratio": "4:3",
+    "archivos": [
+      "proy-04-800.webp",
+      "proy-04-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1469289759076-d1484757abc3",
+    "autor": "xyzcharlize",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  }
+]

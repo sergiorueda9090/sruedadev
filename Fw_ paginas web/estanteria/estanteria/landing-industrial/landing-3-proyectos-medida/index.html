@@ -1,0 +1,501 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nave · Proyectos de almacenamiento industrial a medida</title>
+  <meta name="description" content="Analizamos el espacio, la carga y la operación de tu bodega para diseñar racks, cantilever, entrepisos y configuraciones a medida, desde la planificación hasta el montaje.">
+  <meta name="theme-color" content="#2B2C2E">
+  <!-- Reemplazar por la URL definitiva al publicar -->
+  <link rel="canonical" href="https://www.ejemplo.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="Nave · Cada espacio industrial tiene una solución por diseñar">
+  <meta property="og:description" content="Proyectos de almacenamiento industrial a medida: análisis del espacio, diseño, fabricación y montaje.">
+  <!-- og:image debe ser una URL absoluta en producción -->
+  <meta property="og:image" content="assets/images/hero-1600.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Favicon provisional: reemplazar assets/favicon.svg por el logotipo oficial -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders:opsz,wght@10..72,600..900&family=Instrument+Sans:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css?v=1">
+  <link rel="preload" as="image" href="assets/images/hero-1600.webp" imagesrcset="assets/images/hero-960.webp 960w, assets/images/hero-1600.webp 1600w, assets/images/hero-2400.webp 2400w" imagesizes="100vw">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" integrity="sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" integrity="sha384-P8VzCVnT9NBUkMrpcIZrJbA7EBjJvh/fJS6PmP+4nLIM284DtsImIv8D0fFjIkeh" crossorigin="anonymous" defer></script>
+  <script src="js/main.js?v=1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <div class="review-bar" id="review-bar" hidden>
+    <p class="mb-0"><strong>Versión de demostración.</strong> Marca, proyectos, textos y fotos son de ejemplo. Lo marcado «Por confirmar» se oculta en modo publicación.</p>
+    <button type="button" class="review-close" id="review-close" aria-label="Ocultar aviso de demostración"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <div class="header-inner">
+      <!-- Logo tipográfico editable -->
+      <a class="brand" href="#inicio" aria-label="Nave, ir al inicio">
+        <span class="brand-word">Nave</span>
+        <span class="brand-sub">Proyectos de almacenamiento</span>
+      </a>
+      <div class="header-actions">
+        <a class="header-cta" href="#diagnostico">Cuéntanos tu proyecto</a>
+        <button class="menu-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#menu" aria-controls="menu">
+          <span class="menu-lines" aria-hidden="true"></span>Menú
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="offcanvas offcanvas-end menu-panel" tabindex="-1" id="menu" aria-labelledby="menu-title">
+    <div class="offcanvas-header">
+      <h2 class="visually-hidden" id="menu-title">Menú</h2>
+      <button type="button" class="menu-close" data-bs-dismiss="offcanvas" aria-label="Cerrar menú"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav aria-label="Principal">
+        <ul class="menu-list">
+          <li><a href="#enfoque">Enfoque</a></li>
+          <li><a href="#proyectos">Proyectos</a></li>
+          <li><a href="#analisis">Análisis</a></li>
+          <li><a href="#proceso">Cómo trabajamos</a></li>
+          <li><a href="#soluciones">Soluciones especiales</a></li>
+          <li><a href="#materiales">Materiales y montaje</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+        </ul>
+      </nav>
+      <a class="btn btn-yellow btn-lg w-100" href="#diagnostico">Cuéntanos tu proyecto</a>
+    </div>
+  </div>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- HERO -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <figure class="hero-media">
+        <img src="assets/images/hero-1600.webp" srcset="assets/images/hero-960.webp 960w, assets/images/hero-1600.webp 1600w, assets/images/hero-2400.webp 2400w" sizes="100vw" width="2400" height="1350" fetchpriority="high" alt="Estructura de racks vacía de gran altura en una nave de muros claros, vista en perspectiva">
+      </figure>
+      <div class="hero-content">
+        <h1 id="hero-title" class="hero-title">
+          <span class="hero-line"><span>Cada espacio</span></span>
+          <span class="hero-line"><span>industrial tiene</span></span>
+          <span class="hero-line"><span>una solución</span></span>
+          <span class="hero-line"><span>por diseñar</span></span>
+        </h1>
+        <div class="hero-side" data-hero-side>
+          <p>Analizamos tu espacio, el tipo de carga y la dinámica de tu operación para desarrollar propuestas de almacenamiento adaptadas a las necesidades de tu empresa.</p>
+          <div class="hero-actions">
+            <a class="btn btn-yellow btn-lg" href="#diagnostico">Cuéntanos tu proyecto</a>
+            <a class="link-under link-light" href="#proceso">Ver cómo trabajamos</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILOSOFÍA -->
+    <section class="section intro" id="enfoque" aria-labelledby="intro-title">
+      <div class="container-xxl">
+        <div class="intro-grid">
+          <figure class="intro-photo reveal">
+            <img src="assets/images/filosofia-640.webp" srcset="assets/images/filosofia-640.webp 640w, assets/images/filosofia-1000.webp 1000w" sizes="(min-width: 992px) 30vw, 70vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Lápiz sobre un plano técnico con cotas y una regla de escala">
+          </figure>
+          <div class="intro-text">
+            <h2 id="intro-title" class="statement">No partimos de un catálogo. Partimos de cómo se mueve tu mercancía.</h2>
+            <div class="intro-cols">
+              <p>Dos bodegas del mismo tamaño pueden necesitar soluciones opuestas. La altura libre, el piso, el producto, los equipos y la frecuencia con que entra y sale cada referencia cambian el diseño por completo.</p>
+              <p>Por eso cada proyecto empieza con un levantamiento y termina con un montaje supervisado. En medio hay planos, cálculos y alternativas que se discuten contigo antes de fabricar una sola pieza.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROYECTOS CONCEPTUALES -->
+    <section class="section projects" id="proyectos" aria-labelledby="proj-title">
+      <div class="container-xxl">
+        <div class="projects-head">
+          <h2 id="proj-title" class="display-2x">Proyectos</h2>
+          <p class="projects-note"><strong>Proyectos conceptuales.</strong> Ilustran el tipo de trabajo que desarrollamos; no corresponden a clientes reales. <span class="pending-inline" data-status="pendiente">Reemplazar por proyectos propios con autorización del cliente.</span></p>
+        </div>
+
+        <article class="project project-a">
+          <figure class="project-media reveal">
+            <img src="assets/images/proy-01-800.webp" srcset="assets/images/proy-01-800.webp 800w, assets/images/proy-01-1300.webp 1300w" sizes="(min-width: 992px) 58vw, 100vw" width="1300" height="975" loading="lazy" decoding="async" alt="Racks selectivos azules y rojos con señalización de pasillos y defensas amarillas">
+          </figure>
+          <div class="project-info">
+            <p class="project-num" aria-hidden="true">P-01</p>
+            <h3>Centro de distribución reorganizado por pasillos</h3>
+            <p>Bodega de consumo masivo con producto en piso. Se propone rack selectivo con pasillos señalizados por letra y defensas en cabeceras.</p>
+            <dl class="specs">
+              <div><dt>Sistema</dt><dd>Rack selectivo</dd></div>
+              <div><dt>Carga</dt><dd>Pallets mixtos</dd></div>
+              <div><dt>Alcance</dt><dd>Diseño, suministro y montaje</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="project project-b">
+          <figure class="project-media reveal">
+            <img src="assets/images/proy-02-640.webp" srcset="assets/images/proy-02-640.webp 640w, assets/images/proy-02-1000.webp 1000w" sizes="(min-width: 992px) 34vw, 100vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Pasillo de racks verdes con un contenedor metálico amarillo bajo una luz cenital">
+          </figure>
+          <div class="project-info">
+            <p class="project-num" aria-hidden="true">P-02</p>
+            <h3>Almacén de repuestos para planta de producción</h3>
+            <p>Racks de bastidor cerrado para contenedores metálicos de piezas pesadas, con niveles calculados para el peso de cada contenedor.</p>
+            <dl class="specs">
+              <div><dt>Sistema</dt><dd>Rack de carga pesada</dd></div>
+              <div><dt>Carga</dt><dd>Contenedores metálicos</dd></div>
+              <div><dt>Alcance</dt><dd>Levantamiento y diseño</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="project project-c">
+          <figure class="project-media reveal">
+            <img src="assets/images/proy-03-640.webp" srcset="assets/images/proy-03-640.webp 640w, assets/images/proy-03-1000.webp 1000w" sizes="(min-width: 992px) 34vw, 100vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Pasillo muy alto con cargas largas embaladas a ambos lados y un equipo de manejo al fondo">
+          </figure>
+          <div class="project-info">
+            <p class="project-num" aria-hidden="true">P-03</p>
+            <h3>Pasillo de gran altura para cargas largas</h3>
+            <p>Material embalado de gran longitud en estructura de varios niveles, con pasillo estrecho para equipo de manejo dedicado.</p>
+            <dl class="specs">
+              <div><dt>Sistema</dt><dd>Estructura a medida</dd></div>
+              <div><dt>Carga</dt><dd>Material largo embalado</dd></div>
+              <div><dt>Alcance</dt><dd>Ingeniería de detalle</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="project project-d">
+          <figure class="project-media reveal">
+            <img src="assets/images/proy-04-800.webp" srcset="assets/images/proy-04-800.webp 800w, assets/images/proy-04-1300.webp 1300w" sizes="(min-width: 992px) 58vw, 100vw" width="1300" height="975" loading="lazy" decoding="async" alt="Vista superior de una nave de taller con materiales, estanterías y zonas de trabajo">
+          </figure>
+          <div class="project-info">
+            <p class="project-num" aria-hidden="true">P-04</p>
+            <h3>Taller metalmecánico con zonas por tipo de material</h3>
+            <p>Redistribución de una nave de taller: cantilever para perfilería, estantería para insumos y áreas de trabajo despejadas.</p>
+            <dl class="specs">
+              <div><dt>Sistema</dt><dd>Cantilever y estantería</dd></div>
+              <div><dt>Carga</dt><dd>Perfiles, láminas, insumos</dd></div>
+              <div><dt>Alcance</dt><dd>Distribución en planta</dd></div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- DISEÑADO ALREDEDOR DE TU OPERACIÓN -->
+    <section class="operation" id="operacion" aria-labelledby="op-title">
+      <figure class="operation-media">
+        <img src="assets/images/operacion-1300.webp" srcset="assets/images/operacion-800.webp 800w, assets/images/operacion-1300.webp 1300w" sizes="100vw" width="1300" height="867" loading="lazy" decoding="async" alt="Personas con chaleco reflectivo recorren una nave vacía antes de su adecuación">
+      </figure>
+      <div class="container-xxl">
+        <div class="operation-card">
+          <h2 id="op-title" class="section-title">Diseñado alrededor de tu operación</h2>
+          <p>La estantería se adapta a la forma en que trabajas, no al revés. Antes de dibujar un rack recorremos la bodega contigo: por dónde entra la mercancía, dónde se prepara, cómo se despacha y qué va a crecer en los próximos años.</p>
+          <ul class="op-points">
+            <li>Recepción, almacenamiento, preparación y despacho como un solo flujo</li>
+            <li>Pasillos dimensionados para tus equipos, no para un equipo genérico</li>
+            <li>Espacio previsto para crecer sin rehacer el proyecto</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANÁLISIS DEL ESPACIO -->
+    <section class="section analysis" id="analisis" aria-labelledby="an-title">
+      <div class="container-xxl">
+        <div class="analysis-grid">
+          <div class="analysis-head">
+            <h2 id="an-title" class="section-title">Lo que analizamos antes de proponer</h2>
+            <p class="lead-muted">Cinco variables definen casi todas las decisiones de un proyecto. Las que no conozcas las medimos juntos.</p>
+            <figure class="analysis-photo reveal">
+              <img src="assets/images/analisis-640.webp" srcset="assets/images/analisis-640.webp 640w, assets/images/analisis-1000.webp 1000w" sizes="(min-width: 992px) 30vw, 100vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Manos sobre planos de distribución con una calculadora">
+            </figure>
+          </div>
+          <dl class="factors">
+            <div class="factor">
+              <dt><i class="bi bi-bounding-box" aria-hidden="true"></i>Espacio</dt>
+              <dd><p>Área útil, altura libre bajo cubierta, columnas, puertas, luminarias y rociadores.</p><p class="decides">Define cuántos niveles y cuántos pasillos caben.</p></dd>
+            </div>
+            <div class="factor">
+              <dt><i class="bi bi-box-seam" aria-hidden="true"></i>Tipo de carga</dt>
+              <dd><p>Pallets, cajas, material largo, bultos o piezas irregulares; su peso y su fragilidad.</p><p class="decides">Define el sistema y la capacidad de cada nivel.</p></dd>
+            </div>
+            <div class="factor">
+              <dt><i class="bi bi-rulers" aria-hidden="true"></i>Dimensiones</dt>
+              <dd><p>Frente, fondo y alto de la unidad de carga, incluido el embalaje y el voladizo.</p><p class="decides">Define la luz entre largueros y la profundidad.</p></dd>
+            </div>
+            <div class="factor">
+              <dt><i class="bi bi-arrow-repeat" aria-hidden="true"></i>Rotación</dt>
+              <dd><p>Cuántas referencias manejas, con qué frecuencia salen y si importa el orden de llegada.</p><p class="decides">Define si conviene acceso directo o alta densidad.</p></dd>
+            </div>
+            <div class="factor">
+              <dt><i class="bi bi-signpost-split" aria-hidden="true"></i>Flujo logístico</dt>
+              <dd><p>Recorridos de recepción, preparación y despacho; equipos de manejo y turnos.</p><p class="decides">Define la orientación de pasillos y las zonas de trabajo.</p></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO: LÍNEA DE TIEMPO -->
+    <section class="section timeline" id="proceso" aria-labelledby="tl-title">
+      <div class="container-xxl">
+        <div class="timeline-grid">
+          <div class="timeline-head">
+            <h2 id="tl-title" class="section-title">Cómo trabajamos, de la primera conversación al montaje</h2>
+            <p class="lead-muted">Cada etapa termina con un entregable que apruebas antes de avanzar.</p>
+            <a class="btn btn-yellow" href="#diagnostico">Empezar con un diagnóstico</a>
+          </div>
+          <ol class="tl-list" id="tl-list">
+            <li class="tl-step"><span class="tl-num">01</span><div><h3>Conversación inicial</h3><p>Nos cuentas qué almacenas, qué problema quieres resolver y qué plazos manejas.</p><p class="tl-out">Entregable: alcance preliminar</p></div></li>
+            <li class="tl-step"><span class="tl-num">02</span><div><h3>Levantamiento en sitio</h3><p>Medimos la nave, revisamos piso, cubierta, accesos y equipos de manejo.</p><p class="tl-out">Entregable: plano del espacio existente</p></div></li>
+            <li class="tl-step"><span class="tl-num">03</span><div><h3>Anteproyecto</h3><p>Proponemos una o varias distribuciones con sus ventajas y su capacidad estimada.</p><p class="tl-out">Entregable: alternativas y presupuesto</p></div></li>
+            <li class="tl-step"><span class="tl-num">04</span><div><h3>Ingeniería de detalle</h3><p>Cálculo de la estructura elegida, anclajes, accesorios y planos de montaje.</p><p class="tl-out">Entregable: planos aprobados para fabricación</p></div></li>
+            <li class="tl-step"><span class="tl-num">05</span><div><h3>Fabricación y logística</h3><p>Producción o suministro de componentes y programación de entregas en obra.</p><p class="tl-out">Entregable: cronograma de montaje</p></div></li>
+            <li class="tl-step"><span class="tl-num">06</span><div><h3>Montaje supervisado</h3><p>Instalación por zonas para no detener la operación, con control de plomo y nivel.</p><p class="tl-out">Entregable: estructura instalada</p></div></li>
+            <li class="tl-step"><span class="tl-num">07</span><div><h3>Entrega y acompañamiento</h3><p>Placas de capacidad, recomendaciones de uso e inspección y soporte posterior.</p><p class="tl-out">Entregable: acta de entrega</p></div></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUCIONES ESPECIALES -->
+    <section class="section specials" id="soluciones" aria-labelledby="sp-title">
+      <div class="container-xxl">
+        <div class="specials-head">
+          <h2 id="sp-title" class="display-2x">Soluciones especiales</h2>
+          <p class="pending-note" data-status="pendiente"><span class="pending-tag">Por confirmar</span> Mantener solo las soluciones que hacen parte del portafolio real.</p>
+        </div>
+
+        <article class="special">
+          <figure class="special-media reveal"><img src="assets/images/esp-cantilever-640.webp" srcset="assets/images/esp-cantilever-640.webp 640w, assets/images/esp-cantilever-1100.webp 1100w" sizes="(min-width: 992px) 50vw, 100vw" width="1100" height="825" loading="lazy" decoding="async" alt="Tablas de madera apiladas sobre brazos rojos de un rack cantilever"></figure>
+          <div class="special-text">
+            <h3>Cantilever</h3>
+            <p>Para tubería, perfilería, láminas y madera. Diseñamos la longitud de los brazos, la separación de columnas y el número de niveles según el material más largo y más pesado que manejes.</p>
+            <ul class="special-tags"><li>Una o dos caras</li><li>Carga lateral</li><li>Interior o exterior</li></ul>
+          </div>
+        </article>
+
+        <article class="special special-alt">
+          <figure class="special-media reveal"><img src="assets/images/esp-pesada-640.webp" srcset="assets/images/esp-pesada-640.webp 640w, assets/images/esp-pesada-1100.webp 1100w" sizes="(min-width: 992px) 50vw, 100vw" width="1100" height="825" loading="lazy" decoding="async" alt="Rack de carga pesada con cajas sobre pallets visto entre los bastidores"></figure>
+          <div class="special-text">
+            <h3>Racks de carga pesada</h3>
+            <p>Estructuras para cargas concentradas y materias primas, con perfiles, refuerzos y placas base calculados para el peso real por posición y el estado del piso.</p>
+            <ul class="special-tags"><li>Refuerzo de bastidores</li><li>Anclaje calculado</li><li>Protección contra impacto</li></ul>
+          </div>
+        </article>
+
+        <article class="special">
+          <figure class="special-media reveal"><img src="assets/images/esp-entrepiso-640.webp" srcset="assets/images/esp-entrepiso-640.webp 640w, assets/images/esp-entrepiso-1100.webp 1100w" sizes="(min-width: 992px) 50vw, 100vw" width="1100" height="825" loading="lazy" decoding="async" alt="Nave industrial con escaleras metálicas que suben a una plataforma superior"></figure>
+          <div class="special-text">
+            <h3>Entrepisos y mezzanines</h3>
+            <p>Plataformas metálicas que aprovechan la altura de la nave para oficinas de bodega, picking o almacenamiento liviano, con escaleras, barandas y zonas de carga.</p>
+            <ul class="special-tags"><li>Autoportantes o sobre estantería</li><li>Escaleras y barandas</li><li>Puertas de carga</li></ul>
+          </div>
+        </article>
+
+        <article class="special special-alt">
+          <figure class="special-media reveal"><img src="assets/images/esp-medida-640.webp" srcset="assets/images/esp-medida-640.webp 640w, assets/images/esp-medida-1100.webp 1100w" sizes="(min-width: 992px) 50vw, 100vw" width="1100" height="825" loading="lazy" decoding="async" alt="Estantería de celdas con barras y perfiles metálicos clasificados por medida"></figure>
+          <div class="special-text">
+            <h3>Configuraciones a medida</h3>
+            <p>Cuando ningún sistema estándar resuelve el problema: celdas para barras, combinaciones de sistemas, estructuras para formatos especiales o adaptación de racks existentes.</p>
+            <ul class="special-tags"><li>Diseño desde cero</li><li>Combinación de sistemas</li><li>Ampliaciones</li></ul>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- MATERIALES, ACABADOS Y MONTAJE -->
+    <section class="section materials" id="materiales" aria-labelledby="mat-title">
+      <div class="container-xxl">
+        <div class="materials-head">
+          <h2 id="mat-title" class="section-title">Materiales, acabados y montaje</h2>
+          <p class="lead-muted">Lo que no se ve en un render pero define la vida útil de la estructura.</p>
+        </div>
+        <div class="materials-grid">
+          <figure class="material">
+            <img src="assets/images/mat-acero-640.webp" srcset="assets/images/mat-acero-640.webp 640w, assets/images/mat-acero-1000.webp 1000w" sizes="(min-width: 768px) 33vw, 100vw" width="1000" height="1000" loading="lazy" decoding="async" alt="Unión atornillada de perfiles de acero vista desde abajo, en blanco y negro">
+            <figcaption><h3>Acero y acabados</h3><p>Perfiles de acero según el cálculo de cada proyecto. El acabado se elige según el ambiente: interior, exterior, humedad o frío.</p></figcaption>
+          </figure>
+          <figure class="material">
+            <img src="assets/images/mat-tornilleria-640.webp" srcset="assets/images/mat-tornilleria-640.webp 640w, assets/images/mat-tornilleria-1000.webp 1000w" sizes="(min-width: 768px) 33vw, 100vw" width="1000" height="1000" loading="lazy" decoding="async" alt="Tornillos y tuercas de acero galvanizado sobre fondo claro">
+            <figcaption><h3>Tornillería y anclajes</h3><p>Uniones, placas base y anclajes especificados en los planos. Nada se resuelve en obra con lo que haya a mano.</p></figcaption>
+          </figure>
+          <figure class="material">
+            <img src="assets/images/mat-montaje-640.webp" srcset="assets/images/mat-montaje-640.webp 640w, assets/images/mat-montaje-1000.webp 1000w" sizes="(min-width: 768px) 33vw, 100vw" width="1000" height="1000" loading="lazy" decoding="async" alt="Operario con arnés y casco revisando un paquete de varillas sobre una plataforma de rejilla">
+            <figcaption><h3>Montaje seguro</h3><p>Personal con protección para trabajo en alturas, zonas acordonadas y verificación de plomo y nivel en cada módulo.</p></figcaption>
+          </figure>
+        </div>
+        <p class="pending-note" data-status="pendiente"><span class="pending-tag">Por confirmar</span> Especificar calidades de acero, tipos de acabado y certificaciones reales del proveedor antes de publicar.</p>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="section faq" id="preguntas" aria-labelledby="faq-title">
+      <div class="container-xxl">
+        <div class="faq-grid">
+          <h2 id="faq-title" class="section-title">Preguntas frecuentes</h2>
+          <div class="faq-list">
+            <details><summary>¿Necesito tener un plano de la bodega?</summary><p>No. Si lo tienes, nos ahorra tiempo; si no, el levantamiento en sitio lo produce. Con medidas aproximadas ya podemos hablar de alternativas.</p></details>
+            <details><summary>¿Qué pasa si no sé el peso de mi carga?</summary><p>Es habitual. Durante el diagnóstico estimamos el peso con tus fichas de producto o pesando unidades de muestra. El diseño final siempre se calcula con valores verificados.</p></details>
+            <details><summary>¿Pueden trabajar sobre racks que ya tengo?</summary><p>Sí, evaluamos su estado y su compatibilidad. Una ampliación o reconfiguración suele ser más económica que empezar de cero, siempre que la estructura existente lo permita.</p></details>
+            <details><summary>¿Cuánto tarda un proyecto a medida?</summary><p>Depende del tamaño y de si los componentes se fabrican. El anteproyecto incluye un cronograma por etapas con fechas para cada entregable.</p></details>
+            <details><summary>¿Atienden proyectos fuera de mi ciudad?</summary><p>La cobertura se confirma en la primera conversación. <span class="pending-inline" data-status="pendiente">Indicar las ciudades o regiones que atiende el proveedor.</span></p></details>
+            <details><summary>¿El diagnóstico tiene costo?</summary><p>Te lo indicamos antes de la visita, según la ubicación y el alcance. <span class="pending-inline" data-status="pendiente">Definir la política comercial del diagnóstico.</span></p></details>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORMULARIO DE DIAGNÓSTICO -->
+    <section class="section diagnosis" id="diagnostico" aria-labelledby="dx-title">
+      <div class="container-xxl">
+        <div class="dx-grid">
+          <div class="dx-intro">
+            <h2 id="dx-title" class="section-title">Diagnóstico inicial</h2>
+            <p class="lead-muted">Solo necesitamos tu nombre y una forma de contactarte. Todo lo demás es opcional: si no lo sabes, déjalo en blanco y lo resolvemos en la conversación.</p>
+            <div class="dx-progress" aria-hidden="true">
+              <div class="dx-bar"><span id="dx-bar-fill"></span></div>
+              <p id="dx-progress-text">Ningún dato del proyecto todavía. No hace falta completarlos todos.</p>
+            </div>
+            <dl class="contact-data" id="contact-data"></dl>
+          </div>
+          <form class="dx-form" id="dx-form" novalidate>
+            <fieldset>
+              <legend>Sobre ti</legend>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="f-nombre">Nombre <span class="req">(obligatorio)</span></label>
+                  <input class="form-control" id="f-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
+                  <p class="field-error" id="e-nombre" hidden></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-empresa">Empresa</label>
+                  <input class="form-control" id="f-empresa" name="empresa" type="text" autocomplete="organization">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-correo">Correo electrónico</label>
+                  <input class="form-control" id="f-correo" name="correo" type="email" autocomplete="email" inputmode="email" aria-describedby="h-contacto e-correo">
+                  <p class="field-error" id="e-correo" hidden></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-telefono">Teléfono</label>
+                  <input class="form-control" id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="h-contacto e-telefono">
+                  <p class="field-error" id="e-telefono" hidden></p>
+                </div>
+                <div class="col-12"><p class="field-hint" id="h-contacto">Escribe al menos uno: correo o teléfono.</p></div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-ciudad">Ciudad</label>
+                  <input class="form-control" id="f-ciudad" name="ciudad" type="text" autocomplete="address-level2" data-proyecto>
+                </div>
+              </div>
+            </fieldset>
+            <fieldset>
+              <legend>Sobre el proyecto <span class="legend-opt">(opcional)</span></legend>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="f-solucion">Tipo de solución</label>
+                  <select class="form-select" id="f-solucion" name="solucion" data-proyecto>
+                    <option value="">No lo tengo claro</option>
+                    <option>Racks para pallets</option>
+                    <option>Racks de carga pesada</option>
+                    <option>Cantilever</option>
+                    <option>Entrepiso o mezzanine</option>
+                    <option>Estantería para cajas o repuestos</option>
+                    <option>Ampliar o reconfigurar lo existente</option>
+                    <option>Otra configuración</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-dimensiones">Dimensiones aproximadas del espacio</label>
+                  <input class="form-control" id="f-dimensiones" name="dimensiones" type="text" aria-describedby="h-dimensiones" data-proyecto>
+                  <p class="field-hint" id="h-dimensiones">Por ejemplo: 20 × 40 m y unos 8 m de altura.</p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-productos">Productos o materiales almacenados</label>
+                  <input class="form-control" id="f-productos" name="productos" type="text" data-proyecto>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-peso">Peso aproximado de la carga</label>
+                  <input class="form-control" id="f-peso" name="peso" type="text" aria-describedby="h-peso" data-proyecto>
+                  <p class="field-hint" id="h-peso">Solo si lo conoces. Por ejemplo: 800 kg por pallet.</p>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="f-descripcion">Descripción del proyecto</label>
+                  <textarea class="form-control" id="f-descripcion" name="descripcion" rows="4" data-proyecto></textarea>
+                </div>
+              </div>
+            </fieldset>
+            <div class="form-check">
+              <input class="form-check-input" id="f-datos" name="autorizacion" type="checkbox" required aria-describedby="e-datos">
+              <label class="form-check-label" for="f-datos">Autorizo el uso de mis datos para responder esta solicitud.</label>
+            </div>
+            <p class="field-error" id="e-datos" hidden></p>
+            <div class="form-submit">
+              <button class="btn btn-yellow btn-lg" type="submit">Enviar solicitud de diagnóstico</button>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-final" aria-labelledby="cta-title">
+      <img class="cta-bg" src="assets/images/cta-1600.webp" srcset="assets/images/cta-960.webp 960w, assets/images/cta-1600.webp 1600w, assets/images/cta-2200.webp 2200w" sizes="100vw" width="2200" height="943" loading="lazy" decoding="async" alt="">
+      <div class="container-xxl cta-inner">
+        <h2 id="cta-title">Tu bodega ya tiene la altura. Falta el proyecto.</h2>
+        <a class="btn btn-yellow btn-lg" href="#diagnostico">Cuéntanos tu proyecto</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-xxl">
+      <div class="footer-top">
+        <a class="brand brand-footer" href="#inicio" aria-label="Nave, volver al inicio"><span class="brand-word">Nave</span><span class="brand-sub">Proyectos de almacenamiento</span></a>
+        <p class="footer-claim">Racks, cantilever, entrepisos y configuraciones a medida, desde el levantamiento hasta el montaje.</p>
+      </div>
+      <div class="footer-cols">
+        <div>
+          <h2 class="footer-title">Estudio</h2>
+          <ul class="footer-links">
+            <li><a href="#enfoque">Enfoque</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#proceso">Cómo trabajamos</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">Soluciones</h2>
+          <ul class="footer-links">
+            <li><a href="#soluciones">Soluciones especiales</a></li>
+            <li><a href="#materiales">Materiales y montaje</a></li>
+            <li><a href="#preguntas">Preguntas</a></li>
+          </ul>
+        </div>
+        <div>
+          <h2 class="footer-title">Contacto</h2>
+          <dl class="footer-contact" id="footer-contact"></dl>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Nave. Marca y contenidos de demostración.</p>
+        <p><a href="assets/images/CREDITOS.md">Créditos fotográficos</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="wa-float" id="wa-float" href="#diagnostico" hidden><i class="bi bi-whatsapp" aria-hidden="true"></i></a>
+  <div class="toast-note" id="toast-note" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

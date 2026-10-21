@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ortogonal · Ingeniería de almacenamiento industrial, racks y estanterías</title>
+  <meta name="description" content="Diseño, fabricación e instalación de racks y estanterías industriales calculados para el espacio, la carga y la operación de tu bodega. Solicita una cotización.">
+  <meta name="theme-color" content="#0A2130">
+  <!-- Reemplazar por la URL definitiva al publicar -->
+  <link rel="canonical" href="https://www.ejemplo.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:title" content="Ortogonal · Ingeniería de almacenamiento industrial">
+  <meta property="og:description" content="Soluciones de racks y estanterías industriales adaptadas al espacio, tipo de carga y operación de tu empresa.">
+  <!-- og:image debe ser una URL absoluta en producción -->
+  <meta property="og:image" content="assets/images/hero-1000.webp">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- Favicon provisional: reemplazar assets/favicon.svg por el logotipo oficial -->
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css?v=1">
+  <link rel="preload" as="image" href="assets/images/hero-1000.webp" imagesrcset="assets/images/hero-640.webp 640w, assets/images/hero-1000.webp 1000w, assets/images/hero-1400.webp 1400w" imagesizes="(min-width: 992px) 50vw, 100vw">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" integrity="sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" integrity="sha384-P8VzCVnT9NBUkMrpcIZrJbA7EBjJvh/fJS6PmP+4nLIM284DtsImIv8D0fFjIkeh" crossorigin="anonymous" defer></script>
+  <script src="js/main.js?v=1" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+  <!-- Barra visible solo en modo «revision» (ver CONFIG.modo en js/main.js) -->
+  <div class="review-bar" id="review-bar" hidden>
+    <p class="mb-0"><strong>Versión de demostración.</strong> Marca, textos, fotos e indicadores son de ejemplo. Los elementos marcados «Por confirmar» se ocultan al pasar a modo publicación.</p>
+  </div>
+
+  <header class="site-header" id="site-header">
+    <nav class="navbar navbar-expand-lg" aria-label="Principal">
+      <div class="container-xxl">
+        <!-- Logo tipográfico editable: cambia el texto o reemplaza por <img src="assets/logo.svg" alt="Nombre"> -->
+        <a class="brand" href="#inicio" aria-label="Ortogonal, ir al inicio">
+          <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 28V4h24" fill="none" stroke="currentColor" stroke-width="3"/><path d="M11 28V11h17" fill="none" stroke="currentColor" stroke-width="3"/><rect x="18" y="18" width="10" height="10" fill="#E8641B"/></svg>
+          <span class="brand-name">Ortogonal</span>
+          <span class="brand-sub">Ingeniería de almacenamiento</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-principal" aria-controls="nav-principal" aria-expanded="false" aria-label="Abrir menú">
+          <span class="toggler-bar"></span><span class="toggler-bar"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="nav-principal">
+          <ul class="navbar-nav ms-lg-auto">
+            <li class="nav-item"><a class="nav-link" href="#soluciones">Soluciones</a></li>
+            <li class="nav-item"><a class="nav-link" href="#proceso">Proceso</a></li>
+            <li class="nav-item"><a class="nav-link" href="#proyectos">Proyectos</a></li>
+            <li class="nav-item"><a class="nav-link" href="#ingenieria">Ingeniería</a></li>
+            <li class="nav-item"><a class="nav-link" href="#preguntas">Preguntas</a></li>
+          </ul>
+          <a class="btn btn-quote ms-lg-4" href="#cotizar">Solicitar cotización</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido" tabindex="-1">
+
+    <!-- HERO -->
+    <section class="hero" id="inicio" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div class="hero-copy-inner">
+          <h1 id="hero-title" class="hero-title" data-hero-line>Diseñamos almacenamiento industrial para empresas que necesitan crecer</h1>
+          <p class="hero-lead" data-hero-line>Diseñamos e implementamos soluciones de estanterías y racks industriales adaptadas al espacio, tipo de carga y operación de tu empresa.</p>
+          <div class="hero-actions" data-hero-line>
+            <a class="btn btn-quote btn-lg" href="#cotizar">Solicitar una cotización</a>
+            <a class="link-line" href="#soluciones">Conocer nuestras soluciones</a>
+          </div>
+          <a class="scroll-cue" href="#capacidades">
+            <span class="scroll-cue-track" aria-hidden="true"><span class="scroll-cue-dot"></span></span>
+            Seguir explorando
+          </a>
+        </div>
+      </div>
+
+      <figure class="hero-media">
+        <img src="assets/images/hero-1000.webp"
+             srcset="assets/images/hero-640.webp 640w, assets/images/hero-1000.webp 1000w, assets/images/hero-1400.webp 1400w"
+             sizes="(min-width: 992px) 50vw, 100vw" width="1400" height="1750"
+             alt="Pasillo de racks selectivos de gran altura cargados con pallets y un montacargas detenido en el centro"
+             fetchpriority="high">
+        <!-- Cotas de plano: indican lo que se mide en un diagnóstico, no cifras de un proyecto -->
+        <svg class="cotas" viewBox="0 0 400 500" preserveAspectRatio="none" aria-hidden="true">
+          <g class="cota cota-v">
+            <line x1="44" y1="40" x2="44" y2="380"/>
+            <line x1="34" y1="40" x2="54" y2="40"/>
+            <line x1="34" y1="380" x2="54" y2="380"/>
+          </g>
+          <g class="cota cota-h">
+            <line x1="150" y1="440" x2="262" y2="440"/>
+            <line x1="150" y1="430" x2="150" y2="450"/>
+            <line x1="262" y1="430" x2="262" y2="450"/>
+          </g>
+          <g class="cota cota-p">
+            <circle cx="300" cy="200" r="9"/>
+            <line x1="300" y1="191" x2="300" y2="209"/>
+            <line x1="291" y1="200" x2="309" y2="200"/>
+            <line x1="309" y1="200" x2="350" y2="160"/>
+          </g>
+        </svg>
+        <span class="cota-label cota-label-v">Altura útil</span>
+        <span class="cota-label cota-label-h">Ancho de pasillo</span>
+        <span class="cota-label cota-label-p">Carga por nivel</span>
+      </figure>
+    </section>
+
+    <!-- CAPACIDADES: confirmar cuáles presta realmente el proveedor -->
+    <section class="capacities" id="capacidades" aria-labelledby="cap-title">
+      <div class="container-xxl">
+        <h2 id="cap-title" class="visually-hidden">Capacidades</h2>
+        <div class="title-block">
+          <div class="tb-cell">
+            <h3 class="tb-name">Diseño</h3>
+            <p>Distribución, cálculo de cargas y planos de la solución.</p>
+          </div>
+          <div class="tb-cell">
+            <h3 class="tb-name">Fabricación</h3>
+            <p>Bastidores, largueros y accesorios producidos según el diseño aprobado.</p>
+          </div>
+          <div class="tb-cell">
+            <h3 class="tb-name">Instalación</h3>
+            <p>Montaje, nivelación y anclaje con personal propio y supervisión.</p>
+          </div>
+          <div class="tb-cell">
+            <h3 class="tb-name">Asesoría</h3>
+            <p>Diagnóstico de la bodega y acompañamiento antes y después del montaje.</p>
+          </div>
+        </div>
+        <p class="pending-note" data-status="pendiente"><span class="pending-tag">Por confirmar</span> Mostrar solo las capacidades que el proveedor realmente presta.</p>
+      </div>
+    </section>
+
+    <!-- PROBLEMAS -->
+    <section class="section problems" id="problemas" aria-labelledby="prob-title">
+      <div class="container-xxl">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-5">
+            <figure class="photo-frame reveal-img">
+              <img src="assets/images/problema-640.webp" srcset="assets/images/problema-640.webp 640w, assets/images/problema-1000.webp 1000w" sizes="(min-width: 992px) 40vw, 100vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Cajas de cartón apiladas sin orden hasta el techo, sin estanterías ni pasillos">
+            </figure>
+          </div>
+          <div class="col-lg-6 offset-lg-1">
+            <h2 id="prob-title" class="section-title">Cuando la bodega se queda corta, casi nunca es por falta de metros</h2>
+            <p class="section-lead">Es la forma en que se usa el volumen. Estos son los síntomas que más vemos antes de un proyecto de almacenamiento.</p>
+            <ul class="problem-list">
+              <li>
+                <h3>Espacio desaprovechado</h3>
+                <p>La mercancía ocupa el piso mientras varios metros de altura libre quedan sin uso.</p>
+              </li>
+              <li>
+                <h3>Mercancía difícil de alcanzar</h3>
+                <p>Para sacar un pallet hay que mover otros tres; los pasillos no corresponden al equipo de manejo.</p>
+              </li>
+              <li>
+                <h3>Desorden e inventario impreciso</h3>
+                <p>Sin ubicaciones definidas, encontrar una referencia depende de la memoria de una persona.</p>
+              </li>
+              <li>
+                <h3>Un inventario que crece más rápido que la bodega</h3>
+                <p>Cada temporada se improvisa: estibas en el pasillo, cargas sobre estanterías que no fueron calculadas para ese peso.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOLUCIONES (pestañas; sin JS se muestran todas en lista) -->
+    <section class="section solutions" id="soluciones" aria-labelledby="sol-title">
+      <div class="container-xxl">
+        <div class="section-head">
+          <h2 id="sol-title" class="section-title">Sistemas que calculamos para tu carga</h2>
+          <p class="section-lead">Cada sistema responde a una combinación de producto, peso, rotación y equipo de manejo. Estos son los que diseñamos con más frecuencia.</p>
+          <p class="pending-note" data-status="pendiente"><span class="pending-tag">Por confirmar</span> Ajustar la lista al portafolio real del proveedor.</p>
+        </div>
+
+        <div class="spec-tabs" data-tabs>
+          <div class="spec-tablist" role="tablist" aria-label="Sistemas de almacenamiento" hidden>
+            <button type="button" role="tab" id="tab-selectiva" aria-controls="panel-selectiva" aria-selected="true">Rack selectivo</button>
+            <button type="button" role="tab" id="tab-pesada" aria-controls="panel-pesada" aria-selected="false" tabindex="-1">Carga pesada</button>
+            <button type="button" role="tab" id="tab-cantilever" aria-controls="panel-cantilever" aria-selected="false" tabindex="-1">Cantilever</button>
+            <button type="button" role="tab" id="tab-multinivel" aria-controls="panel-multinivel" aria-selected="false" tabindex="-1">Multinivel y entrepisos</button>
+            <button type="button" role="tab" id="tab-picking" aria-controls="panel-picking" aria-selected="false" tabindex="-1">Estantería para picking</button>
+          </div>
+
+          <article class="spec-panel" id="panel-selectiva" role="tabpanel" aria-labelledby="tab-selectiva">
+            <figure class="spec-media">
+              <img src="assets/images/sol-selectiva-640.webp" srcset="assets/images/sol-selectiva-640.webp 640w, assets/images/sol-selectiva-1100.webp 1100w" sizes="(min-width: 992px) 55vw, 100vw" width="1100" height="733" loading="lazy" decoding="async" alt="Rack selectivo de largueros naranja y bastidores azules visto desde el piso, con cajas en todos los niveles">
+            </figure>
+            <div class="spec-body">
+              <h3>Rack selectivo para pallets</h3>
+              <p>Acceso directo a cada pallet desde el pasillo. Es el punto de partida para operaciones con muchas referencias y rotación variable.</p>
+              <dl class="spec-sheet">
+                <div><dt>Tipo de carga</dt><dd>Mercancía paletizada, de mediana a pesada</dd></div>
+                <div><dt>Acceso</dt><dd>Directo a cada posición, sin mover otras cargas</dd></div>
+                <div><dt>Se define en ingeniería</dt><dd>Niveles, luz entre largueros, ancho de pasillo según montacargas y capacidad por nivel</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="spec-panel" id="panel-pesada" role="tabpanel" aria-labelledby="tab-pesada">
+            <figure class="spec-media">
+              <img src="assets/images/sol-pesada-640.webp" srcset="assets/images/sol-pesada-640.webp 640w, assets/images/sol-pesada-1100.webp 1100w" sizes="(min-width: 992px) 55vw, 100vw" width="1100" height="733" loading="lazy" decoding="async" alt="Montacargas transportando un pallet frente a racks de carga pesada llenos de estibas">
+            </figure>
+            <div class="spec-body">
+              <h3>Racks para carga pesada</h3>
+              <p>Estructuras dimensionadas para cargas concentradas, pallets de alto peso o materias primas que no admiten improvisación.</p>
+              <dl class="spec-sheet">
+                <div><dt>Tipo de carga</dt><dd>Pallets de alto peso, materias primas, piezas metálicas</dd></div>
+                <div><dt>Acceso</dt><dd>Con montacargas o puente grúa, según la operación</dd></div>
+                <div><dt>Se define en ingeniería</dt><dd>Perfil de bastidor, refuerzos, placas base, anclaje y protecciones contra impacto</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="spec-panel" id="panel-cantilever" role="tabpanel" aria-labelledby="tab-cantilever">
+            <figure class="spec-media">
+              <img src="assets/images/sol-cantilever-640.webp" srcset="assets/images/sol-cantilever-640.webp 640w, assets/images/sol-cantilever-1100.webp 1100w" sizes="(min-width: 992px) 55vw, 100vw" width="1100" height="733" loading="lazy" decoding="async" alt="Rack cantilever cargado con perfiles y tubos de acero de gran longitud dentro de una nave">
+            </figure>
+            <div class="spec-body">
+              <h3>Cantilever para materiales largos</h3>
+              <p>Brazos en voladizo sin parales frontales: tubos, perfiles, varillas o madera se cargan de lado sin obstáculos.</p>
+              <dl class="spec-sheet">
+                <div><dt>Tipo de carga</dt><dd>Tubería, perfilería, láminas, madera y materiales de gran longitud</dd></div>
+                <div><dt>Acceso</dt><dd>Lateral, con montacargas o carga manual según el peso</dd></div>
+                <div><dt>Se define en ingeniería</dt><dd>Longitud y capacidad de brazos, separación de columnas y estabilidad de la base</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="spec-panel" id="panel-multinivel" role="tabpanel" aria-labelledby="tab-multinivel">
+            <figure class="spec-media">
+              <img src="assets/images/sol-multinivel-640.webp" srcset="assets/images/sol-multinivel-640.webp 640w, assets/images/sol-multinivel-1100.webp 1100w" sizes="(min-width: 992px) 55vw, 100vw" width="1100" height="733" loading="lazy" decoding="async" alt="Estantería metálica de varios niveles con pisos de rejilla y pasarelas intermedias">
+            </figure>
+            <div class="spec-body">
+              <h3>Estantería multinivel y entrepisos</h3>
+              <p>Cuando la bodega tiene altura pero la operación es manual, una plataforma intermedia duplica la superficie útil sin ampliar el lote.</p>
+              <dl class="spec-sheet">
+                <div><dt>Tipo de carga</dt><dd>Cajas, repuestos, insumos y mercancía de manipulación manual</dd></div>
+                <div><dt>Acceso</dt><dd>Escaleras, pasarelas y, si se requiere, zonas de carga para montacargas</dd></div>
+                <div><dt>Se define en ingeniería</dt><dd>Sobrecarga del piso, barandas, rutas de evacuación e iluminación</dd></div>
+              </dl>
+            </div>
+          </article>
+
+          <article class="spec-panel" id="panel-picking" role="tabpanel" aria-labelledby="tab-picking">
+            <figure class="spec-media">
+              <img src="assets/images/sol-picking-640.webp" srcset="assets/images/sol-picking-640.webp 640w, assets/images/sol-picking-1100.webp 1100w" sizes="(min-width: 992px) 55vw, 100vw" width="1100" height="733" loading="lazy" decoding="async" alt="Pasillo de estanterías para picking con cajas medianas y carros de mano">
+            </figure>
+            <div class="spec-body">
+              <h3>Estantería liviana y semipesada para picking</h3>
+              <p>Niveles ajustables para preparación de pedidos, repuestos y referencias de alta rotación que se toman a mano.</p>
+              <dl class="spec-sheet">
+                <div><dt>Tipo de carga</dt><dd>Cajas, bandejas y producto suelto de peso bajo o medio</dd></div>
+                <div><dt>Acceso</dt><dd>Manual, a la altura de trabajo de la persona</dd></div>
+                <div><dt>Se define en ingeniería</dt><dd>Profundidad de entrepaños, número de niveles, señalización de ubicaciones</dd></div>
+              </dl>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESO -->
+    <section class="section process" id="proceso" aria-labelledby="proc-title">
+      <div class="container-xxl">
+        <div class="section-head">
+          <h2 id="proc-title" class="section-title">Del levantamiento al montaje, un solo equipo responsable</h2>
+          <p class="section-lead">Cinco etapas con entregables claros. Cada una se aprueba antes de pasar a la siguiente.</p>
+        </div>
+        <div class="process-rail" aria-hidden="true"><span class="process-rail-fill"></span></div>
+        <ol class="process-list">
+          <li class="process-step">
+            <span class="step-num">01</span>
+            <figure><img src="assets/images/proc-diagnostico-640.webp" srcset="assets/images/proc-diagnostico-640.webp 640w, assets/images/proc-diagnostico-1000.webp 1000w" sizes="(min-width: 1200px) 18vw, (min-width: 768px) 30vw, 100vw" width="1000" height="750" loading="lazy" decoding="async" alt="Dos personas revisan y señalan un plano impreso sobre una mesa"></figure>
+            <h3>Diagnóstico</h3>
+            <p>Visita a la bodega: medidas, altura libre, estado del piso, producto y equipos de manejo.</p>
+          </li>
+          <li class="process-step">
+            <span class="step-num">02</span>
+            <figure><img src="assets/images/proc-diseno-640.webp" srcset="assets/images/proc-diseno-640.webp 640w, assets/images/proc-diseno-1000.webp 1000w" sizes="(min-width: 1200px) 18vw, (min-width: 768px) 30vw, 100vw" width="1000" height="750" loading="lazy" decoding="async" alt="Ingeniero frente a dos monitores con un modelo tridimensional de estanterías"></figure>
+            <h3>Diseño</h3>
+            <p>Distribución en planta, cálculo de cargas y propuesta técnica con planos para aprobar.</p>
+          </li>
+          <li class="process-step">
+            <span class="step-num">03</span>
+            <figure><img src="assets/images/proc-fabricacion-640.webp" srcset="assets/images/proc-fabricacion-640.webp 640w, assets/images/proc-fabricacion-1000.webp 1000w" sizes="(min-width: 1200px) 18vw, (min-width: 768px) 30vw, 100vw" width="1000" height="750" loading="lazy" decoding="async" alt="Corte de tubos cuadrados de acero con chispas en un taller"></figure>
+            <h3>Fabricación</h3>
+            <p>Producción de componentes según planos aprobados y control dimensional antes del despacho.</p>
+          </li>
+          <li class="process-step">
+            <span class="step-num">04</span>
+            <figure><img src="assets/images/proc-instalacion-640.webp" srcset="assets/images/proc-instalacion-640.webp 640w, assets/images/proc-instalacion-1000.webp 1000w" sizes="(min-width: 1200px) 18vw, (min-width: 768px) 30vw, 100vw" width="1000" height="750" loading="lazy" decoding="async" alt="Bastidores y largueros de rack azules y naranja apilados en obra antes del montaje"></figure>
+            <h3>Instalación</h3>
+            <p>Montaje, plomada, nivelación y anclaje, coordinados para afectar lo menos posible la operación.</p>
+          </li>
+          <li class="process-step">
+            <span class="step-num">05</span>
+            <figure><img src="assets/images/proc-entrega-640.webp" srcset="assets/images/proc-entrega-640.webp 640w, assets/images/proc-entrega-1000.webp 1000w" sizes="(min-width: 1200px) 18vw, (min-width: 768px) 30vw, 100vw" width="1000" height="750" loading="lazy" decoding="async" alt="Racks selectivos recién montados, vacíos, en una bodega amplia con piso de concreto"></figure>
+            <h3>Entrega</h3>
+            <p>Revisión final, placas de capacidad y recomendaciones de uso para el equipo de bodega.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- GALERÍA -->
+    <section class="section gallery" id="proyectos" aria-labelledby="gal-title">
+      <div class="container-xxl">
+        <div class="section-head section-head-split">
+          <h2 id="gal-title" class="section-title">Bodegas que se leen de un vistazo</h2>
+          <p class="section-lead">Pasillos definidos, cargas identificadas y cada posición con un propósito.</p>
+        </div>
+        <p class="pending-note" data-status="pendiente"><span class="pending-tag">Por confirmar</span> Fotografías de referencia de stock. Reemplazar por proyectos propios con autorización del cliente.</p>
+        <div class="gallery-grid">
+          <figure class="g-item g-wide reveal-img">
+            <img src="assets/images/gal-1-800.webp" srcset="assets/images/gal-1-800.webp 800w, assets/images/gal-1-1400.webp 1400w, assets/images/gal-1-1733.webp 1733w" sizes="(min-width: 1400px) 1300px, 100vw" width="1733" height="975" loading="lazy" decoding="async" alt="Bodega con racks de bastidores azules y largueros naranja de varios niveles">
+            <figcaption>Racks selectivos de varios niveles en bodega de distribución</figcaption>
+          </figure>
+          <figure class="g-item reveal-img">
+            <img src="assets/images/gal-2-640.webp" srcset="assets/images/gal-2-640.webp 640w, assets/images/gal-2-1000.webp 1000w" sizes="(min-width: 768px) 33vw, 100vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Vista elevada de hileras de racks selectivos recién instalados con protecciones amarillas">
+            <figcaption>Montaje terminado con defensas en cabeceras</figcaption>
+          </figure>
+          <figure class="g-item reveal-img">
+            <img src="assets/images/gal-3-640.webp" srcset="assets/images/gal-3-640.webp 640w, assets/images/gal-3-1000.webp 1000w" sizes="(min-width: 768px) 33vw, 100vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Pasillo largo y estrecho entre racks altos con mercancía embalada">
+            <figcaption>Pasillo estrecho para equipos de gran altura</figcaption>
+          </figure>
+          <figure class="g-item reveal-img">
+            <img src="assets/images/gal-4-640.webp" srcset="assets/images/gal-4-640.webp 640w, assets/images/gal-4-1000.webp 1000w" sizes="(min-width: 768px) 33vw, 100vw" width="1000" height="1250" loading="lazy" decoding="async" alt="Pasillo profundo de racks de bastidores oscuros cargados de pallets hasta el techo">
+            <figcaption>Almacenamiento de alta densidad hasta la cubierta</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- INGENIERÍA -->
+    <section class="section engineering" id="ingenieria" aria-labelledby="ing-title">
+      <div class="container-xxl">
+        <div class="row g-5 align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <div class="eng-media">
+              <figure class="eng-main reveal-img">
+                <img src="assets/images/ing-estructura-800.webp" srcset="assets/images/ing-estructura-800.webp 800w, assets/images/ing-estructura-1300.webp 1300w" sizes="(min-width: 992px) 45vw, 100vw" width="1300" height="975" loading="lazy" decoding="async" alt="Estructura de acero azul de un edificio industrial en construcción, con vigas y correas a la vista">
+              </figure>
+              <figure class="eng-detail">
+                <img src="assets/images/ing-detalle-500.webp" srcset="assets/images/ing-detalle-500.webp 500w, assets/images/ing-detalle-800.webp 800w" sizes="(min-width: 992px) 18vw, 40vw" width="800" height="800" loading="lazy" decoding="async" alt="Unión atornillada entre una viga y una columna de acero pintadas de azul">
+              </figure>
+            </div>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <h2 id="ing-title" class="section-title">La estantería es lo que se ve. El proyecto está en el cálculo.</h2>
+            <p class="section-lead">Vender estructura metálica es fácil. Garantizar que soporte la carga real, en ese piso, con ese montacargas, es ingeniería.</p>
+            <ul class="eng-list">
+              <li><i class="bi bi-rulers" aria-hidden="true"></i><div><h3>Capacidad por nivel y por bastidor</h3><p>Se calcula con el peso real de tus cargas, no con un valor de catálogo.</p></div></li>
+              <li><i class="bi bi-arrows-vertical" aria-hidden="true"></i><div><h3>Altura y equipos de manejo</h3><p>La altura del último nivel depende del alcance del montacargas y de la altura libre de la cubierta.</p></div></li>
+              <li><i class="bi bi-bricks" aria-hidden="true"></i><div><h3>Piso y anclaje</h3><p>Se verifica el estado de la placa y se define el anclaje de cada parante.</p></div></li>
+              <li><i class="bi bi-sliders" aria-hidden="true"></i><div><h3>Personalización</h3><p>Medidas, acabados, accesorios y protecciones ajustados a tu producto y a tu flujo de trabajo.</p></div></li>
+              <li><i class="bi bi-file-earmark-check" aria-hidden="true"></i><div><h3>Normativa aplicable</h3><p>El diseño se revisa frente a los requisitos técnicos y de seguridad que apliquen a tu instalación.</p></div></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDICADORES (se generan desde CONFIG.indicadores; sin valor no se publican) -->
+    <section class="section-tight indicators" id="indicadores" aria-labelledby="ind-title">
+      <div class="container-xxl">
+        <h2 id="ind-title" class="indicators-title">Respaldo</h2>
+        <dl class="indicator-row" id="indicator-row"></dl>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS (se generan desde CONFIG.testimonios) -->
+    <section class="section testimonials" id="testimonios" aria-labelledby="tes-title">
+      <div class="container-xxl">
+        <h2 id="tes-title" class="section-title">Lo que dicen los responsables de bodega</h2>
+        <div class="testimonial-grid" id="testimonial-grid"></div>
+      </div>
+    </section>
+
+    <!-- PREGUNTAS FRECUENTES -->
+    <section class="section faq" id="preguntas" aria-labelledby="faq-title">
+      <div class="container-xxl">
+        <div class="row g-5">
+          <div class="col-lg-4">
+            <h2 id="faq-title" class="section-title">Preguntas frecuentes</h2>
+            <p class="section-lead">Si tu duda no está aquí, inclúyela en la solicitud y la resolvemos en el diagnóstico.</p>
+          </div>
+          <div class="col-lg-8">
+            <div class="accordion faq-list" id="faq-acc">
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="true" aria-controls="faq-1">¿Qué información necesitan para cotizar?</button></h3>
+                <div id="faq-1" class="accordion-collapse collapse show" data-bs-parent="#faq-acc"><div class="accordion-body">Con las medidas aproximadas de la bodega, el tipo de producto y cómo lo mueves (a mano o con montacargas) podemos hacer una primera propuesta. Si tienes un plano o fotos, mejor. El peso exacto de las cargas y los detalles finos se confirman en la visita.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">¿Hacen visita técnica a la bodega?</button></h3>
+                <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq-acc"><div class="accordion-body">Sí, el diagnóstico incluye una visita para medir, revisar el piso y entender la operación. <span class="pending-inline" data-status="pendiente">Confirmar cobertura geográfica y si la visita tiene costo.</span></div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">¿Cuánto tarda un proyecto?</button></h3>
+                <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq-acc"><div class="accordion-body">Depende del tamaño, del sistema y de si los componentes se fabrican a medida. La propuesta técnica incluye un cronograma por etapas para que puedas planear la operación durante el montaje.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" aria-controls="faq-4">¿Pueden ampliar o reconfigurar los racks que ya tengo?</button></h3>
+                <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq-acc"><div class="accordion-body">Es posible cuando la estructura existente está en buen estado y sus componentes son compatibles. Se evalúa en el diagnóstico: no se recomienda mezclar componentes sin verificar su capacidad.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false" aria-controls="faq-5">¿Los racks se anclan al piso?</button></h3>
+                <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faq-acc"><div class="accordion-body">En racks para pallets el anclaje es parte del diseño. El tipo de anclaje depende del espesor y del estado de la placa de concreto, que se revisan durante la visita.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-6" aria-expanded="false" aria-controls="faq-6">¿Ofrecen inspección o mantenimiento después de la instalación?</button></h3>
+                <div id="faq-6" class="accordion-collapse collapse" data-bs-parent="#faq-acc"><div class="accordion-body">Los racks deben inspeccionarse periódicamente, sobre todo después de un impacto. <span class="pending-inline" data-status="pendiente">Confirmar si el proveedor presta este servicio y en qué condiciones.</span></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="cta-band" aria-labelledby="cta-title">
+      <img class="cta-bg" src="assets/images/cta-1600.webp" srcset="assets/images/cta-960.webp 960w, assets/images/cta-1600.webp 1600w, assets/images/cta-2200.webp 2200w" sizes="100vw" width="2200" height="943" loading="lazy" decoding="async" alt="">
+      <div class="container-xxl cta-inner">
+        <h2 id="cta-title">Cuéntanos cómo opera tu bodega. Te respondemos con una propuesta técnica.</h2>
+        <a class="btn btn-quote btn-lg" href="#cotizar">Solicitar una cotización</a>
+      </div>
+    </section>
+
+    <!-- FORMULARIO -->
+    <section class="section contact" id="cotizar" aria-labelledby="form-title">
+      <div class="container-xxl">
+        <div class="row g-5">
+          <div class="col-lg-5">
+            <h2 id="form-title" class="section-title">Solicitar una cotización</h2>
+            <p class="section-lead">Responde lo que sepas. Lo demás lo resolvemos en el diagnóstico.</p>
+            <dl class="contact-data" id="contact-data"></dl>
+          </div>
+          <div class="col-lg-7">
+            <form class="quote-form" id="quote-form" novalidate>
+              <div class="row g-3">
+                <div class="col-md-6">
+                  <label class="form-label" for="f-nombre">Nombre <span class="req">(obligatorio)</span></label>
+                  <input class="form-control" id="f-nombre" name="nombre" type="text" autocomplete="name" required aria-describedby="e-nombre">
+                  <p class="field-error" id="e-nombre" hidden></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-empresa">Empresa <span class="req">(obligatorio)</span></label>
+                  <input class="form-control" id="f-empresa" name="empresa" type="text" autocomplete="organization" required aria-describedby="e-empresa">
+                  <p class="field-error" id="e-empresa" hidden></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-correo">Correo electrónico <span class="req">(obligatorio)</span></label>
+                  <input class="form-control" id="f-correo" name="correo" type="email" autocomplete="email" inputmode="email" required aria-describedby="e-correo">
+                  <p class="field-error" id="e-correo" hidden></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-telefono">Teléfono</label>
+                  <input class="form-control" id="f-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" aria-describedby="e-telefono">
+                  <p class="field-error" id="e-telefono" hidden></p>
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-ciudad">Ciudad</label>
+                  <input class="form-control" id="f-ciudad" name="ciudad" type="text" autocomplete="address-level2">
+                </div>
+                <div class="col-md-6">
+                  <label class="form-label" for="f-necesidad">¿Qué necesitas?</label>
+                  <select class="form-select" id="f-necesidad" name="necesidad">
+                    <option value="">Aún no lo sé</option>
+                    <option>Rack selectivo para pallets</option>
+                    <option>Racks para carga pesada</option>
+                    <option>Cantilever para materiales largos</option>
+                    <option>Estantería multinivel o entrepiso</option>
+                    <option>Estantería para picking</option>
+                    <option>Ampliar o reconfigurar racks existentes</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="f-mensaje">Cuéntanos de tu bodega <span class="req">(obligatorio)</span></label>
+                  <textarea class="form-control" id="f-mensaje" name="mensaje" rows="4" required aria-describedby="h-mensaje e-mensaje"></textarea>
+                  <p class="field-hint" id="h-mensaje">Por ejemplo: área aproximada, qué almacenas y si usas montacargas.</p>
+                  <p class="field-error" id="e-mensaje" hidden></p>
+                </div>
+                <div class="col-12">
+                  <div class="form-check">
+                    <input class="form-check-input" id="f-datos" name="autorizacion" type="checkbox" required aria-describedby="e-datos">
+                    <label class="form-check-label" for="f-datos">Autorizo el uso de mis datos para responder esta solicitud.</label>
+                  </div>
+                  <p class="field-error" id="e-datos" hidden></p>
+                </div>
+                <div class="col-12 form-submit">
+                  <button class="btn btn-quote btn-lg" type="submit">Enviar solicitud</button>
+                  <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container-xxl">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <a class="brand brand-footer" href="#inicio" aria-label="Ortogonal, volver al inicio">
+            <svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true"><path d="M4 28V4h24" fill="none" stroke="currentColor" stroke-width="3"/><path d="M11 28V11h17" fill="none" stroke="currentColor" stroke-width="3"/><rect x="18" y="18" width="10" height="10" fill="#E8641B"/></svg>
+            <span class="brand-name">Ortogonal</span>
+          </a>
+          <p class="footer-note">Ingeniería de almacenamiento industrial: diseño, fabricación e instalación de racks y estanterías.</p>
+        </div>
+        <div class="col-6 col-lg-2">
+          <h2 class="footer-title">Sitio</h2>
+          <ul class="footer-links">
+            <li><a href="#soluciones">Soluciones</a></li>
+            <li><a href="#proceso">Proceso</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#preguntas">Preguntas</a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-lg-3">
+          <h2 class="footer-title">Contacto</h2>
+          <dl class="footer-contact" id="footer-contact"></dl>
+        </div>
+        <div class="col-lg-3">
+          <h2 class="footer-title">Cotizaciones</h2>
+          <p class="footer-note">Envíanos las medidas de tu bodega y el tipo de carga.</p>
+          <a class="btn btn-quote" href="#cotizar">Solicitar cotización</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Ortogonal. Marca y contenidos de demostración.</p>
+        <p><a href="assets/images/CREDITOS.md">Créditos fotográficos</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Botón de WhatsApp: el número se configura en js/main.js -->
+  <a class="wa-float" id="wa-float" href="#cotizar" hidden>
+    <i class="bi bi-whatsapp" aria-hidden="true"></i><span class="wa-label">Escríbenos</span>
+  </a>
+  <div class="toast-note" id="toast-note" role="status" aria-live="polite" hidden></div>
+</body>
+</html>

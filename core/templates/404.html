@@ -1,0 +1,39 @@
+{% extends "core/base.html" %}
+{% load static %}
+
+{% block title %}Página no encontrada | sruedadev.com{% endblock %}
+{% block description %}La página que buscas no existe o cambió de dirección. Vuelve al inicio o revisa el portafolio y los servicios de sruedadev.com.{% endblock %}
+{% block og_title %}Página no encontrada | sruedadev.com{% endblock %}
+{% block og_description %}La página que buscas no existe o cambió de dirección. Vuelve al inicio o revisa el portafolio y los servicios de sruedadev.com.{% endblock %}
+{% block twitter_title %}Página no encontrada | sruedadev.com{% endblock %}
+{% block twitter_description %}La página que buscas no existe o cambió de dirección. Vuelve al inicio o revisa el portafolio y los servicios de sruedadev.com.{% endblock %}
+{% block canonical %}https://sruedadev.com/404/{% endblock %}
+{% block og_url %}https://sruedadev.com/404/{% endblock %}
+
+{% block content %}
+<section class="hero-legal pagina-404">
+    <div class="circuito" aria-hidden="true"></div>
+    <div class="contenedor pagina-404-contenedor">
+        <span class="etiqueta"><i class="punto"></i> Error 404</span>
+
+        <img class="pagina-404-mascota" src="{% static 'core/img/mascota-sr.webp' %}" width="180" height="180" alt="" loading="eager" decoding="async">
+
+        <h1>Esta página no existe</h1>
+        <p class="pagina-404-texto">
+            El enlace puede estar roto o la página cambió de dirección. Revisa la URL o usa una
+            de estas opciones para seguir navegando.
+        </p>
+
+        <div class="pagina-404-acciones">
+            <a class="btn btn-primario" href="{% url 'core:home' %}">Volver al inicio</a>
+            <a class="btn btn-fantasma" href="{% url 'core:home' %}#portafolio">Ver el portafolio</a>
+            <a class="btn btn-fantasma" href="{% url 'core:home' %}#planes">Ver servicios</a>
+        </div>
+
+        <p class="pagina-404-contacto">
+            ¿Buscabas algo puntual?
+            <a href="https://wa.me/{{ whatsapp_numero }}?text={{ whatsapp_texto }}" target="_blank" rel="noopener">Escríbenos por WhatsApp</a>.
+        </p>
+    </div>
+</section>
+{% endblock %}

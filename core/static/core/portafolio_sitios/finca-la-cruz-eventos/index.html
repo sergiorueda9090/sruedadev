@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Finca La Cruz | Finca para eventos sociales y empresariales en Bucaramanga (demo)</title>
+  <meta name="description" content="Propuesta de sitio para Finca La Cruz, Momentos Inolvidables: espacio campestre para cumpleaños, matrimonios, reuniones familiares y eventos de empresa cerca de Bucaramanga. Consulta disponibilidad por WhatsApp.">
+  <meta name="theme-color" content="#a84a24">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Finca La Cruz">
+  <meta property="og:title" content="Finca La Cruz | Celebra a tu manera">
+  <meta property="og:description" content="Espacio campestre para celebraciones sociales y empresariales en el área metropolitana de Bucaramanga. Propuesta de demostración.">
+  <meta property="og:image" content="assets/images/finca-la-cruz/hero-1000.webp">
+  <link rel="icon" href="assets/images/favicon-finca-la-cruz.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=DM+Serif+Display:ital@0;1&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/global.css?v=1">
+  <link rel="stylesheet" href="assets/css/finca-la-cruz.css?v=1">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" integrity="sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" integrity="sha384-P8VzCVnT9NBUkMrpcIZrJbA7EBjJvh/fJS6PmP+4nLIM284DtsImIv8D0fFjIkeh" crossorigin="anonymous" defer></script>
+  <script src="assets/js/config.js?v=1" defer></script>
+  <script src="assets/js/main.js?v=1" defer></script>
+  <script src="assets/js/finca-la-cruz.js?v=1" defer></script>
+</head>
+<body data-sitio="fincaLaCruz">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <p class="aviso-demo">Propuesta de demostración: no es el sitio oficial de Finca La Cruz. Las fotografías son de referencia.</p>
+
+  <header class="cabecera" data-cabecera>
+    <nav class="navbar navbar-expand-lg" aria-label="Principal">
+      <div class="container-xl">
+        <a class="marca" href="#inicio">Finca La Cruz <span class="marca-lema">Momentos Inolvidables</span></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#espacio">El espacio</a></li>
+            <li class="nav-item"><a class="nav-link" href="#celebraciones">Celebraciones</a></li>
+            <li class="nav-item"><a class="nav-link" href="#empresas">Empresas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+            <li class="nav-item"><a class="nav-link" href="#preguntas">Preguntas</a></li>
+            <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+          </ul>
+          <a class="btn-lc btn-lc--terracota ms-lg-3" href="#reservar">Consultar disponibilidad</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- 1. Hero asimétrico -->
+    <section class="hero" id="inicio" data-hero aria-labelledby="hero-titulo">
+      <div class="container-xl hero-grilla">
+        <div class="hero-bloque">
+          <h1 id="hero-titulo" class="hero-titulo">Celebra a tu manera. Nosotros te ayudamos a hacerlo especial.</h1>
+          <p class="hero-sub">Descubre un espacio para reunir a las personas que más importan.</p>
+          <div class="hero-acciones">
+            <a class="btn-lc btn-lc--crema" href="#reservar">Consultar disponibilidad</a>
+            <a class="btn-lc btn-lc--linea-clara" href="#espacio">Conocer los espacios</a>
+          </div>
+        </div>
+        <figure class="hero-foto">
+          <img src="assets/images/finca-la-cruz/hero-1000.webp"
+               srcset="assets/images/finca-la-cruz/hero-640.webp 640w, assets/images/finca-la-cruz/hero-1000.webp 1000w, assets/images/finca-la-cruz/hero-1387.webp 1387w"
+               sizes="(min-width: 992px) 45vw, 100vw" width="1000" height="1250" fetchpriority="high"
+               alt="Mesas largas de madera con flores y sillas blancas bajo una pérgola">
+        </figure>
+        <figure class="hero-baile">
+          <img src="assets/images/finca-la-cruz/hero-baile-480.webp"
+               srcset="assets/images/finca-la-cruz/hero-baile-480.webp 480w, assets/images/finca-la-cruz/hero-baile-800.webp 800w"
+               sizes="(min-width: 992px) 18vw, 40vw" width="480" height="480"
+               alt="Invitadas bailando al aire libre durante una celebración">
+        </figure>
+      </div>
+    </section>
+
+    <!-- 2. El espacio -->
+    <section class="seccion espacio" id="espacio" aria-labelledby="espacio-titulo">
+      <div class="container-xl">
+        <div class="row g-4 g-xl-5 align-items-end">
+          <div class="col-lg-5">
+            <h2 id="espacio-titulo" class="titulo-lc">Campo, mesa larga y tiempo para compartir</h2>
+            <p class="entrada-lc">Finca La Cruz es un espacio campestre en el área metropolitana de Bucaramanga para celebraciones familiares, sociales y de empresa.</p>
+            <p>La idea es sencilla: salir de la ciudad, sentarse con calma y dejar que el día se arme alrededor de las personas. Tú decides el tipo de encuentro; nosotros te acompañamos a organizarlo.</p>
+            <p class="nota-lc"><i class="bi bi-info-circle" aria-hidden="true"></i> Fotografías de referencia. Instalaciones, capacidad y servicios se confirman directamente con la finca.</p>
+          </div>
+          <div class="col-lg-7">
+            <figure class="espacio-foto">
+              <img src="assets/images/finca-la-cruz/intro-800.webp" srcset="assets/images/finca-la-cruz/intro-800.webp 800w, assets/images/finca-la-cruz/intro-1400.webp 1400w" sizes="(min-width: 992px) 55vw, 100vw" width="800" height="533" loading="lazy" alt="Mesas preparadas con flores entre la vegetación">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Celebraciones sociales -->
+    <section class="seccion social" id="celebraciones" aria-labelledby="social-titulo">
+      <div class="container-xl">
+        <div class="cabeza-lc">
+          <h2 id="social-titulo" class="titulo-lc">Para celebrar en familia y con amigos</h2>
+          <p>Cada fecha importante tiene su propio ritmo. Estas son algunas de las reuniones que puedes organizar. <span class="etiqueta-pendiente" data-pendiente>Tipos de evento por confirmar</span></p>
+        </div>
+        <ul class="social-fila">
+          <li class="social-item">
+            <figure><img src="assets/images/finca-la-cruz/social-cumple-560.webp" srcset="assets/images/finca-la-cruz/social-cumple-560.webp 560w, assets/images/finca-la-cruz/social-cumple-900.webp 900w" sizes="(min-width: 992px) 24vw, (min-width: 576px) 45vw, 80vw" width="560" height="700" loading="lazy" alt="Familia celebrando un cumpleaños infantil con globos y tortas"></figure>
+            <h3>Cumpleaños</h3>
+            <p>Del primer añito a los cincuenta, con espacio para que todos jueguen y conversen.</p>
+          </li>
+          <li class="social-item">
+            <figure><img src="assets/images/finca-la-cruz/social-boda-560.webp" srcset="assets/images/finca-la-cruz/social-boda-560.webp 560w, assets/images/finca-la-cruz/social-boda-900.webp 900w" sizes="(min-width: 992px) 24vw, (min-width: 576px) 45vw, 80vw" width="560" height="700" loading="lazy" alt="Recién casados celebrando con sus invitados en un jardín"></figure>
+            <h3>Matrimonios</h3>
+            <p>Una boda campestre, cercana y a la medida de lo que imaginan.</p>
+          </li>
+          <li class="social-item">
+            <figure><img src="assets/images/finca-la-cruz/social-cena-560.webp" srcset="assets/images/finca-la-cruz/social-cena-560.webp 560w, assets/images/finca-la-cruz/social-cena-900.webp 900w" sizes="(min-width: 992px) 24vw, (min-width: 576px) 45vw, 80vw" width="560" height="700" loading="lazy" alt="Amigos conversando alrededor de una mesa con comida"></figure>
+            <h3>Reuniones familiares</h3>
+            <p>Almuerzos de domingo, reencuentros y fechas especiales.</p>
+          </li>
+          <li class="social-item">
+            <figure><img src="assets/images/finca-la-cruz/social-brindis-560.webp" srcset="assets/images/finca-la-cruz/social-brindis-560.webp 560w, assets/images/finca-la-cruz/social-brindis-900.webp 900w" sizes="(min-width: 992px) 24vw, (min-width: 576px) 45vw, 80vw" width="560" height="700" loading="lazy" alt="Invitados brindando en una mesa decorada con luces"></figure>
+            <h3>Grados y aniversarios</h3>
+            <p>Un brindis a la altura del logro o de los años compartidos.</p>
+          </li>
+        </ul>
+        <a class="btn-lc btn-lc--terracota" href="#reservar" data-modalidad="Celebración familiar">Consultar para mi celebración</a>
+      </div>
+    </section>
+
+    <!-- 4. Eventos empresariales -->
+    <section class="seccion empresas" id="empresas" aria-labelledby="empresas-titulo">
+      <div class="container-xl">
+        <div class="row g-4 g-xl-5 align-items-center">
+          <div class="col-lg-6 order-lg-2">
+            <h2 id="empresas-titulo" class="titulo-lc">Tu equipo, fuera de la oficina</h2>
+            <p class="entrada-lc">Un día en el campo para integrar, planear o celebrar el año con tu empresa.</p>
+            <ul class="empresas-lista">
+              <li><i class="bi bi-people" aria-hidden="true"></i><span><strong>Integraciones</strong> y días de bienestar para equipos.</span></li>
+              <li><i class="bi bi-easel" aria-hidden="true"></i><span><strong>Jornadas de trabajo</strong>, planeación y talleres fuera de la ciudad.</span></li>
+              <li><i class="bi bi-stars" aria-hidden="true"></i><span><strong>Cierres de año</strong> y celebraciones de logros.</span></li>
+            </ul>
+            <p class="nota-lc nota-lc--clara">Equipos de apoyo, alimentación y montaje se definen en la cotización según lo que ofrezca la finca.</p>
+            <a class="btn-lc btn-lc--crema" href="#reservar" data-modalidad="Jornada empresarial">Cotizar un evento de empresa</a>
+          </div>
+          <div class="col-lg-6 order-lg-1">
+            <div class="empresas-fotos">
+              <figure class="empresas-foto-a"><img src="assets/images/finca-la-cruz/emp-taller-800.webp" srcset="assets/images/finca-la-cruz/emp-taller-800.webp 800w, assets/images/finca-la-cruz/emp-taller-1300.webp 1300w" sizes="(min-width: 992px) 40vw, 90vw" width="800" height="533" loading="lazy" alt="Grupo de personas conversando durante un taller de trabajo"></figure>
+              <figure class="empresas-foto-b"><img src="assets/images/finca-la-cruz/emp-notas-560.webp" srcset="assets/images/finca-la-cruz/emp-notas-560.webp 560w, assets/images/finca-la-cruz/emp-notas-900.webp 900w" sizes="(min-width: 992px) 20vw, 45vw" width="560" height="700" loading="lazy" alt="Asistentes tomando notas durante una charla"></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Galería en mosaico -->
+    <section class="seccion galeria" id="galeria" aria-labelledby="galeria-titulo">
+      <div class="container-xl">
+        <div class="cabeza-lc cabeza-lc--fila">
+          <h2 id="galeria-titulo" class="titulo-lc">Ambientes para inspirarte</h2>
+          <p>Fotografías de referencia para conversar sobre estilo y montaje. Se reemplazan por imágenes de la finca.</p>
+        </div>
+        <div class="mosaico">
+          <figure class="m m--a"><img src="assets/images/finca-la-cruz/m-luces-800.webp" srcset="assets/images/finca-la-cruz/m-luces-800.webp 800w, assets/images/finca-la-cruz/m-luces-1300.webp 1300w" sizes="(min-width: 992px) 50vw, 100vw" width="800" height="533" loading="lazy" alt="Casa con guirnaldas de luces y mesa servida en el patio"></figure>
+          <figure class="m m--b"><img src="assets/images/finca-la-cruz/m-pergola-600.webp" srcset="assets/images/finca-la-cruz/m-pergola-600.webp 600w, assets/images/finca-la-cruz/m-pergola-1000.webp 1000w" sizes="(min-width: 992px) 25vw, 50vw" width="600" height="750" loading="lazy" alt="Pérgola iluminada con luces cálidas sobre mesas de banquete"></figure>
+          <figure class="m m--c"><img src="assets/images/finca-la-cruz/m-rustica-600.webp" srcset="assets/images/finca-la-cruz/m-rustica-600.webp 600w, assets/images/finca-la-cruz/m-rustica-1000.webp 1000w" sizes="(min-width: 992px) 25vw, 50vw" width="600" height="750" loading="lazy" alt="Mesa de madera con flores, copas y platos"></figure>
+          <figure class="m m--d"><img src="assets/images/finca-la-cruz/m-bosque-800.webp" srcset="assets/images/finca-la-cruz/m-bosque-800.webp 800w, assets/images/finca-la-cruz/m-bosque-1300.webp 1300w" sizes="(min-width: 992px) 50vw, 100vw" width="800" height="533" loading="lazy" alt="Mesa con mantel blanco y sillas de madera en medio de un bosque"></figure>
+          <figure class="m m--e"><img src="assets/images/finca-la-cruz/m-copas-600.webp" srcset="assets/images/finca-la-cruz/m-copas-600.webp 600w, assets/images/finca-la-cruz/m-copas-1000.webp 1000w" sizes="(min-width: 992px) 25vw, 50vw" width="600" height="750" loading="lazy" alt="Mesa con copas ámbar y sillas de rejilla"></figure>
+          <figure class="m m--f"><img src="assets/images/finca-la-cruz/m-buffet-800.webp" srcset="assets/images/finca-la-cruz/m-buffet-800.webp 800w, assets/images/finca-la-cruz/m-buffet-1300.webp 1300w" sizes="(min-width: 992px) 50vw, 100vw" width="800" height="533" loading="lazy" alt="Bandejas de comida en un servicio de buffet"></figure>
+          <figure class="m m--g"><img src="assets/images/finca-la-cruz/m-casa-800.webp" srcset="assets/images/finca-la-cruz/m-casa-800.webp 800w, assets/images/finca-la-cruz/m-casa-1300.webp 1300w" sizes="(min-width: 992px) 25vw, 50vw" width="800" height="533" loading="lazy" alt="Personas descansando en el césped frente a una casa con luces colgantes"></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Modalidades (sin precios) -->
+    <section class="seccion modalidades" id="modalidades" aria-labelledby="modalidades-titulo">
+      <div class="container-xl">
+        <div class="cabeza-lc">
+          <h2 id="modalidades-titulo" class="titulo-lc">Elige cómo quieres celebrar</h2>
+          <p>Cuatro formas de empezar la conversación. Las condiciones y el valor de cada una se definen en la cotización. <span class="etiqueta-pendiente" data-pendiente>Modalidades de ejemplo</span></p>
+        </div>
+        <div class="modalidades-grilla">
+          <article class="modalidad modalidad--terracota">
+            <h3>Celebración familiar</h3>
+            <p>Para cumpleaños, bautizos o almuerzos con los tuyos, en un ambiente tranquilo.</p>
+            <button class="modalidad-boton" type="button" data-modalidad="Celebración familiar">Consultar esta modalidad</button>
+          </article>
+          <article class="modalidad modalidad--arena">
+            <h3>Fiesta grande</h3>
+            <p>Matrimonios, quinceañeros y grados con música, comida y baile hasta tarde.</p>
+            <button class="modalidad-boton" type="button" data-modalidad="Fiesta grande">Consultar esta modalidad</button>
+          </article>
+          <article class="modalidad modalidad--bosque">
+            <h3>Jornada empresarial</h3>
+            <p>Integraciones, talleres y cierres de año para equipos de trabajo.</p>
+            <button class="modalidad-boton" type="button" data-modalidad="Jornada empresarial">Consultar esta modalidad</button>
+          </article>
+          <article class="modalidad modalidad--crema">
+            <h3>A tu medida</h3>
+            <p>¿Tienes otra idea? Cuéntanos qué imaginas y vemos cómo hacerlo posible.</p>
+            <button class="modalidad-boton" type="button" data-modalidad="Otro tipo de evento">Contar mi idea</button>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Proceso de cotización -->
+    <section class="seccion proceso" id="proceso" aria-labelledby="proceso-titulo">
+      <div class="container-xl">
+        <h2 id="proceso-titulo" class="titulo-lc">Así cotizas tu evento</h2>
+        <ol class="proceso-lista">
+          <li><h3>Nos escribes</h3><p>Completa el formulario o escríbenos por WhatsApp con tu fecha y número de invitados.</p></li>
+          <li><h3>Revisamos la fecha</h3><p>Te confirmamos si la fecha está disponible o te proponemos alternativas.</p></li>
+          <li><h3>Recibes la propuesta</h3><p>Te enviamos lo que incluye el evento y las condiciones de reserva.</p></li>
+          <li><h3>Separas tu día</h3><p>Visitas la finca si lo deseas y confirmas la reserva.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 8. Preguntas frecuentes -->
+    <section class="seccion preguntas" id="preguntas" aria-labelledby="preguntas-titulo">
+      <div class="container-xl">
+        <div class="row g-4 g-xl-5">
+          <div class="col-lg-4">
+            <h2 id="preguntas-titulo" class="titulo-lc">Preguntas frecuentes</h2>
+            <p>Respuestas rápidas antes de escribirnos.</p>
+          </div>
+          <div class="col-lg-8">
+            <div class="accordion acordeon-lc" id="faq">
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="false" aria-controls="faq-1">¿Para cuántas personas es el espacio?</button></h3>
+                <div id="faq-1" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">La capacidad depende del tipo de evento y del montaje. La finca la confirma cuando le cuentas cuántos invitados esperas.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">¿El precio incluye comida y decoración?</button></h3>
+                <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Cada cotización detalla lo que incluye. Indica en tu mensaje si necesitas alimentación, decoración o música para que la propuesta lo contemple.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">¿Puedo visitar la finca antes de reservar?</button></h3>
+                <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Sí. Escríbenos para acordar el día de la visita.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" aria-controls="faq-4">¿Atienden eventos entre semana?</button></h3>
+                <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Consulta la fecha que te interesa; la disponibilidad se confirma para cada día.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false" aria-controls="faq-5">¿Qué pasa cuando envío el formulario?</button></h3>
+                <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">El formulario no guarda ni envía tus datos a ningún servidor: arma un mensaje y abre WhatsApp para que tú lo envíes.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. Ubicación -->
+    <section class="seccion ubicacion" id="ubicacion" aria-labelledby="ubicacion-titulo">
+      <div class="container-xl">
+        <div class="ubicacion-caja">
+          <div>
+            <h2 id="ubicacion-titulo" class="titulo-lc">Cómo llegar</h2>
+            <p class="entrada-lc" data-cfg="zona">Área metropolitana de Bucaramanga, Santander</p>
+          </div>
+          <dl class="ubicacion-datos">
+            <div>
+              <dt>Dirección</dt>
+              <dd><span class="dato-pendiente" data-cfg="direccion">Por confirmar</span></dd>
+            </div>
+            <div>
+              <dt>Indicaciones</dt>
+              <dd><span class="dato-pendiente" data-cfg="comoLlegar">Te compartimos la ruta exacta cuando agendes tu visita.</span></dd>
+            </div>
+            <div data-fila-mapa>
+              <dt>Mapa</dt>
+              <dd><a class="enlace-lc" data-cfg-enlace="mapaUrl" href="#" target="_blank" rel="noopener">Abrir en Google Maps</a><span class="etiqueta-pendiente" data-pendiente>Enlace de mapa por configurar</span></dd>
+            </div>
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. Cierre con formulario -->
+    <section class="reservar" id="reservar" aria-labelledby="reservar-titulo">
+      <div class="reservar-foto">
+        <img src="assets/images/finca-la-cruz/cierre-960.webp" srcset="assets/images/finca-la-cruz/cierre-960.webp 960w, assets/images/finca-la-cruz/cierre-1600.webp 1600w" sizes="(min-width: 992px) 40vw, 100vw" width="960" height="640" loading="lazy" alt="Mesa larga con flores y copas en una celebración nocturna">
+      </div>
+      <div class="reservar-contenido">
+        <h2 id="reservar-titulo" class="titulo-lc">Cuéntanos tu plan</h2>
+        <p class="reservar-intro">Completa la frase y preparamos el mensaje de WhatsApp por ti. No se envía nada hasta que tú lo decidas en WhatsApp.</p>
+
+        <form class="frase" id="form-reserva" novalidate>
+          <input type="hidden" name="modalidad" id="lc-modalidad">
+          <p class="frase-modalidad" data-modalidad-chip hidden>
+            Modalidad de interés: <strong data-modalidad-nombre></strong>
+            <button type="button" class="frase-quitar" data-modalidad-quitar>Quitar</button>
+          </p>
+          <p class="frase-texto">
+            Hola, soy
+            <label class="visually-hidden" for="lc-nombre">Nombre</label>
+            <input class="frase-campo frase-campo--nombre" id="lc-nombre" name="nombre" type="text" autocomplete="name" placeholder="tu nombre" required maxlength="80">
+            y quiero celebrar
+            <label class="visually-hidden" for="lc-tipo">Tipo de evento</label>
+            <select class="frase-campo frase-campo--tipo" id="lc-tipo" name="tipo" required>
+              <option value="">tipo de evento</option>
+              <option>un cumpleaños</option>
+              <option>un matrimonio</option>
+              <option>una reunión familiar</option>
+              <option>un grado o aniversario</option>
+              <option>un evento de empresa</option>
+              <option>otro tipo de evento</option>
+            </select>
+            el día
+            <label class="visually-hidden" for="lc-fecha">Fecha tentativa</label>
+            <input class="frase-campo frase-campo--fecha" id="lc-fecha" name="fecha" type="date" required>
+            con unas
+            <label class="visually-hidden" for="lc-invitados">Número estimado de invitados</label>
+            <input class="frase-campo frase-campo--num" id="lc-invitados" name="invitados" type="number" inputmode="numeric" min="1" max="9999" placeholder="50" required>
+            personas. Pueden escribirme al
+            <label class="visually-hidden" for="lc-telefono">Teléfono</label>
+            <input class="frase-campo frase-campo--tel" id="lc-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="300 000 0000" required maxlength="20">.
+          </p>
+
+          <label class="frase-label" for="lc-mensaje">Algo más que debamos saber <span>(opcional)</span></label>
+          <textarea class="frase-area" id="lc-mensaje" name="mensaje" rows="3" maxlength="500" placeholder="Horario, comida, música, decoración…"></textarea>
+
+          <ul class="frase-errores" aria-live="polite">
+            <li class="campo-error" id="lc-nombre-error"></li>
+            <li class="campo-error" id="lc-tipo-error"></li>
+            <li class="campo-error" id="lc-fecha-error"></li>
+            <li class="campo-error" id="lc-invitados-error"></li>
+            <li class="campo-error" id="lc-telefono-error"></li>
+            <li class="campo-error" id="lc-mensaje-error"></li>
+          </ul>
+
+          <div class="frase-acciones">
+            <button class="btn-lc btn-lc--coral" type="submit"><i class="bi bi-whatsapp" aria-hidden="true"></i> Preparar mensaje de WhatsApp</button>
+            <a class="enlace-lc enlace-lc--claro" data-tel="0" href="tel:+573175408777">o llama al <span data-tel-texto="0">317 540 8777</span></a>
+          </div>
+          <div class="form-estado" data-estado role="status" aria-live="polite"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="container-xl">
+      <div class="row g-4 g-xl-5">
+        <div class="col-lg-5">
+          <p class="pie-marca">Finca La Cruz</p>
+          <p>Momentos Inolvidables. Espacio campestre para celebraciones sociales y eventos de empresa.</p>
+          <p data-cfg="zona">Área metropolitana de Bucaramanga, Santander</p>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <h2 class="pie-titulo">Contacto</h2>
+          <ul class="pie-lista">
+            <li><a data-tel="0" href="tel:+573175408777"><i class="bi bi-phone" aria-hidden="true"></i> <span data-tel-texto="0">317 540 8777</span></a></li>
+            <li><a data-wa href="https://wa.me/573175408777"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3 offset-lg-1">
+          <h2 class="pie-titulo">En esta página</h2>
+          <ul class="pie-lista">
+            <li><a href="#celebraciones">Celebraciones</a></li>
+            <li><a href="#empresas">Eventos de empresa</a></li>
+            <li><a href="#modalidades">Modalidades</a></li>
+            <li><a href="#reservar">Consultar disponibilidad</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pie-legal">
+        <p>Propuesta de diseño independiente; no es el sitio oficial del negocio. Fotografías de referencia de <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash</a>, no corresponden a la finca. &copy; <span data-anio>2026</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="flotante flotante--lc" data-flotante data-wa href="https://wa.me/573175408777" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i><span class="flotante-texto">Escríbenos</span></a>
+</body>
+</html>

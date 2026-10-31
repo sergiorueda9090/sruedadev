@@ -1,0 +1,594 @@
+[
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "hero",
+  "fuente": "unsplash",
+  "id": "photo-1686178827149-6d55c72d81df",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960,
+   1280
+  ],
+  "foco": "0.42,0.5",
+  "autor": "Giorgio Trovato",
+  "alt": "Técnica con guantes pasando la boquilla de una máquina de extracción sobre el cojín gris de un mueble tapizado"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "detalle-boquilla",
+  "fuente": "pexels",
+  "id": "4401538",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "autor": "alonssus (Pexels)",
+  "alt": "Boquilla de extracción recorriendo el asiento tapizado de una poltrona verde"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "detalle-maquina",
+  "fuente": "pexels",
+  "id": "4401535",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.45,0.5",
+  "autor": "alonssus (Pexels)",
+  "alt": "Técnico trabajando con un equipo de limpieza sobre el asiento de un sofá gris oscuro"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "detalle-cojin",
+  "fuente": "pexels",
+  "id": "4401537",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.45,0.5",
+  "autor": "alonssus (Pexels)",
+  "alt": "Aspirado de un cojín estampado con una boquilla de tapicería"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "srv-sofa",
+  "fuente": "unsplash",
+  "id": "photo-1590251024078-8a6d9f90b02d",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.55",
+  "autor": "Lisa Amann",
+  "alt": "Sofá de tres puestos tapizado en tela verde con dos cojines a rayas"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "srv-l",
+  "fuente": "unsplash",
+  "id": "photo-1759722665614-265fdf133b37",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.6",
+  "autor": "Costa Live",
+  "alt": "Sala en L de tela gris claro con cojines en una sala blanca"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "srv-sala",
+  "fuente": "unsplash",
+  "id": "photo-1774578342476-64792463751d",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.55,0.6",
+  "autor": "Franco Debartolo",
+  "alt": "Sala completa con sofá, poltrona tapizada y tapete en un espacio luminoso"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "srv-poltrona",
+  "fuente": "unsplash",
+  "id": "photo-1759722667456-71e7bfd118b2",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.55",
+  "autor": "Costa Live",
+  "alt": "Poltrona redonda tapizada en tela clara con cojines"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "srv-comedor",
+  "fuente": "unsplash",
+  "id": "photo-1758977403341-0104135995af",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.62",
+  "autor": "Costa Live",
+  "alt": "Comedor de madera con seis sillas tapizadas en tela gris"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "srv-oficina",
+  "fuente": "unsplash",
+  "id": "photo-1776548759455-310ef8cd49ec",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Jesse Kojo Kuntoh",
+  "alt": "Silla de oficina con asiento tapizado y respaldo de malla"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "srv-cojines",
+  "fuente": "unsplash",
+  "id": "photo-1531877025030-f7696a50770f",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "autor": "DESIGNECOLOGIST",
+  "alt": "Cojines de tela verde y estampados con una manta sobre un sofá"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "sala-clara",
+  "fuente": "unsplash",
+  "id": "photo-1784653547541-5be1b6746004",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100,
+   1600
+  ],
+  "foco": "0.5,0.5",
+  "autor": "McFollis",
+  "alt": "Sofá claro con cojín verde en una sala luminosa"
+ },
+ {
+  "proyecto": "lavado-muebles",
+  "slot": "demo-sofa",
+  "fuente": "unsplash",
+  "id": "photo-1581631059710-7b30fcd0e8d8",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Yucel M",
+  "alt": "Sofá de tela beige con cojín decorativo"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "hero",
+  "fuente": "pexels",
+  "id": "7614617",
+  "ratio": "16:9",
+  "anchos": [
+   960,
+   1500,
+   2000
+  ],
+  "foco": "0.5,0.62",
+  "autor": "Artbovich (Pexels)",
+  "alt": "Habitación luminosa con un colchón sin sábanas junto a un ventanal con cortinas claras"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "tecnico",
+  "fuente": "pexels",
+  "id": "14675103",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.36,0.5",
+  "autor": "The Healthy Home (Pexels)",
+  "alt": "Técnico con traje y guantes de protección aspirando un colchón con un equipo profesional"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "textura",
+  "fuente": "unsplash",
+  "id": "photo-1759176170553-7c078c66c514",
+  "ratio": "1:1",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Costa Live",
+  "alt": "Primer plano del acolchado blanco de un colchón"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "textura-cerca",
+  "fuente": "unsplash",
+  "id": "photo-1647376036543-f9f543601a1d",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Kathyryn Tripp",
+  "alt": "Detalle del tejido acolchado de la superficie de un colchón"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "equipo",
+  "fuente": "pexels",
+  "id": "6196579",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Tima Miroshnichenko (Pexels)",
+  "alt": "Aspiradora industrial amarilla con manguera sobre un piso de baldosa"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "cabecero",
+  "fuente": "unsplash",
+  "id": "photo-1560184897-502a475f7a0d",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.55",
+  "autor": "Francesca Tosolini",
+  "alt": "Cama con cabecero tapizado capitoneado en una habitación clara"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "almohadas",
+  "fuente": "unsplash",
+  "id": "photo-1629949009710-2df14c41a72e",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Mediamodifier",
+  "alt": "Almohadón blanco sobre una manta tejida gris"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "hab-blanca",
+  "fuente": "pexels",
+  "id": "8089076",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.6",
+  "autor": "Artbovich (Pexels)",
+  "alt": "Habitación blanca minimalista con un colchón sin tender"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "hab-vacia",
+  "fuente": "pexels",
+  "id": "6489099",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.6",
+  "autor": "Artbovich (Pexels)",
+  "alt": "Habitación desocupada con un colchón nuevo junto a una ventana grande"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "hab-luz",
+  "fuente": "unsplash",
+  "id": "photo-1631048501786-4e97f20eac71",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.55",
+  "autor": "Point3D Commercial Imaging",
+  "alt": "Habitación luminosa con cama tendida en blanco"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "ventana",
+  "fuente": "unsplash",
+  "id": "photo-1506720186575-11354d325017",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.6",
+  "autor": "Ty Carlson",
+  "alt": "Cama junto a una ventana abierta con luz de día"
+ },
+ {
+  "proyecto": "lavado-colchones",
+  "slot": "sabanas",
+  "fuente": "pexels",
+  "id": "9462318",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Liliana Drew (Pexels)",
+  "alt": "Manos estirando la sábana blanca de una cama"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "hero-cocina",
+  "fuente": "pexels",
+  "id": "9462746",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960,
+   1200
+  ],
+  "foco": "0.5,0.45",
+  "autor": "Liliana Drew (Pexels)",
+  "alt": "Profesional de limpieza con guantes y delantal limpiando la estufa de una cocina"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "hero-bano",
+  "fuente": "pexels",
+  "id": "4239141",
+  "ratio": "1:1",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.4",
+  "autor": "Karolina Grabowska (Pexels)",
+  "alt": "Mano con guante amarillo limpiando un espejo redondo de baño"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "srv-general",
+  "fuente": "pexels",
+  "id": "9462135",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.5,0.65",
+  "autor": "Liliana Drew (Pexels)",
+  "alt": "Aspirado de un piso de madera en una sala iluminada"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "srv-profunda",
+  "fuente": "pexels",
+  "id": "6197108",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Tima Miroshnichenko (Pexels)",
+  "alt": "Equipo de tres personas limpiando pisos, muebles y ventanales de una cocina comedor"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "srv-cocina",
+  "fuente": "pexels",
+  "id": "9462323",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.5,0.45",
+  "autor": "Liliana Drew (Pexels)",
+  "alt": "Limpieza del interior de un horno con guantes de caucho"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "srv-banos",
+  "fuente": "pexels",
+  "id": "4239091",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.5,0.72",
+  "autor": "Karolina Grabowska (Pexels)",
+  "alt": "Mano con guante amarillo pasando una escurridora por el vidrio de una ducha"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "srv-habitaciones",
+  "fuente": "pexels",
+  "id": "9462759",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Liliana Drew (Pexels)",
+  "alt": "Profesional de limpieza tendiendo la cama en una habitación luminosa"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "srv-mudanza",
+  "fuente": "unsplash",
+  "id": "photo-1757742690834-aa581b9f53b2",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.5,0.55",
+  "autor": "Christian Lue",
+  "alt": "Habitación vacía con piso de madera y ventanal antes de una mudanza"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "srv-remodelacion",
+  "fuente": "unsplash",
+  "id": "photo-1618832515490-e181c4794a45",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.4,0.5",
+  "autor": "immo RENOVATION",
+  "alt": "Cocina en remodelación con gabinetes cubiertos con plástico y papel"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "srv-oficina",
+  "fuente": "unsplash",
+  "id": "photo-1627905646269-7f034dcc5738",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.5,0.55",
+  "autor": "Towfiqu barbhuiya",
+  "alt": "Manos con guantes limpiando un escritorio con atomizador y paño"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "oc-entrega",
+  "fuente": "unsplash",
+  "id": "photo-1722650272764-08d92d193a9c",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Lisa Anna",
+  "alt": "Apartamento vacío con piso de madera y paredes blancas listo para entregar"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "oc-mudanza",
+  "fuente": "unsplash",
+  "id": "photo-1758523670969-dd1b1254062d",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.45,0.5",
+  "autor": "Vitaly Gariev",
+  "alt": "Pareja entrando a su nueva vivienda con cajas y una planta"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "oc-periodica",
+  "fuente": "pexels",
+  "id": "9462103",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Liliana Drew (Pexels)",
+  "alt": "Plumero limpiando el polvo de un escritorio de madera"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "oc-visitas",
+  "fuente": "unsplash",
+  "id": "photo-1773579305267-8d75e0af5be4",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Clay Banks",
+  "alt": "Cocina blanca ordenada con isla y bancos"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "oc-oficina",
+  "fuente": "pexels",
+  "id": "10567271",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.55,0.5",
+  "autor": "Ron Lach (Pexels)",
+  "alt": "Persona limpiando un escritorio de madera con atomizador y paño"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "vapor",
+  "fuente": "unsplash",
+  "id": "photo-1776585617123-84cb50100bd0",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Aurum Gebäudereinigung Kassel",
+  "alt": "Limpiador a vapor aplicado sobre la pared de baldosas de un baño"
+ },
+ {
+  "proyecto": "limpieza-hogar",
+  "slot": "cocina-final",
+  "fuente": "unsplash",
+  "id": "photo-1757387240036-d7eb9b096c40",
+  "ratio": "16:9",
+  "anchos": [
+   960,
+   1600
+  ],
+  "foco": "0.5,0.55",
+  "autor": "Clay Banks",
+  "alt": "Cocina blanca luminosa y ordenada con electrodomésticos de acero"
+ }
+]

@@ -1,0 +1,349 @@
+{
+ "fotografias": [
+  {
+   "archivos": [
+    "hero/retrato-640.webp",
+    "hero/retrato-1000.webp"
+   ],
+   "alt": "Mujer de cabello largo y liso sosteniendo un ramo de flores blancas",
+   "autor": "masiha Olfi",
+   "fuente": "https://unsplash.com/photos/CxsH6E9lqCo",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "lifestyle/habitos-560.webp",
+    "lifestyle/habitos-900.webp"
+   ],
+   "alt": "Mano sosteniendo un vaso de agua a contraluz junto a una ventana",
+   "autor": "Manki Kim",
+   "fuente": "https://unsplash.com/photos/12Kb5ynfxso",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "lifestyle/alimentacion-560.webp",
+    "lifestyle/alimentacion-900.webp"
+   ],
+   "alt": "Bowl con vegetales, legumbres y aderezo sobre una mesa clara",
+   "autor": "Caroline Green",
+   "fuente": "https://unsplash.com/photos/Pqt1yIF-Fw0",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "lifestyle/descanso-560.webp",
+    "lifestyle/descanso-900.webp"
+   ],
+   "alt": "Cama con sábanas blancas y sombras de persiana por la luz de la mañana",
+   "autor": "Liz Vo",
+   "fuente": "https://unsplash.com/photos/pl3sj3DigxM",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "lifestyle/movimiento-560.webp",
+    "lifestyle/movimiento-900.webp"
+   ],
+   "alt": "Persona caminando por un sendero al amanecer",
+   "autor": "Neal E. Johnson",
+   "fuente": "https://unsplash.com/photos/sQzoEk9ZrRQ",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "lifestyle/cuidado-560.webp",
+    "lifestyle/cuidado-900.webp"
+   ],
+   "alt": "Brazo con tres pequeñas porciones de crema sobre una tela clara",
+   "autor": "xandro Vandewalle",
+   "fuente": "https://unsplash.com/photos/CxmQXVqzyIE",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "lifestyle/nosotros-560.webp",
+    "lifestyle/nosotros-900.webp"
+   ],
+   "alt": "Manos sosteniendo tierra con una pequeña planta",
+   "autor": "Madara",
+   "fuente": "https://unsplash.com/photos/Eurc8pMvox8",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "lifestyle/estiramiento-560.webp",
+    "lifestyle/estiramiento-900.webp"
+   ],
+   "alt": "Mujer estirando los brazos al aire libre con el sol de la mañana",
+   "autor": "Vadim Paripa",
+   "fuente": "https://unsplash.com/photos/gYkUIT90pzw",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "editorial/rutina-640.webp",
+    "editorial/rutina-1100.webp"
+   ],
+   "alt": "Cuaderno, café y bolígrafos sobre una mesa de mármol",
+   "autor": "Mengkol Smile",
+   "fuente": "https://unsplash.com/photos/ndzacdfVECo",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "editorial/suplemento-640.webp",
+    "editorial/suplemento-1100.webp"
+   ],
+   "alt": "Persona ordenando frascos de vidrio etiquetados en una despensa",
+   "autor": "Cabri Caldwell",
+   "fuente": "https://unsplash.com/photos/CNs9I5uJ83s",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "editorial/etiquetas-640.webp",
+    "editorial/etiquetas-1100.webp"
+   ],
+   "alt": "Detalle de la etiqueta de un empaque de avena",
+   "autor": "Paul Einerhand",
+   "fuente": "https://unsplash.com/photos/As7P6QTLuUY",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "editorial/alimentacion-640.webp",
+    "editorial/alimentacion-1100.webp"
+   ],
+   "alt": "Puesto de mercado con coliflor, brócoli, rábanos y cebollas",
+   "autor": "Shelley Pauls",
+   "fuente": "https://unsplash.com/photos/Zaiuy5dKeCk",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/naranja-900.webp"
+   ],
+   "alt": "Rodajas de naranja y hojas verdes sobre mármol blanco",
+   "autor": "dhanya purohit",
+   "fuente": "https://unsplash.com/photos/KyAacW3enww",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/semillas-900.webp"
+   ],
+   "alt": "Semillas de calabaza secas",
+   "autor": "engin akyurt",
+   "fuente": "https://unsplash.com/photos/lW9yO4EJzLg",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/algas-900.webp"
+   ],
+   "alt": "Algas verdes en la superficie del agua",
+   "autor": "Mihály Köles",
+   "fuente": "https://unsplash.com/photos/gR_AgAcP7jI",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/arveja-900.webp"
+   ],
+   "alt": "Cuenco con arvejas verdes sobre madera blanca",
+   "autor": "Catia Climovich",
+   "fuente": "https://unsplash.com/photos/nKlTRipGuCs",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/avena-900.webp"
+   ],
+   "alt": "Bowl de avena con cacao sobre un paño de lino",
+   "autor": "Brigitta Baranyi",
+   "fuente": "https://unsplash.com/photos/Aep_jYkLMeQ",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/frutos-900.webp"
+   ],
+   "alt": "Frambuesas y arándanos en un cuenco blanco",
+   "autor": "Almira Yausheva",
+   "fuente": "https://unsplash.com/photos/GnAca1lhcHg",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/manzanilla-900.webp"
+   ],
+   "alt": "Flores secas de manzanilla en un recipiente de cerámica",
+   "autor": "Nia Ramirez",
+   "fuente": "https://unsplash.com/photos/C1dunESLYBQ",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/aloe-900.webp"
+   ],
+   "alt": "Hojas de aloe vera con gotas de agua",
+   "autor": "Polina Grishma",
+   "fuente": "https://unsplash.com/photos/4dtAkW1IEjA",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/eucalipto-900.webp"
+   ],
+   "alt": "Rama de eucalipto sobre fondo blanco",
+   "autor": "Sixteen Miles Out",
+   "fuente": "https://unsplash.com/photos/LGcO26RPdC4",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/karite-900.webp"
+   ],
+   "alt": "Frasco de manteca vegetal con cuchara junto a flores",
+   "autor": "Megumi Nachev",
+   "fuente": "https://unsplash.com/photos/xhOUnxVVb6s",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/manteca-900.webp"
+   ],
+   "alt": "Textura cremosa de una manteca vegetal",
+   "autor": "Eveling Salazar",
+   "fuente": "https://unsplash.com/photos/s75nlnkjYM0",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/cebolla-900.webp"
+   ],
+   "alt": "Cebollas rojas sobre un fondo lila claro",
+   "autor": "MD SAZZAD ISLAM SHOHAG",
+   "fuente": "https://unsplash.com/photos/9zwAAgXd7Ko",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/romero-900.webp"
+   ],
+   "alt": "Ramas de romero fresco",
+   "autor": "360floralflaves",
+   "fuente": "https://unsplash.com/photos/DI7nHnvUNsI",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "ingredientes/aceite-900.webp"
+   ],
+   "alt": "Frasco de vidrio ámbar sin etiqueta sobre un pedestal, con sombras de hojas",
+   "autor": "Kadarius Seegars",
+   "fuente": "https://unsplash.com/photos/0FHNXqyqgg4",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "entornos/cocina-1200.webp"
+   ],
+   "alt": "Cocina iluminada por el sol de la mañana",
+   "autor": "Christopher Stites",
+   "fuente": "https://unsplash.com/photos/qUcXRBthiLg",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "entornos/madera-1200.webp"
+   ],
+   "alt": "Superficie de madera gris en perspectiva",
+   "autor": "Markus Spiske",
+   "fuente": "https://unsplash.com/photos/3tbtq3oCQ1s",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "entornos/lino-1200.webp"
+   ],
+   "alt": "Tela de lino sobre una mesa de madera",
+   "autor": "Mathias Reding",
+   "fuente": "https://unsplash.com/photos/3GwOfh-VMgQ",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "entornos/bano-1200.webp"
+   ],
+   "alt": "Baño con lavamanos, repisa de madera y plantas",
+   "autor": "sidath vimukthi",
+   "fuente": "https://unsplash.com/photos/6241mFnjQ0k",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "capilar/cepillado-560.webp",
+    "capilar/cepillado-900.webp"
+   ],
+   "alt": "Mujer sonriente cepillando su cabello largo y ondulado",
+   "autor": "TYMO Beauty",
+   "fuente": "https://unsplash.com/photos/pfYYEJMQnek",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "capilar/frasco-560.webp",
+    "capilar/frasco-900.webp"
+   ],
+   "alt": "Frasco blanco con dispensador sobre un fondo rosado con sombras de persiana",
+   "autor": "Andrzej Gdula",
+   "fuente": "https://unsplash.com/photos/eOyiXLl-mqM",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  },
+  {
+   "archivos": [
+    "capilar/gotero-560.webp",
+    "capilar/gotero-900.webp"
+   ],
+   "alt": "Mano aplicando unas gotas de aceite con un gotero",
+   "autor": "Enecta Cannabis extracts",
+   "fuente": "https://unsplash.com/photos/80wCkpt-IKE",
+   "licencia": "Licencia Unsplash",
+   "licencia_url": "https://unsplash.com/license"
+  }
+ ]
+}

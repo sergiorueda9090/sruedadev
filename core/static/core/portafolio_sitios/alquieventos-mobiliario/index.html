@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alquieventos | Alquiler de carpas, mesas, sillas y tarimas en Bucaramanga (demo)</title>
+  <meta name="description" content="Propuesta de sitio para Alquieventos: catálogo de alquiler de carpas, mesas, sillas, tarimas y mobiliario para eventos en Bucaramanga, Floridablanca y Piedecuesta. Arma tu lista y cotiza por WhatsApp.">
+  <meta name="theme-color" content="#0e2440">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Alquieventos">
+  <meta property="og:title" content="Alquieventos | Todo lo que tu evento necesita, en un solo lugar">
+  <meta property="og:description" content="Catálogo de alquiler de mobiliario para eventos en el área metropolitana de Bucaramanga. Propuesta de demostración.">
+  <meta property="og:image" content="assets/images/alquieventos/hero-1600.webp">
+  <link rel="icon" href="assets/images/favicon-alquieventos.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/global.css?v=1">
+  <link rel="stylesheet" href="assets/css/alquieventos.css?v=1">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" integrity="sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" integrity="sha384-P8VzCVnT9NBUkMrpcIZrJbA7EBjJvh/fJS6PmP+4nLIM284DtsImIv8D0fFjIkeh" crossorigin="anonymous" defer></script>
+  <script src="assets/js/config.js?v=1" defer></script>
+  <script src="assets/js/main.js?v=1" defer></script>
+  <script src="assets/js/alquieventos.js?v=1" defer></script>
+</head>
+<body data-sitio="alquieventos">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <p class="aviso-demo">Propuesta de demostración: no es el sitio oficial de Alquieventos. Catálogo y fotografías de referencia.</p>
+
+  <header class="cabecera" data-cabecera>
+    <nav class="navbar navbar-expand-lg" aria-label="Principal">
+      <div class="container-xl">
+        <a class="marca" href="#inicio"><span class="marca-sello" aria-hidden="true"></span>Alquieventos</a>
+        <div class="cabecera-derecha">
+          <button class="boton-solicitud" type="button" data-bs-toggle="offcanvas" data-bs-target="#panel-solicitud" aria-controls="panel-solicitud">
+            <i class="bi bi-clipboard-check" aria-hidden="true"></i>
+            <span class="boton-solicitud-texto">Mi solicitud</span>
+            <span class="contador" data-contador aria-live="polite"><span class="visually-hidden">Productos en la solicitud: </span><span data-contador-num>0</span></span>
+          </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+            <i class="bi bi-list" aria-hidden="true"></i>
+          </button>
+        </div>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-lg-auto">
+            <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+            <li class="nav-item"><a class="nav-link" href="#montajes">Montajes</a></li>
+            <li class="nav-item"><a class="nav-link" href="#como-funciona">Cómo funciona</a></li>
+            <li class="nav-item"><a class="nav-link" href="#preguntas">Preguntas</a></li>
+            <li class="nav-item"><a class="nav-link nav-link--cta" href="#cotizar">Solicitar cotización</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- 1. Hero comercial -->
+    <section class="hero" id="inicio" data-hero aria-labelledby="hero-titulo">
+      <div class="container-xl">
+        <div class="hero-grilla">
+          <div class="hero-texto">
+            <p class="hero-zona"><i class="bi bi-geo-alt" aria-hidden="true"></i> Alquiler para eventos en el área metropolitana de Bucaramanga</p>
+            <h1 id="hero-titulo" class="hero-titulo">Todo lo que tu evento necesita, en un solo lugar</h1>
+            <p class="hero-sub">Encuentra mobiliario y soluciones de alquiler para organizar tu próximo evento.</p>
+            <div class="hero-acciones">
+              <a class="btn-ae btn-ae--amarillo" href="#cotizar">Solicitar cotización</a>
+              <a class="btn-ae btn-ae--linea" href="#catalogo">Explorar catálogo</a>
+            </div>
+            <nav class="hero-atajos" aria-label="Categorías del catálogo">
+              <a href="#catalogo" data-ir-categoria="carpas">Carpas</a>
+              <a href="#catalogo" data-ir-categoria="mesas">Mesas</a>
+              <a href="#catalogo" data-ir-categoria="sillas">Sillas</a>
+              <a href="#catalogo" data-ir-categoria="tarimas">Tarimas</a>
+              <a href="#catalogo" data-ir-categoria="mobiliario">Mobiliario</a>
+            </nav>
+          </div>
+          <div class="hero-foto-caja">
+            <figure class="hero-foto">
+              <img src="assets/images/alquieventos/hero-1600.webp"
+                   srcset="assets/images/alquieventos/hero-960.webp 960w, assets/images/alquieventos/hero-1600.webp 1600w, assets/images/alquieventos/hero-2400.webp 2400w"
+                   sizes="(min-width: 992px) 55vw, 100vw" width="1600" height="1067" fetchpriority="high"
+                   alt="Carpa de banquete con mesas redondas, manteles y sillas de madera">
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Categorías -->
+    <section class="seccion categorias" id="categorias" aria-labelledby="categorias-titulo">
+      <div class="container-xl">
+        <h2 id="categorias-titulo" class="titulo-ae">Cinco categorías para armar tu evento</h2>
+        <ul class="categorias-lista">
+          <li><a class="categoria" href="#catalogo" data-ir-categoria="carpas"><i class="bi bi-umbrella" aria-hidden="true"></i><span class="categoria-nombre">Carpas</span><span class="categoria-texto">Cubre a tus invitados del sol y la lluvia.</span></a></li>
+          <li><a class="categoria" href="#catalogo" data-ir-categoria="mesas"><i class="bi bi-table" aria-hidden="true"></i><span class="categoria-nombre">Mesas</span><span class="categoria-texto">Redondas, rectangulares e imperiales.</span></a></li>
+          <li><a class="categoria" href="#catalogo" data-ir-categoria="sillas"><i class="bi bi-person-workspace" aria-hidden="true"></i><span class="categoria-nombre">Sillas</span><span class="categoria-texto">Para ceremonias, banquetes y conferencias.</span></a></li>
+          <li><a class="categoria" href="#catalogo" data-ir-categoria="tarimas"><i class="bi bi-megaphone" aria-hidden="true"></i><span class="categoria-nombre">Tarimas</span><span class="categoria-texto">Escenarios para música, discursos y shows.</span></a></li>
+          <li><a class="categoria" href="#catalogo" data-ir-categoria="mobiliario"><i class="bi bi-lamp" aria-hidden="true"></i><span class="categoria-nombre">Mobiliario</span><span class="categoria-texto">Salas lounge y sillones para zonas especiales.</span></a></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 3. Catálogo interactivo -->
+    <section class="seccion catalogo" id="catalogo" aria-labelledby="catalogo-titulo">
+      <div class="container-xl">
+        <div class="catalogo-cabeza">
+          <div>
+            <h2 id="catalogo-titulo" class="titulo-ae">Catálogo</h2>
+            <p>Agrega lo que necesitas y define cantidades. Te enviamos la cotización con disponibilidad para tu fecha. <span class="etiqueta-pendiente" data-pendiente>Catálogo de ejemplo: referencias por confirmar</span></p>
+          </div>
+        </div>
+
+        <div class="filtros" role="group" aria-label="Filtrar por categoría" data-filtros>
+          <button type="button" class="filtro" data-filtro="todos" aria-pressed="true">Todo</button>
+          <button type="button" class="filtro" data-filtro="carpas" aria-pressed="false">Carpas</button>
+          <button type="button" class="filtro" data-filtro="mesas" aria-pressed="false">Mesas</button>
+          <button type="button" class="filtro" data-filtro="sillas" aria-pressed="false">Sillas</button>
+          <button type="button" class="filtro" data-filtro="tarimas" aria-pressed="false">Tarimas</button>
+          <button type="button" class="filtro" data-filtro="mobiliario" aria-pressed="false">Mobiliario</button>
+        </div>
+        <p class="catalogo-conteo" data-conteo aria-live="polite"></p>
+
+        <ul class="productos" data-productos>
+          <li class="producto" data-producto="carpa-mastiles" data-categoria="carpas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-carpa-mastiles-480.webp" srcset="assets/images/alquieventos/p-carpa-mastiles-480.webp 480w, assets/images/alquieventos/p-carpa-mastiles-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Carpa blanca de mástiles instalada sobre césped"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Carpas</p>
+              <h3 class="producto-nombre">Carpa de mástiles</h3>
+              <p class="producto-desc">Carpa tensada sobre mástiles centrales para recepciones grandes al aire libre.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Carpa de mástiles</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="carpa-estrella" data-categoria="carpas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-carpa-estrella-480.webp" srcset="assets/images/alquieventos/p-carpa-estrella-480.webp 480w, assets/images/alquieventos/p-carpa-estrella-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Carpa tipo estrella sobre una colina"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Carpas</p>
+              <h3 class="producto-nombre">Carpa estrella</h3>
+              <p class="producto-desc">Lona tensada en forma de estrella para zonas lounge, entradas o jardines.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Carpa estrella</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="carpa-techo-alto" data-categoria="carpas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-carpa-campo-480.webp" srcset="assets/images/alquieventos/p-carpa-campo-480.webp 480w, assets/images/alquieventos/p-carpa-campo-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Carpa blanca de techo alto montada en un campo con árboles"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Carpas</p>
+              <h3 class="producto-nombre">Carpa de techo alto</h3>
+              <p class="producto-desc">Cubierta a dos aguas para mesas y pista en campo abierto.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Carpa de techo alto</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="carpa-banquete" data-categoria="carpas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-carpa-banquete-480.webp" srcset="assets/images/alquieventos/p-carpa-banquete-480.webp 480w, assets/images/alquieventos/p-carpa-banquete-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Interior de una carpa con mesas vestidas para banquete"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Carpas</p>
+              <h3 class="producto-nombre">Carpa para banquete</h3>
+              <p class="producto-desc">Espacio cubierto para mesas, buffet y decoración interior.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Carpa para banquete</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="mesa-redonda" data-categoria="mesas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-mesa-redonda-480.webp" srcset="assets/images/alquieventos/p-mesa-redonda-480.webp 480w, assets/images/alquieventos/p-mesa-redonda-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Mesas redondas con mantel en un jardín"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Mesas</p>
+              <h3 class="producto-nombre">Mesa redonda</h3>
+              <p class="producto-desc">Para banquetes y reuniones donde todos conversan de frente.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Mesa redonda</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="mesa-imperial" data-categoria="mesas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-mesa-imperial-480.webp" srcset="assets/images/alquieventos/p-mesa-imperial-480.webp 480w, assets/images/alquieventos/p-mesa-imperial-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Mesa imperial de madera con camino de flores blancas"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Mesas</p>
+              <h3 class="producto-nombre">Mesa imperial de madera</h3>
+              <p class="producto-desc">Mesa larga en madera para montajes tipo comedor compartido.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Mesa imperial de madera</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="mesa-rectangular" data-categoria="mesas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-mesa-banquete-480.webp" srcset="assets/images/alquieventos/p-mesa-banquete-480.webp 480w, assets/images/alquieventos/p-mesa-banquete-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Mesas rectangulares largas con manteles blancos en un salón"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Mesas</p>
+              <h3 class="producto-nombre">Mesa rectangular</h3>
+              <p class="producto-desc">Para banquete en línea, buffet, registro o estaciones de comida.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Mesa rectangular</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="silla-crossback" data-categoria="sillas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-silla-crossback-480.webp" srcset="assets/images/alquieventos/p-silla-crossback-480.webp 480w, assets/images/alquieventos/p-silla-crossback-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Fila de sillas de madera con respaldo en cruz"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Sillas</p>
+              <h3 class="producto-nombre">Silla crossback</h3>
+              <p class="producto-desc">Silla de madera con respaldo en cruz, de estilo campestre.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Silla crossback</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="silla-tiffany" data-categoria="sillas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-silla-tiffany-480.webp" srcset="assets/images/alquieventos/p-silla-tiffany-480.webp 480w, assets/images/alquieventos/p-silla-tiffany-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Sillas transparentes alrededor de una mesa decorada"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Sillas</p>
+              <h3 class="producto-nombre">Silla tiffany transparente</h3>
+              <p class="producto-desc">Silla acrílica transparente para montajes elegantes.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Silla tiffany transparente</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="silla-plegable" data-categoria="sillas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-silla-plegable-480.webp" srcset="assets/images/alquieventos/p-silla-plegable-480.webp 480w, assets/images/alquieventos/p-silla-plegable-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Filas de sillas plegables sobre césped frente a una tarima"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Sillas</p>
+              <h3 class="producto-nombre">Silla plegable</h3>
+              <p class="producto-desc">Práctica para ceremonias, conferencias y eventos con muchos invitados.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Silla plegable</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="silla-apilable" data-categoria="sillas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-silla-apilable-480.webp" srcset="assets/images/alquieventos/p-silla-apilable-480.webp 480w, assets/images/alquieventos/p-silla-apilable-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Sillas apilables de estructura metálica"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Sillas</p>
+              <h3 class="producto-nombre">Silla apilable</h3>
+              <p class="producto-desc">Estructura metálica, fácil de transportar y de almacenar.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Silla apilable</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="tarima-techo" data-categoria="tarimas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-tarima-techo-480.webp" srcset="assets/images/alquieventos/p-tarima-techo-480.webp 480w, assets/images/alquieventos/p-tarima-techo-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Tarima con techo de estructura metálica al aire libre"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Tarimas</p>
+              <h3 class="producto-nombre">Tarima con techo</h3>
+              <p class="producto-desc">Escenario cubierto para música en vivo, presentaciones o discursos.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Tarima con techo</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="tarima-estructura" data-categoria="tarimas">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-tarima-truss-480.webp" srcset="assets/images/alquieventos/p-tarima-truss-480.webp 480w, assets/images/alquieventos/p-tarima-truss-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Montaje con estructura de luces, tarima y filas de mesas"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Tarimas</p>
+              <h3 class="producto-nombre">Tarima con estructura para luces</h3>
+              <p class="producto-desc">Tarima con estructura tipo truss para colgar iluminación y sonido.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Tarima con estructura para luces</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="sala-lounge" data-categoria="mobiliario">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-lounge-480.webp" srcset="assets/images/alquieventos/p-lounge-480.webp 480w, assets/images/alquieventos/p-lounge-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Sala lounge con sofás blancos y cojines en un evento al aire libre"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Mobiliario</p>
+              <h3 class="producto-nombre">Sala lounge</h3>
+              <p class="producto-desc">Sofás y mesas bajas para zonas de descanso y conversación.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Sala lounge</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="sofa-capitone" data-categoria="mobiliario">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-chester-480.webp" srcset="assets/images/alquieventos/p-chester-480.webp 480w, assets/images/alquieventos/p-chester-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Sofás capitoné verdes con arreglos de flores blancas"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Mobiliario</p>
+              <h3 class="producto-nombre">Sofá capitoné</h3>
+              <p class="producto-desc">Sofá tapizado para zonas VIP, fotografías o recepción.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Sofá capitoné</span></a>
+              </div>
+            </div>
+          </li>
+          <li class="producto" data-producto="sillones-capitone" data-categoria="mobiliario">
+            <figure class="producto-foto"><img src="assets/images/alquieventos/p-sillones-480.webp" srcset="assets/images/alquieventos/p-sillones-480.webp 480w, assets/images/alquieventos/p-sillones-800.webp 800w" sizes="(min-width: 1200px) 22vw, (min-width: 768px) 30vw, (min-width: 480px) 45vw, 92vw" width="480" height="360" loading="lazy" alt="Par de sillones capitoné blancos junto a una chimenea"></figure>
+            <div class="producto-cuerpo">
+              <p class="producto-cat">Mobiliario</p>
+              <h3 class="producto-nombre">Sillones capitoné</h3>
+              <p class="producto-desc">Par de sillones para la mesa principal o invitados de honor.</p>
+              <div class="producto-accion" data-accion>
+                <a class="btn-ae btn-ae--cotizar" href="#cotizar" data-agregar>Cotizar <span class="visually-hidden">Sillones capitoné</span></a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <p class="anuncio visually-hidden" data-anuncio aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- 4. Galería de montajes -->
+    <section class="seccion montajes" id="montajes" aria-labelledby="montajes-titulo">
+      <div class="container-xl">
+        <div class="cabeza-ae">
+          <h2 id="montajes-titulo" class="titulo-ae">Ideas de montaje</h2>
+          <p>Referencias para planear la distribución de tu evento. Las fotografías son ilustrativas y no corresponden a trabajos de Alquieventos.</p>
+        </div>
+        <div class="montajes-grilla">
+          <figure class="montaje montaje--grande"><img src="assets/images/alquieventos/g-salon-800.webp" srcset="assets/images/alquieventos/g-salon-800.webp 800w, assets/images/alquieventos/g-salon-1300.webp 1300w" sizes="(min-width: 992px) 60vw, 100vw" width="800" height="533" loading="lazy" alt="Salón con mesas redondas y sillas doradas"><figcaption>Banquete con mesas redondas</figcaption></figure>
+          <figure class="montaje"><img src="assets/images/alquieventos/g-auditorio-800.webp" srcset="assets/images/alquieventos/g-auditorio-800.webp 800w, assets/images/alquieventos/g-auditorio-1300.webp 1300w" sizes="(min-width: 992px) 30vw, 100vw" width="800" height="533" loading="lazy" alt="Salón para conferencias con mesas redondas y pantallas"><figcaption>Conferencia por mesas</figcaption></figure>
+          <figure class="montaje"><img src="assets/images/alquieventos/g-campo-800.webp" srcset="assets/images/alquieventos/g-campo-800.webp 800w, assets/images/alquieventos/g-campo-1300.webp 1300w" sizes="(min-width: 992px) 30vw, 100vw" width="800" height="533" loading="lazy" alt="Tarima y carpas blancas en un campo durante un evento"><figcaption>Tarima y carpas en campo abierto</figcaption></figure>
+          <figure class="montaje"><img src="assets/images/alquieventos/g-lago-800.webp" srcset="assets/images/alquieventos/g-lago-800.webp 800w, assets/images/alquieventos/g-lago-1300.webp 1300w" sizes="(min-width: 992px) 30vw, 100vw" width="800" height="533" loading="lazy" alt="Carpa blanca junto a un lago, rodeada de árboles"><figcaption>Carpa para recepción al aire libre</figcaption></figure>
+          <figure class="montaje"><img src="assets/images/alquieventos/g-negro-800.webp" srcset="assets/images/alquieventos/g-negro-800.webp 800w, assets/images/alquieventos/g-negro-1300.webp 1300w" sizes="(min-width: 992px) 30vw, 100vw" width="800" height="533" loading="lazy" alt="Mesas negras con flores blancas y sillas de rejilla"><figcaption>Mesas oscuras y sillas de rejilla</figcaption></figure>
+          <figure class="montaje"><img src="assets/images/alquieventos/g-banquete-800.webp" srcset="assets/images/alquieventos/g-banquete-800.webp 800w, assets/images/alquieventos/g-banquete-1300.webp 1300w" sizes="(min-width: 992px) 30vw, 100vw" width="800" height="533" loading="lazy" alt="Salón con mesas largas y sillas doradas"><figcaption>Mesas largas para banquete</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Cómo funciona -->
+    <section class="seccion funciona" id="como-funciona" aria-labelledby="funciona-titulo">
+      <div class="container-xl">
+        <h2 id="funciona-titulo" class="titulo-ae">Cómo funciona el alquiler</h2>
+        <ol class="pasos-ae">
+          <li><h3>Arma tu lista</h3><p>Agrega productos del catálogo y ajusta las cantidades.</p></li>
+          <li><h3>Envía la solicitud</h3><p>Completa fecha, lugar y tipo de evento. Se abre WhatsApp con todo listo.</p></li>
+          <li><h3>Recibe la cotización</h3><p>Te respondemos con disponibilidad, valores y condiciones del alquiler.</p></li>
+          <li><h3>Confirma tu pedido</h3><p>Acordamos entrega, montaje y recogida según lo cotizado.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- 6. Beneficios (del proceso, sin promesas no verificadas) -->
+    <section class="seccion beneficios" aria-labelledby="beneficios-titulo">
+      <div class="container-xl">
+        <h2 id="beneficios-titulo" class="titulo-ae">Cotizar aquí es más simple</h2>
+        <ul class="beneficios-lista">
+          <li><i class="bi bi-ui-checks-grid" aria-hidden="true"></i><h3>Un solo pedido</h3><p>Carpas, mesas, sillas y tarimas en la misma solicitud.</p></li>
+          <li><i class="bi bi-123" aria-hidden="true"></i><h3>Cantidades claras</h3><p>Defines cuántas unidades necesitas antes de pedir el precio.</p></li>
+          <li><i class="bi bi-whatsapp" aria-hidden="true"></i><h3>Respuesta por WhatsApp</h3><p>La conversación queda en tu celular, con tu lista completa.</p></li>
+          <li><i class="bi bi-images" aria-hidden="true"></i><h3>Compara antes de llamar</h3><p>Fotos y descripciones para elegir el estilo de tu montaje.</p></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 7. Formulario de cotización -->
+    <section class="seccion cotizar" id="cotizar" aria-labelledby="cotizar-titulo">
+      <div class="container-xl">
+        <div class="row g-4 g-xl-5">
+          <div class="col-lg-7">
+            <h2 id="cotizar-titulo" class="titulo-ae">Solicita tu cotización</h2>
+            <p class="cotizar-intro">Al enviar, se abre WhatsApp con tu solicitud escrita. Tus datos no se guardan ni se envían a ningún servidor.</p>
+            <form class="form-ae" id="form-cotizacion" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label class="form-label" for="ae-nombre">Nombre</label>
+                  <input class="form-control" id="ae-nombre" name="nombre" type="text" autocomplete="name" required maxlength="80">
+                  <span class="campo-error" id="ae-nombre-error"></span>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label" for="ae-telefono">Teléfono</label>
+                  <input class="form-control" id="ae-telefono" name="telefono" type="tel" autocomplete="tel" inputmode="tel" placeholder="300 123 4567" required maxlength="20">
+                  <span class="campo-error" id="ae-telefono-error"></span>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label" for="ae-fecha">Fecha del evento</label>
+                  <input class="form-control" id="ae-fecha" name="fecha" type="date" required>
+                  <span class="campo-error" id="ae-fecha-error"></span>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label" for="ae-tipo">Tipo de evento</label>
+                  <select class="form-select" id="ae-tipo" name="tipo" required>
+                    <option value="">Selecciona una opción</option>
+                    <option>Matrimonio</option>
+                    <option>Quinceañero</option>
+                    <option>Cumpleaños</option>
+                    <option>Evento empresarial</option>
+                    <option>Grado</option>
+                    <option>Reunión familiar</option>
+                    <option>Evento comunitario o religioso</option>
+                    <option>Otro</option>
+                  </select>
+                  <span class="campo-error" id="ae-tipo-error"></span>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="ae-lugar">Lugar de entrega</label>
+                  <input class="form-control" id="ae-lugar" name="lugar" type="text" autocomplete="street-address" placeholder="Dirección o nombre del lugar, barrio y municipio" required maxlength="160">
+                  <span class="campo-error" id="ae-lugar-error"></span>
+                </div>
+                <div class="col-12">
+                  <fieldset class="productos-fieldset" aria-describedby="ae-productos-error">
+                    <legend class="form-label">Productos y cantidades</legend>
+                    <div class="lista-solicitud" data-lista-solicitud="formulario"></div>
+                    <input type="hidden" id="ae-productos" name="productos">
+                    <span class="campo-error" id="ae-productos-error"></span>
+                  </fieldset>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="ae-comentarios">Comentarios <span class="opcional">(opcional)</span></label>
+                  <textarea class="form-control" id="ae-comentarios" name="comentarios" rows="3" maxlength="600" placeholder="Horario de entrega, montaje, productos que no ves en el catálogo…"></textarea>
+                  <span class="campo-error" id="ae-comentarios-error"></span>
+                </div>
+              </div>
+              <div class="form-acciones">
+                <button class="btn-ae btn-ae--amarillo" type="submit"><i class="bi bi-whatsapp" aria-hidden="true"></i> Enviar solicitud por WhatsApp</button>
+              </div>
+              <div class="form-estado" data-estado role="status" aria-live="polite"></div>
+            </form>
+          </div>
+          <div class="col-lg-5">
+            <aside class="remision" aria-labelledby="remision-titulo">
+              <h3 id="remision-titulo" class="remision-titulo">Resumen de tu solicitud</h3>
+              <p class="remision-sub" data-resumen-fecha>Sin fecha definida</p>
+              <div class="lista-solicitud lista-solicitud--resumen" data-lista-solicitud="resumen"></div>
+              <p class="remision-nota">Los valores y la disponibilidad se confirman en la cotización. Tu selección se guarda solo durante esta sesión del navegador.</p>
+            </aside>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Preguntas frecuentes -->
+    <section class="seccion preguntas" id="preguntas" aria-labelledby="preguntas-titulo">
+      <div class="container-xl">
+        <div class="row g-4 g-xl-5">
+          <div class="col-lg-4">
+            <h2 id="preguntas-titulo" class="titulo-ae">Preguntas frecuentes</h2>
+          </div>
+          <div class="col-lg-8">
+            <div class="accordion acordeon-ae" id="faq">
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="false" aria-controls="faq-1">¿Por qué no aparecen precios?</button></h3>
+                <div id="faq-1" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">El valor depende de las cantidades, la fecha, el lugar de entrega y el montaje. Por eso se entrega en la cotización, con tu lista exacta.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">¿Incluye transporte y montaje?</button></h3>
+                <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Las condiciones de entrega, montaje y recogida se indican en cada cotización según el lugar del evento.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">¿Con cuánta anticipación debo pedir?</button></h3>
+                <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Mientras antes envíes la solicitud, más fácil es asegurar las cantidades para tu fecha. Si tu evento es pronto, llámanos.</div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" aria-controls="faq-4">¿A qué municipios entregan?</button></h3>
+                <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Escribe el lugar de entrega en la solicitud y te confirmamos la cobertura. <span class="dato-pendiente" data-cfg="cobertura" data-pendiente>Cobertura por confirmar.</span></div></div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false" aria-controls="faq-5">¿Qué pasa si necesito algo que no está en el catálogo?</button></h3>
+                <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Escríbelo en «Comentarios». Revisamos si podemos incluirlo en la cotización.</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CTA final -->
+    <section class="cta-final" aria-labelledby="cta-titulo">
+      <div class="container-xl cta-final-caja">
+        <h2 id="cta-titulo" class="cta-final-titulo">¿Prefieres hablar con alguien?</h2>
+        <div class="cta-final-acciones">
+          <a class="btn-ae btn-ae--marino" data-wa href="https://wa.me/573176825487"><i class="bi bi-whatsapp" aria-hidden="true"></i> Escribir por WhatsApp</a>
+          <a class="btn-ae btn-ae--linea-marino" data-tel="0" href="tel:+573176825487"><i class="bi bi-telephone" aria-hidden="true"></i> Llamar al <span data-tel-texto="0">317 682 5487</span></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- 10. Footer comercial -->
+  <footer class="pie">
+    <div class="container-xl">
+      <div class="row g-4 g-xl-5">
+        <div class="col-lg-4">
+          <p class="pie-marca"><span class="marca-sello" aria-hidden="true"></span>Alquieventos</p>
+          <p>Alquiler de carpas, mesas, sillas, tarimas y mobiliario para eventos.</p>
+          <p data-cfg="zona">Área metropolitana de Bucaramanga, Santander</p>
+        </div>
+        <div class="col-sm-4 col-lg-2">
+          <h2 class="pie-titulo">Catálogo</h2>
+          <ul class="pie-lista">
+            <li><a href="#catalogo" data-ir-categoria="carpas">Carpas</a></li>
+            <li><a href="#catalogo" data-ir-categoria="mesas">Mesas</a></li>
+            <li><a href="#catalogo" data-ir-categoria="sillas">Sillas</a></li>
+            <li><a href="#catalogo" data-ir-categoria="tarimas">Tarimas</a></li>
+            <li><a href="#catalogo" data-ir-categoria="mobiliario">Mobiliario</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-lg-3">
+          <h2 class="pie-titulo">Contacto</h2>
+          <ul class="pie-lista">
+            <li><a data-tel="0" href="tel:+573176825487"><i class="bi bi-telephone" aria-hidden="true"></i> <span data-tel-texto="0">317 682 5487</span></a></li>
+            <li><a data-wa href="https://wa.me/573176825487"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+            <li data-pendiente><span class="dato-pendiente" data-cfg="direccion">Dirección por confirmar</span></li>
+          </ul>
+        </div>
+        <div class="col-sm-4 col-lg-3">
+          <h2 class="pie-titulo">Atención</h2>
+          <ul class="pie-lista">
+            <li data-pendiente><span class="dato-pendiente" data-cfg="horario">Horario por confirmar</span></li>
+            <li><a href="#cotizar">Solicitar cotización</a></li>
+            <li><a href="#preguntas">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pie-legal">
+        <p>Propuesta de diseño independiente; no es el sitio oficial del negocio. Catálogo de ejemplo y fotografías de referencia de <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash</a>. &copy; <span data-anio>2026</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Panel lateral con la solicitud -->
+  <div class="offcanvas offcanvas-end panel-solicitud" tabindex="-1" id="panel-solicitud" aria-labelledby="panel-solicitud-titulo">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title" id="panel-solicitud-titulo">Mi solicitud</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div class="lista-solicitud" data-lista-solicitud="panel"></div>
+      <div class="panel-acciones">
+        <a class="btn-ae btn-ae--amarillo" href="#cotizar" data-cerrar-panel>Completar solicitud</a>
+        <button class="btn-ae btn-ae--texto" type="button" data-vaciar>Vaciar lista</button>
+      </div>
+    </div>
+  </div>
+
+  <a class="flotante flotante--ae" data-flotante data-wa href="https://wa.me/573176825487" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i><span class="flotante-texto">WhatsApp</span></a>
+</body>
+</html>

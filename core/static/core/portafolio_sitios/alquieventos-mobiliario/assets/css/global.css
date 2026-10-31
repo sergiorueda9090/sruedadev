@@ -1,0 +1,133 @@
+/* Base compartida por las cuatro páginas. Solo lo que es igual en todas:
+ * accesibilidad, aviso de demo, botón flotante, estados de formulario y
+ * respaldo de imágenes. Cada hoja de página define sus propios tokens:
+ *   --g-texto, --g-fondo, --g-foco, --g-error, --g-ok, --g-aviso-fondo, --g-aviso-texto
+ */
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { overflow-x: clip; text-rendering: optimizeLegibility; }
+img { max-width: 100%; height: auto; }
+
+:where(a, button, input, select, textarea, summary, [tabindex]):focus-visible {
+  outline: 3px solid var(--g-foco, #1a5fb4);
+  outline-offset: 3px;
+  box-shadow: none;
+}
+
+.saltar {
+  position: fixed;
+  top: .75rem;
+  left: .75rem;
+  z-index: 2000;
+  padding: .75rem 1.1rem;
+  background: var(--g-texto, #111);
+  color: var(--g-fondo, #fff);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.saltar:focus { transform: none; }
+
+/* Las anclas no quedan debajo de la cabecera fija. */
+[id] { scroll-margin-top: 5.5rem; }
+
+/* ---------- Aviso de demo ---------- */
+.aviso-demo {
+  margin: 0;
+  padding: .45rem 1rem;
+  background: var(--g-aviso-fondo, #222);
+  color: var(--g-aviso-texto, #fff);
+  font-size: .8125rem;
+  line-height: 1.4;
+  text-align: center;
+}
+p.aviso-demo { max-width: none; }
+.aviso-demo a { color: inherit; text-underline-offset: 2px; }
+
+.etiqueta-pendiente {
+  display: inline-block;
+  padding: .1rem .45rem;
+  border: 1px dashed currentColor;
+  border-radius: 3px;
+  font-size: .75rem;
+  font-weight: 600;
+  line-height: 1.5;
+  vertical-align: middle;
+  opacity: .85;
+}
+[data-modo="publicacion"] .etiqueta-pendiente { display: none; }
+
+/* ---------- Botón flotante de contacto ---------- */
+.flotante {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 1030;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .5rem;
+  min-width: 3.5rem;
+  min-height: 3.5rem;
+  padding: 0 1.1rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 600;
+  box-shadow: 0 10px 28px -12px rgb(0 0 0 / .45);
+  transition: transform .25s ease, opacity .25s ease;
+}
+.flotante .bi { font-size: 1.5rem; line-height: 1; }
+.con-js .flotante:not(.is-visible) { opacity: 0; transform: translateY(1.5rem); pointer-events: none; }
+.flotante-texto { display: none; }
+@media (min-width: 768px) { .flotante-texto { display: inline; } }
+/* Reserva espacio al final para que el botón no tape el pie de página. */
+.pie { padding-bottom: 5.5rem; }
+
+/* ---------- Formularios ---------- */
+.campo-error {
+  display: block;
+  min-height: 1.25rem;
+  margin-top: .3rem;
+  color: var(--g-error, #b42318);
+  font-size: .8125rem;
+  font-weight: 600;
+}
+.campo-error:empty { min-height: 0; margin: 0; }
+[aria-invalid="true"] { border-color: var(--g-error, #b42318) !important; }
+
+.form-estado:empty { display: none; }
+.form-estado {
+  margin-top: 1rem;
+  padding: .9rem 1rem;
+  border-left: 4px solid currentColor;
+  font-size: .9375rem;
+}
+.form-estado p { margin: 0; }
+.form-estado a { color: inherit; font-weight: 700; }
+.form-estado.is-error { color: var(--g-error, #b42318); background: color-mix(in srgb, var(--g-error, #b42318) 8%, transparent); }
+.form-estado.is-listo { color: var(--g-ok, #1e6b3a); background: color-mix(in srgb, var(--g-ok, #1e6b3a) 9%, transparent); }
+
+/* ---------- Respaldo de imágenes ---------- */
+.marco-fallido { position: relative; background: color-mix(in srgb, var(--g-texto, #222) 10%, transparent); }
+.marco-fallido::after {
+  content: attr(data-alt);
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+  color: var(--g-texto, #222);
+  font-size: .875rem;
+  text-align: center;
+}
+img.img-fallida { visibility: hidden; }
+
+/* ---------- Movimiento reducido ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

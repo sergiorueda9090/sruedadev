@@ -1,0 +1,32 @@
+/* VITALIA — movimiento.
+ * El contenido es visible por defecto. Solo cuando el <head> añade la clase «anim»
+ * (JS activo, animaciones habilitadas y sin prefers-reduced-motion) se ocultan los
+ * elementos que animations.js revela con GSAP. Si GSAP no carga, animations.js
+ * retira la clase y todo queda visible.
+ */
+html.anim [data-reveal],
+html.anim [data-card],
+html.anim .hero [data-hero] { opacity: 0; }
+
+@keyframes girar { to { transform: rotate(360deg); } }
+@keyframes pulso { 0% { transform: scale(1); } 40% { transform: scale(1.35); } 100% { transform: scale(1); } }
+@keyframes latido { 0% { transform: scale(1); } 35% { transform: scale(1.3); } 70% { transform: scale(.92); } 100% { transform: scale(1); } }
+@keyframes entra-abajo { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes sale-abajo { to { opacity: 0; transform: translateY(12px); } }
+@keyframes aparece { from { opacity: 0; } to { opacity: 1; } }
+
+.toast-v { animation: entra-abajo .4s var(--ease) both; }
+.toast-v.saliendo { animation: sale-abajo .3s var(--ease) both; }
+.wa-panel:not([hidden]) { animation: entra-abajo .3s var(--ease) both; }
+.rutina-panel:not([hidden]) { animation: aparece .45s var(--ease) both; }
+.form-ok { animation: entra-abajo .45s var(--ease) both; }
+.linea-item { animation: aparece .35s var(--ease) both; }
+
+/* Esqueleto de carga para el catálogo y la ficha */
+.esqueleto { background: linear-gradient(90deg, var(--c-marfil) 0%, #F8F5EE 50%, var(--c-marfil) 100%); background-size: 200% 100%; animation: brillo 1.3s linear infinite; border-radius: var(--r-sm); }
+@keyframes brillo { to { background-position: -200% 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; scroll-behavior: auto !important; }
+  .carrusel-pista { scroll-behavior: auto; }
+}

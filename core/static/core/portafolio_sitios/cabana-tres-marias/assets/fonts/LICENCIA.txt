@@ -1,0 +1,3 @@
+Cormorant Garamond (Christian Thalmann) y Manrope (Mikhail Sharanda) se distribuyen con la
+SIL Open Font License 1.1 (https://openfontlicense.org). Archivos descargados de Google Fonts
+(subconjunto «latin», fuentes variables) y alojados localmente para no bloquear el renderizado.

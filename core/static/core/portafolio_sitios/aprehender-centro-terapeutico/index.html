@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aprehender Centro Terapéutico | Terapias infantiles en Floridablanca</title>
+  <meta name="description" content="Terapias infantiles en Floridablanca y Bucaramanga: integración sensorial, terapia ocupacional, fonoaudiología y psicología infantil, con orientación para las familias. Demo de SRuedaDev.">
+  <meta name="theme-color" content="#FFFCF6">
+  <link rel="canonical" href="https://sruedadev.com/demos/psicologia/aprehender/">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Aprehender Centro Terapéutico (demo)">
+  <meta property="og:title" content="Aprehender | Terapias infantiles en Floridablanca">
+  <meta property="og:description" content="Un espacio donde cada forma de aprender encuentra su lugar: terapias, proceso de acompañamiento y preguntas frecuentes.">
+  <meta property="og:image" content="assets/images/catalogo/aprehender-1200.webp">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='10' fill='%23FFFCF6'/%3E%3Cpath d='M5 34V24a15 15 0 0 1 30 0v10' fill='none' stroke='%23C8795B' stroke-width='5'/%3E%3Cpath d='M12 34v-9a8 8 0 0 1 16 0v9' fill='none' stroke='%23727F55' stroke-width='5'/%3E%3C/svg%3E">
+
+  <script>(function(d){d.classList.add('js');if(!matchMedia('(prefers-reduced-motion: reduce)').matches){d.classList.add('anim-hero');setTimeout(function(){d.classList.remove('anim-hero')},3000)}})(document.documentElement)</script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT,WONK@9..144,400..700,0..100,0..1&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/global.css?v=1">
+  <link rel="stylesheet" href="assets/css/aprehender.css?v=1">
+
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/gsap.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.13.0/ScrollTrigger.min.js"></script>
+  <script defer src="assets/js/config.js?v=1"></script>
+  <script defer src="assets/js/global.js?v=1"></script>
+  <script defer src="assets/js/aprehender.js?v=1"></script>
+</head>
+<body data-marca="aprehender">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <p class="demo-aviso solo-revision">Demo conceptual de SRuedaDev: marca ficticia, fotografías ilustrativas y datos de contacto por configurar.</p>
+
+  <header class="ap-header js-header">
+    <div class="ap-header__inner">
+      <a class="ap-logo" href="#inicio" aria-label="Aprehender Centro Terapéutico, ir al inicio">
+        <svg class="ap-logo__mark" viewBox="0 0 44 34" aria-hidden="true"><path d="M3 34V22a19 19 0 0 1 38 0v12" fill="none" stroke="#C8795B" stroke-width="5.5"/><path d="M11 34v-12a11 11 0 0 1 22 0v12" fill="none" stroke="#727F55" stroke-width="5.5"/><path d="M18.5 34v-12a3.5 3.5 0 0 1 7 0v12" fill="none" stroke="#315B66" stroke-width="5.5"/></svg>
+        <span class="ap-logo__texto">Aprehender <small>Centro Terapéutico</small></span>
+      </a>
+      <nav class="ap-nav" id="menu" aria-label="Principal">
+        <ul>
+          <li><a href="#terapias">Terapias</a></li>
+          <li><a href="#proceso">Cómo acompañamos</a></li>
+          <li><a href="#espacios">Espacios</a></li>
+          <li><a href="#preguntas">Preguntas</a></li>
+        </ul>
+        <a class="ap-btn ap-btn--primario ap-nav__cta" href="#contacto">Contactar</a>
+      </nav>
+      <button class="ap-menu-btn js-menu-toggle" type="button" aria-expanded="false" aria-controls="menu">
+        <span class="ap-menu-btn__texto">Menú</span>
+      </button>
+    </div>
+  </header>
+
+  <main id="contenido">
+
+    <!-- Hero: collage editorial -->
+    <section class="ap-hero" id="inicio" aria-labelledby="hero-titulo">
+      <p class="ap-hero__lugar" data-hero>Terapias infantiles en Floridablanca, Bucaramanga y el área metropolitana</p>
+
+      <h1 class="ap-hero__titulo" id="hero-titulo">
+        <span class="ap-hero__linea"><span data-hero>Cada niño tiene</span></span>
+        <span class="ap-hero__linea"><span data-hero>su propia manera</span></span>
+        <span class="ap-hero__linea"><span data-hero>de descubrir</span></span>
+        <span class="ap-hero__linea"><span data-hero>el mundo</span></span>
+      </h1>
+
+      <div class="ap-hero__texto">
+        <p data-hero>Un espacio de acompañamiento terapéutico donde las familias pueden conocer diferentes alternativas para apoyar el desarrollo y el aprendizaje de sus hijos.</p>
+        <div class="ap-hero__acciones" data-hero>
+          <a class="ap-btn ap-btn--primario" href="#terapias">Conocer las terapias</a>
+          <a class="ap-btn ap-btn--secundario" href="#contacto" data-wa data-wa-fallback="#formulario" data-wa-off-label="Consultar por el formulario">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i> <span data-wa-label>Consultar por WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="ap-collage">
+        <div class="ap-collage__arco">
+          <svg class="ap-arcoiris" viewBox="0 0 400 420" aria-hidden="true">
+            <path class="js-arco" d="M16 420V220A184 184 0 0 1 384 220V420" fill="none" stroke="#C8795B" stroke-width="28"/>
+            <path class="js-arco" d="M46 420V220A154 154 0 0 1 354 220V420" fill="none" stroke="#F1DDA5" stroke-width="28"/>
+            <path class="js-arco" d="M74 420V220A126 126 0 0 1 326 220V420" fill="none" stroke="#727F55" stroke-width="24"/>
+          </svg>
+          <figure class="ap-collage__principal" data-hero>
+            <img src="assets/images/aprehender/hero-1100.webp"
+                 srcset="assets/images/aprehender/hero-640.webp 640w, assets/images/aprehender/hero-1100.webp 1100w, assets/images/aprehender/hero-1600.webp 1600w"
+                 sizes="(min-width: 992px) 26vw, 56vw" width="1600" height="1280" fetchpriority="high"
+                 alt="Profesional muestra con la mano un conteo a un niño que la observa atento en un salón con materiales">
+          </figure>
+        </div>
+        <figure class="ap-collage__circulo" data-hero>
+          <img src="assets/images/aprehender/plastilina-400.webp"
+               srcset="assets/images/aprehender/plastilina-400.webp 400w, assets/images/aprehender/plastilina-700.webp 700w"
+               sizes="(min-width: 992px) 14vw, 30vw" width="700" height="700"
+               alt="Manos de un niño moldeando un arcoíris de plastilina de colores">
+        </figure>
+        <figure class="ap-collage__cuarto" data-hero>
+          <img src="assets/images/aprehender/bloques-400.webp"
+               srcset="assets/images/aprehender/bloques-400.webp 400w, assets/images/aprehender/bloques-700.webp 700w"
+               sizes="(min-width: 992px) 13vw, 28vw" width="700" height="933"
+               alt="Niña pequeña sentada en una alfombra encaja bloques de colores con ambas manos">
+        </figure>
+        <span class="ap-etiqueta ap-etiqueta--a" data-hero>Lenguaje</span>
+        <span class="ap-etiqueta ap-etiqueta--b" data-hero>Motricidad fina</span>
+        <span class="ap-etiqueta ap-etiqueta--c" data-hero>Juego</span>
+        <span class="ap-forma ap-forma--disco" data-hero aria-hidden="true"></span>
+        <span class="ap-forma ap-forma--punto" data-hero aria-hidden="true"></span>
+      </div>
+    </section>
+
+    <!-- Terapias -->
+    <section class="ap-terapias" id="terapias" aria-labelledby="terapias-titulo">
+      <div class="ap-cabecera">
+        <h2 class="ap-h2" id="terapias-titulo">Conocer es el primer paso</h2>
+        <p>Un recorrido por las terapias que acompañan el desarrollo y el aprendizaje. Qué terapias están disponibles y cómo se accede a cada una se confirma al consultar.</p>
+      </div>
+
+      <div class="ap-terapias__grid">
+        <article class="ap-destacada">
+          <div class="ap-destacada__foto">
+            <img src="assets/images/aprehender/sensorial-1100.webp"
+                 srcset="assets/images/aprehender/sensorial-640.webp 640w, assets/images/aprehender/sensorial-1100.webp 1100w, assets/images/aprehender/sensorial-1500.webp 1500w"
+                 sizes="(min-width: 992px) 52vw, 92vw" width="1500" height="1125" loading="lazy"
+                 alt="Niña recostada sobre una colchoneta junto a una terapeuta sonriente y un juguete de cuentas">
+          </div>
+          <div class="ap-destacada__texto">
+            <h3>Integración sensorial</h3>
+            <p>Actividades guiadas con movimiento, equilibrio y texturas que buscan ayudar al niño a organizar lo que percibe con sus sentidos y a participar con más tranquilidad en sus rutinas.</p>
+            <a class="ap-enlace" href="#contacto" data-servicio="Integración sensorial">Consultar por integración sensorial <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="ap-secundaria ap-secundaria--fono">
+          <img class="ap-secundaria__foto" src="assets/images/aprehender/fonoaudiologia-480.webp"
+               srcset="assets/images/aprehender/fonoaudiologia-480.webp 480w, assets/images/aprehender/fonoaudiologia-800.webp 800w"
+               sizes="(min-width: 992px) 14vw, 40vw" width="800" height="800" loading="lazy"
+               alt="Niño sentado en una mesa pequeña conversa con una profesional sentada en el piso">
+          <div>
+            <h3>Fonoaudiología</h3>
+            <p>Comunicación, lenguaje, habla y alimentación, trabajados a través del juego y la conversación.</p>
+            <a class="ap-enlace" href="#contacto" data-servicio="Fonoaudiología">Consultar por fonoaudiología <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <article class="ap-secundaria ap-secundaria--to">
+          <img class="ap-secundaria__foto" src="assets/images/aprehender/ocupacional-480.webp"
+               srcset="assets/images/aprehender/ocupacional-480.webp 480w, assets/images/aprehender/ocupacional-800.webp 800w"
+               sizes="(min-width: 992px) 14vw, 40vw" width="800" height="1000" loading="lazy"
+               alt="Profesional arrodillada sobre un piso de goma acomoda piezas de un tablero de encaje de madera">
+          <div>
+            <h3>Terapia ocupacional</h3>
+            <p>Motricidad fina, juego y autonomía en rutinas como vestirse, comer o organizarse en el aula.</p>
+            <a class="ap-enlace" href="#contacto" data-servicio="Terapia ocupacional">Consultar por terapia ocupacional <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </div>
+        </article>
+
+        <ul class="ap-lista">
+          <li>
+            <h3>Psicología infantil</h3>
+            <p>Emociones, conducta y relaciones, con espacios de orientación para madres, padres y cuidadores.</p>
+            <a class="ap-enlace" href="#contacto" data-servicio="Psicología infantil">Consultar <span class="visually-hidden">por psicología infantil</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <h3>Acompañamiento al desarrollo</h3>
+            <p>Seguimiento de las habilidades motoras, comunicativas y sociales durante los primeros años.</p>
+            <a class="ap-enlace" href="#contacto" data-servicio="Acompañamiento al desarrollo">Consultar <span class="visually-hidden">por acompañamiento al desarrollo</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </li>
+          <li>
+            <h3>Orientación familiar</h3>
+            <p>Herramientas para acompañar en casa lo que se trabaja en las sesiones, a tu ritmo y con tus preguntas.</p>
+            <a class="ap-enlace" href="#contacto" data-servicio="Orientación familiar">Consultar <span class="visually-hidden">por orientación familiar</span><i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+          </li>
+        </ul>
+      </div>
+      <p class="nota-datos solo-revision ap-terapias__nota">Selección demostrativa: se ajusta a las terapias que ofrezca cada institución.</p>
+    </section>
+
+    <!-- Proceso: publicación interactiva -->
+    <section class="ap-proceso" id="proceso" aria-labelledby="proceso-titulo">
+      <div class="ap-proceso__inner">
+        <h2 class="ap-h2" id="proceso-titulo">Así acompañamos cada proceso</h2>
+
+        <div class="ap-tabs">
+          <div class="ap-tabs__lista" role="tablist" aria-label="Etapas del acompañamiento">
+            <button class="ap-tab" type="button" role="tab" id="tab-1" aria-controls="etapa-1" aria-selected="true"><span class="ap-tab__num">01</span><span class="ap-tab__nombre">Conversación inicial</span></button>
+            <button class="ap-tab" type="button" role="tab" id="tab-2" aria-controls="etapa-2" aria-selected="false" tabindex="-1"><span class="ap-tab__num">02</span><span class="ap-tab__nombre">Comprensión de necesidades</span></button>
+            <button class="ap-tab" type="button" role="tab" id="tab-3" aria-controls="etapa-3" aria-selected="false" tabindex="-1"><span class="ap-tab__num">03</span><span class="ap-tab__nombre">Orientación profesional</span></button>
+            <button class="ap-tab" type="button" role="tab" id="tab-4" aria-controls="etapa-4" aria-selected="false" tabindex="-1"><span class="ap-tab__num">04</span><span class="ap-tab__nombre">Seguimiento según el plan</span></button>
+          </div>
+
+          <div class="ap-tabs__paneles">
+            <article class="ap-panel" id="etapa-1" role="tabpanel" aria-labelledby="tab-1" tabindex="0">
+              <svg class="ap-panel__figura" viewBox="0 0 320 200" aria-hidden="true"><circle cx="122" cy="104" r="78" fill="#F1DDA5"/><circle cx="208" cy="104" r="78" fill="#C8795B" opacity=".85"/></svg>
+              <p class="ap-panel__num" aria-hidden="true">01</p>
+              <h3>Conversación inicial</h3>
+              <p>La familia nos cuenta qué ha notado, qué le inquieta y qué espera. Es un momento para resolver dudas antes de decidir cualquier paso.</p>
+            </article>
+            <article class="ap-panel" id="etapa-2" role="tabpanel" aria-labelledby="tab-2" tabindex="0">
+              <svg class="ap-panel__figura" viewBox="0 0 320 200" aria-hidden="true"><path d="M40 200V150A120 120 0 0 1 280 150V200Z" fill="#727F55"/><path d="M96 200V150A64 64 0 0 1 224 150V200Z" fill="#FFFCF6"/><circle cx="160" cy="44" r="22" fill="#C8795B"/></svg>
+              <p class="ap-panel__num" aria-hidden="true">02</p>
+              <h3>Comprensión de necesidades</h3>
+              <p>A partir de esa conversación, y si el caso lo requiere, se programa una valoración con el profesional indicado para conocer al niño mientras juega y participa en actividades.</p>
+            </article>
+            <article class="ap-panel" id="etapa-3" role="tabpanel" aria-labelledby="tab-3" tabindex="0">
+              <svg class="ap-panel__figura" viewBox="0 0 320 200" aria-hidden="true"><path d="M60 180V60a120 120 0 0 1 120 120Z" fill="#315B66"/><path d="M190 180V100a80 80 0 0 1 80 80Z" fill="#F1DDA5"/><rect x="190" y="30" width="56" height="56" rx="10" fill="#C8795B"/></svg>
+              <p class="ap-panel__num" aria-hidden="true">03</p>
+              <h3>Orientación profesional</h3>
+              <p>El equipo comparte lo que observó, explica las alternativas y sugiere las terapias que pueden aportar. La decisión de iniciar es siempre de la familia.</p>
+            </article>
+            <article class="ap-panel" id="etapa-4" role="tabpanel" aria-labelledby="tab-4" tabindex="0">
+              <svg class="ap-panel__figura" viewBox="0 0 320 200" aria-hidden="true"><path d="M40 200V170A120 120 0 0 1 280 170V200" fill="none" stroke="#C8795B" stroke-width="26"/><path d="M80 200V170A80 80 0 0 1 240 170V200" fill="none" stroke="#F1DDA5" stroke-width="26"/><path d="M118 200V170A42 42 0 0 1 202 170V200" fill="none" stroke="#727F55" stroke-width="26"/></svg>
+              <p class="ap-panel__num" aria-hidden="true">04</p>
+              <h3>Seguimiento según el plan establecido</h3>
+              <p>Si la familia decide iniciar, se acuerdan objetivos y momentos de revisión. El plan se ajusta según lo que el equipo y la familia vayan observando.</p>
+            </article>
+          </div>
+        </div>
+
+        <p class="ap-proceso__nota">Cada proceso es distinto: los pasos y los tiempos los definen los profesionales junto con la familia. No prometemos resultados ni plazos.</p>
+      </div>
+    </section>
+
+    <!-- Espacios -->
+    <section class="ap-espacios" id="espacios" aria-labelledby="espacios-titulo">
+      <div class="ap-cabecera">
+        <h2 class="ap-h2" id="espacios-titulo">Espacios para moverse, jugar y aprender</h2>
+        <p>Salones luminosos, material didáctico al alcance de los niños y lugares donde las familias también participan. Toca una imagen para verla en grande.</p>
+      </div>
+
+      <ul class="ap-galeria">
+        <li class="ap-galeria__item ap-galeria__item--sala">
+          <button class="ap-galeria__btn" type="button" data-grande="assets/images/aprehender/g-sala-1200.webp" data-w="1200" data-h="800" data-pie="Salón de actividades con mobiliario a la medida de los niños.">
+            <img src="assets/images/aprehender/g-sala-640.webp" srcset="assets/images/aprehender/g-sala-640.webp 640w, assets/images/aprehender/g-sala-1200.webp 1200w" sizes="(min-width: 992px) 54vw, 92vw" width="1200" height="800" loading="lazy" alt="Salón luminoso con mesas y sillas infantiles y muebles de juego en forma de casa">
+          </button>
+          <p class="ap-galeria__pie">Salón de actividades</p>
+        </li>
+        <li class="ap-galeria__item ap-galeria__item--mesa">
+          <button class="ap-galeria__btn" type="button" data-grande="assets/images/aprehender/g-mesa-1000.webp" data-w="1000" data-h="1333" data-pie="Trabajo en mesa con tarjetas de imágenes.">
+            <img src="assets/images/aprehender/g-mesa-640.webp" srcset="assets/images/aprehender/g-mesa-640.webp 640w, assets/images/aprehender/g-mesa-1000.webp 1000w" sizes="(min-width: 992px) 36vw, 92vw" width="1000" height="1333" loading="lazy" alt="Profesional sonríe mientras dos niños trabajan con tarjetas de imágenes sobre una mesa">
+          </button>
+          <p class="ap-galeria__pie">Trabajo en mesa</p>
+        </li>
+        <li class="ap-galeria__item ap-galeria__item--material">
+          <button class="ap-galeria__btn" type="button" data-grande="assets/images/aprehender/g-material-1000.webp" data-w="1000" data-h="750" data-pie="Material didáctico ordenado por colores y tipo de actividad.">
+            <img src="assets/images/aprehender/g-material-640.webp" srcset="assets/images/aprehender/g-material-640.webp 640w, assets/images/aprehender/g-material-1000.webp 1000w" sizes="(min-width: 992px) 30vw, 92vw" width="1000" height="750" loading="lazy" alt="Estante blanco con canastas de colores llenas de material didáctico: bloques, fichas y piezas de encaje">
+          </button>
+          <p class="ap-galeria__pie">Material didáctico</p>
+        </li>
+        <li class="ap-galeria__item ap-galeria__item--letras">
+          <button class="ap-galeria__btn" type="button" data-grande="assets/images/aprehender/g-letras-1000.webp" data-w="1000" data-h="1000" data-pie="Juego con letras para encajar.">
+            <img src="assets/images/aprehender/g-letras-640.webp" srcset="assets/images/aprehender/g-letras-640.webp 640w, assets/images/aprehender/g-letras-1000.webp 1000w" sizes="(min-width: 992px) 22vw, 92vw" width="1000" height="1000" loading="lazy" alt="Tablero de madera con letras para encajar sobre una alfombra, mientras un niño ubica las piezas">
+          </button>
+          <p class="ap-galeria__pie">Juego y lenguaje</p>
+        </li>
+        <li class="ap-galeria__item ap-galeria__item--familia">
+          <button class="ap-galeria__btn" type="button" data-grande="assets/images/aprehender/g-familia-1200.webp" data-w="1200" data-h="800" data-pie="Familia y profesional comparten una actividad de lectura.">
+            <img src="assets/images/aprehender/g-familia-640.webp" srcset="assets/images/aprehender/g-familia-640.webp 640w, assets/images/aprehender/g-familia-1200.webp 1200w" sizes="(min-width: 992px) 46vw, 92vw" width="1200" height="800" loading="lazy" alt="Un adulto lee en voz alta y una profesional conversa con una niña en una mesa de trabajo">
+          </button>
+          <p class="ap-galeria__pie">Familias que participan</p>
+        </li>
+        <li class="ap-galeria__item ap-galeria__item--pintura">
+          <button class="ap-galeria__btn" type="button" data-grande="assets/images/aprehender/g-pintura-1200.webp" data-w="1200" data-h="800" data-pie="Pintura y texturas junto a la ventana.">
+            <img src="assets/images/aprehender/g-pintura-640.webp" srcset="assets/images/aprehender/g-pintura-640.webp 640w, assets/images/aprehender/g-pintura-1200.webp 1200w" sizes="(min-width: 992px) 46vw, 92vw" width="1200" height="800" loading="lazy" alt="Niña pinta en una mesa de madera junto a una ventana, con frascos de pintura a su alrededor">
+          </button>
+          <p class="ap-galeria__pie">Pintura y texturas</p>
+        </li>
+      </ul>
+      <p class="nota-datos ap-espacios__nota">Imágenes ilustrativas: no corresponden a instalaciones reales.</p>
+    </section>
+
+    <!-- Preguntas frecuentes -->
+    <section class="ap-faq" id="preguntas" aria-labelledby="faq-titulo">
+      <div class="ap-faq__intro">
+        <h2 class="ap-h2" id="faq-titulo">Preguntas frecuentes</h2>
+        <p>Si tu pregunta no está aquí, escríbenos: te respondemos con la información vigente.</p>
+        <svg class="ap-faq__forma" viewBox="0 0 200 200" aria-hidden="true"><path d="M0 200V100a100 100 0 0 1 200 0v100Z" fill="#F1DDA5"/><circle cx="100" cy="112" r="34" fill="#C8795B"/></svg>
+      </div>
+      <div class="ap-acordeon">
+        <details class="ap-acordeon__item">
+          <summary>¿Cómo puedo conocer las terapias disponibles?</summary>
+          <div class="ap-acordeon__cuerpo"><p>Revisa la sección de terapias de esta página y escríbenos por WhatsApp o por el formulario. Te contaremos cuáles se ofrecen actualmente y cuál podría ser el primer paso para tu familia.</p></div>
+        </details>
+        <details class="ap-acordeon__item">
+          <summary>¿Cómo se solicita una primera valoración?</summary>
+          <div class="ap-acordeon__cuerpo"><p>Al contactarnos, el equipo te explica cómo se agenda, qué profesional la realiza y qué conviene tener a mano. Las condiciones exactas se informan en ese momento.</p></div>
+        </details>
+        <details class="ap-acordeon__item">
+          <summary>¿Qué información debo proporcionar?</summary>
+          <div class="ap-acordeon__cuerpo"><p>Para el primer contacto basta con tu nombre, un medio de contacto y la terapia que te interesa. Los detalles sobre la historia del niño se conversan directamente con los profesionales, no por este formulario.</p></div>
+        </details>
+        <details class="ap-acordeon__item">
+          <summary>¿Cómo puedo conocer los horarios y la disponibilidad?</summary>
+          <div class="ap-acordeon__cuerpo"><p>Los horarios y cupos cambian según la terapia y el profesional, por eso se confirman al consultar. Escríbenos y te indicamos las opciones vigentes.</p></div>
+        </details>
+        <details class="ap-acordeon__item">
+          <summary>¿Qué papel cumple la familia durante el acompañamiento?</summary>
+          <div class="ap-acordeon__cuerpo"><p>La familia es parte del proceso: comparte lo que observa, recibe orientación y acuerda con el equipo cómo continuar en casa lo que se trabaja en las sesiones.</p></div>
+        </details>
+      </div>
+    </section>
+
+    <!-- CTA final y contacto -->
+    <section class="ap-contacto" id="contacto" aria-labelledby="contacto-titulo">
+      <div class="ap-contacto__cta">
+        <svg class="ap-contacto__arcos" viewBox="0 0 400 220" aria-hidden="true"><path d="M16 220A184 184 0 0 1 384 220" fill="none" stroke="#C8795B" stroke-width="28"/><path d="M46 220A154 154 0 0 1 354 220" fill="none" stroke="#F1DDA5" stroke-width="28"/><path d="M74 220A126 126 0 0 1 326 220" fill="none" stroke="#727F55" stroke-width="24"/></svg>
+        <h2 class="ap-contacto__titulo" id="contacto-titulo">Cada familia merece encontrar orientación y acompañamiento</h2>
+        <div class="ap-contacto__acciones">
+          <a class="ap-btn ap-btn--primario" href="#formulario">Consultar nuestros servicios</a>
+          <a class="ap-btn ap-btn--secundario" href="#formulario" data-wa data-wa-fallback="#formulario" data-wa-off-label="Escribir por el formulario">
+            <i class="bi bi-whatsapp" aria-hidden="true"></i> <span data-wa-label>Contactar por WhatsApp</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="ap-contacto__cuerpo">
+        <div class="ap-contacto__datos">
+          <h3>Dónde estamos</h3>
+          <p>Atendemos familias de Floridablanca, Bucaramanga y el área metropolitana.</p>
+          <ul class="ap-datos">
+            <li data-dato-wrap><i class="bi bi-geo-alt" aria-hidden="true"></i><span><span class="ap-datos__clave">Dirección</span> <span data-dato="direccion"></span></span></li>
+            <li data-dato-wrap><i class="bi bi-telephone" aria-hidden="true"></i><span><span class="ap-datos__clave">Teléfono</span> <a data-dato="telefono"></a></span></li>
+            <li data-dato-wrap><i class="bi bi-envelope" aria-hidden="true"></i><span><span class="ap-datos__clave">Correo</span> <a data-dato="correo"></a></span></li>
+            <li data-dato-wrap><i class="bi bi-clock" aria-hidden="true"></i><span><span class="ap-datos__clave">Horarios</span> <ul class="ap-datos__lista" data-dato-lista="horarios"></ul></span></li>
+          </ul>
+        </div>
+
+        <form class="ap-form" id="formulario" data-psi-form aria-labelledby="form-titulo">
+          <h3 class="ap-form__titulo" id="form-titulo">Escríbenos</h3>
+          <p class="ap-form__ayuda">Te respondemos por el medio que elijas. Los campos con <span aria-hidden="true">*</span><span class="visually-hidden">asterisco</span> son obligatorios.</p>
+          <div class="row g-3">
+            <div class="col-md-6 campo">
+              <label for="ap-nombre">Tu nombre <span aria-hidden="true">*</span></label>
+              <input id="ap-nombre" name="nombre" type="text" autocomplete="name" data-rule="nombre" required>
+            </div>
+            <div class="col-md-6 campo">
+              <label for="ap-servicio">Terapia de interés <span aria-hidden="true">*</span></label>
+              <select id="ap-servicio" name="servicio" data-rule="requerido" data-msg="Elige una terapia o «Necesito orientación»." required>
+                <option value="">Selecciona una opción</option>
+                <option>Integración sensorial</option>
+                <option>Terapia ocupacional</option>
+                <option>Fonoaudiología</option>
+                <option>Psicología infantil</option>
+                <option>Acompañamiento al desarrollo</option>
+                <option>Orientación familiar</option>
+                <option>Necesito orientación</option>
+              </select>
+            </div>
+            <fieldset class="col-12 campo">
+              <legend>¿Por dónde prefieres que te contactemos?</legend>
+              <div class="ap-opciones">
+                <label><input type="radio" name="via" value="WhatsApp" checked> <span>WhatsApp</span></label>
+                <label><input type="radio" name="via" value="Llamada"> <span>Llamada</span></label>
+                <label><input type="radio" name="via" value="Correo"> <span>Correo</span></label>
+              </div>
+            </fieldset>
+            <div class="col-12 campo">
+              <label for="ap-contacto">Teléfono o correo <span aria-hidden="true">*</span></label>
+              <input id="ap-contacto" name="contacto" type="text" inputmode="tel" autocomplete="tel" data-rule="contacto" required>
+            </div>
+            <div class="col-12 campo">
+              <label for="ap-mensaje">¿Qué te gustaría saber? <span class="ap-opcional">(opcional)</span></label>
+              <textarea id="ap-mensaje" name="mensaje" rows="3" maxlength="600" aria-describedby="ap-mensaje-ayuda"></textarea>
+              <p class="nota-datos" id="ap-mensaje-ayuda">No incluyas diagnósticos ni datos clínicos: eso se conversa con los profesionales.</p>
+            </div>
+            <div class="col-12 campo ap-check">
+              <input id="ap-acepto" name="acepto" type="checkbox" data-rule="check" data-msg="Para responderte necesitamos que aceptes el aviso de privacidad." required>
+              <label for="ap-acepto">Acepto el <a href="#privacidad">aviso de privacidad</a> <span aria-hidden="true">*</span></label>
+            </div>
+          </div>
+          <button class="ap-btn ap-btn--primario ap-form__enviar" type="submit">Enviar consulta</button>
+          <div class="form-estado" data-estado role="status" aria-live="polite" tabindex="-1" hidden></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="ap-footer">
+    <div class="ap-footer__inner">
+      <div class="ap-footer__marca">
+        <a class="ap-logo" href="#inicio">
+          <svg class="ap-logo__mark" viewBox="0 0 44 34" aria-hidden="true"><path d="M3 34V22a19 19 0 0 1 38 0v12" fill="none" stroke="#C8795B" stroke-width="5.5"/><path d="M11 34v-12a11 11 0 0 1 22 0v12" fill="none" stroke="#727F55" stroke-width="5.5"/><path d="M18.5 34v-12a3.5 3.5 0 0 1 7 0v12" fill="none" stroke="#315B66" stroke-width="5.5"/></svg>
+          <span class="ap-logo__texto">Aprehender <small>Centro Terapéutico</small></span>
+        </a>
+        <p>Terapias infantiles, desarrollo e integración sensorial en Floridablanca, Santander.</p>
+      </div>
+      <nav aria-label="Secciones" class="ap-footer__col">
+        <h2>Explora</h2>
+        <ul>
+          <li><a href="#terapias">Terapias</a></li>
+          <li><a href="#proceso">Cómo acompañamos</a></li>
+          <li><a href="#espacios">Espacios</a></li>
+          <li><a href="#preguntas">Preguntas frecuentes</a></li>
+        </ul>
+      </nav>
+      <div class="ap-footer__col">
+        <h2>Contacto</h2>
+        <ul>
+          <li>Floridablanca, Santander</li>
+          <li data-dato-wrap><a data-dato="correo"></a></li>
+          <li><a href="#formulario">Formulario de consulta</a></li>
+        </ul>
+      </div>
+      <div class="ap-footer__col">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="#privacidad">Aviso de privacidad</a></li>
+          <li><a href="creditos.html">Créditos fotográficos</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="ap-footer__inner ap-footer__legal">
+      <details class="privacidad" id="privacidad">
+        <summary>Aviso de privacidad</summary>
+        <div class="privacidad__cuerpo">
+          <p>Esta es una página demostrativa. En un sitio real, los datos del formulario (nombre, medio de contacto, terapia de interés y mensaje) se usarían solo para responder la consulta, conforme a la Ley 1581 de 2012 de protección de datos personales y a la política de tratamiento de datos de la institución, que debe publicarse aquí.</p>
+          <p>Esta demo no envía ni guarda los datos que escribas: no los transmite a ningún servidor ni los almacena en el navegador.</p>
+        </div>
+      </details>
+      <p class="ap-footer__pie">© <span data-year>2026</span> Aprehender Centro Terapéutico es una marca ficticia. Concepto de diseño de <a href="https://sruedadev.com/" rel="noopener">SRuedaDev</a>. Fotografías ilustrativas de Unsplash.</p>
+    </div>
+  </footer>
+</body>
+</html>

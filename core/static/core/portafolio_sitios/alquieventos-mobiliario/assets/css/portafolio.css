@@ -1,0 +1,84 @@
+/* Portafolio: tablero de presentación de las tres propuestas.
+ * La página es neutra (papel gris cálido y tinta, Schibsted Grotesk); cada
+ * tarjeta lleva la paleta y la tipografía de su propia demo. */
+
+:root {
+  --pf-papel: #e9e6e1;
+  --pf-tinta: #1c1e21;
+  --pf-suave: #55585d;
+  --pf-sans: 'Schibsted Grotesk', system-ui, sans-serif;
+
+  --g-texto: var(--pf-tinta);
+  --g-fondo: var(--pf-papel);
+  --g-foco: #1c1e21;
+}
+
+body { background: var(--pf-papel); color: var(--pf-tinta); font-family: var(--pf-sans); font-size: 1.0625rem; line-height: 1.6; }
+
+.portada { padding: clamp(3rem, 8vw, 7rem) 0 clamp(2.5rem, 5vw, 4rem); }
+.portada-contexto { margin-bottom: 1.5rem; color: var(--pf-suave); font-weight: 500; }
+.portada-titulo {
+  max-width: 15ch;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+  font-family: var(--pf-sans);
+  font-size: clamp(2.6rem, 1.1rem + 5.6vw, 6.6rem);
+  font-weight: 700;
+  line-height: .95;
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+.portada-pie { display: grid; gap: 1rem 4rem; padding-top: 1.5rem; border-top: 2px solid var(--pf-tinta); }
+@media (min-width: 992px) { .portada-pie { grid-template-columns: 7fr 5fr; } }
+.portada-texto { max-width: 52ch; margin: 0; font-size: clamp(1.05rem, 1rem + .35vw, 1.25rem); }
+.portada-aviso { margin: 0; color: var(--pf-suave); font-size: .9375rem; }
+
+.propuestas { display: grid; gap: 1.25rem; margin: 0; padding: 0 0 clamp(3rem, 6vw, 5rem); list-style: none; }
+@media (min-width: 992px) { .propuestas { grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; } }
+
+.propuesta { display: flex; flex-direction: column; overflow: hidden; }
+.propuesta-foto { display: block; aspect-ratio: 3 / 2; overflow: hidden; }
+.propuesta-foto img { width: 100%; height: 100%; object-fit: cover; transition: transform 1s cubic-bezier(.2, .7, .2, 1); }
+.propuesta:hover .propuesta-foto img { transform: scale(1.04); }
+.propuesta-cuerpo { display: flex; flex: 1; flex-direction: column; padding: clamp(1.5rem, 3vw, 2.25rem); }
+.propuesta-tipo { margin-bottom: .5rem; font-size: .9375rem; font-weight: 500; opacity: .85; }
+.propuesta-nombre { margin-bottom: 1rem; font-size: clamp(2.3rem, 1.8rem + 1.6vw, 3.2rem); line-height: 1; }
+.propuesta-desc { flex: 1; margin-bottom: 1.5rem; font-size: .975rem; }
+.propuesta-paleta { display: flex; gap: .4rem; margin: 0 0 .5rem; padding: 0; list-style: none; }
+.propuesta-paleta li { width: 1.6rem; height: 1.6rem; border-radius: 50%; background: var(--c); box-shadow: inset 0 0 0 1px rgb(0 0 0 / .15); }
+.propuesta-tipos { margin-bottom: 1.5rem; font-size: .875rem; opacity: .85; }
+.propuesta-boton {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  padding: .75rem 1.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform .2s ease, background-color .2s ease;
+}
+.propuesta-boton:hover { transform: translateY(-2px); }
+
+/* Villa Jardín */
+.propuesta--vj { background: #f7f2e7; color: #23281b; }
+.propuesta--vj .propuesta-foto { margin: .75rem .75rem 0; outline: 1px solid #b39257; outline-offset: -.5rem; }
+.propuesta--vj .propuesta-nombre { font-family: 'Cormorant Garamond', serif; font-weight: 500; color: #29311d; }
+.propuesta--vj .propuesta-boton { border-radius: 2px; background: #3e4a2b; color: #f7f2e7; }
+.propuesta--vj .propuesta-boton:hover { background: #29311d; color: #fff; }
+
+/* Finca La Cruz */
+.propuesta--lc { background: #a84a24; color: #fff; }
+.propuesta--lc .propuesta-foto { border-radius: 4rem 0 0 0; margin: .75rem .75rem 0; }
+.propuesta--lc .propuesta-nombre { font-family: 'DM Serif Display', serif; font-weight: 400; letter-spacing: -.015em; }
+.propuesta--lc .propuesta-boton { border-radius: 999px; background: #f4ecdf; color: #1f1a17; }
+.propuesta--lc .propuesta-boton:hover { background: #fff; color: #1f1a17; }
+
+/* Alquieventos */
+.propuesta--ae { background: #0e2440; color: #fff; }
+.propuesta--ae .propuesta-foto { border-radius: 8px; margin: .75rem .75rem 0; }
+.propuesta--ae .propuesta-nombre { font-family: 'Sora', sans-serif; font-weight: 700; letter-spacing: -.04em; }
+.propuesta--ae .propuesta-boton { border-radius: 6px; background: #f5b82e; color: #08172b; }
+.propuesta--ae .propuesta-boton:hover { background: #ffd36b; color: #08172b; }
+
+.pie--portafolio { padding: 2rem 0; border-top: 1px solid rgb(28 30 33 / .2); color: var(--pf-suave); font-size: .875rem; }
+.pie--portafolio p { max-width: 90ch; margin: 0; }
+.pie--portafolio a { color: var(--pf-tinta); }

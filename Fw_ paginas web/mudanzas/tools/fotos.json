@@ -1,0 +1,467 @@
+[
+ {
+  "proyecto": "transporte-carga",
+  "slot": "hero",
+  "fuente": "unsplash",
+  "id": "photo-1605678141352-ccd8c79848d9",
+  "ratio": "2:1",
+  "anchos": [
+   960,
+   1440,
+   1920
+  ],
+  "foco": "0.62,0.55",
+  "autor": "abdul rohmad",
+  "alt": "Camión de carga pequeño con furgón blanco avanzando por una vía urbana, con el fondo desenfocado por el movimiento"
+ },
+ {
+  "proyecto": "transporte-carga",
+  "slot": "servicios",
+  "fuente": "pexels",
+  "id": "36256798",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.5,0.5",
+  "autor": "elizabethcoded (Pexels)",
+  "alt": "Operario organizando cajas de mercancía dentro de un camión de carga con las puertas traseras abiertas"
+ },
+ {
+  "proyecto": "transporte-carga",
+  "slot": "beneficios",
+  "fuente": "unsplash",
+  "id": "photo-1769477145932-edd5a9d7567c",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.55,0.5",
+  "autor": "chansu shin",
+  "alt": "Repartidor bajando cajas de un camión furgón a una carretilla para entregarlas en un local"
+ },
+ {
+  "proyecto": "transporte-carga",
+  "slot": "carga",
+  "fuente": "unsplash",
+  "id": "photo-1594571194668-7112042d8f54",
+  "ratio": "16:9",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Lucas van Oort",
+  "alt": "Estibas de madera apiladas, listas para cargar mercancía"
+ },
+ {
+  "proyecto": "transporte-carga",
+  "slot": "g-flota",
+  "fuente": "unsplash",
+  "id": "photo-1587813369290-091c9d432daf",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.4,0.6",
+  "autor": "Markus Winkler",
+  "alt": "Fila de furgonetas de carga blancas estacionadas en un patio"
+ },
+ {
+  "proyecto": "transporte-carga",
+  "slot": "g-montacargas",
+  "fuente": "pexels",
+  "id": "34585121",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.55,0.6",
+  "autor": "Caleb Oquendo (Pexels)",
+  "alt": "Montacargas cargando una estiba de mercancía en un tractocamión con la puerta trasera abierta"
+ },
+ {
+  "proyecto": "transporte-carga",
+  "slot": "g-bodega",
+  "fuente": "unsplash",
+  "id": "photo-1586528116022-aeda1613c63d",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Adrian Sulyok",
+  "alt": "Personal con chalecos reflectivos caminando por el pasillo de un centro de distribución"
+ },
+ {
+  "proyecto": "transporte-carga",
+  "slot": "g-entrega",
+  "fuente": "unsplash",
+  "id": "photo-1764696745397-42701a7efd3f",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.5,0.6",
+  "autor": "Marvin Alexander Avila",
+  "alt": "Repartidor empujando una carretilla con cajas por una calle de adoquines"
+ },
+ {
+  "proyecto": "transporte-carga",
+  "slot": "g-ruta",
+  "fuente": "unsplash",
+  "id": "photo-1614976523626-d598aafd4fda",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.55",
+  "autor": "JavyGo",
+  "alt": "Camión furgón blanco circulando por una avenida arborizada al atardecer"
+ },
+ {
+  "proyecto": "transporte-carga",
+  "slot": "g-calle",
+  "fuente": "unsplash",
+  "id": "photo-1761141704985-6d060c07f5c1",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.6",
+  "autor": "Geoffrey Faber",
+  "alt": "Camión con furgón abierto estacionado frente a locales comerciales durante un despacho"
+ },
+ {
+  "proyecto": "mudanzas-acarreos",
+  "slot": "hero",
+  "fuente": "pexels",
+  "id": "7464393",
+  "ratio": "5:4",
+  "anchos": [
+   640,
+   960,
+   1400
+  ],
+  "foco": "0.45,0.55",
+  "autor": "RDNE Stock project (Pexels)",
+  "alt": "Dos operarios con overol trasladando con cuidado un sofá verde por la acera"
+ },
+ {
+  "proyecto": "mudanzas-acarreos",
+  "slot": "cuidado",
+  "fuente": "pexels",
+  "id": "7218483",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Blue Bird (Pexels)",
+  "alt": "Dos personas cubriendo un sofá con una tela blanca antes del traslado"
+ },
+ {
+  "proyecto": "mudanzas-acarreos",
+  "slot": "coordinacion",
+  "fuente": "pexels",
+  "id": "7464689",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.5,0.5",
+  "autor": "RDNE Stock project (Pexels)",
+  "alt": "Dos operarios acomodando un sofá dentro de una furgoneta de mudanzas"
+ },
+ {
+  "proyecto": "mudanzas-acarreos",
+  "slot": "comunicacion",
+  "fuente": "pexels",
+  "id": "7464721",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.6,0.5",
+  "autor": "RDNE Stock project (Pexels)",
+  "alt": "Operarios sonrientes en la cabina de una furgoneta de mudanzas"
+ },
+ {
+  "proyecto": "mudanzas-acarreos",
+  "slot": "escaleras",
+  "fuente": "pexels",
+  "id": "7464373",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.5,0.5",
+  "autor": "RDNE Stock project (Pexels)",
+  "alt": "Operarios subiendo un sofá por unas escaleras estrechas"
+ },
+ {
+  "proyecto": "mudanzas-acarreos",
+  "slot": "descargue",
+  "fuente": "unsplash",
+  "id": "photo-1776885008664-68b2988373e6",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.35,0.55",
+  "autor": "Chloë Forbes-Kindlen",
+  "alt": "Personas descargando muebles de un camión de mudanzas frente a un edificio residencial"
+ },
+ {
+  "proyecto": "mudanzas-acarreos",
+  "slot": "embalado",
+  "fuente": "pexels",
+  "id": "20706508",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.5,0.55",
+  "autor": "Royal Moving & Storage (Pexels)",
+  "alt": "Operarios levantando con cinchas un mueble envuelto en plástico protector"
+ },
+ {
+  "proyecto": "mudanzas-acarreos",
+  "slot": "sofa-plastico",
+  "fuente": "unsplash",
+  "id": "photo-1786455588443-fa28aa0c8787",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.45,0.6",
+  "autor": "McFollis",
+  "alt": "Sofá beige envuelto en plástico protector dentro de un apartamento"
+ },
+ {
+  "proyecto": "mudanzas-acarreos",
+  "slot": "puerta",
+  "fuente": "pexels",
+  "id": "7464406",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "autor": "RDNE Stock project (Pexels)",
+  "alt": "Operario entrando un sofá por la puerta de una casa"
+ },
+ {
+  "proyecto": "mudanzas-acarreos",
+  "slot": "cajas",
+  "fuente": "pexels",
+  "id": "7464232",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "autor": "RDNE Stock project (Pexels)",
+  "alt": "Operarios llevando cajas de mudanza dentro de una vivienda iluminada"
+ },
+ {
+  "proyecto": "mudanzas-acarreos",
+  "slot": "cotizar",
+  "fuente": "pexels",
+  "id": "7464688",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.5,0.4",
+  "autor": "RDNE Stock project (Pexels)",
+  "alt": "Operario sonriente levantando una poltrona verde"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "hero",
+  "fuente": "pexels",
+  "id": "6940962",
+  "ratio": "4:3",
+  "anchos": [
+   768,
+   1280,
+   1600
+  ],
+  "foco": "0.4,0.55",
+  "autor": "feliart (Pexels)",
+  "alt": "Camión con furgón cerrado blanco tomando una curva en una carretera de montaña"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "hero-interior",
+  "fuente": "unsplash",
+  "id": "photo-1707407087163-7ab35bca9ffc",
+  "ratio": "1:1",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Infinity Movers Cape Coral",
+  "alt": "Interior de un furgón con cajas apiladas y mercancía envuelta en plástico, sujeta contra las paredes"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "hero-cincha",
+  "fuente": "pexels",
+  "id": "29040683",
+  "ratio": "1:1",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Impact Dog Crates (Pexels)",
+  "alt": "Primer plano de una cincha de amarre con trinquete"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "proteccion",
+  "fuente": "unsplash",
+  "id": "photo-1532635026-d12867005472",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Elevate",
+  "alt": "Vista desde el interior de un furgón mientras un montacargas acerca una estiba de mercancía"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "pr-vehiculo",
+  "fuente": "pexels",
+  "id": "34585139",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.6",
+  "autor": "Caleb Oquendo (Pexels)",
+  "alt": "Gato estibador rojo dentro de un remolque tipo furgón vacío"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "pr-organizacion",
+  "fuente": "unsplash",
+  "id": "photo-1645736315000-6f788915923b",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.55",
+  "autor": "Bernd Dittrich",
+  "alt": "Montacargas desplazándose entre estanterías con mercancía paletizada"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "pr-horarios",
+  "fuente": "unsplash",
+  "id": "photo-1781559818983-c32838ee3d55",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.35",
+  "autor": "Rodrigo Rodrigues",
+  "alt": "Coordinador con chaleco revisando una tableta dentro de una bodega"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "pr-comunicacion",
+  "fuente": "pexels",
+  "id": "8696371",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.6,0.5",
+  "autor": "Elrino Prihartono (Pexels)",
+  "alt": "Operario revisando la parte trasera de un camión de carga con las puertas abiertas"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "pr-confirmacion",
+  "fuente": "unsplash",
+  "id": "photo-1637241612493-df40fd55baa4",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.4,0.5",
+  "autor": "Markus Winkler",
+  "alt": "Primer plano del cierre metálico de la puerta de un furgón blanco"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "g-furgon",
+  "fuente": "unsplash",
+  "id": "photo-1601467995997-ac1ae9a8fff4",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.55,0.6",
+  "autor": "Maxim Tolchinskiy",
+  "alt": "Camión con furgón cerrado blanco estacionado junto a un edificio, en blanco y negro"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "g-muelles",
+  "fuente": "unsplash",
+  "id": "photo-1780367261654-45395777b560",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.55",
+  "autor": "Matthew Jackson",
+  "alt": "Fachada de un edificio logístico con varias puertas de muelle de cargue"
+ },
+ {
+  "proyecto": "carga-segura",
+  "slot": "g-bodega",
+  "fuente": "unsplash",
+  "id": "photo-1553413077-190dd305871c",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   960
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Ruchindra Gunasekara",
+  "alt": "Pasillo de una bodega con estanterías altas llenas de mercancía"
+ }
+]

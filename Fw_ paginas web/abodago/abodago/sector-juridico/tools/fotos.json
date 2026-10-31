@@ -1,0 +1,229 @@
+[
+ {
+  "proyecto": "landing-01-abogado-personal",
+  "slot": "retrato",
+  "fuente": "unsplash",
+  "id": "photo-1560250097-0b93528c311a",
+  "ratio": "4:5",
+  "anchos": [
+   520,
+   880,
+   1200
+  ],
+  "foco": "0.5,0.35",
+  "autor": "LinkedIn Sales Solutions",
+  "alt": "Retrato de referencia de un hombre de traje oscuro y gafas, de pie junto a un ventanal luminoso"
+ },
+ {
+  "proyecto": "landing-01-abogado-personal",
+  "slot": "pluma",
+  "fuente": "unsplash",
+  "id": "photo-1633360821222-7e8df83639fb",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.62,0.55",
+  "autor": "Towfiqu barbhuiya",
+  "alt": "Estilográfica de madera y capuchón dorado sobre hojas de papel color crema"
+ },
+ {
+  "proyecto": "landing-01-abogado-personal",
+  "slot": "biblioteca",
+  "fuente": "unsplash",
+  "id": "photo-1619771699034-fec6b1aabde3",
+  "ratio": "3:4",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Nasser Eledroos",
+  "alt": "Estantería de madera con libros de consulta encuadernados"
+ },
+ {
+  "proyecto": "landing-02-firma-juridica",
+  "slot": "hero",
+  "fuente": "unsplash",
+  "id": "photo-1758518731706-be5d5230e5a5",
+  "ratio": "21:9",
+  "anchos": [
+   960,
+   1600,
+   2200
+  ],
+  "foco": "0.5,0.45",
+  "autor": "Vitaly Gariev",
+  "alt": "Equipo de profesionales conversando alrededor de una mesa en una oficina moderna con ventanales"
+ },
+ {
+  "proyecto": "landing-02-firma-juridica",
+  "slot": "arquitectura",
+  "fuente": "unsplash",
+  "id": "photo-1531972111231-7482a960e109",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   960
+  ],
+  "foco": "0.5,0.5",
+  "autor": "LYCS Architecture",
+  "alt": "Interior de un edificio corporativo con fachada de vidrio y luz natural"
+ },
+ {
+  "proyecto": "landing-02-firma-juridica",
+  "slot": "equipo-1",
+  "fuente": "unsplash",
+  "id": "photo-1758518729466-827cd8293992",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   720
+  ],
+  "foco": "0.74,0.4",
+  "autor": "Vitaly Gariev",
+  "alt": "Retrato de demostración de una profesional de traje azul en una oficina"
+ },
+ {
+  "proyecto": "landing-02-firma-juridica",
+  "slot": "equipo-2",
+  "fuente": "unsplash",
+  "id": "photo-1758518727984-17b37f2f0562",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   720
+  ],
+  "foco": "0.5,0.4",
+  "autor": "Vitaly Gariev",
+  "alt": "Retrato de demostración de un profesional de traje gris con los brazos cruzados"
+ },
+ {
+  "proyecto": "landing-02-firma-juridica",
+  "slot": "equipo-3",
+  "fuente": "unsplash",
+  "id": "photo-1758691737605-69a0e78bd193",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   720
+  ],
+  "foco": "0.5,0.4",
+  "autor": "Vitaly Gariev",
+  "alt": "Retrato de demostración de una profesional con gafas sonriendo en una oficina"
+ },
+ {
+  "proyecto": "landing-02-firma-juridica",
+  "slot": "art-contratos",
+  "fuente": "unsplash",
+  "id": "photo-1758519288480-1489c17b1519",
+  "ratio": "3:2",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Vitaly Gariev",
+  "alt": "Dos personas revisando y firmando un documento sobre una mesa"
+ },
+ {
+  "proyecto": "landing-02-firma-juridica",
+  "slot": "art-datos",
+  "fuente": "unsplash",
+  "id": "photo-1758518729706-b1810dd39cc6",
+  "ratio": "3:2",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Vitaly Gariev",
+  "alt": "Reunión de trabajo alrededor de una mesa con portátiles y documentos"
+ },
+ {
+  "proyecto": "landing-02-firma-juridica",
+  "slot": "art-sociedades",
+  "fuente": "unsplash",
+  "id": "photo-1462396240927-52058a6a84ec",
+  "ratio": "3:2",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Patrick Tomasso",
+  "alt": "Fachadas de vidrio de edificios corporativos vistas desde abajo"
+ },
+ {
+  "proyecto": "landing-03-servicios-juridicos",
+  "slot": "hero",
+  "fuente": "unsplash",
+  "id": "photo-1573496267526-08a69e46a409",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   900,
+   1200
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Christina @ wocintechchat.com",
+  "alt": "Dos mujeres conversan sentadas a una mesa junto a una ventana, una de ellas toma notas"
+ },
+ {
+  "proyecto": "landing-03-servicios-juridicos",
+  "slot": "situacion",
+  "fuente": "unsplash",
+  "id": "photo-1756312177954-d31ffd5fd68a",
+  "ratio": "3:2",
+  "anchos": [
+   560,
+   960
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Centre for Ageing Better",
+  "alt": "Mujer en su sala revisando papeles y haciendo cuentas con una calculadora"
+ },
+ {
+  "proyecto": "landing-03-servicios-juridicos",
+  "slot": "arriendo",
+  "fuente": "unsplash",
+  "id": "photo-1733244766159-f58f4184fd38",
+  "ratio": "3:2",
+  "anchos": [
+   560,
+   960
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Jakub Żerdzicki",
+  "alt": "Mano sosteniendo las llaves de una vivienda frente a una puerta abierta"
+ },
+ {
+  "proyecto": "landing-03-servicios-juridicos",
+  "slot": "conversacion",
+  "fuente": "unsplash",
+  "id": "photo-1780733064275-d1ade9b83a3d",
+  "ratio": "3:2",
+  "anchos": [
+   560,
+   960
+  ],
+  "foco": "0.5,0.5",
+  "autor": "Md Ishak Rahman",
+  "alt": "Dos hombres conversan mientras revisan documentos en una oficina"
+ },
+ {
+  "proyecto": "landing-03-servicios-juridicos",
+  "slot": "cierre",
+  "fuente": "unsplash",
+  "id": "photo-1601912871034-478820957c78",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.45",
+  "autor": "Omar Lopez",
+  "alt": "Mujer sentada en un sofá leyendo un documento con calma"
+ }
+]

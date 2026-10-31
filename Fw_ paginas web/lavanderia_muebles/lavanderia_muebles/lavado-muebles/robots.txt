@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+# Al publicar con dominio real, agrega la línea:
+# Sitemap: https://www.tu-dominio.com/sitemap.xml

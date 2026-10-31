@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+# Al definir TM.dominio en config.js y ejecutar tools/seo.py se añade aquí la línea Sitemap.

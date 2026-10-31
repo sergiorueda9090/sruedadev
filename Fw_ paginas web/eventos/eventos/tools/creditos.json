@@ -1,0 +1,876 @@
+[
+  {
+    "proyecto": "alquieventos",
+    "slot": "g-auditorio",
+    "origen": "photo-1511578314322-379afb476865",
+    "alt": "Salón para conferencias con mesas redondas y pantallas",
+    "archivos": [
+      "g-auditorio-800.webp",
+      "g-auditorio-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1511578314322-379afb476865",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "g-banquete",
+    "origen": "photo-1762765685319-fdaf8d22085d",
+    "alt": "Salón con mesas largas y sillas doradas",
+    "archivos": [
+      "g-banquete-800.webp",
+      "g-banquete-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1762765685319-fdaf8d22085d",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "g-campo",
+    "origen": "photo-1790306816602-03b308f14a31",
+    "alt": "Tarima y carpas blancas en un campo durante un evento",
+    "archivos": [
+      "g-campo-800.webp",
+      "g-campo-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1790306816602-03b308f14a31",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "g-lago",
+    "origen": "photo-1779637770150-f1ad3a80a635",
+    "alt": "Carpa blanca junto a un lago, rodeada de árboles",
+    "archivos": [
+      "g-lago-800.webp",
+      "g-lago-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1779637770150-f1ad3a80a635",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "g-negro",
+    "origen": "photo-1769812343580-6f1547a2b076",
+    "alt": "Mesas negras con flores blancas y sillas de rejilla",
+    "archivos": [
+      "g-negro-800.webp",
+      "g-negro-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1769812343580-6f1547a2b076",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "g-salon",
+    "origen": "photo-1519167758481-83f550bb49b3",
+    "alt": "Salón con mesas redondas y sillas doradas",
+    "archivos": [
+      "g-salon-800.webp",
+      "g-salon-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1519167758481-83f550bb49b3",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "hero",
+    "origen": "photo-1775476793931-cb484f197760",
+    "alt": "Carpa de banquete con mesas redondas, manteles y sillas de madera",
+    "archivos": [
+      "hero-960.webp",
+      "hero-1600.webp",
+      "hero-2400.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1775476793931-cb484f197760",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-carpa-banquete",
+    "origen": "photo-1464366400600-7168b8af9bc3",
+    "alt": "Interior de una carpa con mesas vestidas para banquete",
+    "archivos": [
+      "p-carpa-banquete-480.webp",
+      "p-carpa-banquete-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-carpa-campo",
+    "origen": "photo-1768179123386-a86a85f1c35c",
+    "alt": "Carpa blanca de techo alto montada en un campo con árboles",
+    "archivos": [
+      "p-carpa-campo-480.webp",
+      "p-carpa-campo-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1768179123386-a86a85f1c35c",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-carpa-estrella",
+    "origen": "photo-1785858037852-f60925488591",
+    "alt": "Carpa tipo estrella sobre una colina",
+    "archivos": [
+      "p-carpa-estrella-480.webp",
+      "p-carpa-estrella-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1785858037852-f60925488591",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-carpa-mastiles",
+    "origen": "photo-1695393386569-cf141ff2c552",
+    "alt": "Carpa blanca de mástiles instalada sobre césped",
+    "archivos": [
+      "p-carpa-mastiles-480.webp",
+      "p-carpa-mastiles-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1695393386569-cf141ff2c552",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-chester",
+    "origen": "photo-1769812343786-c8cdbd73f3cd",
+    "alt": "Sofás capitoné verdes con arreglos de flores blancas",
+    "archivos": [
+      "p-chester-480.webp",
+      "p-chester-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1769812343786-c8cdbd73f3cd",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-lounge",
+    "origen": "photo-1766393195987-912865cbb81b",
+    "alt": "Sala lounge con sofás blancos y cojines en un evento al aire libre",
+    "archivos": [
+      "p-lounge-480.webp",
+      "p-lounge-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1766393195987-912865cbb81b",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-mesa-banquete",
+    "origen": "photo-1762765684665-6b6855bb6fe6",
+    "alt": "Mesas rectangulares largas con manteles blancos en un salón",
+    "archivos": [
+      "p-mesa-banquete-480.webp",
+      "p-mesa-banquete-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1762765684665-6b6855bb6fe6",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-mesa-imperial",
+    "origen": "photo-1769812343322-f4a6e73c8aa7",
+    "alt": "Mesa imperial de madera con camino de flores blancas",
+    "archivos": [
+      "p-mesa-imperial-480.webp",
+      "p-mesa-imperial-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1769812343322-f4a6e73c8aa7",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-mesa-redonda",
+    "origen": "photo-1712764995305-75422fbe0ecc",
+    "alt": "Mesas redondas con mantel en un jardín",
+    "archivos": [
+      "p-mesa-redonda-480.webp",
+      "p-mesa-redonda-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1712764995305-75422fbe0ecc",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-silla-apilable",
+    "origen": "photo-1777282889677-19fe13252abf",
+    "alt": "Sillas apilables de estructura metálica",
+    "archivos": [
+      "p-silla-apilable-480.webp",
+      "p-silla-apilable-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1777282889677-19fe13252abf",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-silla-crossback",
+    "origen": "photo-1737111820333-ac17f9196bfe",
+    "alt": "Fila de sillas de madera con respaldo en cruz",
+    "archivos": [
+      "p-silla-crossback-480.webp",
+      "p-silla-crossback-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1737111820333-ac17f9196bfe",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-silla-plegable",
+    "origen": "photo-1782567530577-98d75b4bcb88",
+    "alt": "Filas de sillas plegables sobre césped frente a una tarima",
+    "archivos": [
+      "p-silla-plegable-480.webp",
+      "p-silla-plegable-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1782567530577-98d75b4bcb88",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-silla-tiffany",
+    "origen": "photo-1784450441669-2d536cf3c395",
+    "alt": "Sillas transparentes alrededor de una mesa decorada",
+    "archivos": [
+      "p-silla-tiffany-480.webp",
+      "p-silla-tiffany-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1784450441669-2d536cf3c395",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-sillones",
+    "origen": "photo-1751040956411-5ba34e6d8237",
+    "alt": "Par de sillones capitoné blancos junto a una chimenea",
+    "archivos": [
+      "p-sillones-480.webp",
+      "p-sillones-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1751040956411-5ba34e6d8237",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-tarima-techo",
+    "origen": "photo-1675171155224-e70a5eeb27c3",
+    "alt": "Tarima con techo de estructura metálica al aire libre",
+    "archivos": [
+      "p-tarima-techo-480.webp",
+      "p-tarima-techo-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1675171155224-e70a5eeb27c3",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "alquieventos",
+    "slot": "p-tarima-truss",
+    "origen": "photo-1759306221569-028a35bc8c66",
+    "alt": "Montaje con estructura de luces, tarima y filas de mesas",
+    "archivos": [
+      "p-tarima-truss-480.webp",
+      "p-tarima-truss-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1759306221569-028a35bc8c66",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "cierre",
+    "origen": "photo-1561593367-66c79c2294e6",
+    "alt": "Mesa larga con flores y copas en una celebración nocturna",
+    "archivos": [
+      "cierre-960.webp",
+      "cierre-1600.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1561593367-66c79c2294e6",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "emp-notas",
+    "origen": "photo-1503428593586-e225b39bddfe",
+    "alt": "Asistentes tomando notas durante una charla",
+    "archivos": [
+      "emp-notas-560.webp",
+      "emp-notas-900.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1503428593586-e225b39bddfe",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "emp-taller",
+    "origen": "photo-1515187029135-18ee286d815b",
+    "alt": "Grupo de personas conversando durante un taller de trabajo",
+    "archivos": [
+      "emp-taller-800.webp",
+      "emp-taller-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1515187029135-18ee286d815b",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "hero",
+    "origen": "photo-1665607437981-973dcd6a22bb",
+    "alt": "Mesas largas de madera con flores y sillas blancas bajo una pérgola",
+    "archivos": [
+      "hero-640.webp",
+      "hero-1000.webp",
+      "hero-1387.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1665607437981-973dcd6a22bb",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "hero-baile",
+    "origen": "photo-1758810409666-b091b8682bc1",
+    "alt": "Invitadas bailando al aire libre durante una celebración",
+    "archivos": [
+      "hero-baile-480.webp",
+      "hero-baile-800.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1758810409666-b091b8682bc1",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "intro",
+    "origen": "photo-1680695779444-24fc71296e66",
+    "alt": "Mesas preparadas con flores entre la vegetación",
+    "archivos": [
+      "intro-800.webp",
+      "intro-1400.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1680695779444-24fc71296e66",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "m-bosque",
+    "origen": "photo-1513507544439-d2cd3d79b274",
+    "alt": "Mesa con mantel blanco y sillas de madera en medio de un bosque",
+    "archivos": [
+      "m-bosque-800.webp",
+      "m-bosque-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1513507544439-d2cd3d79b274",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "m-buffet",
+    "origen": "photo-1555244162-803834f70033",
+    "alt": "Bandejas de comida en un servicio de buffet",
+    "archivos": [
+      "m-buffet-800.webp",
+      "m-buffet-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1555244162-803834f70033",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "m-casa",
+    "origen": "photo-1790858312214-38d8ff197906",
+    "alt": "Personas descansando en el césped frente a una casa con luces colgantes",
+    "archivos": [
+      "m-casa-800.webp",
+      "m-casa-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1790858312214-38d8ff197906",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "m-copas",
+    "origen": "photo-1783818412534-370b60b8a1d8",
+    "alt": "Mesa con copas ámbar y sillas de rejilla",
+    "archivos": [
+      "m-copas-600.webp",
+      "m-copas-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1783818412534-370b60b8a1d8",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "m-luces",
+    "origen": "photo-1779361525614-2daa01ed2607",
+    "alt": "Casa con guirnaldas de luces y mesa servida en el patio",
+    "archivos": [
+      "m-luces-800.webp",
+      "m-luces-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1779361525614-2daa01ed2607",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "m-pergola",
+    "origen": "photo-1707333514312-39cf7658479c",
+    "alt": "Pérgola iluminada con luces cálidas sobre mesas de banquete",
+    "archivos": [
+      "m-pergola-600.webp",
+      "m-pergola-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1707333514312-39cf7658479c",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "m-rustica",
+    "origen": "photo-1511795409834-ef04bbd61622",
+    "alt": "Mesa de madera con flores, copas y platos",
+    "archivos": [
+      "m-rustica-600.webp",
+      "m-rustica-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1511795409834-ef04bbd61622",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "social-boda",
+    "origen": "photo-1612599542558-f3022089fb38",
+    "alt": "Recién casados celebrando con sus invitados en un jardín",
+    "archivos": [
+      "social-boda-560.webp",
+      "social-boda-900.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1612599542558-f3022089fb38",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "social-brindis",
+    "origen": "photo-1527529482837-4698179dc6ce",
+    "alt": "Invitados brindando en una mesa decorada con luces",
+    "archivos": [
+      "social-brindis-560.webp",
+      "social-brindis-900.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1527529482837-4698179dc6ce",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "social-cena",
+    "origen": "photo-1681657687044-9bde75edb38e",
+    "alt": "Amigos conversando alrededor de una mesa con comida",
+    "archivos": [
+      "social-cena-560.webp",
+      "social-cena-900.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1681657687044-9bde75edb38e",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "finca-la-cruz",
+    "slot": "social-cumple",
+    "origen": "photo-1768767289640-6a79085a9895",
+    "alt": "Familia celebrando un cumpleaños infantil con globos y tortas",
+    "archivos": [
+      "social-cumple-560.webp",
+      "social-cumple-900.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1768767289640-6a79085a9895",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "cierre",
+    "origen": "photo-1759954644836-a57275881ded",
+    "alt": "Arco blanco y filas de sillas sobre el césped de un jardín",
+    "archivos": [
+      "cierre-960.webp",
+      "cierre-1600.webp",
+      "cierre-2400.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1759954644836-a57275881ded",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "concepto",
+    "origen": "photo-1762216444731-802dcf3da009",
+    "alt": "Jardín amplio con árboles altos y, al fondo, sillas para una ceremonia",
+    "archivos": [
+      "concepto-640.webp",
+      "concepto-1100.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1762216444731-802dcf3da009",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "ev-bautizo",
+    "origen": "photo-1660511057210-f7fba78d2741",
+    "alt": "Centro de mesa de rosas blancas entre velas y copas",
+    "archivos": [
+      "ev-bautizo-560.webp",
+      "ev-bautizo-900.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1660511057210-f7fba78d2741",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "ev-cumple",
+    "origen": "photo-1478146059778-26028b07395a",
+    "alt": "Mesa de postres con torta, velas y flores",
+    "archivos": [
+      "ev-cumple-560.webp",
+      "ev-cumple-900.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1478146059778-26028b07395a",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "ev-empresa",
+    "origen": "photo-1707333512379-8f70ad28dca4",
+    "alt": "Mesas con manteles blancos y candelabros en un jardín al atardecer",
+    "archivos": [
+      "ev-empresa-560.webp",
+      "ev-empresa-900.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1707333512379-8f70ad28dca4",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "ev-matrimonio",
+    "origen": "photo-1764593821339-6be7cb85e7f6",
+    "alt": "Invitados sentados en sillas de madera durante una ceremonia bajo los árboles",
+    "archivos": [
+      "ev-matrimonio-560.webp",
+      "ev-matrimonio-900.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1764593821339-6be7cb85e7f6",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "ev-quince",
+    "origen": "photo-1759124650342-b283fa8461fa",
+    "alt": "Mesa redonda con mantel marfil y centro de flores de colores sobre el césped",
+    "archivos": [
+      "ev-quince-560.webp",
+      "ev-quince-900.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1759124650342-b283fa8461fa",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "exp-pergola",
+    "origen": "photo-1641996250159-9d2bbfb483fa",
+    "alt": "Pérgola cubierta de follaje con esferas de vidrio colgantes sobre las mesas",
+    "archivos": [
+      "exp-pergola-600.webp",
+      "exp-pergola-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1641996250159-9d2bbfb483fa",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "exp-recepcion",
+    "origen": "photo-1632316962873-47ee3d309f02",
+    "alt": "Recepción al aire libre con mesas redondas, flores y sillas blancas",
+    "archivos": [
+      "exp-recepcion-600.webp",
+      "exp-recepcion-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1632316962873-47ee3d309f02",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "exp-sillas",
+    "origen": "photo-1522673607200-164d1b6ce486",
+    "alt": "Dos sillas decoradas con flores sobre el césped",
+    "archivos": [
+      "exp-sillas-600.webp",
+      "exp-sillas-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1522673607200-164d1b6ce486",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "g-anillos",
+    "origen": "photo-1515934751635-c81c6bc9a2d8",
+    "alt": "Argollas de matrimonio sobre un ramo de peonías",
+    "archivos": [
+      "g-anillos-600.webp",
+      "g-anillos-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "g-ceremonia",
+    "origen": "photo-1679526758968-23952a1bece9",
+    "alt": "Sillas blancas y grandes arreglos florales en un patio preparado para una ceremonia",
+    "archivos": [
+      "g-ceremonia-800.webp",
+      "g-ceremonia-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1679526758968-23952a1bece9",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "g-columna",
+    "origen": "photo-1781268520671-6b59d4c6d83b",
+    "alt": "Columna de flores blancas junto a una cerca de madera",
+    "archivos": [
+      "g-columna-600.webp",
+      "g-columna-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1781268520671-6b59d4c6d83b",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "g-cortinas",
+    "origen": "photo-1792545409769-252a09d39fd7",
+    "alt": "Telas blancas y follaje colgando de una estructura en el jardín",
+    "archivos": [
+      "g-cortinas-800.webp",
+      "g-cortinas-1300.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1792545409769-252a09d39fd7",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "g-mesa",
+    "origen": "photo-1737682599438-319b61711b5f",
+    "alt": "Mesa larga con camino de flores rosadas y sillas blancas",
+    "archivos": [
+      "g-mesa-600.webp",
+      "g-mesa-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1737682599438-319b61711b5f",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "g-pasillo",
+    "origen": "photo-1469371670807-013ccf25f16a",
+    "alt": "Pasillo de ceremonia flanqueado por arreglos de rosas y sillas doradas",
+    "archivos": [
+      "g-pasillo-600.webp",
+      "g-pasillo-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1469371670807-013ccf25f16a",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "g-ramo",
+    "origen": "photo-1550005809-91ad75fb315f",
+    "alt": "Novia sosteniendo un ramo de flores pálidas junto al novio",
+    "archivos": [
+      "g-ramo-600.webp",
+      "g-ramo-1000.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1550005809-91ad75fb315f",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  },
+  {
+    "proyecto": "villa-jardin",
+    "slot": "hero",
+    "origen": "photo-1759490821541-f78bb13a752d",
+    "alt": "Casa de campo con escalinata entre jardines y sillas de madera dispuestas para una ceremonia al aire libre",
+    "archivos": [
+      "hero-960.webp",
+      "hero-1600.webp",
+      "hero-2257.webp"
+    ],
+    "fuente": "Unsplash",
+    "pagina": "https://images.unsplash.com/photo-1759490821541-f78bb13a752d",
+    "autor": "",
+    "licencia": "Licencia Unsplash",
+    "licencia_url": "https://unsplash.com/license"
+  }
+]

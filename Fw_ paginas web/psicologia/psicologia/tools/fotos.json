@@ -1,0 +1,471 @@
+[
+ {
+  "marca": "neuroavanzar",
+  "slot": "hero",
+  "id": "photo-1685362158423-abf004b858d2",
+  "autor": "Kateryna Hliznitsova",
+  "pagina": "https://unsplash.com/photos/hB9DS4-Vgh4",
+  "ratio": "1:1",
+  "anchos": [
+   640,
+   1000,
+   1400
+  ],
+  "foco": "0.47,0.5",
+  "alt": "Terapeuta agachada frente a un niño sentado en un caballito de madera, sosteniéndole las manos en una sala amplia e iluminada"
+ },
+ {
+  "marca": "neuroavanzar",
+  "slot": "acompanamiento",
+  "id": "photo-1714646793036-ae03830d3a8d",
+  "autor": "Vitaly Gariev",
+  "pagina": "https://unsplash.com/photos/UNwYCcUyrIA",
+  "ratio": "16:7",
+  "anchos": [
+   960,
+   1600,
+   2200
+  ],
+  "foco": "0.5,0.42",
+  "alt": "Niño de cabello rizado arma una torre de piezas de colores junto a una profesional que observa a su lado"
+ },
+ {
+  "marca": "neuroavanzar",
+  "slot": "neuropsicologia",
+  "id": "photo-1575364289437-fb1479d52732",
+  "autor": "Michał Bożek",
+  "pagina": "https://unsplash.com/photos/RcxR1aLw8X0",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.55,0.5",
+  "alt": "Mano de un adulto ubicando bloques de madera de colores sobre una mesa, en una actividad de construcción"
+ },
+ {
+  "marca": "neuroavanzar",
+  "slot": "ocupacional",
+  "id": "photo-1596066190600-3af9aadaaea1",
+  "autor": "Paige Cody",
+  "pagina": "https://unsplash.com/photos/FHFfHWWzbCc",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.55,0.55",
+  "alt": "Niño de pie frente a una mesa clasifica objetos pequeños en una bandeja, con estantes de materiales al fondo"
+ },
+ {
+  "marca": "neuroavanzar",
+  "slot": "fonoaudiologia",
+  "id": "photo-1758598737505-90a3084105ac",
+  "autor": "Vitaly Gariev",
+  "pagina": "https://unsplash.com/photos/UdA6S781cgI",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.58,0.5",
+  "alt": "Niño escribe con lápices de colores en una mesa baja mientras una adulta lo acompaña sentada a su lado"
+ },
+ {
+  "marca": "neuroavanzar",
+  "slot": "psicologia",
+  "id": "photo-1587323655395-b1c77a12c89a",
+  "autor": "Gabe Pierce",
+  "pagina": "https://unsplash.com/photos/mLqWFEtlIEs",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.45,0.5",
+  "alt": "Vista desde arriba de un niño dibujando con marcadores junto a una adulta que le señala la hoja"
+ },
+ {
+  "marca": "neuroavanzar",
+  "slot": "familia",
+  "id": "photo-1629360021730-3d258452c425",
+  "autor": "sofatutor",
+  "pagina": "https://unsplash.com/photos/zgq9OXecyqI",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800,
+   1100
+  ],
+  "foco": "0.45,0.55",
+  "alt": "Madre, padre e hija revisan juntos un cuaderno y un computador en la mesa de una sala"
+ },
+ {
+  "marca": "neuroavanzar",
+  "slot": "evaluacion",
+  "id": "photo-1714646793151-6b1ac0b2f683",
+  "autor": "Vitaly Gariev",
+  "pagina": "https://unsplash.com/photos/obybT_66lEA",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Niño y profesional sentados frente a frente con un tablero de ajedrez y piezas de construcción sobre la mesa"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "hero",
+  "id": "photo-1771765767087-ce71e4a7916a",
+  "autor": "Ahmadreza Rezaie",
+  "pagina": "https://unsplash.com/photos/eJVnBi25Xms",
+  "ratio": "5:4",
+  "anchos": [
+   640,
+   1100,
+   1600
+  ],
+  "foco": "0.52,0.5",
+  "alt": "Profesional muestra con la mano una seña o un conteo a un niño que la observa atento en un salón con materiales"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "plastilina",
+  "id": "photo-1579018024219-fa9694ca5698",
+  "autor": "Julietta Watson",
+  "pagina": "https://unsplash.com/photos/1VT2qoBtc-k",
+  "ratio": "1:1",
+  "anchos": [
+   400,
+   700
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Manos de un niño moldeando un arcoíris de plastilina de colores sobre una mesa blanca"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "bloques",
+  "id": "photo-1631032024590-140cc8dd4b32",
+  "autor": "Ana Klipper",
+  "pagina": "https://unsplash.com/photos/t4B_JcUofvY",
+  "ratio": "3:4",
+  "anchos": [
+   400,
+   700
+  ],
+  "foco": "0.6,0.5",
+  "alt": "Niña pequeña sentada en una alfombra encaja bloques de colores con ambas manos"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "sensorial",
+  "id": "photo-1709127347884-a106974ef58d",
+  "autor": "Ortopediatri Çocuk Ortopedi Akademisi",
+  "pagina": "https://unsplash.com/photos/uEcEYQ43xhI",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100,
+   1500
+  ],
+  "foco": "0.62,0.5",
+  "alt": "Niña recostada sobre una colchoneta junto a una terapeuta sonriente y un juguete de cuentas en un espacio de terapia"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "fonoaudiologia",
+  "id": "photo-1613186420419-868111e7ac07",
+  "autor": "Natasha Hall",
+  "pagina": "https://unsplash.com/photos/9rBmRhysF9Y",
+  "ratio": "1:1",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.6,0.55",
+  "alt": "Niño sentado en una mesa pequeña conversa con una profesional sentada en el piso que gesticula con las manos"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "ocupacional",
+  "id": "photo-1738051889746-ae7414e5ebb2",
+  "autor": "Centar MURID",
+  "pagina": "https://unsplash.com/photos/xymJMed28Sk",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800
+  ],
+  "foco": "0.5,0.6",
+  "alt": "Profesional arrodillada sobre un piso de goma acomoda piezas de un tablero de encaje de madera"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "g-sala",
+  "id": "photo-1763310225537-f7161d5c93e9",
+  "autor": "Camila Mofsovich",
+  "pagina": "https://unsplash.com/photos/S76pM9zZrAE",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1200
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Salón luminoso con mesas y sillas infantiles y muebles de juego en forma de casa"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "g-material",
+  "id": "photo-1786667395574-8121327f52c8",
+  "autor": "Far Chinberdiev",
+  "pagina": "https://unsplash.com/photos/wFV3YFoVLz0",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Estante blanco con canastas de colores llenas de material didáctico: bloques, fichas y piezas de encaje"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "g-pintura",
+  "id": "photo-1769720204501-75e6a3c25d3d",
+  "autor": "Jonathan Borba",
+  "pagina": "https://unsplash.com/photos/CxifcLBHinA",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1200
+  ],
+  "foco": "0.4,0.5",
+  "alt": "Niña pinta en una mesa de madera junto a una ventana, con frascos de pintura a su alrededor"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "g-letras",
+  "id": "photo-1759678444821-565ff103465c",
+  "autor": "NHN",
+  "pagina": "https://unsplash.com/photos/3Xa4JziXxa0",
+  "ratio": "1:1",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.6,0.6",
+  "alt": "Tablero de madera con letras para encajar sobre una alfombra, mientras un niño ubica las piezas"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "g-mesa",
+  "id": "photo-1788882679829-fee300e8ae4a",
+  "autor": "Yegor Makarenko",
+  "pagina": "https://unsplash.com/photos/NM7C5yiZZjI",
+  "ratio": "3:4",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.6,0.5",
+  "alt": "Profesional sonríe mientras dos niños trabajan con tarjetas de imágenes sobre una mesa"
+ },
+ {
+  "marca": "aprehender",
+  "slot": "g-familia",
+  "id": "photo-1728138127500-fb73c1313f76",
+  "autor": "Birleşim Özel Eğitim Rehabilitasyon Merkezi",
+  "pagina": "https://unsplash.com/photos/sjSOXEV_kmY",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1200
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Un adulto lee en voz alta y una profesional conversa con una niña en una mesa de trabajo"
+ },
+ {
+  "marca": "integra",
+  "slot": "hero",
+  "id": "photo-1648775507324-b48dd3791fa5",
+  "autor": "rawkkim",
+  "pagina": "https://unsplash.com/photos/X8Y3CJA0aNs",
+  "ratio": "3:2",
+  "anchos": [
+   960,
+   1600,
+   2400
+  ],
+  "foco": "0.5,0.55",
+  "alt": "Sala de espera amplia y blanca con un árbol pequeño en el centro, bancas curvas y luz natural"
+ },
+ {
+  "marca": "integra",
+  "slot": "sesion",
+  "id": "photo-1709880754438-b1fb5d2f074c",
+  "autor": "Ortopediatri Çocuk Ortopedi Akademisi",
+  "pagina": "https://unsplash.com/photos/ZS_KxBPLM40",
+  "ratio": "4:5",
+  "anchos": [
+   480,
+   800,
+   1100
+  ],
+  "foco": "0.6,0.45",
+  "alt": "Profesional acompaña a una paciente que camina apoyada en barras paralelas durante una sesión de rehabilitación"
+ },
+ {
+  "marca": "integra",
+  "slot": "arquitectura",
+  "id": "photo-1522743791393-522312deeebf",
+  "autor": "Simone Hutsch",
+  "pagina": "https://unsplash.com/photos/ItvVUpgac0o",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.6,0.6",
+  "alt": "Volúmenes de concreto claro contra un cielo verde azulado"
+ },
+ {
+  "marca": "integra",
+  "slot": "neuro",
+  "id": "photo-1764314359427-6e685ce5b719",
+  "autor": "Neuro Equilibrium",
+  "pagina": "https://unsplash.com/photos/GQzPQB6nPxU",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.4,0.55",
+  "alt": "Paciente con visor de realidad virtual de pie sobre una plataforma de equilibrio mientras un profesional ajusta el equipo"
+ },
+ {
+  "marca": "integra",
+  "slot": "fisio",
+  "id": "photo-1645005513713-9e2b92a687d3",
+  "autor": "Sincerely Media",
+  "pagina": "https://unsplash.com/photos/inoZpsBQRqk",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Fisioterapeuta guía el brazo de una paciente que levanta mancuernas livianas"
+ },
+ {
+  "marca": "integra",
+  "slot": "psico",
+  "id": "photo-1573497491208-6b1acb260507",
+  "autor": "Christina @ wocintechchat.com M",
+  "pagina": "https://unsplash.com/photos/LQ1t-8Ms5PY",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.45,0.55",
+  "alt": "Dos personas conversan sentadas frente a frente en una mesa junto a una ventana"
+ },
+ {
+  "marca": "integra",
+  "slot": "ocupacional",
+  "id": "photo-1723433892471-62f113c8c9a0",
+  "autor": "Care Assure",
+  "pagina": "https://unsplash.com/photos/Zx4ddAfk0Ck",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.55,0.5",
+  "alt": "Joven en silla de ruedas hace ejercicios con mancuernas acompañada por un profesional arrodillado a su lado"
+ },
+ {
+  "marca": "integra",
+  "slot": "funcional",
+  "id": "photo-1658314755811-73c806249f31",
+  "autor": "Centre for Ageing Better",
+  "pagina": "https://unsplash.com/photos/kB4FXX1KXhQ",
+  "ratio": "4:3",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.45",
+  "alt": "Grupo de personas mayores sentadas hace ejercicios de brazos con bandas elásticas de colores"
+ },
+ {
+  "marca": "integra",
+  "slot": "g-sala",
+  "id": "photo-1579488081688-3dbbbae7893e",
+  "autor": "Jose Losada",
+  "pagina": "https://unsplash.com/photos/HIB5kZNkVjo",
+  "ratio": "3:4",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Sala de espera con sillas grises, piso pulido y paneles de madera en el techo y el fondo"
+ },
+ {
+  "marca": "integra",
+  "slot": "g-consultorio",
+  "id": "photo-1673892990360-2168cc2c25d6",
+  "autor": "Masood Aslami",
+  "pagina": "https://unsplash.com/photos/BuEQhYqCPnA",
+  "ratio": "3:2",
+  "anchos": [
+   800,
+   1400
+  ],
+  "foco": "0.5,0.55",
+  "alt": "Consultorio con dos sillas, diván, biblioteca y una ventana con cortinas blancas"
+ },
+ {
+  "marca": "integra",
+  "slot": "g-camilla",
+  "id": "photo-1706353399656-210cca727a33",
+  "autor": "Marc Zeman",
+  "pagina": "https://unsplash.com/photos/uLWW09LLG04",
+  "ratio": "3:2",
+  "anchos": [
+   800,
+   1400
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Fisioterapeuta moviliza el hombro de una paciente recostada en una camilla, en una sala iluminada"
+ },
+ {
+  "marca": "integra",
+  "slot": "g-barras",
+  "id": "photo-1709880754472-be89c13abc52",
+  "autor": "Ortopediatri Çocuk Ortopedi Akademisi",
+  "pagina": "https://unsplash.com/photos/7vXHRcMGETQ",
+  "ratio": "3:4",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Profesional revisa un documento con una paciente que se apoya en barras paralelas"
+ },
+ {
+  "marca": "integra",
+  "slot": "g-consulta",
+  "id": "photo-1595846723416-99a641e1231a",
+  "autor": "Gian Paolo Aliatis",
+  "pagina": "https://unsplash.com/photos/EJSNrTzz6xk",
+  "ratio": "3:2",
+  "anchos": [
+   800,
+   1400
+  ],
+  "foco": "0.5,0.55",
+  "alt": "Consultorio con dos sillones verde azulado, escritorio de madera y estantes"
+ }
+]

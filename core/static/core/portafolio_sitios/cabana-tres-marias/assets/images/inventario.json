@@ -1,0 +1,888 @@
+[
+  {
+    "id": "fachada-1",
+    "original": "fachada_exterior_1.jpeg",
+    "archivos": [
+      "assets/images/cabin/fachada-1-400.webp",
+      "assets/images/cabin/fachada-1-640.webp",
+      "assets/images/cabin/fachada-1-960.webp"
+    ],
+    "categoria": "cabana",
+    "tipo": "ilustrativa",
+    "alt": "Cabaña de dos pisos con fachada oscura, balcón y sendero de piedra sobre el césped, rodeada de árboles",
+    "tamano_original": "720x720",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "fachada-2",
+    "original": "fachada_exterior_2.jpeg",
+    "archivos": [
+      "assets/images/cabin/fachada-2-400.webp",
+      "assets/images/cabin/fachada-2-640.webp",
+      "assets/images/cabin/fachada-2-960.webp",
+      "assets/images/cabin/fachada-2-1280.webp"
+    ],
+    "categoria": "cabana",
+    "tipo": "ilustrativa",
+    "alt": "Cabaña de madera elevada con pérgola y escalera, en un claro del bosque al atardecer",
+    "tamano_original": "1200x800",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "fachada-3",
+    "original": "fachada_exterior_3.jpeg",
+    "archivos": [
+      "assets/images/cabin/fachada-3-400.webp",
+      "assets/images/cabin/fachada-3-640.webp",
+      "assets/images/cabin/fachada-3-960.webp"
+    ],
+    "categoria": "cabana",
+    "tipo": "ilustrativa",
+    "alt": "Cabaña de techo a dos aguas con gran ventanal de vidrio, helechos y una guirnalda de luces",
+    "tamano_original": "768x817",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "terraza",
+    "original": "balcon_3.jpeg",
+    "archivos": [
+      "assets/images/cabin/terraza-400.webp",
+      "assets/images/cabin/terraza-640.webp",
+      "assets/images/cabin/terraza-960.webp",
+      "assets/images/cabin/terraza-1280.webp"
+    ],
+    "categoria": "exteriores",
+    "tipo": "ilustrativa",
+    "alt": "Terraza de madera con hamaca, mesa para dos y vista a montañas verdes",
+    "tamano_original": "1200x800",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "habitacion-principal",
+    "original": "habitacion_principal.jpeg",
+    "archivos": [
+      "assets/images/bedrooms/habitacion-principal-400.webp",
+      "assets/images/bedrooms/habitacion-principal-640.webp",
+      "assets/images/bedrooms/habitacion-principal-960.webp"
+    ],
+    "categoria": "habitaciones",
+    "tipo": "ilustrativa",
+    "alt": "Habitación de madera con cama doble, cobijas tejidas, tapete claro y ventanal",
+    "tamano_original": "683x1024",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "habitacion-familiar",
+    "original": "habitacion_familiar.jpeg",
+    "archivos": [
+      "assets/images/bedrooms/habitacion-familiar-400.webp",
+      "assets/images/bedrooms/habitacion-familiar-640.webp",
+      "assets/images/bedrooms/habitacion-familiar-960.webp",
+      "assets/images/bedrooms/habitacion-familiar-1280.webp"
+    ],
+    "categoria": "habitaciones",
+    "tipo": "ilustrativa",
+    "alt": "Habitación de madera con dos camas sencillas, mesa de noche con lámpara y una butaca",
+    "tamano_original": "1920x1280",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "bano-1",
+    "original": "baño_1.jpeg",
+    "archivos": [
+      "assets/images/bathrooms/bano-1-400.webp",
+      "assets/images/bathrooms/bano-1-640.webp",
+      "assets/images/bathrooms/bano-1-960.webp"
+    ],
+    "categoria": "banos",
+    "tipo": "ilustrativa",
+    "alt": "Baño con muros de piedra oscura, ducha de vidrio, lavamanos de piedra y repisas de madera",
+    "tamano_original": "800x800",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "bano-2",
+    "original": "bano_2.jpeg",
+    "archivos": [
+      "assets/images/bathrooms/bano-2-400.webp",
+      "assets/images/bathrooms/bano-2-640.webp",
+      "assets/images/bathrooms/bano-2-960.webp",
+      "assets/images/bathrooms/bano-2-1280.webp"
+    ],
+    "categoria": "banos",
+    "tipo": "ilustrativa",
+    "alt": "Baño con techo de madera, espejo redondo, mueble de lavamanos y ducha de vidrio",
+    "tamano_original": "1080x1350",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "sala-1",
+    "original": "sala.jpeg",
+    "archivos": [
+      "assets/images/interiors/sala-1-400.webp",
+      "assets/images/interiors/sala-1-640.webp",
+      "assets/images/interiors/sala-1-960.webp"
+    ],
+    "categoria": "sala-cocina",
+    "tipo": "ilustrativa",
+    "alt": "Sala con sofá en L frente a una chimenea de piedra y ventanales hacia las montañas",
+    "tamano_original": "900x600",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "sala-2",
+    "original": "comedor_2.jpeg",
+    "archivos": [
+      "assets/images/interiors/sala-2-400.webp",
+      "assets/images/interiors/sala-2-640.webp",
+      "assets/images/interiors/sala-2-960.webp"
+    ],
+    "categoria": "sala-cocina",
+    "tipo": "ilustrativa",
+    "alt": "Sala de doble altura con chimenea encendida, sofá claro y ventanales hacia un bosque de pinos",
+    "tamano_original": "800x600",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "cocina-1",
+    "original": "cocina_1.jpeg",
+    "archivos": [
+      "assets/images/interiors/cocina-1-400.webp",
+      "assets/images/interiors/cocina-1-640.webp",
+      "assets/images/interiors/cocina-1-960.webp",
+      "assets/images/interiors/cocina-1-1280.webp"
+    ],
+    "categoria": "sala-cocina",
+    "tipo": "ilustrativa",
+    "alt": "Cocina sencilla de madera clara con nevera, lavaplatos y cafetera",
+    "tamano_original": "980x653",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "cocina-2",
+    "original": "cocina_2.jpeg",
+    "archivos": [
+      "assets/images/interiors/cocina-2-400.webp",
+      "assets/images/interiors/cocina-2-640.webp",
+      "assets/images/interiors/cocina-2-960.webp",
+      "assets/images/interiors/cocina-2-1280.webp"
+    ],
+    "categoria": "sala-cocina",
+    "tipo": "ilustrativa",
+    "alt": "Cocina de madera con barra, lámparas colgantes y ventana al bosque",
+    "tamano_original": "1289x860",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "cocina-3",
+    "original": "cocina_3.jpeg",
+    "archivos": [
+      "assets/images/interiors/cocina-3-400.webp",
+      "assets/images/interiors/cocina-3-640.webp",
+      "assets/images/interiors/cocina-3-960.webp",
+      "assets/images/interiors/cocina-3-1280.webp"
+    ],
+    "categoria": "sala-cocina",
+    "tipo": "ilustrativa",
+    "alt": "Cocina abierta de madera con comedor, butacos y nevera de acero",
+    "tamano_original": "1290x860",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "comedor-1",
+    "original": "comedor.jpeg",
+    "archivos": [
+      "assets/images/interiors/comedor-1-400.webp",
+      "assets/images/interiors/comedor-1-640.webp",
+      "assets/images/interiors/comedor-1-960.webp",
+      "assets/images/interiors/comedor-1-1280.webp"
+    ],
+    "categoria": "sala-cocina",
+    "tipo": "ilustrativa",
+    "alt": "Comedor junto a la ventana con mesa de madera puesta y un sofá con cojines",
+    "tamano_original": "1147x860",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "comedor-2",
+    "original": "comedor_3.jpeg",
+    "archivos": [
+      "assets/images/interiors/comedor-2-400.webp",
+      "assets/images/interiors/comedor-2-640.webp",
+      "assets/images/interiors/comedor-2-960.webp",
+      "assets/images/interiors/comedor-2-1280.webp"
+    ],
+    "categoria": "sala-cocina",
+    "tipo": "ilustrativa",
+    "alt": "Comedor de madera para seis personas con lámpara colgante y ventanales",
+    "tamano_original": "1200x900",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "hero-frailejon",
+    "original": "Frailejones1.jpeg",
+    "archivos": [
+      "assets/images/hero/hero-frailejon-400.webp",
+      "assets/images/hero/hero-frailejon-640.webp",
+      "assets/images/hero/hero-frailejon-960.webp",
+      "assets/images/hero/hero-frailejon-1280.webp",
+      "assets/images/hero/hero-frailejon-1600.webp",
+      "assets/images/hero/hero-frailejon-1920.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Frailejón en flor junto a una laguna de páramo que refleja las nubes y las montañas",
+    "tamano_original": "2048x1367",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-valle",
+    "original": "Lagunas8.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-valle-400.webp",
+      "assets/images/landscapes/laguna-valle-640.webp",
+      "assets/images/landscapes/laguna-valle-960.webp",
+      "assets/images/landscapes/laguna-valle-1280.webp",
+      "assets/images/landscapes/laguna-valle-1600.webp",
+      "assets/images/landscapes/laguna-valle-1920.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Laguna oscura al pie de montañas rocosas cubiertas de vegetación de páramo",
+    "tamano_original": "5160x3440",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "lagunas-aerea",
+    "original": "Lagunas-aerea.jpeg",
+    "archivos": [
+      "assets/images/landscapes/lagunas-aerea-400.webp",
+      "assets/images/landscapes/lagunas-aerea-640.webp",
+      "assets/images/landscapes/lagunas-aerea-960.webp",
+      "assets/images/landscapes/lagunas-aerea-1280.webp"
+    ],
+    "categoria": "paisajes",
+    "tipo": "referencia",
+    "alt": "Vista aérea de dos lagunas sobre una cumbre de páramo, con cordilleras al fondo",
+    "tamano_original": "1200x931",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "via-montana",
+    "original": "paisaje1.jpeg",
+    "archivos": [
+      "assets/images/landscapes/via-montana-400.webp",
+      "assets/images/landscapes/via-montana-640.webp",
+      "assets/images/landscapes/via-montana-960.webp",
+      "assets/images/landscapes/via-montana-1280.webp"
+    ],
+    "categoria": "paisajes",
+    "tipo": "referencia",
+    "alt": "Carretera que serpentea por una montaña verde bajo nubes densas, con antenas en la cima",
+    "tamano_original": "1600x1200",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "llanura-frailejones",
+    "original": "picacho1.jpeg",
+    "archivos": [
+      "assets/images/landscapes/llanura-frailejones-400.webp",
+      "assets/images/landscapes/llanura-frailejones-640.webp",
+      "assets/images/landscapes/llanura-frailejones-960.webp",
+      "assets/images/landscapes/llanura-frailejones-1280.webp"
+    ],
+    "categoria": "paisajes",
+    "tipo": "referencia",
+    "alt": "Llanura cubierta de frailejones con dos pequeñas lagunas y montañas bajo cielo azul",
+    "tamano_original": "980x551",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "valle-verde",
+    "original": "Caminatas12.jpeg",
+    "archivos": [
+      "assets/images/landscapes/valle-verde-400.webp",
+      "assets/images/landscapes/valle-verde-640.webp",
+      "assets/images/landscapes/valle-verde-960.webp"
+    ],
+    "categoria": "paisajes",
+    "tipo": "referencia",
+    "alt": "Potreros verdes en una ladera de montaña con nubes bajas sobre el valle",
+    "tamano_original": "700x525",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "valle-niebla",
+    "original": "Caminatas8.jpeg",
+    "archivos": [
+      "assets/images/landscapes/valle-niebla-400.webp",
+      "assets/images/landscapes/valle-niebla-640.webp",
+      "assets/images/landscapes/valle-niebla-960.webp"
+    ],
+    "categoria": "paisajes",
+    "tipo": "referencia",
+    "alt": "Valle verde con arbustos dispersos y la niebla cubriendo la parte alta de la montaña",
+    "tamano_original": "700x525",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "crestas",
+    "original": "Caminatas5.jpeg",
+    "archivos": [
+      "assets/images/landscapes/crestas-400.webp",
+      "assets/images/landscapes/crestas-640.webp",
+      "assets/images/landscapes/crestas-960.webp",
+      "assets/images/landscapes/crestas-1280.webp"
+    ],
+    "categoria": "paisajes",
+    "tipo": "referencia",
+    "alt": "Montañas de roca gris sobre un pajonal con frailejones; dos caminantes se ven pequeños",
+    "tamano_original": "1200x857",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-isla",
+    "original": "Lagunas11.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-isla-400.webp",
+      "assets/images/landscapes/laguna-isla-640.webp",
+      "assets/images/landscapes/laguna-isla-960.webp",
+      "assets/images/landscapes/laguna-isla-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Laguna azul intenso con pequeñas islas rocosas y montañas bajo cielo despejado",
+    "tamano_original": "1147x860",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-arbol",
+    "original": "Lagunas12.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-arbol-400.webp",
+      "assets/images/landscapes/laguna-arbol-640.webp",
+      "assets/images/landscapes/laguna-arbol-960.webp",
+      "assets/images/landscapes/laguna-arbol-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Árbol solitario de ramas retorcidas frente a una laguna que refleja el cielo",
+    "tamano_original": "1200x800",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-pequena",
+    "original": "Lagunas13.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-pequena-400.webp",
+      "assets/images/landscapes/laguna-pequena-640.webp",
+      "assets/images/landscapes/laguna-pequena-960.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Pequeña laguna clara en el fondo de un valle de páramo entre nubes",
+    "tamano_original": "920x613",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-reflejo",
+    "original": "Lagunas2.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-reflejo-400.webp",
+      "assets/images/landscapes/laguna-reflejo-640.webp",
+      "assets/images/landscapes/laguna-reflejo-960.webp",
+      "assets/images/landscapes/laguna-reflejo-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Laguna turquesa que refleja nubes, rodeada de pajonal dorado y frailejones",
+    "tamano_original": "1200x800",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-flor",
+    "original": "Lagunas3.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-flor-400.webp",
+      "assets/images/landscapes/laguna-flor-640.webp",
+      "assets/images/landscapes/laguna-flor-960.webp",
+      "assets/images/landscapes/laguna-flor-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Frailejón con flores en primer plano frente a una laguna entre montañas",
+    "tamano_original": "1280x750",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-ramificada",
+    "original": "Lagunas4.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-ramificada-400.webp",
+      "assets/images/landscapes/laguna-ramificada-640.webp",
+      "assets/images/landscapes/laguna-ramificada-960.webp",
+      "assets/images/landscapes/laguna-ramificada-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Laguna de forma irregular con islotes vista desde lo alto, entre montañas",
+    "tamano_original": "1200x900",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-roca",
+    "original": "Lagunas5.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-roca-400.webp",
+      "assets/images/landscapes/laguna-roca-640.webp",
+      "assets/images/landscapes/laguna-roca-960.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Laguna alargada entre colinas rocosas bajo nubes y cielo azul",
+    "tamano_original": "768x431",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-turquesa",
+    "original": "Lagunas6.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-turquesa-400.webp",
+      "assets/images/landscapes/laguna-turquesa-640.webp",
+      "assets/images/landscapes/laguna-turquesa-960.webp",
+      "assets/images/landscapes/laguna-turquesa-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Laguna de agua oscura y turquesa encajonada entre laderas, vista desde una roca",
+    "tamano_original": "1350x900",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-gris",
+    "original": "Lagunas7.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-gris-400.webp",
+      "assets/images/landscapes/laguna-gris-640.webp",
+      "assets/images/landscapes/laguna-gris-960.webp",
+      "assets/images/landscapes/laguna-gris-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Laguna en día nublado con frailejones en la orilla rocosa",
+    "tamano_original": "1599x1200",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-canon",
+    "original": "Lagunas9.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-canon-400.webp",
+      "assets/images/landscapes/laguna-canon-640.webp",
+      "assets/images/landscapes/laguna-canon-960.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Laguna pequeña entre paredes de roca y montañas áridas",
+    "tamano_original": "736x490",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-niebla",
+    "original": "Lagunas10.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-niebla-400.webp",
+      "assets/images/landscapes/laguna-niebla-640.webp",
+      "assets/images/landscapes/laguna-niebla-960.webp",
+      "assets/images/landscapes/laguna-niebla-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Laguna oscura entre rocas cubiertas de musgo con niebla sobre las laderas",
+    "tamano_original": "1200x800",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "frailejones-laguna",
+    "original": "Frailejones10.jpeg",
+    "archivos": [
+      "assets/images/landscapes/frailejones-laguna-400.webp",
+      "assets/images/landscapes/frailejones-laguna-640.webp",
+      "assets/images/landscapes/frailejones-laguna-960.webp",
+      "assets/images/landscapes/frailejones-laguna-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Frailejón en primer plano y laguna azul entre rocas al fondo",
+    "tamano_original": "1000x650",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "frailejon-azul",
+    "original": "Frailejones11.jpeg",
+    "archivos": [
+      "assets/images/landscapes/frailejon-azul-400.webp",
+      "assets/images/landscapes/frailejon-azul-640.webp",
+      "assets/images/landscapes/frailejon-azul-960.webp",
+      "assets/images/landscapes/frailejon-azul-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Silueta de un frailejón en una luz azul y fría, con una laguna y nubes al fondo",
+    "tamano_original": "1200x799",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "frailejon-rocio",
+    "original": "Frailejones12",
+    "archivos": [
+      "assets/images/landscapes/frailejon-rocio-400.webp",
+      "assets/images/landscapes/frailejon-rocio-640.webp",
+      "assets/images/landscapes/frailejon-rocio-960.webp",
+      "assets/images/landscapes/frailejon-rocio-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Frailejón cubierto de rocío sobre una roca, con pequeñas lagunas detrás",
+    "tamano_original": "1000x1000",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "frailejones-turquesa",
+    "original": "Frailejones2.jpeg",
+    "archivos": [
+      "assets/images/landscapes/frailejones-turquesa-400.webp",
+      "assets/images/landscapes/frailejones-turquesa-640.webp",
+      "assets/images/landscapes/frailejones-turquesa-960.webp",
+      "assets/images/landscapes/frailejones-turquesa-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Frailejones junto a una laguna turquesa con montañas rocosas",
+    "tamano_original": "1200x800",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "frailejon-flores",
+    "original": "Frailejones3.jpeg",
+    "archivos": [
+      "assets/images/landscapes/frailejon-flores-400.webp",
+      "assets/images/landscapes/frailejon-flores-640.webp",
+      "assets/images/landscapes/frailejon-flores-960.webp",
+      "assets/images/landscapes/frailejon-flores-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Frailejón con varias flores en primer plano y montañas entre nubes",
+    "tamano_original": "1290x860",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "frailejones-campo",
+    "original": "Frailejones4.jpeg",
+    "archivos": [
+      "assets/images/landscapes/frailejones-campo-400.webp",
+      "assets/images/landscapes/frailejones-campo-640.webp",
+      "assets/images/landscapes/frailejones-campo-960.webp",
+      "assets/images/landscapes/frailejones-campo-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Grupo de frailejones florecidos frente a una laguna y montañas oscuras",
+    "tamano_original": "1200x900",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "laguna-verde",
+    "original": "Frailejones5.jpeg",
+    "archivos": [
+      "assets/images/landscapes/laguna-verde-400.webp",
+      "assets/images/landscapes/laguna-verde-640.webp",
+      "assets/images/landscapes/laguna-verde-960.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Laguna verde rodeada de frailejones amarillos y montañas rocosas",
+    "tamano_original": "720x479",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "frailejones-ladera",
+    "original": "Frailejones6.jpeg",
+    "archivos": [
+      "assets/images/landscapes/frailejones-ladera-400.webp",
+      "assets/images/landscapes/frailejones-ladera-640.webp",
+      "assets/images/landscapes/frailejones-ladera-960.webp",
+      "assets/images/landscapes/frailejones-ladera-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Frailejones altos en una ladera empinada con niebla",
+    "tamano_original": "1280x720",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "frailejones-pradera",
+    "original": "Frailejones7.jpeg",
+    "archivos": [
+      "assets/images/landscapes/frailejones-pradera-400.webp",
+      "assets/images/landscapes/frailejones-pradera-640.webp",
+      "assets/images/landscapes/frailejones-pradera-960.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Frailejones de tronco alto en una pradera junto a una laguna",
+    "tamano_original": "720x405",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "flores-amarillas",
+    "original": "Frailejones8.jpeg",
+    "archivos": [
+      "assets/images/landscapes/flores-amarillas-400.webp",
+      "assets/images/landscapes/flores-amarillas-640.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Arbusto de flores amarillas y frailejones junto a una laguna bajo la niebla",
+    "tamano_original": "600x449",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "frailejones-orilla",
+    "original": "Frailejones9.jpeg",
+    "archivos": [
+      "assets/images/landscapes/frailejones-orilla-400.webp",
+      "assets/images/landscapes/frailejones-orilla-640.webp",
+      "assets/images/landscapes/frailejones-orilla-960.webp",
+      "assets/images/landscapes/frailejones-orilla-1280.webp"
+    ],
+    "categoria": "lagunas-paramo",
+    "tipo": "referencia",
+    "alt": "Frailejones sobre rocas en la orilla de una laguna en un día nublado",
+    "tamano_original": "1599x1200",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "grupo-lagunas",
+    "original": "Caminatas1.jpeg",
+    "archivos": [
+      "assets/images/activities/grupo-lagunas-400.webp",
+      "assets/images/activities/grupo-lagunas-640.webp",
+      "assets/images/activities/grupo-lagunas-960.webp",
+      "assets/images/activities/grupo-lagunas-1280.webp"
+    ],
+    "categoria": "actividades",
+    "tipo": "referencia",
+    "alt": "Grupo de caminantes con chaquetas de colores posando entre dos lagunas de páramo",
+    "tamano_original": "1920x1440",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "caminante-laguna",
+    "original": "Caminatas10.jpeg",
+    "archivos": [
+      "assets/images/activities/caminante-laguna-400.webp"
+    ],
+    "categoria": "actividades",
+    "tipo": "referencia",
+    "alt": "Caminantes con morral bajando por el pajonal hacia una laguna entre rocas",
+    "tamano_original": "367x500",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "caminantes-cascada",
+    "original": "Caminatas11.jpeg",
+    "archivos": [
+      "assets/images/activities/caminantes-cascada-400.webp",
+      "assets/images/activities/caminantes-cascada-640.webp",
+      "assets/images/activities/caminantes-cascada-960.webp",
+      "assets/images/activities/caminantes-cascada-1280.webp"
+    ],
+    "categoria": "actividades",
+    "tipo": "referencia",
+    "alt": "Grupo de caminantes en un sendero de páramo con una cascada al fondo",
+    "tamano_original": "1200x738",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "caminantes-planicie",
+    "original": "Caminatas13.jpeg",
+    "archivos": [
+      "assets/images/activities/caminantes-planicie-400.webp",
+      "assets/images/activities/caminantes-planicie-640.webp",
+      "assets/images/activities/caminantes-planicie-960.webp",
+      "assets/images/activities/caminantes-planicie-1280.webp"
+    ],
+    "categoria": "actividades",
+    "tipo": "referencia",
+    "alt": "Fila de caminantes cruzando una planicie de páramo bajo un cielo azul",
+    "tamano_original": "1920x1440",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "caminante-frailejones",
+    "original": "Caminatas14.jpeg",
+    "archivos": [
+      "assets/images/activities/caminante-frailejones-400.webp",
+      "assets/images/activities/caminante-frailejones-640.webp",
+      "assets/images/activities/caminante-frailejones-960.webp",
+      "assets/images/activities/caminante-frailejones-1280.webp"
+    ],
+    "categoria": "actividades",
+    "tipo": "referencia",
+    "alt": "Caminante con morral rojo y sombrero entre frailejones, frente a crestas rocosas",
+    "tamano_original": "1200x630",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "cumbre-nubes",
+    "original": "Caminatas2.jpeg",
+    "archivos": [
+      "assets/images/activities/cumbre-nubes-400.webp",
+      "assets/images/activities/cumbre-nubes-640.webp",
+      "assets/images/activities/cumbre-nubes-960.webp",
+      "assets/images/activities/cumbre-nubes-1280.webp"
+    ],
+    "categoria": "actividades",
+    "tipo": "referencia",
+    "alt": "Personas celebrando en una cumbre por encima de un mar de nubes",
+    "tamano_original": "1147x860",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "brazos-abiertos",
+    "original": "Caminatas3.jpeg",
+    "archivos": [
+      "assets/images/activities/brazos-abiertos-400.webp",
+      "assets/images/activities/brazos-abiertos-640.webp"
+    ],
+    "categoria": "actividades",
+    "tipo": "referencia",
+    "alt": "Persona con los brazos abiertos sobre una roca rodeada de niebla y frailejones",
+    "tamano_original": "600x452",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "caminante-bosque",
+    "original": "Caminatas4.jpeg",
+    "archivos": [
+      "assets/images/activities/caminante-bosque-400.webp",
+      "assets/images/activities/caminante-bosque-640.webp",
+      "assets/images/activities/caminante-bosque-960.webp"
+    ],
+    "categoria": "actividades",
+    "tipo": "referencia",
+    "alt": "Caminante con morral azul en un sendero entre arbustos, mirando montañas con nubes",
+    "tamano_original": "700x525",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "caminantes-orilla",
+    "original": "Caminatas6.jpeg",
+    "archivos": [
+      "assets/images/activities/caminantes-orilla-400.webp",
+      "assets/images/activities/caminantes-orilla-640.webp",
+      "assets/images/activities/caminantes-orilla-960.webp",
+      "assets/images/activities/caminantes-orilla-1280.webp"
+    ],
+    "categoria": "actividades",
+    "tipo": "referencia",
+    "alt": "Caminantes por la orilla de una laguna gris en un día nublado",
+    "tamano_original": "1180x600",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "descanso-rocas",
+    "original": "Caminatas7.jpeg",
+    "archivos": [
+      "assets/images/activities/descanso-rocas-400.webp",
+      "assets/images/activities/descanso-rocas-640.webp",
+      "assets/images/activities/descanso-rocas-960.webp"
+    ],
+    "categoria": "actividades",
+    "tipo": "referencia",
+    "alt": "Caminantes descansando al pie de dos grandes rocas redondeadas entre la niebla",
+    "tamano_original": "900x1200",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "id": "cima-rocosa",
+    "original": "Caminatas9.jpeg",
+    "archivos": [
+      "assets/images/activities/cima-rocosa-400.webp",
+      "assets/images/activities/cima-rocosa-640.webp",
+      "assets/images/activities/cima-rocosa-960.webp",
+      "assets/images/activities/cima-rocosa-1280.webp"
+    ],
+    "categoria": "actividades",
+    "tipo": "referencia",
+    "alt": "Tres caminantes subiendo una cima rocosa envuelta en niebla",
+    "tamano_original": "980x720",
+    "fuente": "Recibida del cliente sin autor ni licencia",
+    "licencia": "Por verificar antes de publicar"
+  },
+  {
+    "original": "balcon_1.jpeg",
+    "excluida": "Muestra montañas nevadas alpinas: daría una idea falsa del lugar."
+  },
+  {
+    "original": "balcon_2.jpeg",
+    "excluida": "Muestra un jacuzzi; no está confirmado que la cabaña lo tenga."
+  }
+]

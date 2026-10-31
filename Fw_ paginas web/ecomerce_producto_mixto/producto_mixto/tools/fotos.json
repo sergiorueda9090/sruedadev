@@ -1,0 +1,348 @@
+[
+ {
+  "slot": "hero/retrato",
+  "id": "CxsH6E9lqCo",
+  "dir": "hero",
+  "ratio": "4:5",
+  "anchos": [
+   640,
+   1000
+  ],
+  "foco": "0.5,0.35",
+  "alt": "Mujer de cabello largo y liso sosteniendo un ramo de flores blancas"
+ },
+ {
+  "slot": "lifestyle/habitos",
+  "id": "12Kb5ynfxso",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   900
+  ],
+  "foco": "0.55,0.5",
+  "alt": "Mano sosteniendo un vaso de agua a contraluz junto a una ventana"
+ },
+ {
+  "slot": "lifestyle/alimentacion",
+  "id": "Pqt1yIF-Fw0",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Bowl con vegetales, legumbres y aderezo sobre una mesa clara"
+ },
+ {
+  "slot": "lifestyle/descanso",
+  "id": "pl3sj3DigxM",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Cama con sábanas blancas y sombras de persiana por la luz de la mañana"
+ },
+ {
+  "slot": "lifestyle/movimiento",
+  "id": "sQzoEk9ZrRQ",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   900
+  ],
+  "foco": "0.45,0.5",
+  "alt": "Persona caminando por un sendero al amanecer"
+ },
+ {
+  "slot": "lifestyle/cuidado",
+  "id": "CxmQXVqzyIE",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Brazo con tres pequeñas porciones de crema sobre una tela clara"
+ },
+ {
+  "slot": "lifestyle/nosotros",
+  "id": "Eurc8pMvox8",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   900
+  ],
+  "foco": "0.5,0.55",
+  "alt": "Manos sosteniendo tierra con una pequeña planta"
+ },
+ {
+  "slot": "lifestyle/estiramiento",
+  "id": "gYkUIT90pzw",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   900
+  ],
+  "foco": "0.5,0.35",
+  "alt": "Mujer estirando los brazos al aire libre con el sol de la mañana"
+ },
+ {
+  "slot": "editorial/rutina",
+  "id": "ndzacdfVECo",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Cuaderno, café y bolígrafos sobre una mesa de mármol"
+ },
+ {
+  "slot": "editorial/suplemento",
+  "id": "CNs9I5uJ83s",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.45",
+  "alt": "Persona ordenando frascos de vidrio etiquetados en una despensa"
+ },
+ {
+  "slot": "editorial/etiquetas",
+  "id": "As7P6QTLuUY",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.6,0.55",
+  "alt": "Detalle de la etiqueta de un empaque de avena"
+ },
+ {
+  "slot": "editorial/alimentacion",
+  "id": "Zaiuy5dKeCk",
+  "ratio": "3:2",
+  "anchos": [
+   640,
+   1100
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Puesto de mercado con coliflor, brócoli, rábanos y cebollas"
+ },
+ {
+  "slot": "ingredientes/naranja",
+  "id": "KyAacW3enww",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Rodajas de naranja y hojas verdes sobre mármol blanco"
+ },
+ {
+  "slot": "ingredientes/semillas",
+  "id": "lW9yO4EJzLg",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Semillas de calabaza secas"
+ },
+ {
+  "slot": "ingredientes/algas",
+  "id": "gR_AgAcP7jI",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Algas verdes en la superficie del agua"
+ },
+ {
+  "slot": "ingredientes/arveja",
+  "id": "nKlTRipGuCs",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.4,0.5",
+  "alt": "Cuenco con arvejas verdes sobre madera blanca"
+ },
+ {
+  "slot": "ingredientes/avena",
+  "id": "Aep_jYkLMeQ",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.45,0.5",
+  "alt": "Bowl de avena con cacao sobre un paño de lino"
+ },
+ {
+  "slot": "ingredientes/frutos",
+  "id": "GnAca1lhcHg",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Frambuesas y arándanos en un cuenco blanco"
+ },
+ {
+  "slot": "ingredientes/manzanilla",
+  "id": "C1dunESLYBQ",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.5,0.35",
+  "alt": "Flores secas de manzanilla en un recipiente de cerámica"
+ },
+ {
+  "slot": "ingredientes/aloe",
+  "id": "4dtAkW1IEjA",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Hojas de aloe vera con gotas de agua"
+ },
+ {
+  "slot": "ingredientes/eucalipto",
+  "id": "LGcO26RPdC4",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Rama de eucalipto sobre fondo blanco"
+ },
+ {
+  "slot": "ingredientes/karite",
+  "id": "xhOUnxVVb6s",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.4,0.6",
+  "alt": "Frasco de manteca vegetal con cuchara junto a flores"
+ },
+ {
+  "slot": "ingredientes/manteca",
+  "id": "s75nlnkjYM0",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Textura cremosa de una manteca vegetal"
+ },
+ {
+  "slot": "ingredientes/cebolla",
+  "id": "9zwAAgXd7Ko",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.62,0.5",
+  "alt": "Cebollas rojas sobre un fondo lila claro"
+ },
+ {
+  "slot": "ingredientes/romero",
+  "id": "DI7nHnvUNsI",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Ramas de romero fresco"
+ },
+ {
+  "slot": "ingredientes/aceite",
+  "id": "0FHNXqyqgg4",
+  "ratio": "1:1",
+  "anchos": [
+   900
+  ],
+  "foco": "0.5,0.4",
+  "alt": "Frasco de vidrio ámbar sin etiqueta sobre un pedestal, con sombras de hojas"
+ },
+ {
+  "slot": "entornos/cocina",
+  "id": "qUcXRBthiLg",
+  "ratio": "4:5",
+  "anchos": [
+   1200
+  ],
+  "foco": "0.5,0.45",
+  "alt": "Cocina iluminada por el sol de la mañana"
+ },
+ {
+  "slot": "entornos/madera",
+  "id": "3tbtq3oCQ1s",
+  "ratio": "4:5",
+  "anchos": [
+   1200
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Superficie de madera gris en perspectiva"
+ },
+ {
+  "slot": "entornos/lino",
+  "id": "3GwOfh-VMgQ",
+  "ratio": "4:5",
+  "anchos": [
+   1200
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Tela de lino sobre una mesa de madera"
+ },
+ {
+  "slot": "entornos/bano",
+  "id": "6241mFnjQ0k",
+  "ratio": "4:5",
+  "anchos": [
+   1200
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Baño con lavamanos, repisa de madera y plantas"
+ },
+ {
+  "slot": "capilar/cepillado",
+  "id": "pfYYEJMQnek",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   900
+  ],
+  "foco": "0.5,0.4",
+  "alt": "Mujer sonriente cepillando su cabello largo y ondulado"
+ },
+ {
+  "slot": "capilar/frasco",
+  "id": "eOyiXLl-mqM",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Frasco blanco con dispensador sobre un fondo rosado con sombras de persiana"
+ },
+ {
+  "slot": "capilar/gotero",
+  "id": "80wCkpt-IKE",
+  "ratio": "4:5",
+  "anchos": [
+   560,
+   900
+  ],
+  "foco": "0.5,0.5",
+  "alt": "Mano aplicando unas gotas de aceite con un gotero"
+ }
+]

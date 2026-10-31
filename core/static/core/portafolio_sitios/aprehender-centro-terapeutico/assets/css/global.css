@@ -1,0 +1,172 @@
+/*
+ * Base común de las tres demos. Solo estructura y accesibilidad: el aspecto de
+ * cada marca vive en su propia hoja, que define estas variables:
+ *   --g-fondo, --g-texto, --g-suave (texto secundario), --g-acento (acciones),
+ *   --g-sobre-acento, --g-error, --g-focus, --g-linea
+ */
+
+html { scroll-behavior: smooth; scroll-padding-top: 5.5rem; }
+
+body {
+  background: var(--g-fondo);
+  color: var(--g-texto);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg { max-width: 100%; }
+img { height: auto; display: block; }
+
+a { color: inherit; }
+
+:focus-visible {
+  outline: 3px solid var(--g-focus);
+  outline-offset: 3px;
+}
+
+.saltar {
+  position: absolute;
+  left: 1rem;
+  top: -6rem;
+  z-index: 1100;
+  padding: .75rem 1.1rem;
+  background: var(--g-acento);
+  color: var(--g-sobre-acento);
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: .5rem;
+}
+.saltar:focus { top: 1rem; }
+
+/* Intro del hero: el <head> oculta [data-hero] solo si va a animarse (ver global.js). */
+.anim-hero [data-hero] { opacity: 0; }
+
+/* Modo publicación: fuera avisos de demo y datos sin configurar. */
+[data-modo="publicacion"] .solo-revision { display: none !important; }
+
+/* Aviso superior de demo (solo modo revisión). */
+.demo-aviso {
+  margin: 0;
+  padding: .55rem 1rem;
+  font-size: .8125rem;
+  line-height: 1.4;
+  text-align: center;
+  background: var(--g-aviso-fondo, rgba(0, 0, 0, .05));
+  color: var(--g-texto);
+}
+.demo-aviso a { font-weight: 600; }
+
+.pendiente { font-style: italic; color: var(--g-suave); text-decoration: none; }
+
+/* Botón de WhatsApp sin número configurado. */
+.wa-nota {
+  display: block;
+  margin-top: .15rem;
+  font-size: .72rem;
+  font-weight: 500;
+  letter-spacing: 0;
+  text-transform: none;
+  opacity: .85;
+}
+
+/* ---------- Formularios ---------- */
+
+.campo { margin-bottom: 1.1rem; }
+.campo-error {
+  margin: .4rem 0 0;
+  font-size: .875rem;
+  font-weight: 500;
+  color: var(--g-error);
+}
+.campo-error::before { content: "\F33A"; font-family: "bootstrap-icons"; margin-right: .35rem; vertical-align: -.1em; }
+[aria-invalid="true"] { border-color: var(--g-error) !important; box-shadow: 0 0 0 1px var(--g-error) !important; }
+
+.form-estado {
+  margin-top: 1.25rem;
+  padding: 1rem 1.15rem;
+  border-left: 4px solid var(--g-acento);
+  background: var(--g-estado-fondo, rgba(0, 0, 0, .04));
+  font-size: .9375rem;
+}
+.form-estado:focus { outline: none; }
+.form-estado:focus-visible { outline: 3px solid var(--g-focus); }
+.form-estado p { margin: 0 0 .5rem; }
+.form-estado p:last-child { margin-bottom: 0; }
+.form-estado--error { border-left-color: var(--g-error); }
+.form-estado__accion {
+  display: inline-block;
+  margin-top: .35rem;
+  font-weight: 600;
+  color: var(--g-acento);
+}
+
+.nota-datos {
+  font-size: .8125rem;
+  color: var(--g-suave);
+}
+
+/* ---------- Aviso de privacidad (pie) ---------- */
+
+.privacidad { margin-top: 2rem; }
+.privacidad summary { cursor: pointer; font-weight: 600; width: fit-content; }
+.privacidad__cuerpo {
+  max-width: 68ch;
+  margin-top: 1rem;
+  font-size: .875rem;
+  line-height: 1.6;
+}
+.privacidad__cuerpo p { margin-bottom: .75rem; }
+
+/* ---------- Visor de imágenes ---------- */
+
+.visor {
+  width: min(1100px, 100vw - 2rem);
+  max-height: calc(100dvh - 2rem);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  overflow: visible;
+}
+.visor::backdrop { background: rgba(20, 22, 20, .82); }
+.visor[open] { animation: visor-entra .28s ease-out; }
+@keyframes visor-entra { from { opacity: 0; transform: scale(.97); } to { opacity: 1; transform: none; } }
+.visor__figura { margin: 0; }
+.visor__figura img {
+  width: 100%;
+  max-height: calc(100dvh - 8rem);
+  object-fit: contain;
+  background: #1c1d1b;
+}
+.visor__figura figcaption { margin-top: .75rem; color: #fff; font-size: .9375rem; }
+.visor__contador { position: absolute; left: 0; bottom: -2.5rem; margin: 0; color: rgba(255, 255, 255, .8); font-size: .8125rem; }
+.visor__btn {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 2.9rem;
+  height: 2.9rem;
+  border: 0;
+  border-radius: 50%;
+  background: #fff;
+  color: #222;
+  font-size: 1.1rem;
+}
+.visor__btn:focus-visible { outline-color: #fff; }
+.visor__cerrar { top: -1rem; right: -1rem; }
+.visor__ant { top: 50%; left: -1.2rem; transform: translateY(-50%); }
+.visor__sig { top: 50%; right: -1.2rem; transform: translateY(-50%); }
+@media (max-width: 575.98px) {
+  .visor__cerrar { right: .5rem; top: -3.4rem; }
+  .visor__ant { left: .5rem; top: auto; bottom: -3.5rem; transform: none; }
+  .visor__sig { right: .5rem; top: auto; bottom: -3.5rem; transform: none; }
+  .visor__contador { left: 50%; transform: translateX(-50%); bottom: -2.6rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}

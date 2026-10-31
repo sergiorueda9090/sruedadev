@@ -1,0 +1,430 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Villa Jardín | Finca para bodas y celebraciones en Bucaramanga (demo)</title>
+  <meta name="description" content="Propuesta de sitio para Villa Jardín Recepción y Eventos: finca campestre para bodas, quinceañeros y celebraciones en el área metropolitana de Bucaramanga. Cotiza tu evento por teléfono.">
+  <meta name="theme-color" content="#3e4a2b">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:site_name" content="Villa Jardín Recepción y Eventos">
+  <meta property="og:title" content="Villa Jardín | El escenario para tus momentos inolvidables">
+  <meta property="og:description" content="Finca campestre para bodas y celebraciones en el área metropolitana de Bucaramanga. Propuesta de demostración.">
+  <meta property="og:image" content="assets/images/villa-jardin/hero-1600.webp">
+  <link rel="icon" href="assets/images/favicon-villa-jardin.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Manrope:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHSWRr1XeTyhezb4abCG4ccI5AkVDxqC+" crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/global.css?v=1">
+  <link rel="stylesheet" href="assets/css/villa-jardin.css?v=1">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" integrity="sha384-HOvlOYPIs/zjoIkWUGXkVmXsjr8GuZLV+Q+rcPwmJOVZVpvTSXQChiN4t9Euv9Vc" crossorigin="anonymous" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" integrity="sha384-P8VzCVnT9NBUkMrpcIZrJbA7EBjJvh/fJS6PmP+4nLIM284DtsImIv8D0fFjIkeh" crossorigin="anonymous" defer></script>
+  <script src="assets/js/config.js?v=1" defer></script>
+  <script src="assets/js/main.js?v=1" defer></script>
+  <script src="assets/js/villa-jardin.js?v=1" defer></script>
+</head>
+<body data-sitio="villaJardin">
+  <a class="saltar" href="#contenido">Saltar al contenido</a>
+
+  <p class="aviso-demo">Propuesta de demostración: no es el sitio oficial de Villa Jardín. Las fotografías son de referencia.</p>
+
+  <header class="cabecera" data-cabecera>
+    <nav class="navbar navbar-expand-lg" aria-label="Principal">
+      <div class="container-xl">
+        <a class="marca" href="#inicio">
+          <span class="marca-nombre">Villa Jardín</span>
+          <span class="marca-sub">Recepción y Eventos</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+          <i class="bi bi-list" aria-hidden="true"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="menu">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item"><a class="nav-link" href="#finca">La finca</a></li>
+            <li class="nav-item"><a class="nav-link" href="#celebraciones">Celebraciones</a></li>
+            <li class="nav-item"><a class="nav-link" href="#galeria">Galería</a></li>
+            <li class="nav-item"><a class="nav-link" href="#organizar">Cómo organizarlo</a></li>
+            <li class="nav-item"><a class="nav-link" href="#preguntas">Preguntas</a></li>
+          </ul>
+          <a class="btn-vj btn-vj--oliva ms-lg-4" href="#cotizar">Cotizar mi evento</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="contenido">
+    <!-- 1. Hero -->
+    <section class="hero" id="inicio" data-hero aria-labelledby="hero-titulo">
+      <div class="hero-foto">
+        <img src="assets/images/villa-jardin/hero-1600.webp"
+             srcset="assets/images/villa-jardin/hero-960.webp 960w, assets/images/villa-jardin/hero-1600.webp 1600w, assets/images/villa-jardin/hero-2257.webp 2257w"
+             sizes="100vw" width="1600" height="1067" fetchpriority="high"
+             alt="Casa de campo con escalinata entre jardines y sillas de madera dispuestas para una ceremonia al aire libre">
+      </div>
+      <div class="hero-marco" aria-hidden="true">
+        <span class="hero-linea hero-linea--sup"></span>
+        <span class="hero-linea hero-linea--inf"></span>
+        <span class="hero-linea hero-linea--izq"></span>
+        <span class="hero-linea hero-linea--der"></span>
+      </div>
+      <div class="hero-tarjeta">
+        <p class="hero-lugar">Finca campestre en el área de Bucaramanga</p>
+        <h1 id="hero-titulo" class="hero-titulo">El escenario perfecto para tus momentos inolvidables</h1>
+        <p class="hero-sub">Celebra el amor, la familia y los grandes momentos en un entorno campestre lleno de encanto.</p>
+        <div class="hero-acciones">
+          <a class="btn-vj btn-vj--marfil" href="#cotizar">Cotizar mi evento</a>
+          <a class="btn-vj btn-vj--linea" href="#galeria">Explorar nuestros espacios</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. Presentación -->
+    <section class="seccion finca" id="finca" aria-labelledby="finca-titulo">
+      <div class="container-xl">
+        <div class="row g-4 g-xl-5 align-items-center">
+          <div class="col-lg-5">
+            <figure class="finca-foto revelar">
+              <img src="assets/images/villa-jardin/concepto-640.webp"
+                   srcset="assets/images/villa-jardin/concepto-640.webp 640w, assets/images/villa-jardin/concepto-1100.webp 1100w"
+                   sizes="(min-width: 992px) 40vw, 100vw" width="640" height="800" loading="lazy"
+                   alt="Jardín amplio con árboles altos y, al fondo, sillas para una ceremonia">
+            </figure>
+          </div>
+          <div class="col-lg-6 offset-lg-1">
+            <h2 id="finca-titulo" class="titulo-vj">Un jardín abierto para reunir a los tuyos</h2>
+            <p class="entrada">Villa Jardín es una finca campestre para recepciones y eventos en el área metropolitana de Bucaramanga. Aire libre, verde alrededor y la luz de la tarde como parte de la celebración.</p>
+            <p>Aquí el día se piensa sin prisa: desde la llegada de los invitados hasta el último brindis. Cuéntanos qué celebras y cuántas personas esperas, y preparamos contigo una propuesta a la medida de tu fecha.</p>
+            <p class="nota-vj"><i class="bi bi-info-circle" aria-hidden="true"></i> Las fotos de esta propuesta son de referencia y se reemplazan por fotografías de la finca.</p>
+            <a class="enlace-vj" href="#organizar">Ver cómo se organiza un evento</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Tipos de eventos -->
+    <section class="seccion celebraciones" id="celebraciones" aria-labelledby="celebraciones-titulo">
+      <div class="container-xl">
+        <div class="cabeza-seccion">
+          <h2 id="celebraciones-titulo" class="titulo-vj">Celebraciones que recibimos</h2>
+          <p>Elige la tuya para ver una idea del ambiente y escribirnos sobre ella. <span class="etiqueta-pendiente" data-pendiente>Tipos de evento por confirmar con la finca</span></p>
+        </div>
+        <div class="indice" data-indice>
+          <ol class="indice-lista">
+            <li class="indice-item is-activo">
+              <a class="indice-enlace" href="#cotizar" data-evento="matrimonio">
+                <span class="indice-nombre">Matrimonios</span>
+                <span class="indice-texto">Ceremonia y recepción en el mismo lugar, sin traslados para los invitados.</span>
+              </a>
+              <figure class="indice-foto">
+                <img src="assets/images/villa-jardin/ev-matrimonio-560.webp" srcset="assets/images/villa-jardin/ev-matrimonio-560.webp 560w, assets/images/villa-jardin/ev-matrimonio-900.webp 900w" sizes="(min-width: 992px) 34vw, 90vw" width="560" height="700" loading="lazy" alt="Invitados sentados en sillas de madera durante una ceremonia bajo los árboles">
+              </figure>
+            </li>
+            <li class="indice-item">
+              <a class="indice-enlace" href="#cotizar" data-evento="quinceañero">
+                <span class="indice-nombre">Quinceañeros</span>
+                <span class="indice-texto">Una noche para ella, con espacio para el vals, la familia y los amigos.</span>
+              </a>
+              <figure class="indice-foto">
+                <img src="assets/images/villa-jardin/ev-quince-560.webp" srcset="assets/images/villa-jardin/ev-quince-560.webp 560w, assets/images/villa-jardin/ev-quince-900.webp 900w" sizes="(min-width: 992px) 34vw, 90vw" width="560" height="700" loading="lazy" alt="Mesa redonda con mantel marfil y centro de flores de colores sobre el césped">
+              </figure>
+            </li>
+            <li class="indice-item">
+              <a class="indice-enlace" href="#cotizar" data-evento="bautizo">
+                <span class="indice-nombre">Bautizos</span>
+                <span class="indice-texto">Un almuerzo tranquilo después de la ceremonia, al aire libre.</span>
+              </a>
+              <figure class="indice-foto">
+                <img src="assets/images/villa-jardin/ev-bautizo-560.webp" srcset="assets/images/villa-jardin/ev-bautizo-560.webp 560w, assets/images/villa-jardin/ev-bautizo-900.webp 900w" sizes="(min-width: 992px) 34vw, 90vw" width="560" height="700" loading="lazy" alt="Centro de mesa de rosas blancas entre velas y copas">
+              </figure>
+            </li>
+            <li class="indice-item">
+              <a class="indice-enlace" href="#cotizar" data-evento="cumpleaños">
+                <span class="indice-nombre">Cumpleaños</span>
+                <span class="indice-texto">De la reunión familiar a la fiesta grande: el formato lo eliges tú.</span>
+              </a>
+              <figure class="indice-foto">
+                <img src="assets/images/villa-jardin/ev-cumple-560.webp" srcset="assets/images/villa-jardin/ev-cumple-560.webp 560w, assets/images/villa-jardin/ev-cumple-900.webp 900w" sizes="(min-width: 992px) 34vw, 90vw" width="560" height="700" loading="lazy" alt="Mesa de postres con torta, velas y flores">
+              </figure>
+            </li>
+            <li class="indice-item">
+              <a class="indice-enlace" href="#cotizar" data-evento="evento empresarial">
+                <span class="indice-nombre">Eventos empresariales</span>
+                <span class="indice-texto">Cierres de año, celebraciones de equipo y encuentros fuera de la oficina.</span>
+              </a>
+              <figure class="indice-foto">
+                <img src="assets/images/villa-jardin/ev-empresa-560.webp" srcset="assets/images/villa-jardin/ev-empresa-560.webp 560w, assets/images/villa-jardin/ev-empresa-900.webp 900w" sizes="(min-width: 992px) 34vw, 90vw" width="560" height="700" loading="lazy" alt="Mesas con manteles blancos y candelabros en un jardín al atardecer">
+              </figure>
+            </li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. Galería -->
+    <section class="seccion galeria" id="galeria" aria-labelledby="galeria-titulo">
+      <div class="container-xl">
+        <div class="cabeza-seccion cabeza-seccion--centro">
+          <h2 id="galeria-titulo" class="titulo-vj">Ideas para imaginar el día</h2>
+          <p>Ambientes de referencia para conversar sobre estilo, flores y montaje. Las fotos reales de la finca reemplazarán esta selección.</p>
+        </div>
+        <div class="galeria-grilla">
+          <figure class="g g--pasillo revelar">
+            <img src="assets/images/villa-jardin/g-pasillo-600.webp" srcset="assets/images/villa-jardin/g-pasillo-600.webp 600w, assets/images/villa-jardin/g-pasillo-1000.webp 1000w" sizes="(min-width: 992px) 30vw, 50vw" width="600" height="900" loading="lazy" alt="Pasillo de ceremonia flanqueado por arreglos de rosas y sillas doradas">
+            <figcaption>El pasillo, con flores a cada lado</figcaption>
+          </figure>
+          <figure class="g g--ceremonia revelar">
+            <img src="assets/images/villa-jardin/g-ceremonia-800.webp" srcset="assets/images/villa-jardin/g-ceremonia-800.webp 800w, assets/images/villa-jardin/g-ceremonia-1300.webp 1300w" sizes="(min-width: 992px) 45vw, 100vw" width="800" height="533" loading="lazy" alt="Sillas blancas y grandes arreglos florales en un patio preparado para una ceremonia">
+            <figcaption>Ceremonia en blanco</figcaption>
+          </figure>
+          <figure class="g g--vertical revelar">
+            <img src="assets/images/villa-jardin/g-columna-600.webp" srcset="assets/images/villa-jardin/g-columna-600.webp 600w, assets/images/villa-jardin/g-columna-1000.webp 1000w" sizes="(min-width: 992px) 22vw, 50vw" width="600" height="900" loading="lazy" alt="Columna de flores blancas junto a una cerca de madera">
+            <figcaption>Flores que enmarcan la entrada</figcaption>
+          </figure>
+          <figure class="g g--vertical revelar">
+            <img src="assets/images/villa-jardin/g-ramo-600.webp" srcset="assets/images/villa-jardin/g-ramo-600.webp 600w, assets/images/villa-jardin/g-ramo-1000.webp 1000w" sizes="(min-width: 992px) 22vw, 50vw" width="600" height="900" loading="lazy" alt="Novia sosteniendo un ramo de flores pálidas junto al novio">
+            <figcaption>Un ramo en tonos suaves</figcaption>
+          </figure>
+          <figure class="g g--vertical revelar">
+            <img src="assets/images/villa-jardin/g-mesa-600.webp" srcset="assets/images/villa-jardin/g-mesa-600.webp 600w, assets/images/villa-jardin/g-mesa-1000.webp 1000w" sizes="(min-width: 992px) 22vw, 50vw" width="600" height="900" loading="lazy" alt="Mesa larga con camino de flores rosadas y sillas blancas">
+            <figcaption>Mesa imperial con camino floral</figcaption>
+          </figure>
+          <figure class="g g--anillos revelar">
+            <img src="assets/images/villa-jardin/g-anillos-600.webp" srcset="assets/images/villa-jardin/g-anillos-600.webp 600w, assets/images/villa-jardin/g-anillos-1000.webp 1000w" sizes="(min-width: 992px) 22vw, 50vw" width="600" height="600" loading="lazy" alt="Argollas de matrimonio sobre un ramo de peonías">
+            <figcaption>Los detalles pequeños</figcaption>
+          </figure>
+          <div class="g g--nota">
+            <p class="g-nota-texto">¿Ya te imaginas el día? Cuéntanos tu fecha y te ayudamos con el resto.</p>
+            <a class="btn-vj btn-vj--oliva" href="#cotizar">Cotizar mi evento</a>
+          </div>
+          <figure class="g g--cortinas revelar">
+            <img src="assets/images/villa-jardin/g-cortinas-800.webp" srcset="assets/images/villa-jardin/g-cortinas-800.webp 800w, assets/images/villa-jardin/g-cortinas-1300.webp 1300w" sizes="(min-width: 992px) 45vw, 100vw" width="800" height="533" loading="lazy" alt="Telas blancas y follaje colgando de una estructura en el jardín">
+            <figcaption>Telas y follaje para el altar</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Experiencias -->
+    <section class="seccion experiencias" id="experiencias" aria-labelledby="experiencias-titulo">
+      <div class="container-xl">
+        <div class="cabeza-seccion">
+          <h2 id="experiencias-titulo" class="titulo-vj">Tres momentos del mismo día</h2>
+          <p>Así puede transcurrir una celebración en el campo. El montaje final se define contigo en la propuesta.</p>
+        </div>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <article class="exp revelar">
+              <img src="assets/images/villa-jardin/exp-sillas-600.webp" srcset="assets/images/villa-jardin/exp-sillas-600.webp 600w, assets/images/villa-jardin/exp-sillas-1000.webp 1000w" sizes="(min-width: 768px) 32vw, 100vw" width="600" height="750" loading="lazy" alt="Dos sillas decoradas con flores sobre el césped">
+              <div class="exp-texto">
+                <p class="exp-hora">Por la tarde</p>
+                <h3>La ceremonia</h3>
+                <p>Al aire libre, con el verde como fondo y los invitados cerca.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="exp revelar">
+              <img src="assets/images/villa-jardin/exp-recepcion-600.webp" srcset="assets/images/villa-jardin/exp-recepcion-600.webp 600w, assets/images/villa-jardin/exp-recepcion-1000.webp 1000w" sizes="(min-width: 768px) 32vw, 100vw" width="600" height="750" loading="lazy" alt="Recepción al aire libre con mesas redondas, flores y sillas blancas">
+              <div class="exp-texto">
+                <p class="exp-hora">Al atardecer</p>
+                <h3>La recepción</h3>
+                <p>Mesas vestidas, brindis y la cena compartida con los tuyos.</p>
+              </div>
+            </article>
+          </div>
+          <div class="col-md-4">
+            <article class="exp revelar">
+              <img src="assets/images/villa-jardin/exp-pergola-600.webp" srcset="assets/images/villa-jardin/exp-pergola-600.webp 600w, assets/images/villa-jardin/exp-pergola-1000.webp 1000w" sizes="(min-width: 768px) 32vw, 100vw" width="600" height="750" loading="lazy" alt="Pérgola cubierta de follaje con esferas de vidrio colgantes sobre las mesas">
+              <div class="exp-texto">
+                <p class="exp-hora">De noche</p>
+                <h3>La fiesta</h3>
+                <p>Luces cálidas, música y la pista abierta hasta el final.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Cómo organizar tu evento -->
+    <section class="seccion organizar" id="organizar" aria-labelledby="organizar-titulo">
+      <div class="container-xl">
+        <div class="row g-4 g-xl-5">
+          <div class="col-lg-4">
+            <h2 id="organizar-titulo" class="titulo-vj">Cómo organizar tu evento</h2>
+            <p>Cuatro pasos, de la primera llamada a la fecha reservada.</p>
+            <a class="btn-vj btn-vj--marfil mt-3" href="#cotizar">Empezar con la consulta</a>
+          </div>
+          <div class="col-lg-7 offset-lg-1">
+            <ol class="pasos">
+              <li class="paso">
+                <h3>Consulta</h3>
+                <p>Nos cuentas qué celebras, la fecha que tienes en mente y cuántos invitados esperas.</p>
+              </li>
+              <li class="paso">
+                <h3>Propuesta</h3>
+                <p>Recibes una propuesta con lo que incluye el evento y las condiciones de reserva.</p>
+              </li>
+              <li class="paso">
+                <h3>Visita</h3>
+                <p>Conoces la finca en persona y resolvemos juntos los detalles del montaje.</p>
+              </li>
+              <li class="paso">
+                <h3>Confirmación</h3>
+                <p>Separas tu fecha según las condiciones acordadas y empezamos a preparar el día.</p>
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. Información práctica -->
+    <section class="seccion practica" id="informacion" aria-labelledby="informacion-titulo">
+      <div class="container-xl">
+        <h2 id="informacion-titulo" class="titulo-vj">Antes de visitarnos</h2>
+        <div class="practica-grilla">
+          <div class="practica-bloque">
+            <h3><i class="bi bi-geo-alt" aria-hidden="true"></i> Ubicación</h3>
+            <p data-cfg="zona">Área metropolitana de Bucaramanga, Santander</p>
+            <p><span class="dato-pendiente" data-cfg="direccion" data-pendiente>Dirección exacta por confirmar</span></p>
+            <a class="enlace-vj" data-cfg-enlace="mapaUrl" href="#" target="_blank" rel="noopener">Abrir en Google Maps</a>
+          </div>
+          <div class="practica-bloque">
+            <h3><i class="bi bi-calendar3" aria-hidden="true"></i> Disponibilidad</h3>
+            <p>Las fechas se reservan en orden de confirmación. Consulta la tuya antes de fijar invitaciones.</p>
+            <p><span class="dato-pendiente" data-cfg="horarioVisitas" data-pendiente>Horario de visitas por confirmar</span></p>
+          </div>
+          <div class="practica-bloque">
+            <h3><i class="bi bi-list-check" aria-hidden="true"></i> Servicios</h3>
+            <p>Lo que incluye cada evento lo confirma la finca en la propuesta. Al cotizar, pregunta por:</p>
+            <ul class="lista-vj">
+              <li>Mobiliario y mantelería</li>
+              <li>Banquete y bebidas</li>
+              <li>Decoración y flores</li>
+              <li>Música y sonido</li>
+            </ul>
+            <span class="etiqueta-pendiente" data-pendiente>Servicios por confirmar</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. Preguntas frecuentes -->
+    <section class="seccion preguntas" id="preguntas" aria-labelledby="preguntas-titulo">
+      <div class="container-xl">
+        <div class="row g-4 g-xl-5">
+          <div class="col-lg-4">
+            <h2 id="preguntas-titulo" class="titulo-vj">Preguntas frecuentes</h2>
+            <p>Si tu pregunta no está aquí, llámanos y la resolvemos.</p>
+          </div>
+          <div class="col-lg-8">
+            <div class="accordion acordeon-vj" id="faq">
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-1" aria-expanded="false" aria-controls="faq-1">¿Cuántos invitados puede recibir la finca?</button>
+                </h3>
+                <div id="faq-1" class="accordion-collapse collapse" data-bs-parent="#faq">
+                  <div class="accordion-body">Depende del tipo de montaje (ceremonia, banquete o cóctel). La finca confirma la capacidad para tu formato cuando cotizas.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-2" aria-expanded="false" aria-controls="faq-2">¿Con cuánta anticipación debo reservar?</button>
+                </h3>
+                <div id="faq-2" class="accordion-collapse collapse" data-bs-parent="#faq">
+                  <div class="accordion-body">Mientras antes consultes, más fechas tendrás para elegir. Te recomendamos preguntar por tu fecha antes de enviar invitaciones.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-3" aria-expanded="false" aria-controls="faq-3">¿Puedo traer mis propios proveedores?</button>
+                </h3>
+                <div id="faq-3" class="accordion-collapse collapse" data-bs-parent="#faq">
+                  <div class="accordion-body">Las condiciones sobre banquete, decoración y música externos se acuerdan en la propuesta. Coméntalo en tu primera consulta.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-4" aria-expanded="false" aria-controls="faq-4">¿Puedo visitar la finca antes de reservar?</button>
+                </h3>
+                <div id="faq-4" class="accordion-collapse collapse" data-bs-parent="#faq">
+                  <div class="accordion-body">Sí, la visita es uno de los pasos para organizar tu evento. Llama para acordar día y hora.</div>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <h3 class="accordion-header">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq-5" aria-expanded="false" aria-controls="faq-5">¿Qué pasa si llueve el día del evento?</button>
+                </h3>
+                <div id="faq-5" class="accordion-collapse collapse" data-bs-parent="#faq">
+                  <div class="accordion-body">Pregunta en la visita por las alternativas de cubierta para tu montaje. Es un punto que conviene dejar definido en la propuesta.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. CTA final -->
+    <section class="cierre" id="cotizar" aria-labelledby="cotizar-titulo">
+      <div class="cierre-foto">
+        <img src="assets/images/villa-jardin/cierre-1600.webp" srcset="assets/images/villa-jardin/cierre-960.webp 960w, assets/images/villa-jardin/cierre-1600.webp 1600w, assets/images/villa-jardin/cierre-2400.webp 2400w" sizes="100vw" width="1600" height="1067" loading="lazy" alt="Arco blanco y filas de sillas sobre el césped de un jardín">
+      </div>
+      <div class="cierre-tarjeta revelar">
+        <h2 id="cotizar-titulo" class="titulo-vj">Cuéntanos qué quieres celebrar</h2>
+        <p>Llámanos con tu fecha tentativa y el número de invitados. Te respondemos con disponibilidad y una propuesta para tu evento.</p>
+        <div class="cierre-acciones">
+          <a class="btn-vj btn-vj--oliva" data-wa href="#cotizar"><i class="bi bi-whatsapp" aria-hidden="true"></i> Cotizar por WhatsApp</a>
+          <a class="btn-vj btn-vj--oliva" data-tel="1" href="tel:+573203493120"><i class="bi bi-phone" aria-hidden="true"></i> Llamar al <span data-tel-texto="1">320 349 3120</span></a>
+          <a class="btn-vj btn-vj--linea-oscura" data-tel="0" href="tel:+576076463452"><i class="bi bi-telephone" aria-hidden="true"></i> Fijo <span data-tel-texto="0">607 646 3452</span></a>
+        </div>
+        <p class="cierre-nota" data-wa-alterno data-pendiente><span class="etiqueta-pendiente">WhatsApp por confirmar</span> Cuando la finca confirme qué línea usa WhatsApp, se activa el botón con un mensaje listo para enviar.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- 10. Footer -->
+  <footer class="pie">
+    <div class="container-xl">
+      <div class="row g-4 g-xl-5">
+        <div class="col-lg-5">
+          <p class="pie-marca">Villa Jardín</p>
+          <p>Recepción y Eventos. Finca campestre para bodas y celebraciones.</p>
+          <p data-cfg="zona">Área metropolitana de Bucaramanga, Santander</p>
+        </div>
+        <div class="col-sm-6 col-lg-3">
+          <h2 class="pie-titulo">Contacto</h2>
+          <ul class="pie-lista">
+            <li><a data-tel="1" href="tel:+573203493120"><i class="bi bi-phone" aria-hidden="true"></i> <span data-tel-texto="1">320 349 3120</span></a></li>
+            <li><a data-tel="0" href="tel:+576076463452"><i class="bi bi-telephone" aria-hidden="true"></i> <span data-tel-texto="0">607 646 3452</span></a></li>
+            <li><a data-wa href="#cotizar"><i class="bi bi-whatsapp" aria-hidden="true"></i> WhatsApp</a></li>
+            <li data-pendiente><span class="dato-pendiente" data-cfg="direccion">Dirección por confirmar</span></li>
+          </ul>
+        </div>
+        <div class="col-sm-6 col-lg-3 offset-lg-1">
+          <h2 class="pie-titulo">En esta página</h2>
+          <ul class="pie-lista">
+            <li><a href="#celebraciones">Celebraciones</a></li>
+            <li><a href="#galeria">Galería</a></li>
+            <li><a href="#organizar">Cómo organizarlo</a></li>
+            <li><a href="#preguntas">Preguntas frecuentes</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="pie-legal">
+        <p>Propuesta de diseño independiente; no es el sitio oficial del negocio. Fotografías de referencia de <a href="https://unsplash.com/license" target="_blank" rel="noopener">Unsplash</a>, no corresponden a la finca. &copy; <span data-anio>2026</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <a class="flotante flotante--vj" data-flotante data-wa href="#cotizar" aria-label="Cotizar por WhatsApp"><i class="bi bi-whatsapp" aria-hidden="true"></i><span class="flotante-texto">Cotizar por WhatsApp</span></a>
+  <a class="flotante flotante--vj" data-flotante data-wa-alterno hidden data-tel="1" href="tel:+573203493120" aria-label="Llamar para cotizar"><i class="bi bi-telephone" aria-hidden="true"></i><span class="flotante-texto">Llamar para cotizar</span></a>
+</body>
+</html>

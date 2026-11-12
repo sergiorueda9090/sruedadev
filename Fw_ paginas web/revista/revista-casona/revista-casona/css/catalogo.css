@@ -1,0 +1,377 @@
+/* =========================================================================
+   CATÁLOGO DIGITAL — HOJA DE ESTILOS
+   1. Tokens (paleta, tipografía, medidas)
+   2. Base y lienzo de pantalla
+   3. Página A4 (estructura, encabezado, pie)
+   4. Portada
+   5. Presentación
+   6. Índice
+   7. Destacados
+   8. Encabezado de categoría
+   9. Tarjeta de producto
+   10. Contacto y cierre
+   11. Estados (pendiente, no disponible, modo prueba)
+   12. Impresión / PDF
+   ========================================================================= */
+
+/* 1. TOKENS --------------------------------------------------------------- */
+:root {
+  --c-principal: #7A2E1F;
+  --c-secundario: #E9B44C;
+  --c-acento: #3E6B48;
+  --c-fondo: #FBF6EE;
+  --c-texto: #2B2118;
+
+  --c-texto-suave: #6B5B4D;
+  --c-linea: #E4D7C3;
+  --c-tarjeta: #FFFFFF;
+  --c-pendiente: #B42318;
+
+  --f-display: "Fraunces", Georgia, serif;
+  --f-texto: "Work Sans", Arial, sans-serif;
+
+  --pag-ancho: 210mm;
+  --pag-alto: 297mm;
+  --margen-x: 14mm;
+  --alto-header: 16mm;
+  --alto-footer: 13mm;
+}
+
+/* 2. BASE ----------------------------------------------------------------- */
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+body {
+  margin: 0;
+  background: #8E8478;
+  color: var(--c-texto);
+  font-family: var(--f-texto);
+  font-size: 9.5pt;
+  line-height: 1.45;
+}
+
+#catalogo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10mm;
+  padding: 10mm 0;
+}
+
+h1, h2, h3, h4 { font-family: var(--f-display); color: var(--c-principal); margin: 0; }
+
+/* 3. PÁGINA A4 ------------------------------------------------------------ */
+.pagina {
+  position: relative;
+  width: var(--pag-ancho);
+  height: var(--pag-alto);
+  overflow: hidden;
+  background: var(--c-fondo);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .25);
+  display: flex;
+  flex-direction: column;
+  page-break-after: always;
+  break-after: page;
+}
+
+.pagina__header {
+  height: var(--alto-header);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--margen-x);
+  border-bottom: 1px solid var(--c-linea);
+}
+.pagina__header .marca { display: flex; align-items: center; gap: 3mm; }
+.pagina__header img { height: 9mm; width: 9mm; object-fit: contain; }
+.pagina__header .marca span {
+  font-family: var(--f-display); font-weight: 600; font-size: 11pt; color: var(--c-principal);
+}
+.pagina__header .seccion {
+  font-size: 7.5pt; letter-spacing: .18em; text-transform: uppercase; color: var(--c-texto-suave);
+}
+
+.pagina__cuerpo {
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 7mm var(--margen-x) 5mm;
+  overflow: hidden;
+}
+
+.pagina__footer {
+  height: var(--alto-footer);
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--margen-x);
+  background: var(--c-principal);
+  color: #fff;
+  font-size: 8pt;
+}
+.pagina__footer i { color: var(--c-secundario); margin-right: 1.5mm; }
+.pagina__footer .num { font-family: var(--f-display); font-weight: 600; font-size: 10pt; }
+
+/* 4. PORTADA -------------------------------------------------------------- */
+.portada {
+  background:
+    radial-gradient(circle at 85% 12%, rgba(233, 180, 76, .35) 0 38mm, transparent 38.2mm),
+    radial-gradient(circle at 8% 92%, rgba(62, 107, 72, .30) 0 45mm, transparent 45.2mm),
+    var(--c-principal);
+  color: var(--c-fondo);
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20mm;
+}
+.portada__logo {
+  width: 62mm; height: 62mm; object-fit: contain;
+  background: var(--c-fondo); border-radius: 50%; padding: 3mm;
+  margin-bottom: 12mm;
+}
+.portada__kicker {
+  font-size: 9pt; letter-spacing: .4em; text-transform: uppercase; color: var(--c-secundario);
+}
+.portada h1 {
+  color: var(--c-fondo); font-size: 40pt; font-weight: 800; line-height: 1.05; margin: 5mm 0;
+}
+.portada__eslogan { font-family: var(--f-display); font-style: italic; font-size: 15pt; }
+.portada__linea { width: 30mm; height: 1mm; background: var(--c-secundario); margin: 10mm auto; border: 0; }
+.portada__datos { font-size: 9.5pt; opacity: .9; }
+.portada__datos i { color: var(--c-secundario); margin: 0 1.5mm 0 4mm; }
+
+/* 5. PRESENTACIÓN --------------------------------------------------------- */
+.presentacion__titulo { font-size: 26pt; font-weight: 800; margin-bottom: 6mm; }
+.presentacion__texto { font-size: 12pt; line-height: 1.6; max-width: 150mm; }
+.ficha {
+  margin-top: 12mm;
+  border-top: 2px solid var(--c-principal);
+}
+.ficha__fila {
+  display: grid; grid-template-columns: 45mm 1fr; gap: 4mm;
+  padding: 4mm 0; border-bottom: 1px solid var(--c-linea);
+}
+.ficha__fila dt {
+  font-size: 7.5pt; letter-spacing: .15em; text-transform: uppercase; color: var(--c-texto-suave); font-weight: 600;
+}
+.ficha__fila dd { margin: 0; font-size: 10.5pt; }
+.presentacion__cita {
+  margin-top: 14mm; padding: 8mm 10mm;
+  background: var(--c-acento); color: #fff; border-radius: 3mm;
+  font-family: var(--f-display); font-size: 14pt; font-style: italic;
+}
+
+/* 6. ÍNDICE --------------------------------------------------------------- */
+.indice__titulo { font-size: 26pt; font-weight: 800; margin-bottom: 10mm; }
+.indice__item {
+  display: flex; align-items: center; gap: 6mm;
+  padding: 6mm 0; border-bottom: 1px solid var(--c-linea);
+}
+.indice__icono {
+  flex: 0 0 14mm; height: 14mm; border-radius: 50%;
+  display: grid; place-items: center;
+  background: var(--c-secundario); color: var(--c-principal); font-size: 16pt;
+}
+.indice__nombre { font-family: var(--f-display); font-size: 17pt; font-weight: 600; color: var(--c-principal); }
+.indice__intro { color: var(--c-texto-suave); font-size: 9.5pt; }
+.indice__cuenta { font-size: 8pt; color: var(--c-texto-suave); }
+.indice__pagina {
+  margin-left: auto; font-family: var(--f-display); font-size: 20pt; font-weight: 800; color: var(--c-acento);
+}
+
+/* 7. DESTACADOS ----------------------------------------------------------- */
+.destacados__titulo { font-size: 26pt; font-weight: 800; margin-bottom: 2mm; }
+.destacados__sub { color: var(--c-texto-suave); margin-bottom: 7mm; }
+.destacado {
+  display: grid; grid-template-columns: 78mm 1fr; gap: 7mm;
+  background: var(--c-tarjeta); border-radius: 3mm; overflow: hidden;
+  margin-bottom: 6mm; border: 1px solid var(--c-linea);
+  break-inside: avoid; page-break-inside: avoid;
+}
+.destacado__foto { aspect-ratio: 4 / 3; width: 100%; height: 100%; object-fit: cover; display: block; }
+.destacado__info { padding: 5mm 6mm 5mm 0; display: flex; flex-direction: column; }
+.destacado__info h3 { font-size: 16pt; margin: 1.5mm 0 2mm; }
+.destacado__info p { margin: 0 0 2mm; }
+.destacado__info .precio { margin-top: auto; font-size: 18pt; }
+
+/* 8. ENCABEZADO DE CATEGORÍA ---------------------------------------------- */
+.cat-header {
+  display: flex; align-items: flex-end; gap: 5mm;
+  padding-bottom: 4mm; margin-bottom: 6mm;
+  border-bottom: 2px solid var(--c-principal);
+}
+.cat-header i { font-size: 22pt; color: var(--c-acento); line-height: 1; }
+.cat-header h2 { font-size: 24pt; font-weight: 800; line-height: 1; }
+.cat-header p { margin: 0 0 0 auto; color: var(--c-texto-suave); font-size: 9pt; max-width: 70mm; text-align: right; }
+.cat-header--cont h2 { font-size: 14pt; }
+.cat-header--cont { margin-bottom: 5mm; padding-bottom: 2.5mm; }
+
+/* 9. TARJETA DE PRODUCTO -------------------------------------------------- */
+.grilla {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6mm;
+  align-items: start;
+}
+.producto {
+  background: var(--c-tarjeta);
+  border: 1px solid var(--c-linea);
+  border-radius: 3mm;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  break-inside: avoid; page-break-inside: avoid;
+}
+.producto__foto-wrap { position: relative; aspect-ratio: 16 / 10; background: #F1E6D4; }
+.producto__foto { width: 100%; height: 100%; object-fit: cover; display: block; }
+.producto__ref {
+  position: absolute; top: 3mm; left: 3mm;
+  background: rgba(43, 33, 24, .82); color: #fff;
+  font-size: 7pt; letter-spacing: .12em; padding: .8mm 2.2mm; border-radius: 1mm;
+}
+.producto__cuerpo { padding: 4mm 4.5mm 4.5mm; display: flex; flex-direction: column; gap: 1.8mm; }
+.producto__nombre { font-size: 13pt; font-weight: 600; line-height: 1.15; }
+.producto__desc { margin: 0; }
+.producto__ingr { margin: 0; font-size: 8pt; color: var(--c-texto-suave); }
+.producto__ingr strong { color: var(--c-acento); font-weight: 600; }
+.producto__pie { display: flex; align-items: center; justify-content: space-between; margin-top: 1mm; }
+.producto__porcion { font-size: 8pt; color: var(--c-texto-suave); }
+
+.precio {
+  font-family: var(--f-display); font-weight: 800; font-size: 15pt; color: var(--c-principal);
+  white-space: nowrap;
+}
+.precio small { font-family: var(--f-texto); font-weight: 500; font-size: 7pt; color: var(--c-texto-suave); margin-left: 1mm; }
+
+.etiqueta {
+  display: inline-block; font-size: 7pt; letter-spacing: .14em; text-transform: uppercase; font-weight: 600;
+  color: var(--c-acento);
+}
+.badge-destacado {
+  position: absolute; top: 3mm; right: 3mm;
+  background: var(--c-secundario); color: var(--c-principal);
+  font-size: 7pt; font-weight: 600; padding: .8mm 2.2mm; border-radius: 1mm;
+}
+
+/* 10. CONTACTO Y CIERRE --------------------------------------------------- */
+.contacto__titulo { font-size: 26pt; font-weight: 800; margin-bottom: 10mm; }
+.contacto__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 6mm; }
+.contacto__item {
+  background: var(--c-tarjeta); border: 1px solid var(--c-linea); border-radius: 3mm;
+  padding: 7mm; display: flex; gap: 5mm; align-items: flex-start;
+}
+.contacto__item > i {
+  flex: 0 0 12mm; height: 12mm; border-radius: 50%; display: grid; place-items: center;
+  background: var(--c-principal); color: var(--c-secundario); font-size: 14pt;
+}
+.contacto__item dt {
+  font-size: 7.5pt; letter-spacing: .15em; text-transform: uppercase; color: var(--c-texto-suave); font-weight: 600;
+}
+.contacto__item dd { margin: 1mm 0 0; font-size: 11pt; word-break: break-word; }
+
+.cierre {
+  background: var(--c-acento); color: #fff;
+  justify-content: center; align-items: center; text-align: center; padding: 25mm;
+}
+.cierre h2 { color: #fff; font-size: 34pt; font-weight: 800; line-height: 1.1; margin: 8mm 0 6mm; }
+.cierre p { font-size: 12pt; max-width: 130mm; margin: 0 auto; }
+.cierre__logo {
+  width: 36mm; height: 36mm; object-fit: contain; background: var(--c-fondo); border-radius: 50%; padding: 2mm;
+}
+.cierre__boton {
+  display: inline-flex; align-items: center; gap: 3mm; margin-top: 12mm;
+  background: var(--c-secundario); color: var(--c-principal); text-decoration: none;
+  font-family: var(--f-display); font-size: 18pt; font-weight: 800;
+  padding: 5mm 10mm; border-radius: 20mm;
+}
+.cierre__datos { margin-top: 10mm; font-size: 10pt; opacity: .9; }
+
+/* 11. ESTADOS ------------------------------------------------------------- */
+.pendiente {
+  display: inline-block;
+  color: var(--c-pendiente);
+  border: 1px dashed var(--c-pendiente);
+  background: #FEF3F2;
+  font-family: var(--f-texto); font-size: 7.5pt; font-weight: 600; letter-spacing: .08em;
+  text-transform: uppercase; padding: .5mm 2mm; border-radius: 1mm;
+}
+.no-disponible { position: absolute; inset: 0; display: grid; place-items: center; background: rgba(43, 33, 24, .55); }
+.no-disponible span {
+  background: #fff; color: var(--c-texto); font-weight: 600; font-size: 8pt; letter-spacing: .14em;
+  text-transform: uppercase; padding: 1.5mm 4mm; border-radius: 1mm;
+}
+
+.cinta-prueba {
+  position: absolute; z-index: 10; top: 0; left: 50%; transform: translateX(-50%);
+  background: var(--c-pendiente); color: #fff;
+  font-size: 7pt; font-weight: 600; letter-spacing: .2em; padding: .8mm 5mm;
+  border-radius: 0 0 1.5mm 1.5mm;
+}
+
+/* 12. IMPRESIÓN / PDF ----------------------------------------------------- */
+@page { size: A4 portrait; margin: 0; }
+
+@media print {
+  body { background: none; }
+  #catalogo { display: block; padding: 0; gap: 0; }
+  .pagina { box-shadow: none; margin: 0; }
+  .pagina:last-child { page-break-after: auto; break-after: auto; }
+  .producto, .destacado, .contacto__item, .indice__item { page-break-inside: avoid; break-inside: avoid; }
+  a { color: inherit; text-decoration: none; }
+}
+
+/* 13. MODO PLIEGOS (index.html?pliegos) — PDF tipo revista abierta -------- */
+@page pliego  { size: 420mm 297mm; margin: 0; }
+@page sencilla { size: A4 portrait; margin: 0; }
+
+.modo-pliegos #catalogo { gap: 10mm; }
+.pliego {
+  page: pliego;
+  position: relative;
+  display: flex;
+  width: 420mm; height: 297mm;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, .25);
+  break-after: page; page-break-after: always;
+}
+.pliego--sola { page: sencilla; width: 210mm; }
+.pliego .pagina { box-shadow: none; break-after: auto; page-break-after: auto; }
+/* Sombra del lomo en el centro del pliego */
+.pliego:not(.pliego--sola)::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: calc(50% - 12mm); width: 24mm;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,.16) 48%, rgba(0,0,0,.22) 50%, rgba(0,0,0,.16) 52%, transparent);
+  pointer-events: none; z-index: 30;
+}
+@media print {
+  .pliego { box-shadow: none; }
+  .pliego:last-child { break-after: auto; page-break-after: auto; }
+}
+
+/* 14. PDF INTERACTIVO: enlaces, botón pedir, QR --------------------------- */
+a.lnk, a.indice__item { color: inherit; text-decoration: none; }
+a.indice__item:hover .indice__nombre { text-decoration: underline; }
+.ficha a.lnk { color: var(--c-acento); }
+.indice__ayuda { margin: 6mm 0 0; font-size: 8.5pt; color: var(--c-texto-suave); }
+
+.btn-pedir {
+  display: inline-flex; align-items: center; gap: 1mm;
+  background: #25A244; color: #fff; text-decoration: none;
+  font-size: 7.5pt; font-weight: 600; letter-spacing: .02em;
+  padding: 1.2mm 2.6mm; border-radius: 10mm; white-space: nowrap;
+}
+.btn-pedir:hover { background: #1E8738; color: #fff; }
+.btn-pedir i { font-size: 8.5pt; }
+
+.contacto__item { color: inherit; text-decoration: none; position: relative; }
+.contacto__accion {
+  display: inline-block; margin-top: 2mm; font-size: 7.5pt; font-weight: 600;
+  letter-spacing: .08em; text-transform: uppercase; color: var(--c-acento);
+}
+
+.cierre__boton:hover { color: var(--c-principal); filter: brightness(1.05); }
+.cierre__qr {
+  display: flex; align-items: center; gap: 5mm; margin-top: 10mm;
+  background: #fff; color: var(--c-texto); border-radius: 3mm; padding: 4mm 6mm 4mm 4mm;
+  text-align: left; font-size: 9.5pt; font-weight: 600; line-height: 1.3;
+}
+.cierre__qr-img { width: 28mm; height: 28mm; }
+.cierre__qr-img svg { width: 100%; height: 100%; display: block; }
+.cierre__datos a.lnk:hover { text-decoration: underline; }

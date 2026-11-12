@@ -27,6 +27,26 @@
     </div>
 </section>
 
+{% if categoria.beneficios %}
+<section class="seccion seccion-detalle">
+    <div class="contenedor">
+        <div class="contenido-servicio">
+            {% if categoria.para_quien %}
+            <h2>¿Para quién es?</h2>
+            <p>{{ categoria.para_quien }}</p>
+            {% endif %}
+
+            <h2>Qué se puede hacer con ellos</h2>
+            <ul class="lista-entregables">
+                {% for item in categoria.beneficios %}
+                <li>{{ item }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endif %}
+
 <section class="seccion">
     <div class="contenedor">
         <div class="rejilla rejilla-3">

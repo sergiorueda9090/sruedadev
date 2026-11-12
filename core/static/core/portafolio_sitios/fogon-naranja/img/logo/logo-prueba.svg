@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- LOGO DE PRUEBA — reemplazar por el logo oficial del cliente -->
+  <circle cx="200" cy="200" r="192" fill="#FFF5D2"/>
+  <circle cx="200" cy="200" r="176" fill="none" stroke="#E36D27" stroke-width="6"/>
+  <circle cx="200" cy="200" r="164" fill="none" stroke="#832E09" stroke-width="2" stroke-dasharray="6 7"/>
+  <path d="M200 70c18 34 54 52 54 98 0 34-24 58-54 58s-54-24-54-58c0-22 12-38 22-50 2 18 10 28 20 32-6-30 2-56 12-80z" fill="#E36D27"/>
+  <path d="M200 140c10 18 26 28 26 50 0 16-12 28-26 28s-26-12-26-28c0-10 6-18 10-22 2 8 6 12 10 14-2-14 2-28 6-42z" fill="#F4B740"/>
+  <text x="200" y="278" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#832E09" letter-spacing="2">FOGÓN</text>
+  <text x="200" y="312" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="#E36D27" letter-spacing="8">NARANJA</text>
+  <text x="200" y="342" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#832E09" letter-spacing="2">LOGO DE PRUEBA</text>
+</svg>

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- LOGO DE PRUEBA — reemplazar por el logo oficial del cliente -->
+  <circle cx="200" cy="200" r="192" fill="#FCEBD4"/>
+  <circle cx="200" cy="200" r="176" fill="none" stroke="#8A4A17" stroke-width="5"/>
+  <circle cx="200" cy="200" r="166" fill="none" stroke="#F58F19" stroke-width="2"/>
+  <!-- tenedor y cuchillo -->
+  <g fill="#F58F19">
+    <rect x="160" y="80" width="8" height="120" rx="4"/>
+    <rect x="146" y="80" width="5" height="44" rx="2.5"/><rect x="177" y="80" width="5" height="44" rx="2.5"/>
+    <path d="M146 120 h36 c0 16 -8 24 -18 24 s-18 -8 -18 -24z"/>
+    <path d="M232 80 c18 10 20 50 6 74 l-2 46 h-8 v-120z"/>
+  </g>
+  <text x="200" y="262" text-anchor="middle" font-family="Georgia, 'Times New Roman', serif" font-size="50" font-style="italic" font-weight="700" fill="#8A4A17">Mesa Dorada</text>
+  <text x="200" y="296" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#F58F19" letter-spacing="5">BISTRÓ</text>
+  <text x="200" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#8A4A17" letter-spacing="2">LOGO DE PRUEBA</text>
+</svg>

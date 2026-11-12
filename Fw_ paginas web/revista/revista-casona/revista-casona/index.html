@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo — La Casona del Sabor</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,800&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap 5.3 + Bootstrap Icons (copias locales para exportación PDF sin red) -->
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+
+  <!-- Estilos del catálogo -->
+  <link rel="stylesheet" href="css/catalogo.css">
+</head>
+<body>
+  <!-- Las páginas A4 se generan desde data/productos.js con js/catalogo.js -->
+  <main id="catalogo" aria-label="Catálogo"></main>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="vendor/qrcode/qrcode.js"></script>
+  <script src="data/productos.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+</html>

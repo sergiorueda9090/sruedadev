@@ -1,0 +1,221 @@
+/* =========================================================================
+   MESA DORADA — HOJA DE ESTILOS (PDF + revista)
+   1. Tokens   2. Base   3. Página A4 y fondos   4. Títulos y divisor
+   5. Diseño "lista" (fotos redondas con pestaña)   6. Diseño "arcos"
+   7. Portada   8. Bienvenida   9. Índice   10. Cierre   11. Botones y estados
+   12. Impresión
+   ========================================================================= */
+
+/* 1. TOKENS --------------------------------------------------------------- */
+:root {
+  --naranja: #F58F19;
+  --naranja-osc: #D9760A;
+  --cafe: #8A4A17;
+  --cafe-claro: #B07A4C;
+  --gris: #E8E8E8;
+  --crema: #FCEBD4;
+  --texto: #333333;
+  --texto-suave: #666666;
+  --whatsapp: #25D366;
+  --pendiente: #B42318;
+
+  --f-titulo: "Playfair Display", Georgia, serif;
+  --f-texto: "Lato", Arial, sans-serif;
+
+  /* nombres que usa el visor compartido (css/revista.css) */
+  --c-principal: var(--cafe);
+  --c-secundario: var(--crema);
+  --c-fondo: var(--crema);
+
+  --margen-x: 15mm;
+}
+
+/* 2. BASE ----------------------------------------------------------------- */
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: #C9781C; color: var(--texto); font-family: var(--f-texto); font-size: 10pt; line-height: 1.45; }
+#catalogo { display: flex; flex-direction: column; align-items: center; gap: 10mm; padding: 10mm 0; }
+h1, h2, h3, h4 { margin: 0; font-weight: 400; }
+a { color: inherit; text-decoration: none; }
+
+/* 3. PÁGINA A4 Y FONDOS --------------------------------------------------- */
+.pagina {
+  position: relative; width: 210mm; height: 297mm; overflow: hidden;
+  display: flex; flex-direction: column;
+  box-shadow: 0 4px 24px rgba(0,0,0,.3);
+  break-after: page; page-break-after: always;
+  background: var(--crema);
+}
+.fondo-gris { background: linear-gradient(180deg, #F0F0F0 0%, var(--gris) 100%); }
+.fondo-crema { background: linear-gradient(180deg, #FFF3E2 0%, var(--crema) 100%); }
+/* sombra del lomo: página izquierda → sombra a la derecha; derecha → a la izquierda */
+.pagina::after { content: ""; position: absolute; top: 0; bottom: 0; width: 14mm; pointer-events: none; z-index: 20; }
+.lado-izq::after { right: 0; background: linear-gradient(to left, rgba(0,0,0,.13), transparent); }
+.lado-der::after { left: 0; background: linear-gradient(to right, rgba(0,0,0,.10), transparent); }
+
+.pagina__header { flex: 0 0 auto; height: 14mm; display: flex; align-items: center; justify-content: space-between; padding: 0 var(--margen-x); }
+.pagina__header .marca { display: flex; align-items: center; gap: 2.5mm; }
+.pagina__header img { width: 9mm; height: 9mm; }
+.pagina__header .marca span { font-family: var(--f-titulo); font-style: italic; font-weight: 700; font-size: 12pt; color: var(--cafe); }
+.pagina__header .seccion { font-size: 7.5pt; font-weight: 700; letter-spacing: .22em; text-transform: uppercase; color: var(--texto-suave); }
+.pagina__cuerpo { flex: 1 1 auto; min-height: 0; overflow: hidden; padding: 4mm var(--margen-x) 2mm; }
+.pagina__footer { flex: 0 0 auto; height: 13mm; display: flex; align-items: center; justify-content: space-between; gap: 4mm; padding: 0 var(--margen-x); font-size: 9pt; color: var(--texto-suave); }
+.pagina__footer .linea { flex: 1; height: .3mm; background: linear-gradient(90deg, transparent, var(--naranja), transparent); }
+.pagina__footer i { color: var(--whatsapp); font-size: 11pt; margin-right: 1.2mm; }
+.pagina__footer .num { width: 8mm; height: 8mm; border-radius: 50%; display: grid; place-items: center; background: var(--naranja); color: #fff; font-weight: 900; font-size: 9pt; }
+
+/* 4. TÍTULOS Y DIVISOR ---------------------------------------------------- */
+.titulo-lista { font-family: var(--f-titulo); font-weight: 700; font-size: 34pt; line-height: 1.05; color: var(--naranja); }
+.bajada { font-size: 12pt; color: var(--texto-suave); margin: 1.5mm 0 0; max-width: 130mm; }
+.divisor { display: flex; align-items: center; gap: 2mm; margin: 5mm 0 6mm; width: 120mm; }
+.divisor::before, .divisor::after { content: ""; flex: 1; height: 1mm; border-radius: 1mm; background: linear-gradient(90deg, transparent, var(--naranja)); }
+.divisor::after { background: linear-gradient(90deg, var(--naranja), transparent); }
+.divisor span { width: 2.6mm; height: 2.6mm; border-radius: 50%; background: var(--naranja); }
+.divisor--cafe::before { background: linear-gradient(90deg, transparent, var(--cafe)); }
+.divisor--cafe::after { background: linear-gradient(90deg, var(--cafe), transparent); }
+.divisor--cafe span { background: var(--cafe); }
+.divisor--centro { margin-left: auto; margin-right: auto; }
+.titulo-arcos { text-align: center; font-family: var(--f-titulo); color: var(--cafe); line-height: 1.1; }
+.titulo-arcos em { display: block; font-style: italic; font-weight: 700; font-size: 30pt; }
+.titulo-arcos span { display: block; font-size: 29pt; }
+.titulo-arcos span.solo { font-size: 34pt; font-weight: 600; }
+.bajada-centro { text-align: center; font-size: 11pt; color: var(--cafe-claro); margin: 2mm auto 0; max-width: 140mm; }
+
+/* 5. DISEÑO "LISTA" ------------------------------------------------------- */
+.lista { display: flex; flex-direction: column; gap: 5mm; }
+.item {
+  position: relative; display: grid; grid-template-columns: 1fr 46mm; gap: 6mm; align-items: center;
+  break-inside: avoid; page-break-inside: avoid;
+}
+.item__texto { padding-left: 9mm; position: relative; }
+.item__texto::before { content: ""; position: absolute; left: 0; top: 2.6mm; width: 4.5mm; height: 4.5mm; border-radius: 50%; background: var(--naranja); }
+.item__nombre { font-family: var(--f-texto); font-weight: 400; font-size: 20pt; line-height: 1.15; color: #222; }
+.item__desc { margin: 2mm 0 3mm; font-size: 10.5pt; color: var(--texto-suave); line-height: 1.45; max-width: 95mm; }
+.item__pie { display: flex; align-items: center; gap: 3mm; }
+.item__pie .ref { font-size: 7.5pt; letter-spacing: .14em; color: #999; font-weight: 700; }
+.precio { font-family: var(--f-titulo); font-weight: 700; font-size: 17pt; color: var(--naranja-osc); white-space: nowrap; line-height: 1; }
+.precio small { font-family: var(--f-texto); font-size: 7pt; font-weight: 700; color: var(--texto-suave); margin-left: .8mm; }
+/* foto redonda con pestaña naranja que llega al borde de la página */
+.item__foto { position: relative; width: 46mm; height: 46mm; }
+.item__foto::before {
+  content: ""; position: absolute; z-index: 0; left: 23mm; right: calc(-1 * var(--margen-x)); top: 7mm; bottom: 7mm;
+  background: linear-gradient(90deg, var(--naranja) 0%, #F7A23E 100%);
+}
+.item__foto .circulo {
+  position: relative; z-index: 1; width: 42mm; height: 42mm; margin: 2mm; border-radius: 50%; overflow: hidden;
+  border: 1.4mm solid var(--naranja); background: #fff; box-shadow: 0 2mm 4mm rgba(0,0,0,.18);
+}
+.item__foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* 6. DISEÑO "ARCOS" ------------------------------------------------------- */
+.grid-arcos { display: grid; grid-template-columns: repeat(3, 1fr); row-gap: 8mm; margin-top: 2mm; }
+.arco {
+  display: flex; flex-direction: column; align-items: center; text-align: center; padding: 0 3mm;
+  border-left: .3mm solid rgba(138,74,23,.35); break-inside: avoid; page-break-inside: avoid;
+}
+.arco:nth-child(3n+1) { border-left: 0; }
+.arco__foto {
+  position: relative; width: 52mm; height: 60mm; border-radius: 26mm 26mm 2mm 2mm; overflow: hidden;
+  border: .9mm solid var(--cafe); padding: 1.2mm; background: var(--crema);
+  box-shadow: 0 2mm 4mm rgba(138,74,23,.2);
+}
+.arco__foto img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 24.5mm 24.5mm 1mm 1mm; }
+.arco__nombre { font-family: var(--f-titulo); font-size: 14pt; color: var(--cafe); line-height: 1.15; margin-top: 3mm; min-height: 11mm; display: flex; align-items: center; }
+.arco__desc { font-size: 9.6pt; color: #8C7560; line-height: 1.4; margin: 1.5mm 0 2.5mm; }
+.arco__pie { margin-top: auto; display: flex; align-items: center; gap: 2mm; flex-wrap: wrap; justify-content: center; }
+.arco .precio { color: var(--cafe); }
+
+/* 7. PORTADA -------------------------------------------------------------- */
+.portada { align-items: center; text-align: center; background: linear-gradient(180deg, #FFF6EA 0%, var(--crema) 70%); }
+.portada__logo { width: 30mm; height: 30mm; margin-top: 12mm; }
+.portada__kicker { margin-top: 4mm; font-size: 9pt; font-weight: 700; letter-spacing: .4em; text-transform: uppercase; color: var(--naranja-osc); }
+.portada h1 { font-family: var(--f-titulo); color: var(--cafe); line-height: 1.02; margin-top: 2mm; }
+.portada h1 em { display: block; font-style: italic; font-weight: 700; font-size: 50pt; }
+.portada h1 span { display: block; font-size: 30pt; }
+.portada__escena { position: relative; width: 180mm; height: 120mm; margin-top: 4mm; }
+.portada__escena .arco__foto { position: absolute; left: 50%; top: 0; transform: translateX(-50%); width: 92mm; height: 116mm; border-radius: 46mm 46mm 3mm 3mm; border-width: 1.2mm; padding: 2mm; }
+.portada__escena .arco__foto img { border-radius: 44mm 44mm 1.5mm 1.5mm; }
+.portada__escena .mini { position: absolute; width: 44mm; height: 44mm; border-radius: 50%; overflow: hidden; border: 1.2mm solid var(--naranja); box-shadow: 0 2mm 4mm rgba(0,0,0,.2); background: #fff; }
+.portada__escena .mini img { width: 100%; height: 100%; object-fit: cover; }
+.portada__escena .mini--izq { left: 2mm; top: 58mm; }
+.portada__escena .mini--der { right: 2mm; top: 18mm; }
+.portada__eslogan { font-family: var(--f-titulo); font-style: italic; font-size: 15pt; color: var(--cafe); margin-top: 6mm; }
+.portada__pie { margin-top: auto; align-self: stretch; display: flex; align-items: center; justify-content: space-between; gap: 5mm; padding: 6mm var(--margen-x); background: var(--naranja); color: #fff; font-weight: 700; font-size: 10pt; text-align: left; }
+.portada__pie i { margin-right: 1.5mm; }
+.portada__pie .qr { width: 22mm; height: 22mm; }
+
+/* 8. BIENVENIDA ----------------------------------------------------------- */
+.bienvenida__texto { font-size: 12.5pt; line-height: 1.65; color: #444; max-width: 160mm; }
+.ficha { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm 10mm; margin: 9mm 0; }
+.ficha div { border-left: 1.2mm solid var(--naranja); padding-left: 4mm; }
+.ficha dt { font-size: 8pt; font-weight: 900; letter-spacing: .18em; text-transform: uppercase; color: var(--naranja-osc); }
+.ficha dd { margin: 1mm 0 0; font-size: 11pt; }
+.trio { display: flex; justify-content: space-between; margin-top: 4mm; }
+.trio figure { margin: 0; text-align: center; width: 54mm; }
+.trio .circulo { width: 50mm; height: 50mm; margin: 0 auto; border-radius: 50%; overflow: hidden; border: 1.4mm solid var(--naranja); box-shadow: 0 2mm 4mm rgba(0,0,0,.15); }
+.trio img { width: 100%; height: 100%; object-fit: cover; }
+.trio figcaption { font-family: var(--f-titulo); font-size: 12pt; color: var(--cafe); margin-top: 3mm; }
+
+/* 9. ÍNDICE --------------------------------------------------------------- */
+.indice__item { display: flex; align-items: center; gap: 6mm; padding: 4.5mm 0; }
+.indice__item + .indice__item { border-top: .3mm solid rgba(138,74,23,.25); }
+.indice__thumb { flex: 0 0 26mm; height: 30mm; border-radius: 13mm 13mm 1.5mm 1.5mm; overflow: hidden; border: .8mm solid var(--cafe); padding: .8mm; background: var(--crema); }
+.indice__thumb img { width: 100%; height: 100%; object-fit: cover; border-radius: 12mm 12mm 1mm 1mm; display: block; }
+.indice__nombre { font-family: var(--f-titulo); font-size: 19pt; color: var(--cafe); line-height: 1.1; }
+.indice__intro { font-size: 10pt; color: #8C7560; margin-top: 1mm; }
+.indice__puntos { flex: 1; border-bottom: .6mm dotted var(--cafe-claro); transform: translateY(2mm); min-width: 10mm; }
+.indice__pagina { font-family: var(--f-titulo); font-weight: 700; font-size: 20pt; color: var(--naranja-osc); }
+.indice__ayuda { text-align: center; font-size: 9.5pt; color: #8C7560; margin-top: 4mm; }
+
+/* 10. CIERRE -------------------------------------------------------------- */
+.cierre { background: radial-gradient(ellipse at 50% 25%, #FFB45C 0%, var(--naranja) 50%, #D9760A 100%); color: #fff; align-items: center; justify-content: center; text-align: center; padding: 18mm; }
+.cierre__logo { width: 40mm; height: 40mm; }
+.cierre h2 { font-family: var(--f-titulo); line-height: 1.05; margin-top: 7mm; }
+.cierre h2 em { display: block; font-style: italic; font-weight: 700; font-size: 44pt; }
+.cierre h2 span { display: block; font-size: 24pt; }
+.cierre p { font-size: 12pt; max-width: 140mm; margin: 5mm auto 0; }
+.cierre .divisor::before { background: linear-gradient(90deg, transparent, #fff); }
+.cierre .divisor::after { background: linear-gradient(90deg, #fff, transparent); }
+.cierre .divisor span { background: #fff; }
+.btn-grande { display: inline-flex; align-items: center; gap: 3mm; margin-top: 7mm; background: var(--whatsapp); color: #fff; border: .8mm solid #fff; font-weight: 900; font-size: 15pt; padding: 3.5mm 10mm; border-radius: 15mm; box-shadow: 0 2mm 4mm rgba(0,0,0,.2); }
+.btn-grande i { font-size: 19pt; }
+.cierre__qr { width: 38mm; height: 38mm; margin: 8mm auto 2mm; }
+.cierre__datos { margin-top: 7mm; font-size: 11pt; line-height: 1.8; }
+.cierre__datos i { margin-right: 2mm; }
+
+/* 11. BOTONES Y ESTADOS --------------------------------------------------- */
+.qr { background: #fff; padding: 1.5mm; border-radius: 1.5mm; }
+.qr svg { width: 100%; height: 100%; display: block; }
+.btn-pedir {
+  display: inline-flex; align-items: center; gap: 1.4mm;
+  background: var(--whatsapp); color: #fff; font-weight: 900; font-size: 9pt;
+  padding: 1.4mm 3.6mm 1.4mm 2.6mm; border-radius: 10mm; white-space: nowrap;
+  border: .5mm solid #fff; box-shadow: 0 .8mm 1.6mm rgba(0,0,0,.2);
+}
+.btn-pedir i { font-size: 12pt; line-height: 1; }
+.no-disponible { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; background: rgba(51,51,51,.6); color: #fff; font-weight: 900; font-size: 9pt; letter-spacing: .14em; text-transform: uppercase; text-align: center; }
+.pendiente { display: inline-block; color: var(--pendiente); background: #FEF3F2; border: .3mm dashed var(--pendiente); font-family: var(--f-texto); font-size: 7.5pt; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; padding: .4mm 2mm; border-radius: 1mm; line-height: 1.4; }
+.cinta-prueba { position: absolute; z-index: 30; top: 0; left: 50%; transform: translateX(-50%); background: var(--pendiente); color: #fff; font-size: 6.5pt; font-weight: 700; letter-spacing: .2em; padding: .7mm 5mm; border-radius: 0 0 1.5mm 1.5mm; }
+.credito-foto { position: absolute; z-index: 30; bottom: 1.5mm; right: 4mm; font-size: 5.8pt; opacity: .8; }
+.badge-top { position: absolute; z-index: 3; top: 1mm; left: 50%; transform: translateX(-50%); background: var(--naranja); color: #fff; font-size: 7pt; font-weight: 900; letter-spacing: .1em; text-transform: uppercase; padding: .5mm 2.5mm; border-radius: 10mm; white-space: nowrap; }
+
+/* 12. IMPRESIÓN ----------------------------------------------------------- */
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  body { background: none; }
+  #catalogo { display: block; padding: 0; gap: 0; }
+  .pagina { box-shadow: none; }
+  .pagina:last-child { break-after: auto; page-break-after: auto; }
+}
+@page pliego   { size: 420mm 297mm; margin: 0; }
+@page sencilla { size: A4 portrait; margin: 0; }
+.pliego { page: pliego; position: relative; display: flex; width: 420mm; height: 297mm; break-after: page; page-break-after: always; }
+.pliego--sola { page: sencilla; width: 210mm; }
+.pliego .pagina { box-shadow: none; break-after: auto; page-break-after: auto; }
+@media print { .pliego:last-child { break-after: auto; page-break-after: auto; } }
+
+/* Recuadro de reservas (bienvenida) */
+.reserva { margin-top: 10mm; display: flex; align-items: center; gap: 8mm; background: #fff; border-radius: 4mm; padding: 7mm 8mm; box-shadow: 0 2mm 6mm rgba(0,0,0,.08); border-left: 2mm solid var(--naranja); }
+.reserva h3 { font-family: var(--f-titulo); font-weight: 700; font-size: 20pt; color: var(--cafe); }
+.reserva p { margin: 1.5mm 0 4mm; color: var(--texto-suave); font-size: 11pt; }
+.reserva .qr { width: 32mm; height: 32mm; flex: 0 0 auto; border: .4mm solid #eee; }
+.reserva .btn-pedir { font-size: 11pt; padding: 2.2mm 5mm 2.2mm 4mm; }

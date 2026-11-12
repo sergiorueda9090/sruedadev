@@ -72,6 +72,21 @@ SERVICIOS = [
         ),
         "entregables": ["Catálogo", "Pasarela de pagos", "Control de stock", "Envíos"],
     },
+    {
+        "slug": "catalogo-digital",
+        "detalle_slug": "catalogo-digital",
+        "titulo": "Catálogo Digital",
+        "descripcion": (
+            "Cartas y catálogos de producto en formato revista: se hojean desde el celular o el "
+            "computador con efecto de pasar página, se descargan en PDF y permiten pedir directo "
+            "por WhatsApp."
+        ),
+        "icono": (
+            '<path d="M3 5a2 2 0 0 1 2-2h5v18H5a2 2 0 0 1-2-2z"></path>'
+            '<path d="M21 5a2 2 0 0 0-2-2h-5v18h5a2 2 0 0 0 2-2z"></path>'
+        ),
+        "entregables": ["Catálogo tipo revista", "Descarga en PDF", "Pedidos por WhatsApp", "Código QR"],
+    },
 ]
 
 PROCESO = [
@@ -205,6 +220,25 @@ CATEGORIAS_PORTAFOLIO = [
         "imagen": "core/img/portafolio/hogar-claro-limpieza.webp",
         "imagen_w": 1200,
         "imagen_h": 750,
+    },
+    {
+        "slug": "catalogos-menus-digitales",
+        "nombre": "Catálogos y Menús Digitales",
+        "descripcion": "Cartas de restaurante y catálogos de producto en formato revista interactiva.",
+        "imagen": "core/img/portafolio/casona-del-sabor.webp",
+        "imagen_w": 1200,
+        "imagen_h": 750,
+        "para_quien": (
+            "Restaurantes, cafés y bares que quieren mostrar su carta, y tiendas o negocios con "
+            "catálogo de productos que hoy se muestran en un PDF plano o en fotos sueltas de WhatsApp."
+        ),
+        "beneficios": [
+            "Se hojea como una revista, con efecto de pasar página, desde el celular o el computador",
+            "Botón de pedido por WhatsApp en cada producto",
+            "Se descarga en PDF para imprimir o compartir por WhatsApp o correo",
+            "Código QR para catálogos impresos o en el punto de venta",
+            "Se actualiza por completo —precios, productos, fotos— sin rehacer el diseño",
+        ],
     },
 ]
 
@@ -889,6 +923,50 @@ PROYECTOS = [
         "stack": ["HTML5", "CSS3", "Bootstrap 5", "GSAP", "JavaScript"],
         "sitio_estatico": True,
     },
+    {
+        "slug": "humo-pan",
+        "categoria": "Catálogos y Menús Digitales",
+        "categoria_slug": "catalogos-menus-digitales",
+        "imagen": "core/img/portafolio/humo-pan.webp",
+        "imagen_w": 1200,
+        "imagen_h": 750,
+        "nombre": "Humo & Pan — Menú Digital",
+        "resumen": "Carta digital tipo revista para una hamburguesería, con efecto de pasar página, pedido por WhatsApp y descarga en PDF.",
+        "sitio_estatico": True,
+    },
+    {
+        "slug": "mesa-dorada",
+        "categoria": "Catálogos y Menús Digitales",
+        "categoria_slug": "catalogos-menus-digitales",
+        "imagen": "core/img/portafolio/mesa-dorada.webp",
+        "imagen_w": 1200,
+        "imagen_h": 750,
+        "nombre": "Mesa Dorada — Carta Digital",
+        "resumen": "Carta digital tipo revista para un bistró, con diseño editorial por categorías y pedido directo por WhatsApp.",
+        "sitio_estatico": True,
+    },
+    {
+        "slug": "fogon-naranja",
+        "categoria": "Catálogos y Menús Digitales",
+        "categoria_slug": "catalogos-menus-digitales",
+        "imagen": "core/img/portafolio/fogon-naranja.webp",
+        "imagen_w": 1200,
+        "imagen_h": 750,
+        "nombre": "Fogón Naranja — Menú Digital",
+        "resumen": "Carta digital tipo revista para un restaurante de parrilla y cocina internacional, con índice por categoría y código QR.",
+        "sitio_estatico": True,
+    },
+    {
+        "slug": "casona-del-sabor",
+        "categoria": "Catálogos y Menús Digitales",
+        "categoria_slug": "catalogos-menus-digitales",
+        "imagen": "core/img/portafolio/casona-del-sabor.webp",
+        "imagen_w": 1200,
+        "imagen_h": 750,
+        "nombre": "La Casona del Sabor — Catálogo Digital",
+        "resumen": "Catálogo digital tipo revista para un restaurante de cocina tradicional colombiana, exportable en PDF para imprenta o para compartir.",
+        "sitio_estatico": True,
+    },
 ]
 
 PLANES = [
@@ -1186,6 +1264,55 @@ PLANES = [
             },
         ],
     },
+    {
+        "slug": "catalogo-digital",
+        "titulo": "Catálogo Digital",
+        "descripcion": "Para mostrar tu carta o catálogo de productos como una revista interactiva.",
+        "cta": "Crear mi catálogo digital",
+        "imagen": "core/img/portafolio/mesa-dorada.webp",
+        "imagen_w": 1200,
+        "imagen_h": 750,
+        "problema": (
+            "Tu carta o catálogo de productos está solo en PDF plano o en fotos sueltas de "
+            "WhatsApp: es difícil de hojear, no luce profesional y no deja pedir directo desde ahí."
+        ),
+        "para_quien": (
+            "Para restaurantes, tiendas y negocios con catálogo de productos que quieren "
+            "mostrarlo como una revista interactiva, en vez de un PDF plano o fotos sueltas."
+        ),
+        "funcionalidades": [
+            "Catálogo tipo revista, con efecto de pasar página",
+            "Funciona en celular y computador, sin instalar nada",
+            "Botón de pedido por WhatsApp en cada producto",
+            "Descarga en PDF para imprimir o compartir",
+            "Código QR para catálogos impresos o en punto de venta",
+            "Índice y categorías para encontrar productos rápido",
+        ],
+        "que_necesito": [
+            "Listado de productos con nombre, descripción y precio",
+            "Fotos de los productos (o te oriento en cómo conseguirlas)",
+            "Identidad visual: logo y colores, si ya los tienes",
+        ],
+        "factores_costo": [
+            "Número de productos y categorías a incluir",
+            "Si necesita quedar embebido en un sitio web propio o solo como catálogo independiente",
+            "Diseño desde cero frente a adaptación de una plantilla existente",
+        ],
+        "faq": [
+            {
+                "pregunta": "¿Reemplaza mi carta o catálogo en PDF?",
+                "respuesta": "Sí: se entrega también en PDF para imprimir o enviar, además de la versión tipo revista para compartir por enlace.",
+            },
+            {
+                "pregunta": "¿Puedo actualizar precios y productos después?",
+                "respuesta": "Sí. El catálogo se arma desde un solo archivo de datos, así que actualizar precios o agregar productos no implica rehacer el diseño.",
+            },
+            {
+                "pregunta": "¿Se puede integrar a mi página web?",
+                "respuesta": "Sí, se puede embeber dentro de tu sitio web o entregarse como una página independiente con su propio enlace.",
+            },
+        ],
+    },
 ]
 
 FAQ = [
@@ -1315,6 +1442,7 @@ SERVICIOS_INTERES = [
     "AI Automatización",
     "Integración con APIs",
     "E-commerce",
+    "Catálogo Digital",
 ]
 
 PRESUPUESTOS = [

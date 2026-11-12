@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Título, descripción, Open Graph y JSON-LD se completan desde data/menu.js (js/sitio.js) -->
+  <title>Mesa Dorada · Bistró & cocina de autor</title>
+  <meta name="description" content="Bistró de cocina de autor. Mira la carta, pide para llevar o reserva tu mesa por WhatsApp.">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Mesa Dorada · Bistró & cocina de autor">
+  <meta property="og:description" content="Mira la carta, pide o reserva tu mesa por WhatsApp.">
+  <meta property="og:image" content="img/productos/cas-03.jpg">
+  <meta name="theme-color" content="#F58F19">
+  <link rel="icon" href="img/logo/logo-prueba.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/sitio.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#nav" data-bs-offset="90">
+
+  <div id="aviso-prueba" class="aviso-prueba d-none">⚠ SITIO DE PRUEBA · datos, precios y fotos de referencia</div>
+
+  <!-- NAVEGACIÓN -->
+  <nav id="nav" class="navbar navbar-expand-lg sticky-top nav-sitio">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio">
+        <img id="nav-logo" src="" alt="" width="44" height="44"><span id="nav-nombre"></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#favoritos">Favoritos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
+          <li class="nav-item"><a class="nav-link" href="#carta">Carta</a></li>
+          <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-naranja" href="#reservas"><i class="bi bi-calendar2-heart"></i> Reservar mesa</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <header id="inicio" class="hero">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6 text-center text-lg-start">
+            <div id="estado-abierto" class="estado"></div>
+            <div class="kicker mt-3" id="hero-sub"></div>
+            <h1 class="hero__titulo"><em id="hero-nombre"></em><span>Nuestra carta</span></h1>
+            <div class="divisor divisor--cafe mx-auto mx-lg-0"><span></span></div>
+            <p class="hero__texto" id="hero-texto"></p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+              <a class="btn btn-wa btn-lg" href="#menu"><i class="bi bi-bag-plus-fill"></i> Arma tu pedido</a>
+              <a class="btn btn-naranja btn-lg" href="#reservas"><i class="bi bi-calendar2-heart"></i> Reservar mesa</a>
+            </div>
+            <ul class="hero__datos" id="hero-datos"></ul>
+          </div>
+          <div class="col-lg-6">
+            <div class="escena" id="escena"></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- FAVORITOS (estilo lista) -->
+    <section id="favoritos" class="seccion fondo-gris">
+      <div class="container">
+        <h2 class="titulo-lista" id="fav-titulo"></h2>
+        <p class="bajada" id="fav-intro"></p>
+        <div class="divisor"><span></span></div>
+        <div class="row g-4 g-lg-5" id="fav-lista"></div>
+      </div>
+    </section>
+
+    <!-- CREACIONES DE LA CASA (estilo arcos) -->
+    <section id="casa" class="seccion fondo-crema">
+      <div class="container">
+        <h2 class="titulo-arcos" id="casa-titulo"></h2>
+        <p class="bajada-centro" id="casa-intro"></p>
+        <div class="divisor divisor--cafe mx-auto"><span></span></div>
+        <div class="row g-4 justify-content-center" id="casa-lista"></div>
+      </div>
+    </section>
+
+    <!-- MENÚ COMPLETO -->
+    <section id="menu" class="seccion">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="titulo-lista">Menú completo</h2>
+          <p class="bajada mx-auto">Agrega los platos a tu pedido y envíalo por WhatsApp.</p>
+          <div class="divisor mx-auto"><span></span></div>
+        </div>
+        <div class="buscador mx-auto mb-3">
+          <i class="bi bi-search"></i>
+          <input id="buscar" type="search" class="form-control" placeholder="Busca un plato o ingrediente (ej. salmón, chocolate)…" aria-label="Buscar en el menú">
+        </div>
+        <div class="filtros d-flex flex-wrap justify-content-center gap-2 mb-4" id="filtros"></div>
+        <div class="row g-3" id="lista-menu"></div>
+        <p class="text-center mt-4 d-none" id="sin-resultados">No encontramos platos con esa búsqueda.</p>
+      </div>
+    </section>
+
+    <!-- CARTA (revista) -->
+    <section id="carta" class="seccion seccion--naranja">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="titulo-arcos text-white"><em>Hojea</em><span>nuestra carta</span></h2>
+          <p class="mt-2 text-white">Pasa las páginas como una revista. Toca <b>Agregar</b> en cualquier plato y se suma a tu pedido.</p>
+        </div>
+        <div class="marco-revista"><iframe id="iframe-revista" src="revista.html" title="Carta digital tipo revista" loading="lazy" allow="fullscreen"></iframe></div>
+        <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
+          <a class="btn btn-crema" href="revista.html" target="_blank" rel="noopener"><i class="bi bi-arrows-fullscreen"></i> Abrir en pantalla completa</a>
+          <a class="btn btn-outline-light" href="dist/menu.pdf" download><i class="bi bi-file-earmark-arrow-down"></i> Descargar PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESERVAS -->
+    <section id="reservas" class="seccion fondo-crema">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-5 text-center text-lg-start">
+            <h2 class="titulo-arcos text-lg-start"><em>Reserva</em><span>tu mesa</span></h2>
+            <div class="divisor divisor--cafe mx-auto mx-lg-0"><span></span></div>
+            <p class="reserva__texto">Elige el día, la hora y cuántas personas vienen. Te confirmamos por WhatsApp.</p>
+            <div class="arco-deco" id="reserva-foto"></div>
+          </div>
+          <div class="col-lg-7">
+            <form id="form-reserva" class="tarjeta-reserva" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <label class="form-label" for="res-fecha">Fecha</label>
+                  <input type="date" class="form-control" id="res-fecha" required>
+                  <div class="invalid-feedback">Elige una fecha.</div>
+                  <div class="aviso-dia" id="res-aviso-dia" aria-live="polite"></div>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label" for="res-hora">Hora</label>
+                  <select class="form-select" id="res-hora" required></select>
+                  <div class="invalid-feedback">Elige una hora.</div>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label" for="res-personas">Personas <span class="text-muted">(máx. <span id="res-personas-max"></span>)</span></label>
+                  <input type="number" class="form-control" id="res-personas" min="1" value="2" required>
+                  <div class="invalid-feedback">Escribe cuántas personas vienen.</div>
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label" for="res-ocasion">Ocasión <span class="text-muted">(opcional)</span></label>
+                  <select class="form-select" id="res-ocasion"></select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="res-nombre">Nombre de la reserva</label>
+                  <input class="form-control" id="res-nombre" autocomplete="name" maxlength="60" required>
+                  <div class="invalid-feedback">Escribe a nombre de quién va la reserva.</div>
+                </div>
+                <div class="col-12">
+                  <label class="form-label" for="res-notas">Notas <span class="text-muted">(opcional)</span></label>
+                  <textarea class="form-control" id="res-notas" rows="2" maxlength="300" placeholder="Ej. mesa en terraza, silla para bebé, alergias"></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-wa btn-lg w-100 mt-4"><i class="bi bi-whatsapp"></i> Solicitar reserva por WhatsApp</button>
+              <p class="small text-center text-muted mt-2 mb-0">La reserva queda confirmada cuando te respondamos.</p>
+              <div id="res-enviada" class="carrito-enviado d-none"><i class="bi bi-check-circle-fill"></i><p class="mb-0"><b>¡Listo!</b> Envía el mensaje en WhatsApp para solicitar tu reserva.</p></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NOSOTROS -->
+    <section id="nosotros" class="seccion fondo-gris">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-6">
+            <h2 class="titulo-lista">Nosotros</h2>
+            <div class="divisor"><span></span></div>
+            <p class="nosotros__texto" id="nosotros-texto"></p>
+            <dl class="ficha" id="nosotros-ficha"></dl>
+          </div>
+          <div class="col-lg-6"><div class="galeria" id="galeria"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section id="ubicacion" class="seccion fondo-crema">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="titulo-arcos"><em>Dónde</em><span>encontrarnos</span></h2>
+          <div class="divisor divisor--cafe mx-auto"><span></span></div>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-7"><div class="mapa"><iframe id="mapa" title="Mapa de ubicación" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
+          <div class="col-lg-5">
+            <div class="panel">
+              <h3><i class="bi bi-geo-alt-fill"></i> Dirección</h3>
+              <p id="ubi-direccion" class="mb-3"></p>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <a id="btn-maps" class="btn btn-cafe" target="_blank" rel="noopener"><i class="bi bi-google"></i> Cómo llegar</a>
+                <a id="btn-waze" class="btn btn-waze" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right-fill"></i> Waze</a>
+              </div>
+              <h3><i class="bi bi-clock-fill"></i> Horario</h3>
+              <table class="tabla-horario" id="tabla-horario"></table>
+              <h3 class="mt-4"><i class="bi bi-credit-card-2-front"></i> Medios de pago</h3>
+              <div id="ubi-pagos"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="seccion">
+      <div class="container">
+        <div class="text-center">
+          <h2 class="titulo-lista">Contacto</h2>
+          <div class="divisor mx-auto"><span></span></div>
+        </div>
+        <div class="row g-4 align-items-center justify-content-center">
+          <div class="col-md-7 col-lg-5"><div class="d-grid gap-3" id="contacto-lista"></div></div>
+          <div class="col-md-5 col-lg-3 text-center">
+            <div class="qr-web mx-auto" id="qr-web"></div>
+            <p class="mt-2 fw-bold">Escanea y escríbenos por WhatsApp</p>
+          </div>
+        </div>
+        <div class="text-center mt-5" id="resenas-cta"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div class="d-flex align-items-center gap-2"><img id="pie-logo" src="" alt="" width="40" height="40"><span id="pie-nombre"></span></div>
+      <div id="pie-redes" class="d-flex gap-3 fs-4"></div>
+      <small id="pie-credito"></small>
+    </div>
+  </footer>
+
+  <a class="wa-flotante js-wa" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
+
+  <!-- CARRITO: barra inferior -->
+  <button type="button" id="barra-carrito" class="barra-carrito" data-bs-toggle="offcanvas" data-bs-target="#panel-carrito" aria-controls="panel-carrito">
+    <span class="barra-carrito__icono"><i class="bi bi-bag-fill"></i><span id="barra-cant">0</span></span>
+    <span class="barra-carrito__texto">Ver mi pedido</span>
+    <span class="barra-carrito__total" id="barra-total">$0</span>
+  </button>
+  <div id="toast-carrito" class="toast-carrito" role="status" aria-live="polite"></div>
+
+  <!-- CARRITO: panel lateral -->
+  <div class="offcanvas offcanvas-end panel-carrito" tabindex="-1" id="panel-carrito" aria-labelledby="titulo-carrito">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title" id="titulo-carrito"><i class="bi bi-bag-fill"></i> Tu pedido</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div id="carrito-lista"></div>
+      <div class="carrito-totales">
+        <div class="d-flex justify-content-between"><span>Subtotal</span><b id="carrito-subtotal">$0</b></div>
+        <small id="carrito-aviso-precio" class="d-none">Hay productos con precio por confirmar.</small>
+        <small id="aviso-domicilio" class="d-none">El costo del domicilio se confirma por WhatsApp.</small>
+        <button type="button" id="btn-vaciar" class="btn btn-link btn-sm p-0 mt-1 d-none">Vaciar pedido</button>
+      </div>
+
+      <form id="form-pedido" class="mt-3" novalidate>
+        <label class="form-label">¿Cómo lo quieres?</label>
+        <div class="d-flex flex-wrap gap-2 mb-3" id="opciones-entrega" role="group"></div>
+
+        <div class="mb-3">
+          <label class="form-label" for="nombre">Tu nombre</label>
+          <input class="form-control" id="nombre" autocomplete="name" required maxlength="60">
+          <div class="invalid-feedback">Escribe tu nombre.</div>
+        </div>
+        <div class="mb-3" id="grupo-direccion">
+          <label class="form-label" for="direccion">Dirección de entrega</label>
+          <input class="form-control" id="direccion" autocomplete="street-address" maxlength="120" placeholder="Calle, número, barrio, apto">
+          <div class="invalid-feedback">Escribe la dirección para el domicilio.</div>
+        </div>
+        <div class="mb-3" id="grupo-pago"></div>
+        <div class="mb-3">
+          <label class="form-label" for="notas">Notas generales del pedido <span class="text-muted">(opcional)</span></label>
+          <textarea class="form-control" id="notas" rows="2" maxlength="300" placeholder="Ej. traer cubiertos, salsas aparte"></textarea>
+          <div class="form-text">Para un producto en particular usa “Agregar nota a este producto” arriba.</div>
+        </div>
+
+        <button type="submit" id="btn-enviar" class="btn btn-wa btn-lg w-100" disabled>
+          <i class="bi bi-whatsapp"></i> Enviar pedido por WhatsApp
+        </button>
+        <p class="small text-center mt-2 mb-0 text-muted">Se abrirá WhatsApp con tu pedido listo para enviar.</p>
+      </form>
+
+      <div id="carrito-enviado" class="carrito-enviado d-none">
+        <i class="bi bi-check-circle-fill"></i>
+        <p class="mb-2"><b>¡Listo!</b> Envía el mensaje en WhatsApp para confirmar tu pedido.</p>
+        <button type="button" id="btn-nuevo" class="btn btn-outline-dark btn-sm">Empezar un pedido nuevo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="vendor/qrcode/qrcode.js"></script>
+  <script src="data/menu.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/reservas.js"></script>
+  <script src="js/sitio.js"></script>
+</body>
+</html>

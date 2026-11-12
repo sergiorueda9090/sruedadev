@@ -1,0 +1,37 @@
+# Pendientes — Mesa Dorada
+
+> ⚠ MODO PRUEBA (`modoPrueba: true` en `data/menu.js`). Cinta "DATOS DE PRUEBA" en cada página
+> y crédito de fotos en la portada.
+
+## Negocio (todo es ficticio)
+- [ ] Nombre, eslogan, descripción, tipo de comida, público
+- [ ] WhatsApp real. **Crítico**: de este dato dependen los 2 QR y todos los botones "Pedir"
+- [ ] Dirección, Instagram, horario
+- [ ] Sitio web: **sin dato**
+- [ ] Reservas y pedidos para llevar por WhatsApp: confirmar que el restaurante los ofrece
+- [ ] Logo oficial (el actual dice "LOGO DE PRUEBA")
+
+## Productos
+- [ ] Carta real: nombres, categorías, descripciones e ingredientes
+- [ ] **Precios reales**: los actuales son inventados
+- [ ] **Fotos reales**: las 24 actuales son de TheMealDB / TheCocktailDB
+- [ ] Definir los productos "Top" / Recomendados (hoy: FAV-01, CAS-02, CAS-03)
+
+Campos que se dejaron vacíos a propósito para probar cómo se ven:
+- `POS-06` Tarta Bakewell: **precio**
+- `CAS-06` Lasaña de la casa: marcado como **no disponible**
+
+## Página web
+- [ ] **Ubicación exacta** (lat/lng o enlace de Google Maps). Hoy el mapa muestra Bogotá de prueba
+- [ ] Horario por día (`horarioSemana`) y reglas de reserva (`reservasConfig`: intervalo, última hora, máx. personas)
+- [ ] Ocasiones para la reserva
+- [ ] Opciones de entrega (`servicios`), zona y costo de domicilio
+- [ ] Medios de pago
+- [ ] Enlace de reseñas de Google
+- [ ] Dominio y hosting
+
+## Antes de publicar
+- [ ] `modoPrueba: false` (quita la cinta y el crédito de fotos)
+- [ ] `bash tools/generar_pdf.sh`
+- [ ] Escanear los QR (portada y contraportada) y probar algunos botones "Pedir"
+- [ ] Aprobación del cliente

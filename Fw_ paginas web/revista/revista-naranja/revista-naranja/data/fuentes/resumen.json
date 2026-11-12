@@ -1,0 +1,1022 @@
+{
+  "ENT-01": {
+    "fuente": "meal",
+    "id": "53060",
+    "nombre_original": "Burek",
+    "foto_url": "https://www.themealdb.com/images/media/meals/tkxquw1628771028.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Filo Pastry",
+        "medida": "1 Packet"
+      },
+      {
+        "ingrediente": "Minced Beef",
+        "medida": "150g"
+      },
+      {
+        "ingrediente": "Onion",
+        "medida": "150g"
+      },
+      {
+        "ingrediente": "Oil",
+        "medida": "40g"
+      },
+      {
+        "ingrediente": "Salt",
+        "medida": "Dash"
+      },
+      {
+        "ingrediente": "Pepper",
+        "medida": "Dash"
+      }
+    ]
+  },
+  "ENT-02": {
+    "fuente": "meal",
+    "id": "52977",
+    "nombre_original": "Corba",
+    "foto_url": "https://www.themealdb.com/images/media/meals/58oia61564916529.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Lentils",
+        "medida": "1 cup"
+      },
+      {
+        "ingrediente": "Onion",
+        "medida": "1 large"
+      },
+      {
+        "ingrediente": "Carrots",
+        "medida": "1 large"
+      },
+      {
+        "ingrediente": "Tomato Puree",
+        "medida": "1 tbs"
+      },
+      {
+        "ingrediente": "Cumin",
+        "medida": "2 tsp"
+      },
+      {
+        "ingrediente": "Paprika",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Mint",
+        "medida": "1/2 tsp"
+      },
+      {
+        "ingrediente": "Thyme",
+        "medida": "1/2 tsp"
+      },
+      {
+        "ingrediente": "Black Pepper",
+        "medida": "1/4 tsp"
+      },
+      {
+        "ingrediente": "Red Pepper Flakes",
+        "medida": "1/4 tsp"
+      },
+      {
+        "ingrediente": "Vegetable Stock",
+        "medida": "4 cups"
+      },
+      {
+        "ingrediente": "Water",
+        "medida": "1 cup"
+      },
+      {
+        "ingrediente": "Sea Salt",
+        "medida": "Pinch"
+      }
+    ]
+  },
+  "ENT-03": {
+    "fuente": "meal",
+    "id": "52764",
+    "nombre_original": "Garides Saganaki",
+    "foto_url": "https://www.themealdb.com/images/media/meals/wuvryu1468232995.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Raw king prawns",
+        "medida": "500g"
+      },
+      {
+        "ingrediente": "Olive oil",
+        "medida": "3 tablespoons"
+      },
+      {
+        "ingrediente": "Chopped onion",
+        "medida": "1"
+      },
+      {
+        "ingrediente": "Freshly chopped parsley",
+        "medida": "pinch"
+      },
+      {
+        "ingrediente": "White wine",
+        "medida": "250ml"
+      },
+      {
+        "ingrediente": "Chopped tomatoes",
+        "medida": "1 (400g) tin"
+      },
+      {
+        "ingrediente": "Minced garlic",
+        "medida": "1/2 teaspoon"
+      },
+      {
+        "ingrediente": "Cubed Feta cheese",
+        "medida": "1 (200g) pack"
+      }
+    ]
+  },
+  "ENT-04": {
+    "fuente": "meal",
+    "id": "53043",
+    "nombre_original": "Fish fofos",
+    "foto_url": "https://www.themealdb.com/images/media/meals/a15wsa1614349126.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Haddock",
+        "medida": "600g"
+      },
+      {
+        "ingrediente": "Potatoes",
+        "medida": "300g"
+      },
+      {
+        "ingrediente": "Green Chilli",
+        "medida": "1 chopped"
+      },
+      {
+        "ingrediente": "Coriander",
+        "medida": "3 tbs"
+      },
+      {
+        "ingrediente": "Cumin Seeds",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Pepper",
+        "medida": "1/2 tsp"
+      },
+      {
+        "ingrediente": "Garlic",
+        "medida": "3 cloves"
+      },
+      {
+        "ingrediente": "Ginger",
+        "medida": "2 pieces"
+      },
+      {
+        "ingrediente": "Flour",
+        "medida": "2 tbs"
+      },
+      {
+        "ingrediente": "Eggs",
+        "medida": "3"
+      },
+      {
+        "ingrediente": "Breadcrumbs",
+        "medida": "75g"
+      },
+      {
+        "ingrediente": "Vegetable Oil",
+        "medida": "For frying"
+      }
+    ]
+  },
+  "PAR-01": {
+    "fuente": "meal",
+    "id": "52806",
+    "nombre_original": "Tandoori chicken",
+    "foto_url": "https://www.themealdb.com/images/media/meals/qptpvt1487339892.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "lemons",
+        "medida": "2 Juice"
+      },
+      {
+        "ingrediente": "paprika",
+        "medida": "4 tsp"
+      },
+      {
+        "ingrediente": "red onions",
+        "medida": "2 finely chopped"
+      },
+      {
+        "ingrediente": "chicken thighs",
+        "medida": "16 skinnless"
+      },
+      {
+        "ingrediente": "vegetable oil",
+        "medida": "For brushing"
+      },
+      {
+        "ingrediente": "Greek yogurt",
+        "medida": "300ml"
+      },
+      {
+        "ingrediente": "ginger",
+        "medida": "large piece"
+      },
+      {
+        "ingrediente": "garlic clove",
+        "medida": "4"
+      },
+      {
+        "ingrediente": "garam masala",
+        "medida": "¾ tsp"
+      },
+      {
+        "ingrediente": "ground cumin",
+        "medida": "¾ tsp"
+      },
+      {
+        "ingrediente": "chilli powder",
+        "medida": "½ tsp"
+      },
+      {
+        "ingrediente": "turmeric",
+        "medida": "¼ tsp"
+      }
+    ]
+  },
+  "PAR-02": {
+    "fuente": "meal",
+    "id": "52805",
+    "nombre_original": "Lamb Biryani",
+    "foto_url": "https://www.themealdb.com/images/media/meals/xrttsx1487339558.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Cashew nuts",
+        "medida": "12"
+      },
+      {
+        "ingrediente": "Khus khus",
+        "medida": "½ tbsp"
+      },
+      {
+        "ingrediente": "Cumin seeds",
+        "medida": "½ tbsp"
+      },
+      {
+        "ingrediente": "Onions",
+        "medida": "3 sliced thinly"
+      },
+      {
+        "ingrediente": "Ginger garlic paste",
+        "medida": "2 tsp"
+      },
+      {
+        "ingrediente": "Garlic",
+        "medida": "4 whole"
+      },
+      {
+        "ingrediente": "Mint",
+        "medida": "Leaves"
+      },
+      {
+        "ingrediente": "Cilantro",
+        "medida": "Leaves"
+      },
+      {
+        "ingrediente": "Saffron",
+        "medida": "½ tsp dissolved in ½ cup warm milk"
+      },
+      {
+        "ingrediente": "Ghee",
+        "medida": "2 tbsp"
+      },
+      {
+        "ingrediente": "Basmati rice",
+        "medida": "2 Cups"
+      },
+      {
+        "ingrediente": "Full fat yogurt",
+        "medida": "½ cup"
+      },
+      {
+        "ingrediente": "Cumin Seeds",
+        "medida": "1 tbsp"
+      },
+      {
+        "ingrediente": "Bay leaf",
+        "medida": "½"
+      },
+      {
+        "ingrediente": "Cinnamon",
+        "medida": "1 thin piece"
+      },
+      {
+        "ingrediente": "Cloves",
+        "medida": "3"
+      },
+      {
+        "ingrediente": "Cardamom",
+        "medida": "2"
+      },
+      {
+        "ingrediente": "Lamb",
+        "medida": "1 lb"
+      },
+      {
+        "ingrediente": "Red Chilli powder",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Biryani masala",
+        "medida": "1 tbsp"
+      }
+    ]
+  },
+  "PAR-03": {
+    "fuente": "meal",
+    "id": "52812",
+    "nombre_original": "Beef Brisket Pot Roast",
+    "foto_url": "https://www.themealdb.com/images/media/meals/ursuup1487348423.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Beef Brisket",
+        "medida": "4-5 pound"
+      },
+      {
+        "ingrediente": "Salt",
+        "medida": "Dash"
+      },
+      {
+        "ingrediente": "Onion",
+        "medida": "3"
+      },
+      {
+        "ingrediente": "Garlic",
+        "medida": "5 cloves"
+      },
+      {
+        "ingrediente": "Thyme",
+        "medida": "1 Sprig"
+      },
+      {
+        "ingrediente": "Rosemary",
+        "medida": "1 sprig"
+      },
+      {
+        "ingrediente": "Bay Leaves",
+        "medida": "4"
+      },
+      {
+        "ingrediente": "beef stock",
+        "medida": "2 cups"
+      },
+      {
+        "ingrediente": "Carrots",
+        "medida": "3 Large"
+      },
+      {
+        "ingrediente": "Mustard",
+        "medida": "1 Tbsp"
+      },
+      {
+        "ingrediente": "Potatoes",
+        "medida": "4 Mashed"
+      }
+    ]
+  },
+  "PAR-04": {
+    "fuente": "meal",
+    "id": "52773",
+    "nombre_original": "Honey Teriyaki Salmon",
+    "foto_url": "https://www.themealdb.com/images/media/meals/xxyupu1468262513.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Salmon",
+        "medida": "1 lb"
+      },
+      {
+        "ingrediente": "Olive oil",
+        "medida": "1 tablespoon"
+      },
+      {
+        "ingrediente": "Soy Sauce",
+        "medida": "2 tablespoons"
+      },
+      {
+        "ingrediente": "Sake",
+        "medida": "2 tablespoons"
+      },
+      {
+        "ingrediente": "Sesame Seed",
+        "medida": "4 tablespoons"
+      }
+    ]
+  },
+  "HAM-01": {
+    "fuente": "meal",
+    "id": "53013",
+    "nombre_original": "Big Mac",
+    "foto_url": "https://www.themealdb.com/images/media/meals/urzj1d1587670726.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Minced Beef",
+        "medida": "400g"
+      },
+      {
+        "ingrediente": "Olive Oil",
+        "medida": "2 tbs"
+      },
+      {
+        "ingrediente": "Sesame Seed Burger Buns",
+        "medida": "2"
+      },
+      {
+        "ingrediente": "Onion",
+        "medida": "Chopped"
+      },
+      {
+        "ingrediente": "Iceberg Lettuce",
+        "medida": "1/4"
+      },
+      {
+        "ingrediente": "Cheese",
+        "medida": "2 sliced"
+      },
+      {
+        "ingrediente": "Dill Pickles",
+        "medida": "2 large"
+      },
+      {
+        "ingrediente": "Mayonnaise",
+        "medida": "1 cup"
+      },
+      {
+        "ingrediente": "White Wine Vinegar",
+        "medida": "2 tsp"
+      },
+      {
+        "ingrediente": "Pepper",
+        "medida": "Pinch"
+      },
+      {
+        "ingrediente": "Mustard",
+        "medida": "2 tsp"
+      },
+      {
+        "ingrediente": "Onion Salt",
+        "medida": "1 1/2 tsp"
+      },
+      {
+        "ingrediente": "Garlic Powder",
+        "medida": "1 1/2 tsp"
+      },
+      {
+        "ingrediente": "Paprika",
+        "medida": "1/2 tsp"
+      }
+    ]
+  },
+  "HAM-02": {
+    "fuente": "meal",
+    "id": "53028",
+    "nombre_original": "Shawarma",
+    "foto_url": "https://www.themealdb.com/images/media/meals/kcv6hj1598733479.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Chicken Thighs",
+        "medida": "1 kg"
+      },
+      {
+        "ingrediente": "Coriander",
+        "medida": "1 tbs"
+      },
+      {
+        "ingrediente": "Cumin",
+        "medida": "1 tbs"
+      },
+      {
+        "ingrediente": "Cardamom",
+        "medida": "1 tbs"
+      },
+      {
+        "ingrediente": "Cayenne Pepper",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Paprika",
+        "medida": "2 tsp"
+      },
+      {
+        "ingrediente": "Lemon Juice",
+        "medida": "2 tbs"
+      },
+      {
+        "ingrediente": "Olive Oil",
+        "medida": "3 tbs"
+      },
+      {
+        "ingrediente": "Greek Yogurt",
+        "medida": "1 cup"
+      },
+      {
+        "ingrediente": "Garlic Clove",
+        "medida": "1"
+      },
+      {
+        "ingrediente": "Cumin",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Lemon Juice",
+        "medida": "Splash"
+      },
+      {
+        "ingrediente": "Lettuce",
+        "medida": "Sliced"
+      },
+      {
+        "ingrediente": "Tomato",
+        "medida": "Sliced"
+      },
+      {
+        "ingrediente": "Pita Bread",
+        "medida": "6"
+      }
+    ]
+  },
+  "HAM-03": {
+    "fuente": "meal",
+    "id": "52829",
+    "nombre_original": "Grilled Mac and Cheese Sandwich",
+    "foto_url": "https://www.themealdb.com/images/media/meals/xutquv1505330523.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Macaroni",
+        "medida": "8 ounces (230 grams)"
+      },
+      {
+        "ingrediente": "Plain Flour",
+        "medida": "1/3 cup"
+      },
+      {
+        "ingrediente": "Mustard Powder",
+        "medida": "3/4 teaspoon"
+      },
+      {
+        "ingrediente": "Garlic powder",
+        "medida": "1/2 teaspoon"
+      },
+      {
+        "ingrediente": "Kosher salt",
+        "medida": "1/2 teaspoon"
+      },
+      {
+        "ingrediente": "Black pepper",
+        "medida": "1/2 teaspoon"
+      },
+      {
+        "ingrediente": "Cayenne pepper",
+        "medida": "1/8 teaspoon"
+      },
+      {
+        "ingrediente": "Butter",
+        "medida": "6 tablespoons (85 grams)"
+      },
+      {
+        "ingrediente": "Whole Milk",
+        "medida": "1 1/2 cups (360 milliliters)"
+      },
+      {
+        "ingrediente": "Heavy Cream",
+        "medida": "1 cup (240 milliliters)"
+      },
+      {
+        "ingrediente": "Monterey Jack Cheese",
+        "medida": "1 pound (455 grams)"
+      },
+      {
+        "ingrediente": "Butter",
+        "medida": "4 tablespoons (55 grams)"
+      },
+      {
+        "ingrediente": "garlic powder",
+        "medida": "1 teaspoon"
+      },
+      {
+        "ingrediente": "Bread",
+        "medida": "16 slices square"
+      },
+      {
+        "ingrediente": "Cheddar Cheese",
+        "medida": "8 slices mild"
+      },
+      {
+        "ingrediente": "Colby Jack Cheese",
+        "medida": "8 slices"
+      },
+      {
+        "ingrediente": "Butter",
+        "medida": "4 tablespoons (55 grams)"
+      }
+    ]
+  },
+  "PIZ-01": {
+    "fuente": "meal",
+    "id": "53014",
+    "nombre_original": "Pizza Express Margherita",
+    "foto_url": "https://www.themealdb.com/images/media/meals/x0lk931587671540.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Water",
+        "medida": "150ml"
+      },
+      {
+        "ingrediente": "Sugar",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Yeast",
+        "medida": "15g"
+      },
+      {
+        "ingrediente": "Plain Flour",
+        "medida": "225g"
+      },
+      {
+        "ingrediente": "Salt",
+        "medida": "1 1/2 tsp"
+      },
+      {
+        "ingrediente": "Olive Oil",
+        "medida": "Drizzle"
+      },
+      {
+        "ingrediente": "Passata",
+        "medida": "80g"
+      },
+      {
+        "ingrediente": "Mozzarella",
+        "medida": "70g"
+      },
+      {
+        "ingrediente": "Oregano",
+        "medida": "Peeled and Sliced"
+      },
+      {
+        "ingrediente": "Basil",
+        "medida": "Leaves"
+      },
+      {
+        "ingrediente": "Black Pepper",
+        "medida": "Pinch"
+      }
+    ]
+  },
+  "PIZ-02": {
+    "fuente": "meal",
+    "id": "52982",
+    "nombre_original": "Spaghetti alla Carbonara",
+    "foto_url": "https://www.themealdb.com/images/media/meals/llcbn01574260722.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Spaghetti",
+        "medida": "320g"
+      },
+      {
+        "ingrediente": "Egg Yolks",
+        "medida": "6"
+      },
+      {
+        "ingrediente": "Salt",
+        "medida": "As required"
+      },
+      {
+        "ingrediente": "Bacon",
+        "medida": "150g"
+      },
+      {
+        "ingrediente": "Pecorino",
+        "medida": "50g"
+      },
+      {
+        "ingrediente": "Black Pepper",
+        "medida": "As required"
+      }
+    ]
+  },
+  "PIZ-03": {
+    "fuente": "meal",
+    "id": "52771",
+    "nombre_original": "Spicy Arrabiata Penne",
+    "foto_url": "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "penne rigate",
+        "medida": "1 pound"
+      },
+      {
+        "ingrediente": "olive oil",
+        "medida": "1/4 cup"
+      },
+      {
+        "ingrediente": "garlic",
+        "medida": "3 cloves"
+      },
+      {
+        "ingrediente": "chopped tomatoes",
+        "medida": "1 tin"
+      },
+      {
+        "ingrediente": "red chilli flakes",
+        "medida": "1/2 teaspoon"
+      },
+      {
+        "ingrediente": "italian seasoning",
+        "medida": "1/2 teaspoon"
+      },
+      {
+        "ingrediente": "basil",
+        "medida": "6 leaves"
+      },
+      {
+        "ingrediente": "Parmigiano-Reggiano",
+        "medida": "sprinkling"
+      }
+    ]
+  },
+  "POS-01": {
+    "fuente": "meal",
+    "id": "52776",
+    "nombre_original": "Chocolate Gateau",
+    "foto_url": "https://www.themealdb.com/images/media/meals/tqtywx1468317395.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Plain chocolate",
+        "medida": "250g"
+      },
+      {
+        "ingrediente": "Butter",
+        "medida": "175g"
+      },
+      {
+        "ingrediente": "Milk",
+        "medida": "2 tablespoons"
+      },
+      {
+        "ingrediente": "Eggs",
+        "medida": "5"
+      },
+      {
+        "ingrediente": "Granulated Sugar",
+        "medida": "175g"
+      },
+      {
+        "ingrediente": "Flour",
+        "medida": "125g"
+      }
+    ]
+  },
+  "POS-02": {
+    "fuente": "meal",
+    "id": "52883",
+    "nombre_original": "Sticky Toffee Pudding",
+    "foto_url": "https://www.themealdb.com/images/media/meals/xqqqtu1511637379.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Butter",
+        "medida": "100g"
+      },
+      {
+        "ingrediente": "Muscovado Sugar",
+        "medida": "175g"
+      },
+      {
+        "ingrediente": "Eggs",
+        "medida": "2 large"
+      },
+      {
+        "ingrediente": "Self-raising Flour",
+        "medida": "225g"
+      },
+      {
+        "ingrediente": "Baking Powder",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Bicarbonate Of Soda",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Black Treacle",
+        "medida": "3 tbs"
+      },
+      {
+        "ingrediente": "Milk",
+        "medida": "275ml"
+      },
+      {
+        "ingrediente": "Double Cream",
+        "medida": "to serve"
+      },
+      {
+        "ingrediente": "Butter",
+        "medida": "100g"
+      },
+      {
+        "ingrediente": "Muscovado Sugar",
+        "medida": "125g"
+      },
+      {
+        "ingrediente": "Black Treacle",
+        "medida": "1 tbs"
+      },
+      {
+        "ingrediente": "Double Cream",
+        "medida": "300ml"
+      },
+      {
+        "ingrediente": "Vanilla Extract",
+        "medida": "1 tsp"
+      }
+    ]
+  },
+  "POS-03": {
+    "fuente": "meal",
+    "id": "52854",
+    "nombre_original": "Pancakes",
+    "foto_url": "https://www.themealdb.com/images/media/meals/rwuyqx1511383174.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Flour",
+        "medida": "100g"
+      },
+      {
+        "ingrediente": "Eggs",
+        "medida": "2 large"
+      },
+      {
+        "ingrediente": "Milk",
+        "medida": "300ml"
+      },
+      {
+        "ingrediente": "Sunflower Oil",
+        "medida": "1 tbls"
+      },
+      {
+        "ingrediente": "Sugar",
+        "medida": "to serve"
+      },
+      {
+        "ingrediente": "Raspberries",
+        "medida": "to serve"
+      },
+      {
+        "ingrediente": "Blueberries",
+        "medida": "to serve"
+      }
+    ]
+  },
+  "BEB-01": {
+    "fuente": "drink",
+    "id": "12770",
+    "nombre_original": "Iced Coffee",
+    "foto_url": "https://www.thecocktaildb.com/images/media/drink/ytprxy1454513855.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Coffee",
+        "medida": "1/4 cup instant"
+      },
+      {
+        "ingrediente": "Sugar",
+        "medida": "1/4 cup"
+      },
+      {
+        "ingrediente": "Water",
+        "medida": "1/4 cup hot"
+      },
+      {
+        "ingrediente": "Milk",
+        "medida": "4 cups cold"
+      }
+    ]
+  },
+  "BEB-02": {
+    "fuente": "drink",
+    "id": "13036",
+    "nombre_original": "Strawberry Lemonade",
+    "foto_url": "https://www.thecocktaildb.com/images/media/drink/spvvxp1468924425.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Lemon",
+        "medida": "Juice of 1"
+      },
+      {
+        "ingrediente": "Sugar",
+        "medida": "1 tblsp"
+      },
+      {
+        "ingrediente": "Strawberries",
+        "medida": "8-10 ripe"
+      },
+      {
+        "ingrediente": "Water",
+        "medida": "1 cup"
+      }
+    ]
+  },
+  "BEB-03": {
+    "fuente": "drink",
+    "id": "12698",
+    "nombre_original": "Lassi - Mango",
+    "foto_url": "https://www.thecocktaildb.com/images/media/drink/1bw6sd1487603816.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Mango",
+        "medida": "2"
+      },
+      {
+        "ingrediente": "Yoghurt",
+        "medida": "2 cups"
+      },
+      {
+        "ingrediente": "Sugar",
+        "medida": "1/2 cup"
+      },
+      {
+        "ingrediente": "Water",
+        "medida": "1 cup iced"
+      }
+    ]
+  },
+  "BEB-04": {
+    "fuente": "drink",
+    "id": "12656",
+    "nombre_original": "Banana Strawberry Shake",
+    "foto_url": "https://www.thecocktaildb.com/images/media/drink/vqquwx1472720634.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Strawberries",
+        "medida": "1/2 lb frozen"
+      },
+      {
+        "ingrediente": "Banana",
+        "medida": "1 frozen"
+      },
+      {
+        "ingrediente": "Yoghurt",
+        "medida": "1 cup plain"
+      },
+      {
+        "ingrediente": "Milk",
+        "medida": "1 cup"
+      },
+      {
+        "ingrediente": "Honey",
+        "medida": "to taste"
+      }
+    ]
+  },
+  "BEB-05": {
+    "fuente": "drink",
+    "id": "12774",
+    "nombre_original": "Masala Chai",
+    "foto_url": "https://www.thecocktaildb.com/images/media/drink/uyrpww1441246384.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Water",
+        "medida": "2 cups"
+      },
+      {
+        "ingrediente": "Tea",
+        "medida": "3-4 tsp"
+      },
+      {
+        "ingrediente": "Ginger",
+        "medida": "1 chunk dried"
+      },
+      {
+        "ingrediente": "Cardamom",
+        "medida": "3-4 crushed"
+      },
+      {
+        "ingrediente": "Cloves",
+        "medida": "3"
+      },
+      {
+        "ingrediente": "Cinnamon",
+        "medida": "1 piece"
+      },
+      {
+        "ingrediente": "Black pepper",
+        "medida": "1-2 whole"
+      },
+      {
+        "ingrediente": "Sugar",
+        "medida": "to taste"
+      },
+      {
+        "ingrediente": "Milk",
+        "medida": "to taste"
+      }
+    ]
+  }
+}

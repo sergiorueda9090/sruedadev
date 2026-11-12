@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revista — Mesa Dorada</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,600;1,700&family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <!-- Visor de revista compartido (flip + sonido) -->
+  <link rel="stylesheet" href="css/revista.css">
+  <style>
+    body.modo-revista { background: radial-gradient(ellipse at 50% 40%, #FFB45C 0%, #F58F19 55%, #C76A08 100%); }
+  </style>
+</head>
+<body class="modo-revista">
+  <main id="catalogo" aria-hidden="true"></main>
+
+  <div class="visor">
+    <div class="visor__cargando" id="cargando"><div class="spinner-border" role="status"></div><span>Preparando menú…</span></div>
+    <div class="visor__escenario" id="escenario">
+      <div id="libro"></div>
+    </div>
+
+    <nav class="visor__barra" aria-label="Navegación de la revista">
+      <button class="btn-visor" id="btnInicio" title="Portada"><i class="bi bi-chevron-bar-left"></i></button>
+      <button class="btn-visor" id="btnAnterior" title="Página anterior (←)"><i class="bi bi-chevron-left"></i></button>
+      <span class="visor__contador" id="contador">—</span>
+      <button class="btn-visor" id="btnSiguiente" title="Página siguiente (→)"><i class="bi bi-chevron-right"></i></button>
+      <button class="btn-visor" id="btnFin" title="Contraportada"><i class="bi bi-chevron-bar-right"></i></button>
+      <span class="visor__sep"></span>
+      <button class="btn-visor" id="btnSonido" title="Silenciar sonido"><i class="bi bi-volume-up"></i></button>
+      <button class="btn-visor" id="btnPantalla" title="Pantalla completa"><i class="bi bi-arrows-fullscreen"></i></button>
+      <a class="btn-visor" href="dist/menu.pdf" download title="Descargar PDF"><i class="bi bi-file-earmark-arrow-down"></i></a>
+    </nav>
+  </div>
+
+  <script src="vendor/page-flip/page-flip.browser.js"></script>
+  <script src="js/revista.js"></script>
+  <script src="vendor/qrcode/qrcode.js"></script>
+  <script src="data/menu.js"></script>
+  <script src="js/menu.js"></script>
+  <script>
+    /* Revista incrustada en la página web: los botones "Pedir" se convierten en "Agregar"
+       y suman el producto al carrito de la página (sitio.html) en lugar de abrir WhatsApp. */
+    (function () {
+      if (window.parent === window) return;
+      document.addEventListener("catalogo:listo", function () {
+        document.querySelectorAll("a.btn-pedir[data-ref]").forEach(function (a) {
+          a.innerHTML = '<i class="bi bi-bag-plus-fill"></i>Agregar';
+          a.removeAttribute("target");
+        });
+      });
+      document.addEventListener("click", function (e) {
+        var a = e.target.closest && e.target.closest("a.btn-pedir[data-ref]");
+        if (!a) return;
+        e.preventDefault();
+        window.parent.postMessage({ tipo: "carrito:agregar", ref: a.dataset.ref }, "*");
+      }, true);
+    })();
+  </script>
+</body>
+</html>

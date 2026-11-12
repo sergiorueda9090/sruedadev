@@ -1173,6 +1173,31 @@ p { margin: 0 0 1.1em; }
     color: var(--texto);
 }
 
+/* Tarjeta con varios entregables (catálogo + PDF + sitio web): la tarjeta ya
+   no es un único <a>, así que cada entregable lleva su propio enlace y se
+   apaga la flecha de esquina de `.proyecto-card`, pensada para un solo link. */
+.proyecto-card--multi::after { display: none; }
+.enlaces-proyecto { display: flex; flex-wrap: wrap; gap: 8px; }
+.enlace-proyecto {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 8px;
+    border: 1px solid var(--borde);
+    background: var(--blanco);
+    color: var(--texto);
+    font-size: .78rem;
+    font-weight: 600;
+    transition: border-color .2s, color .2s, background .2s;
+}
+.enlace-proyecto svg { flex: 0 0 auto; }
+.enlace-proyecto:hover {
+    border-color: var(--azul);
+    color: var(--azul);
+    background: rgba(11, 99, 246, .06);
+}
+
 /* ---------- portafolio: lista de categorías (inicio) ----------
    Misma idea que `.planes` (miniatura cuadrada + texto, separadas por una
    línea) en vez de la cuadrícula de `.proyecto-card`: con solo seis
@@ -1825,6 +1850,20 @@ p { margin: 0 0 1.1em; }
 .ficha dd { margin: 0 0 18px; color: var(--tinta); font-size: .95rem; }
 .ficha img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radio); display: block; margin-bottom: 20px; }
 .ficha .btn-bloque { margin-top: 4px; }
+
+/* Caja de "paquete combo" dentro de la ficha de un servicio: resalta sin
+   competir con el azul de los links ni con el aviso-borrador (amarillo). */
+.combo-caja {
+    margin-top: 36px;
+    padding: 24px 26px;
+    border-radius: var(--radio-lg);
+    background: rgba(11, 99, 246, .05);
+    border: 1px solid rgba(11, 99, 246, .18);
+}
+.combo-caja .kicker { margin-bottom: 8px; }
+.combo-caja h3 { margin: 0 0 10px; font-size: 1.1rem; color: var(--tinta); }
+.combo-caja p { margin: 0 0 16px; color: var(--texto); }
+.combo-caja .lista-entregables { margin: 0; }
 
 .seccion-detalle { padding-top: 40px; }
 .resumen-proyecto { max-width: 62ch; color: var(--suave); font-size: 1.1rem; }

@@ -933,6 +933,8 @@ PROYECTOS = [
         "nombre": "Humo & Pan — Menú Digital",
         "resumen": "Carta digital tipo revista para una hamburguesería, con efecto de pasar página, pedido por WhatsApp y descarga en PDF.",
         "sitio_estatico": True,
+        "pdf": "core/portafolio_sitios/humo-pan/dist/menu.pdf",
+        "sitio_web": "core/portafolio_sitios/humo-pan/sitio.html",
     },
     {
         "slug": "mesa-dorada",
@@ -944,6 +946,8 @@ PROYECTOS = [
         "nombre": "Mesa Dorada — Carta Digital",
         "resumen": "Carta digital tipo revista para un bistró, con diseño editorial por categorías y pedido directo por WhatsApp.",
         "sitio_estatico": True,
+        "pdf": "core/portafolio_sitios/mesa-dorada/dist/menu.pdf",
+        "sitio_web": "core/portafolio_sitios/mesa-dorada/sitio.html",
     },
     {
         "slug": "fogon-naranja",
@@ -955,6 +959,7 @@ PROYECTOS = [
         "nombre": "Fogón Naranja — Menú Digital",
         "resumen": "Carta digital tipo revista para un restaurante de parrilla y cocina internacional, con índice por categoría y código QR.",
         "sitio_estatico": True,
+        "pdf": "core/portafolio_sitios/fogon-naranja/dist/menu.pdf",
     },
     {
         "slug": "casona-del-sabor",
@@ -966,6 +971,7 @@ PROYECTOS = [
         "nombre": "La Casona del Sabor — Catálogo Digital",
         "resumen": "Catálogo digital tipo revista para un restaurante de cocina tradicional colombiana, exportable en PDF para imprenta o para compartir.",
         "sitio_estatico": True,
+        "pdf": "core/portafolio_sitios/casona-del-sabor/dist/catalogo.pdf",
     },
 ]
 
@@ -1312,6 +1318,20 @@ PLANES = [
                 "respuesta": "Sí, se puede embeber dentro de tu sitio web o entregarse como una página independiente con su propio enlace.",
             },
         ],
+        "combo": {
+            "titulo": "Combo: Catálogo Digital + Sitio Web",
+            "descripcion": (
+                "El catálogo digital también se ofrece como parte de un paquete combo para "
+                "negocios que además necesitan presencia web completa, como los ejemplos de "
+                "restaurantes del portafolio."
+            ),
+            "incluye": [
+                "Catálogo digital tipo revista, con efecto de pasar página",
+                "Descarga en PDF del catálogo, para imprimir o compartir",
+                "Página principal del sitio (inicio, servicios, nosotros, contacto)",
+                "Página propia del negocio con el catálogo incrustado y pedido por WhatsApp",
+            ],
+        },
     },
 ]
 

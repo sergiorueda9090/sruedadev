@@ -51,6 +51,40 @@
     <div class="contenedor">
         <div class="rejilla rejilla-3">
             {% for proyecto in proyectos %}
+            {% if proyecto.pdf or proyecto.sitio_web %}
+            <div class="proyecto-card proyecto-card--multi aparece visible" data-cat="{{ proyecto.categoria }}">
+                <a class="proyecto-img" href="{{ proyecto.url }}" target="_blank" rel="noopener">
+                    {% if proyecto.imagen %}
+                    <img src="{% static proyecto.imagen %}" width="{{ proyecto.imagen_w }}" height="{{ proyecto.imagen_h }}" alt="{{ proyecto.nombre }}" loading="lazy" decoding="async">
+                    {% else %}
+                    <div class="ph"><span>sruedadev</span></div>
+                    {% endif %}
+                </a>
+                <div class="proyecto-cuerpo">
+                    <span class="chip">{{ proyecto.categoria }}</span>
+                    <h3>{{ proyecto.nombre }}</h3>
+                    <p>{{ proyecto.resumen }}</p>
+                    <div class="enlaces-proyecto">
+                        <a href="{{ proyecto.url }}" target="_blank" rel="noopener" class="enlace-proyecto">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5a2 2 0 0 1 2-2h5v18H5a2 2 0 0 1-2-2z"></path><path d="M21 5a2 2 0 0 0-2-2h-5v18h5a2 2 0 0 0 2-2z"></path></svg>
+                            Ver catálogo
+                        </a>
+                        {% if proyecto.sitio_web %}
+                        <a href="{% static proyecto.sitio_web %}" target="_blank" rel="noopener" class="enlace-proyecto">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M2 12h20"></path><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                            Ver sitio web
+                        </a>
+                        {% endif %}
+                        {% if proyecto.pdf %}
+                        <a href="{% static proyecto.pdf %}" target="_blank" rel="noopener" class="enlace-proyecto">
+                            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12m0 0l-4-4m4 4l4-4"></path><path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-2"></path></svg>
+                            Descargar PDF
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% else %}
             <a class="proyecto-card aparece visible" href="{{ proyecto.url }}" data-cat="{{ proyecto.categoria }}" target="_blank" rel="noopener">
                 <div class="proyecto-img">
                     {% if proyecto.imagen %}
@@ -70,6 +104,7 @@
                     </div>
                 </div>
             </a>
+            {% endif %}
             {% endfor %}
         </div>
 

@@ -80,6 +80,19 @@
                     <li>{{ item }}</li>
                     {% endfor %}
                 </ul>
+
+                {% if servicio.combo %}
+                <div class="combo-caja">
+                    <span class="kicker">Paquete combo</span>
+                    <h3>{{ servicio.combo.titulo }}</h3>
+                    <p>{{ servicio.combo.descripcion }}</p>
+                    <ul class="lista-entregables">
+                        {% for item in servicio.combo.incluye %}
+                        <li>{{ item }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
             </div>
 
             <aside class="ficha">

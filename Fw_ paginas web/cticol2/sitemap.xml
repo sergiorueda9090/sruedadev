@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Configure marca.dominio en datos/sitio.json y ejecute tools/build.py: las URL deben ser absolutas. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/nosotros.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/mision-vision.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/servicios.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/carga-general.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/mercancia-seca.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/carga-pesada.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/carga-sobredimensionada.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/maquinaria-pesada.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/transporte-especializado.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/flota.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/proyectos.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/cobertura.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/rastreo.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/contacto.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/privacidad.html</loc><lastmod>2026-11-18</lastmod></url>
+  <url><loc>https://DOMINIO-POR-CONFIGURAR/terminos.html</loc><lastmod>2026-11-18</lastmod></url>
+</urlset>

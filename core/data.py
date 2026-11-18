@@ -828,6 +828,18 @@ PROYECTOS = [
         "sitio_estatico": True,
     },
     {
+        "slug": "cticol",
+        "categoria": "Transporte y Movilidad",
+        "categoria_slug": "transporte-movilidad",
+        "imagen": "core/img/portafolio/cticol.webp",
+        "imagen_w": 1200,
+        "imagen_h": 750,
+        "nombre": "CTICOL — Transporte de Carga",
+        "resumen": "Sitio corporativo de 15 páginas para transporte de carga general, pesada y sobredimensionada, con flota, cobertura por ciudad, rastreo de envíos y cotización por WhatsApp.",
+        "stack": ["HTML5", "CSS3", "Bootstrap 5", "Swiper", "GSAP", "JavaScript"],
+        "sitio_estatico": True,
+    },
+    {
         "slug": "cabana-tres-marias",
         "categoria": "Turismo y Alojamiento",
         "categoria_slug": "turismo-alojamiento",

@@ -1,0 +1,123 @@
+{
+  "_ayuda": "Categorías y vehículos de la flota. capacidad y ficha solo se muestran si la empresa los confirmó (null / [] = no se muestran). enFlota=false: el tipo de vehículo no está confirmado y se oculta en modo publicación. Las fotos son de referencia hasta tener fotos propias.",
+  "categorias": [
+    {
+      "id": "tractomulas",
+      "nombre": "Tractomulas"
+    },
+    {
+      "id": "sencillos",
+      "nombre": "Camiones sencillos"
+    },
+    {
+      "id": "turbos",
+      "nombre": "Camiones turbo"
+    },
+    {
+      "id": "plataformas",
+      "nombre": "Plataformas"
+    },
+    {
+      "id": "camas-bajas",
+      "nombre": "Camas bajas"
+    },
+    {
+      "id": "especializados",
+      "nombre": "Remolques especializados"
+    }
+  ],
+  "vehiculos": [
+    {
+      "categoria": "tractomulas",
+      "nombre": "Tractomula",
+      "foto": "fleet/tractocamion",
+      "fotoAlt": "Fila de tractocamiones azules en una carretera",
+      "descripcion": "Tractocamión con semirremolque para despachos completos y carga de mayor peso entre ciudades.",
+      "capacidad": null,
+      "ficha": [],
+      "enFlota": true
+    },
+    {
+      "categoria": "tractomulas",
+      "nombre": "Tractomula con semirremolque cerrado",
+      "foto": "company/patio",
+      "fotoAlt": "Tractocamiones blancos con semirremolque cerrado en un patio",
+      "descripcion": "Configuración cerrada para mercancía seca que debe viajar protegida de la lluvia y del polvo.",
+      "capacidad": null,
+      "ficha": [],
+      "enFlota": false
+    },
+    {
+      "categoria": "sencillos",
+      "nombre": "Camión sencillo",
+      "foto": "fleet/camion",
+      "fotoAlt": "Camión rígido naranja de dos ejes con un equipo industrial",
+      "descripcion": "Camión rígido de dos ejes para cargas medianas en trayectos urbanos y entre ciudades.",
+      "capacidad": null,
+      "ficha": [],
+      "enFlota": true
+    },
+    {
+      "categoria": "turbos",
+      "nombre": "Camión turbo",
+      "foto": "fleet/turbo",
+      "fotoAlt": "Camión pequeño de cabina roja con furgón blanco estacionado junto a una bodega",
+      "descripcion": "Camión liviano para despachos pequeños, entregas urbanas y acceso a zonas con restricciones para vehículos grandes.",
+      "capacidad": null,
+      "ficha": [],
+      "enFlota": true
+    },
+    {
+      "categoria": "plataformas",
+      "nombre": "Plataforma",
+      "foto": "services/carga-general",
+      "fotoAlt": "Tractocamión azul con plataforma y carga cubierta con lona en una carretera de montaña",
+      "descripcion": "Semirremolque abierto para estructuras, tubería, materiales y carga que se sube con grúa o montacargas.",
+      "capacidad": null,
+      "ficha": [],
+      "enFlota": false
+    },
+    {
+      "categoria": "camas-bajas",
+      "nombre": "Cama baja",
+      "foto": "fleet/cama-baja",
+      "fotoAlt": "Excavadora amarilla sobre una cama baja con rampas",
+      "descripcion": "Remolque de piso bajo para maquinaria amarilla y equipos altos que no caben en una plataforma convencional.",
+      "capacidad": null,
+      "ficha": [],
+      "enFlota": false
+    },
+    {
+      "categoria": "camas-bajas",
+      "nombre": "Cama baja de varios ejes",
+      "foto": "services/carga-pesada",
+      "fotoAlt": "Tractocamión blanco con cama baja transportando un buldócer",
+      "descripcion": "Para equipos de mayor peso, con más ejes para repartir la carga sobre la vía.",
+      "capacidad": null,
+      "ficha": [],
+      "enFlota": false
+    },
+    {
+      "categoria": "especializados",
+      "nombre": "Remolque modular",
+      "foto": "fleet/remolque-modular",
+      "fotoAlt": "Tractocamión blanco con remolque modular de muchos ejes transportando una pieza circular de gran diámetro",
+      "descripcion": "Remolque de ejes múltiples para cargas sobredimensionadas de gran peso o gran longitud.",
+      "capacidad": null,
+      "ficha": [],
+      "enFlota": false
+    },
+    {
+      "categoria": "especializados",
+      "nombre": "Remolque extensible",
+      "foto": "services/maquinaria-pesada",
+      "fotoAlt": "Cama baja extensible de varios ejes con una excavadora",
+      "descripcion": "Remolque que se alarga para piezas de gran longitud, con ejes traseros direccionales.",
+      "capacidad": null,
+      "ficha": [],
+      "enFlota": false
+    }
+  ],
+  "_flota": "Confirmado por el cliente el 2026-11-18: flota propia y tercerizada de camiones tipo turbo, sencillos y tractomulas. Sin cantidades ni capacidades confirmadas.",
+  "propiedad": "Flota propia y tercerizada"
+}

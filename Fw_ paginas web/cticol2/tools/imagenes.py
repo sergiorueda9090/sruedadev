@@ -16,7 +16,7 @@ Requiere Pillow.
 """
 import sys
 from pathlib import Path
-from PIL import Image, ImageFilter, ImageDraw
+from PIL import Image, ImageFilter, ImageDraw, ImageOps
 
 RAIZ = Path(__file__).resolve().parent.parent
 ORIGEN = RAIZ / 'img'
@@ -52,10 +52,31 @@ MANIFIESTO = [
      'tapar': [(0.095, 0.63, 0.18, 0.675), (0.42, 0.595, 0.515, 0.655)]},
 ]
 
+# Fotos propias entregadas por el cliente el 2026-11-19 (img/cliente/, nombres cortos: placa o contenido).
+# 'cargas/*' = tarjetas «Lo que transportamos» del inicio (flota propia / tercerizada, según el documento del cliente).
+CARGAS = [('contenedor', 'contenedor'), ('granel', 'descargue-02'), ('liquida', 'liquida-tanque'), ('estacas', 'xic300-puerto'),
+          ('maquinaria', 'terc-maquinaria'), ('plataforma', 'terc-plataforma'), ('carpada', 'terc-carpada'), ('acero', 'terc-estacas')]
+MANIFIESTO += [{'origen': f'cliente/{o}.jpeg', 'destino': f'cargas/{d}', 'anchos': [800, 560]} for d, o in CARGAS]
+# Flota propia (placas UAN016, XIC300, XID909) y banners de Flota y Proyectos
+FLOTA_PROPIA = ['xid909-patio', 'uan016-02', 'xic300-01', 'grupo-02', 'uan016-01', 'tractomula-03', 'xid909-carga-01', 'uan016-05', 'grupo-01']
+MANIFIESTO += [{'origen': f'cliente/{o}.jpeg', 'destino': f'propia/{o}', 'anchos': [800, 560]} for o in FLOTA_PROPIA]
+MANIFIESTO += [
+    {'origen': 'cliente/xid909-carga-02.jpeg', 'destino': 'company/flota-propia', 'anchos': [1600, 960, 640]},
+    {'origen': 'cliente/xid909-puente.jpeg', 'destino': 'company/en-ruta', 'anchos': [1600, 960, 640]},
+]
+# Galería de Proyectos: vehículos propios operando (cargue, descargue, en ruta)
+OPERACIONES = ['cargue-granel', 'xid909-cargue', 'contenedor', 'xic300-puerto', 'descargue-01', 'descargue-02', 'descargue-03',
+               'descargue-04', 'descargue-05', 'xid909-volteo', 'xid909-carga-01', 'xid909-carga-02', 'liquida-tanque',
+               'xid909-puente', 'noche-estacion', 'xid909-estacion', 'tractomula-bodega', 'tractomula-04']
+MANIFIESTO += [{'origen': f'cliente/{o}.jpeg', 'destino': f'proyectos/{o}', 'anchos': [1200, 640]} for o in OPERACIONES]
+
 
 def procesar(item, ver=False):
     src = ORIGEN / item['origen']
-    im = Image.open(src).convert('RGB')
+    im = Image.open(src)
+    if item['origen'].startswith('cliente/'):
+        im = ImageOps.exif_transpose(im)  # fotos de celular: respetar la orientación EXIF
+    im = im.convert('RGB')
     w, h = im.size
     for (l, t, r, b) in item.get('tapar', []):
         caja = (int(l * w), int(t * h), int(r * w), int(b * h))

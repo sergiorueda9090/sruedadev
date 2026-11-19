@@ -1,0 +1,156 @@
+{
+  "_ayuda": "Cada servicio genera su propia página <id>.html. Los elementos de las listas pueden ser texto o {\"texto\": ..., \"confirmado\": false}: lo no confirmado se marca «Por confirmar» en revisión y se oculta al publicar. La foto es la ruta sin ancho ni extensión dentro de assets/img/.",
+  "servicios": [
+    {
+      "id": "carga-general",
+      "nombre": "Transporte de carga general",
+      "corto": "Carga general",
+      "icono": "box-seam",
+      "foto": "services/carga-general",
+      "fotoAlt": "Tractocamión azul con plataforma y carga cubierta con lona en una carretera de montaña",
+      "resumen": "Mercancía empacada, paletizada o en bultos, en el vehículo que corresponde a su peso y volumen.",
+      "descripcion": [
+        "Transportamos mercancías de diferentes sectores por carretera. Antes de asignar el vehículo revisamos con usted el peso, el volumen, el tipo de empaque y las condiciones del lugar de cargue y de entrega.",
+        "Así evitamos sobrecostos por un vehículo más grande de lo necesario y riesgos por uno que se queda corto."
+      ],
+      "caracteristicas": [
+        "Vehículo asignado según peso, volumen y empaque",
+        "Cita de cargue y de entrega acordada con usted",
+        "Aviso de salida y de llegada del vehículo",
+        "Documentación de transporte de cada despacho"
+      ],
+      "mercancias": ["Mercancía en estibas", "Cajas y bultos", "Sacos y granel empacado", "Materiales de construcción", "Insumos industriales"],
+      "soluciones": [
+        "Despacho completo en vehículo dedicado",
+        { "texto": "Carga consolidada con otros clientes", "confirmado": false },
+        { "texto": "Distribución con varias entregas en ruta", "confirmado": false }
+      ]
+    },
+    {
+      "id": "mercancia-seca",
+      "nombre": "Transporte de mercancía seca",
+      "corto": "Mercancía seca",
+      "icono": "boxes",
+      "foto": "services/mercancia-seca",
+      "fotoAlt": "Tractocamión rojo con carrocería carpada por una autopista entre zonas verdes",
+      "resumen": "Productos que no necesitan control de temperatura, protegidos de la lluvia y del polvo durante el viaje.",
+      "descripcion": [
+        "La mercancía seca es todo producto que viaja a temperatura ambiente: alimentos no perecederos, productos de consumo, insumos, empaques o materias primas.",
+        "Definimos con usted si el despacho necesita carrocería cerrada o carpada y cómo se acomoda la carga para que llegue en las mismas condiciones en que salió."
+      ],
+      "caracteristicas": [
+        "Carga protegida de lluvia y polvo",
+        "Acomodación y amarre según el tipo de empaque",
+        "Revisión de cantidades al cargue",
+        "Soporte de entrega firmado"
+      ],
+      "mercancias": ["Productos de consumo masivo", "Alimentos no perecederos empacados", "Materias primas en sacos", "Empaques y envases", "Papel y cartón"],
+      "soluciones": [
+        "Despacho de planta a centro de distribución",
+        { "texto": "Carrocería tipo furgón", "confirmado": false },
+        { "texto": "Carrocería con carpa", "confirmado": false }
+      ]
+    },
+    {
+      "id": "carga-pesada",
+      "nombre": "Transporte de carga pesada",
+      "corto": "Carga pesada",
+      "icono": "truck-flatbed",
+      "foto": "services/carga-pesada",
+      "fotoAlt": "Tractocamión blanco con cama baja transportando un buldócer amarillo junto a un campo verde",
+      "resumen": "Equipos y piezas de gran peso sobre plataformas y camas bajas, con amarre y señalización adecuados.",
+      "descripcion": [
+        "Movilizamos cargas de gran peso que requieren vehículos y remolques especiales: equipos industriales, piezas metálicas, bobinas, prefabricados y maquinaria.",
+        "Planeamos el cargue con usted, verificamos que el peso se reparta bien sobre los ejes y aseguramos la carga con los elementos de amarre que corresponden."
+      ],
+      "caracteristicas": [
+        "Revisión previa del peso y del centro de gravedad",
+        "Amarre con cadenas, tensores o eslingas según la pieza",
+        "Señalización del vehículo y de la carga",
+        "Coordinación del cargue y del descargue"
+      ],
+      "mercancias": ["Equipos industriales", "Estructuras metálicas", "Bobinas y rollos de acero", "Prefabricados de concreto", "Tubería"],
+      "soluciones": [
+        "Transporte en cama baja",
+        "Transporte en plataforma",
+        { "texto": "Coordinación de grúa para cargue y descargue", "confirmado": false }
+      ]
+    },
+    {
+      "id": "carga-sobredimensionada",
+      "nombre": "Transporte de carga sobredimensionada",
+      "corto": "Carga sobredimensionada",
+      "icono": "arrows-angle-expand",
+      "foto": "services/carga-sobredimensionada",
+      "fotoAlt": "Tractocamión azul con cama baja llevando un equipo cubierto con lona y aviso de carga extra larga y extra ancha",
+      "resumen": "Cargas que superan el ancho, el alto, el largo o el peso de un vehículo convencional, con planeación de ruta.",
+      "descripcion": [
+        "Una carga es sobredimensionada cuando excede las medidas o el peso que permite un vehículo convencional. Su transporte requiere permisos especiales, señalización y una ruta revisada de antemano.",
+        "Antes del viaje estudiamos las medidas de la carga frente a puentes, túneles, redes eléctricas y curvas del recorrido, y definimos con usted el horario y las condiciones de la operación."
+      ],
+      "caracteristicas": [
+        "Estudio de la ruta frente a las medidas de la carga",
+        "Señalización de carga extralarga o extraancha",
+        "Horario de viaje según las restricciones de la vía",
+        "Plan de cargue, amarre y descargue"
+      ],
+      "mercancias": ["Transformadores", "Tanques y recipientes a presión", "Estructuras metálicas", "Módulos y equipos de planta", "Piezas de gran longitud"],
+      "soluciones": [
+        "Planeación de la operación según cada carga",
+        { "texto": "Trámite de permisos ante la autoridad vial", "confirmado": false },
+        { "texto": "Vehículos acompañantes y escoltas", "confirmado": false },
+        { "texto": "Remolques modulares y extensibles", "confirmado": false }
+      ]
+    },
+    {
+      "id": "maquinaria-pesada",
+      "nombre": "Transporte de maquinaria pesada",
+      "corto": "Maquinaria amarilla",
+      "icono": "cone",
+      "foto": "services/maquinaria-pesada",
+      "fotoAlt": "Excavadora sobre cama baja de varios ejes tirada por un tractocamión en una carretera entre colinas",
+      "resumen": "Excavadoras, buldóceres, cargadores y otros equipos de obra, de un frente de trabajo a otro.",
+      "descripcion": [
+        "Trasladamos maquinaria amarilla entre obras, patios, puertos y proyectos. Verificamos el peso operativo y las medidas del equipo para asignar la cama baja adecuada.",
+        "Coordinamos con su equipo la subida y bajada de la máquina por rampa y el amarre en cuatro puntos o más, según el fabricante."
+      ],
+      "caracteristicas": [
+        "Cama baja según peso operativo y medidas del equipo",
+        "Subida y bajada por rampa coordinada con su operador",
+        "Amarre según los puntos indicados por el fabricante",
+        "Protección de brazos, cucharones y orugas"
+      ],
+      "mercancias": ["Excavadoras", "Buldóceres", "Cargadores y retrocargadores", "Motoniveladoras", "Vibrocompactadores"],
+      "soluciones": [
+        "Traslado entre obras y patios",
+        { "texto": "Traslado desde y hacia puertos", "confirmado": false },
+        { "texto": "Operaciones de varias máquinas en un mismo proyecto", "confirmado": false }
+      ]
+    },
+    {
+      "id": "transporte-especializado",
+      "nombre": "Transporte especializado",
+      "corto": "Transporte especializado",
+      "icono": "tools",
+      "foto": "services/transporte-especializado",
+      "fotoAlt": "Tractocamión con remolque modular de varios ejes transportando estructuras metálicas de gran tamaño por una vía destapada",
+      "resumen": "Operaciones con requisitos particulares de manipulación, aseguramiento o ruta, planeadas una por una.",
+      "descripcion": [
+        "Algunas cargas no encajan en un servicio estándar: piezas frágiles de gran tamaño, equipos que no se pueden inclinar, cargas con centro de gravedad alto o entregas en sitios de difícil acceso.",
+        "Para estos casos armamos un plan específico con usted: vehículo, elementos de amarre, ruta, horarios y personal de apoyo."
+      ],
+      "caracteristicas": [
+        "Plan de operación hecho a la medida de la carga",
+        "Visita técnica previa cuando la carga lo requiere",
+        "Coordinación con su personal en origen y destino",
+        "Seguimiento del viaje hasta la entrega"
+      ],
+      "mercancias": ["Equipos de planta", "Componentes para el sector energético", "Estructuras prefabricadas", "Equipos delicados de gran tamaño"],
+      "soluciones": [
+        "Operaciones planeadas por proyecto",
+        { "texto": "Visita técnica previa", "confirmado": false },
+        { "texto": "Proyectos con varios viajes programados", "confirmado": false }
+      ]
+    }
+  ]
+}

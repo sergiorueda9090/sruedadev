@@ -1,0 +1,400 @@
+{
+  "_ayuda": "Datos de la empresa. Tras editar este archivo ejecute: python3 tools/build.py. Ningún dato se inventa: lo no confirmado queda vacío o con aprobado/confirmado en false.",
+  "modo": "revision",
+  "marca": {
+    "nombre": "CTICOL",
+    "descriptor": "Transporte de carga",
+    "razonSocial": "Compañía Transportadora e Inversiones de Colombia",
+    "nit": "",
+    "dominio": "",
+    "resumen": "Empresa colombiana de transporte terrestre de carga general, mercancía seca, carga pesada y sobredimensionada.",
+    "_razonSocial": "Entregada por el cliente el 2026-11-18 (sin tipo societario: agregar S.A.S. u otro si aplica).",
+    "fundacion": 2019,
+    "razonAnterior": "Logística y Transportes TRANSFER"
+  },
+  "contacto": {
+    "_nota": "Datos confirmados por el cliente el 2026-11-17 (los mismos del sitio cticol/).",
+    "telefonoPrincipal": {
+      "numero": "573115734776",
+      "mostrar": "311 573 4776",
+      "area": "Coordinador de operaciones"
+    },
+    "whatsapp": [
+      {
+        "numero": "573164732031",
+        "mostrar": "316 473 2031",
+        "area": "Comercial",
+        "cotizaciones": true
+      },
+      {
+        "numero": "573173004381",
+        "mostrar": "317 300 4381",
+        "area": "Despachos"
+      }
+    ],
+    "correo": "c.operaciones@cticol.com",
+    "direccion": "",
+    "direccionNota": "Por definir: la oficina está en traslado.",
+    "ciudad": "",
+    "horario": "",
+    "mapaUrl": "",
+    "mapaPrueba": {
+      "_nota": "Mapa provisional mientras se confirma la nueva dirección. Solo se muestra en modo revisión y siempre con el aviso de ubicación de prueba. Para usar la dirección real: llene direccion y mapaUrl y ponga activo en false.",
+      "activo": true,
+      "lugar": "Parque Santander, Bucaramanga",
+      "url": "https://maps.google.com/maps?q=Parque%20Santander%2C%20Bucaramanga%2C%20Santander&z=16&output=embed"
+    }
+  },
+  "redes": {
+    "facebook": "",
+    "instagram": "",
+    "linkedin": "",
+    "youtube": "",
+    "tiktok": "",
+    "twitter-x": ""
+  },
+  "whatsappMensaje": "Hola, estoy interesado en conocer sus servicios de transporte. Me gustaría recibir información y una cotización.",
+  "_rastreo": "Botón «Rastrear envío». url vacía = la plataforma está en desarrollo: el botón lleva a rastreo.html, que consulta el estado por WhatsApp de Despachos. Con url https, el botón abre la plataforma directamente.",
+  "rastreo": {
+    "url": "",
+    "lineaWhatsapp": "Despachos"
+  },
+  "formEndpoint": "",
+  "_formWhatsapp": "true: al enviar el formulario se abre WhatsApp (línea con cotizaciones: true) con la solicitud escrita, haya o no formEndpoint.",
+  "formWhatsapp": true,
+  "analitica": {
+    "ga4": "",
+    "searchConsole": ""
+  },
+  "porVerificar": [],
+  "institucional": {
+    "quienesSomos": {
+      "aprobado": true,
+      "texto": [
+        "CTICOL es una empresa colombiana de transporte terrestre de carga. Movilizamos carga general, mercancía seca, carga pesada y sobredimensionada para empresas y personas que necesitan que su mercancía llegue completa y a tiempo.",
+        "Cada solicitud empieza por entender la carga: qué es, cuánto pesa, cuáles son sus medidas, dónde se carga y dónde se entrega. Con esa información definimos el vehículo y la forma de hacer el viaje."
+      ]
+    },
+    "historia": {
+      "_nota": "Datos entregados por el cliente el 2026-11-18. {anios} se calcula con el año actual.",
+      "aprobado": true,
+      "texto": [
+        "CTICOL inició operaciones en 2019 con la razón social Logística y Transportes TRANSFER.",
+        "En 2025 cambió su razón social a Compañía Transportadora e Inversiones de Colombia, de donde viene la sigla CTICOL.",
+        "Hoy suma {anios} años en el mercado prestando servicios de transporte de carga con puntualidad y cumplimiento."
+      ],
+      "hitos": [
+        {
+          "anio": "2019",
+          "texto": "Inicia operaciones como Logística y Transportes TRANSFER."
+        },
+        {
+          "anio": "2025",
+          "texto": "Cambia su razón social a Compañía Transportadora e Inversiones de Colombia (CTICOL)."
+        },
+        {
+          "anio": "Hoy",
+          "texto": "{anios} años en el mercado con puntualidad y cumplimiento."
+        }
+      ]
+    },
+    "mision": {
+      "_nota": "Texto de prueba redactado para la demostración. Debe aprobarlo o reemplazarlo la empresa.",
+      "aprobado": false,
+      "texto": "En CTICOL movilizamos por carretera la carga general, la mercancía seca y las cargas pesadas y sobredimensionadas de nuestros clientes. Planeamos cada operación según las características de la mercancía, cuidamos la carga, a nuestros conductores y a quienes comparten la vía, y mantenemos informado al cliente desde el cargue hasta la entrega.",
+      "puntos": [
+        "Planear cada viaje según el peso, las medidas y el tipo de carga",
+        "Proteger la mercancía, a los conductores y a quienes comparten la vía",
+        "Informar al cliente en cada etapa del servicio",
+        "Cumplir lo acordado en tiempos y condiciones"
+      ]
+    },
+    "vision": {
+      "_nota": "Texto de prueba redactado para la demostración. Debe aprobarlo o reemplazarlo la empresa.",
+      "aprobado": false,
+      "texto": "Ser una empresa de transporte de carga reconocida en Colombia por su seguridad, su cumplimiento y su capacidad para resolver operaciones especiales, creciendo junto a nuestros clientes con una flota adecuada a cada necesidad y un equipo humano comprometido.",
+      "puntos": [
+        "Ser la primera opción de nuestros clientes para cargas pesadas y sobredimensionadas",
+        "Fortalecer la flota según las necesidades de cada operación",
+        "Formar un equipo humano capacitado y comprometido con la seguridad",
+        "Llegar a más corredores de carga del país"
+      ]
+    },
+    "valores": {
+      "aprobado": false,
+      "lista": [
+        {
+          "icono": "shield-check",
+          "nombre": "Seguridad",
+          "texto": "Cuidamos la carga, a los conductores y a quienes comparten la vía con nosotros."
+        },
+        {
+          "icono": "calendar2-check",
+          "nombre": "Cumplimiento",
+          "texto": "Lo que acordamos en la cotización es lo que hacemos en la operación."
+        },
+        {
+          "icono": "people",
+          "nombre": "Respeto",
+          "texto": "Tratamos a clientes, conductores y comunidades con consideración y buen trato."
+        },
+        {
+          "icono": "eye",
+          "nombre": "Transparencia",
+          "texto": "Informamos con claridad tarifas, tiempos y novedades del viaje."
+        },
+        {
+          "icono": "hand-thumbs-up",
+          "nombre": "Responsabilidad",
+          "texto": "Respondemos por cada despacho desde el cargue hasta la entrega."
+        }
+      ]
+    },
+    "compromiso": {
+      "aprobado": false,
+      "texto": "Nos comprometemos a revisar cada carga antes de cotizarla, a asignar el vehículo adecuado, a informar las novedades del viaje apenas ocurran y a entregar la documentación de cada despacho."
+    },
+    "filosofia": {
+      "aprobado": false,
+      "pasos": [
+        {
+          "nombre": "Escuchamos",
+          "texto": "Nos cuenta qué necesita mover, de dónde, hacia dónde y para cuándo."
+        },
+        {
+          "nombre": "Revisamos la carga",
+          "texto": "Validamos peso, medidas, tipo de empaque y condiciones de cargue y entrega."
+        },
+        {
+          "nombre": "Planeamos el viaje",
+          "texto": "Definimos el vehículo, la ruta y la cita de cargue con usted."
+        },
+        {
+          "nombre": "Informamos",
+          "texto": "Le avisamos la salida, el avance y cualquier novedad durante el trayecto."
+        },
+        {
+          "nombre": "Entregamos",
+          "texto": "Confirmamos la entrega y le enviamos los soportes del despacho."
+        }
+      ]
+    }
+  },
+  "porQue": [
+    {
+      "icono": "shield-check",
+      "nombre": "Seguridad en las operaciones",
+      "texto": "Vehículos con rastreo GPS 24/7, mercancía amparada por pólizas de seguro y conductores capacitados en cada viaje."
+    },
+    {
+      "icono": "calendar2-check",
+      "nombre": "Compromiso y cumplimiento",
+      "texto": "Desde 2019 trabajamos con puntualidad y cumplimiento: acordamos con usted la cita de cargue y la fecha de entrega."
+    },
+    {
+      "icono": "headset",
+      "nombre": "Atención personalizada",
+      "texto": "Un contacto directo de operaciones responde sus preguntas antes, durante y después del viaje."
+    },
+    {
+      "icono": "diagram-3",
+      "nombre": "Soluciones logísticas",
+      "texto": "Adaptamos el vehículo y la forma de hacer el viaje a lo que su carga necesita."
+    },
+    {
+      "icono": "building-check",
+      "nombre": "Responsabilidad empresarial",
+      "texto": "Operamos con la documentación de transporte de cada despacho y con respeto por la vía y las comunidades."
+    }
+  ],
+  "sectores": [
+    {
+      "icono": "bricks",
+      "nombre": "Construcción",
+      "texto": "Materiales, estructuras y equipos para obra."
+    },
+    {
+      "icono": "gear-wide-connected",
+      "nombre": "Industria",
+      "texto": "Insumos, maquinaria y equipos de planta."
+    },
+    {
+      "icono": "minecart-loaded",
+      "nombre": "Minería",
+      "texto": "Equipos e insumos para operaciones mineras."
+    },
+    {
+      "icono": "lightning-charge",
+      "nombre": "Petróleo y energía",
+      "texto": "Equipos, tubería y componentes para el sector."
+    },
+    {
+      "icono": "shop",
+      "nombre": "Comercio",
+      "texto": "Mercancía seca para centros de distribución."
+    },
+    {
+      "icono": "cone-striped",
+      "nombre": "Infraestructura",
+      "texto": "Maquinaria y elementos para proyectos viales."
+    }
+  ],
+  "cobertura": {
+    "_nota": "Las ciudades vienen del mapa recibido en img/ (gh4v3C7…jpeg). No se ha confirmado que correspondan a la operación de CTICOL: confirmado=false las oculta en modo publicación.",
+    "confirmado": false,
+    "texto": "Atendemos solicitudes de transporte de carga por carretera. Consúltenos por su origen y destino y le confirmamos la disponibilidad para su ruta.",
+    "ciudades": [
+      {
+        "nombre": "Cartagena",
+        "departamento": "Bolívar",
+        "lat": 10.391,
+        "lon": -75.479
+      },
+      {
+        "nombre": "Puerto Bolívar",
+        "departamento": "La Guajira",
+        "lat": 12.23,
+        "lon": -71.98
+      },
+      {
+        "nombre": "Cúcuta",
+        "departamento": "Norte de Santander",
+        "lat": 7.894,
+        "lon": -72.508
+      },
+      {
+        "nombre": "Bucaramanga",
+        "departamento": "Santander",
+        "lat": 7.119,
+        "lon": -73.123
+      },
+      {
+        "nombre": "Barrancabermeja",
+        "departamento": "Santander",
+        "lat": 7.065,
+        "lon": -73.854
+      },
+      {
+        "nombre": "Medellín",
+        "departamento": "Antioquia",
+        "lat": 6.244,
+        "lon": -75.581
+      },
+      {
+        "nombre": "Rionegro",
+        "departamento": "Antioquia",
+        "lat": 6.155,
+        "lon": -75.374
+      },
+      {
+        "nombre": "Itagüí",
+        "departamento": "Antioquia",
+        "lat": 6.172,
+        "lon": -75.611
+      },
+      {
+        "nombre": "Bogotá",
+        "departamento": "Bogotá D. C.",
+        "lat": 4.711,
+        "lon": -74.072
+      },
+      {
+        "nombre": "Funza",
+        "departamento": "Cundinamarca",
+        "lat": 4.716,
+        "lon": -74.211
+      },
+      {
+        "nombre": "Tocancipá",
+        "departamento": "Cundinamarca",
+        "lat": 4.965,
+        "lon": -73.913
+      },
+      {
+        "nombre": "Puerto Gaitán",
+        "departamento": "Meta",
+        "lat": 4.314,
+        "lon": -72.082
+      },
+      {
+        "nombre": "Cali",
+        "departamento": "Valle del Cauca",
+        "lat": 3.452,
+        "lon": -76.532
+      },
+      {
+        "nombre": "Yumbo",
+        "departamento": "Valle del Cauca",
+        "lat": 3.585,
+        "lon": -76.495
+      },
+      {
+        "nombre": "Palmira",
+        "departamento": "Valle del Cauca",
+        "lat": 3.539,
+        "lon": -76.303
+      },
+      {
+        "nombre": "Buenaventura",
+        "departamento": "Valle del Cauca",
+        "lat": 3.882,
+        "lon": -77.031
+      }
+    ],
+    "rutas": []
+  },
+  "respaldo": {
+    "_nota": "Diferenciales confirmados por el cliente el 2026-11-18.",
+    "items": [
+      {
+        "icono": "geo-alt",
+        "nombre": "Rastreo GPS 24/7",
+        "texto": "Nuestros vehículos tienen rastreo satelital las 24 horas, los 7 días de la semana, durante todo el trayecto.",
+        "confirmado": true
+      },
+      {
+        "icono": "shield-check",
+        "nombre": "Pólizas de seguro de mercancía",
+        "texto": "Su carga viaja amparada por pólizas de seguro de mercancía.",
+        "confirmado": true
+      },
+      {
+        "icono": "person-badge",
+        "nombre": "Conductores capacitados",
+        "texto": "Conductores preparados para el manejo seguro de la carga y la operación en carretera.",
+        "confirmado": true
+      },
+      {
+        "icono": "truck",
+        "nombre": "Flota propia y tercerizada",
+        "texto": "Turbos, camiones sencillos y tractomulas para ajustarnos al tamaño de cada despacho.",
+        "confirmado": true
+      }
+    ]
+  },
+  "clientes": {
+    "_nota": "Clientes objetivo confirmados por el cliente el 2026-11-18.",
+    "items": [
+      {
+        "icono": "shop",
+        "nombre": "Empresas comerciales",
+        "texto": "Despachos de mercancía a bodegas, tiendas y centros de distribución."
+      },
+      {
+        "icono": "building-gear",
+        "nombre": "Industrias",
+        "texto": "Materias primas, insumos, producto terminado y equipos."
+      },
+      {
+        "icono": "boxes",
+        "nombre": "Distribuidores",
+        "texto": "Movimiento de mercancía entre bodegas y puntos de venta."
+      },
+      {
+        "icono": "person",
+        "nombre": "Personas naturales",
+        "texto": "Despachos puntuales: un equipo, materiales o un envío único."
+      }
+    ]
+  }
+}

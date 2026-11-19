@@ -1,26 +1,128 @@
 {
-  "_ayuda": "Galería de proyectos. demostracion=true muestra el aviso de que las fotos son de referencia y no corresponden a operaciones de la empresa. Al tener fotos propias, reemplace los elementos y ponga demostracion en false.",
-  "demostracion": true,
+  "_ayuda": "Galería de Proyectos con fotos propias de la flota de CTICOL (entregadas el 2026-11-19). foto = assets/img/proyectos/<nombre> (tools/imagenes.py).",
+  "demostracion": false,
   "categorias": [
-    { "id": "vehiculos", "nombre": "Vehículos" },
-    { "id": "operaciones", "nombre": "Operaciones de carga" },
-    { "id": "maquinaria", "nombre": "Transporte de maquinaria" },
-    { "id": "industriales", "nombre": "Proyectos industriales" }
+    {
+      "id": "cargue",
+      "nombre": "Cargue"
+    },
+    {
+      "id": "descargue",
+      "nombre": "Descargue"
+    },
+    {
+      "id": "ruta",
+      "nombre": "En ruta"
+    }
   ],
   "items": [
-    { "foto": "hero/sobredimensionada", "categoria": "industriales", "titulo": "Recipientes de gran longitud sobre remolque modular", "alt": "Convoy de remolques modulares con recipientes metálicos de gran longitud en una vía recta" },
-    { "foto": "services/carga-sobredimensionada", "categoria": "industriales", "titulo": "Equipo cubierto con aviso de carga extra larga y extra ancha", "alt": "Tractocamión azul con cama baja y equipo cubierto con lona negra en una vía rural" },
-    { "foto": "fleet/cama-baja", "categoria": "maquinaria", "titulo": "Excavadora asegurada sobre cama baja", "alt": "Excavadora amarilla sobre cama baja en un patio" },
-    { "foto": "services/maquinaria-pesada", "categoria": "maquinaria", "titulo": "Excavadora en cama baja extensible", "alt": "Excavadora sobre cama baja de varios ejes en carretera entre colinas" },
-    { "foto": "company/ruta", "categoria": "maquinaria", "titulo": "Excavadora y cargador en un mismo viaje", "alt": "Tractocamión azul con cama baja llevando una excavadora y un cargador al atardecer" },
-    { "foto": "company/municipio", "categoria": "operaciones", "titulo": "Cargador sobre cama baja en zona urbana", "alt": "Camión blanco con cama baja y un cargador amarillo frente a una iglesia en la plaza de un municipio" },
-    { "foto": "fleet/camion", "categoria": "operaciones", "titulo": "Equipo industrial en remolque de plataforma", "alt": "Camión naranja con remolque de plataforma cargado con un equipo industrial" },
-    { "foto": "services/transporte-especializado", "categoria": "industriales", "titulo": "Convoy de estructuras metálicas", "alt": "Vista aérea de tractocamiones con remolques modulares y estructuras metálicas por una vía destapada" },
-    { "foto": "fleet/remolque-modular", "categoria": "industriales", "titulo": "Pieza circular de gran diámetro", "alt": "Tractocamión blanco con remolque modular y una pieza circular de gran diámetro en un patio" },
-    { "foto": "services/carga-pesada", "categoria": "maquinaria", "titulo": "Buldócer en cama baja", "alt": "Tractocamión blanco con cama baja y buldócer en una carretera junto a un campo" },
-    { "foto": "fleet/tractocamion", "categoria": "vehiculos", "titulo": "Tractocamiones en carretera", "alt": "Fila de tractocamiones azules en una carretera" },
-    { "foto": "company/patio", "categoria": "vehiculos", "titulo": "Tractocamiones con semirremolque cerrado", "alt": "Tractocamiones blancos con semirremolque cerrado en un patio" },
-    { "foto": "hero/carga-general", "categoria": "vehiculos", "titulo": "Tractocamión con furgón en vía de montaña", "alt": "Tractocamión con furgón en una curva de carretera de montaña" },
-    { "foto": "services/mercancia-seca", "categoria": "operaciones", "titulo": "Mercancía seca con carpa", "alt": "Tractocamión rojo con carrocería carpada en una autopista" }
+    {
+      "foto": "proyectos/cargue-granel",
+      "categoria": "cargue",
+      "titulo": "Cargue de granel con cargador en bodega",
+      "alt": "Cargador frontal depositando granel en una tractomula dentro de una bodega"
+    },
+    {
+      "foto": "proyectos/xid909-cargue",
+      "categoria": "cargue",
+      "titulo": "Cargue de material en carrocería de estacas",
+      "alt": "Tractomula Kenworth de placa XID909 cargando material de reciclaje"
+    },
+    {
+      "foto": "proyectos/contenedor",
+      "categoria": "cargue",
+      "titulo": "Cargue de contenedor en puerto",
+      "alt": "Grúa portuaria bajando un contenedor sobre una tractomula azul de noche"
+    },
+    {
+      "foto": "proyectos/xic300-puerto",
+      "categoria": "cargue",
+      "titulo": "Tractomula en zona portuaria",
+      "alt": "Tractomula Kenworth de placa XIC300 con carrocería de estacas junto a silos de un puerto"
+    },
+    {
+      "foto": "proyectos/descargue-02",
+      "categoria": "descargue",
+      "titulo": "Descargue por volteo de plataforma",
+      "alt": "Tractomula de CTICOL inclinada en la plataforma de volteo durante el descargue"
+    },
+    {
+      "foto": "proyectos/descargue-01",
+      "categoria": "descargue",
+      "titulo": "Plataforma de volteo en operación",
+      "alt": "Plataforma de volteo elevando una tractomula para el descargue"
+    },
+    {
+      "foto": "proyectos/descargue-03",
+      "categoria": "descargue",
+      "titulo": "Descargue de granel por volteo",
+      "alt": "Tractomula elevada en plataforma de volteo con cielo nublado"
+    },
+    {
+      "foto": "proyectos/descargue-04",
+      "categoria": "descargue",
+      "titulo": "Turno de descargue",
+      "alt": "Tractomula en plataforma de volteo y otra esperando turno de descargue"
+    },
+    {
+      "foto": "proyectos/descargue-05",
+      "categoria": "descargue",
+      "titulo": "Tractomula en espera de descargue",
+      "alt": "Tractomula Kenworth azul junto a la plataforma de volteo"
+    },
+    {
+      "foto": "proyectos/xid909-volteo",
+      "categoria": "descargue",
+      "titulo": "Tractomula XID909 en plataforma de descargue",
+      "alt": "Tractomula Kenworth de placa XID909 sobre la plataforma de descargue de noche"
+    },
+    {
+      "foto": "proyectos/xid909-carga-01",
+      "categoria": "ruta",
+      "titulo": "Carga cubierta lista para salir",
+      "alt": "Tractomula Kenworth XID909 con carrocería de estacas carpada al atardecer"
+    },
+    {
+      "foto": "proyectos/xid909-carga-02",
+      "categoria": "ruta",
+      "titulo": "Tractomula cargada en patio",
+      "alt": "Tractomula Kenworth azul con carrocería de estacas carpada en un patio"
+    },
+    {
+      "foto": "proyectos/liquida-tanque",
+      "categoria": "ruta",
+      "titulo": "Carga líquida en carrotanque",
+      "alt": "Tractomula azul con carrotanque de acero en una vía de montaña"
+    },
+    {
+      "foto": "proyectos/xid909-puente",
+      "categoria": "ruta",
+      "titulo": "En ruta sobre el río",
+      "alt": "Tractomula de CTICOL con plataforma carpada cruzando un puente sobre un río"
+    },
+    {
+      "foto": "proyectos/noche-estacion",
+      "categoria": "ruta",
+      "titulo": "Parada nocturna",
+      "alt": "Tractomulas azules con semirremolque carpado en una estación de servicio de noche"
+    },
+    {
+      "foto": "proyectos/xid909-estacion",
+      "categoria": "ruta",
+      "titulo": "Tanqueo antes del viaje",
+      "alt": "Tractomula Kenworth azul con semirremolque carpado en una estación de servicio"
+    },
+    {
+      "foto": "proyectos/tractomula-bodega",
+      "categoria": "cargue",
+      "titulo": "Tractomula en muelle de bodega",
+      "alt": "Tractomula International azul frente a los muelles de una bodega"
+    },
+    {
+      "foto": "proyectos/tractomula-04",
+      "categoria": "ruta",
+      "titulo": "Tractomula sobre puente atirantado",
+      "alt": "Tractomula International azul con semirremolque carpado sobre un puente atirantado"
+    }
   ]
 }

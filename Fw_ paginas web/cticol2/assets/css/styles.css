@@ -759,3 +759,99 @@ a.social-btn:hover { transform: translateY(-2px); color: var(--blanco) !importan
 .track-status { display: inline-flex; align-items: center; gap: .5rem; font-weight: 600; font-size: .9rem; color: #6B4A00 !important; background: #FFF1CC; border: 1px solid #F2C866; padding: .3rem .8rem; border-radius: 99px; }
 .track-form { display: grid; gap: 1.1rem; margin-top: 1.5rem; }
 .track-form .btn-wa { justify-self: start; }
+
+/* ---------------------------------------------------------------- cambios del cliente (2026-11-19) */
+/* Lo que transportamos: una foto por carga con la flota que la presta */
+.kicker { font-family: var(--f-titulo); font-weight: 600; font-size: .82rem; letter-spacing: .08em; text-transform: uppercase; color: var(--naranja-texto); margin-bottom: .5rem; }
+.fleet-legend { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.fleet-badge {
+  display: inline-flex; align-items: center; gap: .4rem; padding: .3rem .75rem; border-radius: 99px;
+  font-family: var(--f-titulo); font-weight: 600; font-size: .8rem; line-height: 1.3; white-space: nowrap;
+}
+.fleet-badge--propia { background: var(--naranja); color: var(--navy); }
+.fleet-badge--tercerizada { background: var(--petroleo); color: var(--blanco); box-shadow: inset 0 0 0 1.5px var(--amarillo); }
+.cargo-grid { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.cargo { display: flex; flex-direction: column; border: 1px solid var(--linea); border-radius: var(--radio); overflow: hidden; background: var(--blanco); max-width: none; }
+.cargo-media { position: relative; aspect-ratio: 4 / 3; background: var(--gris); overflow: hidden; }
+.cargo-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s var(--ease); }
+.cargo:hover .cargo-media img { transform: scale(1.04); }
+.cargo-media .fleet-badge { position: absolute; left: .75rem; top: .75rem; box-shadow: 0 6px 16px -6px rgba(0,0,0,.5); }
+.cargo-media .fleet-badge--tercerizada { box-shadow: inset 0 0 0 1.5px var(--amarillo), 0 6px 16px -6px rgba(0,0,0,.5); }
+.cargo-body { padding: 1.1rem 1.2rem 1.3rem; display: flex; flex-direction: column; flex: 1; }
+.cargo-body h3 { font-size: 1.12rem; }
+.cargo-body p { color: var(--texto); font-size: .95rem; margin-bottom: .8rem; }
+.cargo-link { margin-top: auto; font-family: var(--f-titulo); font-weight: 600; font-size: .92rem; color: var(--naranja-texto); }
+.cargo-link:hover { color: var(--navy); }
+
+/* Flota propia (placas) */
+.plate {
+  display: inline-block; margin-bottom: .55rem; padding: .1rem .55rem; border: 2px solid var(--navy); border-radius: var(--radio-s);
+  background: var(--amarillo); color: var(--navy); font-family: var(--f-titulo); font-weight: 700; font-size: .9rem; letter-spacing: .08em;
+}
+.own-item h3 { margin: 0; font-size: 1.08rem; }
+
+/* Misión y visión: textos completos del cliente */
+.mv-text { font-size: 1.05rem; line-height: 1.7; color: var(--tinta); max-width: 62ch; }
+.mv-band--navy .mv-text { color: #DCE3E9; }
+
+/* Footer: lema principal */
+.foot-lema { font-family: var(--f-titulo); font-weight: 600; color: var(--amarillo); font-size: 1.02rem; line-height: 1.4; }
+
+/* Botón «Contáctanos» y panel de dependencias / encuesta */
+.wa-widget { position: fixed; right: 20px; bottom: 20px; z-index: 900; display: flex; flex-direction: column; align-items: flex-end; gap: .75rem; }
+.wa-widget .wa-float { position: relative; right: auto; bottom: auto; border: 0; cursor: pointer; }
+.wa-widget.is-open .wa-float { background: var(--navy); color: var(--blanco); }
+.wa-panel {
+  width: min(380px, calc(100vw - 28px)); max-height: min(640px, calc(100vh - 110px)); display: flex; flex-direction: column;
+  background: var(--blanco); border-radius: 14px; overflow: hidden; box-shadow: 0 24px 60px -18px rgba(11,25,40,.55);
+  border-top: 5px solid var(--wa-oscuro);
+}
+.wa-panel[hidden] { display: none; }
+.wa-head { display: flex; align-items: center; gap: .8rem; padding: 1rem 1.1rem; background: var(--navy); color: var(--blanco); }
+.wa-head-ico { width: 42px; height: 42px; flex-shrink: 0; display: grid; place-items: center; border-radius: 50%; background: var(--wa); color: #06341C; font-size: 1.35rem; }
+.wa-head-t { margin: 0; font-family: var(--f-titulo); font-weight: 700; font-size: 1.12rem; color: var(--blanco); }
+.wa-head-s { margin: 0; font-size: .85rem; color: #A9B6C2; }
+.wa-close { margin-left: auto; width: 40px; height: 40px; border: 0; border-radius: 50%; background: rgba(255,255,255,.1); color: var(--blanco); display: grid; place-items: center; }
+.wa-close:hover { background: rgba(255,255,255,.2); }
+.wa-body { overflow-y: auto; padding: 1rem 1.1rem 1.2rem; background: var(--gris); }
+.wa-cta, .wa-line {
+  width: 100%; display: flex; align-items: center; gap: .8rem; padding: .8rem .9rem; border-radius: var(--radio);
+  text-align: left; text-decoration: none; color: var(--tinta); background: var(--blanco); border: 1px solid var(--linea);
+  transition: border-color .2s var(--ease), box-shadow .2s var(--ease);
+}
+.wa-cta { background: var(--naranja); border-color: var(--naranja); color: var(--navy); }
+.wa-cta:hover { background: var(--naranja-hover); }
+.wa-line:hover { border-color: var(--wa-oscuro); box-shadow: var(--sombra); color: var(--tinta); }
+.wa-cta > i:first-child, .wa-line > i:first-child { font-size: 1.3rem; width: 26px; text-align: center; flex-shrink: 0; }
+.wa-line > i:first-child { color: var(--naranja-texto); }
+.wa-cta span, .wa-line span:not(.visually-hidden) { display: flex; flex-direction: column; line-height: 1.25; flex: 1; }
+.wa-cta strong, .wa-line strong { font-family: var(--f-titulo); font-weight: 600; font-size: .98rem; }
+.wa-cta small { font-size: .8rem; color: var(--navy); }
+.wa-line small { font-size: .82rem; color: var(--texto-gris); }
+.wa-line-go { color: var(--wa-oscuro); font-size: 1.15rem; }
+.wa-sub { margin: 1rem 0 .55rem; font-size: .8rem; font-weight: 600; letter-spacing: .05em; text-transform: uppercase; color: var(--texto-gris); }
+.wa-lines { list-style: none; padding: 0; margin: 0; display: grid; gap: .5rem; }
+.wa-lines li { max-width: none; }
+.wa-bubble {
+  position: relative; margin: 0 0 1rem; padding: .8rem 1rem; background: #DCF8C6; color: #1B2B1E; border-radius: 0 var(--radio) var(--radio) var(--radio);
+  font-size: .94rem; line-height: 1.5; max-width: none;
+}
+.wa-field { border: 0; padding: 0; margin: 0 0 1rem; min-width: 0; }
+.wa-field legend, .wa-field label { display: block; font-weight: 600; font-size: .95rem; color: var(--navy); margin-bottom: .45rem; float: none; width: auto; }
+.wa-opts { display: grid; grid-template-columns: 1fr 1fr; gap: .4rem; border-radius: var(--radio); }
+.wa-opts.is-invalid { box-shadow: 0 0 0 2px #B42318; }
+.wa-opt { position: relative; display: flex; }
+.wa-opt input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.wa-opt span {
+  flex: 1; display: flex; align-items: center; padding: .55rem .7rem; min-height: 44px; border: 1.5px solid #C5CDD5; border-radius: var(--radio-s);
+  background: var(--blanco); font-size: .88rem; line-height: 1.25; color: var(--tinta); cursor: pointer;
+}
+.wa-opt input:checked + span { border-color: var(--navy); background: var(--navy); color: var(--blanco); font-weight: 600; }
+.wa-opt input:focus-visible + span { outline: 3px solid var(--naranja); outline-offset: 2px; }
+.wa-field input[name="ciudad"] { width: 100%; min-height: 46px; padding: .6rem .8rem; border: 1.5px solid #C5CDD5; border-radius: var(--radio-s); background: var(--blanco); font: inherit; }
+.wa-field input[name="ciudad"]:focus { outline: none; border-color: var(--navy); box-shadow: 0 0 0 3px rgba(243,107,33,.45); }
+.wa-field input[aria-invalid="true"] { border-color: #B42318; }
+.wa-quote-form .btn-wa { justify-content: center; }
+.wa-back { margin-top: .8rem; border: 0; background: none; padding: .4rem 0; display: inline-flex; gap: .4rem; align-items: center; font-weight: 600; font-size: .9rem; color: var(--navy); text-decoration: underline; text-underline-offset: .18em; }
+.wa-quote-form--inline .wa-opts { grid-template-columns: repeat(2, 1fr); }
+.wa-quote-form--inline .wa-bubble { background: var(--blanco); border-left: 4px solid var(--wa-oscuro); border-radius: 0 var(--radio-s) var(--radio-s) 0; }

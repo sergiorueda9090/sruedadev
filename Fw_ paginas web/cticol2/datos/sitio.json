@@ -4,32 +4,46 @@
   "marca": {
     "nombre": "CTICOL",
     "descriptor": "Transporte de carga",
-    "razonSocial": "Compañía Transportadora e Inversiones de Colombia",
+    "razonSocial": "Compañía Transportadora e Inversiones de Colombia S.A.S.",
     "nit": "",
     "dominio": "",
     "resumen": "Empresa colombiana de transporte terrestre de carga general, mercancía seca, carga pesada y sobredimensionada.",
-    "_razonSocial": "Entregada por el cliente el 2026-11-18 (sin tipo societario: agregar S.A.S. u otro si aplica).",
+    "_razonSocial": "Confirmada por el cliente el 2026-11-19 (documento «PAGINA WEB CTICOL.docx»).",
     "fundacion": 2019,
-    "razonAnterior": "Logística y Transportes TRANSFER"
+    "razonAnterior": "Logística y Transportes TRANSFER",
+    "lema": "Transportamos confianza, conectamos oportunidades."
   },
   "contacto": {
-    "_nota": "Datos confirmados por el cliente el 2026-11-17 (los mismos del sitio cticol/).",
-    "telefonoPrincipal": {
-      "numero": "573115734776",
-      "mostrar": "311 573 4776",
-      "area": "Coordinador de operaciones"
-    },
+    "_nota": "Líneas de WhatsApp por dependencia entregadas por el cliente el 2026-11-19. Se quitó el teléfono de llamadas (311 573 4776) y la línea de Despachos 317 300 4381 por pedido del cliente: todo se atiende por WhatsApp.",
     "whatsapp": [
       {
         "numero": "573164732031",
         "mostrar": "316 473 2031",
-        "area": "Comercial",
+        "area": "Logística o despachos",
+        "contacto": "José David",
+        "icono": "truck",
         "cotizaciones": true
       },
       {
-        "numero": "573173004381",
-        "mostrar": "317 300 4381",
-        "area": "Despachos"
+        "numero": "573202104726",
+        "mostrar": "320 210 4726",
+        "area": "Contabilidad",
+        "contacto": "Helena",
+        "icono": "calculator"
+      },
+      {
+        "numero": "573150596460",
+        "mostrar": "315 059 6460",
+        "area": "PQRS",
+        "contacto": "Fredy",
+        "icono": "chat-left-text"
+      },
+      {
+        "numero": "573160102957",
+        "mostrar": "316 010 2957",
+        "area": "Tesorería",
+        "contacto": "Nora",
+        "icono": "bank"
       }
     ],
     "correo": "c.operaciones@cticol.com",
@@ -53,15 +67,12 @@
     "tiktok": "",
     "twitter-x": ""
   },
-  "whatsappMensaje": "Hola, estoy interesado en conocer sus servicios de transporte. Me gustaría recibir información y una cotización.",
+  "whatsappMensaje": "Hola, CTICOL. Quiero solicitar una cotización de transporte de carga.",
   "_rastreo": "Botón «Rastrear envío». url vacía = la plataforma está en desarrollo: el botón lleva a rastreo.html, que consulta el estado por WhatsApp de Despachos. Con url https, el botón abre la plataforma directamente.",
   "rastreo": {
     "url": "",
-    "lineaWhatsapp": "Despachos"
+    "lineaWhatsapp": "Logística o despachos"
   },
-  "formEndpoint": "",
-  "_formWhatsapp": "true: al enviar el formulario se abre WhatsApp (línea con cotizaciones: true) con la solicitud escrita, haya o no formEndpoint.",
-  "formWhatsapp": true,
   "analitica": {
     "ga4": "",
     "searchConsole": ""
@@ -80,7 +91,7 @@
       "aprobado": true,
       "texto": [
         "CTICOL inició operaciones en 2019 con la razón social Logística y Transportes TRANSFER.",
-        "En 2025 cambió su razón social a Compañía Transportadora e Inversiones de Colombia, de donde viene la sigla CTICOL.",
+        "En 2025 cambió su razón social a Compañía Transportadora e Inversiones de Colombia S.A.S., de donde viene la sigla CTICOL.",
         "Hoy suma {anios} años en el mercado prestando servicios de transporte de carga con puntualidad y cumplimiento."
       ],
       "hitos": [
@@ -90,7 +101,7 @@
         },
         {
           "anio": "2025",
-          "texto": "Cambia su razón social a Compañía Transportadora e Inversiones de Colombia (CTICOL)."
+          "texto": "Cambia su razón social a Compañía Transportadora e Inversiones de Colombia S.A.S. (CTICOL)."
         },
         {
           "anio": "Hoy",
@@ -99,25 +110,20 @@
       ]
     },
     "mision": {
-      "_nota": "Texto de prueba redactado para la demostración. Debe aprobarlo o reemplazarlo la empresa.",
-      "aprobado": false,
-      "texto": "En CTICOL movilizamos por carretera la carga general, la mercancía seca y las cargas pesadas y sobredimensionadas de nuestros clientes. Planeamos cada operación según las características de la mercancía, cuidamos la carga, a nuestros conductores y a quienes comparten la vía, y mantenemos informado al cliente desde el cargue hasta la entrega.",
-      "puntos": [
-        "Planear cada viaje según el peso, las medidas y el tipo de carga",
-        "Proteger la mercancía, a los conductores y a quienes comparten la vía",
-        "Informar al cliente en cada etapa del servicio",
-        "Cumplir lo acordado en tiempos y condiciones"
+      "_nota": "Misión modificada entregada por el cliente el 2026-11-19.",
+      "aprobado": true,
+      "texto": [
+        "En COMPAÑÍA TRANSPORTADORA E INVERSIONES DE COLOMBIA S.A.S. tenemos como misión ofrecer soluciones integrales de transporte terrestre de carga por carretera a nivel nacional, garantizando la movilización segura, eficiente y oportuna de mercancías de diferentes características, dimensiones y naturaleza, adaptándonos a las necesidades y exigencias de cada cliente y sector económico.",
+        "Nos distinguimos por nuestro compromiso con la excelencia en el servicio, la seguridad vial, el cumplimiento de la normatividad vigente y la gestión responsable de cada operación. Trabajamos continuamente en el fortalecimiento de nuestros procesos, la optimización de los recursos, el bienestar de nuestros colaboradores y la protección del medioambiente, construyendo relaciones comerciales basadas en la confianza, la responsabilidad y la calidad."
       ]
     },
     "vision": {
-      "_nota": "Texto de prueba redactado para la demostración. Debe aprobarlo o reemplazarlo la empresa.",
-      "aprobado": false,
-      "texto": "Ser una empresa de transporte de carga reconocida en Colombia por su seguridad, su cumplimiento y su capacidad para resolver operaciones especiales, creciendo junto a nuestros clientes con una flota adecuada a cada necesidad y un equipo humano comprometido.",
-      "puntos": [
-        "Ser la primera opción de nuestros clientes para cargas pesadas y sobredimensionadas",
-        "Fortalecer la flota según las necesidades de cada operación",
-        "Formar un equipo humano capacitado y comprometido con la seguridad",
-        "Llegar a más corredores de carga del país"
+      "_nota": "Visión modificada entregada por el cliente el 2026-11-19.",
+      "aprobado": true,
+      "texto": [
+        "Para el año 2030, COMPAÑÍA TRANSPORTADORA E INVERSIONES DE COLOMBIA S.A.S. se consolidará como una empresa referente en el sector del transporte terrestre de carga por carretera a nivel nacional, reconocida por su excelencia operativa, confiabilidad, innovación y capacidad de ofrecer soluciones logísticas integrales para la movilización de mercancías de diferentes características y sectores económicos.",
+        "Nos proyectamos como una organización sólida, competitiva y en constante evolución, comprometida con la modernización de sus operaciones mediante la incorporación de herramientas tecnológicas, procesos automatizados y estrategias que permitan optimizar los recursos, fortalecer la seguridad vial y garantizar un servicio eficiente, seguro y oportuno.",
+        "Aspiramos a construir relaciones comerciales duraderas, basadas en la confianza, la calidad y el cumplimiento, generando valor para nuestros clientes, colaboradores y aliados estratégicos, y contribuyendo al desarrollo y la competitividad del sector transporte en Colombia."
       ]
     },
     "valores": {
@@ -240,7 +246,7 @@
     }
   ],
   "cobertura": {
-    "_nota": "Las ciudades vienen del mapa recibido en img/ (gh4v3C7…jpeg). No se ha confirmado que correspondan a la operación de CTICOL: confirmado=false las oculta en modo publicación.",
+    "_nota": "Las ciudades vienen del mapa recibido en img/ (img15.jpeg). No se ha confirmado que correspondan a la operación de CTICOL: confirmado=false las oculta en modo publicación.",
     "confirmado": false,
     "texto": "Atendemos solicitudes de transporte de carga por carretera. Consúltenos por su origen y destino y le confirmamos la disponibilidad para su ruta.",
     "ciudades": [
@@ -396,5 +402,83 @@
         "texto": "Despachos puntuales: un equipo, materiales o un envío único."
       }
     ]
-  }
+  },
+  "_lemas": "Frases del cliente (2026-11-19). La primera es la principal (marca.lema). Se usan en el slider, banners y franjas de llamada a la acción.",
+  "lemas": [
+    "Transportamos confianza, conectamos oportunidades.",
+    "Movemos tu carga, respaldamos tus proyectos.",
+    "Seguridad, compromiso y confianza en cada kilómetro.",
+    "Más que transportar carga, movilizamos oportunidades.",
+    "Llevamos tu carga a su destino, con respaldo y confianza."
+  ],
+  "_asistente": "Encuesta breve del botón «Contáctanos» → «Solicitar cotización»: tipo de carga y ciudad; luego abre WhatsApp de la línea con cotizaciones: true.",
+  "tiposCarga": [
+    "Carga suelta / general",
+    "Carga líquida",
+    "Carga a granel",
+    "Contenedores",
+    "Mercancía seca (carpada)",
+    "Maquinaria o carga pesada",
+    "Carga sobredimensionada",
+    "Otra / no estoy seguro"
+  ],
+  "_cargas": "«Lo que transportamos» del inicio: una foto por tipo de carga con la flota que la presta (documento del cliente 2026-11-19). foto = assets/img/cargas/<id>.",
+  "cargas": [
+    {
+      "id": "contenedor",
+      "nombre": "Contenedores",
+      "texto": "Contenedores de exportación e importación en cama portacontenedores.",
+      "flota": "propia",
+      "alt": "Tractomula azul de CTICOL recibiendo un contenedor en un patio portuario de noche"
+    },
+    {
+      "id": "granel",
+      "nombre": "Carga a granel",
+      "texto": "Graneles sólidos con descargue por volteo en plataforma.",
+      "flota": "propia",
+      "alt": "Tractomula de CTICOL en la plataforma de volteo durante el descargue de granel"
+    },
+    {
+      "id": "liquida",
+      "nombre": "Carga líquida",
+      "texto": "Líquidos en carrotanque, con conductores capacitados y rastreo GPS.",
+      "flota": "propia",
+      "alt": "Tractomula azul con carrotanque de acero en una vía de montaña"
+    },
+    {
+      "id": "estacas",
+      "nombre": "Carga suelta",
+      "texto": "Carga suelta y bultos en carrocería de estacas para trayectos nacionales.",
+      "flota": "propia",
+      "alt": "Tractomula Kenworth azul de placa XIC300 con carrocería de estacas en un puerto"
+    },
+    {
+      "id": "maquinaria",
+      "nombre": "Maquinaria amarilla",
+      "texto": "Retroexcavadoras y equipos de obra en camión de plataforma.",
+      "flota": "tercerizada",
+      "alt": "Camión blanco de plataforma con una retroexcavadora amarilla asegurada"
+    },
+    {
+      "id": "plataforma",
+      "nombre": "Carga en plataforma",
+      "texto": "Big bags, estibas y carga que se sube con montacargas o grúa.",
+      "flota": "tercerizada",
+      "alt": "Tractomula amarilla con plataforma cargada de big bags blancos"
+    },
+    {
+      "id": "carpada",
+      "nombre": "Mercancía seca carpada",
+      "texto": "Mercancía protegida de la lluvia y del polvo bajo carpa.",
+      "flota": "tercerizada",
+      "alt": "Tractomula Kenworth azul con semirremolque carpado en una bodega"
+    },
+    {
+      "id": "acero",
+      "nombre": "Acero y materiales",
+      "texto": "Varilla, tubería y materiales de construcción en camión de estacas.",
+      "flota": "tercerizada",
+      "alt": "Camión sencillo blanco con carrocería de estacas cargando varilla en una bodega"
+    }
+  ]
 }

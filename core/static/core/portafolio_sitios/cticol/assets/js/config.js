@@ -1,13 +1,12 @@
 /* Generado por tools/build.py desde datos/sitio.json. No editar a mano. */
 window.CT = {
-  "modo": "revision",
+  "modo": "publicacion",
   "marca": "CTICOL",
-  "formEndpoint": "",
-  "formWhatsapp": true,
   "whatsapp": {
     "numero": "573164732031",
     "mostrar": "316 473 2031",
-    "mensaje": "Hola, estoy interesado en conocer sus servicios de transporte. Me gustaría recibir información y una cotización."
+    "area": "Logística o despachos",
+    "mensaje": "Hola, CTICOL. Quiero solicitar una cotización de transporte de carga."
   },
   "correo": "c.operaciones@cticol.com",
   "servicios": {

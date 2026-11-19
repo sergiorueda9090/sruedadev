@@ -40,7 +40,7 @@ C = S['contacto']
 DOMINIO = MARCA['dominio'].rstrip('/')
 ANIO = datetime.date.today().year
 ANIOS = ANIO - MARCA['fundacion'] if MARCA.get('fundacion') else None
-VERSION = '10'  # súbalo al cambiar CSS/JS para invalidar la caché del navegador
+VERSION = '11'  # súbalo al cambiar CSS/JS para invalidar la caché del navegador
 
 CDN = {
     'bootstrap': ('https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css',
@@ -136,8 +136,26 @@ def lista(items, cls='check-list'):
     return f'<ul class="{cls}">' + ''.join(lis) + '</ul>' if lis else ''
 
 
-def tel_href(numero):
-    return f'tel:+{numero}'
+def linea_cotiz():
+    return next((w for w in C['whatsapp'] if w.get('cotizaciones')), C['whatsapp'][0] if C['whatsapp'] else None)
+
+
+# Tipo de carga sugerido en la encuesta según el servicio o la tarjeta desde donde se pide la cotización.
+CARGA_DE = {'carga-general': 'Carga suelta / general', 'mercancia-seca': 'Mercancía seca (carpada)',
+            'carga-pesada': 'Maquinaria o carga pesada', 'maquinaria-pesada': 'Maquinaria o carga pesada',
+            'carga-sobredimensionada': 'Carga sobredimensionada', 'transporte-especializado': 'Carga sobredimensionada',
+            'contenedor': 'Contenedores', 'granel': 'Carga a granel', 'liquida': 'Carga líquida', 'estacas': 'Carga suelta / general',
+            'maquinaria': 'Maquinaria o carga pesada', 'plataforma': 'Carga suelta / general', 'carpada': 'Mercancía seca (carpada)',
+            'acero': 'Carga suelta / general'}
+
+
+def cotizar(cls='btn-cta', texto='Solicitar cotización', carga=''):
+    """Única forma de cotizar: abre la encuesta de «Contáctanos» (tipo de carga y ciudad) que termina en WhatsApp.
+    Sin JavaScript el enlace abre WhatsApp directamente con el mensaje inicial."""
+    tipo = CARGA_DE.get(carga, '')
+    attr = f' data-carga="{e(tipo)}"' if tipo else ''
+    return (f'<a class="{cls}" href="{e(wa_link())}" target="_blank" rel="noopener" data-quote-open{attr}>{e(texto)}'
+            '<span class="visually-hidden"> (abre el asistente de WhatsApp)</span></a>')
 
 
 # ---------------------------------------------------------------- piezas comunes
@@ -204,7 +222,6 @@ LOGO = ('<svg class="brand-mark" viewBox="0 0 40 40" aria-hidden="true" focusabl
 
 
 def header(activo):
-    tel = C['telefonoPrincipal']
     items = []
     for href, nombre in NAV:
         subs = submenu(href)
@@ -228,7 +245,7 @@ def header(activo):
     desp = linea_wa(S.get('rastreo', {}).get('lineaWhatsapp', 'Despachos'))
     info = []
     if desp:
-        info.append(f'<li><i class="bi bi-whatsapp" aria-hidden="true"></i>{e(desp["area"])}: '
+        info.append(f'<li><i class="bi bi-whatsapp" aria-hidden="true"></i>{e(desp["area"].split(" o ")[0])}: '
                     f'<a href="https://wa.me/{desp["numero"]}" target="_blank" rel="noopener">{e(desp["mostrar"])}</a></li>')
     if C['correo']:
         info.append(f'<li><i class="bi bi-envelope" aria-hidden="true"></i><a href="mailto:{e(C["correo"])}">{e(C["correo"])}</a></li>')
@@ -246,15 +263,13 @@ def header(activo):
     <nav class="main-nav" id="menu-principal" aria-label="Principal" data-nav>
       <ul class="nav-list">{''.join(items)}</ul>
       <div class="nav-extra">
-        <a class="nav-phone" href="{tel_href(tel['numero'])}"><i class="bi bi-telephone" aria-hidden="true"></i>{e(tel['mostrar'])}</a>
-        <a class="btn-cta" href="contacto.html#cotizar">Solicitar cotización</a>
+        {cotizar('btn-cta')}
         {rastreo_link('btn-line', '<i class="bi bi-geo-alt-fill" aria-hidden="true"></i>Rastrear envío')}
         {redes_html('social--menu')}
       </div>
     </nav>
     <div class="header-actions">
-      <a class="header-phone" href="{tel_href(tel['numero'])}"><i class="bi bi-telephone" aria-hidden="true"></i><span><small>{e(tel['area'])}</small>{e(tel['mostrar'])}</span></a>
-      <a class="btn-cta btn-cta--header" href="contacto.html#cotizar">Solicitar cotización</a>
+      {cotizar('btn-cta btn-cta--header')}
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" data-nav-toggle>
         <span class="nav-toggle-bars" aria-hidden="true"></span><span class="visually-hidden">Abrir menú</span>
       </button>
@@ -297,12 +312,11 @@ def redes_html(cls=''):
 
 
 def contacto_lineas(cls='foot-contact'):
-    t = C['telefonoPrincipal']
-    filas = [f'<li><i class="bi bi-telephone" aria-hidden="true"></i><span><small>{e(t["area"])}</small>'
-             f'<a href="{tel_href(t["numero"])}">{e(t["mostrar"])}</a></span></li>']
+    filas = []
     for w in C['whatsapp']:
-        filas.append(f'<li><i class="bi bi-whatsapp" aria-hidden="true"></i><span><small>WhatsApp {e(w["area"])}</small>'
-                     f'<a href="https://wa.me/{w["numero"]}" target="_blank" rel="noopener">{e(w["mostrar"])}</a></span></li>')
+        quien = f' · {e(w["contacto"])}' if w.get('contacto') else ''
+        filas.append(f'<li><i class="bi bi-whatsapp" aria-hidden="true"></i><span><small>{e(w["area"])}{quien}</small>'
+                     f'<a href="{e(wa_link(saludo(w), w["numero"]))}" target="_blank" rel="noopener">{e(w["mostrar"])}</a></span></li>')
     if C['correo']:
         filas.append(f'<li><i class="bi bi-envelope" aria-hidden="true"></i><span><small>Correo</small>'
                      f'<a href="mailto:{e(C["correo"])}">{e(C["correo"])}</a></span></li>')
@@ -334,6 +348,7 @@ def footer():
   <div class="container foot-grid">
     <div class="foot-col foot-brand">
       <a class="brand" href="index.html" aria-label="{e(MARCA['nombre'])}, ir al inicio">{LOGO}<span class="brand-text"><strong>{e(MARCA['nombre'])}</strong><small>{e(MARCA['descriptor'])}</small></span></a>
+      {f'<p class="foot-lema">{e(MARCA["lema"])}</p>' if MARCA.get('lema') else ''}
       <p>{e(MARCA['resumen'])}</p>
       {f'<p class="foot-muted">{e(legal_id)}</p>' if legal_id else ''}
     </div>
@@ -356,13 +371,67 @@ def footer():
 {wa_float()}'''
 
 
-def wa_float():
-    url = wa_link()
-    if not url:
+def saludo(w):
+    return f"Hola, CTICOL. Me comunico con {w['area']}."
+
+
+def encuesta(pre, inline=False):
+    """Encuesta breve de cotización: tipo de carga y ciudad. assets/js/contact.js arma el mensaje y abre WhatsApp."""
+    linea = linea_cotiz()
+    if not linea:
         return ''
-    return (f'<a class="wa-float" href="{e(url)}" target="_blank" rel="noopener" data-wa-float>'
-            f'<i class="bi bi-whatsapp" aria-hidden="true"></i><span class="wa-float-label">Escríbanos</span>'
-            f'<span class="visually-hidden"> por WhatsApp (se abre en una pestaña nueva)</span></a>')
+    opciones = ''.join(f'<label class="wa-opt"><input type="radio" name="carga" value="{e(x)}" required><span>{e(x)}</span></label>'
+                       for x in S.get('tiposCarga', []))
+    volver = '' if inline else '<button type="button" class="wa-back" data-wa-go="menu"><i class="bi bi-arrow-left" aria-hidden="true"></i>Volver a las dependencias</button>'
+    return f'''<form class="wa-quote-form{' wa-quote-form--inline' if inline else ''}" novalidate data-wa-form data-wa="{linea['numero']}" aria-label="Solicitud de cotización">
+      <p class="wa-bubble">¡Hola! Gracias por contactar a {e(MARCA['nombre'])}. Para darle una información más personalizada, responda dos preguntas rápidas.</p>
+      <fieldset class="field wa-field" aria-describedby="{pre}-e-carga">
+        <legend>1. ¿Qué tipo de carga necesita transportar? *</legend>
+        <div class="wa-opts">{opciones}</div>
+        <p class="field-err" id="{pre}-e-carga" data-err="carga"></p>
+      </fieldset>
+      <div class="field wa-field">
+        <label for="{pre}-ciudad">2. ¿En qué ciudad se encuentra? *</label>
+        <input id="{pre}-ciudad" name="ciudad" required maxlength="80" autocomplete="address-level2">
+        <p class="field-err" id="{pre}-e-ciudad" data-err="ciudad"></p>
+      </div>
+      <button class="btn-wa w-100" type="submit"><i class="bi bi-whatsapp" aria-hidden="true"></i>Continuar en WhatsApp</button>
+      <p class="form-send-hint"><i class="bi bi-info-circle" aria-hidden="true"></i>Se abre WhatsApp de {e(linea['area'])} ({e(linea['mostrar'])}) con su solicitud escrita: presione «Enviar».</p>
+      {volver}
+    </form>'''
+
+
+def wa_float():
+    """Botón «Contáctanos»: despliega las dependencias (WhatsApp) y la encuesta de cotización."""
+    if not C['whatsapp']:
+        return ''
+    lineas = ''.join(
+        f'<li><a class="wa-line" href="{e(wa_link(saludo(w), w["numero"]))}" target="_blank" rel="noopener">'
+        f'<i class="bi bi-{w.get("icono", "whatsapp")}" aria-hidden="true"></i><span><strong>{e(w["area"])}</strong>'
+        f'<small>{e(w["contacto"]) + " · " if w.get("contacto") else ""}{e(w["mostrar"])}</small></span>'
+        f'<i class="bi bi-whatsapp wa-line-go" aria-hidden="true"></i><span class="visually-hidden"> (WhatsApp, se abre en una pestaña nueva)</span></a></li>'
+        for w in C['whatsapp'])
+    linea = linea_cotiz()
+    return f'''<div class="wa-widget" data-wa-widget>
+  <div class="wa-panel" id="wa-panel" role="dialog" aria-modal="false" aria-labelledby="wa-panel-t" hidden data-wa-panel>
+    <div class="wa-head">
+      <span class="wa-head-ico" aria-hidden="true"><i class="bi bi-whatsapp"></i></span>
+      <div><p class="wa-head-t" id="wa-panel-t">Contáctanos</p><p class="wa-head-s">Le atendemos por WhatsApp</p></div>
+      <button type="button" class="wa-close" data-wa-close aria-label="Cerrar"><i class="bi bi-x-lg" aria-hidden="true"></i></button>
+    </div>
+    <div class="wa-body">
+      <div class="wa-step" data-wa-step="menu">
+        <button type="button" class="wa-cta" data-wa-go="quote"><i class="bi bi-clipboard-check" aria-hidden="true"></i><span><strong>Solicitar cotización</strong><small>Dos preguntas rápidas · {e(linea['area'])}</small></span><i class="bi bi-chevron-right" aria-hidden="true"></i></button>
+        <p class="wa-sub">O escriba a la dependencia que necesita</p>
+        <ul class="wa-lines">{lineas}</ul>
+      </div>
+      <div class="wa-step" data-wa-step="quote" hidden>{encuesta('w')}</div>
+    </div>
+  </div>
+  <button class="wa-float" type="button" aria-expanded="false" aria-controls="wa-panel" data-wa-toggle>
+    <i class="bi bi-whatsapp" aria-hidden="true"></i><span class="wa-float-label">Contáctanos</span>
+  </button>
+</div>'''
 
 
 def jsonld_org():
@@ -373,10 +442,9 @@ def jsonld_org():
         'alternateName': MARCA['nombre'],
         'description': MARCA['resumen'],
         'email': C['correo'] or None,
-        'telephone': '+' + C['telefonoPrincipal']['numero'],
         'areaServed': {'@type': 'Country', 'name': 'Colombia'},
         'contactPoint': [{'@type': 'ContactPoint', 'telephone': '+' + w['numero'],
-                          'contactType': 'sales' if w.get('cotizaciones') else 'customer service',
+                          'contactType': 'sales' if w.get('cotizaciones') else w['area'],
                           'availableLanguage': 'es', 'areaServed': 'CO'} for w in C['whatsapp']],
     }
     if DOMINIO:
@@ -451,7 +519,8 @@ def scripts(extra=()):
         base.append(f'<script defer src="{CDN["swiper"][0]}" integrity="{CDN["swiper"][1]}" crossorigin="anonymous"></script>')
     base.append(f'<script defer src="assets/js/config.js?v={VERSION}"></script>')
     base.append(f'<script defer src="assets/js/main.js?v={VERSION}"></script>')
-    for nombre in ('slider', 'forms', 'gallery', 'tracking'):
+    base.append(f'<script defer src="assets/js/contact.js?v={VERSION}"></script>')
+    for nombre in ('slider', 'gallery', 'tracking'):
         if nombre in extra:
             base.append(f'<script defer src="assets/js/{nombre}.js?v={VERSION}"></script>')
     base.append(f'<script defer src="assets/js/animations.js?v={VERSION}"></script>')
@@ -489,12 +558,10 @@ def banner(titulo, lede, foto, alt, migas, pos='center'):
 </section>'''
 
 
-def cta_band(titulo='¿Necesitas transportar tu mercancía?',
-             texto='Cuéntenos qué carga necesita mover, desde dónde y hacia dónde. Le respondemos con una cotización.',
+def cta_band(titulo=None,
+             texto='Cuéntenos qué carga necesita mover y desde qué ciudad. Le respondemos por WhatsApp con una cotización.',
              servicio=None):
-    destino = f'contacto.html?servicio={servicio}#cotizar' if servicio else 'contacto.html#cotizar'
-    wa = wa_link()
-    t = C['telefonoPrincipal']
+    titulo = titulo or S['lemas'][4]
     return f'''<section class="cta-band" aria-labelledby="cta-titulo">
   <div class="hazard" aria-hidden="true"></div>
   <div class="container cta-row">
@@ -503,9 +570,7 @@ def cta_band(titulo='¿Necesitas transportar tu mercancía?',
       <p>{e(texto)}</p>
     </div>
     <div class="cta-actions">
-      <a class="btn-cta btn-lg" href="{destino}">Solicitar cotización</a>
-      {f'<a class="btn-line" href="{e(wa)}" target="_blank" rel="noopener"><i class="bi bi-whatsapp" aria-hidden="true"></i>Escribir por WhatsApp</a>' if wa else ''}
-      <a class="cta-phone" href="{tel_href(t['numero'])}"><i class="bi bi-telephone" aria-hidden="true"></i>{e(t['mostrar'])}</a>
+      {cotizar('btn-cta btn-lg', carga=servicio or '')}
     </div>
   </div>
 </section>'''
@@ -562,19 +627,19 @@ def departamentos():
 
 HERO = [
     {'foto': 'hero/carga-general', 'alt': 'Tractocamión con furgón tomando una curva en una carretera de montaña',
-     'tag': 'Soluciones de transporte terrestre', 'titulo': 'Transportamos tu carga con', 'hl': 'seguridad y confianza.',
+     'tag': 'Soluciones de transporte terrestre', 'titulo': 'Transportamos confianza,', 'hl': 'conectamos oportunidades.',
      'texto': 'Soluciones de transporte terrestre para movilizar mercancías y carga general, con compromiso, responsabilidad y cumplimiento en cada operación.',
-     'btn1': ('Solicitar cotización', 'contacto.html#cotizar'), 'btn2': ('Conocer nuestros servicios', 'servicios.html'),
+     'btn1': ('Solicitar cotización', ''), 'btn2': ('Conocer nuestros servicios', 'servicios.html'),
      'tramo': 'Carga general', 'pos': '58% center'},
     {'foto': 'hero/carga-pesada', 'alt': 'Tractocamión con cama baja transportando una excavadora y un cargador al atardecer',
-     'tag': 'Especialistas en transporte especializado', 'titulo': 'Movemos grandes retos. Transportamos', 'hl': 'grandes proyectos.',
+     'tag': 'Especialistas en transporte especializado', 'titulo': 'Movemos tu carga,', 'hl': 'respaldamos tus proyectos.',
      'texto': 'Transporte especializado de maquinaria pesada y equipos industriales, con soluciones adaptadas a los requerimientos de cada operación.',
-     'btn1': ('Cotizar transporte', 'contacto.html?servicio=carga-pesada#cotizar'), 'btn2': ('Nuestra flota', 'flota.html'),
+     'btn1': ('Cotizar transporte', 'carga-pesada'), 'btn2': ('Nuestra flota', 'flota.html'),
      'tramo': 'Carga pesada', 'pos': '30% center'},
     {'foto': 'hero/sobredimensionada', 'alt': 'Remolques modulares con recipientes metálicos de gran longitud en una vía recta',
-     'tag': 'Capacidad para operaciones especiales', 'titulo': 'Soluciones logísticas para', 'hl': 'cargas extraordinarias.',
+     'tag': 'Capacidad para operaciones especiales', 'titulo': 'Seguridad, compromiso y confianza', 'hl': 'en cada kilómetro.',
      'texto': 'Movilización de cargas especiales y sobredimensionadas mediante planificación logística y soluciones de transporte según las características de cada proyecto.',
-     'btn1': ('Solicitar asesoría', 'contacto.html?servicio=carga-sobredimensionada#cotizar'), 'btn2': ('Contáctanos', 'contacto.html'),
+     'btn1': ('Solicitar asesoría', 'carga-sobredimensionada'), 'btn2': ('Contáctanos', 'contacto.html'),
      'tramo': 'Sobredimen\u00adsionada', 'pos': '62% center'},
 ]
 
@@ -591,7 +656,7 @@ def hero():
           <h2 class="hero-title" data-hero="title">{e(h['titulo'])} <span class="hl">{e(h['hl'])}</span></h2>
           <p class="hero-text" data-hero="text">{e(h['texto'])}</p>
           <div class="hero-actions" data-hero="actions">
-            <a class="btn-cta btn-lg" href="{h['btn1'][1]}">{e(h['btn1'][0])}</a>
+            {cotizar('btn-cta btn-lg', h['btn1'][0], h['btn1'][1])}
             <a class="btn-ghost btn-lg" href="{h['btn2'][1]}">{e(h['btn2'][0])}</a>
           </div>
         </div>
@@ -600,7 +665,7 @@ def hero():
                       f'{AC_TRUE if i == 0 else ""}><span class="tramo-bar"><span class="tramo-fill"></span></span>'
                       f'<span class="tramo-name">{e(h["tramo"])}</span></button>')
     return f'''<section class="hero" aria-roledescription="carrusel" aria-label="Servicios destacados de {e(MARCA['nombre'])}">
-  <h1 class="visually-hidden">{e(MARCA['nombre'])}: transporte de carga general, pesada y sobredimensionada en Colombia</h1>
+  <h1 class="visually-hidden">{e(MARCA['nombre'])} — {e(MARCA['razonSocial'])}: {e(MARCA.get('lema', 'transporte de carga en Colombia'))}</h1>
   <div class="swiper hero-swiper" data-hero-swiper>
     <div class="swiper-wrapper">
       {''.join(slides)}
@@ -649,7 +714,7 @@ def pag_inicio():
     s = {x['id']: x for x in SERVICIOS}
     servicios = f'''<section class="section" aria-labelledby="t-servicios">
   <div class="container">
-    {sec_head('Lo que transportamos', 'Seis servicios para cargas de todo tamaño: desde mercancía empacada hasta equipos que superan las medidas de un vehículo convencional.', 't-servicios', extra='<a class="link-arrow" href="servicios.html">Ver todos los servicios</a>')}
+    {sec_head('Nuestros servicios', 'Seis servicios para cargas de todo tamaño: desde mercancía empacada hasta equipos que superan las medidas de un vehículo convencional.', 't-servicios', extra='<a class="link-arrow" href="servicios.html">Ver todos los servicios</a>')}
     <div class="svc-grid">
       {tarjeta_servicio(s['carga-general'], 'feature')}
       {tarjeta_servicio(s['mercancia-seca'], 'side')}
@@ -774,13 +839,42 @@ def pag_inicio():
   </div>
 </section>'''
 
-    cuerpo = '\n'.join([hero(), intro, servicios, empresa, porque, flota_sec, sectores_sec, cobertura_sec, cta_band()])
+    cuerpo = '\n'.join([hero(), cargas_html(), intro, servicios, empresa, porque, flota_sec, sectores_sec, cobertura_sec, cta_band()])
     precarga = (f'<link rel="preload" as="image" href="{img_src("hero/carga-general")}" '
                 f'imagesrcset="{", ".join(f"assets/img/hero/carga-general-{a}.webp {a}w" for a, _ in variantes("hero/carga-general"))}" imagesizes="100vw" fetchpriority="high">')
     swiper_css = f'<link rel="stylesheet" href="{CDN["swipercss"][0]}" integrity="{CDN["swipercss"][1]}" crossorigin="anonymous">'
     return pagina('index.html', f"{MARCA['nombre']} | Transporte de carga general, pesada y sobredimensionada",
                   'Transporte terrestre de carga general, mercancía seca, carga pesada, maquinaria amarilla y carga sobredimensionada en Colombia. Solicite su cotización.',
                   'index.html', cuerpo, js=('swiper', 'slider'), extra_css=swiper_css, extra_head=precarga, body_cls='page-home')
+
+
+FLOTA_TXT = {'propia': 'Flota propia', 'tercerizada': 'Flota tercerizada'}
+
+
+def cargas_html():
+    """Inicio: una foto real por tipo de carga, marcada con la flota que la presta (propia o tercerizada)."""
+    cargas = S.get('cargas', [])
+    if not cargas:
+        return ''
+    tarjetas = ''.join(f'''<li class="cargo" data-reveal-item>
+      <div class="cargo-media">{img('cargas/' + c['id'], c['alt'], sizes='(min-width: 1200px) 24vw, (min-width: 768px) 45vw, 100vw')}
+        <span class="fleet-badge fleet-badge--{c['flota']}"><i class="bi bi-{'truck' if c['flota'] == 'propia' else 'people'}" aria-hidden="true"></i>{FLOTA_TXT[c['flota']]}</span></div>
+      <div class="cargo-body"><h3>{e(c['nombre'])}</h3><p>{e(c['texto'])}</p>
+        {cotizar('cargo-link', 'Cotizar esta carga', c['id'])}</div>
+    </li>''' for c in cargas)
+    return f'''<section class="section section--tight cargo-sec" aria-labelledby="t-cargas">
+  <div class="container">
+    <div class="sec-head sec-head--split" data-reveal>
+      <div><p class="kicker">{e(MARCA['razonSocial'])}</p><h2 id="t-cargas">Lo que transportamos</h2>
+        <p>Transporte terrestre de carga por carretera a nivel nacional, con flota propia y tercerizada para cada tipo de mercancía.</p></div>
+      <ul class="fleet-legend" aria-label="Tipo de flota">
+        <li><span class="fleet-badge fleet-badge--propia"><i class="bi bi-truck" aria-hidden="true"></i>Flota propia</span></li>
+        <li><span class="fleet-badge fleet-badge--tercerizada"><i class="bi bi-people" aria-hidden="true"></i>Flota tercerizada</span></li>
+      </ul>
+    </div>
+    <ul class="cargo-grid">{tarjetas}</ul>
+  </div>
+</section>'''
 
 
 def bloque_pend(titulo, aprobado):
@@ -790,7 +884,7 @@ def bloque_pend(titulo, aprobado):
 def pag_nosotros():
     inst = S['institucional']
     qs = inst['quienesSomos']
-    partes = [banner('Nosotros', 'Una empresa colombiana de transporte terrestre de carga.', 'company/patio',
+    partes = [banner('Nosotros', S['lemas'][3], 'company/patio',
                      'Tractocamiones con semirremolque cerrado en un patio', [], pos='center 60%')]
     partes.append(f'''<section class="section" aria-labelledby="t-quienes">
   <div class="container"><div class="row gx-4 gy-5 gx-xl-5 align-items-center">
@@ -861,8 +955,8 @@ def pag_nosotros():
 def pag_mision_vision():
     inst = S['institucional']
     bloques = []
-    datos = (('mision', 'Misión', 'bullseye', 'Para qué existimos', 'hero/carga-general', 'Tractocamión con furgón tomando una curva en una carretera de montaña'),
-             ('vision', 'Visión', 'binoculars', 'Hacia dónde vamos', 'company/ruta', 'Tractocamión con cama baja llevando una excavadora y un cargador al atardecer'))
+    datos = (('mision', 'Misión', 'bullseye', 'Para qué existimos', 'company/en-ruta', 'Tractomula de CTICOL con plataforma carpada cruzando un puente sobre un río'),
+             ('vision', 'Visión', 'binoculars', 'Hacia dónde vamos', 'company/flota-propia', 'Tractomula Kenworth azul de CTICOL con carrocería de estacas al atardecer'))
     for i, (clave, titulo, icono, sub, foto, alt) in enumerate(datos):
         b = inst[clave]
         if not visible(b, 'aprobado'):
@@ -876,7 +970,7 @@ def pag_mision_vision():
       <span class="mv-icon mv-icon--static"><i class="bi bi-{icono}" aria-hidden="true"></i></span>
       <p class="mv-kicker">{sub}</p>
       <h2 id="t-{clave}">{titulo} {bloque_pend(titulo, b['aprobado'])}</h2>
-      <p class="mv-statement">{e(b['texto'])}</p>
+      {''.join(f'<p class="mv-text">{e(x)}</p>' for x in (b['texto'] if isinstance(b['texto'], list) else [b['texto']]))}
       {lista(b.get('puntos', []), 'mv-points')}
       {nota}
     </div>
@@ -905,7 +999,6 @@ def pag_servicios():
     chips = ''.join(f'<li><a href="#{s["id"]}"><i class="bi bi-{s["icono"]}" aria-hidden="true"></i>{e(s["corto"])}</a></li>' for s in SERVICIOS)
     filas = []
     for i, s in enumerate(SERVICIOS):
-        wa = wa_link(f"Hola, quiero cotizar el servicio de {s['nombre'].lower()}.")
         filas.append(f'''<article class="svc-row{' svc-row--rev' if i % 2 else ''}" id="{s['id']}" aria-labelledby="t-{s['id']}">
     <figure class="svc-row-media photo-frame" data-reveal="img">{img(s['foto'], s['fotoAlt'], sizes='(min-width: 992px) 50vw, 100vw')}</figure>
     <div class="svc-row-body" data-reveal>
@@ -914,7 +1007,7 @@ def pag_servicios():
       {lista(s['caracteristicas'][:3])}
       <div class="btn-row">
         <a class="btn-dark" href="{s['id']}.html">Ver el servicio</a>
-        {f'<a class="btn-wa" href="{e(wa)}" target="_blank" rel="noopener"><i class="bi bi-whatsapp" aria-hidden="true"></i>Cotizar por WhatsApp</a>' if wa else ''}
+        {cotizar('btn-cta', carga=s['id'])}
       </div>
     </div>
   </article>''')
@@ -928,11 +1021,9 @@ def pag_servicios():
 
 
 def pag_servicio(s):
-    wa = wa_link(f"Hola, quiero cotizar el servicio de {s['nombre'].lower()}.")
     otros = ''.join(f'<li><a href="{o["id"]}.html"><i class="bi bi-{o["icono"]}" aria-hidden="true"></i>{e(o["nombre"])}</a></li>' for o in SERVICIOS if o['id'] != s['id'])
     mercancias = ''.join(f'<li>{e(m)}</li>' for m in s['mercancias'])
     soluciones = lista(s['soluciones'], 'sol-list')
-    t = C['telefonoPrincipal']
     cuerpo = f'''{banner(s['nombre'], s['resumen'], s['foto'], s['fotoAlt'], [('servicios.html', 'Servicios')])}
 <section class="section" aria-label="Detalle del servicio">
   <div class="container"><div class="row gx-4 gy-5 gx-xl-5">
@@ -945,16 +1036,13 @@ def pag_servicio(s):
     <aside class="col-lg-4" aria-labelledby="t-cotizar">
       <div class="quote-box">
         <h2 id="t-cotizar">Solicite su cotización</h2>
-        <p>Para cotizar este servicio necesitamos:</p>
+        <p>Para empezar solo necesitamos:</p>
         <ul class="mini-list">
-          <li>Ciudad de origen y de destino</li>
-          <li>Qué es la carga y cómo está empacada</li>
-          <li>Peso y medidas aproximadas</li>
-          <li>Fecha en que necesita el viaje</li>
+          <li>Tipo de carga</li>
+          <li>Ciudad donde se encuentra</li>
         </ul>
-        <a class="btn-cta w-100" href="contacto.html?servicio={s['id']}#cotizar">Solicitar cotización</a>
-        {f'<a class="btn-wa w-100" href="{e(wa)}" target="_blank" rel="noopener"><i class="bi bi-whatsapp" aria-hidden="true"></i>Cotizar por WhatsApp</a>' if wa else ''}
-        <a class="quote-phone" href="{tel_href(t['numero'])}"><i class="bi bi-telephone" aria-hidden="true"></i><span><small>{e(t['area'])}</small>{e(t['mostrar'])}</span></a>
+        <p>Con eso le atendemos por WhatsApp y completamos el destino, el peso, las medidas y la fecha del viaje.</p>
+        {cotizar('btn-cta w-100', carga=s['id'])}
       </div>
     </aside>
   </div></div>
@@ -1005,11 +1093,26 @@ def pag_flota():
     <p class="filter-count" aria-live="polite" data-filter-count></p>
     <div class="fleet-grid" data-filter-grid>{''.join(tarjetas)}</div>'''
     else:
-        contenido = '<div class="placeholder-box"><i class="bi bi-truck" aria-hidden="true"></i><p>Estamos actualizando la información de nuestra flota. Escríbanos y le indicamos el vehículo disponible para su carga.</p><a class="btn-cta" href="contacto.html#cotizar">Solicitar cotización</a></div>'
+        contenido = f'<div class="placeholder-box"><i class="bi bi-truck" aria-hidden="true"></i><p>Estamos actualizando la información de nuestra flota. Escríbanos y le indicamos el vehículo disponible para su carga.</p>{cotizar()}</div>'
     nota = ('<p class="note-pend">Confirmados por la empresa: turbos, camiones sencillos y tractomulas (flota propia y tercerizada). '
             'Plataformas, camas bajas y remolques especializados están por confirmar y no aparecen al publicar. '
-            'Faltan cantidades y capacidades. La foto del turbo es de Unsplash; las demás son de referencia.</p>') if REVISION else ''
-    cuerpo = f'''{banner('Nuestra flota', 'Vehículos y equipos para cada tipo de carga.', 'fleet/tractocamion', 'Tractocamiones azules en carretera', [])}
+            'Faltan cantidades y capacidades. La foto del turbo es de Unsplash; las de plataformas, camas bajas y remolques son de referencia.</p>') if REVISION else ''
+    propia = ''
+    if FLOTA.get('propia'):
+        figs = ''.join(f'''<figure class="fleet-item own-item" data-reveal-item>
+      <div class="fleet-item-media">{img(v['foto'], v['alt'], sizes='(min-width: 1200px) 30vw, (min-width: 768px) 45vw, 100vw')}</div>
+      <figcaption class="fleet-item-body">{f'<span class="plate">{e(v["placa"])}</span>' if v.get('placa') else ''}<h3>{e(v['titulo'])}</h3></figcaption>
+    </figure>''' for v in FLOTA['propia'])
+        falta = FLOTA.get('placasSinFoto', [])
+        nota_p = (f'<p class="note-pend">Placas indicadas por la empresa que no se pudieron identificar en las fotos: {e(", ".join(falta))}. '
+                  'Envíe una foto donde se lea la placa para agregarlas.</p>') if REVISION and falta else ''
+        propia = f'''<section class="section section--gray" aria-labelledby="t-propia"><div class="container">
+  {sec_head('Nuestra flota propia', 'Tractomulas de ' + MARCA['nombre'] + ' en operación: rastreo GPS 24/7, mercancía amparada por pólizas y conductores capacitados.', 't-propia')}
+  {nota_p}
+  <div class="fleet-grid">{figs}</div>
+</div></section>'''
+    cuerpo = f'''{banner('Nuestra flota', S['lemas'][2], 'company/flota-propia', 'Tractomula Kenworth azul de CTICOL con carrocería de estacas al atardecer', [], pos='center 55%')}
+{propia}
 <section class="section" aria-labelledby="t-catalogo"><div class="container">
   {sec_head('Catálogo de vehículos', FLOTA.get('propiedad', 'Flota') + ' de turbos, camiones sencillos y tractomulas. Filtre por tipo de vehículo.', 't-catalogo')}
   {nota}
@@ -1019,7 +1122,7 @@ def pag_flota():
 {cta_band('¿No sabe qué vehículo necesita?', 'Cuéntenos el peso y las medidas de su carga y le indicamos la configuración adecuada.')}'''
     return pagina('flota.html', f"Nuestra flota | {MARCA['nombre']}",
                   'Flota propia y tercerizada de tractomulas, camiones sencillos y camiones turbo, con rastreo GPS 24/7 y pólizas de seguro de mercancía.',
-                  'flota.html', cuerpo, js=('gallery',), og_img='assets/img/fleet/tractocamion-800.webp')
+                  'flota.html', cuerpo, js=('gallery',), og_img='assets/img/company/flota-propia-960.webp')
 
 
 def pag_proyectos():
@@ -1039,9 +1142,9 @@ def pag_proyectos():
         aviso = ('<div class="demo-note" role="note"><i class="bi bi-info-circle" aria-hidden="true"></i><p><strong>Galería de referencia.</strong> '
                  f'Estas fotografías son de demostración y no corresponden a operaciones realizadas por {e(MARCA["nombre"])}. '
                  'Se reemplazarán por fotografías propias de la empresa.</p></div>')
-    cuerpo = f'''{banner('Proyectos y galería', 'Operaciones de carga, transporte de maquinaria y proyectos industriales.', 'company/ruta', 'Tractocamión con cama baja y maquinaria al atardecer', [], pos='center 60%')}
+    cuerpo = f'''{banner('Proyectos y galería', 'Nuestros vehículos en operación: cargue, descargue y viajes por las carreteras del país.', 'company/en-ruta', 'Tractomula de CTICOL con plataforma carpada cruzando un puente sobre un río', [], pos='center 60%')}
 <section class="section" aria-labelledby="t-galeria"><div class="container">
-  {sec_head('Galería', 'Seleccione una foto para verla en tamaño completo.', 't-galeria')}
+  {sec_head('Galería', S['lemas'][3] + ' Fotos de nuestra flota propia; seleccione una para verla en tamaño completo.', 't-galeria')}
   {aviso}
   {filtros(cats, 'Filtrar la galería')}
   <p class="filter-count" aria-live="polite" data-filter-count></p>
@@ -1059,7 +1162,7 @@ def pag_proyectos():
 {cta_band()}'''
     return pagina('proyectos.html', f"Proyectos y galería | {MARCA['nombre']}",
                   'Galería de operaciones de transporte de carga, maquinaria pesada y proyectos industriales.',
-                  'proyectos.html', cuerpo, js=('gallery',), og_img='assets/img/company/ruta-960.webp')
+                  'proyectos.html', cuerpo, js=('gallery',), og_img='assets/img/company/en-ruta-960.webp')
 
 
 def pag_cobertura():
@@ -1102,14 +1205,6 @@ def pag_cobertura():
                   'cobertura.html', cuerpo)
 
 
-def aviso_envio():
-    linea = next((w for w in C['whatsapp'] if w.get('cotizaciones')), None)
-    if linea and S.get('formWhatsapp', True):
-        return (f'<p class="form-send-hint"><i class="bi bi-whatsapp" aria-hidden="true"></i>Al solicitar la cotización se abre WhatsApp '
-                f'con su solicitud lista para enviar a nuestra línea {e(linea["area"].lower())} {e(linea["mostrar"])}.</p>')
-    return ''
-
-
 def banda_respaldo(ident):
     resp = respaldo_html('backing--dark')
     if not resp:
@@ -1120,7 +1215,6 @@ def banda_respaldo(ident):
 
 def pag_rastreo():
     desp = linea_wa(S.get('rastreo', {}).get('lineaWhatsapp', 'Despachos'))
-    t = C['telefonoPrincipal']
     url = S.get('rastreo', {}).get('url', '')
     if url.startswith('https://'):
         principal = (f'<div class="track-box" data-reveal><h2>Plataforma de rastreo</h2><p>Consulte el estado de su envío en nuestra plataforma.</p>'
@@ -1142,20 +1236,11 @@ def pag_rastreo():
   <p>Estamos construyendo la plataforma para rastrear envíos en línea. Mientras tanto, escríbanos el número de su remesa o manifiesto y le informamos dónde va su carga: nuestros vehículos tienen rastreo GPS 24/7.</p>
   {formulario}
 </div>'''
-    filas = []
-    if desp:
-        filas.append(f'<li><i class="bi bi-whatsapp" aria-hidden="true"></i><span><small>WhatsApp {e(desp["area"])}</small>'
-                     f'<a href="https://wa.me/{desp["numero"]}" target="_blank" rel="noopener">{e(desp["mostrar"])}</a></span></li>')
-    filas.append(f'<li><i class="bi bi-telephone" aria-hidden="true"></i><span><small>{e(t["area"])}</small>'
-                 f'<a href="{tel_href(t["numero"])}">{e(t["mostrar"])}</a></span></li>')
-    if C['correo']:
-        filas.append(f'<li><i class="bi bi-envelope" aria-hidden="true"></i><span><small>Correo</small>'
-                     f'<a href="mailto:{e(C["correo"])}">{e(C["correo"])}</a></span></li>')
     cuerpo = f'''{banner('Rastrear envío', 'Sepa dónde va su carga.', 'hero/carga-general', 'Tractocamión con furgón en una carretera de montaña', [], pos='center 45%')}
 <section class="section" aria-label="Consulta de envíos"><div class="container">
   <div class="row gx-4 gy-5 gx-xl-5">
     <div class="col-lg-7">{principal}</div>
-    <div class="col-lg-5"><div class="contact-panel" data-reveal><h2>Otros canales</h2><ul class="contact-list">{''.join(filas)}</ul></div></div>
+    <div class="col-lg-5"><div class="contact-panel" data-reveal><h2>Otros canales</h2>{contacto_lineas('contact-list')}</div></div>
   </div>
 </div></section>
 {banda_respaldo('t-respaldo-r')}'''
@@ -1165,7 +1250,6 @@ def pag_rastreo():
 
 
 def pag_contacto():
-    opciones = ''.join(f'<option value="{s["id"]}">{e(s["nombre"])}</option>' for s in SERVICIOS)
     mapa, ubicacion = '', ''
     prueba = C.get('mapaPrueba') or {}
     if C['mapaUrl'].startswith('https://') and C['direccion']:
@@ -1191,46 +1275,30 @@ def pag_contacto():
   </div>
 </div></section>'''
     redes = redes_html('social--light')
-    cuerpo = f'''{banner('Contacto', 'Hable con nuestro equipo comercial o de operaciones.', 'services/carga-general', 'Tractocamión con plataforma en carretera de montaña', [], pos='center 45%')}
+    cuerpo = f'''{banner('Contacto', S['lemas'][0], 'services/carga-general', 'Tractocamión con plataforma en carretera de montaña', [], pos='center 45%')}
 <section class="section" aria-label="Canales de contacto y formulario"><div class="container">
   <div class="row gx-4 gy-5 gx-xl-5">
     <div class="col-lg-5">
       <div class="contact-panel" data-reveal>
-        <h2>Canales de atención</h2>
+        <h2>Dependencias por WhatsApp</h2>
         {contacto_lineas('contact-list')}
         {f'<h3 class="h-small">Redes sociales</h3>{redes}' if redes else ''}
         {mapa}
       </div>
     </div>
     <div class="col-lg-7">
-      <form class="quote-form" id="cotizar" novalidate data-quote-form aria-labelledby="t-form">
+      <div class="quote-form" id="cotizar" tabindex="-1" aria-labelledby="t-form">
         <h2 id="t-form">Solicitud de cotización</h2>
-        <p class="form-help">Los campos con <span aria-hidden="true">*</span><span class="visually-hidden">asterisco</span> son obligatorios.</p>
-        <div class="form-error-summary" data-error-summary tabindex="-1" hidden></div>
-        <div class="row g-3">
-          <div class="col-md-6 field"><label for="f-nombre">Nombre completo *</label><input id="f-nombre" name="nombre" autocomplete="name" required maxlength="120"><p class="field-err" id="e-nombre"></p></div>
-          <div class="col-md-6 field"><label for="f-empresa">Empresa</label><input id="f-empresa" name="empresa" autocomplete="organization" maxlength="120"></div>
-          <div class="col-md-6 field"><label for="f-telefono">Teléfono *</label><input id="f-telefono" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required maxlength="20"><p class="field-err" id="e-telefono"></p></div>
-          <div class="col-md-6 field"><label for="f-correo">Correo electrónico *</label><input id="f-correo" name="correo" type="email" autocomplete="email" required maxlength="160"><p class="field-err" id="e-correo"></p></div>
-          <div class="col-12 field"><label for="f-servicio">Tipo de servicio *</label><select id="f-servicio" name="servicio" required><option value="">Seleccione un servicio</option>{opciones}<option value="otro">Otro / no estoy seguro</option></select><p class="field-err" id="e-servicio"></p></div>
-          <div class="col-md-6 field"><label for="f-origen">Ciudad de origen *</label><input id="f-origen" name="origen" autocomplete="off" required maxlength="80"><p class="field-err" id="e-origen"></p></div>
-          <div class="col-md-6 field"><label for="f-destino">Ciudad de destino *</label><input id="f-destino" name="destino" autocomplete="off" required maxlength="80"><p class="field-err" id="e-destino"></p></div>
-          <div class="col-12 field"><label for="f-carga">Descripción de la carga *</label><textarea id="f-carga" name="carga" rows="3" required maxlength="600" aria-describedby="h-carga"></textarea><p class="field-hint" id="h-carga">Qué es, cómo está empacada, peso y medidas aproximadas.</p><p class="field-err" id="e-carga"></p></div>
-          <div class="col-12 field"><label for="f-mensaje">Mensaje</label><textarea id="f-mensaje" name="mensaje" rows="3" maxlength="1000" aria-describedby="h-mensaje"></textarea><p class="field-hint" id="h-mensaje">Fecha estimada del viaje u otra información útil.</p></div>
-          <div class="col-12 field field-hp" aria-hidden="true"><label for="f-web">No llene este campo</label><input id="f-web" name="web" tabindex="-1" autocomplete="off"></div>
-          <div class="col-12 field field-check"><input id="f-datos" name="datos" type="checkbox" required><label for="f-datos">Autorizo el tratamiento de mis datos personales según la <a href="privacidad.html#tratamiento">política de tratamiento de datos</a>. *</label><p class="field-err" id="e-datos"></p></div>
-        </div>
-        <button class="btn-cta btn-lg" type="submit" data-submit>Solicitar cotización</button>
-        {aviso_envio()}
-        <div class="form-status" role="status" aria-live="polite" data-form-status></div>
-      </form>
+        <p class="form-help">Una sola forma de cotizar: responda dos preguntas y continúe la conversación por WhatsApp con nuestra área de logística.</p>
+        {encuesta('c', inline=True)}
+      </div>
     </div>
   </div>
 </div></section>
 {ubicacion}'''
     return pagina('contacto.html', f"Contacto y cotizaciones | {MARCA['nombre']}",
-                  f"Solicite una cotización de transporte de carga. Teléfono {C['telefonoPrincipal']['mostrar']}, WhatsApp y correo de {MARCA['nombre']}.",
-                  'contacto.html', cuerpo, js=('forms',))
+                  f"Solicite una cotización de transporte de carga por WhatsApp. Logística, contabilidad, PQRS y tesorería de {MARCA['nombre']}.",
+                  'contacto.html', cuerpo)
 
 
 def pag_legal(archivo, titulo, secciones, lede):
@@ -1254,7 +1322,7 @@ def responsable():
 def pag_privacidad():
     resp, cont = responsable()
     secs = [
-        ('privacidad', 'Política de privacidad', f'''<p>Este sitio web pertenece a {resp}. Solo recogemos los datos personales que usted escribe en el formulario de cotización o que nos envía por WhatsApp, teléfono o correo.</p>
+        ('privacidad', 'Política de privacidad', f'''<p>Este sitio web pertenece a {resp}. Solo recogemos los datos personales que usted nos envía por WhatsApp o correo, incluida la solicitud de cotización que el sitio prepara para WhatsApp (tipo de carga y ciudad).</p>
 <p>El sitio no usa cookies propias de seguimiento. Si se activa Google Analytics, se informará en esta página y se usará solo para medir visitas de forma agregada.</p>
 <p>La página de contacto puede mostrar un mapa de Google Maps. Al cargarlo, Google puede usar cookies propias según su política de privacidad.</p>'''),
         ('tratamiento', 'Tratamiento de datos personales', f'''<p>En cumplimiento de la Ley 1581 de 2012 y sus decretos reglamentarios, informamos:</p>
@@ -1301,9 +1369,8 @@ def config_js():
     datos = {
         'modo': S['modo'],
         'marca': MARCA['nombre'],
-        'formEndpoint': S['formEndpoint'] if S['formEndpoint'].startswith('https://') else '',
-        'formWhatsapp': S.get('formWhatsapp', True),
-        'whatsapp': {'numero': linea['numero'] if linea else '', 'mostrar': linea['mostrar'] if linea else '', 'mensaje': S['whatsappMensaje']},
+        'whatsapp': {'numero': linea['numero'] if linea else '', 'mostrar': linea['mostrar'] if linea else '',
+                     'area': linea['area'] if linea else '', 'mensaje': S['whatsappMensaje']},
         'correo': C['correo'],
         'servicios': {s['id']: s['nombre'] for s in SERVICIOS},
     }

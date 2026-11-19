@@ -30,8 +30,8 @@
     {
       "categoria": "tractomulas",
       "nombre": "Tractomula",
-      "foto": "fleet/tractocamion",
-      "fotoAlt": "Fila de tractocamiones azules en una carretera",
+      "foto": "propia/grupo-02",
+      "fotoAlt": "Tres tractomulas azules de CTICOL estacionadas frente a una bodega",
       "descripcion": "Tractocamión con semirremolque para despachos completos y carga de mayor peso entre ciudades.",
       "capacidad": null,
       "ficha": [],
@@ -50,8 +50,8 @@
     {
       "categoria": "sencillos",
       "nombre": "Camión sencillo",
-      "foto": "fleet/camion",
-      "fotoAlt": "Camión rígido naranja de dos ejes con un equipo industrial",
+      "foto": "cargas/acero",
+      "fotoAlt": "Camión sencillo blanco con carrocería de estacas cargando varilla en una bodega",
       "descripcion": "Camión rígido de dos ejes para cargas medianas en trayectos urbanos y entre ciudades.",
       "capacidad": null,
       "ficha": [],
@@ -119,5 +119,66 @@
     }
   ],
   "_flota": "Confirmado por el cliente el 2026-11-18: flota propia y tercerizada de camiones tipo turbo, sencillos y tractomulas. Sin cantidades ni capacidades confirmadas.",
-  "propiedad": "Flota propia y tercerizada"
+  "propiedad": "Flota propia y tercerizada",
+  "_propia": "Fotos de la flota propia entregadas por el cliente el 2026-11-19 (img/cliente/). placa solo si se lee en la foto.",
+  "propia": [
+    {
+      "foto": "propia/xid909-patio",
+      "placa": "XID909",
+      "titulo": "Tractomula Kenworth con semirremolque carpado",
+      "alt": "Tractomula Kenworth azul de placa XID909 con semirremolque carpado en un patio"
+    },
+    {
+      "foto": "propia/uan016-02",
+      "placa": "UAN016",
+      "titulo": "Tractomula International con semirremolque carpado",
+      "alt": "Tractomula International azul de placa UAN016 estacionada junto a una vía"
+    },
+    {
+      "foto": "propia/xic300-01",
+      "placa": "XIC300",
+      "titulo": "Tractomula Kenworth",
+      "alt": "Tractomula Kenworth azul de placa XIC300 en un patio"
+    },
+    {
+      "foto": "propia/xid909-carga-01",
+      "placa": "XID909",
+      "titulo": "Tractomula con carrocería de estacas",
+      "alt": "Tractomula Kenworth de placa XID909 con carrocería de estacas cargada al atardecer"
+    },
+    {
+      "foto": "propia/uan016-05",
+      "placa": "UAN016",
+      "titulo": "Tractomula International en ruta",
+      "alt": "Tractomula International azul de placa UAN016 en una vía destapada"
+    },
+    {
+      "foto": "propia/grupo-02",
+      "placa": "",
+      "titulo": "Parte de nuestra flota propia",
+      "alt": "Tres tractomulas azules de CTICOL estacionadas frente a una bodega"
+    },
+    {
+      "foto": "propia/tractomula-03",
+      "placa": "",
+      "titulo": "Tractomula con semirremolque carpado",
+      "alt": "Tractomula International azul con semirremolque carpado sobre un puente"
+    },
+    {
+      "foto": "propia/uan016-01",
+      "placa": "UAN016",
+      "titulo": "Tractomula International",
+      "alt": "Tractomula International azul de placa UAN016 en un patio de tierra"
+    },
+    {
+      "foto": "propia/grupo-01",
+      "placa": "",
+      "titulo": "Tractomulas listas para cargue",
+      "alt": "Tractomulas azules de CTICOL alineadas frente a una bodega"
+    }
+  ],
+  "placasSinFoto": [
+    "SVA354",
+    "XLC494"
+  ]
 }

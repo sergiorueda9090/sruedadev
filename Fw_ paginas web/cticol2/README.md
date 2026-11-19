@@ -82,6 +82,22 @@ cticol2/
 Ojo: la flota confirmada no incluye camas bajas, plataformas ni remolques modulares, pero el sitio (por el brief) ofrece
 carga pesada, sobredimensionada y maquinaria amarilla. Confirmar si esos servicios se prestan con flota tercerizada.
 
+### Cambios pedidos por el cliente (2026-11-19, `PAGINA WEB CTICOL.docx`)
+
+| Pedido | Cómo quedó |
+|---|---|
+| Botón de WhatsApp que diga «Contáctanos» y despliegue las dependencias | `wa_float()` en `tools/build.py` + `assets/js/contact.js`: panel con Logística o despachos (José David, 316 473 2031), Contabilidad (Helena, 320 210 4726), PQRS (Fredy, 315 059 6460) y Tesorería (Nora, 316 010 2957). Datos en `sitio.json` → `contacto.whatsapp` |
+| «Solicitar cotización» con mensaje inicial y encuesta breve (tipo de carga y ciudad) | Encuesta en el panel; al continuar abre WhatsApp de la línea con `cotizaciones: true` con el mensaje y las respuestas. Opciones en `sitio.json` → `tiposCarga` |
+| Unificar una sola opción de cotización | Todos los botones «Solicitar cotización» (header, slider, franjas, servicios, tarjetas) abren la misma encuesta (`cotizar()` en `build.py`, atributo `data-quote-open`). El formulario largo de Contacto se reemplazó por la misma encuesta; se eliminó `forms.js` y `formEndpoint` |
+| Quitar el número telefónico | Se quitó el 311 573 4776 de header, menú, franjas, servicios, footer, rastreo y JSON-LD. También salió la línea de Despachos 317 300 4381, que no aparece en la lista nueva del cliente |
+| Frases del sitio | `sitio.json` → `lemas` (la primera es `marca.lema`): slider, banners de Nosotros/Flota/Contacto/Proyectos, franja final y footer |
+| Inicio global con una foto por servicio y Flota propia / tercerizada | Sección «Lo que transportamos» (`sitio.json` → `cargas`, fotos en `assets/img/cargas/`) |
+| Misión y visión modificadas | `institucional.mision` / `vision` con `aprobado: true` y razón social con S.A.S. |
+| Fotos de los vehículos XID909, UAN016, XIC300, SVA354, XLC494 en Flota | Sección «Nuestra flota propia» (`flota.json` → `propia`). SVA354 y XLC494 no se leen en ninguna foto (`placasSinFoto`, aviso solo en revisión) |
+| Fotos de la flota propia operando en Proyectos | `proyectos.json` con 18 fotos propias (cargue, descargue, en ruta), `demostracion: false` |
+
+Las fotos del cliente están en `img/cliente/` con nombres cortos (placa o contenido; `terc-*` = flota tercerizada).
+
 ### Rastrear envío
 
 Botón amarillo en la barra superior (todas las páginas), en el menú móvil y en el footer. La plataforma de rastreo
@@ -113,7 +129,7 @@ botones abrirán la plataforma directamente (`rastreo.html` queda con un botón 
 - **Textos institucionales**: `institucional.*`. Misión, visión, valores, compromiso y filosofía son
   **textos provisionales** escritos para la demo (`aprobado: false`); la historia está vacía porque no se
   inventa. Al aprobarlos, ponga `aprobado: true`.
-- **Cobertura**: las 16 ciudades vienen del mapa que llegó con las fotos (`img/img16.jpeg`); no se sabe si
+- **Cobertura**: las 16 ciudades vienen del mapa que llegó con las fotos (`img/img15.jpeg`); no se sabe si
   son de CTICOL, por eso `confirmado: false`. `rutas` está vacío: no se dibujan rutas hasta tenerlas.
 - **Google Analytics 4 / Search Console**: `analitica.ga4` (`G-XXXXXXX`) y `analitica.searchConsole` (código de
   la meta de verificación). Vacíos no se inserta nada.
@@ -127,7 +143,7 @@ Hoy todos los vehículos tienen `enFlota: false`.
 
 ## Formulario de cotización
 
-`contacto.html#cotizar` valida en el navegador (errores junto a cada campo, resumen con enlaces y foco en el
+`contacto.html#cotizar` (sección anterior, ya reemplazada por la encuesta de WhatsApp) validaba en el navegador (errores junto a cada campo, resumen con enlaces y foco en el
 primer error) y **no simula envíos**:
 
 - **WhatsApp (siempre, con `formWhatsapp: true`)**: al presionar «Solicitar cotización» se abre WhatsApp con

@@ -193,3 +193,16 @@
   .brand-text strong { font-size: 1.12rem; }
   .tramo-name { display: block; overflow-wrap: anywhere; }
 }
+
+/* Cambios del cliente (2026-11-19): «Lo que transportamos» y botón «Contáctanos» */
+@media (max-width: 1199.98px) {
+  .cargo-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 575.98px) {
+  .cargo-grid { grid-template-columns: 1fr; }
+  .wa-widget { right: 14px; bottom: 14px; }
+  /* El cliente pidió que el botón diga «Contáctanos» también en el celular */
+  .wa-widget .wa-float { width: auto; height: 52px; padding: 0 1.1rem 0 .9rem; }
+  .wa-widget .wa-float-label { position: static; width: auto; height: auto; overflow: visible; clip: auto; font-size: .95rem; }
+  .wa-opt span { padding: .5rem .6rem; font-size: .84rem; }
+}

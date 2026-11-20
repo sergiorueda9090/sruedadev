@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Carrito · Vehículos infantiles</title>
+  <meta name="description" content="Tu carrito de vehículos infantiles. Envía la solicitud de cotización por WhatsApp; no hay pago en línea.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#22324A">
+  <link rel="icon" href="assets/logo/logo-prueba.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/sitio.css">
+  <link rel="stylesheet" href="css/tienda.css">
+</head>
+<body>
+  <a class="saltar" href="#carrito">Ir al carrito</a>
+  <header id="cabecera"></header>
+
+  <main class="container" id="carrito">
+    <h1 class="titulo">Carrito</h1>
+    <ol class="etapas" aria-label="Pasos para cotizar">
+      <li class="actual">Revisa tu carrito</li>
+      <li>Completa tus datos</li>
+      <li>Envía la cotización por WhatsApp</li>
+    </ol>
+
+    <div class="checkout" id="checkout">
+      <section class="checkout__lineas" aria-labelledby="t-lineas">
+        <h2 class="visually-hidden" id="t-lineas">Productos en el carrito</h2>
+        <div id="lineas"></div>
+      </section>
+
+      <aside class="checkout__lado">
+        <div class="resumen">
+          <h2>Resumen</h2>
+          <dl>
+            <div><dt id="r-unidades">Productos</dt><dd id="r-subtotal">$0</dd></div>
+            <div><dt>Envío</dt><dd>Se cotiza según la ciudad</dd></div>
+          </dl>
+          <div class="resumen__total"><span>Total de referencia</span><b id="r-total">$0</b></div>
+          <p class="resumen__nota" id="r-nota"></p>
+        </div>
+
+        <form id="form-cotizar" class="datos" novalidate>
+          <h2>Tus datos</h2>
+          <div class="mb-2">
+            <label class="form-label" for="c-nombre">Nombre</label>
+            <input class="form-control" id="c-nombre" autocomplete="name" required maxlength="60">
+            <div class="invalid-feedback">Escribe tu nombre.</div>
+          </div>
+          <div class="mb-2">
+            <label class="form-label" for="c-celular">Celular</label>
+            <input class="form-control" id="c-celular" type="tel" autocomplete="tel" required maxlength="20" pattern="[0-9 +()-]{7,20}" inputmode="tel">
+            <div class="invalid-feedback">Escribe un celular de contacto (solo números).</div>
+          </div>
+          <div class="row g-2 mb-2">
+            <div class="col-sm-6">
+              <label class="form-label" for="c-ciudad">Ciudad de entrega</label>
+              <input class="form-control" id="c-ciudad" autocomplete="address-level2" required maxlength="60">
+              <div class="invalid-feedback">Escribe la ciudad.</div>
+            </div>
+            <div class="col-sm-6">
+              <label class="form-label" for="c-direccion">Dirección <span class="text-muted">(opcional)</span></label>
+              <input class="form-control" id="c-direccion" autocomplete="street-address" maxlength="100">
+            </div>
+          </div>
+          <fieldset class="mb-2">
+            <legend class="form-label">Compro como</legend>
+            <div class="d-flex flex-wrap gap-3">
+              <label class="form-check"><input class="form-check-input" type="radio" name="c-tipo" value="Familia" checked> <span class="form-check-label">Familia</span></label>
+              <label class="form-check"><input class="form-check-input" type="radio" name="c-tipo" value="Tienda o distribuidor"> <span class="form-check-label">Tienda o distribuidor</span></label>
+            </div>
+          </fieldset>
+          <div class="mb-2">
+            <label class="form-label" for="c-pago">Forma de pago que prefieres <span class="text-muted">(opcional)</span></label>
+            <select class="form-select" id="c-pago">
+              <option value="">Prefiero que me indiquen</option>
+              <option>Transferencia bancaria</option>
+              <option>Tarjeta de crédito</option>
+              <option>Pago contra entrega</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label class="form-label" for="c-notas">Notas <span class="text-muted">(opcional)</span></label>
+            <textarea class="form-control" id="c-notas" rows="2" maxlength="300" placeholder="Ej. edad del niño, fecha en que lo necesitas"></textarea>
+          </div>
+          <div class="form-check mb-3 autoriza">
+            <input class="form-check-input" type="checkbox" id="c-autorizo" required>
+            <label class="form-check-label" for="c-autorizo">Autorizo el uso de mis datos para responder esta cotización, según la <a href="politica-datos.html" target="_blank" rel="noopener">política de tratamiento de datos</a>.</label>
+            <div class="invalid-feedback">Marca la autorización para poder enviarte la cotización.</div>
+          </div>
+          <button type="submit" class="btn-wa btn-grande w-100" id="btn-enviar"><i class="bi bi-whatsapp"></i> Enviar cotización por WhatsApp</button>
+          <p class="datos__nota">No hay pago en línea. Se abre WhatsApp con tu cotización lista para enviar; te respondemos con disponibilidad, envío y forma de pago.</p>
+        </form>
+      </aside>
+    </div>
+
+    <!-- carrito vacío -->
+    <div class="carrito-vacio d-none" id="vacio">
+      <i class="bi bi-cart3"></i>
+      <h2>Tu carrito está vacío</h2>
+      <p>Explora la tienda y agrega los vehículos que quieres cotizar.</p>
+      <a class="btn-principal" href="tienda.html"><i class="bi bi-grid"></i> Ir a la tienda</a>
+    </div>
+
+    <!-- confirmación -->
+    <div class="confirmacion d-none" id="confirmacion" tabindex="-1">
+      <i class="bi bi-check-circle-fill"></i>
+      <h2>Cotización <span id="conf-num"></span> lista en WhatsApp</h2>
+      <p>Envía el mensaje en WhatsApp para que la recibamos. Te respondemos con disponibilidad, costo de envío y forma de pago.</p>
+      <div class="d-flex flex-wrap justify-content-center gap-2">
+        <a class="btn-wa" id="conf-abrir" href="#" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Abrir WhatsApp otra vez</a>
+        <button type="button" class="btn-principal" id="conf-vaciar"><i class="bi bi-bag-check"></i> Ya la envié: vaciar el carrito</button>
+        <button type="button" class="btn-secundario" id="conf-volver">Seguir editando el carrito</button>
+      </div>
+    </div>
+  </main>
+
+  <footer id="pie" class="pie"></footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/creditos.js"></script>
+  <script src="js/datos.js"></script>
+  <script src="js/fichas.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/checkout.js"></script>
+</body>
+</html>

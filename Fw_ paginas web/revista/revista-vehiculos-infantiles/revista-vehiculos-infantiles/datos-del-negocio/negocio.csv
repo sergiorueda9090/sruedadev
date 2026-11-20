@@ -1,0 +1,13 @@
+﻿campo;valor;ayuda
+telefono;;Teléfono fijo o adicional (el WhatsApp ya está configurado)
+correo;;Correo de contacto
+direccion;;Dirección del local o bodega, si atienden público
+horario;;Ej. Lunes a sábado, 9 a. m. a 6 p. m.
+ciudad;;Ciudad principal
+instagram;;@usuario real
+facebook;;Enlace de la página
+sitioWeb;;Dominio donde se publicará la tienda, con https:// (ej. https://www.mitienda.com)
+cobertura;;Ej. Envíos a toda Colombia
+envios;;"Cómo y en cuánto tiempo entregan. Ej. Transportadora, 2 a 5 días hábiles; en Bogotá entrega propia"
+pagos;;Formas de pago separadas por coma. Ej. Transferencia, Nequi, tarjeta de crédito, contraentrega
+garantiaGeneral;;Política general de garantía, si existe por escrito

@@ -1,0 +1,998 @@
+{
+  "HAM-01": {
+    "fuente": "meal",
+    "id": "53099",
+    "nombre_original": "Aussie Burgers",
+    "foto_url": "https://www.themealdb.com/images/media/meals/44bzep1761848278.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Lean Minced Steak",
+        "medida": "500g"
+      },
+      {
+        "ingrediente": "Cooked Beetroot",
+        "medida": "100g"
+      },
+      {
+        "ingrediente": "Naan Bread",
+        "medida": "2 small"
+      },
+      {
+        "ingrediente": "Rocket",
+        "medida": "50g"
+      },
+      {
+        "ingrediente": "Soured cream and chive dip",
+        "medida": "4 tablespoons"
+      }
+    ]
+  },
+  "HAM-02": {
+    "fuente": "meal",
+    "id": "53013",
+    "nombre_original": "Big Mac",
+    "foto_url": "https://www.themealdb.com/images/media/meals/urzj1d1587670726.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Minced Beef",
+        "medida": "400g"
+      },
+      {
+        "ingrediente": "Olive Oil",
+        "medida": "2 tbs"
+      },
+      {
+        "ingrediente": "Sesame Seed Burger Buns",
+        "medida": "2"
+      },
+      {
+        "ingrediente": "Onion",
+        "medida": "Chopped"
+      },
+      {
+        "ingrediente": "Iceberg Lettuce",
+        "medida": "1/4"
+      },
+      {
+        "ingrediente": "Cheese",
+        "medida": "2 sliced"
+      },
+      {
+        "ingrediente": "Dill Pickles",
+        "medida": "2 large"
+      },
+      {
+        "ingrediente": "Mayonnaise",
+        "medida": "1 cup"
+      },
+      {
+        "ingrediente": "White Wine Vinegar",
+        "medida": "2 tsp"
+      },
+      {
+        "ingrediente": "Pepper",
+        "medida": "Pinch"
+      },
+      {
+        "ingrediente": "Mustard",
+        "medida": "2 tsp"
+      },
+      {
+        "ingrediente": "Onion Salt",
+        "medida": "1 1/2 tsp"
+      },
+      {
+        "ingrediente": "Garlic Powder",
+        "medida": "1 1/2 tsp"
+      },
+      {
+        "ingrediente": "Paprika",
+        "medida": "1/2 tsp"
+      }
+    ]
+  },
+  "HAM-03": {
+    "fuente": "meal",
+    "id": "53010",
+    "nombre_original": "Lamb Tzatziki Burgers",
+    "foto_url": "https://www.themealdb.com/images/media/meals/k420tj1585565244.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Bulgur Wheat",
+        "medida": "25g"
+      },
+      {
+        "ingrediente": "Lamb Mince",
+        "medida": "500g"
+      },
+      {
+        "ingrediente": "Cumin",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Coriander",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Paprika",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Garlic",
+        "medida": "1 clove finely chopped"
+      },
+      {
+        "ingrediente": "Olive Oil",
+        "medida": "For frying"
+      },
+      {
+        "ingrediente": "Bun",
+        "medida": "4"
+      },
+      {
+        "ingrediente": "Cucumber",
+        "medida": "Grated"
+      },
+      {
+        "ingrediente": "Greek Yogurt",
+        "medida": "200g"
+      },
+      {
+        "ingrediente": "Mint",
+        "medida": "2 tbs"
+      }
+    ]
+  },
+  "HAM-04": {
+    "fuente": "meal",
+    "id": "53085",
+    "nombre_original": "15-minute chicken & halloumi burgers",
+    "foto_url": "https://www.themealdb.com/images/media/meals/vdwloy1713225718.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Chicken Breasts",
+        "medida": "2"
+      },
+      {
+        "ingrediente": "Oil",
+        "medida": "1 tbsp"
+      },
+      {
+        "ingrediente": "Hotsauce",
+        "medida": "4 tbsp"
+      },
+      {
+        "ingrediente": "Lemon Juice",
+        "medida": "½"
+      },
+      {
+        "ingrediente": "Buns",
+        "medida": "2"
+      },
+      {
+        "ingrediente": "Cheese",
+        "medida": "250g"
+      },
+      {
+        "ingrediente": "Cabbage",
+        "medida": "¼"
+      },
+      {
+        "ingrediente": "Mayonnaise",
+        "medida": "2 tbsp"
+      },
+      {
+        "ingrediente": "Sour Cream",
+        "medida": "4 tbsp"
+      },
+      {
+        "ingrediente": "Lettuce",
+        "medida": "4 leaves"
+      },
+      {
+        "ingrediente": "Red Pepper",
+        "medida": "2"
+      }
+    ]
+  },
+  "HAM-05": {
+    "fuente": "meal",
+    "id": "53257",
+    "nombre_original": "kofta burgers",
+    "foto_url": "https://www.themealdb.com/images/media/meals/lgmnff1763789847.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Lamb",
+        "medida": "1kg"
+      },
+      {
+        "ingrediente": "Onion",
+        "medida": "2"
+      },
+      {
+        "ingrediente": "Garlic Bulb",
+        "medida": "1"
+      },
+      {
+        "ingrediente": "Garam Masala",
+        "medida": "6 tablespoons"
+      },
+      {
+        "ingrediente": "Coriander",
+        "medida": "Bunch"
+      },
+      {
+        "ingrediente": "Chilli Sauce",
+        "medida": "1 tablespoon"
+      },
+      {
+        "ingrediente": "Pita Bread",
+        "medida": "8"
+      },
+      {
+        "ingrediente": "Tomato",
+        "medida": "4 sliced"
+      },
+      {
+        "ingrediente": "Red Cabbage",
+        "medida": "1/2"
+      },
+      {
+        "ingrediente": "Red Onions",
+        "medida": "1 sliced"
+      },
+      {
+        "ingrediente": "Yogurt",
+        "medida": "Small pack"
+      }
+    ]
+  },
+  "HAM-06": {
+    "fuente": "meal",
+    "id": "53016",
+    "nombre_original": "Chick-Fil-A Sandwich",
+    "foto_url": "https://www.themealdb.com/images/media/meals/sbx7n71587673021.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Chicken Breast",
+        "medida": "1"
+      },
+      {
+        "ingrediente": "Pickle Juice",
+        "medida": "1/4 cup"
+      },
+      {
+        "ingrediente": "Egg",
+        "medida": "1"
+      },
+      {
+        "ingrediente": "Milk",
+        "medida": "1/4 cup"
+      },
+      {
+        "ingrediente": "Flour",
+        "medida": "1/2 cup"
+      },
+      {
+        "ingrediente": "Icing Sugar",
+        "medida": "1 tbs"
+      },
+      {
+        "ingrediente": "Paprika",
+        "medida": "1/2 tsp"
+      },
+      {
+        "ingrediente": "Salt",
+        "medida": "1/2 tsp"
+      },
+      {
+        "ingrediente": "Black Pepper",
+        "medida": "1/4 tsp"
+      },
+      {
+        "ingrediente": "Garlic Powder",
+        "medida": "1/4 tsp"
+      },
+      {
+        "ingrediente": "Celery Salt",
+        "medida": "1/4 tsp"
+      },
+      {
+        "ingrediente": "Cayenne Pepper",
+        "medida": "1/2 tsp"
+      },
+      {
+        "ingrediente": "Olive Oil",
+        "medida": "1 cup"
+      },
+      {
+        "ingrediente": "Sesame Seed Burger Buns",
+        "medida": "1"
+      }
+    ]
+  },
+  "SAN-01": {
+    "fuente": "meal",
+    "id": "53547",
+    "nombre_original": "Cuban Sandwich",
+    "foto_url": "https://www.themealdb.com/images/media/meals/djdg8l1784578885.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Pork Chops",
+        "medida": "1 lb"
+      },
+      {
+        "ingrediente": "Kosher Salt",
+        "medida": "Pinch"
+      },
+      {
+        "ingrediente": "Vegetable Oil",
+        "medida": "2 tablespoons"
+      },
+      {
+        "ingrediente": "Orange",
+        "medida": "Juice/zest of one"
+      },
+      {
+        "ingrediente": "Lime",
+        "medida": "Juice/zest of one"
+      },
+      {
+        "ingrediente": "Dried Oregano",
+        "medida": "2 tsp"
+      },
+      {
+        "ingrediente": "Ground Black Pepper",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Garlic Powder",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Dijon Mustard",
+        "medida": "2 tablespoons"
+      },
+      {
+        "ingrediente": "Mayonnaise",
+        "medida": "2 tablespoons"
+      },
+      {
+        "ingrediente": "Cuban Bread",
+        "medida": "8 oz"
+      },
+      {
+        "ingrediente": "Unsalted Butter",
+        "medida": "1 tablespoon"
+      },
+      {
+        "ingrediente": "Swiss Cheese",
+        "medida": "4 oz"
+      },
+      {
+        "ingrediente": "Deli Ham",
+        "medida": "8 oz"
+      },
+      {
+        "ingrediente": "Dill Pickles",
+        "medida": "2"
+      }
+    ]
+  },
+  "SAN-02": {
+    "fuente": "meal",
+    "id": "53319",
+    "nombre_original": "Chivito sandwich",
+    "foto_url": "https://www.themealdb.com/images/media/meals/j80gmw1764372176.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Milk",
+        "medida": "80g"
+      },
+      {
+        "ingrediente": "Butter",
+        "medida": "60g"
+      },
+      {
+        "ingrediente": "Molasses",
+        "medida": "1 tablespoon"
+      },
+      {
+        "ingrediente": "Water",
+        "medida": "220g"
+      },
+      {
+        "ingrediente": "Egg",
+        "medida": "9"
+      },
+      {
+        "ingrediente": "Bread Flour",
+        "medida": "500g"
+      },
+      {
+        "ingrediente": "Salt",
+        "medida": "10g"
+      },
+      {
+        "ingrediente": "Yeast",
+        "medida": "10g"
+      },
+      {
+        "ingrediente": "Egg Wash",
+        "medida": "Splash"
+      },
+      {
+        "ingrediente": "Sesame Seed",
+        "medida": "Sprinkling"
+      },
+      {
+        "ingrediente": "Onion",
+        "medida": "4"
+      },
+      {
+        "ingrediente": "Sirloin steak",
+        "medida": "8"
+      },
+      {
+        "ingrediente": "Garlic",
+        "medida": "To serve"
+      },
+      {
+        "ingrediente": "Bacon",
+        "medida": "8"
+      },
+      {
+        "ingrediente": "Ham",
+        "medida": "8 slices"
+      },
+      {
+        "ingrediente": "Mozzarella",
+        "medida": "8 slices"
+      },
+      {
+        "ingrediente": "Tomato",
+        "medida": "4"
+      },
+      {
+        "ingrediente": "Lettuce",
+        "medida": "1/4"
+      },
+      {
+        "ingrediente": "Mustard",
+        "medida": "To serve"
+      },
+      {
+        "ingrediente": "Chimichurri sauce",
+        "medida": "To serve"
+      }
+    ]
+  },
+  "SAN-03": {
+    "fuente": "meal",
+    "id": "53091",
+    "nombre_original": "Falafel Pita Sandwich with Tahini Sauce",
+    "foto_url": "https://www.themealdb.com/images/media/meals/ae6clc1760524712.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Falafel",
+        "medida": "12"
+      },
+      {
+        "ingrediente": "Tahini",
+        "medida": "1/4 cup"
+      },
+      {
+        "ingrediente": "Water",
+        "medida": "1/4 cup"
+      },
+      {
+        "ingrediente": "Lemon Juice",
+        "medida": "2 tablespoons"
+      },
+      {
+        "ingrediente": "Garlic",
+        "medida": "2 cloves"
+      },
+      {
+        "ingrediente": "Paprika",
+        "medida": "1/4 tsp"
+      },
+      {
+        "ingrediente": "Pita Bread",
+        "medida": "6"
+      },
+      {
+        "ingrediente": "Lettuce",
+        "medida": "1"
+      },
+      {
+        "ingrediente": "Tomato",
+        "medida": "1"
+      },
+      {
+        "ingrediente": "Cucumber",
+        "medida": "1/2"
+      },
+      {
+        "ingrediente": "Dill Pickles",
+        "medida": "1"
+      },
+      {
+        "ingrediente": "Red Onions",
+        "medida": "1/4"
+      },
+      {
+        "ingrediente": "Harissa Spice",
+        "medida": "3 tsp"
+      }
+    ]
+  },
+  "ACO-01": {
+    "fuente": "meal",
+    "id": "53548",
+    "nombre_original": "Baked Yuca Fries",
+    "foto_url": "https://www.themealdb.com/images/media/meals/j223gc1784579841.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Yuca",
+        "medida": "2 large"
+      },
+      {
+        "ingrediente": "Extra Virgin Olive Oil",
+        "medida": "2 tablespoons"
+      },
+      {
+        "ingrediente": "Chilli Powder",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Kosher Salt",
+        "medida": "Pinch"
+      },
+      {
+        "ingrediente": "Ground Black Pepper",
+        "medida": "Pinch"
+      },
+      {
+        "ingrediente": "Avocado",
+        "medida": "1 large"
+      },
+      {
+        "ingrediente": "Sour Cream",
+        "medida": "1/4 cup"
+      },
+      {
+        "ingrediente": "Lime",
+        "medida": "Juice of 1"
+      },
+      {
+        "ingrediente": "Cilantro",
+        "medida": "1/4 cup"
+      }
+    ]
+  },
+  "ACO-02": {
+    "fuente": "meal",
+    "id": "53557",
+    "nombre_original": "Extra crispy chicken wings",
+    "foto_url": "https://www.themealdb.com/images/media/meals/feh9k21784665694.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Chicken Wings",
+        "medida": "2 Lbs"
+      },
+      {
+        "ingrediente": "Salt",
+        "medida": "To taste"
+      },
+      {
+        "ingrediente": "Black Pepper",
+        "medida": "1 tablespoon"
+      },
+      {
+        "ingrediente": "Garlic Powder",
+        "medida": "1 tablespoon"
+      },
+      {
+        "ingrediente": "Turmeric",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Oil",
+        "medida": "For frying"
+      },
+      {
+        "ingrediente": "Cassava",
+        "medida": "1 1/2 cup"
+      }
+    ]
+  },
+  "ACO-03": {
+    "fuente": "meal",
+    "id": "52831",
+    "nombre_original": "Chicken Karaage",
+    "foto_url": "https://www.themealdb.com/images/media/meals/tyywsw1505930373.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Chicken",
+        "medida": "450 grams Boneless skin"
+      },
+      {
+        "ingrediente": "Ginger",
+        "medida": "1 tablespoon"
+      },
+      {
+        "ingrediente": "Garlic",
+        "medida": "1 clove"
+      },
+      {
+        "ingrediente": "Soy sauce",
+        "medida": "2 tablespoons"
+      },
+      {
+        "ingrediente": "Sake",
+        "medida": "1 tablespoon"
+      },
+      {
+        "ingrediente": "Granulated sugar",
+        "medida": "2 teaspoon"
+      },
+      {
+        "ingrediente": "Potato starch",
+        "medida": "1/3 cup"
+      },
+      {
+        "ingrediente": "Vegetable oil",
+        "medida": "1/3 cup"
+      },
+      {
+        "ingrediente": "Lemon",
+        "medida": "1/3 cup"
+      }
+    ]
+  },
+  "ACO-04": {
+    "fuente": "meal",
+    "id": "53555",
+    "nombre_original": "Classic Potato Salad",
+    "foto_url": "https://www.themealdb.com/images/media/meals/5q88l31784664151.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "New Potatoes",
+        "medida": "600g"
+      },
+      {
+        "ingrediente": "Asparagus",
+        "medida": "150g"
+      },
+      {
+        "ingrediente": "Chives",
+        "medida": "Bunch"
+      },
+      {
+        "ingrediente": "Red Onions",
+        "medida": "1"
+      },
+      {
+        "ingrediente": "Radish",
+        "medida": "8"
+      },
+      {
+        "ingrediente": "Creme Fraiche",
+        "medida": "1/2 cup"
+      },
+      {
+        "ingrediente": "Mayonnaise",
+        "medida": "1/2 cup"
+      },
+      {
+        "ingrediente": "Dijon Mustard",
+        "medida": "2 tsp"
+      },
+      {
+        "ingrediente": "Sugar",
+        "medida": "1 tsp"
+      },
+      {
+        "ingrediente": "Apple Cider Vinegar",
+        "medida": "1 tablespoon"
+      },
+      {
+        "ingrediente": "Salt",
+        "medida": "Pinch"
+      },
+      {
+        "ingrediente": "Pepper",
+        "medida": "Pinch"
+      }
+    ]
+  },
+  "POS-01": {
+    "fuente": "meal",
+    "id": "52860",
+    "nombre_original": "Chocolate Raspberry Brownies",
+    "foto_url": "https://www.themealdb.com/images/media/meals/yypvst1511386427.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Dark Chocolate",
+        "medida": "200g"
+      },
+      {
+        "ingrediente": "Milk Chocolate",
+        "medida": "100g"
+      },
+      {
+        "ingrediente": "Salted Butter",
+        "medida": "250g"
+      },
+      {
+        "ingrediente": "Light Brown Soft Sugar",
+        "medida": "400g"
+      },
+      {
+        "ingrediente": "Eggs",
+        "medida": "4 large"
+      },
+      {
+        "ingrediente": "Plain Flour",
+        "medida": "140g"
+      },
+      {
+        "ingrediente": "Cocoa",
+        "medida": "50g"
+      },
+      {
+        "ingrediente": "Raspberries",
+        "medida": "200g"
+      }
+    ]
+  },
+  "POS-02": {
+    "fuente": "meal",
+    "id": "52858",
+    "nombre_original": "New York cheesecake",
+    "foto_url": "https://www.themealdb.com/images/media/meals/swttys1511385853.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Butter",
+        "medida": "85g"
+      },
+      {
+        "ingrediente": "Sour Cream",
+        "medida": "140g"
+      },
+      {
+        "ingrediente": "Sugar",
+        "medida": "1tbsp"
+      },
+      {
+        "ingrediente": "Cream Cheese",
+        "medida": "900g"
+      },
+      {
+        "ingrediente": "Caster Sugar",
+        "medida": "250g"
+      },
+      {
+        "ingrediente": "Plain Flour",
+        "medida": "3 tbs"
+      },
+      {
+        "ingrediente": "Lemon Juice",
+        "medida": "1 ½ teaspoons"
+      },
+      {
+        "ingrediente": "Eggs",
+        "medida": "3 Large"
+      },
+      {
+        "ingrediente": "Sour Cream",
+        "medida": "250ml"
+      },
+      {
+        "ingrediente": "Sour Cream",
+        "medida": "150ml"
+      },
+      {
+        "ingrediente": "Caster Sugar",
+        "medida": "1 tbsp"
+      },
+      {
+        "ingrediente": "Lemon Juice",
+        "medida": "2 tsp"
+      }
+    ]
+  },
+  "POS-03": {
+    "fuente": "meal",
+    "id": "52861",
+    "nombre_original": "Peanut Butter Cheesecake",
+    "foto_url": "https://www.themealdb.com/images/media/meals/qtuuys1511387068.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Butter",
+        "medida": "50g"
+      },
+      {
+        "ingrediente": "Peanut Cookies",
+        "medida": "175g"
+      },
+      {
+        "ingrediente": "Gelatine Leafs",
+        "medida": "5"
+      },
+      {
+        "ingrediente": "Ricotta",
+        "medida": "500g"
+      },
+      {
+        "ingrediente": "Peanut Butter",
+        "medida": "175g"
+      },
+      {
+        "ingrediente": "Golden Syrup",
+        "medida": "175g"
+      },
+      {
+        "ingrediente": "Milk",
+        "medida": "150ml"
+      },
+      {
+        "ingrediente": "Double Cream",
+        "medida": "275ml"
+      },
+      {
+        "ingrediente": "Light Brown Soft Sugar",
+        "medida": "2 tblsp"
+      },
+      {
+        "ingrediente": "Peanut Brittle",
+        "medida": "Crushed"
+      }
+    ]
+  },
+  "BEB-01": {
+    "fuente": "drink",
+    "id": "12654",
+    "nombre_original": "Banana Milk Shake",
+    "foto_url": "https://www.thecocktaildb.com/images/media/drink/rtwwsx1472720307.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Milk",
+        "medida": "10 cl cold"
+      },
+      {
+        "ingrediente": "Orange juice",
+        "medida": "4 cl"
+      },
+      {
+        "ingrediente": "Sugar syrup",
+        "medida": "2 tsp"
+      },
+      {
+        "ingrediente": "Banana",
+        "medida": "1/2"
+      }
+    ]
+  },
+  "BEB-02": {
+    "fuente": "drink",
+    "id": "12674",
+    "nombre_original": "Fruit Shake",
+    "foto_url": "https://www.thecocktaildb.com/images/media/drink/q0fg2m1484430704.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Yoghurt",
+        "medida": "1 cup fruit"
+      },
+      {
+        "ingrediente": "Banana",
+        "medida": "1"
+      },
+      {
+        "ingrediente": "Orange juice",
+        "medida": "4 oz frozen"
+      },
+      {
+        "ingrediente": "Fruit",
+        "medida": "1/2 piece textural"
+      },
+      {
+        "ingrediente": "Ice",
+        "medida": "6"
+      }
+    ]
+  },
+  "BEB-03": {
+    "fuente": "drink",
+    "id": "12704",
+    "nombre_original": "Limeade",
+    "foto_url": "https://www.thecocktaildb.com/images/media/drink/5jdp5r1487603680.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Lime",
+        "medida": "Juice of 1"
+      },
+      {
+        "ingrediente": "Sugar",
+        "medida": "1 tblsp"
+      },
+      {
+        "ingrediente": "Soda water",
+        "medida": "(seltzer water)"
+      },
+      {
+        "ingrediente": "Lime peel",
+        "medida": ""
+      }
+    ]
+  },
+  "BEB-04": {
+    "fuente": "drink",
+    "id": "12618",
+    "nombre_original": "Orangeade",
+    "foto_url": "https://www.thecocktaildb.com/images/media/drink/ytsxxw1441167732.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Lemon juice",
+        "medida": "5 cl"
+      },
+      {
+        "ingrediente": "Orange juice",
+        "medida": "15 cl"
+      },
+      {
+        "ingrediente": "Sugar syrup",
+        "medida": "2-3 cl"
+      },
+      {
+        "ingrediente": "Soda water",
+        "medida": ""
+      }
+    ]
+  },
+  "BEB-05": {
+    "fuente": "drink",
+    "id": "12770",
+    "nombre_original": "Iced Coffee",
+    "foto_url": "https://www.thecocktaildb.com/images/media/drink/ytprxy1454513855.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Coffee",
+        "medida": "1/4 cup instant"
+      },
+      {
+        "ingrediente": "Sugar",
+        "medida": "1/4 cup"
+      },
+      {
+        "ingrediente": "Water",
+        "medida": "1/4 cup hot"
+      },
+      {
+        "ingrediente": "Milk",
+        "medida": "4 cups cold"
+      }
+    ]
+  },
+  "BEB-06": {
+    "fuente": "drink",
+    "id": "12734",
+    "nombre_original": "Chocolate Drink",
+    "foto_url": "https://www.thecocktaildb.com/images/media/drink/q7w4xu1487603180.jpg",
+    "ingredientes": [
+      {
+        "ingrediente": "Chocolate",
+        "medida": "125 gr"
+      },
+      {
+        "ingrediente": "Milk",
+        "medida": "3/4 L"
+      },
+      {
+        "ingrediente": "Water",
+        "medida": ""
+      }
+    ]
+  }
+}

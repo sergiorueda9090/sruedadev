@@ -1,0 +1,141 @@
+/* =========================================================================
+   VISOR TIPO REVISTA (solo pantalla) — revista.html
+   Las páginas A4 se escalan dentro de cada hoja con la variable --k.
+   ========================================================================= */
+body.modo-revista {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 35%, #5A1530 0%, #2A0D18 55%, #12060B 100%);
+}
+
+/* La zona de maquetado queda fuera de la vista pero con tamaño real para medir */
+.modo-revista #catalogo {
+  position: absolute; left: -10000px; top: 0;
+  padding: 0; gap: 0;
+}
+
+.visor { position: fixed; inset: 0; display: flex; flex-direction: column; }
+
+.visor__escenario {
+  flex: 1 1 auto; min-height: 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px 24px 8px;
+  opacity: 0; transition: opacity .5s ease;
+}
+.visor--listo .visor__escenario { opacity: 1; }
+
+#libro { margin: 0 auto; }
+
+/* Hoja que maneja StPageFlip: contiene una .pagina A4 escalada */
+.hoja { background: var(--c-fondo); overflow: hidden; }
+.hoja > .pagina {
+  transform: scale(var(--k, .5));
+  transform-origin: 0 0;
+  box-shadow: none;
+}
+
+/* Sombra de lomo para dar sensación de revista encuadernada */
+.hoja::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 6%; pointer-events: none; z-index: 20;
+}
+.hoja.--left::after  { right: 0; background: linear-gradient(to left, rgba(0,0,0,.18), transparent); }
+.hoja.--right::after { left: 0;  background: linear-gradient(to right, rgba(0,0,0,.18), transparent); }
+
+.stf__parent { filter: drop-shadow(0 18px 30px rgba(0,0,0,.45)); }
+
+/* Barra de controles */
+.visor__barra {
+  flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 16px 18px;
+  color: #F6E3EA;
+  font-family: var(--f-texto);
+}
+.btn-visor {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid rgba(201, 164, 92, .4);
+  background: rgba(255, 255, 255, .06); color: #F6E3EA;
+  font-size: 17px; text-decoration: none; cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+.btn-visor:hover { background: var(--c-secundario); color: var(--c-negro); border-color: transparent; }
+.btn-visor:active { transform: scale(.94); }
+.btn-visor:disabled { opacity: .35; pointer-events: none; }
+.visor__contador { min-width: 110px; text-align: center; font-size: 14px; letter-spacing: .05em; }
+.visor__sep { width: 1px; height: 24px; background: rgba(201, 164, 92, .4); margin: 0 6px; }
+
+.visor__cargando {
+  position: absolute; inset: 0; display: flex; gap: 12px; align-items: center; justify-content: center;
+  color: #F6E3EA; font-family: var(--f-texto); z-index: 5;
+}
+.visor--listo .visor__cargando { display: none; }
+
+@media (max-width: 576px) {
+  .visor__escenario { padding: 12px 8px 4px; }
+  .btn-visor { width: 36px; height: 36px; font-size: 15px; }
+  #btnInicio, #btnFin, #btnPantalla, .visor__sep { display: none; }
+  .visor__contador { min-width: 70px; font-size: 13px; }
+  .visor__barra { gap: 4px; padding-inline: 8px; }
+}
+
+/* StPageFlip solo reenvía el clic si el objetivo ES el <a>/<button>.
+   Los hijos (íconos, textos) no reciben eventos para que el clic llegue al enlace. */
+.hoja a *, .hoja button * { pointer-events: none; }
+
+/* Confirmación de mayoría de edad ------------------------------------------ */
+.edad {
+  position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 16px;
+  background: radial-gradient(ellipse at 50% 30%, rgba(122, 20, 54, .92), rgba(18, 6, 11, .97));
+  backdrop-filter: blur(6px);
+  font-family: var(--f-texto); color: #fff; text-align: center;
+}
+.edad[hidden] { display: none; }
+.edad__caja {
+  width: min(460px, 100%); padding: 28px 24px 26px; border-radius: 14px;
+  background: rgba(27, 10, 17, .85); border: 1px solid rgba(201, 164, 92, .55);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .5), inset 0 0 0 4px rgba(201, 164, 92, .08);
+  max-height: calc(100vh - 32px); overflow: auto;
+}
+.edad__logo { width: 140px; height: 140px; border-radius: 50%; filter: drop-shadow(0 0 18px rgba(214, 58, 120, .5)); }
+.edad__kicker { margin-top: 14px; font-size: 11px; letter-spacing: .3em; text-transform: uppercase; color: var(--c-secundario); }
+.edad h1 { color: #fff; font-size: 28px; line-height: 1.15; margin: 10px 0 10px; }
+.edad p { font-size: 14px; color: #F6E3EA; opacity: .9; margin: 0 0 18px; }
+.edad__botones { display: flex; flex-direction: column; gap: 10px; }
+.edad__botones[hidden] { display: none; }
+.edad button {
+  font: 600 15px var(--f-texto); border-radius: 999px; padding: 12px 18px; cursor: pointer; transition: filter .2s, background .2s;
+}
+.edad__si { background: linear-gradient(135deg, var(--c-acento), var(--c-principal)); color: #fff; border: 0; }
+.edad__si:hover { filter: brightness(1.12); }
+.edad__no { background: transparent; color: #F6E3EA; border: 1px solid rgba(246, 227, 234, .35); }
+.edad__no:hover { background: rgba(255, 255, 255, .08); }
+.edad__salida { margin: 6px 0 0 !important; color: var(--c-secundario) !important; }
+
+/* Lupa: páginas ampliadas ------------------------------------------------- */
+.btn-visor--lupa { background: var(--c-secundario); color: var(--c-negro); border-color: transparent; }
+.btn-visor--lupa:hover { filter: brightness(1.1); }
+.lupa {
+  position: fixed; inset: 0; z-index: 90; display: flex; flex-direction: column;
+  background: rgba(18, 6, 11, .94); backdrop-filter: blur(4px);
+}
+.lupa[hidden] { display: none; }
+.lupa__barra {
+  flex: 0 0 auto; display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 16px; color: #F6E3EA; font-family: var(--f-texto);
+  border-bottom: 1px solid rgba(201, 164, 92, .3);
+}
+.lupa__nivel { min-width: 56px; text-align: center; font-size: 14px; }
+.lupa__contenido {
+  flex: 1 1 auto; overflow: auto; padding: 16px;
+  display: flex; flex-direction: column; align-items: flex-start; gap: 16px;
+}
+.lupa__pagina { position: relative; flex: 0 0 auto; margin: 0 auto; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,.5); }
+.lupa__pagina > .pagina { position: absolute; top: 0; left: 0; transform-origin: 0 0; box-shadow: none; }
+@media (max-width: 576px) {
+  .lupa__contenido { padding: 8px; gap: 8px; }
+}
+
+.btn-visor--tienda { background: linear-gradient(135deg, var(--c-acento), var(--c-principal)); border-color: transparent; color: #fff; }

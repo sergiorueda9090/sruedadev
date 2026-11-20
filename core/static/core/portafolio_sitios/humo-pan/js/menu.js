@@ -54,7 +54,7 @@
   };
 
   const cintaPrueba = () => (D.modoPrueba ? `<div class="cinta-prueba">DATOS DE PRUEBA</div>` : "");
-  const credito = () => (D.modoPrueba ? `<div class="credito-foto">Fotos de referencia: TheMealDB / TheCocktailDB</div>` : "");
+  const credito = () => (D.modoPrueba ? `<div class="credito-foto">Fotos de referencia (maqueta)</div>` : "");
 
   /* ---------- página interior ---------- */
   function paginaInterior(seccion, tema) {
@@ -89,7 +89,7 @@
         ${olas(`<span class="portada__kicker">TU HAMBURGUESERÍA</span>`)}
         <h1>${esc(N.nombre.toUpperCase())}</h1>
         <div class="portada__sub">${esc((N.subtitulo || "").toUpperCase())}</div>
-        <img class="portada__foto" src="${esc(N.fotoPortada)}" alt="">
+        <img class="portada__logo" src="${esc(N.logo)}" alt="Logo ${esc(N.nombre)}">
         ${olas(`<span class="portada__menu">MENÚ</span>`)}
         <div class="portada__tags">${(N.etiquetasPortada || []).map((t) => `<span>${esc(t)}</span>`).join("")}</div>
         <div class="portada__dir">${enlace(linkMapa(), valor(N.direccion, "dirección"))}</div>
@@ -131,6 +131,8 @@
   function indice() {
     const p = paginaInterior("Contenido", "negro");
     p.classList.add("indice");
+    // muchas secciones → filas más compactas para que todo quepa en una página
+    if (D.categorias.filter((c) => deCategoria(c.id).length).length > 7) p.classList.add("indice--compacto");
     const fila = (href, img, icono, nombre, intro, key) => `
       <a class="indice__item" href="${href}">
         <div class="indice__thumb">${img ? `<img src="${esc(img)}" alt="">` : `<i class="bi ${icono}"></i>`}</div>

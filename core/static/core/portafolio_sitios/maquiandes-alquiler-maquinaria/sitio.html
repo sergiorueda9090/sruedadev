@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Título, descripción, Open Graph y JSON-LD se completan desde data/catalogo.js (js/sitio.js) -->
+  <title>MaquiAndes · Alquiler de maquinaria pesada</title>
+  <meta name="description" content="Alquiler de maquinaria pesada con o sin operador, por hora, día o mes. Cotiza por WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="MaquiAndes · Alquiler de maquinaria pesada">
+  <meta property="og:description" content="Equipos listos para tu obra. Cotiza por WhatsApp.">
+  <meta property="og:image" content="img/equipos/exc-01.jpg">
+  <meta name="theme-color" content="#0B2A5B">
+  <link rel="icon" href="img/logo/logo-prueba.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800;900&family=Barlow+Condensed:wght@600;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/sitio.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#nav" data-bs-offset="90">
+
+  <div id="aviso-prueba" class="aviso-prueba d-none">⚠ SITIO DE PRUEBA · datos, tarifas y fotos de referencia</div>
+
+  <!-- NAVEGACIÓN -->
+  <nav id="nav" class="navbar navbar-expand-lg sticky-top nav-sitio">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio">
+        <img id="nav-logo" src="" alt="" width="46" height="46">
+        <span><b id="nav-nombre"></b><small id="nav-sub"></small></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#maquinaria">Maquinaria</a></li>
+          <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
+          <li class="nav-item"><a class="nav-link" href="#catalogo">Catálogo</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-item ms-lg-3"><a class="btn btn-amarillo" href="#maquinaria"><i class="bi bi-whatsapp"></i> Solicita una cotización</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <header id="inicio" class="hero">
+      <div class="container">
+        <div class="row align-items-center g-4 g-lg-5">
+          <div class="col-lg-6">
+            <div id="estado-abierto" class="estado"></div>
+            <div class="kicker mt-3">Alquiler de maquinaria pesada</div>
+            <h1 class="hero__titulo">Equipos listos<br>para <span class="subrayado">tu obra</span></h1>
+            <p class="hero__texto" id="hero-texto"></p>
+            <div class="d-flex flex-wrap gap-3">
+              <a class="btn btn-amarillo btn-lg" href="#maquinaria"><i class="bi bi-clipboard-plus"></i> Arma tu cotización</a>
+              <a class="btn btn-wa btn-lg js-wa" href="#" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Escríbenos</a>
+            </div>
+            <div class="hero__beneficios" id="hero-beneficios"></div>
+          </div>
+          <div class="col-lg-6">
+            <div class="hero__foto"><img id="hero-foto" src="" alt=""><span class="hero__sello"><i class="bi bi-calendar-week"></i> Por hora · día · mes</span></div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- TIRA DE CATEGORÍAS -->
+    <section class="tira-cat"><div class="tira-cat__grid" id="tira-cat"></div></section>
+
+    <!-- MAQUINARIA -->
+    <section id="maquinaria" class="seccion">
+      <div class="container">
+        <div class="text-center mb-4">
+          <div class="kicker kicker--centro">Nuestros equipos</div>
+          <h2 class="titulo">Maquinaria disponible</h2>
+          <p class="sub">Agrega a tu cotización los equipos que necesitas. Al final ajustas el tiempo, las unidades y el operador.</p>
+        </div>
+        <div class="buscador mx-auto mb-3">
+          <i class="bi bi-search"></i>
+          <input id="buscar" type="search" class="form-control" placeholder="Busca un equipo (ej. excavadora, 20 t, volqueta)…" aria-label="Buscar equipo">
+        </div>
+        <div class="filtros d-flex flex-wrap justify-content-center gap-2 mb-4" id="filtros"></div>
+        <div class="row g-4" id="grid-equipos"></div>
+        <p class="text-center mt-4 d-none" id="sin-resultados">No encontramos equipos con esa búsqueda.</p>
+        <p class="nota-tarifas"><i class="bi bi-info-circle-fill"></i> Tarifas de referencia. El valor final depende del tiempo de alquiler, la distancia a la obra y si el equipo va con operador.</p>
+      </div>
+    </section>
+
+    <!-- SERVICIOS -->
+    <section id="servicios" class="seccion seccion--cielo">
+      <div class="container">
+        <div class="text-center mb-5">
+          <div class="kicker kicker--centro">Lo que ofrecemos</div>
+          <h2 class="titulo">Servicios</h2>
+        </div>
+        <div class="row g-4" id="grid-servicios"></div>
+        <div class="pasos mt-5" id="pasos">
+          <div class="paso"><span>1</span><i class="bi bi-search"></i><b>Elige los equipos</b></div>
+          <div class="paso"><span>2</span><i class="bi bi-sliders"></i><b>Ajusta tiempo y operador</b></div>
+          <div class="paso"><span>3</span><i class="bi bi-whatsapp"></i><b>Envía tu solicitud</b></div>
+          <div class="paso"><span>4</span><i class="bi bi-truck-flatbed"></i><b>Recibe el equipo en obra</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CATÁLOGO (revista) -->
+    <section id="catalogo" class="seccion seccion--marino">
+      <div class="container">
+        <div class="text-center mb-4">
+          <div class="kicker kicker--centro kicker--claro">Catálogo digital</div>
+          <h2 class="titulo text-white">Hojea nuestro catálogo</h2>
+          <p class="sub text-white-50">Pasa las páginas como una revista. Toca <b class="text-white">Añadir a cotización</b> en cualquier equipo.</p>
+        </div>
+        <div class="marco-revista"><iframe id="iframe-revista" src="revista.html" title="Catálogo de maquinaria tipo revista" loading="lazy" allow="fullscreen"></iframe></div>
+        <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
+          <a class="btn btn-amarillo" href="revista.html" target="_blank" rel="noopener"><i class="bi bi-arrows-fullscreen"></i> Abrir en pantalla completa</a>
+          <a class="btn btn-outline-light" href="dist/catalogo.pdf" download><i class="bi bi-file-earmark-arrow-down"></i> Descargar PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONDICIONES (preguntas frecuentes) -->
+    <section id="condiciones" class="seccion">
+      <div class="container">
+        <div class="row g-4 g-lg-5">
+          <div class="col-lg-4">
+            <div class="kicker">Antes de alquilar</div>
+            <h2 class="titulo">Condiciones de alquiler</h2>
+            <p class="sub text-start">Resolvemos las dudas más comunes. Si tienes otra pregunta, escríbenos.</p>
+            <a class="btn btn-wa js-wa mt-2" href="#" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Tengo otra pregunta</a>
+          </div>
+          <div class="col-lg-8"><div class="accordion" id="acordeon"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UBICACIÓN Y COBERTURA -->
+    <section id="ubicacion" class="seccion seccion--cielo">
+      <div class="container">
+        <div class="text-center mb-5">
+          <div class="kicker kicker--centro">Dónde estamos</div>
+          <h2 class="titulo">Ubicación y cobertura</h2>
+        </div>
+        <div class="row g-4">
+          <div class="col-lg-7"><div class="mapa"><iframe id="mapa" title="Mapa de ubicación" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>
+          <div class="col-lg-5">
+            <div class="panel">
+              <h3><i class="bi bi-geo-alt-fill"></i> Patio de maquinaria</h3>
+              <p id="ubi-direccion" class="mb-3"></p>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <a id="btn-maps" class="btn btn-marino" target="_blank" rel="noopener"><i class="bi bi-google"></i> Cómo llegar</a>
+                <a id="btn-waze" class="btn btn-waze" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right-fill"></i> Waze</a>
+              </div>
+              <h3><i class="bi bi-map-fill"></i> Cobertura</h3>
+              <p id="ubi-cobertura"></p>
+              <h3><i class="bi bi-clock-fill"></i> Horario de atención</h3>
+              <table class="tabla-horario" id="tabla-horario"></table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BANDA CTA -->
+    <section class="banda-cta">
+      <div class="container d-flex flex-wrap align-items-center justify-content-between gap-4">
+        <div>
+          <h2>¿Listo para empezar tu obra?</h2>
+          <p class="m-0">Cuéntanos qué necesitas y te enviamos la cotización.</p>
+        </div>
+        <a class="btn btn-wa btn-lg" href="#maquinaria"><i class="bi bi-whatsapp"></i> Solicita tu cotización <i class="bi bi-arrow-right"></i></a>
+        <div class="script">Tu obra<br>no se detiene</div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="seccion">
+      <div class="container">
+        <div class="text-center mb-5">
+          <div class="kicker kicker--centro">Hablemos</div>
+          <h2 class="titulo">Contacto</h2>
+        </div>
+        <div class="row g-4 align-items-center justify-content-center">
+          <div class="col-md-7 col-lg-6"><div class="d-grid gap-3" id="contacto-lista"></div></div>
+          <div class="col-md-5 col-lg-3 text-center">
+            <div class="qr-web mx-auto" id="qr-web"></div>
+            <p class="mt-2 fw-bold">Escanea y cotiza por WhatsApp</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="container">
+      <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
+        <div class="d-flex align-items-center gap-2"><img id="pie-logo" src="" alt="" width="40" height="40"><b id="pie-nombre"></b></div>
+        <div id="pie-redes" class="d-flex gap-3 fs-4"></div>
+        <div id="pie-dev" class="pie__dev"></div>
+      </div>
+      <details class="pie__creditos" id="pie-creditos"><summary>Créditos de fotografías</summary><div id="lista-creditos"></div></details>
+    </div>
+  </footer>
+
+  <a class="wa-flotante js-wa" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
+
+  <!-- COTIZACIÓN: barra inferior -->
+  <button type="button" id="barra-cot" class="barra-cot" data-bs-toggle="offcanvas" data-bs-target="#panel-cot" aria-controls="panel-cot">
+    <span class="barra-cot__icono"><i class="bi bi-clipboard-check-fill"></i><span id="barra-cant">0</span></span>
+    <span class="barra-cot__texto">Ver mi cotización</span>
+    <span class="barra-cot__total" id="barra-total"></span>
+  </button>
+  <div id="toast-cot" class="toast-cot" role="status" aria-live="polite"></div>
+
+  <!-- COTIZACIÓN: panel -->
+  <div class="offcanvas offcanvas-end panel-cot" tabindex="-1" id="panel-cot" aria-labelledby="titulo-cot">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title" id="titulo-cot"><i class="bi bi-clipboard-check-fill"></i> Tu cotización</h2>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div id="cot-lista"></div>
+      <div class="cot-totales">
+        <div class="d-flex justify-content-between align-items-baseline"><span>Valor de referencia</span><b id="cot-total">$0</b></div>
+        <small>No incluye transporte. El valor final se confirma en la cotización.</small>
+        <small id="cot-aviso-valor" class="d-none">Hay equipos con valor por confirmar.</small>
+        <button type="button" id="btn-vaciar" class="btn btn-link btn-sm p-0 mt-1 d-none">Vaciar cotización</button>
+      </div>
+
+      <form id="form-cot" class="mt-3" novalidate>
+        <h3 class="form-titulo">Datos de la obra</h3>
+        <div class="row g-2">
+          <div class="col-6">
+            <label class="form-label" for="fecha">Fecha de inicio</label>
+            <input type="date" class="form-control" id="fecha" required>
+            <div class="invalid-feedback">Elige la fecha.</div>
+          </div>
+          <div class="col-6">
+            <label class="form-label" for="trabajo">Tipo de trabajo</label>
+            <select class="form-select" id="trabajo">
+              <option value="">Selecciona…</option>
+              <option>Movimiento de tierra</option>
+              <option>Excavación / zanjas</option>
+              <option>Vías y pavimentos</option>
+              <option>Demolición y escombros</option>
+              <option>Cargue de material</option>
+              <option>Otro</option>
+            </select>
+          </div>
+        </div>
+        <div class="mt-2">
+          <label class="form-label" for="obra">Ubicación de la obra</label>
+          <input class="form-control" id="obra" required maxlength="120" placeholder="Municipio, barrio o vereda">
+          <div class="invalid-feedback">Escribe dónde es la obra.</div>
+        </div>
+        <div class="form-check form-switch mt-3">
+          <input class="form-check-input" type="checkbox" role="switch" id="transporte">
+          <label class="form-check-label" for="transporte">Necesito transporte del equipo a la obra</label>
+        </div>
+
+        <h3 class="form-titulo mt-4">Tus datos</h3>
+        <div class="row g-2">
+          <div class="col-sm-6">
+            <label class="form-label" for="nombre">Nombre</label>
+            <input class="form-control" id="nombre" autocomplete="name" required maxlength="60">
+            <div class="invalid-feedback">Escribe tu nombre.</div>
+          </div>
+          <div class="col-sm-6">
+            <label class="form-label" for="empresa">Empresa <span class="text-muted">(opcional)</span></label>
+            <input class="form-control" id="empresa" autocomplete="organization" maxlength="80">
+          </div>
+        </div>
+        <div class="mt-2">
+          <label class="form-label" for="notas">Notas <span class="text-muted">(opcional)</span></label>
+          <textarea class="form-control" id="notas" rows="2" maxlength="300" placeholder="Ej. acceso por vía destapada, horario de trabajo"></textarea>
+        </div>
+
+        <button type="submit" id="btn-enviar" class="btn btn-wa btn-lg w-100 mt-3" disabled>
+          <i class="bi bi-whatsapp"></i> Enviar solicitud por WhatsApp
+        </button>
+        <p class="small text-center mt-2 mb-0 text-muted">Se abrirá WhatsApp con tu solicitud lista para enviar.</p>
+      </form>
+
+      <div id="cot-enviada" class="cot-enviada d-none">
+        <i class="bi bi-check-circle-fill"></i>
+        <p class="mb-2"><b>¡Listo!</b> Envía el mensaje en WhatsApp y te respondemos con la cotización.</p>
+        <button type="button" id="btn-nueva" class="btn btn-outline-dark btn-sm">Empezar una cotización nueva</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="vendor/qrcode/qrcode.js"></script>
+  <script src="data/creditos.js"></script>
+  <script src="data/catalogo.js"></script>
+  <script src="js/cotizacion.js"></script>
+  <script src="js/sitio.js"></script>
+</body>
+</html>

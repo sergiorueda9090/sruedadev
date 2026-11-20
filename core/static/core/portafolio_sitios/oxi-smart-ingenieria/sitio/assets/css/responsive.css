@@ -1,0 +1,51 @@
+/* =====================================================================
+   OXI SMART — Ajustes responsive (puntos de corte de Bootstrap 5.3)
+   ===================================================================== */
+
+/* ≤ 1199px */
+@media (max-width: 1199.98px) {
+  .site-nav .nav-link { padding: .5rem .6rem !important; }
+}
+
+/* ≤ 991px: menú colapsado */
+@media (max-width: 991.98px) {
+  :root { --header-h: 68px; }
+  .site-nav { padding: .5rem 0 1rem; border-top: 1px solid var(--oxi-line); margin-top: .5rem; }
+  .site-nav .nav-link { padding: .75rem .25rem !important; border-radius: 0; border-bottom: 1px solid var(--oxi-line); }
+  .site-nav .nav-link.active::after { display: none; }
+  .site-nav .btn { width: 100%; margin-top: .75rem; }
+  .hero-aside { margin-top: 2rem; }
+  .waterline-photo { aspect-ratio: 16 / 9; }
+  .catalog-toolbar { position: static; }
+  .product-buy { margin-top: 1.5rem; }
+}
+
+/* ≤ 767px */
+@media (max-width: 767.98px) {
+  .waterline-photo { aspect-ratio: 4 / 3; border-radius: var(--r-md) var(--r-md) 0 0; }
+  .cat-row { grid-template-columns: 76px 1fr; gap: 1rem; }
+  .cat-thumb { width: 76px; }
+  .cat-count { grid-column: 2; }
+  .photo-band { min-height: 360px; }
+  .footer-legal details ul { columns: 1; }
+}
+
+/* ≤ 575px */
+@media (max-width: 575.98px) {
+  .container, .container-lg, .container-xl { padding-inline: 16px; }
+  .brand img { width: 36px; height: 36px; }
+  .brand-name { font-size: 1.1rem; }
+  .hero-actions .btn { flex: 1 1 100%; }
+  .p-card-actions { grid-template-columns: 1fr; }
+  .plate-grid { grid-template-columns: 1fr 1fr; }
+  .wa-float { width: 52px; height: 52px; right: 1rem; bottom: 1rem; }
+  .lightbox .lb-nav { width: 38px; height: 38px; }
+  .pdf-option .input-group { flex-direction: column; }
+  .pdf-option .input-group > * { width: 100% !important; border-radius: var(--r-sm) !important; margin: 0 0 .5rem 0 !important; }
+}
+
+/* Impresión: el sitio se imprime limpio (el PDF comercial se genera aparte) */
+@media print {
+  .site-header, .site-footer, .wa-float, .catalog-toolbar, .pdf-panel, .hero-actions { display: none !important; }
+  .section { padding-block: 1.5rem; }
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- El título se completa desde js/datos.js (js/main.js) -->
+  <title>Revista · VITALIA</title>
+  <meta name="description" content="Revista digital de VITALIA: bienestar diario, nutrición, vitaminas, cuidado personal, cosmética y accesorios. Pide por WhatsApp.">
+  <meta name="theme-color" content="#2E5B45">
+  <link rel="icon" href="../assets/images/icons/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400..600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/revista.css">
+  <link rel="stylesheet" href="css/visor.css">
+</head>
+<!-- revista.html → revista con hojas que se pasan · revista.html?pdf → páginas apiladas para imprimir / PDF -->
+<body class="modo-revista">
+  <!-- Zona de maquetado: main.js arma aquí las páginas A4; el visor las pasa al libro -->
+  <main id="revista" aria-label="Revista"></main>
+
+  <div class="visor">
+    <div class="visor__cargando"><div class="spinner-border" role="status"></div><span>Preparando la revista…</span></div>
+
+    <div class="visor__escenario" id="escenario">
+      <div id="libro"></div>
+    </div>
+
+    <nav class="visor__barra" aria-label="Navegación de la revista">
+      <span class="visor__marca"><img id="visor-logo" src="" alt="" width="30" height="30"><span id="visor-nombre"></span></span>
+      <label class="visually-hidden" for="ir-seccion">Ir a una sección</label>
+      <select id="ir-seccion" class="form-select form-select-sm visor__secciones"></select>
+      <span class="visor__sep"></span>
+      <button class="btn-visor" id="btnInicio" title="Portada" aria-label="Portada"><i class="bi bi-chevron-bar-left"></i></button>
+      <button class="btn-visor" id="btnAnterior" title="Página anterior (←)" aria-label="Página anterior"><i class="bi bi-chevron-left"></i></button>
+      <span class="visor__contador" id="contador" aria-live="polite">—</span>
+      <button class="btn-visor" id="btnSiguiente" title="Página siguiente (→)" aria-label="Página siguiente"><i class="bi bi-chevron-right"></i></button>
+      <button class="btn-visor" id="btnFin" title="Contraportada" aria-label="Contraportada"><i class="bi bi-chevron-bar-right"></i></button>
+      <span class="visor__sep"></span>
+      <button class="btn-visor" id="btnSonido" title="Silenciar sonido" aria-label="Silenciar sonido"><i class="bi bi-volume-up"></i></button>
+      <button class="btn-visor" id="btnPantalla" title="Pantalla completa" aria-label="Pantalla completa"><i class="bi bi-arrows-fullscreen"></i></button>
+      <a class="btn-visor" href="pdf/revista-vitalia.pdf" download title="Descargar PDF" aria-label="Descargar PDF"><i class="bi bi-file-earmark-arrow-down"></i></a>
+      <a class="visor__wa" id="btnWa" href="#" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i><span>WhatsApp</span></a>
+    </nav>
+  </div>
+
+  <script src="vendor/page-flip/page-flip.browser.js"></script>
+  <script src="js/visor.js"></script>
+  <script src="vendor/qrcode/qrcode.js"></script>
+  <!-- datos de la tienda: la revista usa el mismo catálogo, WhatsApp y carrito -->
+  <script src="../assets/js/config.js"></script>
+  <script src="../assets/js/products.js"></script>
+  <script src="../assets/js/cart.js"></script>
+  <script src="js/datos-revista.js"></script>
+  <script src="js/revista.js"></script>
+</body>
+</html>

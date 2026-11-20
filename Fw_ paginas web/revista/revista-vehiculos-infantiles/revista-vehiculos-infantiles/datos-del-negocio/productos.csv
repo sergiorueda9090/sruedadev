@@ -1,0 +1,24 @@
+﻿ref_actual;producto;ref_definitiva;precio_cop;disponible;marca;edad_desde;edad_hasta;bateria;velocidad;autonomia;tiempo_carga;motor;cilindraje;arranque;transmision;largo_cm;ancho_cm;alto_cm;peso_max_kg;ocupantes;garantia
+No cambiar: clave con la que está hoy en el catálogo;Solo de referencia (no se importa);"Referencia comercial real; vacío = se queda la actual";Precio al público en pesos, solo números (ej. 1250000);si / no;;Años (número);Años (número);Ej. 12 V 7 Ah;Ej. 3 a 5 km/h;Ej. 1 a 2 horas;Ej. 8 a 10 horas;Ej. 2 tiempos / 4 tiempos / eléctrico 2 × 35 W;Ej. 50 cc;Ej. halado / eléctrico;Ej. automática;Número;Número;Número;Número;Número;Solo si hay documento que la respalde. Ej. 3 meses en motor y batería
+SX2128;Jeep Speed 4x4;;;si;;;;;;;;;;;;;;;;;
+X15A;Jeep Wrangler;;;si;;;;;;;;;;;;;;;;;
+S313;Jeep Wrangler 4x4 Estrella;;;si;;;;;;;;;;;;92;67;72;;;
+S618;Jeep Rubicon 4x4 12V;;;si;;;;12 V;;;;;;;;86;63;64;;;
+FT699;Camioneta eléctrica FT699;;;si;;;;;;;;;;;;83;82;89;;2;
+UNIMOG;Campero Mercedes-Benz Unimog;;;si;Mercedes-Benz (licencia);;;;;;;;;;;;;;;;
+017;Jeep Running 4x4;;;si;;;;;;;;;;;;;;;;;
+MCE-83;Moto cross eléctrica 83;;;si;;;;;;;;;;;;;;;;;
+ME-68;Moto eléctrica con rueditas;;;si;;;;;;;;;;;;;;;;;
+MT3;Moto eléctrica de tres ruedas;;;si;;2;5;;;;;;;;;84;44;57;;;
+MA010;Cuatrimoto 2T 50 cc;;;si;;;;;;;;2 tiempos;50 cc;;;100;59;53;;;
+ATV008;Cuatrimoto deportiva 4T 125 cc;;;si;;;;;;;;4 tiempos;125 cc;;;160;95;100;;;
+ATV011;Cuatrimoto todoterreno 4T 180 cc;;;si;;;;;;;;4 tiempos;180 cc;;;170;103;93;;;
+MQ-01;Mini cuatrimoto a gasolina;;;si;;;;;;;;;;;;;;;;;
+KXD708;Moto cross KMV 23;;;si;KMV;;;;;;;2 tiempos;50 cc;;;;;;;;
+DB-005;Motocross 2T 60 cc;;;si;;;;;;;;2 tiempos;60 cc;;;;;;;;
+KMV502;Moto cross 4T 110 cc;;;si;KMV;;;;;;;4 tiempos;110 cc;;;;;;;;
+MC-NK;Mini moto cross NK;;;si;;;;;;;;;;;;;;;;;
+MC-27;Mini moto cross 27;;;si;;;;;;;;;;;;;;;;;
+MC-MB;Mini moto cross Minibike;;;si;;;;;;;;;;;;;;;;;
+PB-01;Pit bike azul;;;si;;;;;;;;;;;;;;;;;
+PB-02;Pit bike blanca;;;si;;;;;;;;;;;;;;;;;

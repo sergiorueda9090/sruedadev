@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revista — La Casona del Sabor</title>
+  <link rel="icon" href="img/logo/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="img/logo/favicon-64.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="img/logo/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/catalogo.css">
+  <link rel="stylesheet" href="css/revista.css">
+</head>
+<body class="modo-revista">
+  <!-- Zona de maquetación: catalogo.js arma aquí las páginas A4 y luego revista.js las pasa al libro -->
+  <main id="catalogo" aria-hidden="true"></main>
+
+  <div class="visor">
+    <div class="visor__cargando" id="cargando"><div class="spinner-border" role="status"></div><span>Preparando revista…</span></div>
+    <div class="visor__escenario" id="escenario">
+      <div id="libro"></div>
+    </div>
+
+    <nav class="visor__barra" aria-label="Navegación de la revista">
+      <button class="btn-visor" id="btnInicio" title="Portada"><i class="bi bi-chevron-bar-left"></i></button>
+      <button class="btn-visor" id="btnAnterior" title="Página anterior (←)"><i class="bi bi-chevron-left"></i></button>
+      <span class="visor__contador" id="contador">—</span>
+      <button class="btn-visor" id="btnSiguiente" title="Página siguiente (→)"><i class="bi bi-chevron-right"></i></button>
+      <button class="btn-visor" id="btnFin" title="Contraportada"><i class="bi bi-chevron-bar-right"></i></button>
+      <span class="visor__sep"></span>
+      <button class="btn-visor" id="btnSonido" title="Silenciar sonido"><i class="bi bi-volume-up"></i></button>
+      <button class="btn-visor" id="btnPantalla" title="Pantalla completa"><i class="bi bi-arrows-fullscreen"></i></button>
+      <a class="btn-visor" href="dist/catalogo.pdf" download title="Descargar PDF"><i class="bi bi-file-earmark-arrow-down"></i></a>
+      <a class="btn-visor btn-visor--tienda" href="tienda.html" title="Hacer mi pedido en la web"><i class="bi bi-basket2"></i></a>
+    </nav>
+  </div>
+
+  <script src="vendor/page-flip/page-flip.browser.js"></script>
+  <script src="js/revista.js"></script>
+  <script src="vendor/qrcode/qrcode.js"></script>
+  <script src="data/productos.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+</html>

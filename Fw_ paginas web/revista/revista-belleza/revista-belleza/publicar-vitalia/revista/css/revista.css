@@ -1,0 +1,343 @@
+/* =========================================================================
+   REVISTA VITALIA — ESTILOS
+   Paleta y tipografía de la tienda: papel, marfil, beige, salvia, verde botánico,
+   azul petróleo y ámbar; Newsreader (títulos) + Hanken Grotesk (texto).
+   El color de cada categoría viene de products.js (--c-tag / --c-seccion).
+   ========================================================================= */
+
+/* 1. TOKENS --------------------------------------------------------------- */
+:root {
+  /* Paleta de la tienda VITALIA (producto/assets/css/styles.css) */
+  --blanco: #FFFFFF;
+  --fondo: #FBFAF6;        /* papel: fondo de las páginas */
+  --marfil: #F2EEE3;       /* paneles y piso detrás de los envases */
+  --beige: #E6DCCB;        /* superficies cálidas */
+  --salvia: #A9BBA2;
+  --botanico: #2E5B45;     /* acción principal (botones) */
+  --botanico-osc: #234838;
+  --petroleo: #1F4B5A;     /* secundario */
+  --ambar: #E4B23C;        /* acentos puntuales, nunca texto */
+  --tinta: #1E2D2B;
+  --tinta-suave: #4D5D5A;
+
+  /* nombres que usa el maquetador (heredados del motor) → paleta VITALIA */
+  --pista: var(--marfil);
+  --pista-2: var(--beige);
+  --pizarra: var(--tinta);
+  --pizarra-suave: var(--tinta-suave);
+  --linea: #DDD5C6;
+  --piel: var(--botanico);
+  --maquillaje: var(--petroleo);
+  --fragancia: var(--ambar);
+  --dorado-tag: var(--ambar);
+  --rosa: var(--botanico);
+  --rosa-hondo: var(--botanico-osc);
+  --dorado: var(--ambar);
+  --ciruela: var(--tinta);
+  --polvo: var(--beige);
+  --whatsapp: #1FAF5A;
+  --prueba: #A23B2A;
+  --c-seccion: var(--botanico);
+
+  --f: "Hanken Grotesk", system-ui, "Segoe UI", Arial, sans-serif;
+  --f-titulo: "Newsreader", Georgia, "Times New Roman", serif;
+  --mx: 14mm;              /* margen editorial */
+  --k: 1;                  /* escala de pantalla (la calcula revista.js) */
+}
+
+/* 2. BASE Y BARRA DIGITAL ------------------------------------------------- */
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body { margin: 0; background: var(--pista-2); color: var(--pizarra); font-family: var(--f); font-size: 9.6pt; line-height: 1.45; }
+h1, h2, h3 { margin: 0; font-family: var(--f); color: var(--pizarra); }
+a { color: inherit; text-decoration: none; }
+a:focus-visible, button:focus-visible, select:focus-visible { outline: 3px solid var(--piel); outline-offset: 2px; }
+
+/* modo PDF (revista.html?pdf): páginas A4 apiladas, una hoja por página al imprimir */
+body.modo-pdf { background: var(--pista-2); }
+body.modo-pdf #revista { display: flex; flex-direction: column; align-items: center; gap: 10mm; padding: 10mm 0; }
+body.modo-pdf .visor { display: none; }
+
+/* 3. PÁGINA A4 ------------------------------------------------------------ */
+.pagina {
+  position: relative; width: 210mm; height: 297mm; overflow: hidden;
+  display: flex; flex-direction: column; background: var(--blanco);
+  box-shadow: 0 6px 24px rgba(30,45,43,.16);
+  break-after: page; page-break-after: always; break-inside: avoid;
+}
+.pagina__header {
+  flex: 0 0 auto; height: 15mm; margin: 0 var(--mx); display: flex; align-items: center; justify-content: space-between;
+  border-bottom: .3mm solid var(--linea); font-size: 8.5pt; color: var(--pizarra-suave);
+}
+.pagina__header .marca { display: flex; align-items: center; gap: 2mm; font-family: var(--f-titulo); font-weight: 500; color: var(--pizarra); }
+.pagina__header .marca img { width: 7mm; height: 7mm; }
+.pagina__header .seccion { display: flex; align-items: center; gap: 2mm; font-weight: 600; }
+.pagina__header .seccion::before { content: ""; width: 6mm; height: 1.4mm; border-radius: 1mm; background: var(--c-seccion); }
+.pagina__cuerpo { flex: 1 1 auto; min-height: 0; overflow: hidden; padding: 6mm var(--mx) 4mm; display: flex; flex-direction: column; }
+.pagina__footer {
+  flex: 0 0 auto; height: 11mm; margin: 0 var(--mx); display: flex; align-items: center; justify-content: space-between;
+  border-top: .3mm solid var(--linea); font-size: 8.3pt; color: var(--pizarra-suave);
+}
+.pagina__footer i { color: var(--whatsapp); margin-right: 1.5mm; }
+.num { font-family: var(--f-titulo); font-weight: 500; font-size: 10pt; color: var(--pizarra); font-variant-numeric: tabular-nums; }
+.cinta-prueba { position: absolute; z-index: 30; top: 0; left: 50%; transform: translateX(-50%); background: var(--prueba); color: #fff; font-size: 6.8pt; font-weight: 700; letter-spacing: .06em; padding: .7mm 5mm; border-radius: 0 0 1.5mm 1.5mm; white-space: nowrap; }
+
+.titulo { font-size: 28pt; font-family: var(--f-titulo); font-weight: 500; line-height: 1.02; letter-spacing: -.01em; margin-bottom: 5mm; }
+
+/* franjas diagonales: azul eléctrico, naranja maquillaje, verde fragancia */
+.franjas { position: relative; height: 16mm; overflow: hidden; pointer-events: none; }
+.franjas i { position: absolute; left: -10mm; right: -10mm; height: 3.6mm; transform: skewY(-3deg); transform-origin: 0 0; }
+.franjas .f-piel { top: 4mm; background: var(--piel); }
+.franjas .f-maquillaje { top: 8.4mm; background: var(--maquillaje); }
+.franjas .f-fragancia { top: 12.8mm; background: var(--fragancia); }
+.franjas--fina { height: 7mm; margin: 0 calc(var(--mx) * -1); }
+.franjas--fina i { top: 2mm !important; height: 2.4mm; }
+
+/* etiqueta de propulsión (información, no decoración) */
+.prop { display: inline-flex; align-items: center; gap: 1.4mm; font-weight: 700; font-size: 8.4pt; padding: .8mm 2.6mm; border-radius: 1mm; color: #fff; white-space: nowrap; }
+.prop i { font-size: 9pt; }
+.prop--piel { background: var(--piel); }
+.prop--maquillaje { background: var(--maquillaje); }
+.prop--fragancia { background: var(--fragancia); }
+.prop--accesorio { background: var(--pizarra); }
+
+/* 4. PORTADA -------------------------------------------------------------- */
+.portada .pagina__cuerpo { padding: 0; }
+.portada__top { display: flex; align-items: center; justify-content: space-between; padding: 9mm var(--mx) 6mm; }
+.portada__marca { display: flex; align-items: center; gap: 3mm; font-family: var(--f-titulo); font-weight: 500; font-size: 17pt; }
+.portada__marca img { width: 14mm; height: 14mm; }
+.portada__temporada { font-weight: 700; font-size: 10pt; color: var(--pizarra-suave); border: .3mm solid var(--linea); padding: 1.5mm 4mm; border-radius: 10mm; }
+.portada__foto { height: 150mm; background: var(--pista); }
+.portada__foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.portada .franjas { height: 22mm; margin-top: -11mm; }
+.portada .franjas i { height: 5mm; transform: skewY(-4deg); }
+.portada .franjas .f-piel { top: 5mm; }
+.portada .franjas .f-maquillaje { top: 11mm; }
+.portada .franjas .f-fragancia { top: 17mm; }
+.portada__texto { padding: 4mm var(--mx) 0; }
+.portada h1 { font-size: 38pt; font-family: var(--f-titulo); font-weight: 500; line-height: .98; letter-spacing: -.015em; max-width: 175mm; }
+.portada__texto p { font-size: 12.5pt; color: var(--pizarra-suave); margin: 4mm 0 0; max-width: 150mm; }
+.portada__pie { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 6mm; padding: 0 var(--mx) 10mm; }
+.leyenda { list-style: none; display: flex; gap: 2.5mm; margin: 0; padding: 0; }
+.portada__wa { display: flex; align-items: center; gap: 3mm; }
+.portada__wa .qr { width: 21mm; height: 21mm; }
+.portada__wa small { display: block; color: var(--pizarra-suave); font-size: 8.5pt; }
+.portada__wa b { font-family: var(--f-titulo); font-weight: 500; font-size: 14pt; }
+/* entrada de las franjas: el único movimiento automático de la revista */
+@media screen and (prefers-reduced-motion: no-preference) {
+  .portada .franjas i { animation: franja .9s cubic-bezier(.2,.7,.2,1) both; }
+  .portada .franjas .f-maquillaje { animation-delay: .12s; }
+  .portada .franjas .f-fragancia { animation-delay: .24s; }
+  @keyframes franja { from { transform: skewY(-4deg) translateX(-105%); } to { transform: skewY(-4deg) translateX(0); } }
+}
+
+/* 5. PRESENTACIÓN --------------------------------------------------------- */
+.presentacion__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 9mm; margin-bottom: 7mm; }
+.presentacion__texto { font-size: 12.5pt; line-height: 1.55; margin: 0; }
+.propuesta { list-style: none; padding: 0; margin: 0; display: grid; gap: 4.5mm; }
+.propuesta li { display: flex; gap: 3.5mm; align-items: flex-start; }
+.propuesta i { flex: 0 0 10mm; height: 10mm; border-radius: 50%; display: grid; place-items: center; background: var(--pista); color: var(--piel); font-size: 13pt; }
+.propuesta b { display: block; font-weight: 700; font-size: 11pt; }
+.propuesta span { color: var(--pizarra-suave); }
+.datos-empresa { margin: 6mm 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm 6mm; }
+.datos-empresa dt { font-weight: 600; color: var(--pizarra-suave); font-size: 8.6pt; }
+.datos-empresa dd { margin: 0; font-weight: 600; }
+.presentacion__foto { margin: 0 calc(var(--mx) * -1); flex: 1 1 auto; min-height: 0; background: var(--pista); }
+.presentacion__foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* 6. ÍNDICE --------------------------------------------------------------- */
+.indice-lista { list-style: none; padding: 0; margin: 0; display: grid; gap: 3.2mm; }
+.indice__item a { display: grid; grid-template-columns: 34mm 1fr auto; gap: 5mm; align-items: center; padding-left: 3mm; border-left: 1.6mm solid var(--c-borde, var(--pizarra)); }
+.indice__item img { width: 34mm; height: 23mm; object-fit: cover; display: block; background: var(--pista); }
+.indice__texto b { display: block; font-family: var(--f-titulo); font-weight: 500; font-size: 13.5pt; line-height: 1.1; }
+.indice__texto span { display: block; color: var(--pizarra-suave); margin-top: .6mm; }
+.indice__texto small { font-weight: 600; font-size: 8.3pt; color: var(--pizarra-suave); }
+.indice__pag { font-family: var(--f-titulo); font-weight: 500; font-size: 16pt; min-width: 12mm; text-align: right; }
+.indice__item--simple a { grid-template-columns: 1fr auto; padding-top: 1mm; }
+.prop-borde--piel { --c-borde: var(--piel); }
+.prop-borde--maquillaje { --c-borde: var(--maquillaje); }
+.prop-borde--fragancia { --c-borde: var(--fragancia); }
+.prop-borde--accesorio { --c-borde: var(--pizarra); }
+
+/* 7. APERTURAS ------------------------------------------------------------ */
+.apertura .pagina__cuerpo { padding-top: 0; }
+.mosaico { margin: 0 calc(var(--mx) * -1); height: 122mm; display: grid; gap: 1.5mm; grid-template-columns: 1.35fr 1fr; grid-template-rows: 1fr 1fr; }
+.mosaico img { width: 100%; height: 100%; object-fit: cover; display: block; background: var(--pista); min-height: 0; }
+.mosaico--3 img:first-child { grid-row: 1 / 3; }
+.mosaico--1 { grid-template-columns: 1fr; grid-template-rows: 1fr; }
+.mosaico--2 { grid-template-rows: 1fr; }
+.apertura__titulo { font-size: 32pt; font-family: var(--f-titulo); font-weight: 500; line-height: 1; margin-top: 4mm; color: var(--c-seccion); }
+.apertura__intro { font-size: 12pt; line-height: 1.5; margin: 3mm 0 7mm; max-width: 160mm; }
+.apertura__sub { font-size: 12pt; font-family: var(--f-titulo); font-weight: 500; margin-bottom: 3mm; }
+.guia { display: grid; grid-template-columns: repeat(3, 1fr); gap: 5mm; }
+.guia div { border-top: .8mm solid var(--c-seccion); padding-top: 3mm; }
+.guia i { color: var(--c-seccion); font-size: 15pt; display: block; margin-bottom: 1.5mm; }
+.guia b { display: block; font-weight: 700; font-size: 10.5pt; margin-bottom: 1mm; }
+.guia span { color: var(--pizarra-suave); }
+
+/* 8. FICHAS --------------------------------------------------------------- */
+.cat-titulo { margin-bottom: 4mm; }
+.cat-titulo h2 { font-size: 22pt; font-family: var(--f-titulo); font-weight: 500; line-height: 1.05; color: var(--c-seccion); }
+.cat-titulo h2 small { font-size: 11pt; font-weight: 600; font-stretch: 100%; color: var(--pizarra-suave); }
+.cat-titulo p { margin: 1.2mm 0 0; color: var(--pizarra-suave); font-size: 10pt; }
+
+.ficha { display: grid; gap: 6mm; break-inside: avoid; page-break-inside: avoid; }
+.ficha + .ficha { margin-top: 5mm; padding-top: 5mm; border-top: .3mm solid var(--linea); }
+.ficha--izq, .ficha--der { grid-template-columns: 96mm 1fr; flex: 1 1 0; min-height: 0; }
+.ficha--der { grid-template-columns: 1fr 96mm; }
+.ficha--der .ficha__foto { order: 2; }
+.ficha__foto { position: relative; margin: 0; background: var(--pista); overflow: hidden; min-height: 0; }
+.ficha__foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+.agotado { position: absolute; left: 3mm; bottom: 3mm; background: var(--blanco); color: var(--pizarra); font-weight: 700; font-size: 8.5pt; padding: 1mm 3mm; border-radius: 1mm; }
+.ficha__info { display: flex; flex-direction: column; min-width: 0; }
+.ficha__tags { display: flex; align-items: center; gap: 3mm; margin-bottom: 2mm; }
+.ref { font-weight: 600; font-size: 8.4pt; color: var(--pizarra-suave); font-variant-numeric: tabular-nums; }
+.ficha__nombre { font-size: 17pt; font-family: var(--f-titulo); font-weight: 500; line-height: 1.08; }
+.ficha__ident { font-size: 8.6pt; color: var(--pizarra-suave); margin-top: .8mm; }
+.ficha__desc { margin: 2mm 0 3mm; font-size: 9.4pt; line-height: 1.45; }
+/* franja de especificaciones tipo folleto automotor: cifra grande + etiqueta */
+.specs { display: grid; grid-template-columns: repeat(3, 1fr); margin: 0; border-top: .3mm solid var(--linea); }
+.specs div { padding: 2mm 2mm 2mm 0; border-bottom: .3mm solid var(--linea); }
+.specs div:not(:nth-child(3n+1)) { padding-left: 2.5mm; border-left: .3mm solid var(--linea); }
+.specs dd { margin: 0; font-weight: 700; font-size: 9.8pt; line-height: 1.15; }
+.specs dt { font-weight: 500; font-size: 7.6pt; color: var(--pizarra-suave); margin-top: .5mm; }
+.fuente { font-size: 7.4pt; color: var(--pizarra-suave); margin: 1.2mm 0 2mm; font-style: italic; }
+.especiales { list-style: none; padding: 0; margin: 0 0 2.5mm; display: flex; flex-wrap: wrap; gap: 1.5mm; }
+.especiales li { font-size: 8.2pt; font-weight: 600; background: var(--pista); padding: .6mm 2.2mm; border-radius: 1mm; }
+.colores { display: flex; flex-wrap: wrap; gap: 1mm 3.5mm; font-size: 8.4pt; margin-bottom: 3mm; }
+.colores span { display: inline-flex; align-items: center; gap: 1.3mm; }
+.colores i { width: 3.8mm; height: 3.8mm; border-radius: 50%; box-shadow: 0 0 0 .3mm var(--blanco), 0 0 0 .55mm var(--linea); }
+.ficha__pie { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; flex-wrap: wrap; gap: 2mm 4mm; padding-top: 2mm; }
+.precio small { display: block; font-size: 7.8pt; color: var(--pizarra-suave); font-weight: 600; }
+.precio b { font-family: var(--f-titulo); font-weight: 500; font-size: 19pt; line-height: 1; font-variant-numeric: tabular-nums; }
+.precio--consultar b { font-size: 15pt; }
+.btn-wa { display: inline-flex; align-items: center; gap: 1.6mm; background: var(--whatsapp); color: #fff; font-weight: 700; font-size: 9pt; padding: 2mm 4.5mm; border-radius: 10mm; white-space: nowrap; }
+.btn-wa:hover { color: #fff; filter: brightness(.95); }
+.btn-wa i { font-size: 11pt; }
+
+/* ficha de página completa: foto protagonista arriba, datos debajo */
+.ficha--completa { grid-template-rows: 134mm auto; flex: 1; }
+.ficha--completa .ficha__foto { height: 134mm; }
+.ficha--completa .ficha__pie { margin-top: 5mm; }
+.ficha--completa .ficha__nombre { font-size: 24pt; }
+.ficha--completa .ficha__desc { font-size: 10.5pt; max-width: 165mm; }
+.ficha--completa .specs { grid-template-columns: repeat(6, 1fr); }
+.ficha--completa .specs div:not(:nth-child(3n+1)) { padding-left: 0; border-left: 0; }
+.ficha--completa .specs div:not(:first-child) { padding-left: 2.5mm; border-left: .3mm solid var(--linea); }
+.ficha--completa .specs dd { font-size: 11pt; }
+.ficha--completa .precio b { font-size: 26pt; }
+
+/* 9. CÓMO COMPRAR --------------------------------------------------------- */
+.pasos { list-style: none; counter-reset: paso; padding: 0; margin: 0 0 9mm; display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
+.pasos li { counter-increment: paso; border-top: .8mm solid var(--pizarra); padding-top: 3mm; }
+.pasos li::before { content: counter(paso); display: block; font-family: var(--f-titulo); font-weight: 500; font-size: 26pt; line-height: 1; color: var(--piel); margin-bottom: 2mm; }
+.pasos b { display: block; font-weight: 700; font-size: 10.5pt; margin-bottom: 1mm; }
+.pasos span { color: var(--pizarra-suave); }
+.comprar__bloques { display: grid; grid-template-columns: 1fr 1fr; gap: 8mm; }
+.comprar__bloques section { background: var(--pista); padding: 6mm; }
+.comprar__bloques h3 { font-size: 13pt; font-family: var(--f-titulo); font-weight: 500; margin-bottom: 2.5mm; }
+.comprar__bloques p { margin: 0 0 4mm; }
+.leer { list-style: none; padding: 0; margin: 0 0 4mm; display: grid; gap: 2.5mm; }
+.leer li { display: flex; align-items: center; gap: 3mm; }
+.leer .prop { min-width: 25mm; }
+.nota { font-size: 8.6pt; color: var(--pizarra-suave); }
+
+/* 10. CONTACTO ------------------------------------------------------------ */
+.contacto .pagina__cuerpo { padding: 0 var(--mx) 8mm; align-items: center; text-align: center; }
+.contacto .franjas { width: calc(100% + var(--mx) * 2); height: 26mm; margin-bottom: 14mm; }
+.contacto__logo { width: 32mm; height: 32mm; }
+.contacto h2 { font-size: 30pt; font-family: var(--f-titulo); font-weight: 500; line-height: 1.02; margin: 8mm 0 3mm; max-width: 165mm; }
+.contacto__sub { font-size: 12pt; color: var(--pizarra-suave); max-width: 140mm; margin: 0 0 10mm; }
+.contacto__grid { display: grid; grid-template-columns: auto 1fr; gap: 12mm; align-items: center; text-align: left; background: var(--pista); padding: 8mm 10mm; width: 100%; }
+.contacto__qr { display: flex; flex-direction: column; align-items: center; gap: 2mm; font-weight: 600; font-size: 8.6pt; max-width: 46mm; text-align: center; }
+.contacto__qr .qr { width: 40mm; height: 40mm; }
+.contacto__lista { list-style: none; padding: 0; margin: 0; display: grid; gap: 3mm; font-size: 11.5pt; font-weight: 600; }
+.contacto__lista li, .contacto__lista a { display: flex; align-items: center; gap: 3mm; }
+.contacto__lista i { color: var(--piel); font-size: 13pt; }
+.contacto__lista .bi-whatsapp { color: var(--whatsapp); }
+.creditos { margin-top: auto; font-size: 6.4pt; line-height: 1.4; color: var(--pizarra-suave); text-align: left; }
+.num--contacto { position: absolute; right: var(--mx); bottom: 5mm; }
+
+.qr { display: block; background: #fff; padding: 1.5mm; }
+.qr svg { width: 100%; height: 100%; display: block; }
+
+/* 11. IMPRESIÓN / PDF ----------------------------------------------------- */
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  body { background: none !important; }
+  body.modo-pdf #revista { display: block; padding: 0; }
+  .pagina { box-shadow: none; page-break-before: auto; }
+  .pagina:last-child { break-after: auto; page-break-after: auto; }
+  /* el visor no se imprime: el PDF se genera desde revista.html?pdf */
+  body.modo-revista .visor { display: none !important; }
+}
+
+/* banda de uso responsable (sección a maquillaje) */
+.aviso-maquillaje { display: flex; flex-wrap: wrap; align-items: center; gap: 2mm 6mm; background: #F6E9E4; border-left: 1.6mm solid var(--maquillaje); padding: 3mm 5mm; margin-bottom: 5mm; font-size: 9pt; }
+.aviso-maquillaje b { color: var(--maquillaje); font-weight: 800; }
+.aviso-maquillaje span { display: inline-flex; align-items: center; gap: 1.5mm; }
+.aviso-maquillaje span i { color: var(--maquillaje); }
+
+/* antes de la primera salida (cómo comprar) */
+.antes { margin-top: 9mm; }
+.antes h3 { font-size: 13pt; font-family: var(--f-titulo); font-weight: 500; margin-bottom: 4mm; }
+.antes ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 5mm; }
+.antes li { border-top: .8mm solid var(--fragancia); padding-top: 3mm; }
+.antes i { display: block; color: var(--fragancia); font-size: 15pt; margin-bottom: 1.5mm; }
+.antes b { display: block; font-weight: 700; font-size: 10pt; margin-bottom: 1mm; }
+.antes span { color: var(--pizarra-suave); }
+
+/* FOTOS DE PRODUCTO (estudio, fondo blanco): se muestran completas, sin recortar el vehículo.
+   mix-blend-mode: multiply funde el blanco de la foto con el gris pista del fondo. */
+.portada__foto img, .mosaico img, .presentacion__foto img, .indice__item img, .ficha__foto img {
+  object-fit: contain; mix-blend-mode: multiply;
+}
+.portada__foto img { padding: 6mm 10mm 12mm; }
+.mosaico img { padding: 4mm; }
+.presentacion__foto img { padding: 4mm 20mm; }
+.indice__item img { padding: 1mm; }
+.ficha__foto img { padding: 4mm; }
+.ficha--completa .ficha__foto img { padding: 6mm 14mm; }
+/* las medidas (92 × 67 × 72 cm) ocupan dos columnas para no partirse en dos líneas */
+.specs .spec--ancha { grid-column: span 2; }
+.specs .spec--ancha dd { white-space: nowrap; }
+.ficha--completa .specs .spec--ancha { grid-column: span 2; }
+
+/* fotos de tienda o exterior (p.fotoAmbiente): llenan el marco en vez de flotar sobre el gris */
+img.foto--ambiente { object-fit: cover !important; mix-blend-mode: normal !important; padding: 0 !important; }
+
+
+/* =========================================================================
+   TEMA VITALIA
+   ========================================================================= */
+body, body.modo-pdf { background: var(--beige); }
+.pagina { background: var(--fondo); }
+h1, h2, h3, .titulo { font-family: var(--f-titulo); font-weight: 500; font-variant-numeric: lining-nums; }
+/* etiquetas de categoría con el color de la tienda (texto oscuro o blanco según contraste) */
+.prop { background: var(--c-tag, var(--botanico)); color: var(--c-tag-texto, #fff); }
+.prop i { color: inherit; }
+/* títulos de sección siempre en tinta; el color de la categoría queda en barras y bordes */
+.cat-titulo h2, .apertura__titulo { color: var(--tinta); }
+.cat-titulo { border-bottom: .6mm solid var(--c-seccion); padding-bottom: 2mm; }
+/* fotos editoriales a sangre; los envases flotan sobre el marfil */
+.portada__foto img, .presentacion__foto img, .mosaico img { object-fit: cover; mix-blend-mode: normal; padding: 0; }
+.ficha__nombre a { color: inherit; text-decoration: none; }
+.ficha__nombre a:hover { text-decoration: underline; text-decoration-color: var(--ambar); text-underline-offset: .2em; }
+.precio s { display: block; font-size: 8pt; color: var(--tinta-suave); }
+.ficha__acciones { display: flex; flex-wrap: wrap; gap: 2mm; justify-content: flex-end; }
+.btn-carrito { display: inline-flex; align-items: center; gap: 1.6mm; border: 0; background: var(--botanico); color: #fff; font: inherit; font-weight: 700; font-size: 9pt; padding: 2mm 4.5mm; border-radius: 10mm; cursor: pointer; white-space: nowrap; }
+.btn-carrito:hover { background: var(--botanico-osc); }
+.pasos li::before, .contacto__lista i, .propuesta i { color: var(--botanico); }
+.portada__temporada { border-color: var(--ambar); }
+.aviso-carrito { position: fixed; left: 50%; bottom: 84px; z-index: 50; transform: translate(-50%, 12px); opacity: 0; pointer-events: none;
+  background: var(--tinta); color: #fff; font-weight: 600; font-size: 14px; padding: 10px 18px; border-radius: 999px; transition: opacity .25s, transform .25s; }
+.aviso-carrito.visible { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+.aviso-carrito a { color: var(--ambar); margin-left: 8px; }
+@media (prefers-reduced-motion: reduce) { .aviso-carrito { transition: none; } }
+.portada__foto img { object-position: 62% 28%; }
+.specs .spec--ancha { grid-column: 1 / -1; }
+.specs .spec--ancha dd, .ficha--completa .specs .spec--ancha dd { white-space: normal; }
+.ficha--completa .specs .spec--ancha { grid-column: 1 / -1; }
+.portada__foto img { object-position: 55% 55%; }
+.portada__pie { gap: 6mm; align-items: flex-end; }
+.portada__pie .leyenda { flex: 1; flex-wrap: wrap; row-gap: 2mm; }
+.portada__pie .portada__wa { flex: none; }

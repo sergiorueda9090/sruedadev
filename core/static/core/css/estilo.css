@@ -1865,7 +1865,11 @@ p { margin: 0 0 1.1em; }
 .combo-caja p { margin: 0 0 16px; color: var(--texto); }
 .combo-caja .lista-entregables { margin: 0; }
 
-.seccion-detalle { padding-top: 40px; }
+/* padding-bottom en 0: la siguiente sección (misma categoría de portafolio o
+   el FAQ de servicio) ya trae su propio padding-top de 104px; sin esto, dos
+   secciones seguidas sumaban 208px de espacio vacío sin ningún cambio de
+   fondo que lo justifique. */
+.seccion-detalle { padding-top: 40px; padding-bottom: 0; }
 .resumen-proyecto { max-width: 62ch; color: var(--suave); font-size: 1.1rem; }
 .portada-detalle {
     border-radius: var(--radio-lg);
@@ -2633,6 +2637,34 @@ p { margin: 0 0 1.1em; }
 
 /* El .circuito está pensado para fondo blanco; sobre el oscuro tapaba el vídeo */
 .hero-servicio .circuito { opacity: .25; }
+
+/* Banner propio de la categoría "Catálogos y Menús Digitales": ocupa todo el
+   fondo del hero (misma altura de la sección, sin alargarla) y sin velo
+   oscuro encima, así se ve nítida. Va detrás del contenido (z-index menor que
+   .hero-proyecto .contenedor) y .hero-proyecto ya tiene overflow:hidden. */
+.hero-banner-fondo {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+/* Velo en degradado: oscurece la mitad izquierda (donde va el texto blanco)
+   y se aclara hacia la derecha para dejar ver el mockup de la imagen. Más
+   prolijo que un velo plano parejo sobre toda la foto. */
+.hero-banner-velo {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(100deg,
+        rgba(6, 16, 36, .92) 0%,
+        rgba(6, 16, 36, .82) 30%,
+        rgba(6, 16, 36, .40) 55%,
+        rgba(6, 16, 36, .10) 75%,
+        rgba(6, 16, 36, 0) 90%);
+}
 
 /* ---------- cuerpo redactado ---------- */
 

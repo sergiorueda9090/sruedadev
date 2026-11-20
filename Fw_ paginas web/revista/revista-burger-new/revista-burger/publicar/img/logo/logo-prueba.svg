@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- LOGO DE PRUEBA — reemplazar por el logo oficial del cliente -->
+  <circle cx="200" cy="200" r="194" fill="#151515"/>
+  <circle cx="200" cy="200" r="178" fill="none" stroke="#BEA885" stroke-width="5"/>
+  <circle cx="200" cy="200" r="166" fill="none" stroke="#BEA885" stroke-width="1.5" stroke-dasharray="5 6"/>
+  <g fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" transform="translate(120 80) scale(.67)">
+    <path d="M28 92c0-42 40-66 92-66s92 24 92 66c0 6-4 9-10 9H38c-6 0-10-3-10-9z"/>
+    <path d="M30 106c10 10 18-4 28 4s18-6 30 2 18-6 30 2 18-8 30 0 20-6 30 2 16-4 32-6"/>
+    <path d="M34 118h172c6 0 10 4 10 9v3c0 5-4 9-10 9H34c-6 0-10-4-10-9v-3c0-5 4-9 10-9z"/>
+    <path d="M34 156h172c4 18-30 30-86 30s-90-12-86-30z"/>
+  </g>
+  <text x="200" y="268" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="46" font-weight="900" fill="#FFFFFF">HUMO &amp; PAN</text>
+  <text x="200" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#BEA885" letter-spacing="8">BURGER BAR</text>
+  <text x="200" y="330" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#BEA885" letter-spacing="2">LOGO DE PRUEBA</text>
+</svg>

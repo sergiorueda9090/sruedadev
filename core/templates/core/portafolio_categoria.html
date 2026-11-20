@@ -25,6 +25,10 @@
         <h1>{{ categoria.nombre }}</h1>
         <p class="bajada">{{ categoria.descripcion }}</p>
     </div>
+    {% if categoria.slug == 'catalogos-menus-digitales' %}
+    <img class="hero-banner-fondo" src="{% static 'core/img/banner/banner_1.png' %}" alt="" aria-hidden="true" loading="eager" decoding="async">
+    <div class="hero-banner-velo" aria-hidden="true"></div>
+    {% endif %}
 </section>
 
 {% if categoria.beneficios %}

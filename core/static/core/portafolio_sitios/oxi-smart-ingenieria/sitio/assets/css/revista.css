@@ -1,0 +1,93 @@
+/* =========================================================================
+   VISOR TIPO REVISTA (solo pantalla) — revista.html
+   Las páginas A4 se escalan dentro de cada hoja con la variable --k.
+   ========================================================================= */
+body.modo-revista {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 40%, #1B5574 0%, #123B52 55%, #0B2A3B 100%);
+}
+
+/* La zona de maquetado queda fuera de la vista pero con tamaño real para medir */
+.modo-revista #catalogo {
+  position: absolute; left: -10000px; top: 0;
+  padding: 0; gap: 0;
+}
+
+.visor { position: fixed; inset: 0; display: flex; flex-direction: column; }
+
+.visor__escenario {
+  flex: 1 1 auto; min-height: 0;
+  display: flex; align-items: center; justify-content: center;
+  padding: 24px 24px 8px;
+  opacity: 0; transition: opacity .5s ease;
+}
+.visor--listo .visor__escenario { opacity: 1; }
+
+#libro { margin: 0 auto; }
+
+/* Hoja que maneja StPageFlip: contiene una .pagina A4 escalada */
+.hoja { background: var(--c-fondo); overflow: hidden; }
+.hoja > .pagina {
+  transform: scale(var(--k, .5));
+  transform-origin: 0 0;
+  box-shadow: none;
+}
+
+/* Sombra de lomo para dar sensación de revista encuadernada */
+.hoja::after {
+  content: ""; position: absolute; top: 0; bottom: 0; width: 6%; pointer-events: none; z-index: 20;
+}
+.hoja.--left::after  { right: 0; background: linear-gradient(to left, rgba(0,0,0,.18), transparent); }
+.hoja.--right::after { left: 0;  background: linear-gradient(to right, rgba(0,0,0,.18), transparent); }
+
+.stf__parent { filter: drop-shadow(0 18px 30px rgba(0,0,0,.45)); }
+
+/* Barra de controles */
+.visor__barra {
+  flex: 0 0 auto;
+  display: flex; align-items: center; justify-content: center; gap: 6px;
+  padding: 10px 16px 18px;
+  color: #E6F4F6;
+  font-family: var(--f-texto);
+}
+.btn-visor {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: grid; place-items: center;
+  border: 1px solid rgba(230, 244, 246, .25);
+  background: rgba(255, 255, 255, .06); color: #E6F4F6;
+  font-size: 17px; text-decoration: none; cursor: pointer;
+  transition: background .2s, transform .1s;
+}
+.btn-visor:hover { background: var(--c-secundario); color: #fff; border-color: transparent; }
+.btn-visor:active { transform: scale(.94); }
+.btn-visor:disabled { opacity: .35; pointer-events: none; }
+.visor__contador { min-width: 110px; text-align: center; font-size: 14px; letter-spacing: .05em; }
+.visor__sep { width: 1px; height: 24px; background: rgba(230, 244, 246, .25); margin: 0 6px; }
+
+.visor__cargando {
+  position: absolute; inset: 0; display: flex; gap: 12px; align-items: center; justify-content: center;
+  color: #E6F4F6; font-family: var(--f-texto); z-index: 5;
+}
+.visor--listo .visor__cargando { display: none; }
+
+@media (max-width: 576px) {
+  .visor__escenario { padding: 12px 8px 4px; }
+  .btn-visor { width: 36px; height: 36px; font-size: 15px; }
+  #btnInicio, #btnFin, .visor__sep { display: none; }
+}
+
+/* StPageFlip solo reenvía el clic si el objetivo ES el <a>/<button>.
+   Los hijos (íconos, textos) no reciben eventos para que el clic llegue al enlace. */
+.hoja a *, .hoja button * { pointer-events: none; }
+
+/* ---------- Zoom ---------- */
+.visor--zoom .visor__escenario { overflow: auto; justify-content: flex-start; align-items: flex-start; cursor: grab; touch-action: pan-x pan-y; }
+.visor--zoom .visor__escenario.arrastrando { cursor: grabbing; }
+.visor--zoom #libro { margin: auto; flex: 0 0 auto; }
+.visor--zoom .visor__escenario a { cursor: pointer; }
+.visor__zoom { min-width: 52px; text-align: center; font-size: 13px; background: none; border: 0; color: inherit; cursor: pointer; font-family: inherit; }
+.visor__zoom:hover { text-decoration: underline; }
+@media (max-width: 576px) { .visor__zoom { display: none; } }

@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- LOGO DE PRUEBA — reemplazar por el logo oficial del cliente -->
+  <rect x="10" y="10" width="380" height="380" rx="70" fill="#0B2A5B"/>
+  <rect x="26" y="26" width="348" height="348" rx="58" fill="none" stroke="#F7C31E" stroke-width="6"/>
+  <!-- montañas -->
+  <path d="M60 250 L140 150 L190 205 L245 130 L340 250 Z" fill="#1F5FBF"/>
+  <path d="M245 130 L270 162 L252 160 L238 175 L226 158 Z" fill="#fff" opacity=".9"/>
+  <!-- brazo de excavadora -->
+  <g fill="none" stroke="#F7C31E" stroke-width="16" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M110 245 L170 120 L262 112 L292 176"/>
+  </g>
+  <path d="M275 168 l42 4 -10 34 -40 -6 z" fill="#F7C31E"/>
+  <rect x="70" y="236" width="90" height="24" rx="10" fill="#F7C31E"/>
+  <text x="200" y="312" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="44" font-weight="900" fill="#FFFFFF">MAQUIANDES</text>
+  <text x="200" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#F7C31E" letter-spacing="3">LOGO DE PRUEBA</text>
+</svg>

@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Política de tratamiento de datos · Vehículos infantiles</title>
+  <meta name="description" content="Cómo usamos los datos que nos das al pedir una cotización y cómo ejercer tus derechos (Ley 1581 de 2012).">
+  <meta name="theme-color" content="#22324A">
+  <link rel="icon" href="assets/logo/logo-prueba.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/sitio.css">
+  <link rel="stylesheet" href="css/tienda.css">
+</head>
+<body>
+  <a class="saltar" href="#politica">Ir al contenido</a>
+  <header id="cabecera"></header>
+  <main class="container" id="politica"></main>
+  <footer id="pie" class="pie"></footer>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="js/creditos.js"></script>
+  <script src="js/datos.js"></script>
+  <script src="js/fichas.js"></script>
+  <script src="js/carrito.js"></script>
+  <script>
+  /* Política de tratamiento de datos (Ley 1581 de 2012 y Decreto 1377 de 2013, compilado en el Decreto 1074 de 2015).
+     El responsable y los canales salen de js/datos.js y datos-del-negocio/negocio.csv.
+     ⚠ Texto base: el negocio debe revisarlo (idealmente con un abogado) antes de publicar. */
+  (function () {
+    "use strict";
+    const T = window.Tienda, N = T.N, esc = T.esc;
+    T.cabecera("");
+    T.pie();
+    document.title = `Política de tratamiento de datos · ${N.nombre}`;
+    const canales = [
+      N.whatsapp && `WhatsApp ${esc(N.whatsapp)}`,
+      N.correo && `correo <a href="mailto:${esc(N.correo)}">${esc(N.correo)}</a>`,
+      N.telefono && `teléfono ${esc(N.telefono)}`,
+    ].filter(Boolean).join(", ");
+    const responsable = [
+      `<b>${esc(N.nombre)}</b>`,
+      N.direccion && esc(N.direccion),
+      [N.ciudad, N.pais].filter((x) => x && !/prueba/i.test(x)).map(esc).join(", "),
+      canales && `Contacto: ${canales}`,
+    ].filter(Boolean).join("<br>");
+
+    document.getElementById("politica").innerHTML = `
+      <article class="legal">
+        <h1 class="titulo">Política de tratamiento de datos personales</h1>
+        <p class="sub">Así usamos los datos que nos das al pedir una cotización, y así puedes consultarlos, corregirlos o pedir que los borremos.</p>
+
+        <h2>Quién es el responsable</h2>
+        <p>${responsable}</p>
+        <p>Tratamos tus datos según la Ley 1581 de 2012 y el Decreto 1377 de 2013, compilado en el Decreto 1074 de 2015.</p>
+
+        <h2>Qué datos pedimos</h2>
+        <p>En el formulario de cotización: nombre, celular, ciudad de entrega, dirección (opcional), si compras como familia o como tienda,
+          la forma de pago que prefieres y tus notas. No pedimos datos sensibles ni datos de tarjetas: en esta página no se paga nada.</p>
+
+        <h2>Para qué los usamos</h2>
+        <ul>
+          <li>Responder tu cotización: disponibilidad, precio y costo del envío.</li>
+          <li>Coordinar contigo el pago, la entrega y la garantía si haces la compra.</li>
+          <li>Avisarte cuando llegue un producto agotado, solo si tú nos lo pides.</li>
+        </ul>
+        <p>No vendemos tus datos. Solo compartimos con quien hace la entrega (por ejemplo, la transportadora) lo necesario para llevarte el pedido.</p>
+
+        <h2>Dónde quedan tus datos</h2>
+        <p>Esta página no envía tus datos a ningún servidor. Se guardan solo en tu navegador, para que no tengas que escribirlos otra vez,
+          y salen de tu equipo únicamente cuando tú envías el mensaje de WhatsApp. Desde ese momento quedan en nuestra conversación de WhatsApp.</p>
+        <p><button type="button" class="btn-secundario" id="borrar-datos"><i class="bi bi-eraser"></i> Borrar mis datos de este navegador</button></p>
+        <p id="borrar-ok" class="text-success" role="status" aria-live="polite"></p>
+
+        <h2>Tus derechos</h2>
+        <ul>
+          <li>Conocer, actualizar y corregir tus datos.</li>
+          <li>Pedir prueba de la autorización que nos diste.</li>
+          <li>Saber para qué hemos usado tus datos.</li>
+          <li>Revocar la autorización o pedir que borremos tus datos, cuando no tengamos un deber legal o contractual de conservarlos.</li>
+          <li>Presentar quejas ante la Superintendencia de Industria y Comercio (SIC).</li>
+          <li>Consultar tus datos gratis.</li>
+        </ul>
+
+        <h2>Cómo ejercerlos</h2>
+        <p>Escríbenos ${canales ? `por ${canales}` : "por nuestros canales de contacto"} diciendo qué necesitas.
+          Respondemos las consultas en máximo 10 días hábiles y los reclamos en máximo 15 días hábiles.</p>
+
+        <p class="legal__vigencia">Vigente desde el 14 de noviembre de 2026.</p>
+      </article>`;
+
+    document.getElementById("borrar-datos").addEventListener("click", () => {
+      window.Carrito.guardarDatos({ nombre: "", celular: "", ciudad: "", direccion: "", tipo: "Familia", pago: "", notas: "" });
+      document.getElementById("borrar-ok").textContent = "Listo: borramos tus datos de este navegador. Tu carrito sigue igual.";
+    });
+  })();
+  </script>
+</body>
+</html>

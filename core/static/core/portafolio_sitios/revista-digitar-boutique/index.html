@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Revista Digitar: boutique erótica y tienda para adultos. Lencería, bienestar íntimo, juguetes, cosmética y juegos. Solo mayores de 18 años.">
+  <meta name="rating" content="adult">
+  <title>Revista Digitar — Boutique Erótica</title>
+  <link rel="icon" href="img/logo/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="img/logo/favicon-64.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="img/logo/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/catalogo.css">
+  <link rel="stylesheet" href="css/revista.css">
+</head>
+<body class="modo-revista">
+  <!-- Zona de maquetación: catalogo.js arma aquí las páginas A4 y luego revista.js las pasa al libro -->
+  <main id="catalogo" aria-hidden="true"></main>
+
+  <!-- Confirmación de mayoría de edad (solo pantalla; el PDF no la incluye) -->
+  <div class="edad" id="edad" role="dialog" aria-modal="true" aria-labelledby="edadTitulo" hidden>
+    <div class="edad__caja">
+      <img class="edad__logo" src="img/logo/logo-digitar.png" alt="Revista Digitar · Boutique erótica">
+      <div class="edad__kicker">Boutique erótica · Tienda para adultos</div>
+      <h1 id="edadTitulo">Contenido exclusivo para mayores de 18 años</h1>
+      <p>Esta revista presenta productos para adultos. Al ingresar confirmas que eres mayor de edad según la legislación de tu país.</p>
+      <div class="edad__botones">
+        <button class="edad__si" id="edadSi">Soy mayor de 18 años · Entrar</button>
+        <button class="edad__no" id="edadNo">Salir</button>
+      </div>
+      <p class="edad__salida" id="edadSalida" hidden>Gracias por tu visita. Este contenido no está disponible para menores de edad.</p>
+    </div>
+  </div>
+
+  <div class="visor">
+    <div class="visor__cargando" id="cargando"><div class="spinner-border" role="status"></div><span>Preparando la revista…</span></div>
+    <div class="visor__escenario" id="escenario">
+      <div id="libro"></div>
+    </div>
+
+    <nav class="visor__barra" aria-label="Navegación de la revista">
+      <button class="btn-visor" id="btnInicio" title="Portada"><i class="bi bi-chevron-bar-left"></i></button>
+      <button class="btn-visor" id="btnAnterior" title="Página anterior (←)"><i class="bi bi-chevron-left"></i></button>
+      <span class="visor__contador" id="contador">—</span>
+      <button class="btn-visor" id="btnSiguiente" title="Página siguiente (→)"><i class="bi bi-chevron-right"></i></button>
+      <button class="btn-visor" id="btnFin" title="Contraportada"><i class="bi bi-chevron-bar-right"></i></button>
+      <span class="visor__sep"></span>
+      <button class="btn-visor btn-visor--lupa" id="btnLupa" title="Ampliar para leer (Z)"><i class="bi bi-zoom-in"></i></button>
+      <button class="btn-visor" id="btnSonido" title="Silenciar sonido"><i class="bi bi-volume-up"></i></button>
+      <button class="btn-visor" id="btnPantalla" title="Pantalla completa"><i class="bi bi-arrows-fullscreen"></i></button>
+      <a class="btn-visor" href="dist/catalogo.pdf" download title="Descargar PDF"><i class="bi bi-file-earmark-arrow-down"></i></a>
+      <a class="btn-visor btn-visor--tienda" href="tienda.html" title="Ir a la tienda y hacer tu pedido"><i class="bi bi-bag-heart"></i></a>
+    </nav>
+  </div>
+
+  <!-- Lupa: páginas visibles ampliadas para leer cómodamente -->
+  <div class="lupa" id="lupa" role="dialog" aria-modal="true" aria-label="Página ampliada" hidden>
+    <div class="lupa__barra">
+      <button class="btn-visor" id="lupaMenos" title="Reducir"><i class="bi bi-dash-lg"></i></button>
+      <span class="lupa__nivel" id="lupaNivel">100%</span>
+      <button class="btn-visor" id="lupaMas" title="Ampliar"><i class="bi bi-plus-lg"></i></button>
+      <span class="visor__sep"></span>
+      <button class="btn-visor" id="lupaCerrar" title="Cerrar (Esc)"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="lupa__contenido" id="lupaContenido"></div>
+  </div>
+
+  <script src="vendor/page-flip/page-flip.browser.js"></script>
+  <script src="js/revista.js"></script>
+  <script src="vendor/qrcode/qrcode.js"></script>
+  <script src="data/productos.js"></script>
+  <script src="js/catalogo.js"></script>
+</body>
+</html>

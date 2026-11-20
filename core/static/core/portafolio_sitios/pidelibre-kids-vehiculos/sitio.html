@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Título, descripción, Open Graph y JSON-LD se completan desde js/datos.js (js/sitio.js) -->
+  <title>Vehículos infantiles</title>
+  <meta name="description" content="Carros eléctricos, cuatrimotos y motos cross a gasolina para niños, con ficha técnica y precio. Pide por WhatsApp.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Vehículos infantiles">
+  <meta property="og:description" content="Pequeños conductores, grandes aventuras.">
+  <meta property="og:image" content="assets/carros-electricos/sx2128-1.webp">
+  <meta name="theme-color" content="#22324A">
+  <link rel="icon" href="assets/logo/logo-prueba.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/sitio.css">
+</head>
+<body>
+  <a class="saltar" href="#catalogo">Ir al catálogo</a>
+  <div id="aviso-prueba" class="aviso-prueba d-none">Sitio de prueba: el nombre y el contacto de la empresa son de ejemplo</div>
+
+  <!-- NAVEGACIÓN -->
+  <nav class="navbar navbar-expand-lg sticky-top nav-sitio" aria-label="Principal">
+    <div class="container">
+      <a class="navbar-brand" href="#inicio"><img id="nav-logo" src="" alt="" width="40" height="40"><span id="nav-nombre"></span></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+        <i class="bi bi-list"></i>
+      </button>
+      <div class="collapse navbar-collapse" id="menu">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+          <li class="nav-item"><a class="nav-link" href="tienda.html">Tienda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#catalogo">Vehículos</a></li>
+          <li class="nav-item"><a class="nav-link" href="#revista">Revista</a></li>
+          <li class="nav-item"><a class="nav-link" href="#comprar">Cómo comprar</a></li>
+          <li class="nav-item"><a class="nav-link" href="#distribuidores">Distribuidores</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="btn-pedido" href="carrito.html"><i class="bi bi-cart3"></i> Carrito <span class="contador-pedido" id="nav-cant">0</span></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- BANNERS: cada uno lleva a su categoría en la tienda -->
+    <section class="banners" id="banners" aria-label="Destacados"></section>
+
+    <!-- HERO -->
+    <header id="inicio" class="hero">
+      <div class="container hero__grid">
+        <div class="hero__texto">
+          <h1 id="hero-titulo"></h1>
+          <p id="hero-sub"></p>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn-principal" href="#catalogo"><i class="bi bi-grid"></i> Ver vehículos</a>
+            <a class="btn-wa js-wa" href="#" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Escríbenos</a>
+          </div>
+        </div>
+        <figure class="hero__foto"><img id="hero-foto" src="" alt=""></figure>
+      </div>
+      <div class="franjas" aria-hidden="true"><i class="f-electrico"></i><i class="f-gasolina"></i><i class="f-pedales"></i></div>
+      <!-- selector por tipo de propulsión: filtra el catálogo -->
+      <div class="container">
+        <h2 class="selector__titulo">¿Qué tipo de vehículo buscas?</h2>
+        <div class="selector" id="selector" role="group" aria-label="Tipo de propulsión"></div>
+      </div>
+    </header>
+
+    <!-- CATÁLOGO -->
+    <section id="catalogo" class="seccion">
+      <div class="container">
+        <div class="catalogo__cabeza">
+          <h2 class="titulo">Vehículos</h2>
+          <p class="sub" id="resumen-filtros" aria-live="polite"></p>
+        </div>
+        <div class="filtros">
+          <div class="filtros__chips" id="chips-categoria" role="group" aria-label="Categoría"></div>
+          <div class="filtros__campos">
+            <label class="campo"><span>Edad del niño</span>
+              <select id="filtro-edad" class="form-select">
+                <option value="">Todas las edades</option>
+              </select>
+            </label>
+            <label class="campo campo--buscar"><span>Buscar</span>
+              <input id="buscar" type="search" class="form-control" placeholder="Nombre, referencia o color">
+            </label>
+          </div>
+        </div>
+        <div class="grilla" id="grilla"></div>
+        <div class="vacio d-none" id="sin-resultados">
+          <p><b>No hay vehículos con esos filtros.</b> Cambia la edad o el tipo de propulsión, o escríbenos y te ayudamos a encontrarlo.</p>
+          <button type="button" class="btn-secundario" id="limpiar-filtros">Quitar filtros</button>
+        </div>
+        <p class="nota-precios" id="nota-precios"></p>
+      </div>
+    </section>
+
+    <!-- EXPLORA POR TIPO: fotos de ambiente que llevan a cada categoría de la tienda -->
+    <section class="seccion explora-sec" aria-labelledby="explora-titulo">
+      <div class="container">
+        <h2 class="titulo" id="explora-titulo">Explora por tipo</h2>
+        <div class="explora" id="explora"></div>
+      </div>
+    </section>
+
+    <!-- REVISTA -->
+    <section id="revista" class="seccion seccion--pista">
+      <div class="container">
+        <div class="revista__cabeza">
+          <div>
+            <h2 class="titulo">Hojea la revista</h2>
+            <p class="sub">Pasa las páginas como en una revista impresa. Toca <b>Añadir al pedido</b> en cualquier ficha para sumarla al carrito.</p>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <a class="btn-secundario" href="revista.html" target="_blank" rel="noopener"><i class="bi bi-arrows-fullscreen"></i> Abrir en pantalla completa</a>
+            <a class="btn-secundario" href="pdf/revista-vehiculos-infantiles.pdf" download><i class="bi bi-file-earmark-arrow-down"></i> Descargar PDF</a>
+          </div>
+        </div>
+        <div class="marco-revista"><iframe id="iframe-revista" src="revista.html" title="Revista de vehículos infantiles" loading="lazy" allow="fullscreen"></iframe></div>
+      </div>
+    </section>
+
+    <!-- CÓMO COMPRAR -->
+    <section id="comprar" class="seccion">
+      <div class="container">
+        <h2 class="titulo">Cómo comprar</h2>
+        <ol class="pasos" id="pasos"></ol>
+      </div>
+    </section>
+
+    <!-- DISTRIBUIDORES + USO RESPONSABLE -->
+    <section class="seccion seccion--pista">
+      <div class="container dos-columnas">
+        <div id="distribuidores" class="bloque-distribuidores">
+          <h2 class="titulo">Para tiendas y distribuidores</h2>
+          <p>Pide la lista de precios por volumen y la disponibilidad de cada referencia. Te enviamos fotos y fichas técnicas para tu tienda.</p>
+          <ul class="propuesta" id="propuesta"></ul>
+          <a class="btn-wa" id="wa-distribuidor" href="#" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Pedir lista de precios</a>
+        </div>
+        <div class="bloque-seguridad">
+          <h2 class="titulo">Antes de la primera salida</h2>
+          <ul class="checklist">
+            <li><i class="bi bi-book"></i><div><b>Lee el manual</b><span>Edad, peso máximo y uso recomendado por el fabricante.</span></div></li>
+            <li><i class="bi bi-battery-charging"></i><div><b>Carga completa</b><span>Un adulto conecta y desconecta el cargador.</span></div></li>
+            <li><i class="bi bi-shield-check"></i><div><b>Casco puesto</b><span>En motos, cuatrimotos y vehículos a gasolina.</span></div></li>
+            <li><i class="bi bi-eye"></i><div><b>Supervisión adulta</b><span>Siempre en vehículos a gasolina, lejos de calles y piscinas.</span></div></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="seccion contacto">
+      <div class="franjas franjas--fina" aria-hidden="true"><i class="f-electrico"></i><i class="f-gasolina"></i><i class="f-pedales"></i></div>
+      <div class="container contacto__grid">
+        <div>
+          <h2 class="titulo">La próxima aventura comienza aquí</h2>
+          <p class="sub">Escríbenos y te ayudamos a elegir el vehículo ideal para cada pequeño conductor.</p>
+          <ul class="contacto__lista" id="contacto-lista"></ul>
+        </div>
+        <div class="contacto__qr"><div class="qr" id="qr-web"></div><p>Escanea y escríbenos por WhatsApp</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <div class="container pie__fila">
+      <span class="pie__marca"><img id="pie-logo" src="" alt="" width="32" height="32"><span id="pie-nombre"></span></span>
+      <span id="pie-redes" class="pie__redes"></span>
+    </div>
+    <div class="container"><a class="pie__politica" href="politica-datos.html">Política de tratamiento de datos</a></div>
+    <div class="container"><details class="pie__creditos" id="pie-creditos"><summary>Créditos de fotografías</summary><div id="lista-creditos"></div></details></div>
+  </footer>
+
+  <a class="wa-flotante js-wa" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
+
+  <!-- FICHA COMPLETA -->
+  <div class="modal fade" id="modal-ficha" tabindex="-1" aria-labelledby="ficha-titulo" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+      <div class="modal-content ficha-modal">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        <div class="modal-body p-0" id="ficha-cuerpo"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="vendor/qrcode/qrcode.js"></script>
+  <script src="js/creditos.js"></script>
+  <script src="js/datos.js"></script>
+  <script src="js/fichas.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/sitio.js"></script>
+</body>
+</html>

@@ -104,7 +104,7 @@
     ["nav-logo", "pie-logo"].forEach((id) => ($(id).src = N.logo));
     $("nav-nombre").textContent = N.nombre;
     $("pie-nombre").textContent = `${N.nombre} ${N.subtitulo || ""}`;
-    $("pie-credito").innerHTML = `© ${new Date().getFullYear()} ${esc(N.nombre)}${D.modoPrueba ? " · Fotos de referencia: TheMealDB / TheCocktailDB" : ""}`;
+    $("pie-credito").innerHTML = `© ${new Date().getFullYear()} ${esc(N.nombre)}${D.modoPrueba ? " · Fotos de referencia (maqueta)" : ""}`;
     $("pie-redes").innerHTML = [
       insta() && `<a href="${esc(insta())}" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>`,
       N.facebook && `<a href="${esc(N.facebook)}" target="_blank" rel="noopener" aria-label="Facebook"><i class="bi bi-facebook"></i></a>`,
@@ -117,8 +117,8 @@
     $("hero-nombre").textContent = N.nombre.toUpperCase();
     $("hero-sub").textContent = (N.subtitulo || "").toUpperCase();
     $("hero-eslogan").innerHTML = valor(N.eslogan, "eslogan");
-    $("hero-foto").src = N.fotoPortada;
-    $("hero-foto").alt = `${N.nombre}`;
+    $("hero-foto").src = N.logo;
+    $("hero-foto").alt = `Logo ${N.nombre}`;
     const e = estadoAhora();
     if (e) {
       $("estado-abierto").textContent = e.texto;
@@ -136,7 +136,7 @@
     const lista = D.productos.filter((x) => x.destacado);
     if (!lista.length) { $("recomendados").remove(); return; }
     $("reco").innerHTML = lista.map((x) => `
-      <div class="col-10 col-sm-6 col-lg-4 col-reco text-center">
+      <div class="col-10 col-sm-6 ${lista.length % 3 === 0 ? "col-lg-4" : "col-lg-3"} col-reco text-center">
         <figure class="polaroid m-0">
           <img src="${esc(x.foto)}" alt="${esc(x.nombre)}" loading="lazy">
           <figcaption>${esc(x.nombre)}</figcaption>

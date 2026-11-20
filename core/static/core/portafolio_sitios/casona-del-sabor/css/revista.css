@@ -82,3 +82,6 @@ body.modo-revista {
 /* StPageFlip solo reenvía el clic si el objetivo ES el <a>/<button>.
    Los hijos (íconos, textos) no reciben eventos para que el clic llegue al enlace. */
 .hoja a *, .hoja button * { pointer-events: none; }
+
+.btn-visor--tienda { background: var(--c-principal); border-color: transparent; color: #fff; }
+@media (max-width: 576px) { #btnPantalla { display: none; } }

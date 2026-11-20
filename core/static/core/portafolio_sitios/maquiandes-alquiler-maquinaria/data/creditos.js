@@ -1,0 +1,94 @@
+/* Generado por tools/descargar_fotos.py — créditos de fotos (Wikimedia Commons) */
+window.CREDITOS_FOTOS = {
+  "EXC-01": {
+    "archivo": "File:2023-02-13 - JCB JS220LC hydraulic excavator - 01.jpg",
+    "autor": "Oto Zapletal",
+    "licencia": "CC BY-SA 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:2023-02-13_-_JCB_JS220LC_hydraulic_excavator_-_01.jpg"
+  },
+  "EXC-02": {
+    "archivo": "File:Caterpillar 302.7D excavator on Barrow Street.jpg",
+    "autor": "Grendelkhan",
+    "licencia": "CC BY-SA 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Caterpillar_302.7D_excavator_on_Barrow_Street.jpg"
+  },
+  "RET-01": {
+    "archivo": "File:Terex TLB 825 in Saint Petersburg.jpg",
+    "autor": "Dmitry Ivanov.",
+    "licencia": "CC BY-SA 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Terex_TLB_825_in_Saint_Petersburg.jpg"
+  },
+  "RET-02": {
+    "archivo": "File:Caterpillar backhoe loader at construction site in Sunnyvale, back view.jpg",
+    "autor": "Grendelkhan",
+    "licencia": "CC BY-SA 3.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Caterpillar_backhoe_loader_at_construction_site_in_Sunnyvale,_back_view.jpg"
+  },
+  "CAR-01": {
+    "archivo": "File:Caterpillar 950k Wheel Loader.jpg",
+    "autor": "Matthew T Rader",
+    "licencia": "CC BY-SA 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Caterpillar_950k_Wheel_Loader.jpg"
+  },
+  "CAR-02": {
+    "archivo": "File:CASE 321F Compact Wheel Loader, Windsor, Ontario, 2025-06-23.jpg",
+    "autor": "Crisco 1492",
+    "licencia": "CC BY-SA 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:CASE_321F_Compact_Wheel_Loader,_Windsor,_Ontario,_2025-06-23.jpg"
+  },
+  "CAR-03": {
+    "archivo": "File:Bobcat T650 compact track loader (side view).jpg",
+    "autor": "Dmitry Ivanov.",
+    "licencia": "CC BY-SA 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Bobcat_T650_compact_track_loader_(side_view).jpg"
+  },
+  "MOT-01": {
+    "archivo": "File:Caterpillar motor grader left AGSEM.jpg",
+    "autor": "Eric Polk",
+    "licencia": "CC BY-SA 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Caterpillar_motor_grader_left_AGSEM.jpg"
+  },
+  "MOT-02": {
+    "archivo": "File:Budowa Velostrady nr 6 - odcinek Katowice Brynów - Katowice Brynów, wyrównywarka oraz walec podczas pracy.jpg",
+    "autor": "Krzysztof Popławski",
+    "licencia": "CC BY 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by/4.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Budowa_Velostrady_nr_6_-_odcinek_Katowice_Bryn%C3%B3w_-_Katowice_Bryn%C3%B3w,_wyr%C3%B3wnywarka_oraz_walec_podczas_pracy.jpg"
+  },
+  "COM-01": {
+    "archivo": "File:Caterpillar CB54B roller on dirt lot in Campbell.jpg",
+    "autor": "Grendelkhan",
+    "licencia": "CC BY-SA 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Caterpillar_CB54B_roller_on_dirt_lot_in_Campbell.jpg"
+  },
+  "COM-02": {
+    "archivo": "File:Ride-on roller compactor, an equipment for asphalt pavement, Canada.jpg",
+    "autor": "Marc-Lautenbacher",
+    "licencia": "CC BY-SA 4.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Ride-on_roller_compactor,_an_equipment_for_asphalt_pavement,_Canada.jpg"
+  },
+  "VOL-01": {
+    "archivo": "File:Dump Truck - geograph.org.uk - 6465555.jpg",
+    "autor": "Anthony O'Neil",
+    "licencia": "CC BY-SA 2.0",
+    "licencia_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Dump_Truck_-_geograph.org.uk_-_6465555.jpg"
+  },
+  "VOL-02": {
+    "archivo": "File:Mercedes-Benz Arocs - dump truck version (1).JPG",
+    "autor": "High Contrast",
+    "licencia": "CC BY 3.0 de",
+    "licencia_url": "https://creativecommons.org/licenses/by/3.0/de/deed.en",
+    "pagina": "https://commons.wikimedia.org/wiki/File:Mercedes-Benz_Arocs_-_dump_truck_version_(1).JPG"
+  }
+};

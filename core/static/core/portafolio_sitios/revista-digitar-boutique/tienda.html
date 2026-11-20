@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Revista Digitar — Boutique Erótica · Tienda para adultos</title>
+  <meta name="description" content="Boutique erótica y tienda para adultos: lencería, juguetes íntimos, cosmética, bienestar, juegos y accesorios. Pedidos y asesoría confidencial por WhatsApp. Solo mayores de 18 años.">
+  <meta name="rating" content="adult">
+  <meta name="theme-color" content="#1B0A11">
+  <meta property="og:title" content="Revista Digitar — Boutique Erótica">
+  <meta property="og:description" content="Compra · Explora · Disfruta. Pedidos discretos por WhatsApp. Solo mayores de 18 años.">
+  <meta property="og:image" content="img/logo/logo-digitar.png">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="img/logo/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="img/logo/favicon-64.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="img/logo/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Great+Vibes&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/tienda.css">
+</head>
+<body>
+  <a class="saltar" href="#catalogo">Saltar al catálogo</a>
+
+  <!-- ============ CONFIRMACIÓN DE EDAD ============ -->
+  <div class="edad" id="edad" role="dialog" aria-modal="true" aria-labelledby="edadTitulo" hidden>
+    <div class="edad__caja">
+      <img class="edad__logo" src="img/logo/logo-digitar.png" alt="Revista Digitar · Boutique erótica" width="150" height="150">
+      <div class="kicker">Boutique erótica · Tienda para adultos</div>
+      <h1 id="edadTitulo">Contenido exclusivo para mayores de 18 años</h1>
+      <p>Esta tienda presenta productos para adultos. Al ingresar confirmas que eres mayor de edad según la legislación de tu país.</p>
+      <div class="edad__botones" id="edadBotones">
+        <button class="btn-marca btn-marca--lg" id="edadSi">Soy mayor de 18 años · Entrar</button>
+        <button class="btn-linea" id="edadNo">Salir</button>
+      </div>
+      <p class="edad__salida" id="edadSalida" hidden>Gracias por tu visita. Este contenido no está disponible para menores de edad.</p>
+    </div>
+  </div>
+
+  <!-- ============ BARRA SUPERIOR ============ -->
+  <div class="topbar">
+    <div class="contenedor topbar__in">
+      <span><b class="sello18">+18</b> Solo adultos</span>
+      <span class="topbar__centro"><i class="bi bi-shield-lock"></i> Asesoría confidencial y pedidos por WhatsApp</span>
+      <span class="topbar__prueba" id="topPrueba" hidden>Datos de prueba</span>
+    </div>
+  </div>
+
+  <!-- ============ ENCABEZADO ============ -->
+  <header class="cabecera" id="cabecera">
+    <div class="contenedor cabecera__in">
+      <button class="icono-btn d-lg-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#menuMovil" aria-label="Abrir menú"><i class="bi bi-list"></i></button>
+      <a class="marca" href="#inicio" aria-label="Revista Digitar, inicio">
+        <img src="img/logo/logo-digitar.png" alt="" width="44" height="44">
+        <span class="marca__txt"><span class="script">Revista</span> Digitar<small>Boutique erótica</small></span>
+      </a>
+      <nav class="nav-principal d-none d-lg-flex" aria-label="Principal">
+        <a href="#colecciones">Colecciones</a>
+        <a href="#favoritos">Favoritos</a>
+        <a href="#catalogo">Catálogo</a>
+        <a href="#como-comprar">Cómo comprar</a>
+        <a href="#revista">Revista</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+      <div class="cabecera__acciones">
+        <button class="icono-btn" type="button" id="btnBuscar" aria-label="Buscar productos"><i class="bi bi-search"></i></button>
+        <button class="carrito-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#carrito" aria-label="Ver mi pedido">
+          <i class="bi bi-bag-heart"></i><span class="d-none d-sm-inline">Mi pedido</span>
+          <span class="carrito-btn__n" id="cuentaCarrito" aria-live="polite">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Menú móvil -->
+  <div class="offcanvas offcanvas-start menu-movil" tabindex="-1" id="menuMovil" aria-labelledby="menuMovilTitulo">
+    <div class="offcanvas-header">
+      <a class="marca" href="#inicio" data-bs-dismiss="offcanvas">
+        <img src="img/logo/logo-digitar.png" alt="" width="40" height="40">
+        <span class="marca__txt" id="menuMovilTitulo"><span class="script">Revista</span> Digitar<small>Boutique erótica</small></span>
+      </a>
+      <button type="button" class="icono-btn" data-bs-dismiss="offcanvas" aria-label="Cerrar menú"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="offcanvas-body">
+      <nav class="menu-movil__nav" aria-label="Menú móvil">
+        <a href="#colecciones" data-bs-dismiss="offcanvas"><i class="bi bi-grid"></i> Colecciones</a>
+        <a href="#favoritos" data-bs-dismiss="offcanvas"><i class="bi bi-heart"></i> Favoritos</a>
+        <a href="#catalogo" data-bs-dismiss="offcanvas"><i class="bi bi-bag"></i> Catálogo</a>
+        <a href="#como-comprar" data-bs-dismiss="offcanvas"><i class="bi bi-whatsapp"></i> Cómo comprar</a>
+        <a href="#revista" data-bs-dismiss="offcanvas"><i class="bi bi-book"></i> Revista</a>
+        <a href="#preguntas" data-bs-dismiss="offcanvas"><i class="bi bi-question-circle"></i> Preguntas frecuentes</a>
+        <a href="#contacto" data-bs-dismiss="offcanvas"><i class="bi bi-chat-heart"></i> Contacto</a>
+      </nav>
+      <div class="menu-movil__cols" id="menuColecciones"></div>
+    </div>
+  </div>
+
+  <main id="inicio">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="contenedor hero__in">
+        <div class="hero__texto">
+          <div class="kicker" id="heroKicker">Boutique erótica · Tienda para adultos</div>
+          <h1 class="hero__titulo"><span class="script">Explora</span> tu lado<br>más sensual</h1>
+          <p class="hero__eslogan" id="heroEslogan">Compra · Explora · Disfruta</p>
+          <p class="hero__desc" id="heroDesc"></p>
+          <div class="hero__ctas">
+            <a class="btn-marca btn-marca--lg" href="#catalogo"><i class="bi bi-bag-heart"></i> Ver catálogo</a>
+            <a class="btn-oro" href="revista.html"><i class="bi bi-book"></i> Hojear la revista</a>
+          </div>
+          <ul class="hero__datos">
+            <li><strong id="heroNumProd">30</strong><span>productos</span></li>
+            <li><strong id="heroNumCol">7</strong><span>colecciones</span></li>
+            <li><strong><i class="bi bi-whatsapp"></i></strong><span>pedido por WhatsApp</span></li>
+          </ul>
+        </div>
+        <div class="hero__arte" aria-hidden="true">
+          <div class="hero__halo"></div>
+          <img class="hero__logo" src="img/logo/logo-digitar.png" alt="" width="520" height="520">
+          <span class="hero__chip hero__chip--a"><i class="bi bi-shield-lock"></i> Asesoría confidencial</span>
+          <span class="hero__chip hero__chip--b"><i class="bi bi-whatsapp"></i> Pide en un mensaje</span>
+          <span class="hero__chip hero__chip--c"><i class="bi bi-journal-text"></i> Modo de uso en cada producto</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BENEFICIOS ============ -->
+    <section class="beneficios" aria-label="Por qué comprar con nosotros">
+      <div class="contenedor beneficios__in">
+        <div class="beneficio"><i class="bi bi-chat-heart"></i><div><strong>Asesoría personal</strong><span>Resolvemos tus dudas con respeto y confidencialidad.</span></div></div>
+        <div class="beneficio"><i class="bi bi-whatsapp"></i><div><strong>Pedido por WhatsApp</strong><span>Arma tu pedido aquí y envíalo en un solo mensaje.</span></div></div>
+        <div class="beneficio"><i class="bi bi-box2-heart"></i><div><strong>Entrega discreta</strong><span>Pregúntanos por las opciones de empaque y entrega.</span></div></div>
+        <div class="beneficio"><i class="bi bi-journal-text"></i><div><strong>Guía de uso</strong><span>Cada producto incluye cuándo y cómo usarlo.</span></div></div>
+      </div>
+    </section>
+
+    <!-- ============ COLECCIONES ============ -->
+    <section class="seccion" id="colecciones">
+      <div class="contenedor">
+        <div class="seccion__cab">
+          <div class="kicker">Colecciones de esta edición</div>
+          <h2>Encuentra lo que <em>deseas</em></h2>
+          <p>Siete colecciones pensadas para disfrutar a solas o en pareja.</p>
+        </div>
+        <div class="colecciones" id="gridColecciones"></div>
+      </div>
+    </section>
+
+    <!-- ============ FAVORITOS ============ -->
+    <section class="seccion seccion--oscura" id="favoritos">
+      <div class="contenedor">
+        <div class="seccion__cab">
+          <div class="kicker"><i class="bi bi-heart-fill"></i> Selección de la boutique</div>
+          <h2>Favoritos</h2>
+          <p>Las piezas más deseadas de esta edición.</p>
+        </div>
+        <div class="grid-productos grid-productos--fav" id="gridFavoritos"></div>
+      </div>
+    </section>
+
+    <!-- ============ CATÁLOGO ============ -->
+    <section class="seccion" id="catalogo">
+      <div class="contenedor">
+        <div class="seccion__cab seccion__cab--izq">
+          <div class="kicker">Tienda</div>
+          <h2>Catálogo completo</h2>
+        </div>
+
+        <div class="filtros" role="search">
+          <label class="buscador">
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <input type="search" id="busqueda" placeholder="Buscar por nombre, referencia o uso…" autocomplete="off" aria-label="Buscar productos">
+          </label>
+          <label class="orden">
+            <span>Ordenar</span>
+            <select id="orden" aria-label="Ordenar productos">
+              <option value="destacados">Destacados</option>
+              <option value="precio-asc">Precio: menor a mayor</option>
+              <option value="precio-desc">Precio: mayor a menor</option>
+              <option value="nombre">Nombre (A–Z)</option>
+            </select>
+          </label>
+        </div>
+        <div class="chips" id="chips" role="tablist" aria-label="Filtrar por colección"></div>
+        <p class="resultado" id="resultado" aria-live="polite"></p>
+        <div class="grid-productos" id="gridProductos"></div>
+        <div class="vacio" id="vacio" hidden>
+          <i class="bi bi-search-heart"></i>
+          <h3>No encontramos productos</h3>
+          <p>Prueba con otra palabra o escríbenos: te ayudamos a encontrar lo que buscas.</p>
+          <button class="btn-linea btn-linea--oscuro" id="limpiarFiltros">Ver todo el catálogo</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CÓMO COMPRAR ============ -->
+    <section class="seccion seccion--rosa" id="como-comprar">
+      <div class="contenedor">
+        <div class="seccion__cab">
+          <div class="kicker">Simple y discreto</div>
+          <h2>Cómo comprar</h2>
+          <p>Toda la compra se coordina por WhatsApp, directamente con nuestro equipo.</p>
+        </div>
+        <ol class="pasos">
+          <li><span class="pasos__n">1</span><i class="bi bi-bag-plus"></i><h3>Elige tus productos</h3><p>Agrégalos a tu pedido y ajusta las cantidades.</p></li>
+          <li><span class="pasos__n">2</span><i class="bi bi-whatsapp"></i><h3>Envía tu pedido</h3><p>Con un clic se abre WhatsApp con el detalle listo para enviar.</p></li>
+          <li><span class="pasos__n">3</span><i class="bi bi-chat-dots"></i><h3>Te confirmamos</h3><p>Validamos disponibilidad y te indicamos el total, el pago y la entrega.</p></li>
+          <li><span class="pasos__n">4</span><i class="bi bi-gift"></i><h3>Recibe y disfruta</h3><p>Sigue el modo de uso de cada producto y disfruta con responsabilidad.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============ REVISTA ============ -->
+    <section class="seccion" id="revista">
+      <div class="contenedor revista-promo">
+        <div class="revista-promo__portada" aria-hidden="true">
+          <div class="mini-revista">
+            <img src="img/logo/logo-digitar.png" alt="" width="260" height="260">
+            <span class="mini-revista__kicker">Boutique erótica</span>
+            <span class="mini-revista__titulo"><span class="script">Revista</span> Digitar</span>
+            <span class="mini-revista__esl">Compra · Explora · Disfruta</span>
+          </div>
+        </div>
+        <div class="revista-promo__texto">
+          <div class="kicker">Edición digital</div>
+          <h2>Hojea la <em>revista</em></h2>
+          <p>Todas las colecciones en formato revista, con efecto de pasar página, fichas completas y modo de uso de cada producto. Ideal para verla con calma o compartirla.</p>
+          <div class="hero__ctas">
+            <a class="btn-marca" href="revista.html"><i class="bi bi-book"></i> Abrir revista</a>
+            <a class="btn-linea btn-linea--oscuro" href="dist/catalogo.pdf" download><i class="bi bi-file-earmark-arrow-down"></i> Descargar PDF</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ PREGUNTAS ============ -->
+    <section class="seccion seccion--rosa" id="preguntas">
+      <div class="contenedor contenedor--angosto">
+        <div class="seccion__cab">
+          <div class="kicker">Resolvemos tus dudas</div>
+          <h2>Preguntas frecuentes</h2>
+        </div>
+        <div class="accordion faq" id="faq">
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true">¿Cómo hago mi pedido?</button></h3>
+            <div id="faq1" class="accordion-collapse collapse show" data-bs-parent="#faq"><div class="accordion-body">Agrega los productos a tu pedido, revisa las cantidades y pulsa <strong>«Enviar pedido por WhatsApp»</strong>. Se abrirá una conversación con el detalle listo; solo tienes que enviarlo. Nuestro equipo te responde para confirmar.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false">¿Mi compra es confidencial?</button></h3>
+            <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body" id="faqDiscrecion"></div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false">¿Cómo pago y cuándo recibo mi pedido?</button></h3>
+            <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Al confirmar tu pedido por WhatsApp te indicamos el total, los medios de pago disponibles y las opciones y tiempos de entrega para tu ciudad.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false">¿Los precios y la disponibilidad son definitivos?</button></h3>
+            <div id="faq4" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Los precios publicados están en pesos colombianos y pueden cambiar sin previo aviso. La disponibilidad se confirma al recibir tu pedido. Las imágenes marcadas como «Imagen ilustrativa» son de referencia.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false">¿Cómo sé usar cada producto?</button></h3>
+            <div id="faq5" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Cada producto tiene un <strong>modo de uso</strong>: cuándo usarlo, los pasos y una nota de cuidado. Son indicaciones orientativas: sigue siempre el manual o la etiqueta del fabricante, haz una prueba de sensibilidad antes del primer uso y suspende si notas irritación. Si tienes dudas, escríbenos.</div></div>
+          </div>
+          <div class="accordion-item">
+            <h3 class="accordion-header"><button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq6" aria-expanded="false">¿Quién puede comprar?</button></h3>
+            <div id="faq6" class="accordion-collapse collapse" data-bs-parent="#faq"><div class="accordion-body">Solo personas mayores de 18 años. Nos reservamos el derecho de no atender pedidos cuando no se cumpla esta condición.</div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTACTO ============ -->
+    <section class="seccion seccion--oscura" id="contacto">
+      <div class="contenedor">
+        <div class="seccion__cab">
+          <div class="kicker">Asesoría confidencial</div>
+          <h2>Hablemos</h2>
+          <p>Escríbenos sin compromiso: te asesoramos con respeto y total discreción.</p>
+        </div>
+        <div class="contacto" id="gridContacto"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ PIE ============ -->
+  <footer class="pie">
+    <div class="contenedor pie__in">
+      <div class="pie__marca">
+        <img src="img/logo/logo-digitar.png" alt="" width="84" height="84">
+        <div>
+          <div class="pie__nombre"><span class="script">Revista</span> Digitar</div>
+          <p>Boutique erótica · Tienda para adultos.<br>Compra · Explora · Disfruta.</p>
+        </div>
+      </div>
+      <nav class="pie__col" aria-label="Colecciones"><h3>Colecciones</h3><div id="pieColecciones"></div></nav>
+      <nav class="pie__col" aria-label="Tienda">
+        <h3>Tienda</h3>
+        <a href="#catalogo">Catálogo</a><a href="#favoritos">Favoritos</a><a href="#como-comprar">Cómo comprar</a>
+        <a href="revista.html">Revista digital</a><a href="dist/catalogo.pdf" download>Catálogo PDF</a>
+      </nav>
+      <div class="pie__col">
+        <h3>Uso responsable</h3>
+        <p class="pie__aviso"><b class="sello18">+18</b> <span id="pieAviso"></span></p>
+        <p class="pie__legal">Precios en pesos colombianos (COP), sujetos a cambio y a confirmación de disponibilidad. Imágenes ilustrativas. Sigue siempre las indicaciones del fabricante.</p>
+      </div>
+    </div>
+    <div class="pie__base"><div class="contenedor">© <span id="anio"></span> Revista Digitar · Boutique erótica</div></div>
+  </footer>
+
+  <!-- WhatsApp flotante + barra de pedido (móvil) -->
+  <a class="wa-flotante" id="waFlotante" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><i class="bi bi-whatsapp"></i></a>
+  <button class="barra-pedido" id="barraPedido" type="button" data-bs-toggle="offcanvas" data-bs-target="#carrito" hidden>
+    <span><i class="bi bi-bag-heart"></i> <b id="barraCant">0</b> productos</span>
+    <span>Ver pedido · <b id="barraTotal">$0</b></span>
+  </button>
+
+  <!-- ============ DETALLE DE PRODUCTO ============ -->
+  <div class="modal fade ficha" id="ficha" tabindex="-1" aria-labelledby="fichaNombre" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable modal-fullscreen-md-down">
+      <div class="modal-content">
+        <button type="button" class="icono-btn ficha__cerrar" data-bs-dismiss="modal" aria-label="Cerrar"><i class="bi bi-x-lg"></i></button>
+        <div class="modal-body p-0" id="fichaCuerpo"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ CARRITO / PEDIDO ============ -->
+  <div class="offcanvas offcanvas-end carrito" tabindex="-1" id="carrito" aria-labelledby="carritoTitulo">
+    <div class="offcanvas-header">
+      <div>
+        <div class="kicker">Pedido por WhatsApp</div>
+        <h2 class="offcanvas-title" id="carritoTitulo">Mi pedido</h2>
+      </div>
+      <button type="button" class="icono-btn" data-bs-dismiss="offcanvas" aria-label="Cerrar pedido"><i class="bi bi-x-lg"></i></button>
+    </div>
+    <div class="offcanvas-body">
+      <div id="carritoLista"></div>
+      <div class="carrito__vacio" id="carritoVacio">
+        <i class="bi bi-bag-heart"></i>
+        <h3>Tu pedido está vacío</h3>
+        <p>Explora el catálogo y agrega lo que te guste.</p>
+        <button class="btn-marca" data-bs-dismiss="offcanvas" data-ir="#catalogo">Ver catálogo</button>
+      </div>
+      <form class="carrito__datos" id="carritoDatos" autocomplete="on" hidden>
+        <h3><i class="bi bi-person-lock"></i> Datos para tu pedido <small>(opcional)</small></h3>
+        <label>Nombre o alias<input type="text" name="nombre" maxlength="60" placeholder="Como quieres que te llamemos"></label>
+        <label>Ciudad<input type="text" name="ciudad" maxlength="60" placeholder="Para cotizar la entrega"></label>
+        <fieldset>
+          <legend>Entrega</legend>
+          <label class="radio"><input type="radio" name="entrega" value="Envío a domicilio" checked> Envío a domicilio</label>
+          <label class="radio"><input type="radio" name="entrega" value="Recoger en tienda"> Recoger en tienda</label>
+        </fieldset>
+        <label>Nota<textarea name="nota" rows="2" maxlength="300" placeholder="Talla, color, horario para contactarte…"></textarea></label>
+      </form>
+    </div>
+    <div class="carrito__pie" id="carritoPie" hidden>
+      <div class="carrito__total"><span>Total estimado</span><strong id="carritoTotal">$0</strong></div>
+      <p class="carrito__nota"><i class="bi bi-info-circle"></i> Confirmamos disponibilidad, pago y entrega por WhatsApp.</p>
+      <a class="btn-wa" id="enviarPedido" href="#" target="_blank" rel="noopener"><i class="bi bi-whatsapp"></i> Enviar pedido por WhatsApp</a>
+      <button class="carrito__vaciar" id="vaciarCarrito" type="button"><i class="bi bi-trash3"></i> Vaciar pedido</button>
+    </div>
+  </div>
+
+  <!-- Aviso al agregar -->
+  <div class="aviso-toast" id="toast" role="status" aria-live="polite" hidden>
+    <i class="bi bi-check2-circle"></i><span id="toastTxt">Agregado</span>
+    <button type="button" data-bs-toggle="offcanvas" data-bs-target="#carrito">Ver pedido</button>
+  </div>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="data/productos.js"></script>
+  <script src="js/tienda.js"></script>
+</body>
+</html>

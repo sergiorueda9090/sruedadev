@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 56" role="img" aria-label="Oxi Smart Ingeniería">
+  <defs><clipPath id="o"><circle cx="28" cy="28" r="17.5"/></clipPath></defs>
+  <circle cx="28" cy="28" r="20" fill="none" stroke="#123B52" stroke-width="5"/>
+  <g clip-path="url(#o)">
+    <path d="M8 33c4.5-3 8.5-3 13 0s8.5 3 13 0 8.5-3 13 0V50H8z" fill="#13A6A0"/>
+    <path d="M8 37c4.5-3 8.5-3 13 0s8.5 3 13 0 8.5-3 13 0V50H8z" fill="#087EAA"/>
+  </g>
+  <circle cx="24" cy="23.5" r="3.4" fill="#087EAA"/>
+  <circle cx="32.5" cy="18.5" r="2.3" fill="#13A6A0"/>
+  <circle cx="30" cy="27.5" r="1.6" fill="#49A887"/>
+  <text x="58" y="29" font-family="Manrope, 'Segoe UI', Arial, sans-serif" font-weight="800" font-size="22" fill="#123B52" letter-spacing="-0.4">Oxi Smart</text>
+  <text x="58.5" y="46" font-family="Inter, 'Segoe UI', Arial, sans-serif" font-weight="500" font-size="12" fill="#087EAA" letter-spacing="1.6">Ingeniería</text>
+</svg>

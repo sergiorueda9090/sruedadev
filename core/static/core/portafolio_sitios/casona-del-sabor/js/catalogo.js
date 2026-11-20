@@ -111,6 +111,8 @@
   /* ---------- 3. índice (números se completan al final) ---------- */
   function indice() {
     const p = paginaInterior("Contenido");
+    // muchas categorías → filas más compactas para que el índice quepa en una página
+    if (D.categorias.length > 5) p.classList.add("indice--compacto");
     const items = D.categorias
       .map((c) => {
         const n = D.productos.filter((x) => x.categoria === c.id).length;

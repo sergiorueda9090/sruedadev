@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="42%" r="75%">
+      <stop offset="0" stop-color="#D63A78"/><stop offset="1" stop-color="#7A1436"/>
+    </radialGradient>
+    <style>
+      .m { fill: none; stroke: #FFF3F7; stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+      .m .d { stroke: #C9A45C; stroke-width: 4.5; }
+      .m g.d circle { fill: #C9A45C; stroke: none; }
+    </style>
+  </defs>
+  <rect width="800" height="500" fill="url(#g)"/>
+  <circle cx="400" cy="250" r="190" fill="none" stroke="#FFF3F7" stroke-opacity=".18" stroke-width="2"/>
+  <circle cx="400" cy="250" r="212" fill="none" stroke="#FFF3F7" stroke-opacity=".10" stroke-width="1.5" stroke-dasharray="3 9"/>
+  <g fill="#C9A45C" fill-opacity=".45">
+    <path transform="translate(110 90) scale(1.3)" d="M0 4 q-6 -7 -11 -1 q-3 5 11 13 q14 -8 11 -13 q-5 -6 -11 1"/>
+    <path transform="translate(690 120) scale(.9)" d="M0 4 q-6 -7 -11 -1 q-3 5 11 13 q14 -8 11 -13 q-5 -6 -11 1"/>
+    <path transform="translate(140 410) scale(.8)" d="M0 4 q-6 -7 -11 -1 q-3 5 11 13 q14 -8 11 -13 q-5 -6 -11 1"/>
+    <path transform="translate(665 395) scale(1.4)" d="M0 4 q-6 -7 -11 -1 q-3 5 11 13 q14 -8 11 -13 q-5 -6 -11 1"/>
+  </g>
+  <g fill="#FFF3F7" fill-opacity=".35">
+    <path transform="translate(220 70)" d="M0 -9 L2.5 -2.5 L9 0 L2.5 2.5 L0 9 L-2.5 2.5 L-9 0 L-2.5 -2.5 Z"/>
+    <path transform="translate(600 440) scale(.8)" d="M0 -9 L2.5 -2.5 L9 0 L2.5 2.5 L0 9 L-2.5 2.5 L-9 0 L-2.5 -2.5 Z"/>
+  </g>
+  <g class="m" transform="translate(400 250) scale(1.22)">
+  <path d="M-140 -60 h280 v35 a22 22 0 0 0 0 44 v35 h-280 v-35 a22 22 0 0 0 0 -44 Z"/>
+  <path d="M60 -60 v114" stroke-dasharray="10 10"/>
+  <path class="d" d="M-40 -10 q-22 -22 -36 -2 q-8 14 36 44 q44 -30 36 -44 q-14 -20 -36 2"/>
+  <path d="M-130 80 h260" opacity=".5"/>
+  </g>
+  <text x="400" y="482" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="700"
+        letter-spacing="3" fill="#FFF3F7" fill-opacity=".7">IMAGEN ILUSTRATIVA · JUE-04</text>
+</svg>

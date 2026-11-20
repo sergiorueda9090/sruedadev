@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <!-- LOGO DE PRUEBA — reemplazar por el logo oficial del cliente (no modificar el logo real) -->
+  <rect x="0" y="0" width="400" height="400" rx="88" fill="#22324A"/>
+  <!-- tres franjas: eléctrico, gasolina, pedales -->
+  <g transform="skewX(-18) translate(70 0)">
+    <rect x="70" y="96" width="44" height="160" rx="6" fill="#1554F0"/>
+    <rect x="128" y="96" width="44" height="160" rx="6" fill="#F26A1B"/>
+    <rect x="186" y="96" width="44" height="160" rx="6" fill="#13A06F"/>
+  </g>
+  <text x="200" y="318" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="44" font-weight="800" fill="#FFFFFF">Pidelibre Kids</text>
+  <text x="200" y="352" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="16" fill="#AFC0D6" letter-spacing="2">logo de prueba</text>
+</svg>

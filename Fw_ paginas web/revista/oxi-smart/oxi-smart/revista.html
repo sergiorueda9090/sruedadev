@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="es-CO">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revista digital — Oxi Smart Ingeniería</title>
+  <meta name="description" content="Catálogo digital tipo revista de Oxi Smart Ingeniería: aireadores, sistemas de oxigenación, tanques y equipos para piscicultura.">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="assets/css/catalogo-revista.css">
+  <!-- Visor de revista (efecto de pasar página + sonido) -->
+  <link rel="stylesheet" href="assets/css/revista.css">
+</head>
+<body class="modo-revista">
+  <main id="catalogo" aria-hidden="true"></main>
+
+  <div class="visor">
+    <div class="visor__cargando" id="cargando"><div class="spinner-border" role="status"></div><span>Preparando catálogo…</span></div>
+    <div class="visor__escenario" id="escenario">
+      <div id="libro"></div>
+    </div>
+
+    <nav class="visor__barra" aria-label="Navegación de la revista">
+      <button class="btn-visor" id="btnInicio" title="Portada"><i class="bi bi-chevron-bar-left"></i></button>
+      <button class="btn-visor" id="btnAnterior" title="Página anterior (←)"><i class="bi bi-chevron-left"></i></button>
+      <span class="visor__contador" id="contador">—</span>
+      <button class="btn-visor" id="btnSiguiente" title="Página siguiente (→)"><i class="bi bi-chevron-right"></i></button>
+      <button class="btn-visor" id="btnFin" title="Contraportada"><i class="bi bi-chevron-bar-right"></i></button>
+      <span class="visor__sep"></span>
+      <button class="btn-visor" id="btnZoomMenos" title="Alejar (−)"><i class="bi bi-zoom-out"></i></button>
+      <button class="visor__zoom" id="zoomNivel" title="Restablecer zoom (0)">100%</button>
+      <button class="btn-visor" id="btnZoomMas" title="Acercar (+) · también Ctrl + rueda o doble clic"><i class="bi bi-zoom-in"></i></button>
+      <span class="visor__sep"></span>
+      <button class="btn-visor" id="btnSonido" title="Silenciar sonido"><i class="bi bi-volume-up"></i></button>
+      <button class="btn-visor" id="btnPantalla" title="Pantalla completa"><i class="bi bi-arrows-fullscreen"></i></button>
+      <a class="btn-visor" href="dist/catalogo.pdf" download title="Descargar PDF"><i class="bi bi-file-earmark-arrow-down"></i></a>
+    </nav>
+  </div>
+
+  <script src="assets/vendor/page-flip/page-flip.browser.js"></script>
+  <script src="assets/js/revista.js"></script>
+  <script src="assets/vendor/qrcode/qrcode.js"></script>
+  <script src="assets/js/data/company.js"></script>
+  <script src="assets/js/data/categories.js"></script>
+  <script src="assets/js/data/products.js"></script>
+  <script src="assets/js/data/credits.js"></script>
+  <script src="assets/js/data/fichas-tecnicas.js"></script>
+  <script src="assets/js/catalogo-revista.js"></script>
+</body>
+</html>

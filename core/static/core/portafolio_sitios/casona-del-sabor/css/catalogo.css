@@ -83,7 +83,7 @@ h1, h2, h3, h4 { font-family: var(--f-display); color: var(--c-principal); margi
   border-bottom: 1px solid var(--c-linea);
 }
 .pagina__header .marca { display: flex; align-items: center; gap: 3mm; }
-.pagina__header img { height: 9mm; width: 9mm; object-fit: contain; }
+.pagina__header img { height: 10mm; width: 15mm; object-fit: contain; }
 .pagina__header .marca span {
   font-family: var(--f-display); font-weight: 600; font-size: 11pt; color: var(--c-principal);
 }
@@ -125,9 +125,9 @@ h1, h2, h3, h4 { font-family: var(--f-display); color: var(--c-principal); margi
   padding: 20mm;
 }
 .portada__logo {
-  width: 62mm; height: 62mm; object-fit: contain;
-  background: var(--c-fondo); border-radius: 50%; padding: 3mm;
-  margin-bottom: 12mm;
+  width: 150mm; height: 98mm; object-fit: contain;
+  filter: drop-shadow(0 1.5mm 3mm rgba(0,0,0,.35));
+  margin-bottom: 10mm;
 }
 .portada__kicker {
   font-size: 9pt; letter-spacing: .4em; text-transform: uppercase; color: var(--c-secundario);
@@ -175,6 +175,10 @@ h1, h2, h3, h4 { font-family: var(--f-display); color: var(--c-principal); margi
 .indice__nombre { font-family: var(--f-display); font-size: 17pt; font-weight: 600; color: var(--c-principal); }
 .indice__intro { color: var(--c-texto-suave); font-size: 9.5pt; }
 .indice__cuenta { font-size: 8pt; color: var(--c-texto-suave); }
+.indice--compacto .indice__titulo { margin-bottom: 5mm; }
+.indice--compacto .indice__item { padding: 3.2mm 0; gap: 5mm; }
+.indice--compacto .indice__icono { flex-basis: 11mm; height: 11mm; font-size: 13pt; }
+.indice--compacto .indice__nombre { font-size: 15pt; }
 .indice__pagina {
   margin-left: auto; font-family: var(--f-display); font-size: 20pt; font-weight: 800; color: var(--c-acento);
 }
@@ -221,8 +225,9 @@ h1, h2, h3, h4 { font-family: var(--f-display); color: var(--c-principal); margi
   display: flex; flex-direction: column;
   break-inside: avoid; page-break-inside: avoid;
 }
-.producto__foto-wrap { position: relative; aspect-ratio: 16 / 10; background: #F1E6D4; }
-.producto__foto { width: 100%; height: 100%; object-fit: cover; display: block; }
+.producto__foto-wrap { position: relative; aspect-ratio: 16 / 10; min-height: 0; overflow: hidden; background: #F1E6D4; }
+/* foto absoluta: el alto lo fija el recuadro 16:10, no el tamaño de la imagen (si no, la paginación se descuadra) */
+.producto__foto { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .producto__ref {
   position: absolute; top: 3mm; left: 3mm;
   background: rgba(43, 33, 24, .82); color: #fff;
@@ -275,7 +280,7 @@ h1, h2, h3, h4 { font-family: var(--f-display); color: var(--c-principal); margi
 .cierre h2 { color: #fff; font-size: 34pt; font-weight: 800; line-height: 1.1; margin: 8mm 0 6mm; }
 .cierre p { font-size: 12pt; max-width: 130mm; margin: 0 auto; }
 .cierre__logo {
-  width: 36mm; height: 36mm; object-fit: contain; background: var(--c-fondo); border-radius: 50%; padding: 2mm;
+  width: 105mm; height: 68mm; object-fit: contain; filter: drop-shadow(0 1.2mm 2.5mm rgba(0,0,0,.3));
 }
 .cierre__boton {
   display: inline-flex; align-items: center; gap: 3mm; margin-top: 12mm;

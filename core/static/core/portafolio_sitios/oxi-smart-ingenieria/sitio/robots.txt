@@ -1,0 +1,7 @@
+# Oxi Smart Ingeniería
+User-agent: *
+Allow: /
+Disallow: /tools/
+Disallow: /docs/
+
+Sitemap: https://www.oxismartingenieria.com/sitemap.xml

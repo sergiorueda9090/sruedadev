@@ -1,0 +1,261 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Título, descripción, Open Graph y JSON-LD se completan desde data/menu.js (js/sitio.js) -->
+  <title>Humo &amp; Pan · Burger Bar</title>
+  <meta name="description" content="Hamburguesas a la plancha, sándwiches y acompañamientos. Mira la carta y pide por WhatsApp.">
+  <meta property="og:type" content="restaurant">
+  <meta property="og:title" content="Humo &amp; Pan · Burger Bar">
+  <meta property="og:description" content="Mira nuestra carta y pide por WhatsApp.">
+  <meta property="og:image" content="img/productos/ham-02.jpg">
+  <meta name="theme-color" content="#151515">
+  <link rel="icon" href="img/logo/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="icon" href="img/logo/favicon-64.png" type="image/png" sizes="64x64">
+  <link rel="apple-touch-icon" href="img/logo/apple-touch-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Oswald:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="vendor/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="vendor/bootstrap-icons/bootstrap-icons.min.css">
+  <link rel="stylesheet" href="css/sitio.css">
+</head>
+<body data-bs-spy="scroll" data-bs-target="#nav" data-bs-offset="80">
+
+  <div id="aviso-prueba" class="aviso-prueba d-none">⚠ SITIO DE PRUEBA · datos, precios y fotos de referencia</div>
+
+  <!-- NAVEGACIÓN -->
+  <nav id="nav" class="navbar navbar-expand-lg navbar-dark sticky-top nav-sitio">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#inicio">
+        <img id="nav-logo" src="" alt="" width="40" height="40"><span id="nav-nombre"></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav" aria-controls="menuNav" aria-expanded="false" aria-label="Abrir menú">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="menuNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#carta">Carta</a></li>
+          <li class="nav-item"><a class="nav-link" href="#menu">Menú</a></li>
+          <li class="nav-item"><a class="nav-link" href="#nosotros">Nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#ubicacion">Ubicación</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contacto">Contacto</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-wa" href="#menu"><i class="bi bi-bag-plus-fill"></i> Pedir</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <header id="inicio" class="hero tiza">
+      <div class="container position-relative">
+        <div class="row align-items-center g-4">
+          <div class="col-lg-6 text-center text-lg-start">
+            <div id="estado-abierto" class="estado"></div>
+            <h1 class="hero__titulo" id="hero-nombre"></h1>
+            <div class="hero__sub" id="hero-sub"></div>
+            <p class="hero__eslogan" id="hero-eslogan"></p>
+            <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+              <a class="btn btn-wa btn-lg" href="#menu"><i class="bi bi-bag-plus-fill"></i> Arma tu pedido</a>
+              <a class="btn btn-kraft btn-lg" href="#carta"><i class="bi bi-book"></i> Ver la carta</a>
+            </div>
+            <ul class="hero__datos" id="hero-datos"></ul>
+          </div>
+          <div class="col-lg-6">
+            <img class="hero__foto" id="hero-foto" src="" alt="">
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- SERVICIOS -->
+    <section class="servicios-banda">
+      <div class="container d-flex flex-wrap justify-content-center gap-3" id="servicios"></div>
+    </section>
+
+    <!-- RECOMENDADOS -->
+    <section id="recomendados" class="seccion kraft">
+      <div class="container">
+        <div class="text-center mb-5"><h2 class="cinta">★★ Los más pedidos ★★</h2></div>
+        <div class="row g-4 justify-content-center" id="reco"></div>
+      </div>
+    </section>
+
+    <!-- CARTA DIGITAL (revista) -->
+    <section id="carta" class="seccion tiza">
+      <div class="container">
+        <div class="text-center mb-4">
+          <h2 class="cinta cinta--kraft">★★ Nuestra carta ★★</h2>
+          <p class="mt-3 sub">Pasa las páginas como una revista. Toca <b>Pedir</b> en cualquier producto y se suma a tu pedido.</p>
+        </div>
+        <div class="marco-revista">
+          <iframe id="iframe-revista" src="revista.html" title="Carta digital tipo revista" loading="lazy" allow="fullscreen"></iframe>
+        </div>
+        <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
+          <a class="btn btn-kraft" href="revista.html" target="_blank" rel="noopener"><i class="bi bi-arrows-fullscreen"></i> Abrir en pantalla completa</a>
+          <a class="btn btn-outline-light" href="dist/menu.pdf" download><i class="bi bi-file-earmark-arrow-down"></i> Descargar PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MENÚ RÁPIDO (texto, buscable) -->
+    <section id="menu" class="seccion kraft">
+      <div class="container">
+        <div class="text-center mb-4"><h2 class="cinta">★★ Menú rápido ★★</h2></div>
+        <div class="buscador mx-auto mb-3">
+          <i class="bi bi-search"></i>
+          <input id="buscar" type="search" class="form-control" placeholder="Busca un plato o ingrediente (ej. pollo, queso)…" aria-label="Buscar en el menú">
+        </div>
+        <div class="filtros d-flex flex-wrap justify-content-center gap-2 mb-4" id="filtros"></div>
+        <div class="row g-3" id="lista-menu"></div>
+        <p class="text-center mt-4 d-none" id="sin-resultados">No encontramos productos con esa búsqueda.</p>
+      </div>
+    </section>
+
+    <!-- NOSOTROS + GALERÍA -->
+    <section id="nosotros" class="seccion tiza">
+      <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+          <div class="col-lg-5">
+            <h2 class="cinta cinta--kraft mb-4">★★ Nosotros ★★</h2>
+            <p class="nosotros__texto" id="nosotros-texto"></p>
+            <dl class="nosotros__ficha" id="nosotros-ficha"></dl>
+          </div>
+          <div class="col-lg-7"><div class="galeria" id="galeria"></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- UBICACIÓN -->
+    <section id="ubicacion" class="seccion kraft">
+      <div class="container">
+        <div class="text-center mb-5"><h2 class="cinta">★★ Ubicación ★★</h2></div>
+        <div class="row g-4">
+          <div class="col-lg-7">
+            <div class="mapa"><iframe id="mapa" title="Mapa de ubicación" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
+          </div>
+          <div class="col-lg-5">
+            <div class="panel">
+              <h3><i class="bi bi-geo-alt-fill"></i> Dirección</h3>
+              <p id="ubi-direccion" class="mb-1"></p>
+              <p id="ubi-referencia" class="small mb-3"></p>
+              <div class="d-flex flex-wrap gap-2 mb-4">
+                <a id="btn-maps" class="btn btn-dark" target="_blank" rel="noopener"><i class="bi bi-google"></i> Cómo llegar</a>
+                <a id="btn-waze" class="btn btn-waze" target="_blank" rel="noopener"><i class="bi bi-sign-turn-right-fill"></i> Waze</a>
+              </div>
+              <h3><i class="bi bi-clock-fill"></i> Horario</h3>
+              <table class="tabla-horario" id="tabla-horario"></table>
+              <h3 class="mt-4"><i class="bi bi-bicycle"></i> Domicilios</h3>
+              <p id="ubi-domicilio"></p>
+              <h3 class="mt-4"><i class="bi bi-credit-card-2-front"></i> Medios de pago</h3>
+              <div id="ubi-pagos"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESEÑAS -->
+    <section id="resenas" class="seccion tiza">
+      <div class="container text-center">
+        <h2 class="cinta cinta--kraft mb-4">★★ ¿Ya nos visitaste? ★★</h2>
+        <p class="sub mb-4">Tu opinión ayuda a otros a encontrarnos.</p>
+        <div id="resenas-cta"></div>
+      </div>
+    </section>
+
+    <!-- CONTACTO -->
+    <section id="contacto" class="seccion kraft">
+      <div class="container">
+        <div class="text-center mb-5"><h2 class="cinta">★★ Contacto ★★</h2></div>
+        <div class="row g-4 align-items-center justify-content-center">
+          <div class="col-md-6 col-lg-5"><div class="d-grid gap-3" id="contacto-lista"></div></div>
+          <div class="col-md-5 col-lg-3 text-center">
+            <div class="qr-web mx-auto" id="qr-web"></div>
+            <p class="mt-2 fw-semibold">Escanea y pide por WhatsApp</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie tiza">
+    <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+      <div class="d-flex align-items-center gap-2"><img id="pie-logo" src="" alt="" width="36" height="36"><span id="pie-nombre"></span></div>
+      <div id="pie-redes" class="d-flex gap-3 fs-4"></div>
+      <small id="pie-credito"></small>
+    </div>
+  </footer>
+
+  <!-- Botón flotante de WhatsApp -->
+  <a class="wa-flotante js-wa" href="#" target="_blank" rel="noopener" aria-label="Escribir por WhatsApp"><i class="bi bi-whatsapp"></i></a>
+
+  <!-- CARRITO: barra inferior -->
+  <button type="button" id="barra-carrito" class="barra-carrito" data-bs-toggle="offcanvas" data-bs-target="#panel-carrito" aria-controls="panel-carrito">
+    <span class="barra-carrito__icono"><i class="bi bi-bag-fill"></i><span id="barra-cant">0</span></span>
+    <span class="barra-carrito__texto">Ver mi pedido</span>
+    <span class="barra-carrito__total" id="barra-total">$0</span>
+  </button>
+  <div id="toast-carrito" class="toast-carrito" role="status" aria-live="polite"></div>
+
+  <!-- CARRITO: panel lateral -->
+  <div class="offcanvas offcanvas-end panel-carrito" tabindex="-1" id="panel-carrito" aria-labelledby="titulo-carrito">
+    <div class="offcanvas-header">
+      <h2 class="offcanvas-title" id="titulo-carrito"><i class="bi bi-bag-fill"></i> Tu pedido</h2>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Cerrar"></button>
+    </div>
+    <div class="offcanvas-body">
+      <div id="carrito-lista"></div>
+      <div class="carrito-totales">
+        <div class="d-flex justify-content-between"><span>Subtotal</span><b id="carrito-subtotal">$0</b></div>
+        <small id="carrito-aviso-precio" class="d-none">Hay productos con precio por confirmar.</small>
+        <small id="aviso-domicilio" class="d-none">El costo del domicilio se confirma por WhatsApp.</small>
+        <button type="button" id="btn-vaciar" class="btn btn-link btn-sm p-0 mt-1 d-none">Vaciar pedido</button>
+      </div>
+
+      <form id="form-pedido" class="mt-3" novalidate>
+        <label class="form-label">¿Cómo lo quieres?</label>
+        <div class="d-flex flex-wrap gap-2 mb-3" id="opciones-entrega" role="group"></div>
+
+        <div class="mb-3">
+          <label class="form-label" for="nombre">Tu nombre</label>
+          <input class="form-control" id="nombre" autocomplete="name" required maxlength="60">
+          <div class="invalid-feedback">Escribe tu nombre.</div>
+        </div>
+        <div class="mb-3" id="grupo-direccion">
+          <label class="form-label" for="direccion">Dirección de entrega</label>
+          <input class="form-control" id="direccion" autocomplete="street-address" maxlength="120" placeholder="Calle, número, barrio, apto">
+          <div class="invalid-feedback">Escribe la dirección para el domicilio.</div>
+        </div>
+        <div class="mb-3" id="grupo-pago"></div>
+        <div class="mb-3">
+          <label class="form-label" for="notas">Notas generales del pedido <span class="text-muted">(opcional)</span></label>
+          <textarea class="form-control" id="notas" rows="2" maxlength="300" placeholder="Ej. salsas aparte, tocar el timbre, traer cubiertos"></textarea>
+          <div class="form-text">Para un producto en particular usa “Agregar nota a este producto” arriba.</div>
+        </div>
+
+        <button type="submit" id="btn-enviar" class="btn btn-wa btn-lg w-100" disabled>
+          <i class="bi bi-whatsapp"></i> Enviar pedido por WhatsApp
+        </button>
+        <p class="small text-center mt-2 mb-0 text-muted">Se abrirá WhatsApp con tu pedido listo para enviar.</p>
+      </form>
+
+      <div id="carrito-enviado" class="carrito-enviado d-none">
+        <i class="bi bi-check-circle-fill"></i>
+        <p class="mb-2"><b>¡Listo!</b> Envía el mensaje en WhatsApp para confirmar tu pedido.</p>
+        <button type="button" id="btn-nuevo" class="btn btn-outline-dark btn-sm">Empezar un pedido nuevo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="vendor/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="vendor/qrcode/qrcode.js"></script>
+  <script src="data/menu.js"></script>
+  <script src="js/carrito.js"></script>
+  <script src="js/sitio.js"></script>
+</body>
+</html>

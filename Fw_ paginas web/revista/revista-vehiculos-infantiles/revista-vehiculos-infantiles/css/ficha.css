@@ -1,0 +1,142 @@
+/* =========================================================================
+   FICHA TÉCNICA — "Plano de taller" (js/ficha.js)
+   Misma identidad "Pit lane": el color de la propulsión (--c-borde) dibuja
+   la cuadrícula, las cotas y las barras. Archivo ancha para las cifras.
+   Lo memorable es el plano acotado; todo lo demás va quieto.
+   ========================================================================= */
+.ficha-tec { margin-top: 4.5rem; --c: var(--c-borde, var(--pizarra)); }
+.ficha-tec__cabeza { display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem; margin-bottom: 1.2rem; }
+.ficha-tec__cabeza .titulo { margin-bottom: .15rem; }
+.ficha-tec__de { color: var(--pizarra-suave); margin: 0; }
+.ficha-tec__imprimir { font-size: .95rem; }
+
+/* hoja: plano arriba; placa y comparación debajo */
+.ficha-tec__hoja { border: 1px solid var(--linea); border-top: 8px solid var(--c); border-radius: var(--radio); overflow: hidden; background: var(--blanco); }
+.ficha-tec__bajo { display: grid; grid-template-columns: minmax(280px, .85fr) minmax(0, 1.15fr); border-top: 1px solid var(--linea); }
+.ficha-tec__bajo > :only-child { grid-column: 1 / -1; }
+@media (max-width: 991.98px) { .ficha-tec__bajo { grid-template-columns: 1fr; } }
+
+/* ---------- plano ---------- */
+.plano {
+  position: relative; padding: 1.6rem 1.6rem 1.2rem;
+  /* papel de plano: cuadrícula fina cada 16 px y gruesa cada 80 px en el color de la propulsión */
+  --cuad: color-mix(in srgb, var(--c) 9%, transparent);
+  --cuad-2: color-mix(in srgb, var(--c) 17%, transparent);
+  background:
+    linear-gradient(var(--cuad-2) 1px, transparent 1px) 0 0 / 80px 80px,
+    linear-gradient(90deg, var(--cuad-2) 1px, transparent 1px) 0 0 / 80px 80px,
+    linear-gradient(var(--cuad) 1px, transparent 1px) 0 0 / 16px 16px,
+    linear-gradient(90deg, var(--cuad) 1px, transparent 1px) 0 0 / 16px 16px,
+    var(--pista);
+  display: grid; gap: .6rem; align-content: start;
+}
+.plano__vistas { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem 2.4rem; align-items: end; }
+@media (max-width: 767.98px) { .plano__vistas { grid-template-columns: 1fr; } }
+.plano__vista { margin: 0; }
+.plano__vista svg { display: block; width: 100%; height: auto; overflow: visible; }
+.plano__vista figcaption { font-size: .82rem; font-weight: 600; color: var(--pizarra-suave); padding-left: calc(84 / 640 * 100%); margin-top: -.2rem; }
+.plano__caja { fill: none; stroke: var(--c); stroke-width: 1; stroke-dasharray: 4 5; opacity: .45; }
+.plano__foto { mix-blend-mode: multiply; }
+.plano__guia { fill: none; stroke: var(--c); stroke-width: 1; stroke-dasharray: 3 4; opacity: .7; }
+.plano__huella { fill: color-mix(in srgb, var(--c) 5%, var(--blanco)); stroke: var(--c); stroke-width: 2; }
+.plano__llanta { fill: var(--pizarra); opacity: .82; }
+.plano__eje { stroke: var(--c); stroke-width: 1; stroke-dasharray: 14 5 3 5; opacity: .5; }
+.cota path { fill: none; stroke: var(--c); stroke-width: 2.5; stroke-linecap: round; }
+.cota__num { font-family: var(--f); font-weight: 800; font-stretch: 122%; font-size: 26px; fill: var(--pizarra); font-variant-numeric: tabular-nums; }
+.cota__nom { font-weight: 500; font-stretch: 100%; font-size: 16px; fill: var(--pizarra-suave); }
+.plano__nota { font-size: .8rem; color: var(--pizarra-suave); max-width: 60ch; margin: .4rem 0 0; }
+
+/* un solo momento de movimiento: las cotas se trazan al llegar al plano */
+.plano--animar .cota path { stroke-dasharray: 1; stroke-dashoffset: 1; transition: stroke-dashoffset .9s cubic-bezier(.6, 0, .2, 1); }
+.plano--animar .cota text { opacity: 0; transition: opacity .5s ease .7s; }
+.plano--animar .plano__vista + .plano__vista .cota path { transition-delay: .45s; }
+.plano--animar .plano__vista + .plano__vista .cota text { transition-delay: 1.15s; }
+.plano--visible .cota path { stroke-dashoffset: 0; }
+.plano--visible .cota text { opacity: 1; }
+
+/* sin medidas: la foto sobre la cuadrícula y la invitación a pedirlas */
+.plano__marco { position: relative; height: clamp(240px, 34vw, 400px); }
+.plano__marco img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; mix-blend-mode: multiply; }
+.plano__pendiente { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem 1rem; margin: 0; font-weight: 600; }
+.plano__pendiente a { display: inline-flex; align-items: center; gap: .35rem; color: var(--pizarra); font-weight: 700; }
+
+/* ---------- placa de identificación ---------- */
+.placa { position: relative; padding: 1.6rem 1.6rem 1.4rem; }
+/* remaches de la placa */
+.placa::before, .placa::after {
+  content: ""; position: absolute; top: .8rem; width: 9px; height: 9px; border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, var(--blanco), var(--linea) 70%); box-shadow: 0 0 0 1px var(--linea);
+}
+.placa::before { left: .8rem; }
+.placa::after { right: .8rem; }
+.placa__cabeza { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding-bottom: 1rem; border-bottom: 2px solid var(--pizarra); }
+.placa__ref { font-weight: 800; font-stretch: 125%; font-size: clamp(1.7rem, 3vw, 2.3rem); line-height: 1; letter-spacing: -.01em; font-variant-numeric: tabular-nums; }
+.placa__datos { margin: 0; }
+.placa__datos div { display: grid; grid-template-columns: 9.5rem 1fr; gap: .8rem; padding: .62rem 0; border-bottom: 1px solid var(--linea); }
+.placa__datos dt { font-weight: 500; color: var(--pizarra-suave); font-size: .92rem; }
+.placa__datos dd { margin: 0; font-weight: 700; font-stretch: 108%; }
+.placa__colores { margin-top: 1.2rem; }
+.placa__colores p { font-weight: 700; margin: 0 0 .6rem; }
+.placa__colores ul { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: .6rem; }
+.placa__color { width: 100%; border: 2px solid var(--linea); border-radius: 8px; background: var(--blanco); padding: 0 0 .45rem; cursor: pointer; text-align: left; overflow: hidden; color: var(--pizarra); }
+.placa__color:hover { border-color: var(--pizarra); }
+.placa__color img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: contain; padding: 6px; background: var(--pista); mix-blend-mode: multiply; }
+.placa__color span { display: flex; align-items: center; gap: .4rem; padding: .45rem .5rem 0; font-size: .85rem; font-weight: 600; }
+.placa__color i { flex: none; width: 12px; height: 12px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(34, 50, 74, .2); }
+
+/* ---------- frente al catálogo ---------- */
+.ficha-tec__compara { display: grid; gap: 2.2rem; align-content: start; padding: 1.6rem; border-left: 1px solid var(--linea); }
+@media (max-width: 991.98px) { .ficha-tec__compara { border-left: 0; border-top: 1px solid var(--linea); } }
+.compara h3, .puerta h3, .faltan h3 { font-weight: 800; font-stretch: 115%; font-size: 1.3rem; margin-bottom: .2rem; }
+.compara__sub, .puerta__sub, .faltan p { color: var(--pizarra-suave); font-size: .95rem; margin: 0 0 .9rem; }
+.compara__lista { list-style: none; padding: 0; margin: 0; }
+.compara__lista li { display: grid; grid-template-columns: minmax(0, 13rem) 1fr 4.6rem; align-items: center; gap: .9rem; padding: .32rem 0; font-size: .92rem; }
+.compara__nombre { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.compara__nombre a { color: var(--pizarra-suave); text-decoration: none; }
+.compara__nombre a:hover { color: var(--pizarra); text-decoration: underline; }
+.compara__barra { height: 10px; background: var(--pista); border-radius: 3px; overflow: hidden; }
+.compara__barra i { display: block; height: 100%; width: calc(var(--v) * 100%); background: var(--pista-2); border-radius: 3px; box-shadow: inset 0 0 0 1px var(--linea); }
+.compara__valor { text-align: right; font-weight: 600; color: var(--pizarra-suave); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.compara__lista .es-este .compara__barra i { background: var(--c); box-shadow: none; }
+.compara__lista .es-este .compara__valor { color: var(--pizarra); font-weight: 800; font-stretch: 115%; }
+@media (max-width: 575.98px) {
+  .compara__lista li { grid-template-columns: 1fr auto; row-gap: .25rem; }
+  .compara__barra { grid-column: 1 / -1; grid-row: 2; }
+}
+
+/* ---------- utilidades: puerta y datos que faltan ---------- */
+.ficha-tec__util { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 380px), 1fr)); gap: 2rem 3rem; margin-top: 2.6rem; padding-top: 2.2rem; border-top: 1px solid var(--linea); }
+.puerta__campo { display: grid; gap: .3rem; font-weight: 600; font-size: .92rem; }
+.puerta__input { display: inline-flex; align-items: baseline; gap: .5rem; border-bottom: 2px solid var(--pizarra); width: max-content; padding-bottom: .1rem; }
+.puerta__input input {
+  width: 4.2ch; border: 0; background: transparent; color: var(--pizarra); padding: 0;
+  font-family: var(--f); font-weight: 800; font-stretch: 125%; font-size: 2.6rem; line-height: 1; font-variant-numeric: tabular-nums; -moz-appearance: textfield;
+}
+.puerta__input input::-webkit-outer-spin-button, .puerta__input input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+.puerta__input input:focus-visible { outline: none; }
+.puerta__input:focus-within { border-bottom-color: var(--c); box-shadow: 0 2px 0 var(--c); }
+.puerta__input > span { font-weight: 700; font-size: 1.1rem; color: var(--pizarra-suave); }
+.puerta__res { margin: 1rem 0 0; padding: .7rem .9rem; border-left: 5px solid var(--linea); background: var(--pista); border-radius: 0 6px 6px 0; font-weight: 600; max-width: 52ch; }
+.puerta__res.si { border-left-color: var(--pedales); }
+.puerta__res.casi { border-left-color: var(--gasolina); }
+.puerta__res.no { border-left-color: var(--prueba); }
+.faltan ul { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: .5rem; }
+.faltan a { display: inline-flex; align-items: center; gap: .4rem; text-decoration: none; font-weight: 600; font-size: .92rem; border: 2px solid var(--linea); border-radius: 50rem; padding: .38rem .9rem; color: var(--pizarra); }
+.faltan a i { color: var(--whatsapp); }
+.faltan a:hover { border-color: var(--whatsapp); }
+.ficha-tec__fuente { font-size: .8rem; font-style: italic; color: var(--pizarra-suave); margin: 2rem 0 0; }
+
+/* ---------- imprimir solo la ficha ---------- */
+@media print {
+  @page { size: A4; margin: 12mm; }
+  body.imprimiendo-ficha { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  body.imprimiendo-ficha .aviso-prueba, body.imprimiendo-ficha #cabecera, body.imprimiendo-ficha #pie,
+  body.imprimiendo-ficha .migas, body.imprimiendo-ficha .pdp, body.imprimiendo-ficha .relacionados,
+  body.imprimiendo-ficha .ficha-tec__imprimir, body.imprimiendo-ficha .ficha-tec__util, body.imprimiendo-ficha .saltar,
+  body.imprimiendo-ficha .aviso { display: none !important; }
+  body.imprimiendo-ficha .ficha-tec { margin-top: 0; }
+  body.imprimiendo-ficha .plano__vistas { grid-template-columns: 1fr 1fr; }
+  body.imprimiendo-ficha .ficha-tec__bajo { grid-template-columns: .85fr 1.15fr; break-inside: avoid; }
+  body.imprimiendo-ficha .ficha-tec__compara { border-top: 0; border-left: 1px solid var(--linea); }
+  body.imprimiendo-ficha .compara__nombre a { color: var(--pizarra); }
+}

@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="400" height="400">
+  <circle cx="200" cy="200" r="190" fill="#FBF6EE" stroke="#7A2E1F" stroke-width="8"/>
+  <circle cx="200" cy="200" r="168" fill="none" stroke="#E9B44C" stroke-width="3" stroke-dasharray="10 8"/>
+  <text x="200" y="182" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-weight="700" fill="#7A2E1F">LOGO</text>
+  <text x="200" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#2B2118" letter-spacing="3">DE PRUEBA</text>
+  <text x="200" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#3E6B48">reemplazar por el oficial</text>
+</svg>

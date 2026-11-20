@@ -1,0 +1,455 @@
+/* =========================================================================
+   OXI SMART — CATÁLOGO A4 (PDF + revista)
+   Usado por index_revista.html (PDF) y revista.html (visor con efecto de hoja).
+   1. Tokens  2. Base  3. Página A4  4. Portada  5. Empresa  6. Índice
+   7. Destacados  8. Banda de categoría y ficha  9. Cómo cotizar  10. Cierre
+   11. Botones y estados  12. Impresión y pliegos
+   ========================================================================= */
+
+/* 1. TOKENS --------------------------------------------------------------- */
+:root {
+  --oxi-deep: #123B52;
+  --oxi-deep-2: #0B2A3B;
+  --oxi-blue: #087EAA;
+  --oxi-teal: #13A6A0;
+  --oxi-green: #49A887;
+  --oxi-green-ink: #2B7A5F;
+  --oxi-mist: #F3F6F8;
+  --oxi-water: #E6F4F6;
+  --oxi-ink: #465563;
+  --oxi-ink-soft: #6B7C89;
+  --oxi-line: #DCE4EA;
+  --pendiente: #A15C07;
+  --pendiente-bg: #FFF5E5;
+
+  --f-titulo: "Manrope", "Segoe UI", Arial, sans-serif;
+  --f-texto: "Inter", "Segoe UI", Arial, sans-serif;
+
+  /* nombres que usa el visor compartido (assets/css/revista.css) */
+  --c-principal: var(--oxi-deep);
+  --c-secundario: var(--oxi-teal);
+  --c-fondo: #FFFFFF;
+
+  --mx: 14mm;
+}
+
+/* 2. BASE ----------------------------------------------------------------- */
+* { -webkit-print-color-adjust: exact; print-color-adjust: exact; box-sizing: border-box; }
+body { margin: 0; background: #2C3E4C; color: var(--oxi-ink); font-family: var(--f-texto); font-size: 10.8pt; line-height: 1.5; }
+#catalogo { display: flex; flex-direction: column; align-items: center; gap: 10mm; padding: 10mm 0; }
+h1, h2, h3, h4, p, dl, dd, ul { margin: 0; }
+h1, h2, h3 { font-family: var(--f-titulo); color: var(--oxi-deep); font-weight: 800; letter-spacing: -.02em; line-height: 1.1; }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+.kicker { display: inline-flex; align-items: center; gap: 2mm; font-family: var(--f-texto); font-weight: 600; font-size: 9.2pt; letter-spacing: .14em; text-transform: uppercase; color: var(--oxi-blue); }
+.kicker::before { content: ""; width: 7mm; height: .6mm; background: var(--oxi-teal); border-radius: 1mm; }
+.kicker--claro { color: #9FE3DF; }
+.kicker--claro::before { background: #9FE3DF; }
+.titulo-pagina { font-size: 25pt; margin: 2.5mm 0 6mm; }
+.titulo-pagina em { font-style: normal; color: var(--oxi-blue); }
+
+/* 3. PÁGINA A4 ------------------------------------------------------------ */
+.pagina {
+  position: relative; width: 210mm; height: 297mm; overflow: hidden; background: #fff;
+  box-shadow: 0 6px 30px rgba(0,0,0,.35);
+  break-after: page; page-break-after: always; break-inside: avoid;
+  display: flex; flex-direction: column;
+}
+.pagina__header {
+  flex: 0 0 auto; height: 18mm; margin: 0 var(--mx); display: flex; align-items: center; justify-content: space-between;
+  border-bottom: .3mm solid var(--oxi-line);
+}
+.marca { display: flex; align-items: center; gap: 2.5mm; }
+.marca img { width: 8mm; height: 8mm; }
+.marca b { font-family: var(--f-titulo); font-weight: 800; color: var(--oxi-deep); font-size: 12.1pt; letter-spacing: -.01em; }
+.marca span { font-size: 8.6pt; color: var(--oxi-blue); font-weight: 500; display: block; line-height: 1.1; }
+.pagina__header .seccion { font-size: 9.2pt; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--oxi-ink-soft); }
+.pagina__cuerpo { flex: 1 1 auto; min-height: 0; overflow: hidden; padding: 7mm var(--mx) 5mm; }
+.pagina__footer {
+  flex: 0 0 auto; height: 13mm; margin: 0 var(--mx); display: flex; align-items: center; justify-content: space-between; gap: 4mm;
+  border-top: .3mm solid var(--oxi-line); font-size: 9.0pt; color: var(--oxi-ink-soft);
+}
+.pagina__footer a, .pagina__footer span { display: inline-flex; align-items: center; gap: 1.5mm; }
+.pagina__footer .bi-whatsapp { color: var(--oxi-green-ink); }
+.pagina__footer .num { font-family: var(--f-titulo); font-weight: 800; font-size: 11.5pt; color: #fff; background: var(--oxi-deep); border-radius: 1.5mm; padding: .6mm 2.4mm; }
+/* ola decorativa al pie de las páginas interiores */
+.pagina--interior::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2mm;
+  background: linear-gradient(90deg, var(--oxi-deep), var(--oxi-blue) 45%, var(--oxi-teal) 80%, var(--oxi-green));
+}
+
+/* 4. PORTADA -------------------------------------------------------------- */
+.portada { background: var(--oxi-deep-2); color: #fff; }
+.portada__foto { position: absolute; inset: 0 0 auto 0; height: 205mm; }
+.portada__foto img { width: 100%; height: 100%; object-fit: cover; object-position: center 60%; }
+.portada__foto::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    linear-gradient(180deg, rgba(11,42,59,.80) 0%, rgba(11,42,59,.25) 32%, rgba(11,42,59,.10) 55%, rgba(11,42,59,.92) 88%, var(--oxi-deep-2) 100%);
+}
+.portada__top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: center; padding: 12mm var(--mx) 0; }
+.portada__logo { background: #fff; border-radius: 3mm; padding: 2.5mm 4mm; }
+.portada__logo img { height: 12mm; width: auto; }
+.portada__edicion { font-size: 9.8pt; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; border: .3mm solid rgba(255,255,255,.55); border-radius: 10mm; padding: 1.5mm 4mm; }
+.portada__texto { position: absolute; z-index: 2; left: var(--mx); right: var(--mx); top: 128mm; }
+.portada__texto h1 { color: #fff; font-size: 40pt; line-height: 1.02; margin: 3mm 0 4mm; letter-spacing: -.03em; }
+.portada__texto h1 span { color: #7FDCD6; }
+.portada__texto p { font-size: 13.8pt; max-width: 150mm; color: rgba(255,255,255,.88); }
+.portada__cats { position: absolute; z-index: 2; left: var(--mx); right: var(--mx); top: 214mm; display: grid; grid-template-columns: repeat(5, 1fr); gap: 3mm; }
+.portada__cats a {
+  display: flex; flex-direction: column; gap: 2mm; padding: 4mm 3mm; border-radius: 3mm;
+  background: rgba(255,255,255,.07); border: .3mm solid rgba(255,255,255,.16); min-height: 30mm;
+}
+.portada__cats i { font-size: 15pt; color: #7FDCD6; }
+.portada__cats span { font-weight: 600; font-size: 9.7pt; line-height: 1.25; }
+.portada__pie {
+  position: absolute; z-index: 2; left: var(--mx); right: var(--mx); bottom: 12mm;
+  display: flex; align-items: center; justify-content: space-between; gap: 6mm;
+  border-top: .3mm solid rgba(255,255,255,.2); padding-top: 6mm; font-size: 10.3pt;
+}
+.portada__pie .contacto { display: flex; flex-direction: column; gap: 1.5mm; }
+.portada__pie .contacto span, .portada__pie .contacto a { display: inline-flex; align-items: center; gap: 2mm; }
+.portada__pie .contacto i { color: #7FDCD6; }
+
+/* 5. EMPRESA -------------------------------------------------------------- */
+.empresa__foto { height: 78mm; border-radius: 4mm; overflow: hidden; position: relative; margin-bottom: 7mm; }
+.empresa__foto img { width: 100%; height: 100%; object-fit: cover; }
+.empresa__texto p { font-size: 12.2pt; line-height: 1.62; margin-bottom: 3.5mm; color: #33424F; }
+.empresa__texto p:first-child::first-letter { font-family: var(--f-titulo); font-weight: 800; font-size: 30pt; float: left; line-height: .9; margin: 1mm 2mm 0 0; color: var(--oxi-blue); }
+.grid-mv { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; margin-top: 6mm; }
+.mv { border: .3mm solid var(--oxi-line); border-radius: 3mm; padding: 5mm; background: var(--oxi-mist); }
+.mv h3 { font-size: 13.2pt; margin-bottom: 2mm; display: flex; align-items: center; gap: 2mm; }
+.mv h3 i { color: var(--oxi-teal); }
+.datos-empresa { display: grid; grid-template-columns: repeat(3, 1fr); gap: 4mm; margin-top: 6mm; }
+.dato { display: flex; gap: 2.5mm; align-items: flex-start; font-size: 10.1pt; }
+.dato i { font-size: 13.8pt; color: var(--oxi-blue); line-height: 1; margin-top: .5mm; }
+.dato b { display: block; font-size: 8.6pt; letter-spacing: .08em; text-transform: uppercase; color: var(--oxi-ink-soft); font-weight: 600; }
+
+/* líneas de producto (página Empresa) */
+.lineas { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3mm; margin-top: 3mm; }
+.lineas a { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 2mm; padding: 4mm 2mm; border-radius: 3mm; background: var(--oxi-water); color: var(--oxi-deep); font-weight: 600; font-size: 9.2pt; line-height: 1.25; }
+.lineas i { font-size: 16pt; color: var(--oxi-blue); }
+
+/* 6. ÍNDICE --------------------------------------------------------------- */
+.grid-indice { display: flex; flex-direction: column; gap: 4mm; }
+.cat-card { display: grid; grid-template-columns: 52mm 1fr auto; align-items: stretch; border: .3mm solid var(--oxi-line); border-radius: 4mm; overflow: hidden; min-height: 37mm; }
+.cat-card__foto { position: relative; background: var(--oxi-water); }
+.cat-card__foto img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.cat-card__foto .icono-grande { position: absolute; inset: 0; display: grid; place-items: center; font-size: 26pt; color: var(--oxi-blue); }
+.cat-card__info { padding: 4.5mm 5mm; display: flex; flex-direction: column; justify-content: center; gap: 1.5mm; }
+.cat-card__nombre { font-family: var(--f-titulo); font-weight: 800; color: var(--oxi-deep); font-size: 13.5pt; display: flex; gap: 2mm; align-items: center; }
+.cat-card__nombre i { color: var(--oxi-teal); }
+.cat-card__intro { font-size: 10.1pt; }
+.cat-card__cuenta { font-size: 9.0pt; font-weight: 600; color: var(--oxi-blue); text-transform: uppercase; letter-spacing: .08em; }
+.cat-card__pag { display: grid; place-items: center; padding: 0 6mm; background: var(--oxi-mist); border-left: .3mm solid var(--oxi-line); text-align: center; }
+.cat-card__pag small { display: block; font-size: 7.8pt; letter-spacing: .1em; text-transform: uppercase; color: var(--oxi-ink-soft); }
+.cat-card__pag b { font-family: var(--f-titulo); font-size: 20pt; color: var(--oxi-deep); line-height: 1; }
+.indice__ayuda { margin-top: 6mm; font-size: 9.9pt; color: var(--oxi-ink-soft); display: flex; gap: 2mm; align-items: center; }
+
+/* 7. DESTACADOS ----------------------------------------------------------- */
+.grid-destacados { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.dest { display: flex; flex-direction: column; border: .3mm solid var(--oxi-line); border-radius: 4mm; overflow: hidden; background: #fff; break-inside: avoid; }
+.dest__foto { position: relative; height: 47mm; background: var(--oxi-mist); }
+.dest__foto img { width: 100%; height: 100%; object-fit: cover; }
+.dest__foto img.contain { object-fit: contain; background: #fff; padding: 2mm; }
+.dest__cuerpo { padding: 4mm 4.5mm 4.5mm; display: flex; flex-direction: column; gap: 1.8mm; flex: 1; }
+.dest__cat { font-size: 8.5pt; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--oxi-blue); }
+.dest h3 { font-size: 14.4pt; }
+.dest p { font-size: 9.9pt; line-height: 1.45; }
+.dest__pie { margin-top: auto; padding-top: 2mm; display: flex; justify-content: space-between; align-items: center; font-size: 9.4pt; }
+.dest__pie .ver { color: var(--oxi-blue); font-weight: 600; display: inline-flex; gap: 1mm; align-items: center; }
+.dest--cta { background: linear-gradient(150deg, var(--oxi-deep), var(--oxi-blue)); color: #fff; border: 0; padding: 7mm 6mm; justify-content: center; gap: 3mm; }
+.dest--cta h3 { color: #fff; font-size: 16pt; }
+.dest--cta p { color: rgba(255,255,255,.88); font-size: 10.6pt; }
+
+/* 8. BANDA DE CATEGORÍA Y FICHA DE PRODUCTO -------------------------------- */
+.seccion-cat + .seccion-cat { margin-top: 6mm; }
+.banda {
+  display: flex; align-items: center; gap: 3mm; padding: 3.2mm 5mm; border-radius: 3mm;
+  background: linear-gradient(90deg, var(--oxi-deep), var(--oxi-blue)); color: #fff;
+  font-family: var(--f-titulo); font-weight: 800; font-size: 13pt; letter-spacing: -.01em;
+}
+.banda i { color: #7FDCD6; font-size: 14pt; }
+.banda small { margin-left: auto; font-family: var(--f-texto); font-weight: 400; font-size: 9.2pt; opacity: .9; max-width: 85mm; text-align: right; line-height: 1.3; letter-spacing: 0; }
+.lista { display: flex; flex-direction: column; gap: 4mm; margin-top: 4mm; }
+
+.producto {
+  display: grid; grid-template-columns: 62mm 1fr; gap: 5mm; padding: 4mm; border: .3mm solid var(--oxi-line); border-radius: 4mm;
+  background: #fff; break-inside: avoid; page-break-inside: avoid;
+}
+.producto__foto { position: relative; border-radius: 3mm; overflow: hidden; background: var(--oxi-mist); min-height: 50mm; }
+.producto__foto img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.producto__foto img.contain { object-fit: contain; background: #fff; }
+.sin-foto {
+  position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2mm; text-align: center;
+  background: repeating-linear-gradient(135deg, transparent 0 4mm, rgba(18,59,82,.05) 4mm 4.3mm), var(--oxi-water);
+  color: var(--oxi-ink-soft); font-size: 9.0pt; font-weight: 500; padding: 3mm;
+}
+.sin-foto i { font-size: 22pt; color: var(--oxi-blue); opacity: .6; }
+.etiqueta-foto { position: absolute; left: 2mm; bottom: 2mm; background: rgba(255,255,255,.93); color: var(--oxi-deep); font-size: 7.6pt; font-weight: 500; padding: .5mm 2mm; border-radius: 5mm; }
+.etiqueta-top { position: absolute; left: 2mm; top: 2mm; background: var(--oxi-teal); color: #fff; font-size: 7.8pt; font-weight: 600; padding: .7mm 2.2mm; border-radius: 5mm; letter-spacing: .04em; display: inline-flex; gap: 1mm; align-items: center; }
+
+.producto__cuerpo { display: flex; flex-direction: column; gap: 1.8mm; min-width: 0; }
+.producto__meta { display: flex; justify-content: space-between; align-items: center; gap: 3mm; font-size: 8.5pt; }
+.producto__meta .ref { font-weight: 600; color: var(--oxi-ink-soft); letter-spacing: .04em; }
+.validacion { color: var(--pendiente); background: var(--pendiente-bg); border-radius: 5mm; padding: .3mm 2mm; font-weight: 600; display: inline-flex; gap: 1mm; align-items: center; }
+.producto h3 { font-size: 13pt; }
+.producto__desc { font-size: 9.9pt; line-height: 1.48; color: #3B4A57; }
+.aplic { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 1.4mm; }
+.aplic li { font-size: 8.6pt; background: var(--oxi-water); color: var(--oxi-deep); border-radius: 5mm; padding: .6mm 2.4mm; display: inline-flex; gap: 1mm; align-items: center; }
+.aplic li i { color: var(--oxi-teal); }
+.specs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1mm 3mm; font-size: 8.7pt; }
+.specs dt { font-weight: 500; color: var(--oxi-ink-soft); }
+.specs dd { font-weight: 600; color: var(--oxi-deep); }
+.producto__pie { margin-top: auto; padding-top: 2.4mm; border-top: .3mm dashed var(--oxi-line); display: flex; align-items: center; gap: 3mm; }
+.precio small { display: block; font-size: 7.8pt; letter-spacing: .1em; text-transform: uppercase; color: var(--oxi-ink-soft); font-weight: 600; }
+.precio b { font-family: var(--f-titulo); font-weight: 800; font-size: 14pt; color: var(--oxi-deep); letter-spacing: -.02em; line-height: 1.1; }
+.precio--consultar b { font-size: 12.6pt; color: var(--oxi-blue); }
+
+/* Llamado a cotizar que ocupa el espacio libre de una página */
+.cta-relleno { margin-top: 5mm; display: flex; align-items: center; gap: 7mm; background: linear-gradient(120deg, var(--oxi-deep), var(--oxi-blue)); color: #fff; border-radius: 4mm; padding: 5mm 7mm; position: relative; overflow: hidden; }
+.cta-relleno::after { content: ""; position: absolute; right: -14mm; bottom: -22mm; width: 70mm; height: 70mm; border-radius: 50%; border: 6mm solid rgba(127,220,214,.16); }
+.cta-relleno > * { position: relative; z-index: 1; }
+.cta-relleno h3 { color: #fff; font-size: 16pt; margin: 1mm 0 1.5mm; }
+.cta-relleno p { font-size: 11.0pt; margin-bottom: 3mm; color: rgba(255,255,255,.9); }
+.cta-relleno .qr { width: 30mm; height: 30mm; flex: 0 0 auto; }
+
+/* 9. CÓMO COTIZAR --------------------------------------------------------- */
+.pasos { display: grid; grid-template-columns: repeat(4, 1fr); gap: 4mm; margin: 4mm 0 8mm; counter-reset: paso; }
+.paso { position: relative; border: .3mm solid var(--oxi-line); border-radius: 4mm; padding: 9mm 4mm 5mm; text-align: center; background: var(--oxi-mist); }
+.paso::before { counter-increment: paso; content: counter(paso); position: absolute; top: -4mm; left: 50%; transform: translateX(-50%); width: 8mm; height: 8mm; border-radius: 50%; background: var(--oxi-deep); color: #fff; font-family: var(--f-titulo); font-weight: 800; font-size: 10.3pt; display: grid; place-items: center; }
+.paso i { font-size: 18pt; color: var(--oxi-blue); display: block; margin-bottom: 2mm; }
+.paso b { font-family: var(--f-titulo); color: var(--oxi-deep); font-size: 11.5pt; display: block; margin-bottom: 1mm; }
+.paso span { font-size: 9.2pt; }
+.mensaje-modelo { border-left: 1.2mm solid var(--oxi-green); background: #F1F8F5; border-radius: 0 3mm 3mm 0; padding: 5mm 6mm; font-size: 10.3pt; white-space: pre-line; color: #2E3D49; }
+.aviso { display: flex; gap: 3mm; align-items: flex-start; margin-top: 7mm; padding: 5mm; border-radius: 3mm; background: var(--oxi-water); font-size: 10.3pt; color: var(--oxi-deep); }
+.aviso i { font-size: 13pt; color: var(--oxi-blue); }
+.cotizar__foto { margin-top: 8mm; height: 62mm; border-radius: 4mm; overflow: hidden; position: relative; }
+.cotizar__foto img { width: 100%; height: 100%; object-fit: cover; }
+
+/* 10. CIERRE -------------------------------------------------------------- */
+.cierre { background: radial-gradient(ellipse at 50% 0%, #1B5574 0%, var(--oxi-deep) 45%, var(--oxi-deep-2) 100%); color: #fff; align-items: center; text-align: center; padding: 22mm var(--mx) 12mm; }
+.cierre__logo { background: #fff; border-radius: 4mm; padding: 4mm 6mm; }
+.cierre__logo img { height: 16mm; width: auto; }
+.cierre h2 { color: #fff; font-size: 30pt; margin: 12mm 0 4mm; }
+.cierre h2 span { color: #7FDCD6; }
+.cierre > p { font-size: 12.6pt; max-width: 140mm; color: rgba(255,255,255,.88); margin-bottom: 8mm; }
+.cierre__qr { background: #fff; padding: 3.5mm; border-radius: 3mm; width: 42mm; height: 42mm; margin-top: 8mm; }
+.cierre__qr-txt { font-size: 9.8pt; margin-top: 2mm; opacity: .85; }
+.cierre__datos { display: grid; grid-template-columns: 1fr 1fr; gap: 3mm 8mm; text-align: left; margin-top: 10mm; font-size: 10.6pt; width: 100%; max-width: 160mm; }
+.cierre__datos > * { display: flex; align-items: center; gap: 2.5mm; }
+.cierre__datos i { color: #7FDCD6; font-size: 13.8pt; }
+.cierre .pendiente { background: rgba(255,245,229,.95); }
+.creditos { margin-top: auto; font-size: 7.4pt; line-height: 1.45; color: rgba(255,255,255,.62); text-align: left; border-top: .3mm solid rgba(255,255,255,.15); padding-top: 3mm; width: 100%; }
+.creditos b { color: rgba(255,255,255,.8); display: block; margin-bottom: 1mm; }
+
+/* 11. BOTONES Y ESTADOS ---------------------------------------------------- */
+.btn-pedir {
+  margin-left: auto; display: inline-flex; align-items: center; gap: 1.6mm; white-space: nowrap;
+  background: var(--oxi-green-ink); color: #fff !important; border-radius: 10mm; padding: 1.8mm 4.2mm 1.8mm 3.4mm; font-weight: 600; font-size: 9.7pt;
+}
+.btn-pedir--grande { margin-left: 0; font-size: 12.1pt; padding: 2.6mm 6mm 2.6mm 4.8mm; }
+.btn-claro { background: #fff; color: var(--oxi-deep) !important; }
+.pendiente { color: var(--pendiente); background: var(--pendiente-bg); border: .25mm dashed #E3A857; border-radius: 1.5mm; padding: 0 1.5mm; font-weight: 500; font-size: .92em; white-space: nowrap; }
+.qr svg { width: 100%; height: 100%; display: block; }
+.qr-pendiente { width: 100%; height: 100%; display: grid; place-items: center; text-align: center; font-size: 8.0pt; color: var(--pendiente); background: var(--pendiente-bg); border: .3mm dashed #E3A857; border-radius: 2mm; padding: 2mm; }
+
+/* 12. IMPRESIÓN Y PLIEGOS --------------------------------------------------- */
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  body { background: none; }
+  #catalogo { display: block; padding: 0; gap: 0; }
+  .pagina { box-shadow: none; }
+  .pagina:last-child { break-after: auto; page-break-after: auto; }
+}
+@page pliego   { size: 420mm 297mm; margin: 0; }
+@page sencilla { size: A4 portrait; margin: 0; }
+.pliego { page: pliego; position: relative; display: flex; width: 420mm; height: 297mm; break-after: page; page-break-after: always; }
+.pliego--sola { page: sencilla; width: 210mm; }
+.pliego .pagina { box-shadow: none; break-after: auto; page-break-after: auto; }
+.pliego:not(.pliego--sola)::after {
+  content: ""; position: absolute; top: 0; bottom: 0; left: calc(50% - 12mm); width: 24mm; z-index: 40; pointer-events: none;
+  background: linear-gradient(to right, transparent, rgba(0,0,0,.10) 48%, rgba(0,0,0,.18) 50%, rgba(0,0,0,.10) 52%, transparent);
+}
+@media print { .pliego:last-child { break-after: auto; page-break-after: auto; } }
+
+/* =========================================================================
+   13. PLIEGOS DE PRODUCTO — portadilla · producto (izq.) · ficha técnica (der.)
+   ========================================================================= */
+
+/* Portadilla de línea */
+.apertura { background: var(--oxi-deep-2); color: #fff; }
+.apertura__foto { position: absolute; inset: 0 0 auto 0; height: 150mm; }
+.apertura__foto img { width: 100%; height: 100%; object-fit: cover; }
+.apertura__foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,42,59,.15) 0%, rgba(11,42,59,.35) 55%, var(--oxi-deep-2) 100%); }
+.apertura__foto--grafica { display: grid; place-items: center; background:
+  linear-gradient(rgba(127,220,214,.08) 1px, transparent 1px) 0 0 / 8mm 8mm,
+  linear-gradient(90deg, rgba(127,220,214,.08) 1px, transparent 1px) 0 0 / 8mm 8mm,
+  radial-gradient(ellipse at 50% 40%, #1B5574, var(--oxi-deep-2) 75%); }
+.apertura__foto--grafica i { font-size: 80pt; color: rgba(127,220,214,.55); position: relative; z-index: 1; }
+.apertura__num { position: absolute; right: var(--mx); top: 118mm; font-family: var(--f-titulo); font-weight: 800; font-size: 90pt; line-height: 1; color: transparent; -webkit-text-stroke: .5mm rgba(127,220,214,.7); z-index: 2; }
+.apertura__texto { position: absolute; left: var(--mx); right: var(--mx); top: 160mm; z-index: 2; }
+.apertura__texto h2 { color: #fff; font-size: 32pt; margin: 3mm 0 3mm; }
+.apertura__texto h2 i { color: #7FDCD6; }
+.apertura__texto > p { font-size: 12.5pt; color: rgba(255,255,255,.86); max-width: 160mm; margin-bottom: 8mm; }
+.apertura__lista { list-style: none; padding: 0; counter-reset: ap; border-top: .3mm solid rgba(255,255,255,.18); }
+.apertura__lista li { counter-increment: ap; border-bottom: .3mm solid rgba(255,255,255,.18); }
+.apertura__lista a { display: flex; align-items: center; gap: 4mm; padding: 3.6mm 0; font-size: 12pt; font-weight: 600; }
+.apertura__lista a::before { content: counter(ap, decimal-leading-zero); font-family: var(--f-titulo); color: #7FDCD6; font-size: 10pt; width: 8mm; }
+.apertura__lista a i { flex: 1; border-bottom: .3mm dotted rgba(255,255,255,.35); margin: 0 2mm; transform: translateY(-1mm); }
+.apertura__lista a b { font-family: var(--f-titulo); color: #7FDCD6; }
+.apertura__marca { position: absolute; left: var(--mx); bottom: 10mm; display: flex; align-items: center; gap: 2mm; font-size: 8.5pt; color: rgba(255,255,255,.6); z-index: 2; }
+.apertura__marca img { width: 6mm; height: 6mm; filter: brightness(0) invert(1) opacity(.7); }
+
+/* Página de producto (izquierda) */
+.pp .pagina__cuerpo { display: flex; flex-direction: column; }
+.pp__foto { position: relative; height: 100mm; flex: 0 0 auto; border-radius: 4mm; overflow: hidden; background: var(--oxi-mist); }
+.pp__foto > img { width: 100%; height: 100%; object-fit: cover; }
+.pp__foto > img.contain { object-fit: contain; background: #fff; padding: 3mm; }
+.pp__foto--con-mini > img { width: 70%; }
+.pp__minis { position: absolute; right: 0; top: 0; bottom: 0; width: 30%; display: flex; flex-direction: column; gap: 1.2mm; padding-left: 1.2mm; background: #fff; }
+.pp__minis img { flex: 1; min-height: 0; width: 100%; object-fit: cover; border-radius: 0 3mm 3mm 0; }
+.pp__minis img:first-child { border-radius: 0 4mm 0 0; }
+.pp__minis img:last-child { border-radius: 0 0 4mm 0; }
+.pp__foto .etiqueta-top { left: 3mm; top: 3mm; font-size: 8pt; padding: 1mm 3mm; }
+.pp__foto .etiqueta-foto { left: 3mm; bottom: 3mm; }
+.plano { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3mm; color: #9FE3DF; font-size: 9pt; font-weight: 500; letter-spacing: .06em; text-transform: uppercase;
+  background:
+    linear-gradient(rgba(255,255,255,.07) 1px, transparent 1px) 0 0 / 6mm 6mm,
+    linear-gradient(90deg, rgba(255,255,255,.07) 1px, transparent 1px) 0 0 / 6mm 6mm,
+    linear-gradient(135deg, var(--oxi-deep), var(--oxi-blue)); }
+.plano i { font-size: 64pt; color: rgba(255,255,255,.8); line-height: 1; }
+.pp__meta { display: flex; justify-content: space-between; align-items: center; margin-top: 6mm; font-size: 8.6pt; }
+.pp__meta .dest__cat { font-size: 8.6pt; }
+.pp__meta .ref { font-weight: 600; color: var(--oxi-ink-soft); letter-spacing: .04em; }
+.pp__nombre { font-size: 27pt; margin: 2mm 0 3mm; }
+.pp__lead { font-size: 12.6pt; line-height: 1.45; color: var(--oxi-deep); font-weight: 500; margin-bottom: 3mm; }
+.pp__desc { font-size: 10.2pt; line-height: 1.6; color: #3B4A57; }
+.pp__ventajas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; margin-top: 6mm; }
+.ventaja { border-top: .8mm solid var(--oxi-teal); background: var(--oxi-mist); border-radius: 0 0 3mm 3mm; padding: 3.5mm 3.5mm 4mm; display: flex; flex-direction: column; gap: 1mm; }
+.ventaja i { font-size: 15pt; color: var(--oxi-blue); }
+.ventaja b { font-family: var(--f-titulo); color: var(--oxi-deep); font-size: 10.4pt; line-height: 1.2; }
+.ventaja span { font-size: 8.6pt; line-height: 1.4; }
+.pp__aplic { margin-top: 5mm; }
+.pp__aplic > b { display: block; font-size: 8pt; letter-spacing: .12em; text-transform: uppercase; color: var(--oxi-ink-soft); margin-bottom: 2mm; }
+.pp__aplic .aplic li { font-size: 9pt; padding: 1mm 3mm; }
+.pp__pie { margin-top: auto; padding-top: 4mm; border-top: .3mm dashed var(--oxi-line); display: flex; align-items: center; gap: 5mm; }
+.pp__pie .precio b { font-size: 16pt; }
+.pp__ver { margin-left: auto; font-size: 9pt; font-weight: 600; color: var(--oxi-teal); display: inline-flex; gap: 1.5mm; align-items: center; }
+.pp__pie .btn-pedir { margin-left: 0; font-size: 10pt; padding: 2.2mm 5mm 2.2mm 4mm; }
+
+/* Ficha técnica (derecha) */
+.ft .pagina__cuerpo { display: flex; flex-direction: column; gap: 5mm; }
+.ft__cab { display: flex; justify-content: space-between; align-items: flex-end; gap: 6mm; padding-bottom: 4mm; border-bottom: .8mm solid var(--oxi-deep); }
+.ft__cab h2 { font-size: 21pt; margin-top: 2mm; }
+.ft__ref { text-align: right; font-size: 9pt; }
+.ft__ref small { display: block; font-size: 7.4pt; letter-spacing: .1em; text-transform: uppercase; color: var(--oxi-ink-soft); font-weight: 600; }
+.ft__ref b { font-family: var(--f-titulo); color: var(--oxi-deep); font-size: 12pt; }
+.ft__kpis { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3.5mm; }
+.kpi { background: linear-gradient(140deg, var(--oxi-deep), var(--oxi-blue)); color: #fff; border-radius: 3mm; padding: 4mm 4.5mm; position: relative; overflow: hidden; }
+.kpi::after { content: ""; position: absolute; right: -8mm; top: -8mm; width: 24mm; height: 24mm; border-radius: 50%; border: 3mm solid rgba(127,220,214,.18); }
+.kpi b { font-family: var(--f-titulo); font-weight: 800; font-size: 22pt; line-height: 1; letter-spacing: -.02em; display: flex; align-items: baseline; gap: 1.5mm; }
+.kpi b small { font-size: 9.5pt; font-weight: 700; color: #9FE3DF; letter-spacing: 0; }
+.kpi span { display: block; margin-top: 2mm; font-size: 8.4pt; color: rgba(255,255,255,.85); line-height: 1.3; }
+.ft__grid { display: grid; grid-template-columns: 1fr 64mm; gap: 5mm; align-items: start; }
+.ft__tablas { display: flex; flex-direction: column; gap: 3.5mm; }
+.placa { width: 100%; border-collapse: collapse; font-size: 9pt; }
+.placa caption { caption-side: top; padding: 0 0 1.5mm; font-family: var(--f-titulo); font-weight: 800; color: var(--oxi-deep); font-size: 10.4pt; display: flex; gap: 2mm; align-items: center; }
+.placa caption i { color: var(--oxi-teal); }
+.placa th, .placa td { padding: 1.5mm 2.5mm; border-bottom: .25mm solid var(--oxi-line); vertical-align: top; }
+.placa tr:nth-child(odd) { background: var(--oxi-mist); }
+.placa th { width: 42%; font-weight: 500; color: var(--oxi-ink-soft); text-align: left; }
+.placa td { font-weight: 600; color: var(--oxi-deep); }
+.ft__lado { display: flex; flex-direction: column; gap: 4mm; }
+.ft__caja { border: .3mm solid var(--oxi-line); border-radius: 3mm; padding: 3.5mm; }
+.ft__caja h4, .ft__listas h4 { font-family: var(--f-titulo); font-weight: 800; color: var(--oxi-deep); font-size: 9.6pt; margin: 0 0 2.5mm; display: flex; gap: 2mm; align-items: center; }
+.ft__caja h4 i, .ft__listas h4 i { color: var(--oxi-teal); }
+.esquema { width: 100%; height: auto; color: var(--oxi-deep); display: block; }
+.esquema .cota { font-family: var(--f-texto); font-size: 9.5px; font-weight: 600; fill: var(--oxi-blue); }
+.sistemas { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 1.2mm; }
+.sis { display: flex; align-items: center; gap: 2mm; font-size: 8.4pt; padding: 1mm 1.5mm; border-radius: 1.5mm; }
+.sis i { font-size: 10pt; width: 4mm; text-align: center; }
+.sis span { flex: 1; }
+.sis em { font-style: normal; letter-spacing: .05em; font-size: 8pt; }
+.sis--rec { background: var(--oxi-water); color: var(--oxi-deep); font-weight: 600; }
+.sis--rec i, .sis--rec em { color: var(--oxi-teal); }
+.sis--pos { color: var(--oxi-ink); }
+.sis--pos em { color: var(--oxi-blue); }
+.sis--no { color: #A9B6C0; }
+.sis-ley { display: flex; flex-wrap: wrap; gap: 1mm 3mm; font-size: 7pt; color: var(--oxi-ink-soft); margin-top: 2mm; align-items: center; }
+.sis-ley > span { display: inline-flex; align-items: center; gap: 1mm; }
+.ft__listas { display: grid; grid-template-columns: 1fr 1fr; gap: 5mm; }
+.ft__listas ul { list-style: none; padding: 0; margin: 0; font-size: 8.8pt; }
+.ft__listas li { position: relative; padding: 1mm 0 1mm 5mm; border-bottom: .25mm dotted var(--oxi-line); }
+.ft__listas li::before { content: ""; position: absolute; left: .5mm; top: 2.6mm; width: 2mm; height: 2mm; border-radius: 50%; border: .5mm solid var(--oxi-teal); }
+.ft__pie { margin-top: auto; display: flex; align-items: center; gap: 5mm; padding-top: 4mm; border-top: .3mm dashed var(--oxi-line); }
+.garantia { display: flex; align-items: center; gap: 2.5mm; flex: 0 0 auto; }
+.garantia i { font-size: 18pt; color: var(--oxi-green); }
+.garantia small { display: block; font-size: 7.2pt; letter-spacing: .1em; text-transform: uppercase; color: var(--oxi-ink-soft); font-weight: 600; }
+.garantia b { font-family: var(--f-titulo); color: var(--oxi-deep); font-size: 10pt; }
+.ft__nota { flex: 1; font-size: 7.4pt; line-height: 1.4; color: var(--oxi-ink-soft); display: flex; gap: 1.5mm; }
+.ft__nota i { color: var(--oxi-blue); }
+.ft__pie .btn-pedir { margin-left: 0; }
+
+/* Guía de selección */
+.guia__intro { font-size: 10.5pt; margin: -2mm 0 5mm; }
+.matriz { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 9pt; }
+.matriz thead th { font-family: var(--f-titulo); font-weight: 800; color: #fff; background: var(--oxi-deep); padding: 3mm 2mm; text-align: center; font-size: 8.6pt; line-height: 1.2; vertical-align: bottom; }
+.matriz thead th:first-child { background: none; }
+.matriz thead th:nth-child(2) { border-radius: 3mm 0 0 0; }
+.matriz thead th:last-child { border-radius: 0 3mm 0 0; }
+.matriz tbody th { text-align: left; font-weight: 600; color: var(--oxi-deep); padding: 3mm 2mm; white-space: nowrap; }
+.matriz tbody th i { color: var(--oxi-teal); margin-right: 2mm; }
+.matriz td { text-align: center; border-bottom: .25mm solid var(--oxi-line); }
+.matriz tbody tr:nth-child(odd) td { background: var(--oxi-mist); }
+.punto { display: inline-block; width: 4.5mm; height: 4.5mm; border-radius: 50%; vertical-align: middle; }
+.punto--rec { background: var(--oxi-teal); box-shadow: 0 0 0 1mm rgba(19,166,160,.2); }
+.punto--pos { border: .6mm solid var(--oxi-blue); }
+.guia__tips { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; margin-top: 8mm; }
+.tip { display: grid; grid-template-columns: 10mm 1fr; column-gap: 3mm; row-gap: .5mm; padding: 4mm; border-radius: 3mm; background: var(--oxi-water); }
+.tip i { grid-row: span 2; font-size: 17pt; color: var(--oxi-blue); }
+.tip b { font-family: var(--f-titulo); color: var(--oxi-deep); font-size: 10.6pt; }
+.tip span { font-size: 9pt; line-height: 1.45; }
+
+/* Página comodín */
+.cta-relleno--pagina { margin-top: 40mm; padding: 14mm 12mm; }
+
+/* Portadilla en doble página */
+.apertura--foto .apertura__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.apertura--foto::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(11,42,59,.35), rgba(11,42,59,0) 30%, rgba(11,42,59,0) 60%, rgba(11,42,59,.85)); }
+.apertura__grafica { position: absolute; inset: 0; display: grid; place-items: center; background:
+  linear-gradient(rgba(127,220,214,.08) 1px, transparent 1px) 0 0 / 8mm 8mm,
+  linear-gradient(90deg, rgba(127,220,214,.08) 1px, transparent 1px) 0 0 / 8mm 8mm,
+  radial-gradient(ellipse at 50% 40%, #1B5574, var(--oxi-deep-2) 75%); }
+.apertura__grafica i { font-size: 110pt; color: rgba(127,220,214,.5); }
+.apertura--foto .apertura__num { top: auto; bottom: 18mm; left: var(--mx); right: auto; font-size: 120pt; -webkit-text-stroke: .6mm rgba(255,255,255,.85); }
+.apertura--foto .apertura__marca { top: 12mm; bottom: auto; color: rgba(255,255,255,.85); }
+.apertura--texto { background: radial-gradient(ellipse at 100% 0%, #1B5574 0%, var(--oxi-deep) 45%, var(--oxi-deep-2) 100%); }
+.apertura--texto .apertura__texto { top: 40mm; }
+.apertura--texto h2 { font-size: 36pt; line-height: 1.05; }
+.apertura--texto h2 i { font-size: 30pt; }
+.apertura__ayuda { margin-top: 10mm; font-size: 9.5pt; color: rgba(255,255,255,.7); display: flex; gap: 2mm; align-items: center; }
+.apertura--texto .apertura__marca { left: auto; right: var(--mx); }
+a.pp__ver { text-decoration: none; }
+
+/* Fichas extensas: dos niveles de compactación */
+.ft--compacta .pagina__cuerpo { gap: 3.5mm; }
+.ft--compacta .placa { font-size: 8.4pt; }
+.ft--compacta .placa th, .ft--compacta .placa td { padding: 1mm 2.5mm; }
+.ft--compacta .ft__tablas { gap: 2.5mm; }
+.ft--compacta .kpi { padding: 3mm 4mm; }
+.ft--compacta .ft__listas li { padding: .6mm 0 .6mm 5mm; }
+.ft--compacta .ft__listas li::before { top: 2mm; }
+.ft--mini .esquema { max-height: 32mm; }
+.ft--mini .ft__cab h2 { font-size: 18pt; }
+.ft--mini .ft__listas ul { font-size: 8.2pt; }
+.ft--mini .kpi b { font-size: 19pt; }
+
+/* Página de asesoría (cuadra los pliegos) */
+.relleno { background: var(--oxi-deep-2); }
+.relleno__caja { position: absolute; z-index: 2; left: var(--mx); right: var(--mx); bottom: 22mm; color: #fff; }
+.relleno__caja h2 { color: #fff; font-size: 32pt; margin: 3mm 0 4mm; }
+.relleno__caja p { font-size: 12.5pt; color: rgba(255,255,255,.88); max-width: 160mm; margin-bottom: 7mm; }
+.relleno .etiqueta-foto { z-index: 2; left: auto; right: var(--mx); top: 10mm; bottom: auto; }
+.relleno__img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
